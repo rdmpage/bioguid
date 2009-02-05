@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>bioGUID Services</title>
+  
+    <style type="text/css">
+	body 
+	{
+		font-family: Verdana, Arial, sans-serif;
+		font-size: 12px;
+		padding:30px;
+	
+	}
+	
+.blueRect {
+	background-color: rgb(239, 239, 239);
+	border:1px solid rgb(239, 239, 239);
+	background-repeat: repeat-x;
+	color: #000;
+	width: 400px;
+}
+.blueRect .bottom {
+	height: 10px;
+}
+.blueRect .middle {
+	margin: 10px 12px 0px 12px;
+}
+.blueRect .cn {
+	background-image: url(../images/c6.png);
+	background-repeat: no-repeat;
+	height: 10px;
+	line-height: 10px;
+	position: relative;
+	width: 10px;
+}
+.blueRect .tl {
+	background-position: top left;
+	float: left;
+	margin: -2px 0px 0px -2px;
+}
+.blueRect .tr {
+	background-position: top right;
+	float: right;
+	margin: -2px -2px 0px 0px;
+}
+.blueRect .bl {
+	background-position: bottom left;
+	float: left;
+	margin: 2px 0px -2px -2px;
+}
+.blueRect .br {
+	background-position: bottom right;
+	float: right;
+	margin: 2px -2px -2px 0px;
+}		
+    
+	#details
+	{
+		display: none;
+		position:absolute;
+		background-color:white;
+		border: 1px solid rgb(128,128,128);
+	}
+    </style>
+  
+      
+  <!-- JSONscriptRequest -->
+  <script type="text/javascript" src="../scripts/jsr_class.js"></script>
+  
+  <!-- Dynamic web form -->
+<script type="text/javascript">
+
+ 
+function ws_journals(jData) 
+{
+  if (jData == null) 
+  {
+    // There was a problem parsing search results
+    return;
+  }
+
+   //ShowDiv("details");
+   
+   var details = document.getElementById("details");
+  
+  	list = '';
+    for (i=0;i< jData.results.length;i++) 
+    {
+ 		list += '<span onclick="setText(\'journal\', \'' +  jData.results[i].title + '\');'
+ 			+ 'setText(\'issn\', \'' + jData.results[i].issn + '\');">'
+ 			+ jData.results[i].title 
+ 			+ '</span>'
+ 			+ '<br/>';
+  	}
+  	details.innerHTML = list;
+  	
+  	ShowDiv("details");
+}
+
+function getJournal(title) 
+{
+	if (title == '')
+	{
+		HideDiv("details");
+	}
+	else
+	{
+		setText ('issn', '');
+		request = 'http://bioguid.info/services/journalsuggest.php?title=' + title + '&callback=ws_journals';
+	
+		// Create a new script object
+		aObj = new JSONscriptRequest(request);
+		// Build the script tag
+		aObj.buildScriptTag();
+		// Execute (add) the script tag
+		aObj.addScriptTag();
+	}
+}
+
+function positionDiv(divid)
+{
+	var el = document.getElementById('journal');
+	var x = 0;
+	var y = el.offsetHeight;
+
+	//Walk up the DOM and add up all of the offset positions.
+	while (el.offsetParent && el.tagName.toUpperCase() != 'BODY')
+	{
+		x += el.offsetLeft;
+		y += el.offsetTop;
+		el = el.offsetParent;
+	}
+
+	x += el.offsetLeft;
+	y += el.offsetTop;
+	
+	document.getElementById(divid).style.left = x + 'px';
+	document.getElementById(divid).style.top = y + 'px';
+}
+
+
+function ShowDiv(divid)
+{
+	
+   document.getElementById(divid).style.display="block";
+   positionDiv(divid);
+}
+
+function HideDiv(divid)
+{
+   document.getElementById(divid).style.display="none";
+}
+
+function setText(id, str)
+{
+	document.getElementById(id).value = str;
+	HideDiv('details');
+
+}
+
+</script>  
+
+</head>
+<body>
+  <h1>Services</h1>
+   <h2>Journal ISSN lookup</h2>
+  <p>This service makes use of a local database of journal titles and ISSN numbers. Simply append a journal name to the URL http://bioguid.info/services/journalsuggest.php?title= and you get back a list of journal names and ISSN numbers that match that title. Try these examples:</p>
+  
+  <ul>
+  <li><a href="journalsuggest.php?title=Mol%20Biol%20Evol">http://bioguid.info/services/journalsuggest?title=Mol Biol Evol</a></li>
+ <li><a href="journalsuggest.php?title=Bull Amer Mus Nat Hist">http://bioguid.info/services/journalsuggest.php?title=Bull Amer Mus Nat Hist</a></li>
+  </ul>
+  
+  <h4>Application: Autosuggest form</h4>
+  <p>Here is a simple autosuggest form that uses this service. Type in a journal name and get a list of suggestions. When you choose one, the form displays the ISSN number of the journal.</p>
+  
+<div id="details" ></div>
+
+<div class="blueRect" style="width:100%">
+	<div class="top">
+		<div class="cn tl"></div>
+		<div class="cn tr"></div>
+	</div>
+	<div class="middle">
+<form name="form1" action="">
+<label>Journal:</label><br/>
+ <input id="journal" onkeyup="getJournal(this.value)" autocomplete="off" size="60" />
+ <p/>
+ <label>ISSN:</label><br/>
+ <input id="issn" type="text" readonly="readonly"></input>            
+</form>
+
+
+	</div>
+	<div class="bottom">
+		<div class="cn bl"></div>
+		<div class="cn br"></div>
+	</div>
+</div>
+
+<!-- author -->
+   <h2>Equivalent names</h2>
+   
+   <p>This service takes a list of first names and identifies clusters of names that are equivalent, using the weighted clique agorithm described by Dror Feitelson in <a href="http://informationr.net/ir/9-4/paper192.html">On identifying name equivalences in digital libraries</a>. You could use this, for example, on a list of first names with the same surname, to identify names that may refer to the same person. The form below is populated with an example, which yields four clusters of equivalent names.
+</p>
+
+<p>You can call the service directly by a HTTP POST request to the URL <a href="http://bioguid.info/services/equivalent.php">http://bioguid.info/services/equivalent.php</a> with these parameters:</p>
+<table style="background-color: rgb(239, 239, 239);">
+<tr><th>Parameter</th><th>Value</th><th>Description</th></tr>
+<tr style="background-color: white"><td>names</td><td>string</td><td>List of first names, separated by end of line (\n) character</td></tr>
+<tr style="background-color: white"><td>format</td><td><i>html</i> or <i>json</i></td><td>Format of the results</td></tr>
+</table>
+
+<p/>
+
+<div class="blueRect" style="width:100%">
+	<div class="top">
+		<div class="cn tl"></div>
+		<div class="cn tr"></div>
+	</div>
+	<div class="middle">
+<form action="equivalent.php" method="post">
+<textarea name="names" rows="10" cols="40">
+Ace D. E.
+A. D.
+Abe F. G.
+Abe Bob C.
+A. B. C.
+Abe B.
+</textarea><br/>
+<select name="format">
+	<option value="html">HTML</option>
+	<option value="json">JSON</option>
+</select>
+<input type="submit" value="Go">
+</form>
+
+
+	</div>
+	<div class="bottom">
+		<div class="cn bl"></div>
+		<div class="cn br"></div>
+	</div>
+</div>
+
+
+
+ </body>
+</html>

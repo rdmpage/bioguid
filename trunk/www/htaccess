@@ -1,0 +1,56 @@
+
+RewriteEngine on
+#RewriteBase /~rpage/op/
+RewriteBase /
+
+# OpenURL
+RewriteRule ^openurl/(.*)	openurl.php(.*)	[NC,L]
+
+# Linked Data
+# Use content negotiation. If client is looking for application/xml+rdf and has a clean
+# URL then we redirect using a 303
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^doi:(.*)			openurl.php?id=doi:$1&display=rdf	[NC,R=303]
+
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^pmid:(.*)			openurl.php?id=pmid:$1&display=rdf	[NC,R=303]
+
+
+# HTML
+RewriteCond %{HTTP_ACCEPT} !application/rdf\+xml.*(text/html|application/xhtml\+xml)
+RewriteCond %{HTTP_ACCEPT} text/html [OR]
+RewriteCond %{HTTP_ACCEPT} application/xhtml\+xml [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mozilla/.*
+
+# JACC
+RewriteRule ^jacc/([0-9]{4})-?([0-9]{3})([0-9]|X):(.*)@(.*)		openurl.php?issn=$1-$2$3&volume=$4&spage=$5&genre=article	[NC,L]
+RewriteRule ^\[jacc\]([0-9]{4})-?([0-9]{3})([0-9]|X):(.*)@(.*)	openurl.php?issn=$1-$2$3&volume=$4&spage=$5&genre=article	[NC,L]
+
+# openref
+RewriteRule ^openref/(.*)/([0-9]{4})/(.*)/(.*)	openurl.php?title=$1&date=$2&volume=$3&spage=$4&genre=article	[NC,L]
+
+# DOI
+RewriteRule ^doi/(.*).json		openurl.php?id=doi:$1&display=json	[NC,L]
+RewriteRule ^doi:(.*).json		openurl.php?id=doi:$1&display=json	[NC,L]
+RewriteRule ^doi/(.*)			openurl.php?id=doi:$1	[NC] 
+RewriteRule ^doi:(.*)			openurl.php?id=doi:$1	[NC,R=303] # 303 for Linked data
+
+# Handle
+RewriteRule ^hdl/(.*).json		openurl.php?id=hdl:$1&display=json	[NC,L]
+RewriteRule ^hdl:(.*).json		openurl.php?id=hdl:$1&display=json	[NC,L]
+RewriteRule ^hdl/(.*)			openurl.php?id=hdl:$1	[NC,L]
+RewriteRule ^hdl:(.*)			openurl.php?id=hdl:$1	[NC,R=303] # 303 for Linked data
+
+# Pubmed
+RewriteRule ^pmid/(.*).json		openurl.php?id=pmid:$1&display=json	[NC,L]
+RewriteRule ^pmid:(.*).json		openurl.php?id=pmid:$1&display=json	[NC,L]
+RewriteRule ^pmid/(.*)			openurl.php?id=pmid:$1	[NC,L]
+RewriteRule ^pmid:(.*)			openurl.php?id=pmid:$1	[NC,R=303] # 303 for Linked data
+
+# Genbank
+RewriteRule ^genbank/(.*).json	openurl.php?id=genbank:$1&display=json	[NC,L]
+RewriteRule ^genbank/(.*)		openurl.php?id=genbank:$1	[NC,L]
+
+RewriteRule ^gi/(.*).json		openurl.php?id=gi:$1&display=json	[NC,L]
+RewriteRule ^gi/(.*)			openurl.php?id=gi:$1	[NC,L]
+
