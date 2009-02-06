@@ -1,0 +1,8 @@
+CREATE TABLE `message` (
+  `message-id` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `from` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `subject` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `body` text CHARACTER SET latin1,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id` varchar(32) CHARACTER SET latin1 DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
