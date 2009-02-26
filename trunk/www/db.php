@@ -234,8 +234,20 @@ function find_in_cache_from_page($item)
 	// Do we have a version of this in the cache?
 	$sql = 'SELECT * FROM article_cache
 		WHERE (issn = ' .  $db->Quote($item->issn) . ')
-		AND (volume = ' .  $db->Quote($item->volume) . ')
-		AND (' . $db->Quote($item->pages) . ' BETWEEN spage and epage)
+		AND (volume = ' .  $db->Quote($item->volume) . ')';
+	
+	// If page is a number don't quote it, otherwise we will
+	// be comparing strings. For example, as numbers 24 is not in the range (233-246), 
+	// but as a string it is (in lexical order the strings are 233,24,246)
+	if (is_numeric($item->pages))
+	{
+		$sql .= 'AND (' . $item->pages . ' BETWEEN spage and epage)';
+	}
+	else
+	{
+		$sql .= '	AND (' . $db->Quote($item->pages) . ' BETWEEN spage and epage)';
+	}
+	$sql .= '
 		AND (created <= NOW())
 		AND (modified > NOW())		
 		LIMIT 1';
