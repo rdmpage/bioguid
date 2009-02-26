@@ -29,8 +29,8 @@ go to the "Administer" tab and select the "Source" subtab.
 */
 
 
-require_once('config.inc.php');
-require_once('lib.php');
+require_once(dirname(__FILE__) . '/config.inc.php');
+require_once(dirname(__FILE__) . '/lib.php');
 
 //--------------------------------------------------------------------------------------------------
 // from http://uk3.php.net/manual/en/function.md5.php#56934
@@ -47,10 +47,6 @@ function hmac($key, $data, $hash = 'md5', $blocksize = 64)
 }
 
 //--------------------------------------------------------------------------------------------------
-$secret_key 		= '<GOGGLE KEY>';
-$twitter_username	= '<TWITTER USERNAME>';
-$twitter_password	= '<TWITTER PASSWORD>';
-
 // Get request headers
 $h = print_r($_SERVER, true);
 // Get body of POST request
@@ -61,7 +57,7 @@ if ($_SERVER['HTTP_GOOGLE_CODE_PROJECT_HOSTING_HOOK_HMAC'])
 {	
 	// Check digests match
 	$remote_digest = $_SERVER['HTTP_GOOGLE_CODE_PROJECT_HOSTING_HOOK_HMAC'];
-	$digest = hmac($secret_key, $p);
+	$digest = hmac ($config['secret_key'], $p);
 	
 	if ($digest != $remote_digest)
 	{
@@ -81,10 +77,10 @@ if ($_SERVER['HTTP_GOOGLE_CODE_PROJECT_HOSTING_HOOK_HMAC'])
 	
 	$url = 'http://twitter.com/statuses/update.json';
 	$ch = curl_init(); 
-	curl_setopt($ch, CURLOPT_URL, $url); 
+	curl_setopt ($ch, CURLOPT_URL, $url); 
 	curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
-	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_USERPWD, "$twitter_username:$twitter_password");
+	curl_setopt ($ch, CURLOPT_POST, 1);
+	curl_setopt ($ch, CURLOPT_USERPWD, $config['twitter_username'] . ':' . $config['twitter_password']);
 	if ($config['proxy_name'] != '')
 	{
 		curl_setopt ($ch, CURLOPT_PROXY, $config['proxy_name'] . ':' . $config['proxy_port']);
@@ -95,9 +91,17 @@ if ($_SERVER['HTTP_GOOGLE_CODE_PROJECT_HOSTING_HOOK_HMAC'])
 	$tiny = get($url); 
 	
 	// Send message to twitter
-	$msg = "svn: " . $obj->revisions[0]->message . " " . $tiny;
 	
-	curl_setopt($ch, CURLOPT_POSTFIELDS, "status=" . $msg);
+	$max_length = 140;
+	
+	$tiny_length = strlen($tiny);
+	$msg_length = $max_length - $tiny_length - 1;
+	
+	$msg = "svn: " . $obj->revisions[0]->message;
+	$msg = substr($msg, 0, $msg_length);
+	$msg .= ' ' . $tiny;
+	
+	curl_setopt ($ch, CURLOPT_POSTFIELDS, "status=" . $msg);
 	$result=curl_exec ($ch); 
 	
 	if( curl_errno ($ch) != 0 )
@@ -105,8 +109,6 @@ if ($_SERVER['HTTP_GOOGLE_CODE_PROJECT_HOSTING_HOOK_HMAC'])
 		echo "error\n";
 	}
 	curl_close ($ch); 
-	
-
 }
 
 ?>
