@@ -23,5 +23,8 @@ $config['proxy_port'] 	= '';
 $config['proxy_name'] 	= 'wwwcache.gla.ac.uk';
 $config['proxy_port'] 	= '8080';
 
-	
+$config['secret_key'] 		= '<GOGGLE KEY>';
+$config['twitter_username']	= '<TWITTER USERNAME>';
+$config['twitter_password']	= '<TWITTER PASSWORD>';
+
 ?>
