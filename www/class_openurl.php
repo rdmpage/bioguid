@@ -160,7 +160,7 @@ class opReferent extends opObject
 									break;
 									
 								case 'id':
-									$this->StoreIdentifier($v);
+									$this->StoreIdentifier(urldecode($v));
 									break;
 									
 								case 'vol':
