@@ -198,6 +198,23 @@ class opReferent extends opObject
 			}
 		}
 		
+		// Ensure ISSN is formatted correctly (may lack hyphen if coming from Wiki)
+		if (isset($this->values['issn']))
+		{
+			$ISSN_proto = $this->values['issn'];			
+			$clean = ISN_clean($ISSN_proto);
+			$class = ISSN_classifier($clean);
+			if ($class == "checksumOK")
+			{
+				$this->values['issn'] = canonical_ISSN($ISSN_proto);
+			}
+			else
+			{
+				unset($this->values['issn']);
+			}
+		}
+		
+		
 		
 	}
 
