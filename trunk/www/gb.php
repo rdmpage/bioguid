@@ -453,6 +453,21 @@ function gb_lat_lon(&$data)
 
 		}
 		
+		// N19.49048, W155.91167 [EF219364]
+		if (preg_match ("/(?<lat_hemisphere>(N|S))(?<latitude>(\d+(\.\d+))), (?<long_hemisphere>(W|E))(?<longitude>(\d+(\.\d+)))/", $lat_lon, $matches))
+		{
+			//print_r($matches);
+			
+			$lat = $matches['latitude'];
+			if ($matches['lat_hemisphere'] == 'S') { $lat *= -1.0; };
+			$data->source->latitude = $lat;
+			
+			$long = $matches['longitude'];
+			if ($matches['long_hemisphere'] == 'W') { $long *= -1.0; };
+			$data->source->longitude = $long;
+
+		}
+		
 		if (!isset($data->source->latitude))
 		{
 			//13.2633 S 49.6033 E
