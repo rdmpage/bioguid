@@ -772,6 +772,7 @@ function url2meta($url)
 				$item->issn = '0099-2240';
 				break;
 			case 'ijs.sgmjournals':
+			case 'ijsb.sgmjournals':
 				$ris_url .= 'ijs';
 				$item->issn = '1466-5026';
 				break;
@@ -813,6 +814,8 @@ function url2meta($url)
 		//echo $ris_url;
 		
 		$ris = get($ris_url);
+		
+		//echo $ris;
 		
 		if ($ris == '')
 		{
@@ -1137,17 +1140,24 @@ function url2meta($url)
 	print_r($item);
 	echo '</pre>'; */
 }
+/*
+$url = 'http://apt.allenpress.com/perlserv/?request=get-abstract&doi=10.1043%2F0006-324X%282003%29116%5B0395%3AFNGOLC%5D2.3.CO%3B2';
+$item = url2meta($url);
 
+print_r($item);
+*/
 // test
 
 /*
 $url = 'http://www.repository.naturalis.nl/record/227182';
+
+$url = 'http://ijsb.sgmjournals.org/cgi/content/abstract/44/1/174';
 echo $url;
 
 $item = url2meta($url);
 
-print_r($item);*/
-
+print_r($item);
+*/
 
 /*
 $url = 'http://rparticle.web-p.cisti.nrc.ca/rparticle/AbstractTemplateServlet?calyLang=eng&journal=cjz&volume=34&year=0&issue=5&msno=z56-049';
