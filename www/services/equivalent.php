@@ -86,9 +86,15 @@ function compare($str1, $str2)
 	{
 		for ($i = 0; $i < $count; $i++)
 		{
-			//echo $parts[$i] . " - " .  $lparts[$i] . "\n";
+			// For string comparison we ignore accents
+			// From http://www.randomsequence.com/articles/removing-accented-utf-8-characters-with-php/
+						
+			$search = explode(",","ç,æ,œ,á,é,í,ó,ú,à,è,ì,ò,ù,ä,ë,ï,ö,ü,ÿ,â,ê,î,ô,û,å,e,i,ø,u");
+			$replace = explode(",","c,ae,oe,a,e,i,o,u,a,e,i,o,u,a,e,i,o,u,y,a,e,i,o,u,a,e,i,o,u");
+			$s1 = str_replace($search, $replace, $parts[$i]);
+			$s2 = str_replace($search, $replace, $lparts[$i]);
 			
-			if ((strpos($parts[$i], $lparts[$i]) === false) and (strpos($lparts[$i], $parts[$i]) === false))
+			if ((strpos($s1, $s2) === false) and (strpos($s2, $s1) === false))
 			{
 				// Matches are different names
 				$ok = false;
@@ -102,9 +108,9 @@ function compare($str1, $str2)
 			// if the two names are identical, and longer than one
 			// character regard them as being full name matches, and
 			// the score is 1.1
-			if (strcasecmp($parts[$i], $lparts[$i]) == 0)
+			if (strcasecmp($s1, $s2) == 0)
 			{
-				if (strlen($parts[$i]) > 1)
+				if (strlen($s1) > 1)
 				{
 					$score += 0.1;
 				}
@@ -112,8 +118,6 @@ function compare($str1, $str2)
 		}
 
 	}
-	
-//	echo "score=$score\n";
 	
 	if ($score != 0 and $ok)
 	{
@@ -124,8 +128,6 @@ function compare($str1, $str2)
 	
 	
 }
-
-
 if (count($_POST) == 0)
 {
 	header("Content-type: text/html; charset=utf-8");
@@ -157,7 +159,7 @@ else
 	
 	//print_r($_POST);
 	
-	$names = explode ("\n", $_POST['names']);
+	$names = explode ("\n", trim($_POST['names']));
 	
 	//print_r($names);
 	
@@ -168,13 +170,14 @@ else
 	}
 	//echo $format;
 	
-	$gmfilename = 'tmp/' . uniqid('') . '.gml';
+	$gmfilename = dirname(__FILE__) . '/tmp/' . uniqid('') . '.gml';
 	
 	$gmlfile = @fopen($gmfilename, "w+") or die("could't open file --\"" . $gmfilename . "\"");
 	fwrite($gmlfile, "graph [  
     version 1
     directed 0\n");	
 	
+	//echo $gmfilename;
 	
 	// Clean names
 	for ($i = 0; $i < count($names); $i++)
@@ -221,6 +224,8 @@ else
 	// process
 //	$cmd = dirname(__FILE__)  . '/equivalent ' . $gmfilename;
 	$cmd = '/Library/WebServer/bioguid/equivalent/equivalent ' . $gmfilename;
+	
+	//echo $cmd . "\n";
 	
 	switch ($format)
 	{
