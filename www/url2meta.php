@@ -5,6 +5,7 @@
 /* Extract identifiers from article URLs (e.g., those returned by Google Scholar) */
 
 require ('config.inc.php');
+require_once('cinii.php');
 require_once('crossref.php');
 require_once('jstor.php');
 require_once('lib.php');
@@ -270,6 +271,20 @@ function url2meta($url)
 
 
 	$match=array();
+	
+	//------------------------------------------------------------------------------
+	// CiNii
+	if (preg_match('/http:\/\/ci.nii.ac.jp\/naid\//', $url))
+	{
+		$url = preg_replace('/\/$/', '', $url);
+		//echo $url;
+		if (cinii_rdf($url . '/rdf', $item) == 0)
+		{
+			$item->status = 'ok';
+		}
+	}
+
+	
 
 	//------------------------------------------------------------------------------
 	// DSpace
