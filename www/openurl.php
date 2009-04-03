@@ -16,7 +16,7 @@ and also supports notion of bibliographic coordinates
 
 */
 
-
+require_once (dirname(__FILE__) . '/cinii.php');
 require_once('crossref.php');
 require_once('db.php');
 require_once('gb.php');
@@ -1049,6 +1049,21 @@ function find_article_have_spage($values, &$item)
 				{
 					echo '<p>Not enough for lookup in JSTOR</p>';
 				}
+			}
+		}
+		
+		// Try CiNii
+		if (!$found)
+		{
+			if ($debug)
+			{
+				echo '<p>CiNii</p>';
+			}
+		
+			$found = search_cinii($values['title'], $values['issn'], $values['volume'], $values['spage'], $item, $debug);
+			if ($found)
+			{
+				$error = ERROR_OK;
 			}
 		}
 		
