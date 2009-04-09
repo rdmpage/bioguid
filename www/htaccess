@@ -15,6 +15,8 @@ RewriteRule ^doi:(.*)			openurl.php?id=doi:$1&display=rdf	[NC,R=303]
 RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
 RewriteRule ^pmid:(.*)			openurl.php?id=pmid:$1&display=rdf	[NC,R=303]
 
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^urn:lsid:(.*)			lsid.php?lsid=urn:lsid:$1&display=rdf	[NC,R=303]
 
 # HTML
 RewriteCond %{HTTP_ACCEPT} !application/rdf\+xml.*(text/html|application/xhtml\+xml)
@@ -54,3 +56,6 @@ RewriteRule ^genbank/(.*)		openurl.php?id=genbank:$1	[NC,L]
 RewriteRule ^gi/(.*).json		openurl.php?id=gi:$1&display=json	[NC,L]
 RewriteRule ^gi/(.*)			openurl.php?id=gi:$1	[NC,L]
 
+
+# LSID
+RewriteRule ^urn:lsid:(.*)		lsid.php?lsid=urn:lsid:$1	[NC,R=303] # 303 for Linked data
