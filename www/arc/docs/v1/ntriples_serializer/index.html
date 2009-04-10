@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>N-Triples Serializer (v1) - ARC RDF Classes for PHP</title>
+    <style type="text/css" media="all">
+     @import url("/code/trice/trice.css?d=3");
+     @import url("/themes/arc_2007/theme.css?d=3");
+    </style>
+    
+    <script type="text/javascript" src="/code/trice/wiki/wiki.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/stats/stats.js?d=3"></script>
+    <script type="text/javascript" src="/themes/arc_2007/theme.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/dom.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/trice.js?d=3"></script>
+    <script type="text/javascript">
+      <!--
+      var root_path = '/';
+      var request_method = 'get';
+      //-->
+    </script>
+  </head>
+  <body>
+    <div class="page">
+
+  <div class="sysnavbar">
+    <ul><li><a href="/login">log in</a></li><li><a href="/imprint">imprint</a></li></ul>  </div>
+  
+  <div class="applogo">
+    <a href="/"><img src="/themes/arc_2007/logo.gif" alt="ARC" /></a>
+  </div>
+
+  <div class="header">
+
+    <div class="topnavbar">
+      <ul><li><a href="/home">Home</a></li><li><a href="/features">Features</a></li><li><a href="/docs">Documentation</a></li><li><a href="/community">Community</a></li><li><a href="/download">Download</a></li><li><a href="/dev">Development</a></li><li><a href="/sites">Sites</a></li></ul>
+    </div>
+  
+  </div>
+
+  <div class="canvas">
+    <div class="title"><h1>N-Triples Serializer (v1)</h1></div>
+    <div class="content">
+      
+      <div  class="w65 fl">
+        This class creates N-Triples from a given set of ARC triples.<br />
+<div class="hr"><hr /></div>
+<h2>Setup</h2>
+Simply include the class file:<br />
+
+      <div class="code w95"><pre class="code">include_once("path/to/arc/ARC_ntriples_serializer.php");</pre></div>
+    
+<div class="hr"><hr /></div>
+<h2>Instantiation</h2>
+The class can be instantiated with an array of parameters:<br />
+<ul>
+<li> linebreak (default is \r\n)<br /></li>
+<li> spacer (to be used between subject, predicate, and object, default is " ")<br />
+</li></ul>
+
+e.g.<br />
+
+      <div class="code w95"><pre class="code">$args = array(&lt;br /&gt;
+  &quot;linebreak&quot; =&gt; &quot;&lt;br /&gt;&quot;&lt;br /&gt;
+);&lt;br /&gt;
+ser = new ARC_ntriples_serializer($args);&lt;br /&gt;
+</pre></div>
+    
+<div class="hr"><hr /></div>
+<h2>Serializing</h2>
+
+      <div class="code w95"><pre class="code">$ntriples = $ser->get_ntriples($triples);
+header("Content-Type: text/plain");
+echo $ntriples;
+</pre></div>
+    
+<div class="hr"><hr /></div>
+<h2>Methods</h2>
+<dl><dt>get_ntriples($triples)</dt>
+<dd>expects an array of triples for $triples and returns an N-Triples string. The triples array has to be structured like the one the ARC RDF/XML Parser produces.<br />
+</dd></dl>
+      </div>
+    
+
+
+      <div  class="w30 fr">
+        
+
+      <div class="box">
+        <h3><a href="/docs">Documentation</a></h3>
+<ul><li><a href="/docs/v1/rdfxml_parser">RDF/XML Parser (v1)</a></li><li><a href="/docs/v1/ntriples_serializer">N-Triples Serializer (v1)</a></li><li><a href="/docs/v1/erdf_parser">eRDF Parser (v1)</a></li><li><a href="/docs/v1/api">API (v1)</a></li></ul>
+
+
+      </div>
+    
+      </div>
+          <div class="clb"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Last modified: 2007-11-19 11:56:25 UTC</p><p>Powered by <a href="http://trice.semsol.org/" title="Version: 2007-11-13">Trice</a> Wiki Module</p>  </div>
+    
+</div>
+
+  </body>
+</html>
