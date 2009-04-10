@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Stand-alone SPARQL Parsing - ARC RDF Classes for PHP</title>
+    <style type="text/css" media="all">
+     @import url("/code/trice/trice.css?d=3");
+     @import url("/themes/arc_2007/theme.css?d=3");
+    </style>
+    
+    <script type="text/javascript" src="/code/trice/wiki/wiki.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/stats/stats.js?d=3"></script>
+    <script type="text/javascript" src="/themes/arc_2007/theme.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/dom.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/trice.js?d=3"></script>
+    <script type="text/javascript">
+      <!--
+      var root_path = '/';
+      var request_method = 'get';
+      //-->
+    </script>
+  </head>
+  <body>
+    <div class="page">
+
+  <div class="sysnavbar">
+    <ul><li><a href="/login">log in</a></li><li><a href="/imprint">imprint</a></li></ul>  </div>
+  
+  <div class="applogo">
+    <a href="/"><img src="/themes/arc_2007/logo.gif" alt="ARC" /></a>
+  </div>
+
+  <div class="header">
+
+    <div class="topnavbar">
+      <ul><li><a href="/home">Home</a></li><li><a href="/features">Features</a></li><li><a href="/docs">Documentation</a></li><li><a href="/community">Community</a></li><li><a href="/download">Download</a></li><li><a href="/dev">Development</a></li><li><a href="/sites">Sites</a></li></ul>
+    </div>
+  
+  </div>
+
+  <div class="canvas">
+    <div class="title"><h1>Stand-alone SPARQL Parsing</h1></div>
+    <div class="content">
+      
+      <div  class="w65 fl">
+        ARC's SPARQL parser covers the complete <a href="http://www.w3.org/TR/rdf-sparql-query/#grammar">SPARQL grammar</a> and can be used as a stand-alone component:<br />
+
+
+      <div class="code w95"><pre class="code">/* ARC2 static class inclusion */ 
+include_once('path/to/arc/ARC2.php');
+
+/* parser instantiation */
+$parser = ARC2::getSPARQLParser();
+
+/* parse a query */
+$q = 'PREFIX ... SELECT ...'
+$parser-&gt;parse($q);
+if (!$parser-&gt;getErrors()) {
+  $q_infos = $parser-&gt;getQueryInfos();
+  print_r($q_infos);
+}
+else {
+  echo &quot;invalid query: &quot; . print_r($parser-&gt;getErrors());
+}</pre></div>
+    
+<div class="hr"><hr /></div>
+The <code>$q_infos</code> array contains structured information about the parsed query, e.g.:<br />
+
+
+      <div class="code w95"><pre class="code">PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+
+SELECT * WHERE {
+  ?x a foaf:Person ;
+     foaf:name ?name ;
+     foaf:knows ?y .
+  FILTER regex(?name, &quot;^A&quot;) 
+}
+ORDER BY ASC(?name)
+LIMIT 10</pre></div>
+    
+
+      <div class="code w95"><pre class="code">Array
+
+ [base] =&gt; http://localhost/arc2/tests/sparql_parser.php
+ [vars] =&gt; Array
+   [0] =&gt; x
+   [1] =&gt; name
+   [2] =&gt; y
+
+ [prefixes] =&gt; Array
+   [rdf:] =&gt; http://www.w3.org/1999/02/22-rdf-syntax-ns#
+   [rdfs:] =&gt; http://www.w3.org/2000/01/rdf-schema#
+   [owl:] =&gt; http://www.w3.org/2002/07/owl#
+   [xsd:] =&gt; http://www.w3.org/2001/XMLSchema#
+   [foaf:] =&gt; http://xmlns.com/foaf/0.1/
+
+ [query] =&gt; Array
+   [type] =&gt; select
+   [result_vars] =&gt; Array
+     [0] =&gt; Array
+       [var] =&gt; x
+       [aggregate] =&gt; 0
+       [alias] =&gt; 
+
+     [1] =&gt; Array
+       [var] =&gt; name
+       [aggregate] =&gt; 0
+       [alias] =&gt; 
+
+     [2] =&gt; Array
+       [var] =&gt; y
+       [aggregate] =&gt; 0
+       [alias] =&gt; 
+
+
+   [dataset] =&gt; Array
+
+   [pattern] =&gt; Array
+     [type] =&gt; group
+     [patterns] =&gt; Array
+       [0] =&gt; Array
+         [type] =&gt; triples
+         [patterns] =&gt; Array
+           [0] =&gt; Array
+             [type] =&gt; triple
+             [s] =&gt; x
+             [p] =&gt; http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+             [o] =&gt; http://xmlns.com/foaf/0.1/Person
+             [s_type] =&gt; var
+             [p_type] =&gt; iri
+             [o_type] =&gt; iri
+             [o_datatype] =&gt; 
+             [o_lang] =&gt; 
+
+           [1] =&gt; Array
+             [type] =&gt; triple
+             [s] =&gt; x
+             [p] =&gt; http://xmlns.com/foaf/0.1/name
+             [o] =&gt; name
+             [s_type] =&gt; var
+             [p_type] =&gt; iri
+             [o_type] =&gt; var
+             [o_datatype] =&gt; 
+             [o_lang] =&gt; 
+
+           [2] =&gt; Array
+             [type] =&gt; triple
+             [s] =&gt; x
+             [p] =&gt; http://xmlns.com/foaf/0.1/knows
+             [o] =&gt; y
+             [s_type] =&gt; var
+             [p_type] =&gt; iri
+             [o_type] =&gt; var
+             [o_datatype] =&gt; 
+             [o_lang] =&gt; 
+
+       [1] =&gt; Array
+         [type] =&gt; filter
+         [constraint] =&gt; Array
+           [type] =&gt; built_in_call
+           [call] =&gt; regex
+           [args] =&gt; Array
+             [0] =&gt; Array
+               [value] =&gt; name
+               [type] =&gt; var
+               [operator] =&gt; 
+
+             [1] =&gt; Array
+               [value] =&gt; ^A
+               [type] =&gt; literal2
+               [operator] =&gt; 
+
+
+
+   [order_infos] =&gt; Array
+     [0] =&gt; Array
+       [value] =&gt; name
+       [type] =&gt; var
+       [operator] =&gt; 
+       [direction] =&gt; asc
+
+
+   [limit] =&gt; 10</pre></div>
+    
+      </div>
+    
+
+
+      <div  class="w30 fr">
+        
+
+      <div class="box">
+        <h3><a href="/docs">Documentation</a> (<a href="/docs/misc">misc.</a>)</h3>
+<ul><li><a href="/docs/v2/misc/sparql_parsing">Stand-alone SPARQL Parsing</a></li><li><a href="/docs/v2/misc/turtle_templates">Turtle Templates</a></li><li><a href="/docs/v2/misc/writing_plugins">How to write plugins for ARC2</a></li><li><a href="/docs/v2/misc/writing_triggers">How to write triggers for ARC</a></li></ul>
+
+
+      </div>
+    
+      </div>
+          <div class="clb"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Last modified: 2008-06-12 08:48:08 UTC</p><p>Powered by <a href="http://trice.semsol.org/" title="Version: 2007-11-13">Trice</a> Wiki Module</p>  </div>
+    
+</div>
+
+  </body>
+</html>

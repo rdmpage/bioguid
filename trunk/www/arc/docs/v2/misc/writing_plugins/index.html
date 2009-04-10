@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Writing Plugins for ARC2 - ARC RDF Classes for PHP</title>
+    <style type="text/css" media="all">
+     @import url("/code/trice/trice.css?d=3");
+     @import url("/themes/arc_2007/theme.css?d=3");
+    </style>
+    
+    <script type="text/javascript" src="/code/trice/wiki/wiki.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/stats/stats.js?d=3"></script>
+    <script type="text/javascript" src="/themes/arc_2007/theme.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/dom.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/trice.js?d=3"></script>
+    <script type="text/javascript">
+      <!--
+      var root_path = '/';
+      var request_method = 'get';
+      //-->
+    </script>
+  </head>
+  <body>
+    <div class="page">
+
+  <div class="sysnavbar">
+    <ul><li><a href="/login">log in</a></li><li><a href="/imprint">imprint</a></li></ul>  </div>
+  
+  <div class="applogo">
+    <a href="/"><img src="/themes/arc_2007/logo.gif" alt="ARC" /></a>
+  </div>
+
+  <div class="header">
+
+    <div class="topnavbar">
+      <ul><li><a href="/home">Home</a></li><li><a href="/features">Features</a></li><li><a href="/docs">Documentation</a></li><li><a href="/community">Community</a></li><li><a href="/download">Download</a></li><li><a href="/dev">Development</a></li><li><a href="/sites">Sites</a></li></ul>
+    </div>
+  
+  </div>
+
+  <div class="canvas">
+    <div class="title"><h1>Writing Plugins for ARC2</h1></div>
+    <div class="content">
+      
+      <div  class="w65 fl">
+        ARC can be extended with third party plugins if those files follow certain conventions, as described on this page: <br />
+ <br />
+Name your extension <em>MyPrefix</em>_<em>MyExtension</em>Plugin, save it as <em>MyPrefix</em>_<em>MyExtension</em>Plugin.php, and place the file in the <code>plugins</code> directory. The prefix and the extension name must not contain underscores. <br />
+ <br />
+If you are using a prefix that differs from "ARC2" (e.g. "MyApp"), you can alternatively place the plugin in a sub-directory of <code>plugins</code> (e.g. <code>plugins/myapp/MyApp_MyExtensionPlugin.php</code>), for example as a bundle including additional files. The directory must have a lowercase name. <br />
+ <br />
+If you follow these conventions, ARC will be able to find and include your plugin:<br />
+
+      <div class="code w95"><pre class="code">...
+$my_ext = ARC2::getComponent('MyPrefix_MyExtensionPlugin', $config);
+...</pre></div>
+    
+
+In the class file itself, you should add your name, a basic description, and possibly a link to the ARC and/or Plugin website. You also have to define a parent Class (use <code>Class</code> if you don't extend a particular component). <br />
+ <br />
+Below you see a basic template for an ARC Plugin. Once you have created and tested your class, you may want to send an announcement to the <a href="http://arc.semsol.org/community/arc-dev">mailing list</a> so that we can help spread the word. Selected Plugins will be listed on a <a href="/download/plugins">dedicated page on the ARC website</a>.<br />
+
+
+      <div class="code w95"><pre class="code">&lt;?php
+/*
+homepage: ARC or plugin homepage
+license:  http://arc.semsol.org/license
+
+class:    ARC2 My Extension Plugin
+author:   
+version:  yyyy-mm-dd
+*/
+
+ARC2::inc('Class');
+
+class ARC2_MyExtensionPlugin extends ARC2_Class {
+
+  function __construct($a = '', &amp;$caller) {
+    parent::__construct($a, $caller);
+  }
+  
+  function ARC2_MyExtensionPlugin ($a = '', &amp;$caller) {
+    $this-&gt;__construct($a, $caller);
+  }
+
+  function __init() {
+    parent::__init();
+  }
+
+  /* plugin code */
+  ...
+
+}</pre></div>
+    
+      </div>
+    
+
+
+      <div  class="w30 fr">
+        
+
+      <div class="box">
+        <h3><a href="/docs">Documentation</a> (<a href="/docs/misc">misc.</a>)</h3>
+<ul><li><a href="/docs/v2/misc/sparql_parsing">Stand-alone SPARQL Parsing</a></li><li><a href="/docs/v2/misc/turtle_templates">Turtle Templates</a></li><li><a href="/docs/v2/misc/writing_plugins">How to write plugins for ARC2</a></li><li><a href="/docs/v2/misc/writing_triggers">How to write triggers for ARC</a></li></ul>
+
+
+      </div>
+    
+
+
+      <div class="box">
+        <strong><a href="/download/plugins">Available Plugins</a></strong>
+
+      </div>
+    
+      </div>
+          <div class="clb"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Last modified: 2008-03-20 10:18:42 UTC</p><p>Powered by <a href="http://trice.semsol.org/" title="Version: 2007-11-13">Trice</a> Wiki Module</p>  </div>
+    
+</div>
+
+  </body>
+</html>
