@@ -10,6 +10,27 @@
  */
  
 require_once (dirname(__FILE__) . '/class_lsid.php');
+require_once (dirname(__FILE__) . '/arc/ARC2.php');
+
+// Triple store
+$store_config = array
+(
+  /* db */
+  'db_name' => 'bioguid',
+  'db_user' => $config['db_user'],
+  'db_pwd' => $config['db_passwd'],
+  /* store */
+  'store_name' => 'arc'
+);
+
+$store_config['proxy_host'] = $config['proxy_host'];
+$store_config['proxy_port'] = $config['proxy_port'];
+	
+$store = ARC2::getStore($store_config);
+if (!$store->isSetUp()) 
+{
+	$store->setUp();
+}
 
 $lsid = '';
 $display = 'html';
@@ -154,36 +175,92 @@ else
 
 	$xml = ResolveLSID($lsid);
 	
-	switch ($display)
+	// check is OK
+	if (preg_match('/<error/', $xml))
 	{
-	
-		case 'html':
-			// convert...
-			$dom= new DOMDocument;
-			$dom->loadXML($xml);
-			$xpath = new DOMXPath($dom);
+		// Houston we have a problem...
+		switch ($display)
+		{
+			case 'html':
+				// convert...
+				$dom= new DOMDocument;
+				$dom->loadXML($xml);
+				$xpath = new DOMXPath($dom);
+			
+				// Get JSON
+				$xp = new XsltProcessor();
+				$xsl = new DomDocument;
+				$xsl->load('xsl/xmlverbatim.xsl');
+				$xp->importStylesheet($xsl);
+				
+				$xml_doc = new DOMDocument;
+				$xml_doc->loadXML($xml);
+				
+				$html = $xp->transformToXML($xml_doc);
+				
+				echo $html;
+				break;
+				
+			case 'rdf':
+				header("Content-type: application/xml; charset=utf-8\n\n");	
+				echo $xml;
+				break;
+				
+			default:
+				break;
+		}
+	}
+	else
+	{	
+		// all ok, store triples
+		$parser = ARC2::getRDFParser();		
+		$base = 'http://example.com/';
+		$parser->parse($base, $xml);	
+		$triples = $parser->getTriples();
 		
-			// Get JSON
-			$xp = new XsltProcessor();
-			$xsl = new DomDocument;
-			$xsl->load('xsl/xmlverbatim.xsl');
-			$xp->importStylesheet($xsl);
-			
-			$xml_doc = new DOMDocument;
-			$xml_doc->loadXML($xml);
-			
-			$html = $xp->transformToXML($xml_doc);
-			
-			echo $html;
-			break;
+		// store
+		$store->insert($triples, 'http://bioguid.info/' . $lsid);
+		
+		switch ($display)
+		{
+			case 'html':
+		
+				//print_r($triples);	
+				
+				// Make pretty output...
+				
+				$html = '<h1>' . $lsid . '</h1>';
+				$html .= '<table>';
+				foreach ($triples as $t)
+				{
+					$html .= '<tr>';	
+					
+					$html .= '<td>' . $t['p'] . '</td>';
+					$html .= '<td>';
+					
+					if (preg_match('/^urn:lsid:/', $t['o']))
+					{
+						$html .= '<a href="http://bioguid.info/' . $t['o'] . '">' . $t['o'] . '</a>';
+					}
+					else
+					{
+						$html .= $t['o'];
+					}
+					$html .= '</td>';
+					$html .= '</tr>';	
+				}
+				$html .= '</table>';
+				echo $html;
+				break;
+		
+			case 'rdf':	
+				header("Content-type: application/rdf+xml; charset=utf-8\n\n");	
+				echo $xml;
+				break;
 	
-		case 'rdf':	
-			header("Content-type: application/rdf+xml; charset=utf-8\n\n");	
-			echo $xml;
-			break;
-
-		default:
-			break;
+			default:
+				break;
+		}
 	}
 
 }
