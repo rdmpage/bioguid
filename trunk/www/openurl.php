@@ -1342,11 +1342,18 @@ function find_article($referent, &$item)
 }
 
 //--------------------------------------------------------------------------------------------------
+// to do: note this assumes an article, need to modify for books...
 function write_coins($item)
 {
 	$html = '';
 	$html .= '<span class="Z3988"';
 	$html .= ' title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal';
+	if (count($item->authors) > 0)
+	{
+		$html .= '&amp;rft.aulast=' . urlencode($item->authors[0]->lastname);
+		$html .= '&amp;rft.aufirst=' . urlencode($item->authors[0]->forename);
+	}
+	$html .= '&amp;rft.jtitle=' . urlencode($item->title);
 	$html .= '&amp;rft.issn=' . $item->issn;
 	$html .= '&amp;rft.volume=' . $item->volume;
 	$html .= '&amp;rft.spage=' . $item->spage;
