@@ -26,6 +26,7 @@ RewriteCond %{HTTP_USER_AGENT} ^Mozilla/.*
 
 # JACC
 RewriteRule ^jacc/([0-9]{4})-?([0-9]{3})([0-9]|X):(.*)@(.*)		openurl.php?issn=$1-$2$3&volume=$4&spage=$5&genre=article	[NC,L]
+RewriteRule ^jacc:([0-9]{4})-?([0-9]{3})([0-9]|X):(.*)@(.*)		openurl.php?issn=$1-$2$3&volume=$4&spage=$5&genre=article	[NC,L]
 RewriteRule ^\[jacc\]([0-9]{4})-?([0-9]{3})([0-9]|X):(.*)@(.*)	openurl.php?issn=$1-$2$3&volume=$4&spage=$5&genre=article	[NC,L]
 
 # openref
