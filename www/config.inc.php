@@ -71,10 +71,14 @@ $config['proxy_port'] 	= '8080';
 
 
 // Service accounts
-$config['crossref_user']	= 'ourl_rdmpage';
-$config['crossref_pass']	= 'peacrab';
+$config['crossref_user']	= '';
+$config['crossref_pass']	= '';
 
-$config['ubio_keyCode']		= 'b751aac2219cf30bcf3190d607d7c9494d87b77c'
+$config['ubio_keyCode']		= '';
+
+$config['connotea_user'] 	= '';
+$config['connotea_pass'] 	= '';
+
 
 	
 ?>
