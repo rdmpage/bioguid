@@ -1630,6 +1630,17 @@ function display_html($item)
 	echo '<head>';
 	echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />' . "\n";
 	echo '<base href="' . $config['webroot'] . '" />';
+	echo "<!-- Prototype -->\n";
+  	echo '<script type="text/javascript" src="' . $config['server'] . 'scripts/prototype.js"></script>' . "\n";
+	echo "<!-- Connotea -->\n";
+  	echo '<script type="text/javascript">
+function ws_connotea(obj) 
+{
+	$(\'connotea\').innerHTML = obj.html;
+
+};
+</script>';
+  	  	
 	echo '<title>' . $item->atitle . '</title>';
 	echo '<style type="text/css">
 	body 
@@ -1847,6 +1858,24 @@ function display_html($item)
 	
 	echo '</ul>';
 	echo '</div>';
+	
+	// Connotea tags
+	if ($config['connotea_user'] != '')
+	{
+		if (isset($item->doi) or isset($item->pmid))
+		{
+			echo '<div id="connotea">';
+			if (isset($item->doi))
+			{
+				echo '<script type="text/javascript" src="' . $config['server'] . 'services/connotea.php?uri=doi:' . $item->doi . '&callback=ws_connotea"></script>';
+			}
+			else
+			{
+				echo '<script type="text/javascript" src="' . $config['server'] . 'services/connotea.php?uri=pmid:' . $item->pmid . '&callback=ws_connotea"></script>';
+			}
+			echo '</div>';
+		}	
+	}
 	echo '</div>';
 	
 	if (isset($item->abstract))
