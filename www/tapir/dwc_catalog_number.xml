@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<searchTemplate xmlns="http://rs.tdwg.org/tapir/1.0" 
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+                xsi:schemaLocation="http://rs.tdwg.org/tapir/1.0
+                                    http://rs.tdwg.org/tapir/1.0/schema/tapir.xsd
+                                    http://www.w3.org/2001/XMLSchema
+                                    http://www.w3.org/2001/XMLSchema.xsd">
+  <label>Scientific name in query</label>
+  <documentation>Query for a Scientific Name. Based on http://rs.tdwg.org/tapir/cs/dwc/1.4/template/dwc_sci_name_range.xml, found in email by Markus Döring http://lists.tdwg.org/pipermail/tdwg-tapir/2008-April/000493.html</documentation>
+  <externalOutputModel location="http://rs.tdwg.org/tapir/cs/dwc/1.4/model/dw_core_geo_cur.xml"/>
+  <filter>
+    <equals>
+        <concept id="http://rs.tdwg.org/dwc/dwcore/CatalogNumber" />
+        <parameter name="name"/>
+    </equals>
+  </filter>
+</searchTemplate>
