@@ -81,12 +81,17 @@ function cinii_rdf($rdf_url, &$item, $issn='', $debug = 0)
 	// Do some cleaning of authors
 	foreach ($item->authors as $a)
 	{
+		// Last name in ALL CAPS
 		if (preg_match('/^(?<lastname>[A-Z]+),?\s*(?<forename>[A-Z](.*)$)/', $a->author, $matches))
 		{
-			//print_r($matches);
-			
 			$a->lastname = mb_convert_case($matches['lastname'], MB_CASE_TITLE, mb_detect_encoding($matches['lastname']));
 			$a->forename = mb_convert_case($matches['forename'], MB_CASE_TITLE, mb_detect_encoding($matches['forename']));
+		}
+		else
+		{
+			$parts = explode (",",  $a->author);
+			$a->lastname = trim($parts[0]);
+			$a->forename = trim($parts[1]);
 		}
 	}
 	
