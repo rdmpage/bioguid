@@ -1,11 +1,100 @@
-# CocoaMySQL dump
-# Version 0.7b5
-# http://cocoamysql.sourceforge.net
+# Sequel Pro dump
+# Version 392
+# http://code.google.com/p/sequel-pro
 #
 # Host: localhost (MySQL 5.1.26-rc)
 # Database: bioguid
-# Generation Time: 2009-02-05 16:11:44 +0000
+# Generation Time: 2009-04-28 18:37:56 +0100
 # ************************************************************
+
+# Dump of table arc_g2t
+# ------------------------------------------------------------
+
+CREATE TABLE `arc_g2t` (
+  `g` mediumint(8) unsigned NOT NULL,
+  `t` mediumint(8) unsigned NOT NULL,
+  UNIQUE KEY `gt` (`g`,`t`),
+  KEY `tg` (`t`,`g`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci DELAY_KEY_WRITE=1;
+
+
+
+# Dump of table arc_id2val
+# ------------------------------------------------------------
+
+CREATE TABLE `arc_id2val` (
+  `id` mediumint(8) unsigned NOT NULL,
+  `misc` tinyint(1) NOT NULL DEFAULT '0',
+  `val` text COLLATE utf8_unicode_ci NOT NULL,
+  `val_type` tinyint(1) NOT NULL DEFAULT '0',
+  UNIQUE KEY `id` (`id`,`val_type`),
+  KEY `v` (`val`(64))
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci DELAY_KEY_WRITE=1;
+
+
+
+# Dump of table arc_o2val
+# ------------------------------------------------------------
+
+CREATE TABLE `arc_o2val` (
+  `id` mediumint(8) unsigned NOT NULL,
+  `cid` mediumint(8) unsigned NOT NULL,
+  `misc` tinyint(1) NOT NULL DEFAULT '0',
+  `val` text COLLATE utf8_unicode_ci NOT NULL,
+  UNIQUE KEY `id` (`id`),
+  KEY `cid` (`cid`),
+  KEY `v` (`val`(64))
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci DELAY_KEY_WRITE=1;
+
+
+
+# Dump of table arc_s2val
+# ------------------------------------------------------------
+
+CREATE TABLE `arc_s2val` (
+  `id` mediumint(8) unsigned NOT NULL,
+  `cid` mediumint(8) unsigned NOT NULL,
+  `misc` tinyint(1) NOT NULL DEFAULT '0',
+  `val` text COLLATE utf8_unicode_ci NOT NULL,
+  UNIQUE KEY `id` (`id`),
+  KEY `cid` (`cid`),
+  KEY `v` (`val`(64))
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci DELAY_KEY_WRITE=1;
+
+
+
+# Dump of table arc_setting
+# ------------------------------------------------------------
+
+CREATE TABLE `arc_setting` (
+  `k` char(32) COLLATE utf8_unicode_ci NOT NULL,
+  `val` text COLLATE utf8_unicode_ci NOT NULL,
+  UNIQUE KEY `k` (`k`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci DELAY_KEY_WRITE=1;
+
+
+
+# Dump of table arc_triple
+# ------------------------------------------------------------
+
+CREATE TABLE `arc_triple` (
+  `t` mediumint(8) unsigned NOT NULL,
+  `s` mediumint(8) unsigned NOT NULL,
+  `p` mediumint(8) unsigned NOT NULL,
+  `o` mediumint(8) unsigned NOT NULL,
+  `o_lang_dt` mediumint(8) unsigned NOT NULL,
+  `o_comp` char(35) COLLATE utf8_unicode_ci NOT NULL,
+  `s_type` tinyint(1) NOT NULL DEFAULT '0',
+  `o_type` tinyint(1) NOT NULL DEFAULT '0',
+  `misc` tinyint(1) NOT NULL DEFAULT '0',
+  UNIQUE KEY `t` (`t`),
+  KEY `spo` (`s`,`p`,`o`),
+  KEY `os` (`o`,`s`),
+  KEY `po` (`p`,`o`),
+  KEY `misc` (`misc`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci DELAY_KEY_WRITE=1;
+
+
 
 # Dump of table article_cache
 # ------------------------------------------------------------
@@ -40,13 +129,14 @@ CREATE TABLE `article_cache` (
   `publisher` varchar(255) DEFAULT NULL,
   `publoc` varchar(255) DEFAULT NULL,
   `oclc` int(11) DEFAULT NULL,
+  `xml_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `issn` (`issn`),
   KEY `volume` (`volume`),
   KEY `spage` (`spage`),
   KEY `epage` (`epage`),
   KEY `idx_issn_volume_spage` (`issn`,`volume`,`spage`)
-) ENGINE=InnoDB AUTO_INCREMENT=114816 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=117527 DEFAULT CHARSET=utf8;
 
 
 
@@ -63,7 +153,7 @@ CREATE TABLE `author` (
   PRIMARY KEY (`author_id`),
   KEY `lastname` (`lastname`),
   KEY `forename` (`forename`)
-) ENGINE=InnoDB AUTO_INCREMENT=120355 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=122649 DEFAULT CHARSET=utf8;
 
 
 
@@ -144,7 +234,7 @@ CREATE TABLE `darwin_core` (
   `dateLastModified` varchar(128) DEFAULT NULL,
   `json` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12125 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12138 DEFAULT CHARSET=utf8;
 
 
 
@@ -203,7 +293,7 @@ CREATE TABLE `genbank` (
   KEY `lat_lon` (`lat_lon`),
   KEY `locality` (`locality`),
   KEY `organism` (`organism`)
-) ENGINE=MyISAM AUTO_INCREMENT=216324 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=216330 DEFAULT CHARSET=latin1;
 
 
 
@@ -262,7 +352,7 @@ CREATE TABLE `services` (
   PRIMARY KEY (`id`),
   KEY `name` (`name`),
   KEY `kind` (`kind`)
-) ENGINE=InnoDB AUTO_INCREMENT=166508 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=166511 DEFAULT CHARSET=latin1;
 
 
 
