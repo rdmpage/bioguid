@@ -630,6 +630,17 @@ function store_in_cache($item)
 		$values .= $db->qstr($item->publisher_id);		
 	}
 
+	// XML url (e.g., from Scielo
+	if (isset($item->xml_url))
+	{
+		if (!$first) { $columns .= ','; }
+		if (!$first) { $values .= ','; }
+		if ($first) { $first = false; }
+		
+		$columns .= 'xml_url';
+		$values .= $db->qstr($item->xml_url);		
+	}
+
 
 	// abstract
 	if (isset($item->abstract))
