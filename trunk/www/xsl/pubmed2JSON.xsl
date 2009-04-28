@@ -31,13 +31,19 @@ version="1.0">
 	<!-- article title -->
 	<xsl:text>&#x09;&#x09;&#x09;"atitle":"</xsl:text>
 
-		<xsl:variable name="atitle" select="ArticleTitle"/>		<xsl:call-template name="cleanQuote">			<xsl:with-param name="string" select="$atitle"/>		</xsl:call-template>
+		<xsl:variable name="atitle" select="ArticleTitle"/>
+		<xsl:call-template name="cleanQuote">
+			<xsl:with-param name="string" select="$atitle"/>
+		</xsl:call-template>
 	<xsl:text>"</xsl:text>
 
 	<!-- abstract -->
 	<xsl:text>,&#x0D;</xsl:text>
 	<xsl:text>&#x09;&#x09;&#x09;"abstract":"</xsl:text>
-		<xsl:variable name="abstract" select="Abstract/AbstractText"/>		<xsl:call-template name="cleanQuote">			<xsl:with-param name="string" select="$abstract"/>		</xsl:call-template>
+		<xsl:variable name="abstract" select="Abstract/AbstractText"/>
+		<xsl:call-template name="cleanQuote">
+			<xsl:with-param name="string" select="$abstract"/>
+		</xsl:call-template>
 	<xsl:text>"</xsl:text>
 
 	<!-- journal -->
@@ -126,7 +132,19 @@ version="1.0">
 	<xsl:text>-</xsl:text>
 	<xsl:variable name="mo" select="Month" />
 	<xsl:choose>
-<xsl:when test="$mo = 'Jan'">01</xsl:when><xsl:when test="$mo = 'Feb'">02</xsl:when><xsl:when test="$mo = 'Mar'">03</xsl:when><xsl:when test="$mo = 'Apr'">04</xsl:when><xsl:when test="$mo = 'May'">05</xsl:when><xsl:when test="$mo = 'Jun'">06</xsl:when><xsl:when test="$mo = 'Jul'">07</xsl:when><xsl:when test="$mo = 'Aug'">08</xsl:when><xsl:when test="$mo = 'Sep'">09</xsl:when><xsl:when test="$mo = 'Oct'">10</xsl:when><xsl:when test="$mo = 'Nov'">11</xsl:when><xsl:when test="$mo = 'Dec'">12</xsl:when>    </xsl:choose>
+<xsl:when test="$mo = 'Jan'">01</xsl:when>
+<xsl:when test="$mo = 'Feb'">02</xsl:when>
+<xsl:when test="$mo = 'Mar'">03</xsl:when>
+<xsl:when test="$mo = 'Apr'">04</xsl:when>
+<xsl:when test="$mo = 'May'">05</xsl:when>
+<xsl:when test="$mo = 'Jun'">06</xsl:when>
+<xsl:when test="$mo = 'Jul'">07</xsl:when>
+<xsl:when test="$mo = 'Aug'">08</xsl:when>
+<xsl:when test="$mo = 'Sep'">09</xsl:when>
+<xsl:when test="$mo = 'Oct'">10</xsl:when>
+<xsl:when test="$mo = 'Nov'">11</xsl:when>
+<xsl:when test="$mo = 'Dec'">12</xsl:when>
+    </xsl:choose>
 	<xsl:text>-</xsl:text>
 	<xsl:value-of select="Day" />
 	<xsl:text>"</xsl:text>
@@ -140,11 +158,25 @@ version="1.0">
 
 <xsl:text>&#x09;&#x09;&#x09;{</xsl:text>				
 <xsl:text>"lastname":"</xsl:text><xsl:value-of select="LastName"/><xsl:text>",</xsl:text>
-<xsl:text>"forename":"</xsl:text><xsl:value-of select="ForeName"/><xsl:text>"</xsl:text>
+<xsl:text>"forename":"</xsl:text><xsl:value-of select="FirstName"/><xsl:text>"</xsl:text>
 <xsl:text>}</xsl:text>		
     </xsl:template>
 
-    <!-- From http://www.dpawson.co.uk/xsl/sect2/StringReplace.html#d10992e82 --><xsl:template name="cleanQuote"><xsl:param name="string" /><xsl:if test="contains($string, '&#x22;')"><xsl:value-of    select="substring-before($string, '&#x22;')" />\"<xsl:call-template    name="cleanQuote">                <xsl:with-param name="string"><xsl:value-ofselect="substring-after($string, '&#x22;')" />                </xsl:with-param>        </xsl:call-template></xsl:if><xsl:if test="not(contains($string, '&#x22;'))"><xsl:value-ofselect="$string" /></xsl:if></xsl:template>
+    <!-- From http://www.dpawson.co.uk/xsl/sect2/StringReplace.html#d10992e82 -->
+<xsl:template name="cleanQuote">
+<xsl:param name="string" />
+<xsl:if test="contains($string, '&#x22;')"><xsl:value-of
+    select="substring-before($string, '&#x22;')" />\"<xsl:call-template
+    name="cleanQuote">
+                <xsl:with-param name="string"><xsl:value-of
+select="substring-after($string, '&#x22;')" />
+                </xsl:with-param>
+        </xsl:call-template>
+</xsl:if>
+<xsl:if test="not(contains($string, '&#x22;'))"><xsl:value-of
+select="$string" />
+</xsl:if>
+</xsl:template>
 
 </xsl:stylesheet>
 
