@@ -937,8 +937,44 @@ function find_article_from_id($referent, &$item)
 				{
 					if (!isset($item->atitle))
 					{
+						// store any specific metadata
+						$tmp_values = new stdclass;
+						if (isset($item->publisher_id))
+						{
+							$temp_values->publisher_id = $item->publisher_id;
+						}
+						if (isset($item->xml_url))
+						{
+							$temp_values->xml_url = $item->xml_url;
+						}
+						if (isset($item->url))
+						{
+							$temp_values->url = $item->url;
+						}					
+						
 						doi_metadata ($item->doi, $item);
+						
+						if (isset($temp_values->publisher_id))
+						{
+							$item->publisher_id = $temp_values->publisher_id;
+						}
+						if (isset($temp_values->xml_url))
+						{
+							$item->xml_url = $temp_values->xml_url;
+						}
+						if (isset($temp_values->url))
+						{
+							$item->url = $temp_values->url;
+						}						
+						
+						//echo "\n" . __LINE__ . "\n";
+						//print_r($item);
 					}
+					
+					// Check we haven't found object with this DOI before...
+					$cache_id = find_in_cache_from_guid('doi', $item->doi);
+					
+					
 				}
 				else
 				{
@@ -1533,6 +1569,7 @@ function display_rdf($item)
 		}
 	}
 	
+	
 	$rdf .= '<rdf:Description rdf:about="' . $id . '">';
 	
 	// Identifiers
@@ -1558,6 +1595,19 @@ function display_rdf($item)
 			$rdf .= '<dc:identifier rdf:resource="http://bioguid.info/hdl:' . $item->hdl . '" />';
 		}
 	}
+	
+	if (isset($item->url))
+	{
+		if ($primaryId != 'url')
+		{
+			$rdf .= '<prism:url rdf:resource="'. str_replace('&', '&amp;', $item->url) . '" />';
+		}
+	}
+	if (isset($item->publisher_id))
+	{
+		$rdf .= '<dc:identifier>' . htmlspecialchars($item->publisher_id, ENT_NOQUOTES) . '</dc:identifier>';
+	}
+	
 		
 	// Authors
 	$num_authors = count($item->authors);
@@ -1813,10 +1863,18 @@ function ws_connotea(obj)
 		&& isset($item->spage)
 		)
 	{	
-		$jacc = $item->issn . ':' . $item->volume . '@' . $item->spage;
-		echo '<li style="padding-bottom:4px;">';
-		echo '<a class="link" href="jacc/' . $jacc . '" target="_blank">[JACC]' . $jacc . '</a>';
-		echo '</li>';
+		if (
+			($item->issn != '')
+			&& ($item->volume != '')
+			&& ($item->spage != '')
+			)
+		{
+	
+			$jacc = $item->issn . ':' . $item->volume . '@' . $item->spage;
+			echo '<li style="padding-bottom:4px;">';
+			echo '<a class="link" href="jacc/' . $jacc . '" target="_blank">[JACC]' . $jacc . '</a>';
+			echo '</li>';
+		}
 	}
 	
 	if (
@@ -1826,10 +1884,18 @@ function ws_connotea(obj)
 		&& isset($item->spage)
 		)
 	{	
-		$openref = $item->title . '/' . $item->year . '/' .  $item->volume . '/' . $item->spage;
-		echo '<li style="padding-bottom:4px;">';
-		echo '<a class="link" href="openref/' . $openref . '" target="_blank">openref://' . $openref . '</a>';
-		echo '</li>';
+		if (
+			($item->issn != '')
+			&& ($item->volume != '')
+			&& ($item->spage != '')
+			)
+		{
+		
+			$openref = $item->title . '/' . $item->year . '/' .  $item->volume . '/' . $item->spage;
+			echo '<li style="padding-bottom:4px;">';
+			echo '<a class="link" href="openref/' . $openref . '" target="_blank">openref://' . $openref . '</a>';
+			echo '</li>';
+		}
 	}
 	
 	
