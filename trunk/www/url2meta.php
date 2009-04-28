@@ -281,6 +281,15 @@ function url2meta($url)
 		if (cinii_rdf($url . '/rdf', $item) == 0)
 		{
 			$item->status = 'ok';
+			
+			// fix this, some may have DOIs
+			/*
+			$doi = search_for_doi($item->issn, $item->volume, $item->spage, 'article', $item);		
+			if ($doi != '')
+			{
+				$item->doi = $doi;
+			}
+			*/
 		}
 	}
 
@@ -819,6 +828,10 @@ function url2meta($url)
 				$ris_url .= 'beheco';
 				$item->issn = '1045-2249';
 				break;
+			case 'aje.oxfordjournals':
+				$ris_url .= 'amjepid';
+				$item->issn = '0002-9262';
+				break;
 			default:
 				$ris_url .= $match[2];
 				break;
@@ -957,6 +970,8 @@ function url2meta($url)
 			$item->status = 'ok';
 			$item->doi = $match[1];
 		}
+		$item->status = 'ok';
+		
 	}	
 	
 	//------------------------------------------------------------------------------
@@ -973,6 +988,8 @@ function url2meta($url)
 			$item->status = 'ok';
 			$item->doi = $match[1];
 		}
+		$item->status = 'ok';
+
 	}	
 	
 	
@@ -1147,14 +1164,57 @@ function url2meta($url)
 		
 	}
 	
+	
+	//------------------------------------------------------------------------------
+	// Scielo
+	// http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1679-62252009000100001&lng=en&nrm=iso&tlng=en
+	if (preg_match('/http:\/\/www.scielo.br/', $url))
+	{
+		
+		$html = get($url);
+	
+		//echo $html;		
+			
+		preg_match('/doi:\s*(.*)&nbsp;/', $html, $match);
+		if (isset($match[1]))
+		{
+			$item->status = 'ok';
+			$item->doi = $match[1];
+			$item->url = $url;
+		}
+		preg_match('/pid=(S[0-9]{4}\-[0-9]*)&/', $url, $match);
+		if (isset($match[1]))
+		{
+			$item->publisher_id = $match[1];
+			$item->xml_url = 'http://www.scielo.br/scieloOrg/php/articleXML.php?pid=' . $item->publisher_id . '&lang=en';
+			
+			// If we haven't gotten a DOI do something here...
+		}
+		
+		$item->status = 'ok';
+
+	}	
+	
+	
+	
+	
 	return $item;
 	
 	
+
 	
 /*	echo '<pre>';
 	print_r($item);
 	echo '</pre>'; */
 }
+
+
+
+/*$url = 'http://ci.nii.ac.jp/naid/10018719057';
+$item = url2meta($url);
+print_r($item);*/
+
+
 /*
 $url = 'http://apt.allenpress.com/perlserv/?request=get-abstract&doi=10.1043%2F0006-324X%282003%29116%5B0395%3AFNGOLC%5D2.3.CO%3B2';
 $item = url2meta($url);
@@ -1202,5 +1262,24 @@ $item->source = $url;
 print_r($item);
 
 */
+
+//$url = 'http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1679-62252009000100001&lng=en&nrm=iso&tlng=en';
+//$item = url2meta($url);
+//print_r($item);
+
+
+// xml
+
+
+// html
+
+
+
+
+
+
+
+
+
 
 ?>
