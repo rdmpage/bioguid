@@ -52,11 +52,19 @@ class FeedMaker
 	}
 	
 	//----------------------------------------------------------------------------------------------
+	// For moany feeds the URL will be unique, but for others (especially services) this may not be
+	// the case, so make this a method we can override.
+	function FeedId ()
+	{
+		$this->id = md5($this->url);
+	}
+	
+	//----------------------------------------------------------------------------------------------
 	function StoreFeedSource()
 	{
 		global $db;
 		
-		$this->id = md5($this->url);
+		$this->FeedId();
 		
 		$sql = 'SELECT * FROM `feed_source` WHERE (id = ' . $db->qstr($this->id) . ') LIMIT  1';
 		
@@ -84,9 +92,7 @@ class FeedMaker
 	function StoreFeedHarvestTime()
 	{
 		global $db;
-		
-		$this->id = md5($this->url);
-		
+			
 		$sql = 'SELECT * FROM `feed_source` WHERE (id = ' . $db->qstr($this->id) . ') LIMIT  1';
 		
 		$result = $db->Execute($sql);
@@ -137,7 +143,7 @@ class FeedMaker
 	
 		$sql = 'SELECT * FROM feed_item 
 		WHERE (feed_id = ' . $db->qstr($this->id) . ')
-		ORDER BY pubdate DESC
+		ORDER BY updated DESC
 		LIMIT ' . $num_items;
 		
 		//echo $sql;
@@ -152,7 +158,13 @@ class FeedMaker
 			$item->link = $result->fields['link'];
 			$item->title = $result->fields['title'];
 			$item->description = $result->fields['description'];
-			$item->pubdate = $result->fields['pubdate'];
+
+			// dates
+			$item->updated = $result->fields['updated'];
+			if ($result->fields['created'] != '')
+			{
+				$item->created = $result->fields['created'];
+			}
 			
 			if ($result->fields['latitude'] != '')
 			{
@@ -210,14 +222,26 @@ class FeedMaker
 			$columns .= ',description';
 			$values .= ',' . $db->qstr($item->description);
 			
-			if (isset($item->pubdate))
+			// dates
+			if (isset($item->updated))
 			{
-				$columns .= ',pubdate';
-				$values .= ',' . $db->qstr($item->pubdate);
+				$columns .= ',updated';
+				$values .= ',' . $db->qstr($item->updated);
 			}
 			else
 			{
-				$columns .= ',pubdate';
+				$columns .= ',updated';
+				$values .= ', NOW()';
+			}
+
+			if (isset($item->created))
+			{
+				$columns .= ',created';
+				$values .= ',' . $db->qstr($item->created);
+			}
+			else
+			{
+				$columns .= ',created';
 				$values .= ', NOW()';
 			}
 			
@@ -328,10 +352,17 @@ class FeedMaker
 			$link->setAttribute('type', 'text/html');
 			$link->setAttribute('href', $item->link);
 		
-			// date
+			// dates
 			$updated = $entry->appendChild($feed->createElement('updated'));
-			$updated->appendChild($feed->createTextNode(date(DATE_ATOM, strtotime($item->pubdate))));
-		
+			$updated->appendChild($feed->createTextNode(date(DATE_ATOM, strtotime($item->updated))));
+			
+			if (isset($item->created))
+			{
+				$created = $entry->appendChild($feed->createElement('published'));
+				$created->appendChild($feed->createTextNode(date(DATE_ATOM, strtotime($item->created))));
+			}		
+			
+			
 			// id
 			$id = $entry->appendChild($feed->createElement('id'));
 			$id->appendChild($feed->createTextNode('urn:uuid:' . uuid()));
@@ -407,6 +438,22 @@ class FeedMaker
 							$link->setAttribute('type', 'text/html');
 							$link->setAttribute('href', 'http://bioguid.info/' . $v);
 							$link->setAttribute('title', $v);
+							break;
+
+						case 'url':
+							$link = $entry->appendChild($feed->createElement('link'));
+							$link->setAttribute('rel', 'related');
+							$link->setAttribute('type', 'text/html');
+							$link->setAttribute('href', $v);
+							$link->setAttribute('title', $v);
+							break;
+
+						case 'pdf':
+							$link = $entry->appendChild($feed->createElement('link'));
+							$link->setAttribute('rel', 'related');
+							$link->setAttribute('type', 'application/pdf');
+							$link->setAttribute('href', $v);
+							$link->setAttribute('title', 'PDF');
 							break;
 							
 						default:

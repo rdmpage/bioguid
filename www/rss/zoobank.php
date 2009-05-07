@@ -64,15 +64,37 @@ class ZoobankFeed extends FeedMaker
 
 					if (preg_match('/urn:lsid:zoobank.org:act/', $lsid))
 					{
+						// Act
 						$nodeCollection = $xpath->query ("//dc:title");
 						foreach($nodeCollection as $node)
 						{
 							$item->title = $node->firstChild->nodeValue;
 						}
 						$item->description = "Nomenclatural act";
+							
+						$nodeCollection = $xpath->query ("//tpub:url");
+						foreach($nodeCollection as $node)
+						{
+							$url = $node->firstChild->nodeValue;
+							if (preg_match('/^doi:\s*(.*)$/', $url, $match))
+							{
+								array_push ($item->links, array('doi' => $match[1]) );
+							}
+						}
+	
+						$nodeCollection = $xpath->query ("//tpub:PublicationCitation/dc:identifier");
+						foreach($nodeCollection as $node)
+						{
+							$l = $node->firstChild->nodeValue;
+							if (preg_match('/^urn:lsid:(.*)$/', $l, $match))
+							{
+								array_push ($item->links, array('lsid' => $l) );
+							}
+						}
 					}
 					else
 					{
+						// Publication
 						$nodeCollection = $xpath->query ("//PublicationCitation:title");
 						foreach($nodeCollection as $node)
 						{
@@ -102,25 +124,6 @@ class ZoobankFeed extends FeedMaker
 
 					
 
-					$nodeCollection = $xpath->query ("//tpub:url");
-					foreach($nodeCollection as $node)
-					{
-						$url = $node->firstChild->nodeValue;
-						if (preg_match('/^doi:\s*(.*)$/', $url, $match))
-						{
-							array_push ($item->links, array('doi' => $match[1]) );
-						}
-					}
-
-					$nodeCollection = $xpath->query ("//tpub:PublicationCitation/dc:identifier");
-					foreach($nodeCollection as $node)
-					{
-						$l = $node->firstChild->nodeValue;
-						if (preg_match('/^urn:lsid:(.*)$/', $l, $match))
-						{
-							array_push ($item->links, array('lsid' => $l) );
-						}
-					}
 
 					
 				}		
