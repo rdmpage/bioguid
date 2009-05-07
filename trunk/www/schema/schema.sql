@@ -1,14 +1,26 @@
 # Sequel Pro dump
-# Version 392
+# Version 663
 # http://code.google.com/p/sequel-pro
 #
 # Host: localhost (MySQL 5.1.26-rc)
 # Database: bioguid
-# Generation Time: 2009-04-28 18:37:56 +0100
+# Generation Time: 2009-05-07 16:36:34 +0100
 # ************************************************************
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 
 # Dump of table arc_g2t
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `arc_g2t`;
 
 CREATE TABLE `arc_g2t` (
   `g` mediumint(8) unsigned NOT NULL,
@@ -21,6 +33,8 @@ CREATE TABLE `arc_g2t` (
 
 # Dump of table arc_id2val
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `arc_id2val`;
 
 CREATE TABLE `arc_id2val` (
   `id` mediumint(8) unsigned NOT NULL,
@@ -35,6 +49,8 @@ CREATE TABLE `arc_id2val` (
 
 # Dump of table arc_o2val
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `arc_o2val`;
 
 CREATE TABLE `arc_o2val` (
   `id` mediumint(8) unsigned NOT NULL,
@@ -51,6 +67,8 @@ CREATE TABLE `arc_o2val` (
 # Dump of table arc_s2val
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `arc_s2val`;
+
 CREATE TABLE `arc_s2val` (
   `id` mediumint(8) unsigned NOT NULL,
   `cid` mediumint(8) unsigned NOT NULL,
@@ -66,6 +84,8 @@ CREATE TABLE `arc_s2val` (
 # Dump of table arc_setting
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `arc_setting`;
+
 CREATE TABLE `arc_setting` (
   `k` char(32) COLLATE utf8_unicode_ci NOT NULL,
   `val` text COLLATE utf8_unicode_ci NOT NULL,
@@ -76,6 +96,8 @@ CREATE TABLE `arc_setting` (
 
 # Dump of table arc_triple
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `arc_triple`;
 
 CREATE TABLE `arc_triple` (
   `t` mediumint(8) unsigned NOT NULL,
@@ -98,6 +120,8 @@ CREATE TABLE `arc_triple` (
 
 # Dump of table article_cache
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `article_cache`;
 
 CREATE TABLE `article_cache` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -136,12 +160,14 @@ CREATE TABLE `article_cache` (
   KEY `spage` (`spage`),
   KEY `epage` (`epage`),
   KEY `idx_issn_volume_spage` (`issn`,`volume`,`spage`)
-) ENGINE=InnoDB AUTO_INCREMENT=117527 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=117828 DEFAULT CHARSET=utf8;
 
 
 
 # Dump of table author
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `author`;
 
 CREATE TABLE `author` (
   `author_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -153,12 +179,14 @@ CREATE TABLE `author` (
   PRIMARY KEY (`author_id`),
   KEY `lastname` (`lastname`),
   KEY `forename` (`forename`)
-) ENGINE=InnoDB AUTO_INCREMENT=122649 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=123109 DEFAULT CHARSET=utf8;
 
 
 
 # Dump of table author_reference_joiner
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `author_reference_joiner`;
 
 CREATE TABLE `author_reference_joiner` (
   `author_id` int(11) DEFAULT NULL,
@@ -177,6 +205,8 @@ CREATE TABLE `author_reference_joiner` (
 # Dump of table crossref
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `crossref`;
+
 CREATE TABLE `crossref` (
   `title` varchar(255) DEFAULT NULL,
   `issn` char(9) DEFAULT NULL,
@@ -192,6 +222,8 @@ CREATE TABLE `crossref` (
 
 # Dump of table darwin_core
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `darwin_core`;
 
 CREATE TABLE `darwin_core` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -241,6 +273,8 @@ CREATE TABLE `darwin_core` (
 # Dump of table darwin_core_ubio_joiner
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `darwin_core_ubio_joiner`;
+
 CREATE TABLE `darwin_core_ubio_joiner` (
   `darwin_core_id` int(11) DEFAULT NULL,
   `namebankID` int(11) DEFAULT NULL,
@@ -253,6 +287,8 @@ CREATE TABLE `darwin_core_ubio_joiner` (
 # Dump of table feed
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `feed`;
+
 CREATE TABLE `feed` (
   `url` varchar(255) DEFAULT NULL,
   `last_modified` varchar(64) DEFAULT NULL,
@@ -261,8 +297,45 @@ CREATE TABLE `feed` (
 
 
 
+# Dump of table feed_item
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `feed_item`;
+
+CREATE TABLE `feed_item` (
+  `id` varchar(255) DEFAULT NULL,
+  `feed_id` varchar(32) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `description` text,
+  `updated` datetime DEFAULT NULL,
+  `latitude` float DEFAULT NULL,
+  `longitude` float DEFAULT NULL,
+  `links` varchar(255) DEFAULT NULL,
+  `tags` varchar(255) DEFAULT NULL,
+  `created` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table feed_source
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `feed_source`;
+
+CREATE TABLE `feed_source` (
+  `id` varchar(32) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `last_accessed` datetime NOT NULL,
+  `harvest_interval` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
 # Dump of table genbank
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `genbank`;
 
 CREATE TABLE `genbank` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -293,12 +366,14 @@ CREATE TABLE `genbank` (
   KEY `lat_lon` (`lat_lon`),
   KEY `locality` (`locality`),
   KEY `organism` (`organism`)
-) ENGINE=MyISAM AUTO_INCREMENT=216330 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=217201 DEFAULT CHARSET=latin1;
 
 
 
 # Dump of table issn
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `issn`;
 
 CREATE TABLE `issn` (
   `title` varchar(255) DEFAULT NULL,
@@ -314,6 +389,8 @@ CREATE TABLE `issn` (
 # Dump of table jstor
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `jstor`;
+
 CREATE TABLE `jstor` (
   `journal` varchar(255) NOT NULL DEFAULT '',
   `issn` varchar(9) NOT NULL DEFAULT '',
@@ -326,6 +403,8 @@ CREATE TABLE `jstor` (
 
 # Dump of table secondary_author_reference_joiner
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `secondary_author_reference_joiner`;
 
 CREATE TABLE `secondary_author_reference_joiner` (
   `author_id` int(11) DEFAULT NULL,
@@ -344,6 +423,8 @@ CREATE TABLE `secondary_author_reference_joiner` (
 # Dump of table services
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `services`;
+
 CREATE TABLE `services` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
@@ -359,6 +440,8 @@ CREATE TABLE `services` (
 # Dump of table status
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `status`;
+
 CREATE TABLE `status` (
   `service_id` int(11) NOT NULL,
   `status` int(11) DEFAULT NULL,
@@ -373,6 +456,8 @@ CREATE TABLE `status` (
 
 # Dump of table ubio_cache
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `ubio_cache`;
 
 CREATE TABLE `ubio_cache` (
   `namebankID` int(11) NOT NULL DEFAULT '0',
@@ -394,3 +479,13 @@ CREATE TABLE `ubio_cache` (
 
 
 
+
+
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
