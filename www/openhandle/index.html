@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="content-type" content="application/xhtml+xml" />
+        <title>Openhandle</title>
+        
+   <style type="text/css">
+	body 
+	{
+		font-family: Verdana, Arial, sans-serif;
+		font-size: 12px;
+		padding:30px;
+	
+	}
+	
+.blueRect {
+	background-color: rgb(239, 239, 239);
+	border:1px solid rgb(239, 239, 239);
+	background-repeat: repeat-x;
+	color: #000;
+	width: 400px;
+}
+.blueRect .bottom {
+	height: 10px;
+}
+.blueRect .middle {
+	margin: 10px 12px 0px 12px;
+}
+.blueRect .cn {
+	background-image: url(../images/c6.png);
+	background-repeat: no-repeat;
+	height: 10px;
+	line-height: 10px;
+	position: relative;
+	width: 10px;
+}
+.blueRect .tl {
+	background-position: top left;
+	float: left;
+	margin: -2px 0px 0px -2px;
+}
+.blueRect .tr {
+	background-position: top right;
+	float: right;
+	margin: -2px -2px 0px 0px;
+}
+.blueRect .bl {
+	background-position: bottom left;
+	float: left;
+	margin: 2px 0px -2px -2px;
+}
+.blueRect .br {
+	background-position: bottom right;
+	float: right;
+	margin: 2px -2px -2px 0px;
+}		
+    
+	#details
+	{
+		display: none;
+		position:absolute;
+		background-color:white;
+		border: 1px solid rgb(128,128,128);
+	}
+    </style>
+  
+        
+        
+        
+    </head>
+    <body id="openhandle">
+        <h1>Openhandle</h1>
+        
+        <p>This is an instance of Tony Hammond's <a href="http://openhandle.googlecode.com/">Openhandle</a> 
+        application, which makes it possible to query Handles (including DOIs). For more details (and argument why this is useful, visit  
+        the project&#8217;s <a href="http://openhandle.googlecode.com/">Googlecode homepage</a>, or read the 
+        <a href="http://www.crossref.org/mt/mt-search.cgi?IncludeBlogs=4&search=openhandle">essays on the CrossTech blog</a>.</p>
+        
+        <p>The form below can be used to submit a query to the Openhandle application.
+        Please specify the <code>Handle ID</code> for which you want to view the
+        record (e.g. <code>10.1556/ABot.51.2009.1-2.2</code>). To see some little used features of Handles, such as 
+        <a href="http://www.crossref.org/CrossTech/2008/08/multiple_resolution.html">multiple resolution</a>, try the DOI <code>10.2277/0521553385</code>.</p>
+
+        <p>Optionally, you can also specify:</p>
+
+        <ol>
+            <li>A comma-separated list of Handle data types to limit your query to</li>
+            <li>A comma-separated list of integer indexes from the record to return in the response</li>
+            <li>The format in which the response should be returned</li>
+            <li>A mimetype to use to return the response as (this is just a convenience feature for viewing responses in a web browser)</li>
+        </ol>
+        
+<div class="blueRect" style="width:100%">
+	<div class="top">
+		<div class="cn tl"></div>
+
+		<div class="cn tr"></div>
+	</div>
+	<div class="middle">
+        
+        
+        <form id="openhandleForm" method="get" action="handle.php">
+
+            <table>
+                <tr><td>Handle ID</td><td> <input id="handleId" name="id" type="text" maxlength="255" value="10.2277/0521553385"/> <span class="required">(Required)</span></td></tr>
+                <tr><td>Data types</td><td> <input id="datatypes" name="include" type="text" maxlength="255" /></td></tr>
+                <tr><td>Indices</td><td> <input id="indices" name="index" type="text" maxlength="255" /></td></tr>
+                <tr>
+
+                    <td>Format</td><td>
+                    <select id="format" name="format">
+                        <option value="rdf" >rdf</option>
+                        <option value="json" selected="selected">json</option>
+                        <option value="n3">n3</option>
+                    </select>
+                    </td>
+                </tr>
+
+  <!--              <tr><td for="mimetype">Mimetype</td><td> <input id="mimetype" name="mimetype" type="text" maxlength="255" /></td></tr> -->
+  <tr><td for="mimetype">Mimetype</td>
+  <td>
+                     <select id="mimetype" name="mimetype">
+                        <option value="text/plain" selected="selected">text/plain</option>
+                        <option value="text/xml">text/xml</option>
+                        <option value="application/xml">application/xml</option>
+                    </select>
+				</td></tr>
+                <tr><td></td><td><input name="submit" type="submit" /></td></tr>
+            </table>
+        </form>
+        
+</div>
+	<div class="bottom">
+
+		<div class="cn bl"></div>
+		<div class="cn br"></div>
+	</div>
+</div>
+        
+        
+    </body>
+</html>
+
