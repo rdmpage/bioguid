@@ -16,6 +16,7 @@ function parse_ipni_ref($str, &$matches, $debug = 0)
 
 	$str = preg_replace('/\(\-?[0-9]+;\s*fig(.*)\)\.?/', '', $str);
 	$str = preg_replace('/\(([0-9]+)\-[0-9]+;\s*fig(.*)\)\.?/', "$1", $str);
+	$str = preg_replace('/\(\-[0-9]+\)\./', '', $str);
 	
 /*	echo $str;
 	preg_match('/ \(([0-9]+)/', $str, $matches);
@@ -99,7 +100,7 @@ function parse_ipni_ref($str, &$matches, $debug = 0)
 		if ($debug) echo "Trying " . __LINE__ . "\n";
 		if (preg_match('/
 			(?<journal>.*)\s+(?<volume>[0-9]+)
-			(\((?<issue>[0-9]+)\))?
+			(\((?<issue>[0-9]+(\-[0-9]+)?)\)?)?
 			:\s*
 			(?<page>[0-9]+)\.\s*
 			(?<year>[0-9]{4})/x', $str, $matches))
@@ -159,6 +160,10 @@ if (0)
 	array_push($refs, 'Bradleya 26: 92. 2008 [18 Jul 2008]');
 	array_push($refs, 'Austral Syst Biol 18(2): 202 (-203, 195; fig. 10d (map)) 2005');
 	array_push($refs, 'Bot. J. Linn. Soc. 159(3): 430 (fig. 5, map). 2009 [12 Mar 2009] ');
+	array_push($refs, 'Pl. Syst. Evol. 278(1-2): 120. 2009 [Mar 2009]');
+	array_push($refs, 'Taxon 58(1): 317. 2009');
+	array_push($refs, 'Acta Bot. Hung. 51(1-2): 21 (-23). 2009 [Mar 2009');
+	array_push($refs, 'Acta Bot. Hung. 51(1-2): 11 (-14; fig. 1). 2009 [Mar 2009]');
 	
 	$ok = 0;
 	foreach ($refs as $str)

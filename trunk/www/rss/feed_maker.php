@@ -135,7 +135,7 @@ class FeedMaker
 	}	
 
 	//----------------------------------------------------------------------------------------------
-	function RetrieveFeedItems ($num_items = 10)
+	function RetrieveFeedItems ($num_items = 100)
 	{
 		global $db;
 		
