@@ -149,22 +149,22 @@ class IpniFeed extends FeedMaker
 					{
 						if (isset($ref->doi))
 						{
-							array_push($item->links, array('doi' =>  $ref->doi));
-							
+							array_push($item->links, array('doi' =>  $ref->doi));							
 							$item->description .= '<br/><a href="http://dx.doi.org/' . $ref->doi . '">doi:' . $ref->doi . '</a>';
-
 						}
-						elseif (isset($ref->pmid))
+						if (isset($ref->pmid))
 						{
 							array_push($item->links, array('pmid' =>  $ref->pmid));
 						}
-						elseif (isset($ref->hdl))
+						if (isset($ref->hdl))
 						{
 							array_push($item->links, array('hdl' =>  $ref->hdl));
+							$item->description .= '<br/><a href="http://hdl.handle.net/' . $ref->hdl . '">doi:' . $ref->hdl . '</a>';
 						}
-						elseif (isset($ref->url))
+						if (isset($ref->url))
 						{
 							array_push($item->links, array('url' =>  $ref->url));
+							$item->description .= '<br/><a href="' . $ref->url . '">' . $ref->url . '</a>';
 						}
 					}
 					else
