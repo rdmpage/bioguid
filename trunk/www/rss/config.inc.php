@@ -20,17 +20,17 @@ $config['web_dir']		= dirname(__FILE__) . '/';
 
 
 // Database
-$config['db_user'] 		= 'root';
-$config['db_passwd'] 	= '';
-$config['db_name'] 		= 'bioguid';
+$config['db_user'] 		= '<database user>';
+$config['db_passwd'] 	= '<database password>';
+$config['db_name'] 		= '<database name>';
 
 
 
-// Directories------------------------------------------------------------------
+// Directories--------------------------------------------------------------------------------------
 $config['adodb_dir'] 	= 'adodb5/adodb.inc.php'; 
 
 
-// Proxy settings for connecting to the web----------------
+// Proxy settings for connecting to the web---------------------------------------------------------
 
 // Set these if you access the web through a proxy server. This
 // is necessary if you are going to use external services such
@@ -40,6 +40,10 @@ $config['proxy_port'] 	= '';
 
 $config['proxy_name'] 	= 'wwwcache.gla.ac.uk';
 $config['proxy_port'] 	= '8080';
+
+// Service keys--------------------------------------------------------------------------------------	
+
+$config['ubio_keyCode']		= '<your ubio key';
 
 	
 ?>
