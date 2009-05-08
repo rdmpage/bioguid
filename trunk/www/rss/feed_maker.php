@@ -32,6 +32,10 @@ $db->Connect("localhost",
 // Ensure fields are (only) indexed by column name
 $ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
 
+define('RSS1', 'RSS 1.0', true);
+define('RSS2', 'RSS 2.0', true);
+define('ATOM', 'ATOM', true);
+
 
 //--------------------------------------------------------------------------------------------------
 class FeedMaker
@@ -41,14 +45,16 @@ class FeedMaker
 	var $title;
 	var $harvest_interval;
 	var $items;
+	var $version;
 	
 	//----------------------------------------------------------------------------------------------
-	function __construct($url, $title, $harvest_interval = 1)
+	function __construct($url, $title, $harvest_interval = 1, $version = ATOM)
 	{
 		$this->url 				= $url;
 		$this->title 			= $title;
 		$this->harvest_interval = $harvest_interval;
 		$this->StoreFeedSource();
+		$this->version			= $version;
 	}
 	
 	//----------------------------------------------------------------------------------------------
@@ -182,6 +188,10 @@ class FeedMaker
 			{
 				$item->links = array();
 			}
+			if ($result->fields['payload'] != '')
+			{
+				$item->payload = json_decode($result->fields['payload']);
+			}
 			
 			array_push($this->items, $item);
 			$result->MoveNext();				
@@ -264,6 +274,12 @@ class FeedMaker
 				$values .= ',' . $db->qstr($j);
 			}
 				
+			if (isset($item->payload))
+			{
+				$j = json_encode($item->payload);
+				$columns .= ',payload';
+				$values .= ',' . $db->qstr($j);
+			}
 			
 			
 			$sql .= $columns . $values . ');';
@@ -285,7 +301,7 @@ class FeedMaker
 			$this->StoreFeedHarvestTime();
 		}
 		// Get cached content
-		$this->RetrieveFeedItems(10);
+		$this->RetrieveFeedItems();
 		
 		$rss = $this->ItemsToFeed();
 		return $rss;
@@ -294,178 +310,349 @@ class FeedMaker
 	//----------------------------------------------------------------------------------------------
 	function ItemsToFeed()
 	{
-		// header
 		$feed = new DomDocument('1.0');
-		$rss = $feed->createElement('feed');
-		$rss->setAttribute('xmlns', 'http://www.w3.org/2005/Atom');
-		$rss->setAttribute('xmlns:geo', 'http://www.w3.org/2003/01/geo/wgs84_pos#');
-		$rss->setAttribute('xmlns:georss', 'http://www.georss.org/georss');
-		$rss = $feed->appendChild($rss);
 		
-		// feed
-		
-		// title
-		$title = $feed->createElement('title');
-		$title = $rss->appendChild($title);
-		$value = $feed->createTextNode($this->title);
-		$value = $title->appendChild($value);
-		
-		// link
-		$link = $feed->createElement('link');
-		$link->setAttribute('href', $this->url);
-		$link = $rss->appendChild($link);
-		
-		// updated
-		$updated = $feed->createElement('updated');
-		$updated = $rss->appendChild($updated);
-		$value = $feed->createTextNode(date(DATE_ATOM));
-		$value = $updated->appendChild($value);
-		
-		// id
-		$id = $feed->createElement('id');
-		$id = $rss->appendChild($id);
-		$value = $feed->createTextNode('urn:uuid:' . uuid());
-		$value = $id->appendChild($value);
-		
-		// author
-		$author = $feed->createElement('author');
-		$author = $rss->appendChild($author);
-		
-		$name = $feed->createElement('name');
-		$name = $author->appendChild($name);
-		
-		$value = $feed->createTextNode('Rod Page');
-		$value = $name->appendChild($value);
-		
-		foreach ($this->items as $item)
+		switch ($this->version)
 		{
-			$entry = $feed->createElement('entry');
-			$entry = $rss->appendChild($entry);
-			
-			// title
-			$title = $entry->appendChild($feed->createElement('title'));
-			$title->appendChild($feed->createTextNode($item->title));
-		
-			// link
-			$link = $entry->appendChild($feed->createElement('link'));
-			$link->setAttribute('rel', 'alternate');
-			$link->setAttribute('type', 'text/html');
-			$link->setAttribute('href', $item->link);
-		
-			// dates
-			$updated = $entry->appendChild($feed->createElement('updated'));
-			$updated->appendChild($feed->createTextNode(date(DATE_ATOM, strtotime($item->updated))));
-			
-			if (isset($item->created))
-			{
-				$created = $entry->appendChild($feed->createElement('published'));
-				$created->appendChild($feed->createTextNode(date(DATE_ATOM, strtotime($item->created))));
-			}		
-			
-			
-			// id
-			$id = $entry->appendChild($feed->createElement('id'));
-			$id->appendChild($feed->createTextNode('urn:uuid:' . uuid()));
-		
-			// content
-			$content = $entry->appendChild($feed->createElement('content'));
-			$content->setAttribute('type', 'html');
-			$content->appendChild($feed->createTextNode($item->description));
-		
-			// summary
-			$summary = $entry->appendChild($feed->createElement('summary'));
-			$summary->setAttribute('type', 'html');
-			$summary->appendChild($feed->createTextNode($item->description));
-		
-			// georss
-			if (isset($item->latitude))
-			{
-				$geo = $entry->appendChild($feed->createElement('georss:point'));
-				$geo->appendChild($feed->createTextNode($item->latitude . ' ' . $item->longitude));
-		
-				$geo = $entry->appendChild($feed->createElement('geo:lat'));
-				$geo->appendChild($feed->createTextNode($item->latitude));
-		
-				$geo = $entry->appendChild($feed->createElement('geo:long'));
-				$geo->appendChild($feed->createTextNode($item->longitude));
-			}
-			
-						
-			// links
-			foreach ($item->links as $link)
-			{
-				//print_r($link);
-			
-				foreach ($link as $k => $v)
+			case RSS1:
+				$rss = $feed->createElement('rdf:RDF');
+				$rss->setAttribute('xmlns', 'http://purl.org/rss/1.0/');
+				$rss->setAttribute('xmlns:rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+				$rss->setAttribute('xmlns:dc', 'http://purl.org/dc/elements/1.1/');
+				$rss->setAttribute('xmlns:prism', 'http://prismstandard.org/namespaces/1.2/basic/');
+				$rss->setAttribute('xmlns:geo', 'http://www.w3.org/2003/01/geo/wgs84_pos#');
+				$rss->setAttribute('xmlns:georss', 'http://www.georss.org/georss');
+				$rss = $feed->appendChild($rss);
+
+				// channel
+				$channel = $feed->createElement('channel');
+				$channel->setAttribute('rdf:about', $this->url);
+				$channel = $rss->appendChild($channel);
+				
+				// title
+				$title = $channel->appendChild($feed->createElement('title'));
+				$title->appendChild($feed->createTextNode($this->title));
+
+				// link
+				$link = $channel->appendChild($feed->createElement('link'));
+				$link->appendChild($feed->createTextNode($this->url));
+
+				// description
+				$description = $channel->appendChild($feed->createElement('description'));
+				$description->appendChild($feed->createTextNode($this->title));
+
+				// items
+				$items = $channel->appendChild($feed->createElement('items'));
+				$seq = $items->appendChild($feed->createElement('rdf:Seq'));
+
+				// list them
+				foreach ($this->items as $item)
 				{
-					switch ($k)
+					$li = $seq->appendChild($feed->createElement('rdf:li'));
+					$li->setAttribute('rdf:resource', $item->link	);
+				}			
+				
+				//print_r($this->items);
+				
+				// items
+				foreach ($this->items as $item)
+				{
+					$i = $rss->appendChild($feed->createElement('item'));
+					$i->setAttribute('rdf:about', $item->link);
+					
+					// title
+					$title = $i->appendChild($feed->createElement('title'));
+					$title->appendChild($feed->createTextNode($item->title));
+
+					// link
+					$link = $i->appendChild($feed->createElement('link'));
+					$link->appendChild($feed->createTextNode($item->link));
+
+					// description
+					$description = $i->appendChild($feed->createElement('description'));
+					$description->appendChild($feed->createTextNode($item->description));
+					
+					
+					if (isset($item->payload))
 					{
-						case 'taxon':
-							$link = $entry->appendChild($feed->createElement('link'));
-							$link->setAttribute('rel', 'related');
-							$link->setAttribute('type', 'text/html');
-							$link->setAttribute('href', 'http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=' . $v);
-							$link->setAttribute('title', 'taxon:' . $v);
-							break;
-		
-						case 'doi':
-							$link = $entry->appendChild($feed->createElement('link'));
-							$link->setAttribute('rel', 'related');
-							$link->setAttribute('type', 'text/html');
-							$link->setAttribute('href', 'http://dx.doi.org/' . $v);
-							$link->setAttribute('title', 'doi:' . $v);
-							break;
-
-						case 'hdl':
-							$link = $entry->appendChild($feed->createElement('link'));
-							$link->setAttribute('rel', 'related');
-							$link->setAttribute('type', 'text/html');
-							$link->setAttribute('href', 'http://hdl.handle.net/' . $v);
-							$link->setAttribute('title', 'hdl:' . $v);
-							break;
-		
-						case 'pmid':
-							$link = $entry->appendChild($feed->createElement('link'));
-							$link->setAttribute('rel', 'related');
-							$link->setAttribute('type', 'text/html');
-							$link->setAttribute('href', 'http://www.ncbi.nlm.nih.gov/pubmed/' . $v);
-							$link->setAttribute('title', 'pmid:' . $v);
-							break;
-
-						case 'lsid':
-							$link = $entry->appendChild($feed->createElement('link'));
-							$link->setAttribute('rel', 'related');
-							$link->setAttribute('type', 'text/html');
-							$link->setAttribute('href', 'http://bioguid.info/' . $v);
-							$link->setAttribute('title', $v);
-							break;
-
-						case 'url':
-							$link = $entry->appendChild($feed->createElement('link'));
-							$link->setAttribute('rel', 'related');
-							$link->setAttribute('type', 'text/html');
-							$link->setAttribute('href', $v);
-							$link->setAttribute('title', $v);
-							break;
-
-						case 'pdf':
-							$link = $entry->appendChild($feed->createElement('link'));
-							$link->setAttribute('rel', 'related');
-							$link->setAttribute('type', 'application/pdf');
-							$link->setAttribute('href', $v);
-							$link->setAttribute('title', 'PDF');
-							break;
+						if (isset($item->payload->atitle))
+						{
+							$element = $i->appendChild($feed->createElement('dc:title'));
+							$element->appendChild($feed->createTextNode($item->payload->atitle));	
+						}
+						if (isset($item->payload->date))
+						{
+							$element = $i->appendChild($feed->createElement('dc:date'));
+							$element->appendChild($feed->createTextNode($item->payload->date));	
+						}
+						if (isset($item->payload->title))
+						{
+							$element = $i->appendChild($feed->createElement('prism:publicationName'));
+							$element->appendChild($feed->createTextNode($item->payload->title));	
+						}
+						if (isset($item->payload->issn))
+						{
+							$element = $i->appendChild($feed->createElement('prism:issn'));
+							$element->appendChild($feed->createTextNode($item->payload->issn));	
+						}
+						if (isset($item->payload->volume))
+						{
+							$element = $i->appendChild($feed->createElement('prism:volume'));
+							$element->appendChild($feed->createTextNode($item->payload->volume));	
+						}
+						if (isset($item->payload->issue))
+						{
+							$element = $i->appendChild($feed->createElement('prism:number'));
+							$element->appendChild($feed->createTextNode($item->payload->issue));	
+						}
+						if (isset($item->payload->spage))
+						{
+							$element = $i->appendChild($feed->createElement('prism:startingPage'));
+							$element->appendChild($feed->createTextNode($item->payload->spage));	
+						}
+						if (isset($item->payload->epage))
+						{
+							$element = $i->appendChild($feed->createElement('prism:endingPage'));
+							$element->appendChild($feed->createTextNode($item->payload->epage));	
+						}
+						if (isset($item->payload->authors))
+						{
+							foreach($item->payload->authors as $author)
+							{
+								$str = $author->forename . ' ' . $author->lastname;
+								if (isset($author->suffix))
+								{
+									$str .= ' ' . $author->suffix;
+								}
+								
+								$element = $i->appendChild($feed->createElement('dc:creator'));
+								$element->appendChild($feed->createTextNode($str));								
+							}
+						
+						}
+						
+						if (isset($item->payload->tags))
+						{
+							foreach($item->payload->tags as $tag)
+							{
+								$element = $i->appendChild($feed->createElement('dc:subject'));
+								$element->appendChild($feed->createTextNode($tag));								
+							}
+						}
+						if (isset($item->payload->tagids))
+						{
+							foreach($item->payload->tagids as $tag)
+							{
+								$element = $i->appendChild($feed->createElement('dc:subject'));
+								$element->setAttribute('rdf:resource', $tag	);
+							}
+						}
 							
-						default:
-							break;
+					
+					}
+					
+				}	
+/*				
+
+				
+<item rdf:about="http://scx.sagepub.com/cgi/reprint/30/3/299?rss=1">
+<title><![CDATA[No More "Business as Usual": Addressing Climate Change Through Constructive Engagement]]></title>
+<link>http://scx.sagepub.com/cgi/reprint/30/3/299?rss=1</link>
+<description><![CDATA[]]></description>
+<dc:creator><![CDATA[Maibach, E., Hornig Priest, S.]]></dc:creator>
+<dc:date>2009-02-06</dc:date>
+<dc:identifier>info:doi/10.1177/1075547008329202</dc:identifier>
+<dc:title><![CDATA[No More "Business as Usual": Addressing Climate Change Through Constructive Engagement]]></dc:title>
+<prism:number>3</prism:number>
+<prism:volume>30</prism:volume>
+<prism:endingPage>304</prism:endingPage>
+
+<prism:publicationDate>2009-03-01</prism:publicationDate>
+<prism:startingPage>299</prism:startingPage>
+<prism:section>Article</prism:section>
+</item>
+				
+*/					
+				break;
+				
+			case RSS2:
+				break;
+				
+			case ATOM:
+				// header
+				$rss = $feed->createElement('feed');
+				$rss->setAttribute('xmlns', 'http://www.w3.org/2005/Atom');
+				$rss->setAttribute('xmlns:geo', 'http://www.w3.org/2003/01/geo/wgs84_pos#');
+				$rss->setAttribute('xmlns:georss', 'http://www.georss.org/georss');
+				$rss = $feed->appendChild($rss);
+				
+				// feed
+				
+				// title
+				$title = $feed->createElement('title');
+				$title = $rss->appendChild($title);
+				$value = $feed->createTextNode($this->title);
+				$value = $title->appendChild($value);
+				
+				// link
+				$link = $feed->createElement('link');
+				$link->setAttribute('href', $this->url);
+				$link = $rss->appendChild($link);
+				
+				// updated
+				$updated = $feed->createElement('updated');
+				$updated = $rss->appendChild($updated);
+				$value = $feed->createTextNode(date(DATE_ATOM));
+				$value = $updated->appendChild($value);
+				
+				// id
+				$id = $feed->createElement('id');
+				$id = $rss->appendChild($id);
+				$value = $feed->createTextNode('urn:uuid:' . uuid());
+				$value = $id->appendChild($value);
+				
+				// author
+				$author = $feed->createElement('author');
+				$author = $rss->appendChild($author);
+				
+				$name = $feed->createElement('name');
+				$name = $author->appendChild($name);
+				
+				$value = $feed->createTextNode('Rod Page');
+				$value = $name->appendChild($value);
+				
+				foreach ($this->items as $item)
+				{
+					$entry = $feed->createElement('entry');
+					$entry = $rss->appendChild($entry);
+					
+					// title
+					$title = $entry->appendChild($feed->createElement('title'));
+					$title->appendChild($feed->createTextNode($item->title));
+				
+					// link
+					$link = $entry->appendChild($feed->createElement('link'));
+					$link->setAttribute('rel', 'alternate');
+					$link->setAttribute('type', 'text/html');
+					$link->setAttribute('href', $item->link);
+				
+					// dates
+					$updated = $entry->appendChild($feed->createElement('updated'));
+					$updated->appendChild($feed->createTextNode(date(DATE_ATOM, strtotime($item->updated))));
+					
+					if (isset($item->created))
+					{
+						$created = $entry->appendChild($feed->createElement('published'));
+						$created->appendChild($feed->createTextNode(date(DATE_ATOM, strtotime($item->created))));
+					}		
+					
+					
+					// id
+					$id = $entry->appendChild($feed->createElement('id'));
+					$id->appendChild($feed->createTextNode('urn:uuid:' . uuid()));
+				
+					// content
+					$content = $entry->appendChild($feed->createElement('content'));
+					$content->setAttribute('type', 'html');
+					$content->appendChild($feed->createTextNode($item->description));
+				
+					// summary
+					$summary = $entry->appendChild($feed->createElement('summary'));
+					$summary->setAttribute('type', 'html');
+					$summary->appendChild($feed->createTextNode($item->description));
+				
+					// georss
+					if (isset($item->latitude))
+					{
+						$geo = $entry->appendChild($feed->createElement('georss:point'));
+						$geo->appendChild($feed->createTextNode($item->latitude . ' ' . $item->longitude));
+				
+						$geo = $entry->appendChild($feed->createElement('geo:lat'));
+						$geo->appendChild($feed->createTextNode($item->latitude));
+				
+						$geo = $entry->appendChild($feed->createElement('geo:long'));
+						$geo->appendChild($feed->createTextNode($item->longitude));
+					}
+					
+								
+					// links
+					foreach ($item->links as $link)
+					{
+						//print_r($link);
+					
+						foreach ($link as $k => $v)
+						{
+							switch ($k)
+							{
+								case 'taxon':
+									$link = $entry->appendChild($feed->createElement('link'));
+									$link->setAttribute('rel', 'related');
+									$link->setAttribute('type', 'text/html');
+									$link->setAttribute('href', 'http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=' . $v);
+									$link->setAttribute('title', 'taxon:' . $v);
+									break;
+				
+								case 'doi':
+									$link = $entry->appendChild($feed->createElement('link'));
+									$link->setAttribute('rel', 'related');
+									$link->setAttribute('type', 'text/html');
+									$link->setAttribute('href', 'http://dx.doi.org/' . $v);
+									$link->setAttribute('title', 'doi:' . $v);
+									break;
+		
+								case 'hdl':
+									$link = $entry->appendChild($feed->createElement('link'));
+									$link->setAttribute('rel', 'related');
+									$link->setAttribute('type', 'text/html');
+									$link->setAttribute('href', 'http://hdl.handle.net/' . $v);
+									$link->setAttribute('title', 'hdl:' . $v);
+									break;
+				
+								case 'pmid':
+									$link = $entry->appendChild($feed->createElement('link'));
+									$link->setAttribute('rel', 'related');
+									$link->setAttribute('type', 'text/html');
+									$link->setAttribute('href', 'http://www.ncbi.nlm.nih.gov/pubmed/' . $v);
+									$link->setAttribute('title', 'pmid:' . $v);
+									break;
+		
+								case 'lsid':
+									$link = $entry->appendChild($feed->createElement('link'));
+									$link->setAttribute('rel', 'related');
+									$link->setAttribute('type', 'text/html');
+									$link->setAttribute('href', 'http://bioguid.info/' . $v);
+									$link->setAttribute('title', $v);
+									break;
+		
+								case 'url':
+									$link = $entry->appendChild($feed->createElement('link'));
+									$link->setAttribute('rel', 'related');
+									$link->setAttribute('type', 'text/html');
+									$link->setAttribute('href', $v);
+									$link->setAttribute('title', $v);
+									break;
+		
+								case 'pdf':
+									$link = $entry->appendChild($feed->createElement('link'));
+									$link->setAttribute('rel', 'related');
+									$link->setAttribute('type', 'application/pdf');
+									$link->setAttribute('href', $v);
+									$link->setAttribute('title', 'PDF');
+									break;
+									
+								default:
+									break;
+							}
+						}
 					}
 				}
-			}
+				break;
+				
+			default:
+				break;
 		}
-
+			
 		return $feed->saveXML();
-	
-	
 	}
 	
 	//----------------------------------------------------------------------------------------------

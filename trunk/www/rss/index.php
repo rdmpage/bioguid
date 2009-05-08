@@ -24,7 +24,8 @@ $feeds = array(
 	// Animals
 	
 	'Animals' => array(
-		array('title' => 'Zoobank', 'url' => 'zoobank.php')
+		array('title' => 'Zoobank', 'url' => 'zoobank.php'),
+		array('title' => 'Zootaxa', 'url' => 'zootaxa.php')
 		),
 		
 	'Plants' => array(
@@ -223,7 +224,14 @@ $feeds = array(
 		array('title' => 'IPNI Xyridaceae', 'url' => 'ipni.php?family=Xyridaceae'),
 		array('title' => 'IPNI Zingiberaceae', 'url' => 'ipni.php?family=Zingiberaceae'),
 		array('title' => 'IPNI Zygophyllaceae', 'url' => 'ipni.php?family=Zygophyllaceae')	
+		),
+		
+		
+	'Journals (provided by publisher)' => array(
+		// IPNI
+		array('title' => 'Molecular Phylogenetics and Evolution', 'url' => 'http://rss.sciencedirect.com/publication/science/6963'),
 		)
+		
 	);
 
 switch ($format)
@@ -266,7 +274,14 @@ switch ($format)
 							$feed->setAttribute('text', $v);
 							break;
 						case 'url':
-							$feed->setAttribute('xmlUrl', $feed_prefix . $v);
+							if (preg_match('/^http:/', $v))
+							{
+								$feed->setAttribute('xmlUrl', $v);
+							}
+							else
+							{								
+								$feed->setAttribute('xmlUrl', $feed_prefix . $v);
+							}
 							break;
 						default:
 							break;
@@ -355,8 +370,10 @@ switch ($format)
 
 </head>
 <body>
+  <p><a href="../">Home</a></p>
+
   <h1>Feeds</h1>
-  <p>RSS feeds for sites that don't have them (yet).</p>
+  <p>RSS feeds for sites (databases and journals) that don't have them (yet).</p>
   <p><a href="?format=opml"><img src="images/opml-icon-32x32.png" border="0"/></a> <a href="?format=opml">OPML listing of feeds</a></p>
 
 <?
@@ -378,7 +395,15 @@ switch ($format)
 							$title_text = $v;
 							break;
 						case 'url':
-							$url_text = '<a href="' . $feed_prefix . $v . '">';
+							if (preg_match('/^http:/', $v))
+							{
+								$url_text = '<a href="' . $v . '">';
+							}
+							else
+							{								
+								$url_text = '<a href="' . $feed_prefix . $v . '">';
+							}
+							break;
 							break;
 						default:
 							break;
