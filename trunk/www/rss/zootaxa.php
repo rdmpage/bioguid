@@ -267,7 +267,6 @@ class ZootaxaFeed extends FeedMaker
 
 $url = 'http://www.mapress.com/zootaxa/content.html';
 $f = new ZootaxaFeed($url, 'Zootaxa Current Issues',1, RSS1);
-header("Content-type: text/xml");
-echo $f->GetRss();
+$f->WriteFeed();
 
 ?>

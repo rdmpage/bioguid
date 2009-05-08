@@ -46,6 +46,8 @@ class FeedMaker
 	var $harvest_interval;
 	var $items;
 	var $version;
+	var $etag;
+	var $last_modified;
 	
 	//----------------------------------------------------------------------------------------------
 	function __construct($url, $title, $harvest_interval = 1, $version = ATOM)
@@ -79,6 +81,8 @@ class FeedMaker
 	
 		if ($result->NumRows() == 0)
 		{
+		
+		
 			$sql = 'INSERT INTO `feed_source`(`id`, `url`, `last_accessed`, `harvest_interval`) VALUES ('
 			 . $db->qstr($this->id)
 			 . ', ' . $db->qstr($this->url)
@@ -95,6 +99,8 @@ class FeedMaker
 	}	
 	
 	//----------------------------------------------------------------------------------------------
+	// Store the time we harvested the feed from it's remote source, and set the Etag and 
+	// last modified fields to a new value and the present time, respectively
 	function StoreFeedHarvestTime()
 	{
 		global $db;
@@ -106,7 +112,14 @@ class FeedMaker
 	
 		if ($result->NumRows() == 1)
 		{
-			$sql = 'UPDATE feed_source SET last_accessed=NOW()';
+			$this->etag = '"' . md5(uniqid()) . '"';
+			$this->last_modified = date(DATE_RFC822);
+		
+			$sql = 'UPDATE feed_source SET last_accessed=NOW()'
+				. ', etag=' . $db->qstr($this->etag)
+				. ', last_modified=' . $db->qstr($this->last_modified)
+				. ' WHERE (id=' . $db->qstr($this->id) . ')';
+			
 			$result = $db->Execute($sql);
 			if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
 			
@@ -114,7 +127,8 @@ class FeedMaker
 	}		
 	
 	//----------------------------------------------------------------------------------------------
-	// Has feed expired (i.e., is the last time we harvested the feed older than the harvest interval?
+	// Has feed expired (i.e., is the last time we harvested the feed older than the harvest interval?)
+	// At the same time we retrieve the ETag and last modified settings
 	function SourceExpired($id)
 	{
 		global $db;
@@ -128,6 +142,9 @@ class FeedMaker
 	
 		if ($result->NumRows() == 1)
 		{
+			$this->etag = $result->fields['etag'];
+			$this->last_modified = $result->fields['last_modified'];
+			
 			$sql = 'SELECT (DATE_ADD(' . $db->qstr($result->fields['last_accessed']) 
 				. ', INTERVAL ' . $db->qstr($result->fields['harvest_interval']) . ' DAY)) < NOW() AS expired';
 				
@@ -139,6 +156,24 @@ class FeedMaker
 		
 		return $expired;
 	}	
+	
+	//----------------------------------------------------------------------------------------------
+	// Get last modified and etag
+	function GetETag()
+	{
+		global $db;
+
+		$sql = 'SELECT * FROM `feed_source` WHERE (id = ' . $db->qstr($this->id) . ') LIMIT  1';
+				
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+	
+		if ($result->NumRows() == 1)
+		{
+			$this->etag = $result->fields['etag'];
+			$this->last_modified = $result->fields['last_modified'];
+		}
+	}		
 
 	//----------------------------------------------------------------------------------------------
 	function RetrieveFeedItems ($num_items = 100)
@@ -300,6 +335,9 @@ class FeedMaker
 			$this->Harvest();
 			$this->StoreFeedHarvestTime();
 		}
+		
+		//echo "Line: " . __LINE__ . " " . $this->etag;
+		
 		// Get cached content
 		$this->RetrieveFeedItems();
 		
@@ -660,6 +698,70 @@ class FeedMaker
 	{
 	}
 	
+	//----------------------------------------------------------------------------------------------
+	function WriteHeader($changed = true)
+	{
+		if ($changed)
+		{
+			header("Content-type: text/xml");
+			header("ETag: " . $this->etag);	
+			header("Last-Modified: " . $this->last_modified);	
+		}
+		else
+		{
+			header("HTTP/1.1 304 Not Modified");
+		}
+	}
+	
+	//----------------------------------------------------------------------------------------------
+	function WriteFeed()
+	{
+		if ($this->CheckHeader())
+		{
+			$rss = $this->GetRss();
+			$this->WriteHeader();
+			echo $rss;	
+		}
+		else
+		{
+			$this->WriteHeader(false);
+		}
+	}
+	
+	//----------------------------------------------------------------------------------------------
+	function CheckHeader()
+	{
+		$send = true;
+		
+		$this->GetETag();
+		
+		$headers = getallheaders();
+		foreach ($headers as $k => $v)
+		{
+			switch (strtolower($k))
+			{					
+				case 'if-modified-since':
+					if (strcasecmp($this->last_modified, $v) == 0)
+					{
+						$send = false;
+					}
+					break;
+					
+				case 'if-none-match':
+					if (strcasecmp($this->etag, $v) == 0)
+					{
+						$send = false;
+					}
+					break;
+					
+				default:
+					break;
+			}
+		}
+		return $send;
+	}
+					
+		
 	
 }
 
