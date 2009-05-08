@@ -143,7 +143,6 @@ class ZoobankFeed extends FeedMaker
 
 $url = 'http://zoobank.org';
 $f = new ZoobankFeed($url, 'ZooBank Most Recent Entries');
-header("Content-type: text/xml");
-echo $f->GetRss();
+$f->WriteFeed();
 
 ?>

@@ -202,7 +202,6 @@ class IpniFeed extends FeedMaker
 $url = 'http://www.ipni.org';
 
 $f = new IpniFeed($url, $family, 30);
-header("Content-type: text/xml");
-echo $f->GetRss();
+$f->WriteFeed();
 
 ?>
