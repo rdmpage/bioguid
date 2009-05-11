@@ -21,6 +21,17 @@ if (isset($_GET['format']))
 // List of feeds I generate, placed in categories
 $feeds = array(
 
+	// Barcodes
+	
+	'Barcodes' => array(
+		array('title' => 'Birds', 'url' => 'barcode.php?taxon_id=8782'),
+		array('title' => 'Amphibia', 'url' => 'barcode.php?taxon_id=8292'),
+		array('title' => 'Fish', 'url' => 'barcode.php?taxon_id=7898'),
+		array('title' => 'Insects', 'url' => 'barcode.php?taxon_id=6960'),
+		array('title' => 'Crustacea', 'url' => 'barcode.php?taxon_id=6657'),
+		array('title' => 'Fungi', 'url' => 'barcode.php?taxon_id=4751'),
+		array('title' => 'Plants', 'url' => 'barcode.php?taxon_id=3193')
+	),
 
 	// Fungi
 	
