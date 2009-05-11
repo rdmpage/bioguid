@@ -21,6 +21,13 @@ if (isset($_GET['format']))
 // List of feeds I generate, placed in categories
 $feeds = array(
 
+
+	// Fungi
+	
+	'Fungi' => array(
+		array('title' => 'Mycobank', 'url' => 'mycobank.php'),
+		),
+		
 	// Animals
 	
 	'Animals' => array(
