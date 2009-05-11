@@ -594,10 +594,10 @@ class FeedMaker
 					$content->setAttribute('type', 'html');
 					$content->appendChild($feed->createTextNode($item->description));
 				
-					// summary
-					$summary = $entry->appendChild($feed->createElement('summary'));
+					// summary (do we need this, it is duplicated in Google Maps? )
+					/*$summary = $entry->appendChild($feed->createElement('summary'));
 					$summary->setAttribute('type', 'html');
-					$summary->appendChild($feed->createTextNode($item->description));
+					$summary->appendChild($feed->createTextNode($item->description));*/
 				
 					// georss
 					if (isset($item->latitude))
