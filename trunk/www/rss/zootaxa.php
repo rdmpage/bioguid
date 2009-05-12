@@ -4,6 +4,8 @@ require_once (dirname(__FILE__) . '/feed_maker.php');
 require_once (dirname(__FILE__) . '/nameparse.php');
 require_once (dirname(__FILE__) . '/ubio_findit.php');
 
+$debug = 0;
+
 
 //--------------------------------------------------------------------------------------------------
 class ZootaxaFeed extends FeedMaker
@@ -11,6 +13,9 @@ class ZootaxaFeed extends FeedMaker
 	//----------------------------------------------------------------------------------------------
 	function Harvest()
 	{
+	
+		global $debug;
+		
 		//echo "|" . $this->url . "|";
 		$html = get($this->url);
 		
@@ -27,7 +32,10 @@ class ZootaxaFeed extends FeedMaker
 		<p\s+align="left">(.*)<\/p>
 		/x',  $html, $matches, PREG_PATTERN_ORDER))
 		{
-			//print_r($matches);
+			if ($debug)
+			{
+				print_r($matches);
+			}
 			
 			foreach ($matches[1] as $paragraph)
 			{
@@ -153,6 +161,16 @@ class ZootaxaFeed extends FeedMaker
 					$item->date =  date("Y-m-d", strtotime($m['date']));
 					$item->year =  date("Y", strtotime($m['date']));
 				}
+				
+				// (11 <i>May 2009</i>)
+				if (preg_match('/(?<date>[0-9]+\s+<i>[A-Z][a-z]+\s+[0-9]{4})<\/i>/', $paragraph, $m))
+				{
+					$date = strip_tags($m['date']);
+					
+					$item->date =  date("Y-m-d", strtotime($date));
+					$item->year =  date("Y", strtotime($date));
+				}
+				
 				
 				// title
 				if (preg_match('/<font FACE="Times New Roman">(?<title>.*)<\/b><br>/', $paragraph, $m))
