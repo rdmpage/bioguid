@@ -3,6 +3,78 @@
 // Reference string parsing...
 
 
+function parse_ion_ref($str, &$matches, $debug = 0)
+{
+	$matched = false;
+	
+	if (preg_match('/(?<journal>Zootaxa), (?<volume>\d+), (?<date>\s*((\d+ \w+)|(\w+ \d+)|(\w+))?(\s*(?<year>[0-9]{4})))(\((?<actualyear>[0-9]{4})\))?:\s*(?<spage>\d+)-(?<epage>\d+).(\s*http:\/\/(?<url>.*) \[)?/', $str, $matches))
+	{
+		if ($debug)
+		{
+			echo __LINE__ . "\n";
+			print_r($matches);	
+		}
+		$matched = true;
+	}	
+	
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>(.*)), (No. )?(?<volume>\d+),?\s*(\((?<issue>\d+\-\d+)\)),? (?<date>\s*(\d+ \w+)?(\s*(?<year>[0-9]{4}))):\s*(?<spage>\d+)-(?<epage>\d+)./', $str, $matches))
+		{
+			if ($debug)
+			{
+				echo __LINE__ . "\n";
+				print_r($matches);	
+			}
+			$matched = true;
+		}	
+	}
+
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>(.*)), (No. )?(?<volume>\d+),?\s*(\((?<issue>\d+\-\d+)\)), (?<months>[A-Z][a-z]+\-[A-Z][a-z]+)\s*(?<year>[0-9]{4}):\s*(?<spage>\d+)-(?<epage>\d+)./', $str, $matches))
+		{
+			if ($debug)
+			{
+				echo __LINE__ . "\n";
+				print_r($matches);	
+			}
+			$matched = true;
+		}	
+	}
+	
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>(.*)), (No. )?(?<volume>\d+),?\s*(\((?<issue>\d+)\))?,?(?<date>\s*((\d+ \w+)|(\w+ \d+)|(\w+))?(\s*(?<year>[0-9]{4})))(\((?<actualyear>[0-9]{4})\))?:\s*(?<spage>\d+)-(?<epage>\d+).(\s*http:\/\/(?<url>.*) \[)?/', $str, $matches))
+		{
+			if ($debug)
+			{
+				echo __LINE__ . "\n";
+				print_r($matches);	
+			}
+			$matched = true;
+		}
+	}
+	
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>(.*)), (?<volume>\d+)\s*(?<year>[0-9]{4}):\s*pp.\s*(?<spage>\d+)-(?<epage>\d+)./', $str, $matches))
+		{
+			if ($debug)
+			{
+				echo __LINE__ . "\n";
+				print_r($matches);	
+			}
+			$matched = true;
+		}
+	}
+	
+
+
+//A review of the Telorchiinae, a group of Distomid Trematodes. Parasitology Cambridge, 20 1928: pp. 336-356.
+	return $matched;	
+}
+
 function parse_ipni_ref($str, &$matches, $debug = 0)
 {
 	//$debug = 1;
@@ -137,6 +209,41 @@ function parse_ipni_ref($str, &$matches, $debug = 0)
 	
 	return $matched;
 }
+
+// Test cases for ION
+if (0)
+{
+	
+
+	$refs = array();
+	$failed = array();
+	
+	array_push($refs, 'A new species of glassfrog from the elfin forests of the Cordillera del Condor, southeastern Ecuador. (Anura: Centrolenidae). Herpetozoa, 21(1-2), 30 Juni 2008: 49-56.');
+	array_push($refs, 'A new species of mermithid nematode parasite Romanomermis narayani n. sp. from Culex sp. Mosquito larvae in the rice fields of A.P. Current Nematology, 17(1-2), June-December 2006: 7-15.');
+	array_push($refs, 'A review of the Telorchiinae, a group of Distomid Trematodes. Parasitology Cambridge, 20 1928: pp. 336-356.');
+	array_push($refs, 'Mas datos para el conocimiento de las esponjas de las costas espanolas. Boletin de Pescas Madrid, 7 1922: pp. 247-272.');
+	array_push($refs,	'Caruncle in Megalomma Johansson, 1925 (Polychaeta: Sabellidae) and the description of a new species from the eastern Tropical Pacific. Journal of Natural History, 42(29-30) 2008: 1951-1973.');
+	
+	$ok = 0;
+	foreach ($refs as $str)
+	{
+		$matched = parse_ion_ref($str, $matches, 1);
+		if ($matched)
+		{
+			$ok++;
+		}
+		else
+		{
+			array_push($failed, $str);
+		}
+	}
+	
+	// report
+	
+	echo "--------------------------\n";
+	echo count($refs) . ' references, ' . (count($refs) - $ok) . ' failed' . "\n";
+	print_r($failed);
+}
 	
 // Test cases for IPNI
 if (0)
@@ -164,6 +271,7 @@ if (0)
 	array_push($refs, 'Taxon 58(1): 317. 2009');
 	array_push($refs, 'Acta Bot. Hung. 51(1-2): 21 (-23). 2009 [Mar 2009');
 	array_push($refs, 'Acta Bot. Hung. 51(1-2): 11 (-14; fig. 1). 2009 [Mar 2009]');
+	array_push($refs, 'Madro–o  55(3):188. 2008 [Jul 208]');
 	
 	$ok = 0;
 	foreach ($refs as $str)
