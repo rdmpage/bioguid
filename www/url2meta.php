@@ -447,8 +447,16 @@ function url2meta($url)
 			
 	}
 	
-	
-	
+	// New style...
+	// http://www.bioone.org/doi/abs/10.1651/08-3058a.1?ai=tr&af=R
+	//------------------------------------------------------------------------------
+	if (preg_match('/http:\/\/www.bioone.org\/doi\/abs\/(.*)\?/', $url, $match))
+	{
+		$item->status = 'ok';
+		$item->comment = 'url';
+		$item->doi = $match[1];
+	}
+
 	
 	//------------------------------------------------------------------------------
 	if (preg_match('/http:\/\/www.bioone.org\/perlserv\/\?request=get-(abstract|document)&doi=(.*)/', $url, $match))
@@ -1175,12 +1183,14 @@ function url2meta($url)
 	
 		//echo $html;		
 			
-		preg_match('/doi:\s*(.*)&nbsp;/', $html, $match);
+		preg_match('/doi:\s*(10.[0-9]+\/(S[0-9]{4}\-[0-9]*))/', $html, $match);
 		if (isset($match[1]))
 		{
 			$item->status = 'ok';
 			$item->doi = $match[1];
 			$item->url = $url;
+			
+			//print_r($match);
 		}
 		preg_match('/pid=(S[0-9]{4}\-[0-9]*)&/', $url, $match);
 		if (isset($match[1]))
@@ -1195,21 +1205,40 @@ function url2meta($url)
 
 	}	
 	
-	
+	//------------------------------------------------------------------------------
+	// hindawi
+	// http://www.hindawi.com/GetArticle.aspx?doi=10.1155/1875/15751
+	if (preg_match('/http:\/\/www.hindawi.com/', $url, $match))
+	{
+		
+		if (preg_match('/doi=(.*)$/', $url, $match))
+		{
+			//print_r($match);
+			$item->status = 'ok';
+			$item->doi = $match[1];
+		}
+
+	}	
 	
 	
 	return $item;
 	
 	
 
-	
-/*	echo '<pre>';
-	print_r($item);
-	echo '</pre>'; */
+
 }
 
+/*
+$url = 'http://www.bioone.org/doi/abs/10.1651/08-3058a.1?ai=tr&af=R';
+$item = url2meta($url);
+print_r($item);
+*/
 
 
+/*$url = 'http://www.hindawi.com/GetArticle.aspx?doi=10.1155/1875/15751';
+$item = url2meta($url);
+print_r($item);
+*/
 /*$url = 'http://ci.nii.ac.jp/naid/10018719057';
 $item = url2meta($url);
 print_r($item);*/
@@ -1263,11 +1292,12 @@ print_r($item);
 
 */
 
-//$url = 'http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1679-62252009000100001&lng=en&nrm=iso&tlng=en';
-//$item = url2meta($url);
-//print_r($item);
+/*$url = 'http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1679-62252009000100001&lng=en&nrm=iso&tlng=en';
+$url = 'http://www.scielo.br/scielo.php?script=sci_abstract&pid=S0034-71082001000200013&lng=en&nrm=iso&tlng=en';
+$item = url2meta($url);
+print_r($item);
 
-
+*/
 // xml
 
 
