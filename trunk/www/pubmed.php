@@ -16,6 +16,11 @@ function get_pubmed_from_doi($doi)
 	 . '&term=' . $doi;
 	 
 	$xml = get($url);
+	
+	if ($xml == '')
+	{
+		return $pmid;
+	}
 	 
 	$dom= new DOMDocument;
 	$dom->loadXML($xml);
