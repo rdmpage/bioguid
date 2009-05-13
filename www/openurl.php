@@ -356,6 +356,7 @@ function setText(id, str)
 
 </head>
 <body>
+<p><a href=".">Home</a></p>
 
 <!-- <img src="images/bioGUID24.png" align="absmiddle"/><br/> -->
 
@@ -986,6 +987,16 @@ function find_article_from_id($referent, &$item)
 						$item->doi = $doi;
 					}*/
 				}
+				
+				// Have we already got this object?
+				$cache_id = find_in_cache($item);
+				if ($cache_id != 0)
+				{
+					// yes, we already have this
+					
+					// Update info
+					update_article_attribute($cache_id, 'url' , 'http://' . $referent->id['url']);
+				}
 			}
 			else
 			{
@@ -1069,6 +1080,8 @@ function find_article_have_spage($values, &$item)
 				
 				// Make a simple SICI to search JSTOR
 				$sici = sici_from_meta($values);
+				
+				
 				
 				$found = jstor_metadata($sici, $item);
 				
@@ -1154,7 +1167,7 @@ function find_article_from_page($values, &$item)
 		{
 			//echo 'Should be in CrossRef';
 			
-			$max_tries = 40;
+			$max_tries = 10;
 			$doi = '';
 			
 			$page = $values['pages'];
@@ -1216,7 +1229,8 @@ function find_article_from_page($values, &$item)
 		{		
 			if ($debug)
 			{
-				echo '<p>Trying JSTOR</p>';
+				echo '<p>Trying JSTOR ' . $values['issn'] . '</p>';
+				
 			}
 		
 			
@@ -1294,6 +1308,15 @@ function find_article_from_page($values, &$item)
 				
 				
 			}
+			else
+			{
+				if ($debug)
+				{
+					echo '<p>Not enough for JSTOR lookup, or out of range ' . $values['issn'] . ' ' . $values['date'] . '</p>';
+					
+				}
+			}
+				
 		}
 		
 		
@@ -1757,6 +1780,7 @@ function ws_connotea(obj)
 	
 	echo '</head>';
 	echo '<body>';
+    echo '<p><a href=".">Home</a></p>';
 
 
 	echo '<div style="font-size:18px;font-family:Georgia,Times,serif;font-weight:bold;">' . $item->atitle . '</div>';
