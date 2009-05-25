@@ -162,7 +162,7 @@ function fetchInformaworld($url, &$item)
 	
 	//echo 'boo';
 	
-	echo $html;
+	//echo $html;
 	
 	
 	if ($html != '')
@@ -370,6 +370,10 @@ function url2meta($url)
 			{
 				//echo $url;
 				$url = 'http://www.informaworld.com/smpp/content~db=all~content=a' . $match[1];
+				fetchInformaworld($url, $item);
+			}
+			else
+			{
 				fetchInformaworld($url, $item);
 			}
 		}
