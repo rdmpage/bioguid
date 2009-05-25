@@ -453,6 +453,31 @@ function gb_lat_lon(&$data)
 
 		}
 		
+		// 8 deg 45 min S, 63 deg 26 min W [DQ098864]
+		if (preg_match("/([0-9]{1,2})\s*deg\s*([0-9]{1,2})\s*min\s*([S|N]),\s*([0-9]{1,3})\s*deg\s*([0-9]{1,2})\s*min\s*([W|E])/", $lat_lon, $matches))
+		{
+			print_r ($matches);
+			
+			$degrees = $matches[1];
+			$minutes = $matches[2];
+			$seconds = 0;
+			$hemisphere = $matches[3];
+			$lat = $degrees + ($minutes/60.0) + ($seconds/3600);
+			if ($hemisphere == 'S') { $lat *= -1.0; };
+		
+			$data->source->latitude = $lat;
+		
+			$degrees = $matches[4];
+			$minutes = $matches[5];
+			$seconds = 0;
+			$hemisphere = $matches[6];
+			$long = $degrees + ($minutes/60.0) + ($seconds/3600);
+			if ($hemisphere == 'W') { $long *= -1.0; };
+			
+			$data->source->longitude = $long;
+		}
+		
+		
 		// N19.49048, W155.91167 [EF219364]
 		if (preg_match ("/(?<lat_hemisphere>(N|S))(?<latitude>(\d+(\.\d+))), (?<long_hemisphere>(W|E))(?<longitude>(\d+(\.\d+)))/", $lat_lon, $matches))
 		{
