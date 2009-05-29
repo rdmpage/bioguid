@@ -179,6 +179,11 @@ class ZootaxaFeed extends FeedMaker
 					
 					$atitle = $m['title'];
 					
+					// Some Zootaxa HTML replies on implict space between >< for spacing,
+					// which results in word being run together when tags are stripped.
+					
+					$atitle = str_replace('><', '> <', $atitle);
+					
 					$atitle = strip_tags($atitle);
 					$atitle = preg_replace('/\s\s*/', ' ', $atitle);
 					$item->atitle = $atitle;

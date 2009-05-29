@@ -21,6 +21,14 @@ if (isset($_GET['format']))
 // List of feeds I generate, placed in categories
 $feeds = array(
 
+	// New taxon feeds
+	
+	'New taxa' => array(
+		array('title' => 'CiNii "sp.nov." search', 'url' => 'http://ci.nii.ac.jp/opensearch/search?q=sp.%20nov.&range=0sortorder=1&start=1&count=20&format=rss'),
+		array('title' => 'PubMed "n. sp." search', 'url' => 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/erss.cgi?rss_guid=149V05c98i9HlVNyPr24_qmDKX6MT0D31yJ_v20ilbVHi8AQO'),
+		array('title' => 'uBio', 'url' => 'ubio.php')
+	),		
+
 	// Barcodes
 	
 	'Barcodes' => array(
@@ -32,6 +40,10 @@ $feeds = array(
 		array('title' => 'Fungi', 'url' => 'barcode.php?taxon_id=4751'),
 		array('title' => 'Plants', 'url' => 'barcode.php?taxon_id=3193')
 	),
+	
+	'GenBank' => array(
+		array('title' => 'Geotagged sequences', 'url' => 'genbank.php')
+	),	
 
 	// Fungi
 	

@@ -35,7 +35,11 @@ function ubio_findit($text)
 		'threshold' => 0.5
 		);			
 
-	$proxy = $client->getProxy();				
+	$proxy = $client->getProxy();	
+	if (!isset($proxy))
+	{
+		return $names;
+	}
 	$result = $proxy->findIT(
 		$param['url'], 
 		$param['freeText'], 
