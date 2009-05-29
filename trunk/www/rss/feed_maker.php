@@ -683,6 +683,42 @@ class FeedMaker
 							}
 						}
 					}
+					
+					// Paylod
+					if (isset($item->payload))
+					{
+						
+						if (isset($item->payload->tags))
+						{
+							// tags as ATOM categories, e.g.
+							// category term="botanicgardens" scheme="http://www.flickr.com/photos/tags/" />
+							
+							// ideally we would have a term and the scheme would be a URI that we 
+							// could append the tag to to resolve it. This won't always be possible,
+							// so for now we don't use scheme
+							
+							// see http://edward.oconnor.cx/2007/02/representing-tags-in-atom
+
+							foreach($item->payload->tags as $tag)
+							{
+								$category = $entry->appendChild($feed->createElement('category'));
+								$category->setAttribute('term', $tag);
+								//$category->setAttribute('scheme', '<some URI>');
+							}
+						}
+						/*
+						if (isset($item->payload->tagids))
+						{
+							foreach($item->payload->tagids as $tag)
+							{
+								$element = $i->appendChild($feed->createElement('dc:subject'));
+								$element->setAttribute('rdf:resource', $tag	);
+							}
+						}
+						*/
+							
+					
+					}					
 				}
 				break;
 				
@@ -758,6 +794,7 @@ class FeedMaker
 					break;
 			}
 		}
+		
 		return $send;
 	}
 					
