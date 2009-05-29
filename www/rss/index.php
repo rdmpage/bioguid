@@ -54,7 +54,10 @@ $feeds = array(
 	// Animals
 	
 	'Animals' => array(
+		array('title' => 'Plazi', 'url' => 'plazi.php'),
+		
 		array('title' => 'Zoobank', 'url' => 'zoobank.php'),
+		
 		array('title' => 'Zootaxa', 'url' => 'zootaxa.php'),
 		
 		// Zootaxa taxa
