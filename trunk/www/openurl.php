@@ -1504,6 +1504,7 @@ function display_error($display_type)
 			echo $rdf;
 			break;
 		
+		
 			
 		case DISPLAY_HTML:	
 		case DISPLAY_REDIRECT:	
@@ -1535,6 +1536,12 @@ function display_error($display_type)
 			echo '</body>';
 			echo '</html>';
 			break;
+			
+		case DISPLAY_CITE:
+			header("Content-type: text/plain; charset=utf-8\n\n");	
+			echo $error . ' ' . get_error_msg($error);
+			break;
+			
 			
 	}
 }
@@ -1655,7 +1662,7 @@ function display_rdf($item)
 	}
 	if (isset($item->title))
 	{
-		$rdf .= '<prism:publicationName>' . $item->title . '</prism:publicationName>';
+		$rdf .= '<prism:publicationName>' .  htmlspecialchars($item->title, ENT_NOQUOTES) . '</prism:publicationName>';
 	}
 	if (isset($item->issn))
 	{
@@ -2010,6 +2017,114 @@ function ws_connotea(obj)
 
 }
 
+//--------------------------------------------------------------------------------------------------
+// Wikipedia cite
+function display_cite($item)
+{
+	$item->status = 'ok';
+
+	header("Content-type: text/plain; charset=utf-8\n\n");	
+	$cite = '{{cite journal ';
+	
+	// Identifiers
+	
+	if (isset($item->doi))
+	{
+		$cite .= '| doi = '  . $item->doi;
+	}
+	
+	if (isset($item->pmid))
+	{
+		$cite .= '| pmid = '  . $item->pmid;
+	}
+			
+	if (isset($item->hdl))
+	{
+		if (!isset($item->url))
+		{
+			$cite .= '| url = '  . 'http://hdl.handle.net' . $item->hdl;
+		}
+	}
+	
+	if (isset($item->url))
+	{
+		$cite .= '| url  = '  . $item->url;
+	}
+		
+	// Authors
+	$num_authors = count($item->authors);
+	if ($num_authors > 0)
+	{
+		$cite .= '| authors = ';
+		$count = 0;
+		foreach ($item->authors as $author)
+		{
+			if ($count == 0)
+			{
+				$cite .= $author->lastname . ', ' . $author->forename;
+			}
+			else
+			{
+				if ($count == ($num_authors - 1))
+				{
+					$cite .= ', ';
+				}
+				else
+				{
+					$cite .= '& ';
+				}
+				$cite .= $author->forename . ' ' . $author->lastname;
+			}
+		}
+	}
+	
+	
+	// Bibliographic details
+	if (isset($item->atitle))
+	{
+		$cite .= '| title = ' . $item->atitle;
+	}
+	if (isset($item->title))
+	{
+		$cite .= '| journal = [[' . $item->title . ']]';
+	}
+	if (isset($item->issn))
+	{
+		$cite .= '| issn = ' . $item->issn;
+	}
+	if (isset($item->volume))
+	{
+		$cite .= '| volume = ' . $item->volume;
+	}
+	if (isset($item->issue))
+	{
+		$cite .= '| issue = ' . $item->issue;
+	}
+	$pages = '| pages = ';
+	if (isset($item->spage))
+	{
+		$pages .= $item->spage;
+	}
+	if (isset($item->epage))
+	{
+		$pages .= '-' . $item->epage;
+	}
+	$cite .= $pages;
+	if (isset($item->year))
+	{
+		$cite .= '| year = ' . $item->year;
+	}
+	/*
+	if (isset($item->date))
+	{
+		$cite .= '| date = ' . $item->date;
+	}
+	*/
+	$cite .= '}}';
+	
+	echo $cite;
+}
+
 
 
 //--------------------------------------------------------------------------------------------------
@@ -2045,6 +2160,10 @@ function display($item, $display_type)
 
 		case DISPLAY_RDF:			
 			display_rdf($item);
+			break;
+
+		case DISPLAY_CITE:			
+			display_cite($item);
 			break;
 
 		case DISPLAY_HTML:
@@ -2260,6 +2379,7 @@ define('DISPLAY_REDIRECT', 	0);
 define('DISPLAY_JSON', 		1);	
 define('DISPLAY_HTML', 		2);	
 define('DISPLAY_RDF', 		3);	
+define('DISPLAY_CITE', 		4);	
 
 
 $display_type = DISPLAY_HTML; // default
@@ -2278,6 +2398,9 @@ if (isset($_GET['display']))
 			break;
 		case 'rdf':
 			$display_type = DISPLAY_RDF;
+			break;
+		case 'cite':
+			$display_type = DISPLAY_CITE;
 			break;
 		default:
 			$display_type = DISPLAY_HTML;
