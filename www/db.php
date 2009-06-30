@@ -405,6 +405,21 @@ function store_authors($id, $authors)
 	}
 }
 
+//--------------------------------------------------------------------------------------------------
+// Update the value of a single attrribute for a single item in the article cache
+function update_article_attribute($id, $attribute_name, $attribute_value)
+{
+	global $db;
+
+	$sql = 'UPDATE article_cache SET ' 	. $attribute_name . '=' . $db->qstr($attribute_value)
+		. ' WHERE (id=' . $id . ')';
+		
+	//echo $sql;
+	
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+}		
+
 
 
 //--------------------------------------------------------------------------------------------------
@@ -692,6 +707,7 @@ function store_in_cache($item)
 	return $id;
 }
 
+//--------------------------------------------------------------------------------------------------
 $key_map = array(
 	'T1' => 'atitle',
 	'TI' => 'atitle',
@@ -710,6 +726,7 @@ $key_map = array(
 	);
 
 
+//--------------------------------------------------------------------------------------------------
 function export_ris($id)
 {
 	$item = retrieve_from_db($id);
@@ -744,6 +761,7 @@ function export_ris($id)
 
 }
 
+//--------------------------------------------------------------------------------------------------
 // Dump all refs (or those with a given ISSN) to a RIS file
 function export_all_ris ($risfilename, $issn = '')
 {
@@ -948,6 +966,7 @@ function store_ubio_name($r)
 }
 
 
+//--------------------------------------------------------------------------------------------------
 function find_genbank($acc)
 {
 	global $db;
@@ -978,6 +997,7 @@ function find_genbank($acc)
 }
 
 
+//--------------------------------------------------------------------------------------------------
 	// We have a sequence with this accession but the GI hasn't been set
 		// for example if we've been harvesting EMBL flat files
 
@@ -1007,6 +1027,7 @@ function set_gi($acc, $gi)
 }
 
 
+//--------------------------------------------------------------------------------------------------
 function retrieve_genbank_json($id)
 {
 	global $db;
@@ -1056,6 +1077,7 @@ function retrieve_genbank_json($id)
 }
 
 
+//--------------------------------------------------------------------------------------------------
 function store_genbank($d)
 {
 	global $db;
@@ -1182,6 +1204,19 @@ function store_genbank($d)
 		$fields .= ",sequence";
 		$values .= "," . $db->qstr($d->sequence);
 	}
+	
+	// dates
+	if (isset($d->created))
+	{
+		$fields .= ",created";
+		$values .= "," . $db->qstr($d->created);
+	}
+	if (isset($d->updated))
+	{
+		$fields .= ",updated";
+		$values .= "," . $db->qstr($d->updated);
+	}
+	
 
 	$fields .= ",json";
 	$values .= "," . $db->qstr(json_encode($d));
