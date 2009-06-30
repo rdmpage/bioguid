@@ -1579,7 +1579,9 @@ function display_rdf($item)
 	$id = '';
 	if (isset($item->doi))
 	{
-		$id = 'http://bioguid.info/doi:' . $item->doi;
+//		$id = 'http://bioguid.info/doi:' . $item->doi;
+		// Don't use a specific resolver for rdf:about
+		$id = 'doi:' . $item->doi;
 		$primaryId = 'doi';
 	}
 	if ($id == '')
@@ -2065,16 +2067,17 @@ function display_cite($item)
 			}
 			else
 			{
-				if ($count == ($num_authors - 1))
+				if ($count < ($num_authors - 1))
 				{
 					$cite .= ', ';
 				}
 				else
 				{
-					$cite .= '& ';
+					$cite .= ' & ';
 				}
 				$cite .= $author->forename . ' ' . $author->lastname;
 			}
+			$count++;
 		}
 	}
 	
