@@ -609,6 +609,7 @@ class Authority {
 	{
 		preg_match_all( "/\<[A-Za-z]*[:]?service(.*?)\<\/[A-Za-z]*[:]?service\>/s", $this->service_wsdl, $services);
 		
+		//echo $this->service_wsdl;
 		//print_r($services);
 		
 		foreach( $services[1] as $service )
@@ -616,7 +617,7 @@ class Authority {
 			preg_match_all( "/\<[A-Za-z]*[:]?port (.*?)\<\/[A-Za-z]*[:]?port\>/s", $service, $ports );
 			foreach ($ports[1] as $port)
 			{
-				preg_match_all ("/LSIDMetadataHTTPBinding/", $port, $binding);
+				preg_match_all ("/LSIDMetadataHTTPBinding\"/", $port, $binding);
 				if (isset($binding[0][0]))
 				{
 					preg_match_all( "/\<[A-Za-z]*[:]?address\s+location=\"(.*?)\"\s*\/\>/", $port, $location );
@@ -626,6 +627,10 @@ class Authority {
 				}
 			}
 		}
+		
+		//echo __LINE__ . ' ' . $this->httpMetadataBinding;
+		//exit();
+		
 		$result = ($this->httpMetadataBinding != '');
 		return $result;
 /*	
@@ -703,6 +708,9 @@ class Authority {
 		{
 			curl_setopt ($ch, CURLOPT_PROXY, $this->http_proxy);
 		}
+		
+		//echo '<b>' . $url . '</b><br/>';
+		
 				
 		$curl_result = curl_exec ($ch); 
 		
