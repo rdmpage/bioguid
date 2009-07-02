@@ -23,7 +23,7 @@ $store_config = array
   'store_name' => 'arc'
 );
 
-$store_config['proxy_host'] = $config['proxy_host'];
+$store_config['proxy_host'] = $config['proxy_name'];
 $store_config['proxy_port'] = $config['proxy_port'];
 	
 $store = ARC2::getStore($store_config);
@@ -216,6 +216,7 @@ else
 		$parser = ARC2::getRDFParser();		
 		$base = 'http://example.com/';
 		$parser->parse($base, $xml);	
+
 		$triples = $parser->getTriples();
 		
 		// store
@@ -228,8 +229,22 @@ else
 				//print_r($triples);	
 				
 				// Make pretty output...
-				
-				$html = '<h1>' . $lsid . '</h1>';
+$html = '				<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>' . $lsid . '</title>
+<style type="text/css">
+body 
+{
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 12px;
+	padding:30px;
+
+}
+</style>
+</head>
+<body>';		
+				$html .= '<h1>' . $lsid . '</h1>';
 				$html .= '<table>';
 				foreach ($triples as $t)
 				{
@@ -250,6 +265,11 @@ else
 					$html .= '</tr>';	
 				}
 				$html .= '</table>';
+				
+				$html .= '</body></html>';
+				
+
+				header("Content-type: text/html; charset=utf-8\n\n");	
 				echo $html;
 				break;
 		
