@@ -199,12 +199,15 @@ function doi_metadata ($doi, &$item)
 	
 	//echo mb_detect_encoding($xml);
 		
-	if (preg_match('/<doi_records/', $xml))
+	if (preg_match('/<doi_record/', $xml))
 	{
 		// Did we get a hit?
 				
 		$ok = true;
 		
+		// remove
+		$xml = str_replace('xmlns="http://www.crossref.org/xschema/1.0"', '', $xml);
+		$xml = str_replace('xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"', '', $xml);
 		
 		// strip end of lines (CSIRO sometimes has this, and it kills the JSON decoding
 		$xml = str_replace("\n", "", $xml);
