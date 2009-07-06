@@ -1257,6 +1257,36 @@ function url2meta($url)
 
 	}	
 	
+	//------------------------------------------------------------------------------
+	// Nature
+	// http://www.hindawi.com/GetArticle.aspx?doi=10.1155/1875/15751
+	if (preg_match('/http:\/\/www.nature.com\//', $url, $match))
+	{
+		
+		$html = get($url);
+	
+		//echo $html;		
+		
+		// Get meta tags (may have useful info, such as issn)
+		preg_match_all('|<meta[^>]+name=\"([^\"]*)\"\s*(scheme=\"([^\"]*)\"\s*)*content=\"([^\"]*)\"[^>]+>|',  $html, $out, PREG_PATTERN_ORDER);
+	
+		$r = print_r ($out, true);
+		
+		//print_r($r);
+		
+		parseDcMeta($out, $item);
+		
+		//print_r($item);
+		//exit();
+		
+		
+			
+		
+		$item->status = 'ok';
+
+	}	
+	
+	
 	
 	return $item;
 	
