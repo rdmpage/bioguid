@@ -882,9 +882,11 @@ function url2meta($url)
 	
 		$r = print_r ($out, true);
 	
-		/*echo "<pre>";
+		/*
+		echo "<pre>";
 		echo htmlentities($r);
-		echo "</pre>";*/
+		echo "</pre>";
+		*/
 	
 		parseDcMeta($out, $item);
 		
@@ -935,7 +937,7 @@ function url2meta($url)
 		}
 		
 			
-			// Add line feeds so regular expresison works
+			// Add line feeds so regular expression works
 			$html = str_replace('<meta', "\n<meta", $html);
 	
 			// Pull out the meta tags
@@ -1221,6 +1223,37 @@ function url2meta($url)
 			$item->status = 'ok';
 			$item->doi = $match[1];
 		}
+
+	}	
+	
+	//------------------------------------------------------------------------------
+	// Zookeys
+	if (preg_match('/http:\/\/pensoftonline.net\/zookeys\/(.*)\/(?<article>([0-9]+))$/', $url, $match))
+	{
+		$url = 'http://pensoftonline.net/zookeys/index.php/journal/article/viewArticle/' . $match['article'];
+		
+		//echo $url;
+		
+		$html = get($url);
+	
+		//echo $html;		
+		
+		// Get meta tags (may have useful info, such as issn)
+		preg_match_all('|<meta[^>]+name=\"([^\"]*)\"\s*(scheme=\"([^\"]*)\"\s*)*content=\"([^\"]*)\"[^>]+>|',  $html, $out, PREG_PATTERN_ORDER);
+	
+		$r = print_r ($out, true);
+		
+		//print_r($r);
+		
+		parseDcMeta($out, $item);
+		
+		//print_r($item);
+		//exit();
+		
+		
+			
+		
+		$item->status = 'ok';
 
 	}	
 	

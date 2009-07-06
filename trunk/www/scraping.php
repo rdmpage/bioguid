@@ -25,6 +25,8 @@ function parseDcMeta($dc, &$item)
 	$index = count($dc) - 1;
 		
 	$authors = array();
+	
+	$item->tags = array();
 
 	foreach($dc[1] as $k => $v)
 	{
@@ -79,6 +81,42 @@ function parseDcMeta($dc, &$item)
 				}
 				break;
 			*/
+			
+			// Zookeys
+			case 'dc.identifier.doi':
+				$item->doi = trim($dc[$index][$k]);
+				break;
+
+			case 'dc.source.issn':
+				$item->issn = trim($dc[$index][$k]);
+				break;
+
+			case 'dc.source.volume':
+				$item->volume = trim($dc[$index][$k]);
+				break;
+				
+			case 'dc.creator.personalname':
+				$author = trim($dc[$index][$k]);
+				$author = preg_replace('/\[[1-9]\]/', '', $author);	
+				array_push($authors, $author);
+				break;
+				
+			case 'dc.coverage.spatial':
+				$item->spatial = trim($dc[$index][$k]);
+				break;
+				
+			case 'dc.coverage.temporal':
+				$item->temporal = trim($dc[$index][$k]);
+				break;
+				
+			case 'dc.subject':
+				$tag = trim($dc[$index][$k]);
+				array_push($item->tags, $tag);
+				break;
+				
+			case 'citation_journal_title':
+				$item->title = trim($dc[$index][$k]);
+				break;
 				
 			default:
 				break;
