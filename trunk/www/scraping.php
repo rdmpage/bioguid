@@ -84,16 +84,35 @@ function parseDcMeta($dc, &$item)
 			
 			// Zookeys
 			case 'dc.identifier.doi':
+			case 'citation_doi':
 				$item->doi = trim($dc[$index][$k]);
+				$item->doi = preg_replace('/doi:/', '', $item->doi);
 				break;
 
 			case 'dc.source.issn':
+			case 'prism.issn':
 				$item->issn = trim($dc[$index][$k]);
 				break;
 
 			case 'dc.source.volume':
+			case 'citation_volume':
+			case 'prism.volume':
 				$item->volume = trim($dc[$index][$k]);
 				break;
+				
+			case 'citation_number':
+			case 'prism.number':
+				$item->issue = trim($dc[$index][$k]);
+				break;
+
+			case 'citation_first_page':
+			case 'prism.startingpage':
+				$item->spage = trim($dc[$index][$k]);
+				break;				
+
+			case 'prism.endingpage':
+				$item->epage = trim($dc[$index][$k]);
+				break;				
 				
 			case 'dc.creator.personalname':
 				$author = trim($dc[$index][$k]);
@@ -129,7 +148,10 @@ function parseDcMeta($dc, &$item)
 	
 	foreach ($authors as $a)
 	{
-	
+		// Nature has codes for accents (need to add more...)
+		$a = preg_replace('/\|\[ouml\]\|/', 'ö', $a);
+		$a = preg_replace('/\|\[uuml\]\|/', 'ü', $a);
+			
 		$a = mb_convert_case($a, 
 			MB_CASE_TITLE, mb_detect_encoding($a));
 	
