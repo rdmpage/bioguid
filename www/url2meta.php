@@ -771,10 +771,12 @@ function url2meta($url)
 		 
 	}
 	
+	//http://www.amjbot.org/cgi/content/short/96/7/1348?rss=1
+	
 	
 	//------------------------------------------------------------------------------
 	// Highwire Press
-	if (preg_match('/http:\/\/(www.)*(.*).org\/cgi\/content\/abstract\/([0-9]+\/[0-9]+\/[0-9]+)/', $url, $match))
+	if (preg_match('/http:\/\/(www.)*(.*).org\/cgi\/content\/(abstract|short)\/([0-9]+\/[0-9]+\/[0-9]+)/', $url, $match))
 	{
 		//print_r($match);
 		
@@ -1223,6 +1225,21 @@ function url2meta($url)
 			$item->status = 'ok';
 			$item->doi = $match[1];
 		}
+		else
+		{
+			$html = get($url);
+			//echo $html;
+			preg_match("/doi:(.*)<\/pre>/", $html, $match);
+			if (isset($match[1]))
+			{
+				$item->status = 'ok';
+				$item->doi = $match[1];
+				$item->url = $url;
+				
+				//print_r($match);
+			}
+		}	
+			
 
 	}	
 	
@@ -1285,6 +1302,31 @@ function url2meta($url)
 		$item->status = 'ok';
 
 	}	
+	
+	//
+	// http://www.akademiai.com/content/w1t1p0022802658q/
+	if (preg_match('/http:\/\/www.akademiai.com\/content\//', $url, $match))
+	{
+		
+		$html = get($url);
+	
+		//echo $html;	
+		
+		if (preg_match('/DOI<\/td><td class="labelValue">(?<doi>(.*))<\/td>/', $html, $match))
+		{
+			if (isset($match['doi']))
+			{
+				$item->status = 'ok';
+				$item->doi = $match['doi'];
+				$item->url = $url;
+			}
+		}
+		
+		
+		$item->status = 'ok';
+
+	}		
+	
 	
 	
 	
