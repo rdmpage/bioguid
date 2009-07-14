@@ -10,6 +10,7 @@
 require_once (dirname(__FILE__) . '/config.inc.php');
 require_once (dirname(__FILE__) . '/lib.php');
 require_once (dirname(__FILE__) . '/rss.php');
+require_once ('../nuytsia.php');
 
 
 function main()
@@ -35,8 +36,8 @@ function main()
 		'http://www.scielo.br/rss.php?pid=0074-0276&lang=en',
 		'http://www.scielo.br/rss.php?pid=0031-1049&lang=en',
 		'http://www.scielo.br/rss.php?pid=1519-566X&lang=en',
-		'http://www.scielo.br/rss.php?pid=0101-817520080004&lang=en', // Revista Brasileira de Zoologia
-		'http://www.scielo.br/rss.php?pid=1679-6225&lang=en', // Neotropical Ichthyology
+		'http://www.scielo.br/rss.php?pid=0101-817520080004&lang=en', 	// Revista Brasileira de Zoologia
+		'http://www.scielo.br/rss.php?pid=1679-6225&lang=en', 			// Neotropical Ichthyology
 		'http://www.scielo.br/rss.php?pid=0102-330620080004&lang=en',
 				
 		// Wiley
@@ -44,14 +45,16 @@ function main()
 		
 		// other
 		'http://www.akademiai.com/content/jw080595p305/?sortorder=asc&export=rss',
-		'http://www.hindawi.com/journals/psyche/rss.xml',
-	
+		'http://www.hindawi.com/journals/psyche/rss.xml', 				// Psyche
+		'http://science.dec.wa.gov.au/nuytsia/nuytsia.rss.xml', 		// Nuytsia
+		'http://pensoftonline.net/zookeys/index.php/journal/gateway/plugin/WebFeedGatewayPlugin/rss1', // Zookeys
+
 	);
 	
 	foreach ($feeds as $url)
 	{
 	
-		$result = GetRSS ($url, $rss, true);
+		$result = GetRSS ($url, $rss, false);
 		
 		echo $result . "\n";
 		
@@ -126,12 +129,28 @@ function main()
 			
 			foreach ($links as $link)
 			{
-				$url = "http://bioguid.info/openurl?id=" . urlencode($link) . "&display=json";
+				$done = false;
 				
-				$json = get($url);
-				$obj = json_decode($json);
+				// Journal-specific handling
 				
-				print_r($obj);
+				// Nuytsia is complicated as link is a database query that may return
+				// multiple papers (e.g., same author may have > 1 paper in a volume
+				if (preg_match('/http:\/\/science.dec.wa.gov.au\/nuytsia\//', $link))
+				{
+					parse_nuytsia($link);
+					$done = true;
+				}
+				
+				if (!$done)
+				{
+					// Default, link is URL of a single article...
+					$url = "http://bioguid.info/openurl?id=" . urlencode($link) . "&display=json";
+					
+					$json = get($url);
+					$obj = json_decode($json);
+					
+					print_r($obj);
+				}
 			}
 			
 			
