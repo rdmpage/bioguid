@@ -158,7 +158,7 @@ version="1.0">
 
 <xsl:text>&#x09;&#x09;&#x09;{</xsl:text>				
 <xsl:text>"lastname":"</xsl:text><xsl:value-of select="LastName"/><xsl:text>",</xsl:text>
-<xsl:text>"forename":"</xsl:text><xsl:value-of select="FirstName"/><xsl:text>"</xsl:text>
+<xsl:text>"forename":"</xsl:text><xsl:value-of select="ForeName"/><xsl:text>"</xsl:text>
 <xsl:text>}</xsl:text>		
     </xsl:template>
 
