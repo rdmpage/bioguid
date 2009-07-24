@@ -164,6 +164,7 @@ else
 	$obj->TaxonId = $taxon_id;
 	$obj->seeAlso = array();
 	$obj->hasName = array();
+	$obj->ancestors = array();
 	
 	$url = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=xml&db=taxonomy&id='
 		. $taxon_id;
@@ -197,6 +198,29 @@ else
 	{
 		$obj->Lineage = $node->firstChild->nodeValue;
 	}
+	
+	// "Ancestral" lineage
+	$nodeCollection = $xpath->query ('//TaxaSet/Taxon/LineageEx/Taxon');	
+	foreach($nodeCollection as $node)
+	{
+		$anc = new stdclass;
+		
+		$nc = $xpath->query ('TaxId', $node);	
+		foreach($nc as $n)
+		{
+			$anc->TaxonId = $n->firstChild->nodeValue;
+		}
+		$nc = $xpath->query ('ScientificName', $node);	
+		foreach($nc as $n)
+		{
+			$anc->name = $n->firstChild->nodeValue;
+		}
+		array_push($obj->ancestors, $anc);
+	}
+	
+	// Parent node
+	$obj->parent = $obj->ancestors[count($obj->ancestors)-1]->TaxonId;
+	
 
 	$nodeCollection = $xpath->query ('//TaxaSet/Taxon/ScientificName');	
 	foreach($nodeCollection as $node)
@@ -251,17 +275,17 @@ else
 		switch ($link->NameAbbr)
 		{
 			case 'Fungorum':
-				$id = $link->Url;
-				$id = str_replace('http://www.indexfungorum.org/Names/namesrecord.asp?RecordId=', '', $id);
-				array_push($obj->hasName, 'urn:lsid:indexfungorum.org:names:' . $id);
+				if (preg_match('/http:\/\/www.indexfungorum.org\/Names\/namesrecord.asp/', $link->Url))
+				{
+					$id = $link->Url;
+					$id = str_replace('http://www.indexfungorum.org/Names/namesrecord.asp?RecordId=', '', $id);
+					array_push($obj->hasName, 'urn:lsid:indexfungorum.org:names:' . $id);
+				}
 				break;
 
-			case 'IPNI':
-			
-				$ipni = new Ipni();
-				
-				$ids = $ipni->LinkoutUrl2Id($link->Url, true);
-				
+			case 'IPNI':			
+				$ipni = new Ipni();				
+				$ids = $ipni->LinkoutUrl2Id($link->Url, false);				
 				foreach ($ids as $id)
 				{
 					array_push($obj->hasName, 'urn:lsid:ipni.org:names:' . $id);
@@ -304,6 +328,7 @@ else
 					$rdf->setAttribute('xmlns:rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 					$rdf->setAttribute('xmlns:rdfs', 'http://www.w3.org/2000/01/rdf-schema#');
 					$rdf->setAttribute('xmlns:dcterms', 'http://purl.org/dc/terms/');
+					$rdf->setAttribute('xmlns:gla', 'urn:lsid:lsid.zoology.gla.ac.uk:predicates:');					
 					$rdf->setAttribute('xmlns:tcommon','http://rs.tdwg.org/ontology/voc/Common#');
 					$rdf->setAttribute('xmlns:tc', 'http://rs.tdwg.org/ontology/voc/TaxonConcept#');
 					
@@ -335,6 +360,22 @@ else
 					// Comma delimited lineage string
 					$tcommon_taxonomicPlacementFormal = $taxon->appendChild($feed->createElement('tcommon:taxonomicPlacementFormal'));
 					$tcommon_taxonomicPlacementFormal->appendChild($feed->createTextNode(str_replace(';', ',', $obj->Lineage)));
+					
+					// Lineage as list of ids (will make displaying tree much easier)
+					$a = $taxon->appendChild($feed->createElement('gla:lineage'));
+					$rdfseq = $a->appendChild($feed->createElement('rdf:Seq'));
+					foreach ($obj->ancestors as $anc)
+					{
+						$li = $rdfseq->appendChild($feed->createElement('rdf:li'));
+						$li->setAttribute('rdf:resource', 'taxonomy:' . $anc->TaxonId);
+						$title = $li->appendChild($feed->createElement('dcterms:title'));
+						$title->appendChild($feed->createTextNode($anc->name));
+						
+					}
+					
+					// Parent
+					$parent = $taxon->appendChild($feed->createElement('rdfs:subClassOf'));
+					$parent->setAttribute('rdf:resource', 'taxonomy:' . $anc->TaxonId);					
 
 					// LSIDs or linked data-style links
 					$num_names = count($obj->hasName);
