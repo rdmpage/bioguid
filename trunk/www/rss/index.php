@@ -49,6 +49,7 @@ $feeds = array(
 	
 	'Fungi' => array(
 		array('title' => 'Mycobank', 'url' => 'mycobank.php'),
+		array('title' => 'Index Fungorum', 'url' => 'indexfungorum.php'),
 		),
 		
 	// Animals
