@@ -165,6 +165,9 @@ else
 	$obj->seeAlso = array();
 	$obj->hasName = array();
 	$obj->ancestors = array();
+	$obj->synonyms = array();
+	$obj->otherNames = array();
+	
 	
 	$url = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=xml&db=taxonomy&id='
 		. $taxon_id;
@@ -186,7 +189,28 @@ else
 	{
 		$obj->ScientificName = $node->firstChild->nodeValue;
 	}
-
+	
+	// Other names (map to Uniprot, and maybe skos)
+	// Common name
+	$nodeCollection = $xpath->query ('//TaxaSet/Taxon/OtherNames/GenbankCommonName');	
+	foreach($nodeCollection as $node)
+	{
+		$obj->commonName = $node->firstChild->nodeValue;
+	}
+	// Synonyms
+	$nodeCollection = $xpath->query ('//TaxaSet/Taxon/OtherNames/Synonym');	
+	foreach($nodeCollection as $node)
+	{
+		array_push($obj->synonyms,$node->firstChild->nodeValue);
+	}
+	// Other names (such as anamorphs)
+	// Note that Uniprot vocabulary doesn't recognise anamorphs, which looses information)
+	$nodeCollection = $xpath->query ('//TaxaSet/Taxon/OtherNames/Anamorph');	
+	foreach($nodeCollection as $node)
+	{
+		array_push($obj->otherNames,$node->firstChild->nodeValue);
+	}
+	
 	$nodeCollection = $xpath->query ('//TaxaSet/Taxon/Rank');	
 	foreach($nodeCollection as $node)
 	{
@@ -325,12 +349,13 @@ else
 				case 'xml':
 					$feed = new DomDocument('1.0');
 					$rdf = $feed->createElement('rdf:RDF');
-					$rdf->setAttribute('xmlns:rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
-					$rdf->setAttribute('xmlns:rdfs', 'http://www.w3.org/2000/01/rdf-schema#');
+					$rdf->setAttribute('xmlns:rdf', 	'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+					$rdf->setAttribute('xmlns:rdfs', 	'http://www.w3.org/2000/01/rdf-schema#');
 					$rdf->setAttribute('xmlns:dcterms', 'http://purl.org/dc/terms/');
-					$rdf->setAttribute('xmlns:gla', 'urn:lsid:lsid.zoology.gla.ac.uk:predicates:');					
-					$rdf->setAttribute('xmlns:tcommon','http://rs.tdwg.org/ontology/voc/Common#');
-					$rdf->setAttribute('xmlns:tc', 'http://rs.tdwg.org/ontology/voc/TaxonConcept#');
+					$rdf->setAttribute('xmlns:gla', 	'urn:lsid:lsid.zoology.gla.ac.uk:predicates:');					
+					$rdf->setAttribute('xmlns:tcommon',	'http://rs.tdwg.org/ontology/voc/Common#');
+					$rdf->setAttribute('xmlns:tc', 		'http://rs.tdwg.org/ontology/voc/TaxonConcept#');
+					$rdf->setAttribute('xmlns:uniprot', 'http://purl.uniprot.org/core/');
 					
 					$rdf = $feed->appendChild($rdf);
 					
@@ -356,7 +381,26 @@ else
 
 					$tc_rankString = $taxon->appendChild($feed->createElement('tc:rankString'));
 					$tc_rankString->appendChild($feed->createTextNode($obj->Rank));
-
+					
+					// Other names (use Uniprot vocabulary for now)
+					if (isset($obj->commonName))
+					{
+						$uniprot_commonName = $taxon->appendChild($feed->createElement('uniprot:commonName'));
+						$uniprot_commonName->appendChild($feed->createTextNode($obj->commonName));
+					}					
+					$num_names = count($obj->synonyms);
+					for ($i = 0; $i < $num_names; $i++)
+					{
+						$uniprot_synonym = $taxon->appendChild($feed->createElement('uniprot:synonym'));
+						$uniprot_synonym->appendChild($feed->createTextNode($obj->synonyms[$i]));									
+					}
+					$num_names = count($obj->otherNames);
+					for ($i = 0; $i < $num_names; $i++)
+					{
+						$uniprot_otherName = $taxon->appendChild($feed->createElement('uniprot:otherName'));
+						$uniprot_otherName->appendChild($feed->createTextNode($obj->otherNames[$i]));									
+					}
+					
 					// Comma delimited lineage string
 					$tcommon_taxonomicPlacementFormal = $taxon->appendChild($feed->createElement('tcommon:taxonomicPlacementFormal'));
 					$tcommon_taxonomicPlacementFormal->appendChild($feed->createTextNode(str_replace(';', ',', $obj->Lineage)));
