@@ -2,6 +2,92 @@
 
 // Reference string parsing...
 
+// Wikispecies reference string parsing...
+function parse_wikispecies_ref($str, &$obj, $debug = 0)
+{
+	$debug = 0;
+	$matched = false;
+	
+	// Clean up
+	$str = trim($str);
+	
+	if ($debug)
+	{
+		echo "|$str|\n";
+	}
+	
+	// Extract bibliographic details
+	
+	// ''Zootaxa'', '''441''': 1-8
+	
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match_all("/
+			([^']''([^'']+|(?R))*'')
+			/x", $str, $m))
+		{
+			if ($debug)
+			{
+				echo __LINE__ . "\n";
+				print_r($m);					
+			}
+			$obj->journal = $m[2][count($m[2]) - 1];
+			
+			// get volume and pagination
+			if (preg_match("/
+				'''(?<volume>[0-9]+)'''
+				(\([0-9]+\))?
+				:
+				\s+(?<spage>[0-9]+)
+				[-|Ð]
+				/x", $str, $m))
+			{
+				if ($debug)
+				{
+					echo __LINE__ . "\n";
+					print_r($m);	
+				}
+				
+				$obj->volume = $m['volume'];
+				$obj->spage = $m['spage'];
+				//$matches['epage'] = $m['epage'];
+				$matched = true;	
+			}
+			
+			// Authors
+			if (preg_match_all("/
+				(\{\{aut\|([^\}\}]+|(?R))*\}\})
+				/x", $str, $a))
+			{
+				//print_r($a);
+				
+				$obj->authors = array();
+				$obj->authors = $a[2];
+			}
+			
+			if (preg_match("/(?<year>[0-9]{4})(: )?(?<atitle>.*)''" . $obj->journal . "/", $str, $m))
+			{
+				//print_r($m);
+				$obj->year = $m['year'];
+				$obj->atitle = trim($m['atitle']);
+				$obj->atitle = str_replace("'", "", $obj->atitle);
+			}
+			
+			// Title
+			
+				
+			
+				
+		}
+	}
+
+	
+	return $matched;
+}
+
 
 function parse_ion_ref($str, &$matches, $debug = 0)
 {
@@ -209,6 +295,46 @@ function parse_ipni_ref($str, &$matches, $debug = 0)
 	
 	return $matched;
 }
+
+// Test cases for Wikispecies
+if (0)
+{
+	$refs = array();
+	$failed = array();
+	
+	array_push($refs, '* {{aut|Stoev, P.}} 2004: The first troglomorphic species of the millipede genus \'\'Paracortina\'\' Wang &amp;amp; Zhang, 1993 from south Yunnan, China (Diplopoda: Callipodida: Paracortinidae). \'\'Zootaxa\'\', \'\'\'441\'\'\': 1-8. [http://mapress.com/zootaxa/2004f/z00441f.pdf Abstract &amp;amp; excerpt]&lt;br /&gt;');
+	array_push($refs, '* {{aut|Aguiar, A.J.C.}}; {{aut|Melo, G.A.R.}} 2007: Taxonomic revision, phylogenetic analysis, and biogeography of the bee genus \'\'Tropidopedia\'\' (Hymenoptera, Apidae, Tapinotaspidini). \'\'Zoological journal of Linnean Society\'\', \'\'\'151\'\'\': 511Ð554.&lt;/div&gt;</description>');
+	array_push($refs, '* {{aut|Shelley, R.M.}} 2003: A revised, annotated, family-level classification of the Diplopoda. \'\'Arthropoda selecta\'\', \'\'\'11\'\'\'(3): 187-207.&lt;/div&gt;</description>');
+	array_push($refs, '* {{aut|Mesibov, R.}}; {{aut|Ruhberg, H.}} 1991: Ecology and conservation of \'\'Tasmanipatus barretti\'\' and \'\'T. anophthalmus\'\', parapatric onychophorans (Onychophora: Peripatopsidae) from northeastern Tasmania. \'\'Papers and proceedings of the Royal Society of Tasmania\'\', \'\'\'125\'\'\': 11-16.&lt;br /&gt;');
+	array_push($refs, '* {{aut|Franz, N.M.}}; {{aut|Skelley, P.E.}} 2008: \'\'Pharaxonotha portophylla\'\' (Coleoptera: Erotylidae), new species and pollinator of \'\'Zamia\'\' (Zamiaceae) in Puerto Rico. \'\'Caribbean journal of science\'\', \'\'\'44\'\'\': 321-333. [http://academic.uprm.edu/~franz/publications/Pharaxonotha.pdf PDF]&lt;/div&gt;</description>');
+	array_push($refs, '* {{aut|Wang, W.L.}} 1993: On Liaoximordellidae fam. nov. (Coleoptera, Insecta) from the Jurassic of western Liaoning Province, China. \'\'Dizhi Xuebao\'\' [=\'\'Acta geologica Sinica\'\'], \'\'\'67\'\'\'(1): 86-94. [in Chinese with English abstract]');
+
+	echo "--------------------------\n";	
+	$ok = 0;
+	foreach ($refs as $str)
+	{
+		$obj = new stdclass;
+		$matched = parse_wikispecies_ref($str, $obj, 1);
+		
+		if ($matched)
+		{
+			$ok++;
+			
+			print_r($obj);
+		}
+		else
+		{
+			array_push($failed, $str);
+		}
+	}
+	
+	// report
+	
+	echo "--------------------------\n";
+	echo count($refs) . ' references, ' . (count($refs) - $ok) . ' failed' . "\n";
+	print_r($failed);
+}
+
 
 // Test cases for ION
 if (0)
