@@ -469,6 +469,7 @@ class FeedMaker
 						
 						}
 						
+						// Literal tags (e.g., keywords)
 						if (isset($item->payload->tags))
 						{
 							foreach($item->payload->tags as $tag)
@@ -477,6 +478,7 @@ class FeedMaker
 								$element->appendChild($feed->createTextNode($tag));								
 							}
 						}
+						// Tag URIs (should this be foaf:topic ?)
 						if (isset($item->payload->tagids))
 						{
 							foreach($item->payload->tagids as $tag)
@@ -521,7 +523,8 @@ class FeedMaker
 				$rss = $feed->createElement('feed');
 				$rss->setAttribute('xmlns', 'http://www.w3.org/2005/Atom');
 				$rss->setAttribute('xmlns:geo', 'http://www.w3.org/2003/01/geo/wgs84_pos#');
-				$rss->setAttribute('xmlns:georss', 'http://www.georss.org/georss');
+				$rss->setAttribute('xmlns:georss', 'http://www.georss.org/georss');		
+				$rss->setAttribute('xmlns:dcterms','http://purl.org/dc/terms/');
 				$rss = $feed->appendChild($rss);
 				
 				// feed
@@ -602,14 +605,17 @@ class FeedMaker
 					// georss
 					if (isset($item->latitude))
 					{
+						/*
 						$geo = $entry->appendChild($feed->createElement('georss:point'));
 						$geo->appendChild($feed->createTextNode($item->latitude . ' ' . $item->longitude));
-				
+						*/
+						
 						$geo = $entry->appendChild($feed->createElement('geo:lat'));
 						$geo->appendChild($feed->createTextNode($item->latitude));
 				
 						$geo = $entry->appendChild($feed->createElement('geo:long'));
 						$geo->appendChild($feed->createTextNode($item->longitude));
+						
 					}
 					
 								
@@ -678,13 +684,29 @@ class FeedMaker
 									$link->setAttribute('title', 'PDF');
 									break;
 									
+								case 'msw':
+									$link = $entry->appendChild($feed->createElement('link'));
+									$link->setAttribute('rel', 'related');
+									$link->setAttribute('type', 'text/html');
+									$link->setAttribute('href', 'http://www.bucknell.edu/msw3/browse.asp?id=' . $v);
+									$link->setAttribute('title', 'msw:' . $v);
+									break;
+									
+								case 'itis':
+									$link = $entry->appendChild($feed->createElement('link'));
+									$link->setAttribute('rel', 'related');
+									$link->setAttribute('type', 'text/html');
+									$link->setAttribute('href', 'http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=' . $v);
+									$link->setAttribute('title', 'tsn:' . $v);
+									break;
+									
 								default:
 									break;
 							}
 						}
 					}
 					
-					// Paylod
+					// Payload
 					if (isset($item->payload))
 					{
 						
@@ -706,6 +728,18 @@ class FeedMaker
 								//$category->setAttribute('scheme', '<some URI>');
 							}
 						}
+						
+						
+						if (isset($item->payload->bibliography))
+						{
+							foreach($item->payload->bibliography as $bibo)
+							{
+								$bibliographicCitation = $entry->appendChild($feed->createElement('dcterms:bibliographicCitation'));
+								$bibliographicCitation->appendChild($feed->createTextNode($bibo));
+							}
+						}
+						
+						
 						/*
 						if (isset($item->payload->tagids))
 						{
