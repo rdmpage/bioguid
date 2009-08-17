@@ -776,18 +776,18 @@ function url2meta($url)
 	
 	//------------------------------------------------------------------------------
 	// Highwire Press
-	if (preg_match('/http:\/\/(www.)*(.*).org\/cgi\/content\/(abstract|short)\/([0-9]+\/[0-9]+\/[0-9]+)/', $url, $match))
+	if (preg_match('/http:\/\/(?<prefix>(www.))?(?<journal>.*).org\/cgi\/content\/(abstract|short)\/(?<item>([0-9]+\/[0-9]+\/[0-9]+))/', $url, $match))
 	{
 		//print_r($match);
 		
 		
-		$ris_url = 'http://' . $match[1] 
-			. $match[2] . '.org/cgi/citmgr?type=refman&gca=';
+		$ris_url = 'http://' . $match['prefix'] 
+			. $match['journal'] . '.org/cgi/citmgr?type=refman&gca=';
 			
 			
 		//echo $match[2], '<br/>';
 		
-		switch($match[2])
+		switch($match['journal'])
 		{
 			case 'aob.oxfordjournals':
 				$ris_url .= 'annbot';				
@@ -846,11 +846,18 @@ function url2meta($url)
 				$ris_url .= 'amjepid';
 				$item->issn = '0002-9262';
 				break;
+			case 'reproduction-online':
+				$ris_url .= 'reprod';
+				$item->issn = '1470-1626';
+				
+				echo $ris_url;
+				break;
+
 			default:
-				$ris_url .= $match[2];
+				$ris_url .= $match['journal'];
 				break;
 		}
-		$ris_url .= ';' . $match[3];
+		$ris_url .= ';' . $match['item'];
 
 		
 		//echo $ris_url;
@@ -1326,6 +1333,30 @@ function url2meta($url)
 		$item->status = 'ok';
 
 	}		
+	
+	// New Wiley
+	
+	// http://www3.interscience.wiley.com/journal/118594989/abstract
+	if (preg_match('/http:\/\/www3.interscience.wiley.com\/journal\/[0-9]+\/abstract/', $url, $match))
+	{
+		$html = get($url);
+	
+		//echo $html;	
+		
+		if (preg_match('/<span class="doi">(?<doi>.*)<\/span>/', $html, $match))
+		{
+			if (isset($match['doi']))
+			{
+				$item->status = 'ok';
+				$item->doi = $match['doi'];
+				$item->url = $url;
+			}
+		}
+		
+		
+		$item->status = 'ok';
+	}	
+	
 	
 	
 	
