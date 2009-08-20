@@ -1198,16 +1198,16 @@ function url2meta($url)
 	
 		//echo $html;		
 			
-		preg_match('/doi:\s*(10.[0-9]+\/(S[0-9]{4}\-[0-9]*))/', $html, $match);
+		preg_match('/doi:\s*(?<doi>10.[0-9]+\/(S[0-9]{4}\-[0-9X]*))/', $html, $match);
 		if (isset($match[1]))
 		{
 			$item->status = 'ok';
-			$item->doi = $match[1];
+			$item->doi = $match['doi'];
 			$item->url = $url;
 			
 			//print_r($match);
 		}
-		preg_match('/pid=(S[0-9]{4}\-[0-9]*)&/', $url, $match);
+		preg_match('/pid=(S[0-9]{4}\-[0-9X]*)&/', $url, $match);
 		if (isset($match[1]))
 		{
 			$item->publisher_id = $match[1];
@@ -1219,6 +1219,38 @@ function url2meta($url)
 		$item->status = 'ok';
 
 	}	
+	
+	//------------------------------------------------------------------------------
+	// Scielo Chile
+	if (preg_match('/http:\/\/www.scielo.cl/', $url))
+	{
+		
+		$html = get($url);
+	
+		//echo $html;		
+			
+		preg_match('/doi:\s*(?<doi>10.[0-9]+\/(S[0-9]{4}\-[0-9X]*))/', $html, $match);
+		if (isset($match[1]))
+		{
+			$item->status = 'ok';
+			$item->doi = $match['doi'];
+			$item->url = $url;
+			
+			//print_r($match);
+		}
+		preg_match('/pid=(S[0-9]{4}\-[0-9X]*)&/', $url, $match);
+		if (isset($match[1]))
+		{
+			$item->publisher_id = $match[1];
+			$item->xml_url = 'http://www.scielo.cl/scieloOrg/php/articleXML.php?pid=' . $item->publisher_id . '&lang=en';
+			
+			// If we haven't gotten a DOI do something here...
+		}
+		
+		$item->status = 'ok';
+
+	}	
+	
 	
 	//------------------------------------------------------------------------------
 	// hindawi
