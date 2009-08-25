@@ -1,0 +1,27 @@
+Experiments with making ION lookup faster
+
+Table in memory, doesn't work as I get "table full" error (I set max heap table size to 256M)
+
+CREATE TABLE `ion_lookup` (
+`guid` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(255) DEFAULT NULL,
+  `taxonAuthor` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`guid`),
+  KEY `name` (`name`)
+) ENGINE=MEMORY DEFAULT CHARSET=utf8
+SELECT guid, name, taxonAuthor FROM ion_rss
+WHERE (full_publication != '');
+
+Regular table (MyISAM)
+
+CREATE TABLE `ion_lookup` (
+`guid` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(255) DEFAULT NULL,
+  `taxonAuthor` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`guid`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8
+SELECT guid, name, taxonAuthor FROM ion_rss
+WHERE (full_publication != '');
+
+
