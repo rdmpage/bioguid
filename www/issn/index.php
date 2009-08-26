@@ -166,6 +166,28 @@ else
 			$obj->issn = $issn;
 			$obj->titles = array();
 			$obj->language_codes = array();
+			
+			// Do we have an image of the journal?
+			$extensions = array('gif', 'jpg', 'png', 'jpeg');
+			
+			// Where we look for images
+			$dir = $config['web_dir'] . 'issn/images/';
+
+			$base_name = str_replace('-', '', $issn);
+			$found = false;
+			
+			foreach ($extensions as $extension)
+			{
+				$filename = $dir . '/' . $base_name . '.' . $extension;
+				
+				if (file_exists($filename))
+				{
+					$found = true;
+					$obj->image_url = $config['webroot'] . 'issn/images/' . $base_name . '.' . $extension;
+					break;
+				}
+			}
+			
 
 			while (!$result->EOF) 
 			{			
@@ -208,6 +230,7 @@ else
 					$rdf->setAttribute('xmlns:dcterms', 'http://purl.org/dc/terms/');
 					$rdf->setAttribute('xmlns:prism', 'http://prismstandard.org/namespaces/1.2/basic/');
 					$rdf->setAttribute('xmlns:bibo', 'http://purl.org/ontology/bibo/');
+					$rdf->setAttribute('xmlns:foaf', 'http://xmlns.com/foaf/0.1/');
 					
 					$rdf = $feed->appendChild($rdf);
 					
@@ -220,6 +243,12 @@ else
 					$dcterm_title = $journal->appendChild($feed->createElement('dcterms:title'));
 					$dcterm_title->setAttribute('xml:lang', $obj->language_codes[0]);
 					$dcterm_title->appendChild($feed->createTextNode($obj->titles[0]));
+					
+					if (isset($obj->image_url))
+					{
+						$depiction = $rdf->appendChild($feed->createElement('foaf:depiction'));
+						$depiction->setAttribute('rdf:resource', $obj->image_url);
+					}					
 					
 					$num_titles = count($obj->titles);
 					for ($i = 1; $i < $num_titles; $i++)
@@ -255,7 +284,7 @@ else
 					echo '</head>';
 					echo '<body>';
 					echo '<p><a href="/issn">Back</a></p>';
-					echo '<h1>' . $obj->issn . ':' . $obj->titles[0] . '</h1>';
+					echo '<h1>' . $obj->issn . ': ' . $obj->titles[0] . '</h1>';
 
 					echo '<ul>';
 					$num_titles = count($obj->titles);
@@ -264,6 +293,12 @@ else
 						echo '<li>' . $obj->titles[$i] . ' (' .  $obj->language_codes[$i] . ')' . '</li>';
 					}
 					echo '</ul>';
+					
+					if (isset($obj->image_url))
+					{
+						echo '<img src="' . $obj->image_url . '"/><br/>';
+					}
+					
 					
 					echo '<h2>More resources</h2>';
 					echo '<ul>';
