@@ -30,10 +30,7 @@ function getJournal($str)
 
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed"); 
-		
-	$result = $db->Execute($sql);
-	if ($result == false) die("failed");  
-	
+			
 	$json = "{\"results\":\n[";
 	
 	$count = 0;
