@@ -25,10 +25,14 @@ function main()
 		'http://www.bioone.org/action/showFeed?type=etoc&feed=rss&jc=brvo',
 		'http://www.bioone.org/action/showFeed?type=etoc&feed=rss&jc=brit',
 		'http://www.bioone.org/action/showFeed?type=etoc&feed=rss&jc=amnb',
+		'http://www.bioone.org/action/showFeed?type=etoc&feed=rss&jc=acta',
+		'http://www.bioone.org/action/showFeed?type=etoc&feed=rss&jc=jzoo', // Zoological Science
 		
 		// Ingenta ---------------------------------------------------------------------------------
 		'http://api.ingentaconnect.com/content/rbsb/bjb/latest?format=rss',
 		'http://api.ingentaconnect.com/content/iapt/tax/latest?format=rss',
+		'http://api.ingentaconnect.com/content/schweiz/novh/latest?format=rss',
+		'http://api.ingentaconnect.com/content/nhn/pimj/latest?format=rss',
 		
 		// Scielo ----------------------------------------------------------------------------------
 		'http://www.scielo.br/rss.php?pid=0085-562620090001&lang=en',
@@ -42,19 +46,32 @@ function main()
 				
 		// Wiley
 		'http://www3.interscience.wiley.com/rss/journal/118902517',
+		'http://www3.interscience.wiley.com/rss/journal/118902517',
+		'http://www3.interscience.wiley.com/rss/journal/118506135',
+		'http://www3.interscience.wiley.com/rss/journal/117964631', 	// Systematic Entomology
+		
+		// CSIRO
+		'http://www.publish.csiro.au/RSS_Feed/CSIRO_Publishing_Recent_SB.xml',
+		'http://www.publish.csiro.au/RSS_Feed/CSIRO_Publishing_Recent_IS.xml',
+		
+		// Elsevier
+		'http://rss.sciencedirect.com/publication/science/6963',
+		
+		// Springer
+		'http://www.springerlink.com/content/0165-5752?sortorder=asc&export=rss',
 		
 		// other
 		'http://www.akademiai.com/content/jw080595p305/?sortorder=asc&export=rss',
-		'http://www.hindawi.com/journals/psyche/rss.xml', 				// Psyche
-		'http://science.dec.wa.gov.au/nuytsia/nuytsia.rss.xml', 		// Nuytsia
-		'http://pensoftonline.net/zookeys/index.php/journal/gateway/plugin/WebFeedGatewayPlugin/rss1', // Zookeys
+		'http://www.hindawi.com/journals/psyche/rss.xml', 												// Psyche
+		'http://science.dec.wa.gov.au/nuytsia/nuytsia.rss.xml', 										// Nuytsia
+		'http://pensoftonline.net/zookeys/index.php/journal/gateway/plugin/WebFeedGatewayPlugin/rss', 	// Zookeys
 
 	);
 	
 	foreach ($feeds as $url)
 	{
 	
-		$result = GetRSS ($url, $rss, false);
+		$result = GetRSS ($url, $rss, true);
 		
 		echo $result . "\n";
 		
@@ -130,6 +147,8 @@ function main()
 			foreach ($links as $link)
 			{
 				$done = false;
+				
+				echo $link . "\n";
 				
 				// Journal-specific handling
 				
