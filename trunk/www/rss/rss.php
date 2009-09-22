@@ -75,13 +75,17 @@ function GetRSS ($url, &$rss, $check = false)
 		
 		// Only add this header if server returned an ETag value, otherwise
 		// Connotea doesn't play nice.
-		if ($ETag != "''")
+		if (($ETag != "''") and ($ETag != ''))
 		{
 			array_push ($if_header,'If-None-Match: ' . $ETag);
 		}
 	}
 	
-	//print_r($if_header);
+	if (0)
+	{
+		echo "Header set\n";
+		print_r($if_header);
+	}
 	 
 
 	$ch = curl_init(); 
@@ -106,6 +110,7 @@ function GetRSS ($url, &$rss, $check = false)
 	{
 		// Problems with CURL
 		$result = curl_errno ($ch);
+		//echo curl_error($ch);
 	}
 	else
 	{
