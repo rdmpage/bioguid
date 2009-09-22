@@ -68,6 +68,17 @@ function tags_summary ($user_tags)
 		$result->max_frequency = max($result->max_frequency, $tag_count[$tag]);
 		$result->min_frequency = min($result->min_frequency, $tag_count[$tag]);
 	}
+	
+	// From PHP manual, we create an array of the serach terms sorted alphabetically
+	// to use to sort the search terms
+	foreach ($result->tag_list as $key => $row) 
+	{
+		$terms[$key]  = strtolower($row['term']);
+	}
+	array_multisort($terms, SORT_ASC, SORT_STRING, $result->tag_list);
+	
+	
+	
 	return $result;
 }
 
@@ -88,7 +99,7 @@ function tag_cloud($obj)
 	$html = '';
 	foreach ($obj->tag_list as $key => $row) 
 	{
-		$font_size = 10 + 8 * class_from_weight($row['freq'] - $obj->min_frequency, $thresholds);
+		$font_size = 4 + 8 * class_from_weight($row['freq'] - $obj->min_frequency, $thresholds);
 		$html .= '<a style="font-size:' . $font_size . 'px;"';
 		$html .=  ' href="http://www.connotea.org/tag/' . urlencode($row['term']);
 		$html .= '">';
@@ -420,7 +431,7 @@ switch ($result->status)
 		$html .= '';
 		break;
 }
-$html = '<div>' . $html . '</div>';
+$html = '<div style="width:400px;border:1px solid rgb(128,128,128);padding:4px;">' . $html . '</div>';
 $result->html = $html;
 
 switch ($format)
