@@ -26,7 +26,8 @@ $feeds = array(
 	'New taxa' => array(
 		array('title' => 'CiNii "sp.nov." search', 'url' => 'http://ci.nii.ac.jp/opensearch/search?q=sp.%20nov.&range=0sortorder=1&start=1&count=20&format=rss'),
 		array('title' => 'PubMed "n. sp." search', 'url' => 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/erss.cgi?rss_guid=149V05c98i9HlVNyPr24_qmDKX6MT0D31yJ_v20ilbVHi8AQO'),
-		array('title' => 'uBio', 'url' => 'ubio.php')
+		array('title' => 'uBio', 'url' => 'ubio.php'),
+		array('title' => 'Wikispecies new pages', 'url' => 'wikispecies.php')
 	),		
 
 	// Barcodes
