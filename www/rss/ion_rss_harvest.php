@@ -45,6 +45,34 @@ function format_date($date)
 	return $formatted_date;
 }
 
+
+//--------------------------------------------------------------------------------------------------
+/**
+ * @brief Return true if we have this item already
+ *
+ * @param item ION record
+ *
+ */
+function item_exists($item)
+{
+	global $config;
+	
+	$db = NewADOConnection('mysql');
+	$db->Connect("localhost", 
+		$config['db_user'] , $config['db_passwd'] , $config['db_name']);
+	
+	// Ensure fields are (only) indexed by column name
+	$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
+	
+	$sql = 'SELECT * FROM ion_rss WHERE (guid=' . $item->guid . ') LIMIT 1';
+	
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __LINE__ . "]: " . $db->ErrorMsg());
+
+	return ($result->NumRows() == 1);
+}
+
+
 //--------------------------------------------------------------------------------------------------
 /**
  * @brief Store one ION record in local database
@@ -168,7 +196,7 @@ function ion_process(&$item)
 	
 	$url = $item->link;
 
-	//echo $url;
+	echo $url . "\n";
 	$html = get($url);
 	
 	//echo $html;
@@ -248,7 +276,6 @@ function ion_process(&$item)
 	}
 	
 	// Do stuff for this record... (such as get DOI if it exists)
-	
 	if (isset($item->publication->journal)
 	 && isset($item->publication->volume)
 	 && isset($item->publication->spage)
@@ -285,10 +312,11 @@ function ion_process(&$item)
 				$item->publication->url = $j->url;
 			}
 		}
-	}
 	
-	// Store
-	store_item($item);
+		
+		// Store
+		store_item($item);
+	}
 }
 
 
@@ -378,7 +406,7 @@ function main()
 		"Apicomplexa" => "http://www.organismnames.com/RSS/Apicomplexa.xml",
 		"Archaeocyatha" => "http://www.organismnames.com/RSS/Archaeocyatha.xml",
 		"Arthropoda" => "http://www.organismnames.com/RSS/Arthropoda.xml",
-		"Ascetospora" => "http://www.organismnames.com/RSS/Ascetospora.xml",
+		"Ascetospora" => "http://www.organismnames.com/RSS/Ascetospora.xml", 
 		"Brachiopoda" => "http://www.organismnames.com/RSS/Brachiopoda.xml",
 		"Bryozoa" => "http://www.organismnames.com/RSS/Bryozoa.xml",
 		"Chaetognatha" => "http://www.organismnames.com/RSS/Chaetognatha.xml",
@@ -447,41 +475,52 @@ function main()
 			// Extract details from each item
 			foreach ($data->items as $item)
 			{
-				// Clean taxon name and extract taxonomic group
-				
-				if (preg_match('/New Taxon Alert:-\s+\((?<group>(.*))\)\s+(?<name>(.*)\s*\((.*)\)\s*(.*))$/', $item->title, $matches))
-				{
-					$item->group = $matches['group'];
-					$item->name = $matches['name'];
-				}
-				else if (preg_match('/New Taxon Alert:-\s+\((?<group>(.*))\)\s+(?<name>(.*))$/', $item->title, $matches))
-				{
-					#print_r($matches);
-					
-					$item->group = $matches['group'];
-					$item->name = $matches['name'];
-				}
 			
-				// Clean publication title so we can remove this when we parse reference
-				$item->publicationTitle = '';
-				$matches = array();
-				if (preg_match('/Publication Title:(.*)/', $item->description, $matches))
+				// Don't hammer the server
+				if (item_exists($item))
 				{
-					//print_r($matches);
-					
-					$title = $matches[1];
-					$title = strip_tags($title);
-					$title= trim($title);
-					
-					$item->publicationTitle = $title;
-					//echo "$title\n";
+					echo "Item " . $item->guid . " exists\n";
 				}
+				else
+				{	
+					// Clean taxon name and extract taxonomic group
+					
+					if (preg_match('/New Taxon Alert:-\s+\((?<group>(.*))\)\s+(?<name>(.*)\s*\((.*)\)\s*(.*))$/', $item->title, $matches))
+					{
+						$item->group = $matches['group'];
+						$item->name = $matches['name'];
+					}
+					else if (preg_match('/New Taxon Alert:-\s+\((?<group>(.*))\)\s+(?<name>(.*))$/', $item->title, $matches))
+					{
+						#print_r($matches);
+						
+						$item->group = $matches['group'];
+						$item->name = $matches['name'];
+					}
 				
-				// Fetch HTML so we can harvest taxon author name and bibliographic details
-				ion_process($item);
-				
-				// Output result
-				print_r($item);
+					// Clean publication title so we can remove this when we parse reference
+					$item->publicationTitle = '';
+					$matches = array();
+					if (preg_match('/Publication Title:(.*)/', $item->description, $matches))
+					{
+						//print_r($matches);
+						
+						$title = $matches[1];
+						$title = strip_tags($title);
+						$title= trim($title);
+						
+						$item->publicationTitle = $title;
+						//echo "$title\n";
+					}
+					
+					// Fetch HTML so we can harvest taxon author name and bibliographic details
+					ion_process($item);
+					
+					// Output result
+					print_r($item);
+					
+					sleep(5);
+				}
 			}
 		}
 	}
