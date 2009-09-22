@@ -2,9 +2,13 @@
 
 // harvest my Zotero feed
 
+// Need absolute file paths as we run this as a service
+$root_dir = dirname(__FILE__);
+$root_dir = preg_replace('/rss$/', '', $root_dir);
+
 require_once (dirname(__FILE__) . '/nameparse.php');
-require_once('../db.php');
-require_once('../issn-functions.php');
+require_once ($root_dir . 'db.php');
+require_once ($root_dir . 'issn-functions.php');
 require_once (dirname(__FILE__) . '/rss.php');
 
 $url = 'https://api.zotero.org/users/14509/items';
