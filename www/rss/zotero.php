@@ -17,6 +17,8 @@ $result = GetRSS ($url, $rss, true);
 
 echo $result . "\n";
 
+//echo $rss; exit();
+
 //exit();
 
 if ($result == 0)
@@ -169,7 +171,15 @@ if ($result == 0)
 		$nc = $xpath->query ("atom:content/xhtml:div/xhtml:table/xhtml:tr[@class='ISSN']/xhtml:td", $node);
 		foreach ($nc as $n)
 		{
-			$obj->issn = $n->firstChild->nodeValue;
+			$issn = $n->firstChild->nodeValue;
+
+			//	Format ISSN	
+			$clean = ISN_clean($issn);
+			$class = ISSN_classifier($clean);
+			if ($class == "checksumOK")
+			{
+				$obj->issn = canonical_ISSN($issn);
+			}	
 		}
 
 		// volume
@@ -196,22 +206,69 @@ if ($result == 0)
 			$obj->epage = $parts[1];
 		}
 		
+		// date and year
+		$nc = $xpath->query ("atom:content/xhtml:div/xhtml:table/xhtml:tr[@class='date']/xhtml:td", $node);
+		foreach ($nc as $n)
+		{
+			$date = $n->firstChild->nodeValue;
+			
+			if (preg_match('/^[0-9]{4}$/', trim($date)))
+			{
+				$year = '';
+				// year only
+				if (-1 != strtotime($date))
+				{
+					$year = date("Y", strtotime($date));
+				}	
+				if ($year != '')
+				{
+					$obj->year = $year;
+				}
+			}
+			else
+			{			
+				$formatted_date = '';
+				$year = '';
+				
+				if (-1 != strtotime($date))
+				{
+					$formatted_date = date("Y-m-d", strtotime($date));
+				}		
+				if (-1 != strtotime($date))
+				{
+					$year = date("Y", strtotime($date));
+				}	
+				
+				if ($formatted_date != '')
+				{
+					$obj->date = $formatted_date;
+				}
+				if ($year != '')
+				{
+					$obj->year = $year;
+				}
+			}
+		}		
+		
+		
+		
+		
 		// cleanup
 		if (!isset($obj->url) && !isset($obj->doi))
 		{
 			$obj->url = $obj->zotero;
 		}
 
-		
-			// ISSN lookup
-			if (!isset($obj->issn) && 'article' == $obj->genre)
+	
+		// ISSN lookup
+		if (!isset($obj->issn) && 'article' == $obj->genre)
+		{
+			$issn = issn_from_journal_title($obj->title);
+			if ('' != $issn)
 			{
-				$issn = issn_from_journal_title($obj->title);
-				if ('' != $issn)
-				{
-					$obj->issn = $issn;
-				}
+				$obj->issn = $issn;
 			}
+		}
 		
 		print_r($obj);
 		
