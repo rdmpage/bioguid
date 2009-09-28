@@ -32,8 +32,18 @@
         <xsl:apply-templates select="prism:endingPage"/>
         <xsl:apply-templates select="prism:pageRange"/>
 
+
+		<xsl:if test="dc:title != ''">
+ <xsl:text>,&#xD;&#x09;&#x09;"jp_atitle":"</xsl:text>
+           <xsl:variable name="atitle" select="dc:title"/>
+            <xsl:call-template name="cleanQuote">
+                <xsl:with-param name="string" select="$atitle"/>
+            </xsl:call-template>
+            <xsl:text>"</xsl:text>
+		</xsl:if>
+
         <!-- English details name -->
-        <xsl:if test="@xml:lang = 'en'">
+       <xsl:if test="@xml:lang = 'en'">
             <xsl:text>,&#xD;&#x09;&#x09;"atitle":"</xsl:text>
 
             <xsl:variable name="atitle" select="dc:title"/>
@@ -53,6 +63,7 @@
             <!-- abstract -->
             <xsl:apply-templates select="dc:description"/>
         </xsl:if>
+
 
     </xsl:template>
 
