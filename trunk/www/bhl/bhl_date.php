@@ -118,6 +118,37 @@ function parse_bhl_date($str, &$info)
 		
 	}
 	
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})$/", $str, $m))
+		{
+			if ($debug) { print_r($m); }
+			$info->start = $m['yearstart'];
+			$info->end = $m['yearend'];
+			$matched = true;
+		}
+		
+	}
+
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})$/", $str, $m))
+		{
+			if ($debug) { print_r($m); }
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}
+		
+	}
+	
+	
 	
 	if (!$matched)
 	{
@@ -142,7 +173,7 @@ function parse_bhl_date($str, &$info)
 		$m = array();
 		
 		if ($debug) echo "Trying " . __LINE__ . "\n";
-		if (preg_match("/^(v|t)\.\s*(?<volume>[0-9]+)(.*)\((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})\)$/", $str, $m))
+		if (preg_match("/^(v|t|ser)\.\s*(?<volume>[0-9]+)(.*)\((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})\)$/", $str, $m))
 		{
 			if ($debug) { print_r($m); }
 			$info->volume = $m['volume'];
@@ -157,7 +188,7 @@ function parse_bhl_date($str, &$info)
 		$m = array();
 		
 		if ($debug) echo "Trying " . __LINE__ . "\n";
-		if (preg_match("/^(v|t|bd)\.\s*(?<volume>[0-9]+)(.*)\(?(?<year>[0-9]{4})\)?$/", $str, $m))
+		if (preg_match("/^(v|t|bd|Bd)\.\s*(?<volume>[0-9]+)(.*)\(?(?<year>[0-9]{4})\)?$/", $str, $m))
 		{
 			if ($debug) { print_r($m); }
 			$info->volume = $m['volume'];
@@ -167,8 +198,6 @@ function parse_bhl_date($str, &$info)
 		
 		
 	}
-	
-
 
 
 	
@@ -187,6 +216,22 @@ function parse_bhl_date($str, &$info)
 		}
 		
 	}
+	
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volume>[0-9]+)(.*)\(?(?<year>[0-9]{4})\)?$/", $str, $m))
+		{
+			if ($debug) { print_r($m); }
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}
+		
+	}
+	
 	
 	if (!$matched)
 	{
@@ -223,6 +268,24 @@ function parse_bhl_date($str, &$info)
 		
 	}	
 	
+	// no. 85-93 1991-92
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(no|v|t)\.\s*(?<volume>[0-9]+)(.*)\(?(?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})\)?$/", $str, $m))
+		{
+			if ($debug) { print_r($m); }
+			$info->volume_from = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}
+		
+	}	
+	
+	
 	// v. 1-2 (1814-1826)
 	if (!$matched)
 	{
@@ -240,6 +303,43 @@ function parse_bhl_date($str, &$info)
 		}
 		
 	}	
+	
+	// ser.2 t.1-2 1895-1897
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(ser)\.\s*(?<series>[0-9]+)\s*t\.((?<volumefrom>[0-9]+)\-(?<volumeto>[0-9]+))\s*\(?(?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})\)?$/", $str, $m))
+		{
+			if ($debug) { print_r($m); }
+			$info->series = $m['series'];
+			$info->volume_from = $m['volumefrom'];
+			$info->volume_to = $m['volumeto'];
+			$info->start = $m['yearstart'];
+			$info->end = $m['yearend'];
+			$matched = true;
+		}
+		
+	}	
+	
+	// ser.3, v. 6, 1914
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^ser\.\s*(?<series>[0-9]+),\s*v\.\s*(?<volume>[0-9]+),\s*\(?(?<year>[0-9]{4})\)?$/", $str, $m))
+		{
+			if ($debug) { print_r($m); }
+			$info->series = $m['series'];
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}
+		
+	}
+	
 	
 	
 	
