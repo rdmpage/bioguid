@@ -1,11 +1,12 @@
 <?php
 
 require_once('db.php');
+require_once('crossref.php');
 require_once('identifier.php');
 require_once('issn-functions.php');
 require_once('nameparse.php');
 
-$debug = 1;
+$debug = 0;
 
 $key_map = array(
 	'ID' => 'publisher_id',
@@ -28,12 +29,48 @@ $key_map = array(
 function process_ris_key($key, $value, &$obj)
 {
 	global $key_map;
+	global $debug;
+	
+	//echo "|$key|-$value\n";
 
 	switch ($key)
 	{
 		case 'AU':
 		case 'A1':					
 			// Interpret author names
+			
+			//echo __LINE__ . " author\n";
+			
+			$value = trim($value);
+
+			// Handle Highwire author initials such as JM (we want J M)			
+			if (preg_match("/,\s*(?<initials>[A-Z]+)$/", $value, $m))
+			{
+				//print_r($m);
+				
+				$spaced = '';
+				for($i=0;$i<strlen($m['initials']);$i++)
+				{
+					$spaced .= $m['initials']{$i} . ' ';
+				}
+				$value = trim(preg_replace("/,\s*" . $m['initials'] . "$/", ", " . $spaced, $value));
+			}
+			
+			//echo __LINE__ . " $value\n";
+			
+			$p = explode(',', $value);
+			//print_r($p);
+			if (count($p) > 1)
+			{
+				$value = '';
+				$n = count($p);
+				for ($i = 1; $i < $n; $i++)
+				{
+					$value .= $p[$i] . ' ';
+				}
+				$value .= $p[0];
+			}
+			
 			
 			// Trim trailing periods and other junk
 			$value = preg_replace("/\.$/", "", $value);
@@ -44,14 +81,17 @@ function process_ris_key($key, $value, &$obj)
 			
 			// Space initials nicely
 			$value = preg_replace("/\.([A-Z])/", ". $1", $value);
-			
+
 			// Make nice
 			$value = mb_convert_case($value, 
 				MB_CASE_TITLE, mb_detect_encoding($value));
-						
+				
+			//echo __LINE__ . " $value\n";
+				
+														
 			// Get parts of name
 			$parts = parse_name($value);
-			
+						
 			$author = new stdClass();
 			
 			if (isset($parts['last']))
@@ -66,6 +106,10 @@ function process_ris_key($key, $value, &$obj)
 			{
 				$author->forename = $parts['first'];
 				
+/*				$author->forename = mb_convert_case($author->forename, 
+					MB_CASE_TITLE, mb_detect_encoding($author->forename));
+*/
+				
 				if (array_key_exists('middle', $parts))
 				{
 					$author->forename .= ' ' . $parts['middle'];
@@ -73,10 +117,28 @@ function process_ris_key($key, $value, &$obj)
 			}
 			
 			
-			print_r($authors);
+			if ($debug)
+			{
+				print_r($authors);
+			}
+			
 			
 			array_push($obj->authors, $author);
 			break;	
+			
+		// Handle cases where both pages SP and EP are in this field
+		case 'SP':
+			if (preg_match('/^(?<spage>[0-9]+)[^\d]+(?<epage>[0-9]+)$/', trim($value), $matches))
+			{
+				$obj->spage = $matches['spage'];
+				$obj->epage = $matches['epage'];
+			}
+			else
+			{
+				$obj->$key_map[$key] = $value;
+			}				
+			break;
+			
 			
 		case 'Y1':
 			$year = '';
@@ -112,34 +174,40 @@ function process_ris_key($key, $value, &$obj)
 			$obj->year = $year;
 			break;
 		
-		case 'PY': // used by Ingenta, and others
-			$date = $value;	
+		case 'PY': // used by Ingenta, and others (incl. Zotero)
+			$date = trim($value);	
 			
-			if (preg_match("/\/\/\/[A-Za-z]*\s*/", $date))
-			{			
-				$date = preg_replace("/\/\/\//", "", $date);
+			// Zotero
+			if (preg_match("/^(?<year>[0-9]{4})\/(?<month>[0-9]{2})?\/(?<day>[0-9]{2})?\/$/", $date, $m))
+			{
+				//print_r($m);
 				$formatted_date = '';
 				$year = '';
 				
-				if (-1 != strtotime($date))
+				// Year
+				if (isset($m['year']))
 				{
-					$formatted_date = date("Y-m-d", strtotime($date));
-				}		
-				if (-1 != strtotime($date))
-				{
-					$year = date("Y", strtotime($date));
-				}	
+					$obj->year = $m['year'];
+					$formatted_date = $m['year'];
+				}
 				
-				if ($formatted_date != '')
+				if (isset($m['month']))
 				{
+					$formatted_date .= '-' . $m['month'];
+					if (isset($m['day']))
+					{
+						$formatted_date .= '-' . $m['day'];
+					}
+					else
+					{
+						$formatted_date .= '-00';
+					}
+					
 					$obj->date = $formatted_date;
 				}
-				if ($year != '')
-				{
-					$obj->year = $year;
-				}
+								
+				//print_r($obj);
 			}
-			
 			
 			if (preg_match("/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/", $date))
 			{
@@ -271,10 +339,11 @@ function import_ris($ris)
 		{
 			$state = 0;
 			
-			echo 'Line: ' . __LINE__ . "\n";
-			echo "\n=== Import this object ==\n";
-			
-			// to do: we might want to do a DOI lookup here to get more GUIDs...
+			if ($debug)
+			{
+				echo 'Line: ' . __LINE__ . "\n";
+				echo "\n=== Import this object ==\n";
+			}
 			
 			// ISSN lookup
 			if (!isset($obj->issn) && 'article' == $genre)
@@ -285,6 +354,43 @@ function import_ris($ris)
 					$obj->issn = $issn;
 				}
 			}
+			
+			// to do: we might want to do a DOI lookup here to get more GUIDs...
+			
+			if (!isset($obj->doi))
+			{
+				if (in_crossref($obj->issn, $obj->year, $obj->volume))
+				{
+					$item = new stdclass;
+					$doi = search_for_doi($obj->issn, $obj->volume, $obj->spage, 'article', $item);
+					if ($doi != '')
+					{
+						$obj->doi = $doi;
+					}
+				}
+			}
+			
+			// http://en.wikipedia.org/wiki/Chinese_name
+			// For some journals (e.g., Chinese) we need to reverse the name parts returned
+			// by parse_name
+			
+			//echo "boo1 |" . $obj->issn . "|\n";
+			
+			switch ($obj->issn)
+			{
+				case '0529-1526': // Acta Phytotaxonomica Sinica
+					for ($i = 0; $i < count($obj->authors); $i++)
+					{
+						$tmp = $obj->authors[$i]->forename;
+						$obj->authors[$i]->forename = $obj->authors[$i]->lastname;
+						$obj->authors[$i]->lastname = $tmp;
+					}
+					break;
+					
+				default:
+					break;
+			}
+			
 			
 			// Cleaning...						
 			if ($debug)
