@@ -195,7 +195,7 @@ function in_jstor($issn, $date)
 	global $db;
 	global $debug;
 
-	$result = false;
+	$found = false;
 
 	$sql = 'SELECT * FROM jstor 
 		WHERE (issn = ' . $db->Quote($issn) . ')
@@ -209,10 +209,10 @@ function in_jstor($issn, $date)
 
 	if ($result->NumRows() == 1)
 	{
-		$result = true;
+		$found = true;
 	}
 
-	return $result;
+	return $found;
 }
 
 
@@ -313,7 +313,7 @@ function jstor_metadata ($sici, &$item)
 	{
 		$stable = $item->doi;
 		$stable = str_replace("10.2307/", "", $stable);
-		$stable = 'http://www.jstor.org/pss/' . $stable;
+		$stable = 'http://www.jstor.org/stable/' . $stable;
 		$item->url = $stable;
 	}
 	
