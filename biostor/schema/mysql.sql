@@ -29,7 +29,7 @@ CREATE TABLE `rdmp_author` (
   `forename` varchar(255) DEFAULT NULL,
   `suffix` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`author_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=365 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -66,7 +66,7 @@ CREATE TABLE `rdmp_locality` (
   SPATIAL KEY `loc` (`loc`),
   KEY `woeid` (`woeid`),
   KEY `latitude` (`latitude`,`longitude`)
-) ENGINE=MyISAM AUTO_INCREMENT=250 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 
 
@@ -93,7 +93,7 @@ DROP TABLE IF EXISTS `rdmp_name`;
 CREATE TABLE `rdmp_name` (
   `NameBankID` int(11) DEFAULT NULL,
   `NameString` varchar(255) DEFAULT NULL,
-  FULLTEXT KEY `NameString` (`NameString`) /*!50100 WITH PARSER `bigram` */ 
+  FULLTEXT KEY `NameString` (`NameString`) /*!50100 WITH PARSER `bi_gram` */ 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
@@ -134,7 +134,7 @@ CREATE TABLE `rdmp_reference` (
   KEY `date` (`date`),
   KEY `issn` (`issn`),
   KEY `PageID` (`PageID`)
-) ENGINE=InnoDB AUTO_INCREMENT=644 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -168,7 +168,7 @@ CREATE TABLE `rdmp_reference_version` (
   PRIMARY KEY (`id`),
   KEY `reference_id` (`reference_id`),
   CONSTRAINT `rdmp_reference_version_ibfk_1` FOREIGN KEY (`reference_id`) REFERENCES `rdmp_reference` (`reference_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=494 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 
 
@@ -215,7 +215,7 @@ CREATE TABLE `rdmp_text_index` (
   `object_text` text NOT NULL,
   PRIMARY KEY (`id`),
   FULLTEXT KEY `object_text` (`object_text`) /*!50100 WITH PARSER `bi_gram` */ 
-) ENGINE=MyISAM AUTO_INCREMENT=711 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 
 
