@@ -27,8 +27,6 @@ echo html_body_open();
 echo html_page_header(false);
 
 
-
-
 // How many articles?
 $sql = 'SELECT COUNT(reference_id) AS c FROM rdmp_reference';
 $result = $db->Execute($sql);
@@ -61,9 +59,15 @@ echo '<h1>What is BioStor?</h1>';
 
 echo '<p>BioStor provides tools for extracting, annotating, and visualising literature from the <a href="http://www.biodiversitylibrary.org/">Biodiversity Heritage Library</a> (and other sources). It builds on ideas developed for <a href="http://bioguid.info">bioGUID</a> (see <a href="http://dx.doi.org/10.1186/1471-2105-10-S14-S5">doi:10.1186/1471-2105-10-S14-S5</a>).</p>';
 
-echo '<h1>Getting started</h1>
+echo '<ul>';
+echo '<li>Find references using <a href="openurl.php">Reference finder</a></li>';
+echo '<li>View most recent references as <a href="rss.php?format=atom">RSS feed</a></li>';
+echo '<li>Start browsing <a href="reference/1">references</a>, <a href="author/1">authors</a>, or <a href="name/2706186">taxon names</a></li>';
+echo '</ul>';
 
-<p>You can read the <a href="guide.php">guide to using BioStor</a>, or go directly to the <a href="openurl.php">Reference Finder</a>. You can also use BioStor to find references from within <a href="endnote.php">EndNote</a> and <a href="zotero.php">Zotero</a>. If you use the Firefox web browser you could install the <a href="referrer.php">OpenURL Referrer add on</a>, which will add the same functionality to sites that support support COinS, such as <a href="mendeley.php">Mendeley</a>.</p>
+echo '<h1>Finding references using BioStor</h1>
+
+<p>The main purpose of BioStor is to find articles in the <a href="http://www.biodiversitylibrary.org/">Biodiversity Heritage Library</a>. To get started you can read the <a href="guide.php">guide to using BioStor</a>, or go directly to the <a href="openurl.php">Reference Finder</a>. You can also use BioStor to find references from within <a href="endnote.php">EndNote</a> and <a href="zotero.php">Zotero</a>. If you use the Firefox web browser you could install the <a href="referrer.php">OpenURL Referrer add on</a>, which will add the same functionality to sites that support support COinS, such as <a href="mendeley.php">Mendeley</a>.</p>
 ';
 
 
