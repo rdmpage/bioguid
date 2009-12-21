@@ -66,14 +66,7 @@ if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
 
 while (!$result->EOF) 
 {
-	array_push($last_names, $result->fields['last']);
-	
-	$author = new stdclass;
-	$author->id = $result->fields['author_id'];
-	$author->name = $result->fields['forename'] . ' ' . $result->fields['lastname'];
-	
-	$authors[] = $author;
-	
+	$last_names[] = $result->fields['last'];
 	$result->MoveNext();				
 }
 
