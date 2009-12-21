@@ -48,6 +48,9 @@ function html_head_open()
 		
 	// CSS
 	$html .= html_include_css ('css/main.css');
+	
+	// RSS feed
+	$html .= html_include_link('application/atom+xml', 'ATOM', 'rss.php?format=atom', 'alternate');
 		
 	return $html;
 }
@@ -91,6 +94,7 @@ function html_page_header($has_search = false, $query = '', $category = 'all')
 {
 	global $config;
 	
+	$html = '';
 	$html .= '<div style="border-bottom:1px dotted rgb(128,128,128);padding-bottom:10px;">';
 	$html .= '<a href="' . $config['web_root'] . '"><span style="font-size:24px;">' . $config['site_name'] . '</span></a>';
 	
@@ -117,6 +121,7 @@ function html_body_close()
 	$totaltime = $endtime - $starttime; 
 	$totaltime = round($totaltime,5);
 
+	$html = '';
 	$html .= '<script type="text/javascript">
 var uservoiceOptions = {
   /* required */
@@ -145,7 +150,7 @@ window.onload = (typeof window.onload != \'function\') ? _loadUserVoice : functi
 	$html .= '<div style="border-top:1px dotted rgb(128,128,128);text-align:center;padding:4px;font-size:10px;">Page loaded in ' . $totaltime . ' seconds</div>';
 
 	// Google analytics
-	/*
+	
 	$html .= '<script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src=\'" + gaJsHost + "google-analytics.com/ga.js\' type=\'text/javascript\'%3E%3C/script%3E"));
@@ -155,7 +160,7 @@ try {
 var pageTracker = _gat._getTracker("UA-12127487-1");
 pageTracker._trackPageview();
 } catch(err) {}</script>';
-	*/
+	
 	
 	$html .= '</body>' . "\n";
 	return $html;

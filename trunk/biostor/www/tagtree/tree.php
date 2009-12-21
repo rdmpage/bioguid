@@ -454,13 +454,14 @@ class Tree
 					$html .= 'border-left:2px solid rgb(192,192,192);';
 				}
 				$html .= '">';
-				$html .= '<span style="padding-left:8px;';
 				if ($cur->GetSibling() == NULL)
 				{
+					$html .= '<span style="padding-left:10px;';
 					$html .= 'background-image: url(' . $config['web_root'] . 'images/last16.gif);background-repeat: no-repeat;';
 				}
 				else
 				{
+					$html .= '<span style="padding-left:8px;';
 					$html .= 'background-image: url(' . $config['web_root'] . 'images/notlast16.gif);background-repeat: no-repeat;';
 				}
 				
@@ -499,13 +500,14 @@ class Tree
 					$html .= 'border-left:2px solid rgb(192,192,192);';
 				}
 				$html .= '">';
-				$html .= '<span style="padding-left:8px;';
 				if ($cur->GetSibling() == NULL)
 				{
+					$html .= '<span style="padding-left:10px;';
 					$html .= 'background-image: url(' . $config['web_root'] . 'images/last16.gif);background-repeat: no-repeat;';
 				}
 				else
 				{
+					$html .= '<span style="padding-left:8px;';
 					$html .= 'background-image: url(' . $config['web_root'] . 'images/notlast16.gif);background-repeat: no-repeat;';
 				}
 				$is_tag = false;

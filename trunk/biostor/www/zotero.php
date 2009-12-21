@@ -15,15 +15,13 @@ global $config;
 header("Content-type: text/html; charset=utf-8\n\n");
 echo html_html_open();
 echo html_head_open();
-
 echo html_title('Zotero - ' . $config['site_name']);
-echo html_head_open();
 echo html_head_close();
 echo html_body_open();
 echo html_page_header(false);
 
 ?>
-<div style="float:right;padding:10px;"><img src="static/zotero_z_32px.png" /></div>
+<div style="float:right;padding:10px;"><img src="static/zotero_z_32px.png" alt="zotero logo"/></div>
 <h1>Using BioStor with Zotero</h1>
 
 
@@ -36,11 +34,11 @@ echo html_page_header(false);
 <p>To enable OpenURL linking go the <b>Actions</b> button in Zotero and click 
 on the <b>Preferences</b> command:</p>
 
-<div style="text-align:center;"><img src="static/zotero_menu.png" width="200"/></div>
+<div style="text-align:center;"><img src="static/zotero_menu.png" width="200" alt="zotero menu"/></div>
 
 <p>Click on the <b>Advanced</b> tab in the preferences dialog box, which should look something like this:</p>
 
-<div style="text-align:center;"><img src="static/zotero_preferences.png" width="400"/></div>
+<div style="text-align:center;"><img src="static/zotero_preferences.png" width="400" alt="zotero preferences"/></div>
 
 <p>In the section labelled <b>OpenURL</b> set <b>Resolver</b> to http://biostor.org/openurl.php.</p>
 
@@ -48,7 +46,7 @@ on the <b>Preferences</b> command:</p>
 
 <p>To use OpenURL linking within Zotero, view a reference and then click on the <b>Locate</b> button.</p>
 
-<div style="text-align:center;"><img src="static/zotero_locate.png"/></div>
+<div style="text-align:center;"><img src="static/zotero_locate.png" alt="zotero locate"/></div>
 
 <p>Zotero will display the result in your Firefox browser window.</p>
 

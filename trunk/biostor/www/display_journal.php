@@ -76,7 +76,7 @@ class DisplayJournal extends DisplayObject
 				}
 				else
 				{
-						// slower, but useful for debugging
+					// slower, but useful for debugging
 					$reference = db_retrieve_reference ($ref->id);
 					echo '<li style="border-bottom:1px dotted rgb(128,128,128);padding:4px;">';
 					echo '<a href="' . $config['web_root'] . 'reference/' . $ref->id . '">' . $reference->title . '</a><br/>';
@@ -92,7 +92,7 @@ class DisplayJournal extends DisplayObject
 					$pages = bhl_retrieve_reference_pages($ref->id);
 					$image = bhl_fetch_page_image($pages[0]->PageID);
 					echo '<a href="' . $config['web_root'] . 'reference/' . $ref->id . '">';
-					echo '<img style="padding:2px;border:1px solid blue;margin:2px;" id="thumbnail_image_' . $page->PageID . '" src="' . $image->thumbnail->url . '" width="' . $image->thumbnail->width . '" height="' . $image->thumbnail->height . '"/>';	
+					echo '<img style="padding:2px;border:1px solid blue;margin:2px;" id="thumbnail_image_' . $page->PageID . '" src="' . $image->thumbnail->url . '" width="' . $image->thumbnail->width . '" height="' . $image->thumbnail->height . '" alt="thumbnail"/>';	
 					echo '</a>';
 	
 					//echo bhl_pages_with_name_thumbnails($reference_id, $this->namebankid);	
@@ -101,6 +101,7 @@ class DisplayJournal extends DisplayObject
 				}
 			}
 			echo '</ul>';
+			echo '</li>';
 		}
 		echo '</ul>';
 
