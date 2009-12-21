@@ -1,0 +1,41 @@
+RewriteEngine on
+RewriteBase /~rpage/bhl/www/
+#RewriteBase /
+
+
+#-------------------------------------------------------------------------------
+# Reference
+RewriteRule ^reference/([0-9]+)$			display_reference.php?id=$1					[NC,L]
+RewriteRule ^reference/([0-9]+)/page/([0-9]+)$	display_reference.php?id=$1&page=$2			[NC,L]
+RewriteRule ^reference/([0-9]+).(.*)$			display_reference.php?id=$1&format=$2					[NC,L]
+
+#-------------------------------------------------------------------------------
+# Author
+RewriteRule ^author/(.*)			display_author.php?id=$1					[NC,L]
+
+#-------------------------------------------------------------------------------
+# Taxon name
+# 
+RewriteRule ^name/([0-9]+)$			display_name.php?namebankid=$1				[NC,L]
+RewriteRule ^name/(.*)				display_name.php?namestring=$1				[NC,L]
+
+#-------------------------------------------------------------------------------
+# BHL Title
+RewriteRule ^title/(.*)				display_title.php?id=$1					[NC,L]
+
+#-------------------------------------------------------------------------------
+# Identifiers
+
+# LSIDs
+RewriteRule ^urn:lsid:ubio.org:namebank:([0-9]+)$	display_name.php?namebankid=$1				[NC,L]
+RewriteRule ^(urn:lsid:catalogueoflife.org:taxon:(.*):ac2008)$	display_name.php?lsid=$1				[NC,L]
+
+
+# ISSN
+RewriteRule ^issn/(.*)				display_journal.php?issn=$1					[NC,L]
+
+# SICI
+RewriteRule ^sici/(.*)				display_sici.php?sici=$1					[NC,L]
+
+
+
