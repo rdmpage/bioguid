@@ -11,13 +11,16 @@
 
 global $config;
 
+// Date timezone
+date_default_timezone_set('UTC');
+
 // Server-------------------------------------------------------------------------------------------
-$config['web_server']	= 'http://localhost';
+$config['web_server']	= 'http://biostor.org';
 $config['site_name']	= 'BioStor';
 
 // Files--------------------------------------------------------------------------------------------
 $config['web_dir']		= dirname(__FILE__) . '/www';
-$config['web_root']		= '/~rpage/biostor/www/';
+$config['web_root']		= 'http://biostor.org/';
 
 
 // Database-----------------------------------------------------------------------------------------
@@ -50,7 +53,8 @@ $config['convert'] 	= '/usr/local/bin/convert';
 // Keys---------------------------------------------------------------------------------------------
 
 // GMap 
-$config['gmap'] 				= "";
+// biostor.org
+$config['gmap'] = "";
 
 // Recaptcha
 
