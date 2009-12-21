@@ -86,8 +86,15 @@ switch ($format)
 		// id
 		$id = $feed->createElement('id');
 		$id = $rss->appendChild($id);
-		$value = $feed->createTextNode('urn:uuid:' . uuid());
-		$value = $id->appendChild($value);
+		$id->appendChild($feed->createTextNode('urn:uuid:' . uuid()));
+
+		// author
+		$author = $feed->createElement('author');
+		$author = $rss->appendChild($author);
+		
+		$name = $feed->createElement('name');
+		$name = $author->appendChild($name);
+		$name->appendChild($feed->createTextNode('BioStor'));
 		
 		// items
 		
