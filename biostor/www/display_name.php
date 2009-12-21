@@ -64,7 +64,9 @@ class DisplayName extends DisplayObject
 		if (isset($col->name))
 		{
 			echo '<h2>Catalogue of Life accepted name</h2>';
+			echo '<p>';
 			echo '<span><a href="' . $config['web_root'] . 'name/' . $col->name . '">' . $col->name . '</a>' . ' ' . $col->author . '</span>';
+			echo '</p>';
 		}
 		
 		// What pages have this name? (BHL timeline)

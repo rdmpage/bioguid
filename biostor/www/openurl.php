@@ -225,6 +225,7 @@ function display_form()
 	echo html_title ('Reference Finder - ' . $config['site_name']);
 	echo html_include_script('js/fadeup.js');
 	echo html_include_script('js/prototype.js');
+
 	echo '<script type="text/javascript">
 var current_type = \'article\';
 function switch_type(reference_type)
@@ -238,43 +239,43 @@ function switch_type(reference_type)
 		case "article":
 			$(\'genre\').selectedIndex = 1;
 			html += \'<table>\';
-			html += \'<tr><td class="field_name" width="100px">Title<\/td>\';
+			html += \'<tr><td class="openurl_field_name">Title<\/td>\';
 			html += \'<td><textarea class="field_value" id="title" name="atitle" rows="4" cols="60"><\/textarea><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">Journal<\/td>\';
+			html += \'<tr><td class="openurl_field_name">Journal<\/td>\';
 			html += \'<td><textarea class="field_value" id="secondary_title" name="title" rows="4" cols="60"><\/textarea><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">Series<\/td>\';
+			html += \'<tr><td class="openurl_field_name">Series<\/td>\';
 			html += \'<td><input class="field_value" id="series" name="series" ><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">Volume<\/td>\';
+			html += \'<tr><td class="openurl_field_name">Volume<\/td>\';
 			html += \'<td><input class="field_value" id="volume" name="volume" ><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">Issue<\/td>\';
+			html += \'<tr><td class="openurl_field_name">Issue<\/td>\';
 			html += \'<td><input class="field_value" id="issue" name="issue" ><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">Starting page<\/td>\';
+			html += \'<tr><td class="openurl_field_name">Starting page<\/td>\';
 			html += \'<td><input class="field_value" id="spage" name="spage" ><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">Ending page<\/td>\';
+			html += \'<tr><td class="openurl_field_name">Ending page<\/td>\';
 			html += \'<td><input class="field_value" id="epage" name="epage" ><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">Year<\/td>\';
+			html += \'<tr><td class="openurl_field_name">Year<\/td>\';
 			html += \'<td><input class="field_value" id="year" name="year" ><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">DOI<\/td>\';
+			html += \'<tr><td class="openurl_field_name">DOI<\/td>\';
 			html += \'<td><input class="field_value" id="doi" name="doi" size="60"><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">URL<\/td>\';
+			html += \'<tr><td class="openurl_field_name">URL<\/td>\';
 			html += \'<td><input class="field_value" id="url" name="url" size="60"><\/td>\';
 			html += \'<\/tr>\';
 
@@ -284,19 +285,19 @@ function switch_type(reference_type)
 		case "book":
 			$(\'genre\').selectedIndex = 0;
 			html += \'<table>\';
-			html += \'<tr><td class="field_name" width="100px">Title<\/td>\';
+			html += \'<tr><td class="openurl_field_name">Title<\/td>\';
 			html += \'<td><textarea class="field_value" name="btitle" rows="4" cols="60"><\/textarea><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">ISBN<\/td>\';
+			html += \'<tr><td class="openurl_field_name">ISBN<\/td>\';
 			html += \'<td><input class="field_value" name="isbn" ><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">OCLC<\/td>\';
+			html += \'<tr><td class="openurl_field_name">OCLC<\/td>\';
 			html += \'<td><input class="field_value" name="oclc" ><\/td>\';
 			html += \'<\/tr>\';
 
-			html += \'<tr><td class="field_name" width="100px">Year<\/td>\';
+			html += \'<tr><td class="openurl_field_name">Year<\/td>\';
 			html += \'<td><input class="field_value" name="year" ><\/td>\';
 			html += \'<\/tr>\';
 			html += \'<\/table>\';
@@ -437,7 +438,7 @@ function validate_openurl_form(form)
 	return true;
 }
 
-</script>';
+</script>'; 
 	echo html_head_close();
 	echo html_body_open();
 	echo html_page_header(false);
@@ -447,7 +448,7 @@ function validate_openurl_form(form)
 	echo "<!-- citation parsing -->\n";
 	echo '<h2>Find from citation</h2>';
 	echo '<table>';
-	echo '<tr id="citation_row"><td class="field_name" width="100px">Citation</td>';
+	echo '<tr id="citation_row"><td class="openurl_field_name">Citation</td>';
 	echo '<td><textarea class="field_value" id="citation" rows="6" cols="60"></textarea></td></tr>';
 	echo '<tr><td></td><td><span style="padding:2px;cursor:pointer;background-color:#2D7BB2;color:white;font-size:18px;font-family:Arial;text-align:center;" onclick="parse_citation();">&nbsp;Parse&nbsp;</span>&nbsp;<span id="citation_message"></span></td></tr>';
 	echo '</table>';
@@ -456,11 +457,11 @@ function validate_openurl_form(form)
 	echo "<!-- bibliographic metadata -->\n";
 	echo '<h2>Find from bibliographic details</h2>';
 	
-	echo '<form id="openurl" method="GET" action="openurl.php" onsubmit="return validate_openurl_form(this)">';
+	echo '<form id="openurl" method="get" action="openurl.php" onsubmit="return validate_openurl_form(this)">';
 	echo "\n";
 	
 	echo '<table>';
-	echo '<tr><td class="field_name" width="100px">Type</td>';
+	echo '<tr><td class="openurl_field_name">Type</td>';
 	echo '<td>';
 	
 	echo '<select id="genre" name="genre" onchange="switch_type(genre.options[genre.selectedIndex].value);">';
@@ -477,8 +478,8 @@ function validate_openurl_form(form)
 	echo '</div>';
 	
 	echo '<table>';
-	echo '<tr><td width="100px"></td>';
-	echo '<td><input type="submit" value="Find"></td></tr>	';
+	echo '<tr><td class="openurl_field_name"></td>';
+	echo '<td><input type="submit" value="Find" /></td></tr>	';
 	echo '</table>';
 	echo '</form>';
 	
@@ -572,7 +573,7 @@ Event.observe(\'recaptcha_response_field\', \'keypress\', onMyTextKeypress);
 	
 	if (count($hits) != 0)
 	{
-		echo '<form id="metadata_form">';
+		echo '<form id="metadata_form" action=\'#\'>';
 		
 		// referent metadata (hidden). By populating form we can pass metadata to
 		// update.php via Ajax call
@@ -586,7 +587,7 @@ Event.observe(\'recaptcha_response_field\', \'keypress\', onMyTextKeypress);
 			// Thumbnail of page
 			echo '<td valign="top">';
 			echo '<a href="bhl_image.php?PageID=' . $hit->PageID . '" rel="lightbox">';
-			echo '<img style="border:1px solid rgb(128,128,128);" src="bhl_image.php?PageID=' . $hit->PageID . '&thumbnail"/>';
+			echo '<img style="border:1px solid rgb(128,128,128);" src="bhl_image.php?PageID=' . $hit->PageID . '&amp;thumbnail" alt="page thumbnail"/>';
 			echo '</a>';
 			echo '</td>';
 			
@@ -625,7 +626,11 @@ Event.observe(\'recaptcha_response_field\', \'keypress\', onMyTextKeypress);
 	else
 	{
 		echo '<p>No matching article found</p>';
-		echo '<a href="http://biodiversitylibrary.org/openurl?' . $_SERVER['QUERY_STRING'] . '" target= "_new">Try in BHL OpenURL</a><br/>';			
+		echo '<ul>';
+		echo '<li><a href="openurl.php">Return to Reference Finder</a></li>';			
+		echo '<li><a href="http://biodiversitylibrary.org/openurl?' . $_SERVER['QUERY_STRING'] . '" target= "_new">Try to find using BHL OpenURL resolver</a></li>';			
+		echo '<li><a href="http://bioguid.info/openurl.php?' . $_SERVER['QUERY_STRING'] . '" target= "_new">Try to find using bioGUID OpenURL resolver</a></li>';			
+		echo '</ul>';
 	}
 	echo html_body_close();
 	echo html_html_close();	

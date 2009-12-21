@@ -233,8 +233,9 @@ Event.observe(window, \'load\', function() {
 						map.addControl(new GOverviewMapControl());
 						map.addControl(new GMapTypeControl());        
 						map.addMapType(G_PHYSICAL_MAP);
-						map.setMapType(G_PHYSICAL_MAP);
+						//map.setMapType(G_PHYSICAL_MAP);
 						';
+			
 			
 			foreach ($this->localities as $loc)
 			{

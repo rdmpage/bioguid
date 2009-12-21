@@ -13,7 +13,12 @@ h1
 h2
 {
 /*	border-top:1px solid rgb(128,128,128); */
-	font-size:18px;
+	font-size:16px;
+}
+
+h3
+{
+	font-size:14px;
 }
 
 .explanation
@@ -68,6 +73,16 @@ a:hover
 	font-family: Arial;
 	font-size:12px;
 	border: 1px solid rgb(128,128,128);
+}
+
+/* OpenURL form */
+.openurl_field_name
+{
+	text-align:right;
+	color: rgb(63,63,63);
+	font-weight:bold;
+	font-size:12px;
+	width:100px;
 }
 
 textarea

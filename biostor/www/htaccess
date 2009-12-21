@@ -1,6 +1,6 @@
 RewriteEngine on
-RewriteBase /~rpage/bhl/www/
-#RewriteBase /
+#RewriteBase /~rpage/bhl/www/
+RewriteBase /
 
 
 #-------------------------------------------------------------------------------
