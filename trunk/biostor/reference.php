@@ -167,6 +167,10 @@ function reference_to_coins($reference)
 			}
 			$coins .= '&amp;rft.atitle=' . urlencode($reference->title);
 			$coins .= '&amp;rft.jtitle=' . urlencode($reference->secondary_title);
+			if (isset($reference->series))
+			{
+				$coins .= '&amp;rft.series/' . urlencode($reference->series);
+			}
 			$coins .= '&amp;rft.issn=' . $reference->issn;
 			$coins .= '&amp;rft.volume=' . $reference->volume;
 			$coins .= '&amp;rft.spage=' . $reference->spage;
@@ -203,6 +207,76 @@ function reference_to_coins($reference)
 	
 	return $coins;
 }
+
+function reference_to_bibtex($reference)
+{
+	global $config;
+	
+	$bibtex = '';
+	
+	switch ($reference->genre)
+	{
+		case 'article':
+			$bibtex .= "@article{";
+			
+			// Citekey
+			$citekey = '';
+			if (isset($reference->authors[0]->lastname))
+			{
+				$citekey = $reference->authors[0]->lastname;
+				if (isset($reference->year))
+				{
+					$citekey .= $reference->year;
+				}
+				else
+				{
+					$citekey = ':' . $reference->reference_id;
+				}
+			}
+			else
+			{
+				$citekey = 'biostor:' . $reference->reference_id;
+			}
+			$bibtex .= $citekey . ",\n";	
+			
+			
+			$num_authors = count($reference->authors);
+			if (count($num_authors) > 0)
+			{
+				$bibtex .= "   author = {" . latex_safe($reference->authors[0]->forename) . ' ' . latex_safe($reference->authors[0]->lastname);
+				
+				for ($i = 1; $i < $num_authors; $i++)
+				{
+					$bibtex .= " and " . latex_safe($reference->authors[$i]->forename) . ' ' . latex_safe($reference->authors[$i]->lastname);
+				}
+				$bibtex .= "},\n";
+			}
+			$bibtex .= "   title = {" . latex_safe($reference->title) . "},\n";
+			$bibtex .= "   journal = {" . $reference->secondary_title . "},\n";
+			$bibtex .= "   volume = {" . $reference->volume . "},\n";
+			if (isset($reference->issue) && ($reference->issue != ''))
+			{
+				$bibtex .= "   number = {" . $reference->issue . "},\n";
+			}
+			$bibtex .= "   pages = {" . $reference->spage; 
+			if (isset($reference->epage))
+			{
+				$bibtex .= "--" . $reference->epage;
+			}
+			$bibtex .=  "},\n";
+			$bibtex .= "   year = {" . $reference->year . "},\n";
+
+			$bibtex .= "   url = {" .  $config['web_root'] . "reference/" . $reference->reference_id . "}\n";
+			$bibtex .=  "}\n";
+			break;
+			
+		default:
+			break;
+	}
+	
+	return $bibtex;
+}
+
 
 
 //--------------------------------------------------------------------------------------------------
@@ -241,7 +315,7 @@ function reference_to_ris($reference)
 				$ris .= "EP  - " . $reference->epage . "\n";
 			}	
 			$ris .= "Y1  - " . $reference->year . "\n";
-			$ris .= "UR  - " . $config['web_server'] . $config['web_root'] . "reference/" . $reference->reference_id . "\n";
+			$ris .= "UR  - " .  $config['web_root'] . "reference/" . $reference->reference_id . "\n";
 			$ris .= "ER  - \n\n";
 			
 			break;
