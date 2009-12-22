@@ -50,7 +50,8 @@ function html_head_open()
 	$html .= html_include_css ('css/main.css');
 	
 	// RSS feed
-	$html .= html_include_link('application/atom+xml', 'ATOM', 'rss.php?format=atom', 'alternate');
+	// Uncomment if want single global feed
+	//$html .= html_include_link('application/atom+xml', 'ATOM', 'rss.php?format=atom', 'alternate');
 		
 	return $html;
 }
@@ -225,6 +226,7 @@ function html_search_box($query = '', $category = 'all')
 	global $config;
 	
 	// Note use of <div> around <input>, in XHTML we can't have a naked <input> element
+	$html = '';
 	$html .='<div style="float:right;">';	
 	$html .= '<form  method="get" action="' . $config['web_root'] . 'search.php" onsubmit="return validateTextSearch(this);">
 		<div >
