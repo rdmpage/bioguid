@@ -208,7 +208,7 @@ function points_from_text($text)
 		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
 	{
 
-		print_r($matches);
+		//print_r($matches);
 
 		$num = count($matches[0]);
 		for ($i = 0; $i < $num; $i++)
@@ -309,6 +309,46 @@ function points_from_text($text)
 			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
 	
 	
+			if (isset($matches['longitude_seconds'][$i]))
+			{
+				$seconds = $matches['longitude_seconds'][$i];
+			}
+			$minutes = $matches['longitude_minutes'][$i];
+			$degrees = $matches['longitude_degrees'][$i];
+			$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+			
+			$points[] = $pt;
+		}
+	}	
+	
+	// 0224' N 4259' E
+	if (preg_match_all('/(
+		(?<latitude_degrees>([0-9]{2}))
+		(?<latitude_minutes>([0-9]{2}))\'
+		\s*
+		(?<latitude_hemisphere>[N|S])
+		\s+
+		(?<longitude_degrees>([0-9]{2}))
+		(?<longitude_minutes>([0-9]{2}))\'
+		\s*
+		(?<longitude_hemisphere>[W|E])
+		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
+	{
+		$num = count($matches[0]);
+		for ($i = 0; $i < $num; $i++)
+		{
+			$pt = new stdclass;
+		
+			$seconds = '';
+			if (isset($matches['latitude_seconds'][$i]))
+			{
+				$seconds = $matches['latitude_seconds'][$i];
+			}
+			$minutes = $matches['latitude_minutes'][$i];
+			$degrees = $matches['latitude_degrees'][$i];
+			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+	
+			$seconds = '';
 			if (isset($matches['longitude_seconds'][$i]))
 			{
 				$seconds = $matches['longitude_seconds'][$i];
