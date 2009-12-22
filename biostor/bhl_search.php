@@ -623,6 +623,13 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 				$title_list = array(3952, 7411, 15816, 3966, 4274, 3943);
 				break;
 				
+			// Bulletin of the Natural History Museum (Entomology)
+			case 2192:
+			case 2201:
+				$title_list = array(2192, 2201);
+				break;
+			
+				
 			default:
 				break;
 		}
