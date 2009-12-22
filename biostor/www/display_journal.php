@@ -87,7 +87,8 @@ class DisplayJournal extends DisplayObject
 					}
 					echo ' ' . reference_to_citation_text_string($reference) . '</span>';
 					echo ' ' . reference_to_coins($reference);
-					echo '<div>';
+
+/*					echo '<div>';
 					
 					$pages = bhl_retrieve_reference_pages($ref->id);
 					$image = bhl_fetch_page_image($pages[0]->PageID);
@@ -96,7 +97,7 @@ class DisplayJournal extends DisplayObject
 					echo '</a>';
 	
 					//echo bhl_pages_with_name_thumbnails($reference_id, $this->namebankid);	
-					echo '</div>';
+					echo '</div>'; */
 					echo '</li>';
 				}
 			}
