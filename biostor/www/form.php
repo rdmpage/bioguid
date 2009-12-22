@@ -36,6 +36,7 @@ function reference_hidden_form($reference)
 				$html .= '<textarea name="' . $k . '" rows="2" cols="40">' . $v . '</textarea>';
 				break;
 		
+			case 'series':
 			case 'volume':
 			case 'issue':
 			case 'spage':
@@ -43,6 +44,7 @@ function reference_hidden_form($reference)
 			case 'date':
 			case 'year':
 			case 'issn':
+			case 'url':
 				$html .= '<input type="text" name="' . $k . '" value="' . $v . '"></input>' . "\n";
 				break;
 				
@@ -71,6 +73,7 @@ function reference_form($reference, $recaptcha = true)
 		'epage' => 'Ending page',
 		'date' => 'Date',
 		'year' => 'Year',
+		'url' => 'URL'
 		);
 	
 	$html = '';
@@ -121,9 +124,9 @@ function reference_form($reference, $recaptcha = true)
 		}
 		$authors .= "\n";
 	}
-	$html .= '<tr><td class="field_name">Authors</td><td><textarea name="authors" rows="5" cols="40">' . trim($authors) . '</textarea></td></tr>';
+	$html .= '<tr><td class="field_name">Authors</td><td><textarea name="authors" rows="5" cols="40">' . trim($authors) . '</textarea><br/><span style="font-size:12px;color:rgb(192,192,192);">One author per line, "First name Last name" or "Last name, First name"</span></td></tr>';
 
-	$journal_fields = array('secondary_title', 'issn', 'series', 'volume', 'issue', 'spage', 'epage', 'date', 'year');
+	$journal_fields = array('secondary_title', 'issn', 'series', 'volume', 'issue', 'spage', 'epage', 'date', 'year', 'url');
 
 	foreach ($journal_fields as $k)
 	{
@@ -139,8 +142,14 @@ function reference_form($reference, $recaptcha = true)
 				{
 					$html .= $reference->{$k};
 				}
+				$html .= '"';
+				if ($k == 'url')
+				{
+					$html .= ' size="40"';
+				}
+				
 				// Vital to suppress enter key in input boxes
-				$html .= '" onkeypress="onMyTextKeypress(event);"></td></tr>' . "\n";
+				$html .= ' onkeypress="onMyTextKeypress(event);"></td></tr>' . "\n";
 				break;
 		}
 	}
