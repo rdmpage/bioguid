@@ -208,7 +208,7 @@ function bhl_localities_for_reference($reference_id)
 {
 	global $db;
 	
-	$points = array();
+	$pts = array();
 	
 	$sql = 'SELECT DISTINCT(locality_id), latitude, longitude, woeid, name FROM rdmp_reference_page_joiner 
 INNER JOIN rdmp_locality_page_joiner USING(PageID)
@@ -346,6 +346,7 @@ function db_retrieve_journal_from_issn ($issn)
 }
 
 //--------------------------------------------------------------------------------------------------
+// Note that we use MySQL CAST() to ensure ordering is numeric, not lexical
 function db_retrieve_articles_from_journal ($issn)
 {
 	global $db;
@@ -354,8 +355,8 @@ function db_retrieve_articles_from_journal ($issn)
 	$articles = array();
 	
 	// for now grab details from references
-	$sql = 'SELECT * FROM rdmp_reference WHERE (issn=' . $db->qstr($issn) . ')
-	ORDER BY year, volume, issue, spage';
+	$sql = 'SELECT *  FROM rdmp_reference WHERE (issn=' . $db->qstr($issn) . ')
+	ORDER BY year, CAST(volume AS SIGNED), CAST(issue AS SIGNED), CAST(spage AS SIGNED)';
 
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
@@ -1136,6 +1137,19 @@ function db_store_article($article, $PageID = 0, $updating = false)
 					$values[] = $db->qstr(year_from_date($v));
 				}
 				break;
+				
+			// Don't store BHL URL here
+			case 'url':
+				if (preg_match('/^http:\/\/(www\.)?biodiversitylibrary.org\/page\/(?<pageid>[0-9]+)/', $v))
+				{
+				}
+				else
+				{
+					$keys[] = $k;
+					$values[] = $db->qstr($v);
+				}
+				break;			
+				
 			
 			// Things we store as is
 			case 'title':
