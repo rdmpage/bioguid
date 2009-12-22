@@ -19,7 +19,9 @@ echo html_html_open();
 echo html_head_open();
 
 //echo html_include_link('application/rdf+xml', 'RSS 1.0', 'rss.php?format=rss1', 'alternate');
-//echo html_include_link('application/atom+xml', 'ATOM', 'rss.php?format=atom', 'alternate');
+
+//
+echo html_include_link('application/atom+xml', 'ATOM', 'rss.php?format=atom', 'alternate');
 
 echo html_title($config['site_name']);
 echo html_head_close();
@@ -45,11 +47,29 @@ if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql)
 
 $num_authors = $result->fields['c'];
 
+// How many journals?
+$sql = 'SELECT COUNT(DISTINCT(issn)) AS c FROM rdmp_reference';
+
+$result = $db->Execute($sql);
+if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+$num_journals = $result->fields['c'];
+
+// How many editors (IP)?
+$sql = 'SELECT COUNT(DISTINCT(INET_NTOA(ip))) as c FROM rdmp_reference_version';
+
+$result = $db->Execute($sql);
+if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+$num_editors = $result->fields['c'];
+
 echo '<div style="float:right;padding:10px;">';
 
-echo '<table>';
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">References</td><td style="font-size:32px">' . $num_references . '</td></tr>';
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Authors</td><td style="font-size:32px">' . $num_authors . '</td></tr>';
+echo '<table cellpadding="4">';
+echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">References</td><td style="font-size:32px;text-align:right;">' . $num_references . '</td></tr>';
+echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Authors</td><td style="font-size:32px;text-align:right;">' . $num_authors . '</td></tr>';
+echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Journals</td><td style="font-size:32px;text-align:right;">' . $num_journals . '</td></tr>';
+echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Participants</td><td style="font-size:32px;text-align:right;">' . $num_editors . '</td></tr>';
 echo '</table>';
 
 echo '</div>';
