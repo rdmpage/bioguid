@@ -116,7 +116,7 @@ function process_ris_key($key, $value, &$obj)
 			break;
 
 		case 'EP':
-			if (preg_match('/^(?<spage>[0-9]+)\s*[-|–|—]\s*(?<epage>[0-9]+)$/', trim($value), $matches))
+			if (preg_match('/^(?<spage>[0-9]+)\s*[-|–|—]\s*(?<epage>[0-9]+)$/u', trim($value), $matches))
 			{
 				$obj->spage = $matches['spage'];
 				$obj->epage = $matches['epage'];
