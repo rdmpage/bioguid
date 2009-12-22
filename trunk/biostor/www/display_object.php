@@ -52,24 +52,8 @@ class DisplayObject
 					$this->format = 'json';
 					break;
 					
-				case 'kml':
-					$this->format = 'kml';
-					break;					
-
 				case 'rdf':
 					$this->format = 'rdf';
-					break;
-
-				case 'text':
-					$this->format = 'text';
-					break;					
-
-				case 'xml':
-					$this->format = 'xml';
-					break;
-
-				case 'ris':
-					$this->format = 'ris';
 					break;
 		
 				default:
@@ -89,42 +73,32 @@ class DisplayObject
 		}
 		else
 		{
-			switch ($this->format)
-			{
-				case 'html':
-					$this->DisplayHtml();
-					break;
-	
-				case 'json':
-					$this->DisplayJson();
-					break;
-	
-				case 'rdf':
-					$this->DisplayRdf();
-					break;
-
-				case 'xml':
-					$this->DisplayXml();
-					break;
-
-				case 'kml':
-					$this->DisplayKml();
-					break;
-
-				case 'text':
-					$this->DisplayText();
-					break;
-
-				case 'ris':
-					$this->DisplayRis();
-					break;
-	
-				default:
-					$this->DisplayHtml();
-					break;
-			}
+			$this->DisplayFormattedObject();
 		}
 	}
+	
+	//----------------------------------------------------------------------------------------------
+	function DisplayFormattedObject()
+	{
+		switch ($this->format)
+		{
+			case 'html':
+				$this->DisplayHtml();
+				break;
+
+			case 'json':
+				$this->DisplayJson();
+				break;
+
+			case 'rdf':
+				$this->DisplayRdf();
+				break;
+
+			default:
+				$this->DisplayHtml();
+				break;
+		}
+	}	
 	
 	//----------------------------------------------------------------------------------------------
 	function DisplayObjectNotFound()
@@ -191,30 +165,6 @@ class DisplayObject
 		$this->DisplayNotFound();
 	}
 
-	//----------------------------------------------------------------------------------------------
-	function DisplayRis()
-	{
-		$this->DisplayNotFound();
-	}
-	
-	//----------------------------------------------------------------------------------------------
-	function DisplayText()
-	{
-		$this->DisplayNotFound();
-	}
-	
-	//----------------------------------------------------------------------------------------------
-	function DisplayKml()
-	{
-		$this->DisplayNotFound();
-	}
-	
-	
-	//----------------------------------------------------------------------------------------------
-	function DisplayXml()
-	{
-		$this->DisplayNotFound();
-	}
 	
 	//----------------------------------------------------------------------------------------------
 	function DisplayRdf()
