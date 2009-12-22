@@ -37,6 +37,65 @@ class DisplayReference extends DisplayObject
 		}
 	}	
 	
+	//----------------------------------------------------------------------------------------------
+	function GetFormat()
+	{
+		if (isset($_GET['format']))
+		{
+			switch ($_GET['format'])
+			{
+
+				case 'text':
+					$this->format = 'text';
+					break;					
+
+				case 'xml':
+					$this->format = 'xml';
+					break;
+
+				case 'ris':
+					$this->format = 'ris';
+					break;
+
+				case 'bib':
+					$this->format = 'bib';
+					break;
+		
+				default:
+					parent::GetFormat();
+					break;
+			}
+		}
+	}	
+	
+	//----------------------------------------------------------------------------------------------
+	function DisplayFormattedObject()
+	{
+		switch ($this->format)
+		{
+			case 'xml':
+				$this->DisplayXml();
+				break;
+
+			case 'text':
+				$this->DisplayText();
+				break;
+
+			case 'ris':
+				$this->DisplayRis();
+				break;
+
+			case 'bib':
+				$this->DisplayBibtex();
+				break;
+
+			default:
+				parent::DisplayFormattedObject();
+				break;
+		}
+	}		
+	
+	
 
 	//----------------------------------------------------------------------------------------------
 	// Extra <HEAD> items
@@ -344,6 +403,10 @@ Event.observe(window, \'load\', function() {
 		}
 		echo '</span>';
 		echo ' ';
+		if (isset($this->object->series))
+		{
+			echo ' <span class="volume">(' . $this->object->series . ') </span>';
+		}
 		echo '<span class="volume">' . $this->object->volume . '</span>';
 		if (isset($this->object->issue))
 		{
@@ -379,6 +442,8 @@ Event.observe(window, \'load\', function() {
 		echo ' | ';
 		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.ris" title="RIS">Reference manager</a></span>';		
 		echo ' | ';
+		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.bib" title="BibTex">BibTex</a></span>';		
+		echo ' | ';
 		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.text" title="Text">Text</a></span>';		
 		echo '</div>';
 		
@@ -396,6 +461,10 @@ Event.observe(window, \'load\', function() {
 		if (isset($this->object->sici))
 		{
 			echo '<li><a href="' . $config['web_root'] . 'sici/' . $this->object->sici . '">' .  $this->object->sici . '</a></li>';
+		}
+		if (isset($this->object->url))
+		{
+			echo '<li><a href="' . $this->object->url . '">' .  $this->object->url . '</a></li>';
 		}
 		echo '</ul>';
 		
@@ -460,6 +529,12 @@ Event.observe(window, \'load\', function() {
 		echo reference_to_ris($this->object);
 	}
 	
+	//----------------------------------------------------------------------------------------------
+	function DisplayBibtex()
+	{
+		header("Content-type: application/x-bibtex; charset=utf-8\n\n");
+		echo reference_to_bibtex($this->object);
+	}	
 
 	//----------------------------------------------------------------------------------------------
 	// Endnote XML export format
