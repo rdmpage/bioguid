@@ -786,7 +786,7 @@ function main()
 					case 'html':
 					default:
 						// Redirect to reference display
-						header('Location: reference/' . $id . "\n\n");
+						header('Location: ' . $config['web_root'] . 'reference/' . $id . "\n\n");
 						break;
 				}
 				exit();
