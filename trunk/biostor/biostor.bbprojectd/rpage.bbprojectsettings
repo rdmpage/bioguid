@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EmbeddedEditorHidden:rpage</key>
+	<false/>
+	<key>ExpandedEditorWidth:rpage:displays([(0, 0), (1920, 1200)])</key>
+	<integer>640</integer>
+	<key>ExpandedItems:rpage</key>
+	<array>
+		<string>D166A79C-1014-43F2-8571-2462A40EA762</string>
+	</array>
+	<key>FileFilterID:rpage</key>
+	<integer>0</integer>
+	<key>OpenDocuments:rpage</key>
+	<array>
+		<dict>
+			<key>AliasData</key>
+			<data>
+			AAAAAAF4AAIAAAlTZXJ2ZXIgSEQAAAAAAAAAAAAAAAAAAAAAAADH
+			MV3ZSCsAAAALxxIMYmhsX2RhdGUucGhwAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz9
+			9MdVDkoAAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAAB2Jp
+			b3N0b3IAABAACAAAxzFd2QAAABEACAAAx1UOSgAAAAEAEAALxxIA
+			CipjAAEXGQAAAY4AAgA2U2VydmVyIEhEOkxpYnJhcnk6V2ViU2Vy
+			dmVyOlNpdGVzOmJpb3N0b3I6YmhsX2RhdGUucGhwAA4AGgAMAGIA
+			aABsAF8AZABhAHQAZQAuAHAAaABwAA8AFAAJAFMAZQByAHYAZQBy
+			ACAASABEABIALExpYnJhcnkvV2ViU2VydmVyL1NpdGVzL2Jpb3N0
+			b3IvYmhsX2RhdGUucGhwABMAAS8A//8AAA==
+			</data>
+			<key>FileURL</key>
+			<string>file://localhost/Library/WebServer/Sites/biostor/bhl_date.php</string>
+			<key>RelativePath</key>
+			<string>./bhl_date.php</string>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>AliasData</key>
+			<data>
+			AAAAAAGGAAIAAAlTZXJ2ZXIgSEQAAAAAAAAAAAAAAAAAAAAAAADH
+			MV3ZSCsAAAAL100NYmhsX2ltYWdlLnBocAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz6
+			5sdVDkUAAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAAA3d3
+			dwAAEAAIAADHMV3ZAAAAEQAIAADHVQ5FAAAAAQAUAAvXTQALxxIA
+			CipjAAEXGQAAAY4AAgA7U2VydmVyIEhEOkxpYnJhcnk6V2ViU2Vy
+			dmVyOlNpdGVzOmJpb3N0b3I6d3d3OmJobF9pbWFnZS5waHAAAA4A
+			HAANAGIAaABsAF8AaQBtAGEAZwBlAC4AcABoAHAADwAUAAkAUwBl
+			AHIAdgBlAHIAIABIAEQAEgAxTGlicmFyeS9XZWJTZXJ2ZXIvU2l0
+			ZXMvYmlvc3Rvci93d3cvYmhsX2ltYWdlLnBocAAAEwABLwD//wAA
+			</data>
+			<key>FileURL</key>
+			<string>file://localhost/Library/WebServer/Sites/biostor/www/bhl_image.php</string>
+			<key>RelativePath</key>
+			<string>./www/bhl_image.php</string>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>ShowInvisibles:rpage</key>
+	<false/>
+	<key>TextFilesOnly:rpage</key>
+	<false/>
+	<key>ToolbarVisible:rpage</key>
+	<true/>
+	<key>ViewSplitterPosition:rpage</key>
+	<real>0.26011559367179871</real>
+	<key>WindowFrame:rpage:displays([(0, 0), (1920, 1200)])</key>
+	<string>rect(44,0,1109,865)</string>
+</dict>
+</plist>
