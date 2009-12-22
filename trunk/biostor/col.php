@@ -16,7 +16,8 @@ function col_references_for_name($name)
 	
 	$references = array();
 	
-	$sql = 'SELECT * FROM taxa
+	$sql = 'SELECT DISTINCT(`references`.record_id), author, year, title, source, reference_type
+	FROM taxa
 INNER JOIN scientific_name_references USING(name_code)
 INNER JOIN `references` ON scientific_name_references.reference_id = `references`.record_id
 WHERE taxa.name=' . $db->qstr($name) . '
