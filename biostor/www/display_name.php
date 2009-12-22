@@ -113,7 +113,7 @@ class DisplayName extends DisplayObject
 				echo $ref->year;
 				echo ' ';
 				echo $ref->title;
-				echo ' ';
+				echo '. ';
 				echo $ref->source;
 				echo '</span>';
 				echo '</li>';
