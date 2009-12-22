@@ -7,6 +7,31 @@
  *
  */
  
+require_once(dirname(__FILE__) . '/transtab_unicode_latex.inc.php');
+ 
+//--------------------------------------------------------------------------------------------------
+function latex_safe($str)
+{
+	global $transtab_unicode_latex;
+		
+	$n = mb_strlen($str);
+	$safe_str = '';
+	for($i = 0; $i < $n; $i++)
+	{
+		$char = mb_substr($str, $i, 1);
+		if (array_key_exists($char, $transtab_unicode_latex)) 
+		{
+			$safe_str .= $transtab_unicode_latex[$char];
+		}
+		else
+		{
+			$safe_str .= $char;
+		}
+	}
+	return $safe_str;
+}
+ 
+ 
 //--------------------------------------------------------------------------------------------------
 /**
  * @brief Get client IP address
@@ -148,7 +173,7 @@ function word_split($str,$words=10)
 function trim_text($str, $words=10)
 {
 	$s = word_split($str, $words);
-	if (strlen($s) < strlen($str))
+	if (mb_strlen($s) < mb_strlen($str))
 	{
 		$s .= '…';
 	}
