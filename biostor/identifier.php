@@ -131,7 +131,7 @@ class Sici extends Identifier
 		$this->sici_string = $reference->issn;
 		$this->sici_string .= '(' . $reference->year . ')';
 		$this->sici_string .= $reference->volume;
-		if (isset($reference->issue))
+		if (isset($reference->issue) && ($reference->issue != ''))
 		{
 			$this->sici_string .= ':' . $reference->issue;
 		}
