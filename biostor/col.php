@@ -34,7 +34,7 @@ ORDER BY `references`.year';
 		$reference->author = $result->fields['author'];
 		$reference->year = $result->fields['year'];
 		$reference->title = $result->fields['title'];
-		$reference->source = $result->fields['source'];
+		$reference->source = strip_tags($result->fields['source']);
 		$reference->reference_type = $result->fields['reference_type'];
 	
 		$references[] = $reference;
