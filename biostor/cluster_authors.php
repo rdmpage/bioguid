@@ -57,7 +57,8 @@ $last_names = array();
 $sql = 'SELECT DISTINCT(lastname) AS last
 FROM rdmp_author
 INNER JOIN rdmp_author_reference_joiner USING(author_id)
-WHERE (lastname <> "") AND (forename <> "")';
+WHERE (lastname <> "") AND (forename <> "")
+ORDER BY lastname';
 
 echo $sql . "\n";
 
@@ -77,6 +78,7 @@ print_r($last_names);
 // Get forenames
 foreach ($last_names as $last)
 {
+	echo "$last\n";
 	// Reset clusters to be same as author_id
 	$sql = 'UPDATE rdmp_author SET author_cluster_id = author_id WHERE lastname=' . $db->qstr($last);
 	$result = $db->Execute($sql);
@@ -168,17 +170,19 @@ foreach ($last_names as $last)
 						$result->MoveNext();				
 					}	
 				}
-			}
-			sort($ids);
-			
-			$author_cluster_id = $ids[0];
-			foreach ($ids as $author_id)
-			{
-				$sql = 'UPDATE rdmp_author SET author_cluster_id=' . $author_cluster_id
-				. ' WHERE author_id=' . $author_id;
+				sort($ids);
 				
-				$result = $db->Execute($sql);
-				if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+				print_r($ids);
+				
+				$author_cluster_id = $ids[0];
+				foreach ($ids as $author_id)
+				{
+					$sql = 'UPDATE rdmp_author SET author_cluster_id=' . $author_cluster_id
+					. ' WHERE author_id=' . $author_id;
+					
+					$result = $db->Execute($sql);
+					if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+				}
 			}
 		}
 	}
