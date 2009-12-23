@@ -22,13 +22,17 @@ if (isset($msg->messageid))
 	//print_r($msg);
 	
 	$text = $msg->body;
-	$output = preg_replace('/(https?):\/\/(.*)(\b|\))/', '<a href="$0">$0</a>', $text);
+	
+	// From http://daringfireball.net/2009/11/liberal_regex_for_matching_urls
+	$output = preg_replace('/\b(([\w-]+:\/\/?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/)))/', '<a href="$0">$0</a>', $text);
+	//$output = preg_replace('/(https?):\/\/(.*)(\b|\))/', '<a href="$0">$0</a>', $text);
 	$output = preg_replace('/\b(.*)@(.*)\b/', '$1[at]$2', $output);
 	
 	
 ?>
 <html>
 <head>
+<link rel="icon" href="favicon.ico">
 <title><?php echo $msg->subject; ?> - EvolDir</title>
 <style type="text/css">
 body {
@@ -47,6 +51,16 @@ body {
 <hr />
 <p><?php echo nl2br($output); ?> </p>
 </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-4542557-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
 </body>
 </html>
 <?
@@ -57,11 +71,22 @@ else
 ?>
 <html>
 <head>
+<link rel="icon" href="favicon.ico">
 <title>Error - EvolDir</title>
 </head>
 <body>
 <h1><?php echo $id; ?></h1>
 <p>No message corresponds to id &quot;<?php echo $id; ?>&quot;</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-4542557-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
 </body>
 </html>
 <?	
