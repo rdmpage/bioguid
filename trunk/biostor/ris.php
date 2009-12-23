@@ -139,6 +139,12 @@ function process_ris_key($key, $value, &$obj)
 				}
 			}
 			
+			// Simple year
+			if (preg_match("/^[0-9]{4}$/", $date))
+			{			
+				$obj->year = $date;
+			}
+
 			
 			if (preg_match("/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/", $date))
 			{
