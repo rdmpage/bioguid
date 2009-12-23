@@ -356,7 +356,7 @@ function db_retrieve_articles_from_journal ($issn)
 	
 	// for now grab details from references
 	$sql = 'SELECT *  FROM rdmp_reference WHERE (issn=' . $db->qstr($issn) . ')
-	ORDER BY year, CAST(volume AS SIGNED), CAST(issue AS SIGNED), CAST(spage AS SIGNED)';
+	ORDER BY CAST(volume AS SIGNED), CAST(issue AS SIGNED), CAST(spage AS SIGNED)';
 
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
