@@ -45,6 +45,14 @@ class DisplayJournal extends DisplayObject
 		
 		echo '<h1>' . $this->GetTitle() . '</h1>';
 		
+		// Image
+		if (isset($this->issn))
+		{
+			echo '<div>';
+			echo '<img src="http://bioguid.info/issn/image.php?issn=' . $this->issn . '" alt="cover" style="border:1px solid rgb(228,228,228);height:100px;" />';
+			echo '</div>';
+		}
+		
 		// How does journal relate to BHL Titles and Items?
 		
 		$titles = db_retrieve_journal_names_from_issn($this->issn);
@@ -88,7 +96,7 @@ class DisplayJournal extends DisplayObject
 					echo ' ' . reference_to_citation_text_string($reference) . '</span>';
 					echo ' ' . reference_to_coins($reference);
 
-/*					echo '<div>';
+					echo '<div>';
 					
 					$pages = bhl_retrieve_reference_pages($ref->id);
 					$image = bhl_fetch_page_image($pages[0]->PageID);
@@ -97,7 +105,7 @@ class DisplayJournal extends DisplayObject
 					echo '</a>';
 	
 					//echo bhl_pages_with_name_thumbnails($reference_id, $this->namebankid);	
-					echo '</div>'; */
+					echo '</div>'; 
 					echo '</li>';
 				}
 			}
