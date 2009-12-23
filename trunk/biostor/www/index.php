@@ -81,9 +81,14 @@ echo '<p>BioStor provides tools for extracting, annotating, and visualising lite
 
 echo '<ul>';
 echo '<li>Find references using <a href="openurl.php">Reference finder</a></li>';
-echo '<li>View most recent references as <a href="rss.php?format=atom">RSS feed</a></li>';
 echo '<li>Start browsing <a href="reference/1">references</a>, <a href="author/1">authors</a>, or <a href="name/2706186">taxon names</a></li>';
 echo '</ul>';
+
+echo '<h1>Progress</h1>';
+
+echo '<p>View number of articles identified <a href="journals.php">per journal</a>.</p>';
+
+echo '<p>View most recently identified references as a <a href="rss.php?format=atom">RSS feed</a>.</p>';
 
 echo '<h1>Finding references using BioStor</h1>
 
