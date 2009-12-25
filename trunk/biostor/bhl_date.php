@@ -117,6 +117,43 @@ function parse_bhl_date($str, &$info)
 	$str = preg_replace('/:plates$/', '', $str);
 	$str = trim($str);
 	
+	//v.58-59
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^v\.\s*(?<volumefrom>[0-9]+)-(?<volumeto>[0-9]+)$/u", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume_from = $m['volumefrom'];
+			$info->volume_to = $m['volumeto'];
+			$matched = true;
+		}
+		
+	}	
+	
+	// 31 n.01
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volumefrom>[0-9]+)\s+n\.(?<issue>[0-9]+)$/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume_from = $m['volumefrom'];
+			$info->issue = $m['issue'];
+			$info->issue = preg_replace('/^0/', '', $info->issue);
+			$matched = true;
+		}
+		
+	}	
+
+
+	
 	if (!$matched)
 	{
 		$m = array();
@@ -727,6 +764,8 @@ function test_parse_bhl_date()
 	array_push($dates, 'new ser.:v.5');
 	array_push($dates, 'new ser.:v.45 (1901-1902)');
 	array_push($dates, 'new ser. v. 19 (1906-1907)');
+	
+	$dates[] = 'v. 58-59';
 
 	
 	$ok = 0;

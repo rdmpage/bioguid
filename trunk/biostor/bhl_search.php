@@ -628,7 +628,13 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			case 2201:
 				$title_list = array(2192, 2201);
 				break;
-			
+
+			// Entomological News
+			case 34360:
+			case 2356:
+			case 2359:
+				$title_list = array(34360, 2356,2359);
+				break;
 				
 			default:
 				break;
