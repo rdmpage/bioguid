@@ -86,9 +86,66 @@ echo '</ul>';
 
 echo '<h1>Progress</h1>';
 
-echo '<p>View number of articles identified <a href="journals.php">per journal</a>.</p>';
+echo '<h2>Articles</h2>';
 
-echo '<p>View most recently identified references as a <a href="rss.php?format=atom">RSS feed</a>.</p>';
+echo '<p>Number of articles per journal (<a href="journals.php">more...</a>). Get most recently added articles as a <a href="http://biostor.org/rss.php?format=atom">RSS feed</a>.</p>';
+
+	
+$sql = 'SELECT secondary_title, issn, COUNT(reference_id) AS c
+FROM rdmp_reference
+GROUP BY issn
+ORDER BY c DESC
+LIMIT 5';
+
+echo '<table border="0">';
+echo '<tr>';
+
+$result = $db->Execute($sql);
+if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+
+while (!$result->EOF) 
+{
+	echo '<td valign="top" align="center">';
+	echo '<div><a href="' . $config['web_root'] . 'issn/' . $result->fields['issn'] .'"><img src="http://bioguid.info/issn/image.php?issn=' . $result->fields['issn']  . '" alt="cover" style="border:1px solid rgb(228,228,228);height:100px;" /></a></div>';
+	echo '<div><a href="' . $config['web_root'] . 'issn/' . $result->fields['issn'] .'">' . $result->fields['secondary_title'] . '</a></div>';
+	echo $result->fields['c'] . '&nbsp;articles';
+	echo '</td>';
+	
+	$result->MoveNext();		
+}
+echo '</tr>';
+echo '</table>';
+
+echo '<h2>Authors</h2>';
+
+// Most prolific authors...
+
+$sql = 'SELECT COUNT(rdmp_reference.reference_id) AS c, rdmp_author.author_id, rdmp_author.forename, rdmp_author.lastname 
+FROM rdmp_reference
+INNER JOIN rdmp_author_reference_joiner USING (reference_id)
+INNER JOIN rdmp_author USING (author_id)
+GROUP BY (rdmp_author.author_cluster_id)
+ORDER BY c DESC
+LIMIT 10';
+
+$result = $db->Execute($sql);
+if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+
+echo '<ol>';
+
+while (!$result->EOF) 
+{
+	echo '<li>';
+	echo '<a href="' . $config['web_root'] . 'author/' . $result->fields['author_id'] . '">' 
+	. $result->fields['forename']  . ' ' .  $result->fields['lastname'] . '</a> ' 
+	. $result->fields['c'] . ' articles';
+	echo '</li>';
+	
+	$result->MoveNext();		
+}
+
+echo '</ol>';
+
 
 echo '<h1>Finding references using BioStor</h1>
 
