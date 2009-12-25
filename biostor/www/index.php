@@ -19,8 +19,6 @@ echo html_html_open();
 echo html_head_open();
 
 //echo html_include_link('application/rdf+xml', 'RSS 1.0', 'rss.php?format=rss1', 'alternate');
-
-//
 echo html_include_link('application/atom+xml', 'ATOM', 'rss.php?format=atom', 'alternate');
 
 echo html_title($config['site_name']);
@@ -145,6 +143,20 @@ while (!$result->EOF)
 }
 
 echo '</ol>';
+
+echo '<h1>Localities</h1>';
+echo '<p>Localities extracted from articles.</p>';
+
+echo '
+<!--[if IE]>
+<embed width="360" height="180" src="map_references.php">
+</embed>
+<![endif]-->
+<![if !IE]>
+<object id="mysvg" type="image/svg+xml" width="360" height="180" data="map_references.php">
+<p>Error, browser must support "SVG"</p>
+</object>
+<![endif]>';
 
 
 echo '<h1>Finding references using BioStor</h1>
