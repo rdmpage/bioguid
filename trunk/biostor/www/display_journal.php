@@ -96,16 +96,17 @@ class DisplayJournal extends DisplayObject
 					echo ' ' . reference_to_citation_text_string($reference) . '</span>';
 					echo ' ' . reference_to_coins($reference);
 
-					echo '<div>';
-					
-					$pages = bhl_retrieve_reference_pages($ref->id);
-					$image = bhl_fetch_page_image($pages[0]->PageID);
-					echo '<a href="' . $config['web_root'] . 'reference/' . $ref->id . '">';
-					echo '<img style="padding:2px;border:1px solid blue;margin:2px;" id="thumbnail_image_' . $page->PageID . '" src="' . $image->thumbnail->url . '" width="' . $image->thumbnail->width . '" height="' . $image->thumbnail->height . '" alt="thumbnail"/>';	
-					echo '</a>';
-	
-					//echo bhl_pages_with_name_thumbnails($reference_id, $this->namebankid);	
-					echo '</div>'; 
+					// Thumbail, useful for debugging
+					if (0)
+					{
+						echo '<div>';					
+						$pages = bhl_retrieve_reference_pages($ref->id);
+						$image = bhl_fetch_page_image($pages[0]->PageID);
+						echo '<a href="' . $config['web_root'] . 'reference/' . $ref->id . '">';
+						echo '<img style="padding:2px;border:1px solid blue;margin:2px;" id="thumbnail_image_' . $page->PageID . '" src="' . $image->thumbnail->url . '" width="' . $image->thumbnail->width . '" height="' . $image->thumbnail->height . '" alt="thumbnail"/>';	
+						echo '</a>';
+						echo '</div>'; 
+					}
 					echo '</li>';
 				}
 			}
