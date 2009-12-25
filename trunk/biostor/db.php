@@ -1360,4 +1360,32 @@ function db_retrieve_reference($id)
 	return $article;
 }
 
+//--------------------------------------------------------------------------------------------------
+// return all localities
+function retrieve_localities()
+{
+	global $db;
+	
+	$pts = array();
+	
+	$sql = 'SELECT latitude, longitude, woeid, name FROM rdmp_locality';
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	while (!$result->EOF) 
+	{
+		$pt = new stdclass;
+		$pt->latitude = $result->fields['latitude'];
+		$pt->longitude = $result->fields['longitude'];
+		$pt->woeid = $result->fields['woeid'];
+		$pt->name = $result->fields['name'];
+		$pts[] = $pt;
+		$result->MoveNext();
+	}
+	
+	return $pts;
+
+}
+
 ?>
