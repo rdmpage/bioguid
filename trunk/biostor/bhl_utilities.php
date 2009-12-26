@@ -68,7 +68,7 @@ function bhl_mobot_image_url($PageID)
 			$fields['filename'] = $matches['image_filename'];
 		}
 		
-		if (preg_match('/client=(?<MARC001>[0-9]+)\/(?<prefix>[0-9]+)\//', $part, $matches))
+		if (preg_match('/client=(?<MARC001>[a-z]?[0-9]+)\/(?<prefix>[0-9]+)\//', $part, $matches))
 		{
 			$fields['MARC001'] = $matches['MARC001'];
 			$fields['prefix'] = $matches['prefix'];
