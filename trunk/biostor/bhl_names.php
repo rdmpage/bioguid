@@ -242,7 +242,7 @@ function bhl_pages_with_name_thumbnails($reference_id, $NameBankID)
 		{
 			$image = bhl_fetch_page_image($hit);
 			$html .= '<a href="' . $config['web_root'] . 'reference/' . $reference_id . '/page/' . $hit . '">';
-			$html .=  '<img style="padding:2px;border:1px solid blue;margin:2px;" id="thumbnail_image_' . $page->PageID . '" src="' . $image->thumbnail->url . '" width="' . $image->thumbnail->width . '" height="' . $image->thumbnail->height . '"/>';	
+			$html .=  '<img style="padding:2px;border:1px solid blue;margin:2px;" id="thumbnail_image_' . $hit . '" src="' . $image->thumbnail->url . '" width="' . $image->thumbnail->width . '" height="' . $image->thumbnail->height . '"/>';	
 			$html .= '</a>';
 		}
 	}
