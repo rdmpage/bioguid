@@ -556,11 +556,16 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 				
 		// Problem -- volume info varies across titles (and sometimes within...)
 		
+		if ($debug)
+		{
+			echo __LINE__ . "<br/>TitleID:" . $obj->TitleID . "<br/>Volume: " . $volume . "<br/>Series: " . $series . "<br/>";
+		}
 		$volume_offset = 0;
 		$obj->ItemIDs = bhl_itemid_from_volume($obj->TitleID, $volume, $series);
 
 		if ($debug)
 		{
+			echo __LINE__ . " ItemIDs<br/>\n";
 			print_r($obj->ItemIDs);
 		}
 		
@@ -649,6 +654,8 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 		}
 	}
 	
+	//echo __LINE__;
+		
 	// At this point if we have any items then we have a potential hit. For each item in the list we
 	// query the BHL database and look for pages with PageNumber matching our query
 	$num_items = count($obj->ItemIDs);
@@ -661,6 +668,8 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			WHERE (bhl_page.ItemID = ' . $obj->ItemIDs[$i]->ItemID . ') 
 			AND (PageNumber = ' . $db->qstr($page) . ') 
 			ORDER BY SequenceOrder';
+			
+			//echo $sql;
 			
 			$result = $db->Execute($sql);
 			if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
