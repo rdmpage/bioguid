@@ -114,6 +114,31 @@ while (!$result->EOF)
 echo '</tr>';
 echo '</table>';
 
+$sql = 'SELECT secondary_title, issn, COUNT(reference_id) AS c
+FROM rdmp_reference
+GROUP BY issn
+ORDER BY c DESC
+LIMIT 5,5';
+
+echo '<table border="0">';
+echo '<tr>';
+
+$result = $db->Execute($sql);
+if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+
+while (!$result->EOF) 
+{
+	echo '<td valign="top" align="center">';
+	echo '<div><a href="' . $config['web_root'] . 'issn/' . $result->fields['issn'] .'"><img src="http://bioguid.info/issn/image.php?issn=' . $result->fields['issn']  . '" alt="cover" style="border:1px solid rgb(228,228,228);height:100px;" /></a></div>';
+	echo '<div><a href="' . $config['web_root'] . 'issn/' . $result->fields['issn'] .'">' . $result->fields['secondary_title'] . '</a></div>';
+	echo $result->fields['c'] . '&nbsp;articles';
+	echo '</td>';
+	
+	$result->MoveNext();		
+}
+echo '</tr>';
+echo '</table>';
+
 echo '<h2>Authors</h2>';
 
 // Most prolific authors...
