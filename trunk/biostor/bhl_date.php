@@ -295,12 +295,11 @@ function parse_bhl_date($str, &$info)
 		$m = array();
 		
 		if ($debug) echo "Trying " . __LINE__ . "\n";
-		if (preg_match("/^(no|v|t)\.\s*(?<volumefrom>[0-9]+)(.*)\((?<yearstart>[0-9]{4})(?<yearend>[0-9]{4})\)$/", $str, $m))
+		if (preg_match("/^(no|v|t)\.\s*(?<volume>[0-9]+)(.*)\((?<yearstart>[0-9]{4})(?<yearend>[0-9]{4})\)$/", $str, $m))
 		{
 			if ($debug) { echo "$str
 "; print_r($m); }
-			$info->volume_from = $m['volumefrom'];
-			$info->volume_to = $m['volumeto'];
+			$info->volume = $m['volume'];
 			$info->start = $m['yearstart'];
 			$info->end = $m['yearend'];
 			$matched = true;
