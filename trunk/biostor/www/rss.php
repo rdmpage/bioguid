@@ -10,6 +10,45 @@
  
 require_once('../db.php');
 require_once('../reference.php');
+
+// Conditional get
+$sql = 'SELECT `created` FROM rdmp_reference ORDER BY `created` DESC LIMIT 1';
+$result = $db->Execute($sql);
+if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+$last_modified = date(DATE_RFC822, strtotime($result->fields['created']));
+$etag = '"' . md5($result->fields['created']) . '"';
+
+$send = true;
+$headers = getallheaders();
+foreach ($headers as $k => $v)
+{
+	switch(strtolower($k))
+	{
+		case 'if-modified-since':
+			if (strcasecmp($last_modified, $v) == 0)
+			{
+				$send = false;
+			}
+			break;
+
+		case 'if-none-match':
+			if (strcasecmp($etag, $v) == 0)
+			{
+				$send = false;
+			}
+			break;
+			
+	}
+}
+
+if ($send == false)
+{
+	// RSS feed hasn't been modified since last time client asked for it
+	header("HTTP/1.1 304 Not Modified\n\n");
+	$_SERVER['REDIRECT_STATUS'] = 304;	
+	exit();
+}
  
 $format = 'atom';
 
@@ -145,6 +184,8 @@ switch ($format)
 }
 
 header("Content-type: text/xml");
+header("Last-modified: $last_modified");
+header("ETag: $etag");
 echo $feed->saveXML();
 
 ?>
