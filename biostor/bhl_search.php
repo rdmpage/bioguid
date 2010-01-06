@@ -504,6 +504,23 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 		echo __FILE__ . ' line ' . __LINE__ . ' ISSN = ' . $obj->ISSN . "\n";
 	}
 	
+	// Special cases where mapping is tricky
+	switch ($obj->ISSN)
+	{
+		// Transactions of the Linnean Society
+		case '1945-9432':
+			$obj->TitleID = 2203;
+			break;
+		
+		default:
+			break;
+	}
+	
+	if ($debug)
+	{
+		echo __FILE__ . ' line ' . __LINE__ . ' TitleID = ' . $obj->TitleID . "\n";
+	}
+	
 	
 	// If no ISSN, or no mapping available via ISSN, so try string matching
 	if ($obj->TitleID == 0)
@@ -575,6 +592,13 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 		$title_list = array();
 		switch ($obj->TitleID)
 		{
+				
+			// Annales de la Société entomologique de Belgique
+			case 11933:
+			case 11938:
+				$title_list = array(11933, 11938);
+				break;
+		
 			// Archiv für Naturgeschichte
 			case 6638:
 			case 7051:
@@ -583,24 +607,6 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			case 12937:
 			case 12938:
 				$title_list = array(6638,7051,2371,5923,12937,12938);
-				break;
-		
-			// Transactions of Kansas Academy of Sciences
-			case 8255:
-			case 8256:
-				$title_list = array(8255, 8256);
-				break;
-				
-			// Annales de la Société entomologique de Belgique
-			case 11933:
-			case 11938:
-				$title_list = array(11933, 11938);
-				break;
-
-			// Proceedings of the Biological Society of Washington
-			case 2211:
-			case 3622:
-				$title_list = array(2211, 3622);
 				break;
 				
 			// Bulletin du Muséum National d'Histoire Naturelle
@@ -612,21 +618,6 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 				$title_list = array(14109,5943,14964,12908,13855);
 				break;
 				
-			// Occasional papers of the Museum of Natural History, the University of Kansas.
-			case 4672:
-			case 5584:
-				$title_list = array(4672, 5584);
-				break;
-
-			// Proceedings of the California Academy of Sciences
-			case 3952:
-			case 7411:
-			case 15816:
-			case 3966:
-			case 4274:
-			case 3943:
-				$title_list = array(3952, 7411, 15816, 3966, 4274, 3943);
-				break;
 				
 			// Bulletin of the Natural History Museum (Entomology)
 			case 2192:
@@ -641,6 +632,34 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 				$title_list = array(34360, 2356,2359);
 				break;
 				
+			// Occasional papers of the Museum of Natural History, the University of Kansas.
+			case 4672:
+			case 5584:
+				$title_list = array(4672, 5584);
+				break;				
+				
+			// Proceedings of the Biological Society of Washington
+			case 2211:
+			case 3622:
+				$title_list = array(2211, 3622);
+				break;
+
+			// Proceedings of the California Academy of Sciences
+			case 3952:
+			case 7411:
+			case 15816:
+			case 3966:
+			case 4274:
+			case 3943:
+				$title_list = array(3952, 7411, 15816, 3966, 4274, 3943);
+				break;
+		
+			// Transactions of Kansas Academy of Sciences
+			case 8255:
+			case 8256:
+				$title_list = array(8255, 8256);
+				break;
+
 			default:
 				break;
 		}
