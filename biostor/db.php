@@ -1005,6 +1005,24 @@ function db_find_article($article)
 	return $id;
 }
 
+//--------------------------------------------------------------------------------------------------
+function db_retrieve_reference_from_doi($doi)
+{
+	global $db;
+
+	$id = 0;
+	
+	$sql = 'SELECT * FROM rdmp_reference WHERE doi=' . $db->qstr($doi) . ' LIMIT 1';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	if ($result->NumRows() == 1)
+	{
+		$id = $result->fields['reference_id'];
+	}
+	return $id;
+}
+
 
 //--------------------------------------------------------------------------------------------------
 function db_retrieve_reference_from_sici($sici)
@@ -1228,9 +1246,9 @@ function db_store_article($article, $PageID = 0, $updating = false)
 		}
 		$sql .= ' WHERE reference_id=' . $id;
 		
-		/*$cache_file = @fopen('/tmp/update.sql', "w+") or die("could't open file");
+		$cache_file = @fopen('/tmp/update.sql', "w+") or die("could't open file");
 		@fwrite($cache_file, $sql);
-		fclose($cache_file);*/
+		fclose($cache_file);
 
 		$result = $db->Execute($sql);
 		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
