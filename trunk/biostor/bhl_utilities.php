@@ -10,6 +10,7 @@
 require_once(dirname(__FILE__) . '/db.php');
 require_once(dirname(__FILE__) . '/utilities.php');
 
+//--------------------------------------------------------------------------------------------------
 function bhl_institutions_with_title($TitleID)
 {
 	global $db;

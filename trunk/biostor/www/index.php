@@ -170,7 +170,7 @@ while (!$result->EOF)
 echo '</ol>';
 
 echo '<h1>Localities</h1>';
-echo '<p>Localities extracted from articles.</p>';
+echo '<p>Localities extracted from articles (<a href="kml.php">click here</a> for Google Earth KML file).</p>';
 
 echo '
 <!--[if IE]>
