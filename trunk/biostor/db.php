@@ -972,7 +972,7 @@ function db_find_article($article)
 	
 	// Basic triple
 	if (
-		isset($article->issn)
+		(isset($article->issn) && ($article->issn != ''))
 		&& isset($article->volume)
 		&& isset($article->spage)
 		)
@@ -1165,6 +1165,7 @@ function db_store_article($article, $PageID = 0, $updating = false)
 			case 'date':
 			case 'issn':
 			case 'genre':
+			case 'doi':
 				$keys[] = $k;
 				$values[] = $db->qstr($v);
 				break;			
