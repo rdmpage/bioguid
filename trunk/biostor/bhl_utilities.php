@@ -162,6 +162,11 @@ function bhl_fetch_page_image ($PageID)
 		
 		// Generate URL to fetch image, and local file names for cached images
 		
+		// Use BHL API as per Chris Freeland's email 2009-12-28
+		// <769697AE3E25EF4FBC0763CD91AB1B0205178B1E@MBGMail01.mobot.org>
+		$image->ExternalURL = 'http://www.biodiversitylibrary.org/pageimage/' . $PageID;
+		
+		/*
 		if (is_numeric($FileNamePrefix{0}))
 		{
 			$image->ExternalURL = bhl_mobot_image_url($PageID);
@@ -170,6 +175,7 @@ function bhl_fetch_page_image ($PageID)
 		{
 			$image->ExternalURL = bhl_image_url_from_file_prefix ($FileNamePrefix);
 		}
+		*/
 		
 		//print_r($image); 
 				
