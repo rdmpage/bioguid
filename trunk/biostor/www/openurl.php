@@ -60,7 +60,11 @@ function parse_openurl($params, &$referent)
 			// Article title
 			case 'rft.atitle':
 			case 'atitle':
-				$referent->title = $value[0];
+				$title = $value[0];
+				$title = preg_replace('/\.$/', '', $title);
+				$title = strip_tags($title);
+				$title = html_entity_decode($title, ENT_NOQUOTES, 'UTF-8');
+				$referent->title = $title;
 				$referent->genre = 'article';
 				break;
 
@@ -209,6 +213,14 @@ function parse_openurl($params, &$referent)
 		$author->forename = $referent->aufirst;
 		$referent->authors[0] = $author;
 	}	
+	
+	// EndNote encodes accented characters, which break journal names
+	if (isset($referent->secondary_title))
+	{
+		$referent->secondary_title = preg_replace('/%9F/', 'ü', $referent->secondary_title);
+	}
+	
+	
 }
 
 //--------------------------------------------------------------------------------------------------
