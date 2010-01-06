@@ -1383,7 +1383,7 @@ function db_retrieve_reference($id)
 
 //--------------------------------------------------------------------------------------------------
 // return all localities
-function retrieve_localities()
+function db_retrieve_localities()
 {
 	global $db;
 	
