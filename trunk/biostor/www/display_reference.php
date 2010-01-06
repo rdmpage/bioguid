@@ -464,7 +464,11 @@ Event.observe(window, \'load\', function() {
 		}
 		if (isset($this->object->url))
 		{
-			echo '<li><a href="' . $this->object->url . '">' .  $this->object->url . '</a></li>';
+			echo '<li><a href="' . $this->object->url . '" target="_new">' .  $this->object->url . '</a></li>';
+		}
+		if (isset($this->object->doi))
+		{
+			echo '<li><a href="http://dx.doi.org/' . $this->object->doi . '" target="_new">' .  $this->object->doi . '</a></li>';
 		}
 		echo '</ul>';
 		
