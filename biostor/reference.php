@@ -137,6 +137,68 @@ function reference_authors_to_text_string($reference)
 
 //--------------------------------------------------------------------------------------------------
 /**
+ * @brief Create <meta> tags for a reference
+ *
+ *
+ * @param reference Reference object to be encoded
+ *
+ * @return HTML <meta> tags
+ */
+function reference_to_meta_tags($reference)
+{
+	global $config;
+	
+	$html = '';
+	
+	
+	// Dublin core
+	$html .= "\n\n<!-- Dublin Core metadata -->\n";
+	$html .= '<link title="schema(DC)" rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />' . "\n";
+	$html .= '<meta name="dc.publisher" content="BioStor" />' . "\n";
+	$html .= '<meta name="dc.title" content="' . htmlentities($reference->title) . '" />' . "\n";
+	$html .= '<meta name="dc.source" content="' . htmlentities(reference_to_citation_text_string($reference)) . '" />' . "\n";
+	foreach ($reference->authors as $author)
+	{
+		$html .= '<meta name="dc.creator" content="' . htmlentities($author->forename . ' ' . $author->lastname). '" />' . "\n";
+	}
+	$html .= '<meta name="dc.date" content="' . $reference->date . '" />' . "\n";
+	$html .= '<meta name="dc.identifier" content="' . $config['web_root'] . 'reference/' . $reference->reference_id . '" />' . "\n";
+	
+
+	// Google Scholar
+	$html .= "\n\n<!-- Google Scholar metadata -->\n";
+	$html .= '<meta name="citation_publisher" content="BioStor" />' . "\n";
+	$html .= '<meta name="citation_title" content="' . htmlentities($reference->title) . '" />' . "\n";
+	$html .= '<meta name="citation_date" content="' . $reference->date . '" />' . "\n";
+	
+	$author_names = array();
+	foreach ($reference->authors as $author)
+	{
+		$author_names[] = $author->lastname . ', ' . $author->forename;
+	}
+	$html .= '<meta name="citation_authors" content="' . join(";", $author_names) . '" />' . "\n";
+	
+	if ($reference->genre == 'article')
+	{
+		$html .= '<meta name="citation_journal_title" content="' . htmlentities($reference->secondary_title) . '" />' . "\n";
+		$html .= '<meta name="citation_volume" content="' . $reference->volume . '" />' . "\n";
+		if (isset($reference->issue))
+		{
+			$html .= '<meta name="citation_issue" content="' . $reference->issue . '" />' . "\n";
+		}
+		$html .= '<meta name="citation_firstpage" content="' . $reference->spage . '" />' . "\n";
+		$html .= '<meta name="citation_lastpage" content="' . $reference->epage . '" />' . "\n";
+	}
+	$html .= '<meta name="citation_abstract_html_url" content="' . $config['web_root'] . 'reference/' . $reference->reference_id . '" />' . "\n";
+	$html .= '<meta name="citation_fulltext_html_url" content="' . $config['web_root'] . 'reference/' . $reference->reference_id . '" />' . "\n";
+
+	$html .= "\n";
+	
+	return $html;
+}
+
+//--------------------------------------------------------------------------------------------------
+/**
  * @brief Create a COinS (ContextObjects in Spans) for a reference
  *
  * COinS encodes an OpenURL in a <span> tag. See http://ocoins.info/.
@@ -208,6 +270,7 @@ function reference_to_coins($reference)
 	return $coins;
 }
 
+//--------------------------------------------------------------------------------------------------
 function reference_to_bibtex($reference)
 {
 	global $config;

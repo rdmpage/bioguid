@@ -317,6 +317,10 @@ Event.observe(window, \'load\', function() {
 			}';
 			echo  '</script>';
 		}
+		
+		
+		// META tags
+		echo reference_to_meta_tags($this->object);	
 	}
 	
 	//----------------------------------------------------------------------------------------------
