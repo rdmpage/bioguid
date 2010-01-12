@@ -10,6 +10,7 @@
 // journal info
 require_once (dirname(__FILE__) . '/display_object.php');
 require_once ('../reference.php');
+require_once (dirname(__FILE__) . '/sparklines.php');
 
 //--------------------------------------------------------------------------------------------------
 class DisplayJournal extends DisplayObject
@@ -52,6 +53,11 @@ class DisplayJournal extends DisplayObject
 			echo '<img src="http://bioguid.info/issn/image.php?issn=' . $this->issn . '" alt="cover" style="border:1px solid rgb(228,228,228);height:100px;" />';
 			echo '</div>';
 		}
+		
+		// Stats
+		echo '<div>';
+		echo '<p><img src="' . sparkline_articles_added_for_issn($this->issn) . '" alt="sparkline" /> when added</p>';
+		echo '</div>';
 		
 		// How does journal relate to BHL Titles and Items?
 		

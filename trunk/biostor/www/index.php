@@ -10,6 +10,7 @@
 require_once ('../config.inc.php');
 require_once ('../db.php');
 require_once (dirname(__FILE__) . '/html.php');
+require_once (dirname(__FILE__) . '/sparklines.php');
 
 
 global $config;
@@ -64,7 +65,7 @@ $num_editors = $result->fields['c'];
 echo '<div style="float:right;padding:10px;">';
 
 echo '<table cellpadding="4">';
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">References</td><td style="font-size:32px;text-align:right;">' . $num_references . '</td></tr>';
+echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">References</td><td style="font-size:32px;text-align:right;"><img src="' . sparkline_cummulative_articles_added() . '" alt="sparkline" />' . $num_references . '</td></tr>';
 echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Authors</td><td style="font-size:32px;text-align:right;">' . $num_authors . '</td></tr>';
 echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Journals</td><td style="font-size:32px;text-align:right;">' . $num_journals . '</td></tr>';
 echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Participants</td><td style="font-size:32px;text-align:right;">' . $num_editors . '</td></tr>';
@@ -112,7 +113,6 @@ while (!$result->EOF)
 	$result->MoveNext();		
 }
 echo '</tr>';
-echo '</table>';
 
 $sql = 'SELECT secondary_title, issn, COUNT(reference_id) AS c
 FROM rdmp_reference
@@ -120,7 +120,6 @@ GROUP BY issn
 ORDER BY c DESC
 LIMIT 5,5';
 
-echo '<table border="0">';
 echo '<tr>';
 
 $result = $db->Execute($sql);
@@ -154,6 +153,7 @@ LIMIT 10';
 $result = $db->Execute($sql);
 if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
 
+echo '<p>Most prolific authors:</p>';
 echo '<ol>';
 
 while (!$result->EOF) 
@@ -168,6 +168,60 @@ while (!$result->EOF)
 }
 
 echo '</ol>';
+
+echo '<p>Some notable authors (images from Wikipedia)</p>';
+echo '<table>';
+echo '<tr>';
+
+echo '<!-- Nathan Banks -->';
+echo '<td>';
+echo '<table>';
+echo '<tr><td><a href="author/2234">Nathan Banks</a></td></tr>';
+echo '<tr><td><img src="images/people/150px-Banks_NathanUSDA-SEL-AcariB.jpg" height="128" /></td></tr>';
+echo '<tr><td><a href="http://en.wikipedia.org/wiki/Nathan_Banks">Wikipedia</a></td></tr>';
+echo '</table>';
+echo '</td>';
+
+echo '<!-- Lipke_Holthuis -->';
+echo '<td>';
+echo '<table>';
+echo '<tr><td><a href="author/489">Lipke Holthuis</a></td></tr>';
+echo '<tr><td><div style="height:128px;width:100px;border:1px solid rgb(228,228,228);"><p/></div></td></tr>';
+echo '<tr><td><a href="http://en.wikipedia.org/wiki/Lipke_Holthuis">Wikipedia</a></td></tr>';
+echo '</table>';
+echo '</td>';
+
+echo '<!-- Mary Rathbun -->';
+echo '<td>';
+echo '<table>';
+echo '<tr><td><a href="author/1">Mary Rathbun</a></td></tr>';
+echo '<tr><td><div style="height:128px;width:100px;border:1px solid rgb(228,228,228);"><p/></div></td></tr>';
+echo '<tr><td><a href="http://en.wikipedia.org/wiki/Mary_Rathbun">Wikipedia</a></td></tr>';
+echo '</table>';
+echo '</td>';
+
+echo '<!-- Hobart Smith -->';
+echo '<td>';
+echo '<table>';
+echo '<tr><td><a href="author/830">Hobart M Smith</a></td></tr>';
+echo '<tr><td><div style="height:128px;width:100px;border:1px solid rgb(228,228,228);"><p/></div></td></tr>';
+echo '<tr><td><a href="http://en.wikipedia.org/wiki/Hobart_Muir_Smith">Wikipedia</a></td></tr>';
+echo '</table>';
+echo '</td>';
+
+echo '<!-- James_Edward_Smith -->';
+echo '<td>';
+echo '<table>';
+echo '<tr><td><a href="author/2701">James Edward Smith</a></td></tr>';
+echo '<tr><td><img src="images/people/180px-James_Edward_Smith.jpg" height="128" /></td></tr>';
+echo '<tr><td><a href="http://en.wikipedia.org/wiki/James_Edward_Smith">Wikipedia</a></td></tr>';
+echo '</table>';
+echo '</td>';
+
+
+
+echo '</tr>';
+echo '</table>';
 
 echo '<h1>Localities</h1>';
 echo '<p>Localities extracted from articles (<a href="kml.php">click here</a> for Google Earth KML file).</p>';
