@@ -4,6 +4,10 @@
  * @file display_author.php
  *
  * Display information about a person
+ *
+ * 12/01/2010 13:43 use Simile Exhibit code http://www.simile-widgets.org/exhibit/ to provide faceted
+ * browsing of author publications.
+ *
  */
 
 require_once (dirname(__FILE__) . '/display_object.php');
@@ -29,7 +33,12 @@ class DisplayAuthor extends DisplayObject
 	// Extra <HEAD> items
 	function DisplayHtmlHead()
 	{
-		echo html_include_script('js/coauthors.js');
+		// My original coauthor widget
+		//echo html_include_script('js/coauthors.js');
+		
+		// Exhibit
+		echo html_include_link('application/json','','exhibit_author.php?id=' . $this->id, 'exhibit/data');
+		echo html_include_script('http://static.simile.mit.edu/exhibit/api-2.0/exhibit-api.js');
 	}
 
 	//----------------------------------------------------------------------------------------------
@@ -45,15 +54,28 @@ class DisplayAuthor extends DisplayObject
 		$names = db_get_all_author_names($this->id);
 		if (count($names) > 1)
 		{
-			echo '<h2>Name variants</h2>'; 
+/*			echo '<h2>Name variants</h2>'; 
 			echo '<ul>';
 			foreach ($names as $name)
 			{
 				echo '<li><a href="' . $config['web_root'] . 'author/' . $name['author_id'] . '">' . $name['name'] . '</a></li>';
 			}
 			echo '</ul>';
+			echo '<h2>Name variants</h2>'; 
+			echo '<ul>';
+*/
+			$count = 0;
+			echo '<p>(';
+			foreach ($names as $name)
+			{
+				if ($count++ > 0) { echo ', '; };
+				echo '<a href="' . $config['web_root'] . 'author/' . $name['author_id'] . '">' . $name['name'] . '</a>';
+			}
+			echo ')</p>';
 		}
 
+		// My original code
+		/*
 		// List of papers authored
 		echo '<h2>Publications</h2>';
 		$refs = db_retrieve_authored_references($this->id);
@@ -104,9 +126,40 @@ class DisplayAuthor extends DisplayObject
 		echo '</div>';
 		
 		echo '<script type="text/javascript">' . "\n" . 'display_coauthors(\'' .  json_encode($coauthors) . '\');</script>' . "\n";
-
-
-
+		*/
+		
+		// Exhibit
+		echo '
+    <table width="100%">
+        <tr valign="top">
+            <td ex:role="viewPanel">
+                <div ex:role="view">                
+				  <table ex:role="lens" class="reference">
+					   <tr>
+						   <td><img ex:src-content=".imageURL" width="40"/></td>
+						   <td>
+								<div>
+								<a ex:href-content=".uri">
+							   <span ex:content=".label"></span></a></div>
+							   <div>
+								   <span ex:content=".citation"></span>
+							   </div>
+						   </td>
+					   </tr>
+				   </table>                                
+                </div>
+            </td>
+            <td width="25%">
+               <!-- browsing controls here... -->
+                <div ex:role="facet" ex:facetClass="TextSearch" ex:facetLabel="Search within results"></div>
+				<div ex:role="facet" ex:expression=".type" ex:facetLabel="Reference type"></div>
+				<div ex:role="facet" ex:expression=".journal" ex:facetLabel="Journal"></div>
+ 				<div ex:role="facet" ex:expression=".year" ex:facetLabel="Year"></div>
+ 				<div ex:role="facet" ex:expression=".coauthors" ex:facetLabel="Coauthors"></div>
+            </td>
+        </tr>
+    </table>';
+		
 	}
 	
 	//----------------------------------------------------------------------------------------------
