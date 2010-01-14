@@ -27,6 +27,7 @@ echo html_head_close();
 echo html_body_open();
 echo html_page_header(false);
 
+// How many pages?
 
 // How many articles?
 $sql = 'SELECT COUNT(reference_id) AS c FROM rdmp_reference';
@@ -65,10 +66,14 @@ $num_editors = $result->fields['c'];
 echo '<div style="float:right;padding:10px;">';
 
 echo '<table cellpadding="4">';
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">References</td><td style="font-size:32px;text-align:right;"><img src="' . sparkline_cummulative_articles_added() . '" alt="sparkline" />' . $num_references . '</td></tr>';
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Authors</td><td style="font-size:32px;text-align:right;">' . $num_authors . '</td></tr>';
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Journals</td><td style="font-size:32px;text-align:right;">' . $num_journals . '</td></tr>';
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Participants</td><td style="font-size:32px;text-align:right;">' . $num_editors . '</td></tr>';
+echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">References</td><td style="font-size:20px;text-align:right;">';
+//<img src="' . sparkline_cummulative_articles_added() . '" alt="sparkline" />'
+echo $num_references .'</td></tr>';
+echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Authors</td><td style="font-size:20px;text-align:right;">' . $num_authors . '</td></tr>';
+echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Journals</td><td style="font-size:20px;text-align:right;">' . $num_journals . '</td></tr>';
+echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Participants</td><td style="font-size:20px;text-align:right;">' . $num_editors . '</td></tr>';
+
+echo '<tr><td colspan="2"><img src="' . sparkline_references('', 360,100) . '" alt="sparkline" align="top"/></td></tr>';
 echo '</table>';
 
 echo '</div>';
@@ -84,6 +89,9 @@ echo '<li>Start browsing <a href="reference/1">references</a>, <a href="author/1
 echo '</ul>';
 
 echo '<h1>Progress</h1>';
+
+echo '<p>Numbers of articles per year</p>';
+
 
 echo '<h2>Articles</h2>';
 
@@ -190,6 +198,17 @@ echo '<tr><td><div style="height:128px;width:100px;border:1px solid rgb(228,228,
 echo '<tr><td><a href="http://en.wikipedia.org/wiki/Lipke_Holthuis">Wikipedia</a></td></tr>';
 echo '</table>';
 echo '</td>';
+
+echo '<!-- David_Starr_Jordan -->';
+echo '<td>';
+echo '<table>';
+echo '<tr><td><a href="author/10203">David Starr Jordan</a></td></tr>';
+echo '<tr><td><img src="images/people/File-Dsjordan.jpeg" height="128" /></td></tr>';
+echo '<tr><td><a href="http://en.wikipedia.org/wiki/David_Starr_Jordan">Wikipedia</a></td></tr>';
+echo '</table>';	
+echo '</td>';
+
+
 
 echo '<!-- Mary Rathbun -->';
 echo '<td>';

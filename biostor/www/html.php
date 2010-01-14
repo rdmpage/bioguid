@@ -206,6 +206,11 @@ function html_include_link($type, $title, $path, $rel)
 	return '<link type="' . $type . '" title="' . $title . '" href="' . $config['web_root'] . $path . '" rel="' . $rel . '" />' . "\n";
 }
 
+//--------------------------------------------------------------------------------------------------
+function html_meta($name, $content)
+{
+	return '<meta name="' . $name . '" content="' . $content . '" />' . "\n";
+}
 
 //--------------------------------------------------------------------------------------------------
 function html_image($image_path, $class = '')
