@@ -16,6 +16,7 @@
 		<string>E0D3F4A0-EAED-4640-846F-B28C217220FD</string>
 		<string>4A23493F-2805-47B8-B122-D8BD9D6FDC87</string>
 		<string>783766C7-BC49-4487-8DB9-17098E1E2CC4</string>
+		<string>6B0B236F-0AEE-4A81-AF11-990F8F995C71</string>
 		<string>7A0B9CDE-E21A-4FBE-98C3-4B2DE5B3B0B8</string>
 		<string>DE17B88D-33CE-489B-954E-B2282137E1FB</string>
 		<string>DA9D3BB3-0942-458F-BB90-8F5DF1D64367</string>
@@ -298,6 +299,38 @@
 			<key>ItemType</key>
 			<string>FileReference</string>
 		</dict>
+		<key>6B0B236F-0AEE-4A81-AF11-990F8F995C71</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>AliasData</key>
+				<data>
+				AAAAAAFYAAIAAQlTZXJ2ZXIgSEQAAAAAAAAAAAAAAAAA
+				AAAAAADHMV3ZSCsAAAALxxIEZGF0YQAAAAAAAAAAAAAA
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				AAAAAAAAAAAAAAAAAAAAAZubIsdr0kUAAAAAAAAAAP//
+				//8AAAkgAAAAAAAAAAAAAAAAAAAAB2Jpb3N0b3IAABAA
+				CAAAxzFd2QAAABEACAAAx2vSRQAAAAEAEAALxxIACipj
+				AAEXGQAAAY4AAgAuU2VydmVyIEhEOkxpYnJhcnk6V2Vi
+				U2VydmVyOlNpdGVzOmJpb3N0b3I6ZGF0YQAOAAoABABk
+				AGEAdABhAA8AFAAJAFMAZQByAHYAZQByACAASABEABIA
+				JExpYnJhcnkvV2ViU2VydmVyL1NpdGVzL2Jpb3N0b3Iv
+				ZGF0YQATAAEvAP//AAA=
+				</data>
+				<key>FileURL</key>
+				<string>file://localhost/Library/WebServer/Sites/biostor/data/</string>
+				<key>RelativePath</key>
+				<string>./data</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>data</string>
+			<key>ItemType</key>
+			<string>FolderReference</string>
+		</dict>
 		<key>747891B5-616E-43C8-BAB4-436FE6119519</key>
 		<dict>
 			<key>ItemData</key>
@@ -569,22 +602,21 @@
 			<dict>
 				<key>AliasData</key>
 				<data>
-				AAAAAAFgAAIAAQlTZXJ2ZXIgSEQAAAAAAAAAAAAAAAAA
-				AAAAAADHMV3ZSCsAAAALxxIGc2NoZW1hAAAAAAAAAAAA
+				AAAAAAFIAAIAAQlTZXJ2ZXIgSEQAAAAAAAAAAAAAAAAA
+				AAAAAADHMV3ZSCsAAAAHWDMGc2NoZW1hAAAAAAAAAAAA
 				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 				AAAAAAAAAAAAAAAAAAAAAA0KbsdVKZEAAAAAAAAAAP//
-				//8AAAkgAAAAAAAAAAAAAAAAAAAAB2Jpb3N0b3IAABAA
-				CAAAxzFd2QAAABEACAAAx1UpkQAAAAEAEAALxxIACipj
-				AAEXGQAAAY4AAgAwU2VydmVyIEhEOkxpYnJhcnk6V2Vi
-				U2VydmVyOlNpdGVzOmJpb3N0b3I6c2NoZW1hAA4ADgAG
-				AHMAYwBoAGUAbQBhAA8AFAAJAFMAZQByAHYAZQByACAA
-				SABEABIAJkxpYnJhcnkvV2ViU2VydmVyL1NpdGVzL2Jp
-				b3N0b3Ivc2NoZW1hABMAAS8A//8AAA==
+				//8AAAkgAAAAAAAAAAAAAAAAAAAABi5UcmFzaAAQAAgA
+				AMcxXdkAAAARAAgAAMdVKZEAAAABAAwAB1gzAARPqwAA
+				edYAAgAjU2VydmVyIEhEOlVzZXJzOnJwYWdlOi5UcmFz
+				aDpzY2hlbWEAAA4ADgAGAHMAYwBoAGUAbQBhAA8AFAAJ
+				AFMAZQByAHYAZQByACAASABEABIAGVVzZXJzL3JwYWdl
+				Ly5UcmFzaC9zY2hlbWEAABMAAS8AABUAAgAM//8AAA==
 				</data>
 				<key>FileURL</key>
-				<string>file://localhost/Library/WebServer/Sites/biostor/schema/</string>
+				<string>file://localhost/Users/rpage/.Trash/schema/</string>
 				<key>RelativePath</key>
-				<string>./schema</string>
+				<string>../../../../Users/rpage/.Trash/schema</string>
 				<key>TypeID</key>
 				<string>_CFileLocator</string>
 				<key>Version</key>
