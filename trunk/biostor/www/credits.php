@@ -43,6 +43,7 @@ echo '<h2>Code</h2>
 <ul>
 <li><a href="http://adodb.sourceforge.net/">ADOdb Database Abstraction Library for PHP (and Python)</a></li>
 <li><a href="http://sites.google.com/site/mysqlbigram/">Simple N-Gram (bi-gram) FULLTEXT parser plugin for MySQL</a> by Ado Nishimura.</li>
+<li><a href="http://www.simile-widgets.org/exhibit/">Simile Exhibit widget</a> by David François Huynh, released under a BSD License.</li>
 <li><a href="http://www.imagemagick.org/">ImageMagick</a> and its dependencies (the Independent JPEG Group\'s <a href="http://www.ijg.org/">JPEG library</a>, <a href="http://www.libpng.org/pub/png/libpng.html">libPNG</a>, and <a href="http://www.libtiff.org/">LibTIFF</a>).</li>
 <li><a href="http://www.bram.us/projects/js_bramus/lazierload/">lazierLoad</a> by Bram Van Damme.</li>
 <li><a href="http://www.lokeshdhakar.com">Lightbox 2</a> by Lokesh Dhakar, as modified by Fabian Lange to provide <a href="http://blog.hma-info.de/2008/04/09/latest-lightbox-v2-with-automatic-resizing/">automatic resizing</a></li>
