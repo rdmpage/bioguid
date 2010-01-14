@@ -11,6 +11,7 @@ require_once ('../db.php');
 
 define(START_DATE, '2009-12-20');
 
+//--------------------------------------------------------------------------------------------------
 // get number of days since project started
 function days_since_start()
 {
@@ -19,6 +20,7 @@ function days_since_start()
 	return $time_span;
 }
 
+//--------------------------------------------------------------------------------------------------
 // Generate a sparkline (normalises values)
 function make_sparkline($values,$max_value,$width=200,$height=50)
 {
@@ -36,6 +38,7 @@ function make_sparkline($values,$max_value,$width=200,$height=50)
 	return $url;
 }
 
+//--------------------------------------------------------------------------------------------------
 // Sparkline of articles added to a journal, units are days
 function sparkline_articles_added_for_issn($issn)
 {
@@ -72,6 +75,7 @@ function sparkline_articles_added_for_issn($issn)
 	return make_sparkline($count, $max_count, 100, 50);
 }
 
+//--------------------------------------------------------------------------------------------------
 // Sparkline of articles added to database
 function sparkline_cummulative_articles_added()
 {
@@ -114,6 +118,144 @@ function sparkline_cummulative_articles_added()
 	
 	
 	return make_sparkline($count, $running_total, 80, 30);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Sparkline of author references over time
+function sparkline_author_articles($author_id, $width=300, $height=50)
+{
+	global $db;
+	
+	$author_cluster_id = db_get_author_cluster_id($author_id);	
+	
+	$sql = 'SELECT year, count(reference_id) AS c FROM rdmp_reference
+INNER JOIN rdmp_author_reference_joiner USING (reference_id)
+INNER JOIN rdmp_author USING (author_id)
+WHERE (author_cluster_id = ' . $author_cluster_id . ')
+GROUP BY YEAR
+ORDER BY year';
+
+	$start_year = 3000;
+	$end_year = 0;
+	$max_value = 0;
+
+	$count = array();
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	while (!$result->EOF) 
+	{
+		$start_year = min($start_year, $result->fields['year']);
+		$end_year = max($end_year, $result->fields['year']);
+		$max_value = max($max_value, $result->fields['c']);
+		$count[$result->fields['year']] = $result->fields['c'];
+		$result->MoveNext();
+	}
+	
+	$start_year = floor($start_year/10) * 10;
+	$end_year = floor(($end_year+9)/10) * 10;
+	
+	for($i = $start_year; $i <= $end_year; $i++)
+	{
+		if (!isset($count[$i]))
+		{
+			$count[$i] = 0;
+		}
+	}
+	
+	ksort($count);
+	
+	// Axes
+	$decades = array();
+	for($i = $start_year; $i <= $end_year; $i+=10)
+	{
+		$decades[] = $i;
+	}
+	
+	$values = array();
+	foreach ($count as $k => $v)
+	{
+		$values[] = round(($v * 100.0)/$max_value);
+	}
+
+	$url = 'http://chart.apis.google.com/chart?chs=' . $width . 'x' . $height . '&cht=ls&chco=0077CC&chm=B,e6f2fa,0,0.0,0.0&chd=t:';
+	$url .= join(",", $values);
+	$url .= '&chxt=x,y&chxl=0:|' . join("|", $decades) .  '|1:||' . $max_value;
+	
+	return $url;
+}
+
+
+//--------------------------------------------------------------------------------------------------
+// Sparkline of references over time
+function sparkline_references($issn = '', $width=400, $height=50)
+{
+	global $db;
+	
+	$sql = 'SELECT year, count(reference_id) AS c FROM rdmp_reference';
+	
+	$sql .= ' WHERE (year IS NOT NULL) AND (year != "") AND (year != "YYYY")';
+	if ($issn != '')
+	{
+		$sql .= ' AND (issn=' . $db->qstr($issn) . ')';
+	}
+	$sql .= ' GROUP BY year
+ORDER BY year';
+
+	$start_year = 3000;
+	$end_year = 0;
+	$max_value = 0;
+
+	$count = array();
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	while (!$result->EOF) 
+	{
+		$start_year = min($start_year, $result->fields['year']);
+		$end_year = max($end_year, $result->fields['year']);
+		$max_value = max($max_value, $result->fields['c']);
+		$count[$result->fields['year']] = $result->fields['c'];
+		$result->MoveNext();
+	}
+	
+//	$start_year = floor($start_year/10) * 10;
+//	$end_year = floor(($end_year+9)/10) * 10;
+
+	$start_year = floor($start_year/50) * 50;
+	$end_year = floor(($end_year+49)/50) * 50;
+	
+	for($i = $start_year; $i <= $end_year; $i++)
+	{
+		if (!isset($count[$i]))
+		{
+			$count[$i] = 0;
+		}
+	}
+	
+	ksort($count);
+	
+	// Axes
+	$decades = array();
+//	for($i = $start_year; $i <= $end_year; $i+=10)
+	for($i = $start_year; $i <= $end_year; $i+=50)
+	{
+		$decades[] = $i;
+	}
+	
+	$values = array();
+	foreach ($count as $k => $v)
+	{
+		$values[] = round(($v * 100.0)/$max_value);
+	}
+
+	$url = 'http://chart.apis.google.com/chart?chs=' . $width . 'x' . $height . '&cht=ls&chco=0077CC&chm=B,e6f2fa,0,0.0,0.0&chd=t:';
+	$url .= join(",", $values);
+	$url .= '&chxt=x,y&chxl=0:|' . join("|", $decades) .  '|1:||' . $max_value;
+	
+	return $url;
 }
 
 
