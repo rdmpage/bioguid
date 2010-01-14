@@ -100,13 +100,20 @@ function parse_openurl($params, &$referent)
 			case 'id':
 				foreach ($value as $v)
 				{		
+					// DOI
 					if (preg_match('/^(info:doi\/|doi:)(?<doi>.*)/', $v, $match))
 					{
 						$referent->doi = $match['doi'];
 					}
+					// URL
 					if (preg_match('/^http:\/\//', $v, $match))
 					{
 						$referent->url = $v;
+					}
+					// LSID
+					if (preg_match('/^urn:lsid:/', $v, $match))
+					{
+						$referent->lsid = $v;
 					}
 				}
 				break;
@@ -558,7 +565,7 @@ Recaptcha.create("' . $config['recaptcha_publickey'] . '",
 
 // Based on http://ne0phyte.com/blog/2008/09/02/javascript-keypress-event/
 // and http://blog.evandavey.com/2008/02/how-to-capture-return-key-from-field.html
-// I want to cpature enter key press in recaptcha to avoid submitting the form (user must click
+// I want to capture enter key press in recaptcha to avoid submitting the form (user must click
 // on button for that). We listen for keypress and eat it. Note that we attach the listener after
 // the window has loaded.
 echo 'function onMyTextKeypress(event)
