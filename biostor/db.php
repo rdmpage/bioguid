@@ -1184,6 +1184,7 @@ function db_store_article($article, $PageID = 0, $updating = false)
 			case 'issn':
 			case 'genre':
 			case 'doi':
+			case 'lsid':
 				$keys[] = $k;
 				$values[] = $db->qstr($v);
 				break;			
