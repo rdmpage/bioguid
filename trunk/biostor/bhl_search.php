@@ -609,6 +609,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 				$title_list = array(6638,7051,2371,5923,12937,12938);
 				break;
 				
+			// Bulletin de la Société botanique de France
+			case 359:
+			case 5948:
+				$title_list = array(359,5948);
+				break;
+				
 			// Bulletin du Muséum National d'Histoire Naturelle
 			case 14109:
 			case 5943:	
@@ -617,7 +623,6 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			case 13855:
 				$title_list = array(14109,5943,14964,12908,13855);
 				break;
-				
 				
 			// Bulletin of the Natural History Museum (Entomology)
 			case 2192:
@@ -653,11 +658,18 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			case 3943:
 				$title_list = array(3952, 7411, 15816, 3966, 4274, 3943);
 				break;
-		
+			
 			// Transactions of Kansas Academy of Sciences
 			case 8255:
 			case 8256:
 				$title_list = array(8255, 8256);
+				break;
+				
+			// Transactions of the Connecticut Academy of Arts and Sciences
+			case 7541:
+			case 5604:
+			case 13505:
+				$title_list = array(7541, 5604, 13505);
 				break;
 
 			default:
