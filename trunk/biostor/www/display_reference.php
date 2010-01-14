@@ -317,10 +317,6 @@ Event.observe(window, \'load\', function() {
 			}';
 			echo  '</script>';
 		}
-		
-		
-		// META tags
-		echo reference_to_meta_tags($this->object);	
 	}
 	
 	//----------------------------------------------------------------------------------------------
@@ -473,6 +469,10 @@ Event.observe(window, \'load\', function() {
 		if (isset($this->object->doi))
 		{
 			echo '<li><a href="http://dx.doi.org/' . $this->object->doi . '" target="_new">' .  $this->object->doi . '</a></li>';
+		}
+		if (isset($this->object->lsid))
+		{
+			echo '<li>' . $this->object->lsid . '</li>';
 		}
 		echo '</ul>';
 		

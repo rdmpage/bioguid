@@ -55,15 +55,19 @@ class DisplayJournal extends DisplayObject
 		}
 		
 		// Stats
+/*		echo '<div>';
+		echo '<img src="' . sparkline_articles_added_for_issn($this->issn) . '" alt="sparkline" />';
+		echo '</div>';*/
+		
 		echo '<div>';
-		echo '<p><img src="' . sparkline_articles_added_for_issn($this->issn) . '" alt="sparkline" /> when added</p>';
+		echo '<img src="' . sparkline_references($this->issn, 360,100) . '" alt="sparkline" />';
 		echo '</div>';
 		
 		// How does journal relate to BHL Titles and Items?
 		
 		$titles = db_retrieve_journal_names_from_issn($this->issn);
 		if (count($titles) > 1)
-		{
+		{	
 			echo '<h2>Alternative titles</h2>';
 			echo '<ul>';
 			foreach ($titles as $title)

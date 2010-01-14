@@ -11,6 +11,7 @@
  */
 
 require_once (dirname(__FILE__) . '/display_object.php');
+require_once (dirname(__FILE__) . '/sparklines.php');
 
 //--------------------------------------------------------------------------------------------------
 class DisplayAuthor extends DisplayObject
@@ -73,6 +74,10 @@ class DisplayAuthor extends DisplayObject
 			}
 			echo ')</p>';
 		}
+		
+		echo '<div>';
+		echo '<img src="' . sparkline_author_articles($this->id) . '" alt="sparkline" align="top"/>';
+		echo '</div>';
 
 		// My original code
 		/*
@@ -136,7 +141,7 @@ class DisplayAuthor extends DisplayObject
                 <div ex:role="view">                
 				  <table ex:role="lens" class="reference">
 					   <tr>
-						   <td><img ex:src-content=".imageURL" width="40"/></td>
+						   <td><img style="border:1px solid rgb(192,192,192);" ex:src-content=".imageURL" width="40"/></td>
 						   <td>
 								<div>
 								<a ex:href-content=".uri">
