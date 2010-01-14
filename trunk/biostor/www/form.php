@@ -46,6 +46,7 @@ function reference_hidden_form($reference)
 			case 'issn':
 			case 'url':
 			case 'doi':
+			case 'lsid':
 				$html .= '<input type="text" name="' . $k . '" value="' . $v . '"></input>' . "\n";
 				break;
 				

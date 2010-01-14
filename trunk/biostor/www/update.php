@@ -73,6 +73,7 @@ if ($can_update)
 			case 'issn':
 			case 'url':
 			case 'doi':
+			case 'lsid':
 				$reference->{$key} = stripcslashes($value);
 				break;
 				
