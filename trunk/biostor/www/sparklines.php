@@ -251,9 +251,9 @@ ORDER BY year';
 		$values[] = round(($v * 100.0)/$max_value);
 	}
 
-	$url = 'http://chart.apis.google.com/chart?chs=' . $width . 'x' . $height . '&cht=ls&chco=0077CC&chm=B,e6f2fa,0,0.0,0.0&chd=t:';
+	$url = 'http://chart.apis.google.com/chart?chs=' . $width . 'x' . $height . '&amp;cht=ls&amp;chco=0077CC&amp;chm=B,e6f2fa,0,0.0,0.0&amp;chd=t:';
 	$url .= join(",", $values);
-	$url .= '&chxt=x,y&chxl=0:|' . join("|", $decades) .  '|1:||' . $max_value;
+	$url .= '&amp;chxt=x,y&amp;chxl=0:|' . join("|", $decades) .  '|1:||' . $max_value;
 	
 	return $url;
 }
