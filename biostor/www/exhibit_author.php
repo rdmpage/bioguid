@@ -6,6 +6,7 @@
  */
 
 require_once ('../bhl_utilities.php');
+require_once ('../lib.php');
 require_once ('../reference.php');
 
 /*
@@ -97,7 +98,7 @@ if ($id != 0)
 		$exhibit->items[] = $item;	
 	}
 }
-echo json_encode($exhibit);
+echo json_format(json_encode($exhibit));
 
 ?>
 

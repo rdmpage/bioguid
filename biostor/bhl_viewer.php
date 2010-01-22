@@ -15,16 +15,31 @@ require_once(dirname(__FILE__) . '/bhl_utilities.php');
  * @brief Display a set of BHL pages for a reference
  *
  * @param reference_id Primary key of reference in local database
+ * @page_to_display Specific page to display (default is 0, which means display first page in reference)
  *
  * @return HTML for viewer
  */
 function bhl_reference_viewer($reference_id, $page_to_display = 0)
 {
 	$pages = bhl_retrieve_reference_pages($reference_id);
-	
 	echo bhl_viewer($pages, $page_to_display);
 }
 
+
+//--------------------------------------------------------------------------------------------------
+/**
+ * @brief Display a set of BHL pages for a BHL item
+ *
+ * @param ItemID BHL item
+ * @page_to_display Specific page to display (default is 0, which means display first page in Item)
+ *
+ * @return HTML for viewer
+ */
+function bhl_item_viewer($ItemID, $page_to_display = 0)
+{
+	$pages = bhl_retrieve_item_pages($ItemID);
+	echo bhl_viewer($pages, $page_to_display);
+}
 
 //--------------------------------------------------------------------------------------------------
 /**

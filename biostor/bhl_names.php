@@ -8,6 +8,7 @@
  */
 
 require_once(dirname(__FILE__) . '/db.php');
+require_once(dirname(__FILE__) . '/bhl_date.php');
 require_once(dirname(__FILE__) . '/bhl_text.php');
 
 	// From http://thraxil.org/users/anders/posts/2005/12/13/scaling-tag-clouds/
@@ -59,6 +60,30 @@ function tag_cloud($obj)
 	
 	return $html;
 
+}
+
+//--------------------------------------------------------------------------------------------------
+// Get NameBankID for a name string (treat BHL database as a uBio cache)
+function bhl_name($name_string)
+{	
+	global $db;
+	
+	$NameBankID = 0;
+
+	$sql = 'SELECT NameBankID 
+	FROM bhl_page_name
+	WHERE NameConfirmed=' . $db->qstr($name_string) . ' LIMIT 1';
+		
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+	
+	if ($result->NumRows() == 1)
+	{
+		$NameBankID = $result->fields['NameBankID'];
+	}
+	
+	
+	return $NameBankID;
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -194,6 +219,7 @@ function bhl_references_with_name($NameBankID)
 
 }
 
+//--------------------------------------------------------------------------------------------------
 function bhl_pages_in_reference_with_name($reference_id, $NameBankID)
 {	
 	global $db;
@@ -215,6 +241,7 @@ function bhl_pages_in_reference_with_name($reference_id, $NameBankID)
 	return $hits;
 }
 
+//--------------------------------------------------------------------------------------------------
 function bhl_pages_with_name_thumbnails($reference_id, $NameBankID)
 {
 	global $config;
@@ -250,6 +277,7 @@ function bhl_pages_with_name_thumbnails($reference_id, $NameBankID)
 }
 
 
+//--------------------------------------------------------------------------------------------------
 // Distribution of name through a reference as a sparkline (inspired by TileBars)
 // Hearst, M. TileBars: Visualization of Term Distribution Information in Full Text Information Access, Proceedings of the ACM SIGCHI Conference on Human Factors in Computing Systems (CHI), Denver, CO, 1995. pdfÊ ps (6.5M) psÊ(gz) html (at sigchi)
 // http://people.ischool.berkeley.edu/~hearst/papers/chi95.pdf
@@ -295,7 +323,77 @@ function bhl_pages_with_name_sparkline($reference_id, $NameBankID)
 }
 
 
+//---------------------------------------------------------------------------------------------------
+// Find all BHL items that have NameBankID, and try to date items
+function bhl_name_search($NameBankID)
+{
+	global $db;
+	
+	$sql = 'SELECT DISTINCT bhl_item.TitleID, bhl_item.ItemID, bhl_item.VolumeInfo, bhl_page.PageID, 
+	bhl_page.Year as y1,
+	bhl_item.Year as y2,
+	bhl_title.ShortTitle
+	FROM bhl_page_name
+	INNER JOIN bhl_page USING(PageID)
+	INNER JOIN bhl_item USING(ItemID)
+	INNER JOIN bhl_title USING(TitleID)
+	WHERE (NameBankID=' . $NameBankID . ')';
+	
+	$hits = array();
 
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	while (!$result->EOF) 
+	{
+		$ItemID = $result->fields['ItemID'];
+		if (!isset($hits[$ItemID]))
+		{
+			$item = new stdclass;
+			$item->ItemID = $ItemID;
+			$item->type = 0;
+			$item->pages = array();
+			$item->TitleID = $result->fields['TitleID'];
+			$item->title = $result->fields['ShortTitle'];
+			$hits[$ItemID] = $item;
+		}
+		$hits[$ItemID]->pages[] = $result->fields['PageID'];
+		$hits[$ItemID]->VolumeInfo = $result->fields['VolumeInfo'];
+		
+		if ($result->fields['y1'] != '')
+		{
+			$hits[$ItemID]->Year = $result->fields['y1'];
+		}
+		elseif ($result->fields['y2'] != '')
+		{
+			$hits[$ItemID]->Year = $result->fields['y2'];
+		}
+		$result->MoveNext();
+	}
+	
+	// Try and date each item...
+	foreach ($hits as $k => $v)
+	{
+		$hits[$k]->info = new stdclass;
+		
+		$have_year = false;
+		if (parse_bhl_date($hits[$k]->VolumeInfo, $hits[$k]->info))
+		{
+			$have_year = isset($hits[$k]->info->start);
+		}
+		
+		if (!$have_year && isset($hits[$k]->Year))
+		{
+			if (bhl_date_from_details($hits[$k]->Year, $hits[$k]->info))
+			{
+				$have_year = isset($hits[$k]->info->start);
+			}
+		}
+	}
+	
+	return $hits;
+}
+	
 
 	
 

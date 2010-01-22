@@ -9,6 +9,22 @@ require_once(dirname(__FILE__) . '/db.php');
 require_once(dirname(__FILE__) . '/bhl_search.php');
 
 //--------------------------------------------------------------------------------------------------
+function bhl_articles_for_issn ($issn)
+{
+	global $db;
+
+	$sql = 'SELECT COUNT(reference_id) AS c
+	FROM rdmp_reference WHERE (issn=' . $db->qstr($issn) . ')';
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	$num_articles = $result->fields['c'];
+	
+	return $num_articles;
+}
+
+//--------------------------------------------------------------------------------------------------
 function bhl_num_pages_in_item ($ItemID)
 {
 	global $db;
@@ -133,7 +149,22 @@ WHERE (issn=' . $db->qstr($issn) . ')';
 
 		$result->MoveNext();		
 	}
+	
+	// 3. We might not have any articles from this ISSN yet
+	
+	$sql = 'SELECT TitleID FROM bhl_title_identifier
+	WHERE (IdentifierName="ISSN") AND (IdentifierValue=' . $db->qstr($issn) . ')';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+			
+	while (!$result->EOF) 
+	{
+		$titles[] = $result->fields['TitleID'];
 
+		$result->MoveNext();		
+	}
+
+	$titles = array_unique($titles);
 	
 	return $titles;
 }

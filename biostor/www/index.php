@@ -25,7 +25,7 @@ echo html_include_link('application/atom+xml', 'ATOM', 'rss.php?format=atom', 'a
 echo html_title($config['site_name']);
 echo html_head_close();
 echo html_body_open();
-echo html_page_header(false);
+echo html_page_header(true);
 
 // How many pages?
 
@@ -63,39 +63,51 @@ if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql)
 
 $num_editors = $result->fields['c'];
 
-echo '<div style="float:right;padding:10px;">';
+echo '<div style="float:right;padding:10px;">' . "\n";
 
-echo '<table cellpadding="4">';
+echo '<table cellpadding="4">' . "\n";
 echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">References</td><td style="font-size:20px;text-align:right;">';
 //<img src="' . sparkline_cummulative_articles_added() . '" alt="sparkline" />'
-echo $num_references .'</td></tr>';
+echo $num_references .'</td></tr>' . "\n";
 echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Authors</td><td style="font-size:20px;text-align:right;">' . $num_authors . '</td></tr>';
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Journals</td><td style="font-size:20px;text-align:right;">' . $num_journals . '</td></tr>';
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Participants</td><td style="font-size:20px;text-align:right;">' . $num_editors . '</td></tr>';
+echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Journals</td><td style="font-size:20px;text-align:right;">' . $num_journals . '</td></tr>' . "\n";
+echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Participants</td><td style="font-size:20px;text-align:right;">' . $num_editors . '</td></tr>' . "\n";
 
-echo '<tr><td colspan="2"><img src="' . sparkline_references('', 360,100) . '" alt="sparkline" align="top"/></td></tr>';
-echo '</table>';
-
-echo '</div>';
-
-echo '<h1>What is BioStor?</h1>';
+echo '<tr><td colspan="2"><img src="' . sparkline_references('', 360,100) . '" alt="sparkline" align="top"/></td></tr>' . "\n";
 
 
-echo '<p>BioStor provides tools for extracting, annotating, and visualising literature from the <a href="http://www.biodiversitylibrary.org/">Biodiversity Heritage Library</a> (and other sources). It builds on ideas developed for <a href="http://bioguid.info">bioGUID</a> (see <a href="http://dx.doi.org/10.1186/1471-2105-10-S14-S5">doi:10.1186/1471-2105-10-S14-S5</a>).</p>';
+echo '</table>' . "\n";
 
+echo '</div>' . "\n";
+
+echo '<h1>What is BioStor?</h1>' . "\n";
+
+
+echo '<p>BioStor provides tools for extracting, annotating, and visualising literature from the <a href="http://www.biodiversitylibrary.org/">Biodiversity Heritage Library</a> (and other sources). It builds on ideas developed for <a href="http://bioguid.info">bioGUID</a> (see <a href="http://dx.doi.org/10.1186/1471-2105-10-S14-S5">doi:10.1186/1471-2105-10-S14-S5</a>).</p>' . "\n";
+
+/*
 echo '<ul>';
 echo '<li>Find references using <a href="openurl.php">Reference finder</a></li>';
 echo '<li>Start browsing <a href="reference/1">references</a>, <a href="author/1">authors</a>, or <a href="name/2706186">taxon names</a></li>';
 echo '</ul>';
 
+echo '<h2>Finding references using BioStor</h2>
+*/
+
+echo '<p>The main purpose of BioStor is to find articles in the <a href="http://www.biodiversitylibrary.org/">Biodiversity Heritage Library</a>. To get started you can read the <a href="guide.php">guide to using BioStor</a>, or go directly to the <a href="openurl.php">Reference Finder</a>. You can also use BioStor to find references from within <a href="endnote.php">EndNote</a> and <a href="zotero.php">Zotero</a>. If you use the Firefox web browser you could install the <a href="referrer.php">OpenURL Referrer add on</a>, which will add the same functionality to sites that support support COinS, such as <a href="mendeley.php">Mendeley</a>.</p>
+' . "\n";
+
+echo '<p>BioStor is a project by <a href="http://iphylo.blogspot.com">Rod Page</a>. For data sources see <a href="credits.php">Credits</a>.</p>
+' . "\n";
+
 echo '<h1>Progress</h1>';
 
-echo '<p>Numbers of articles per year</p>';
+echo '<p>Numbers of articles per year</p>' . "\n";
 
 
-echo '<h2>Articles</h2>';
+echo '<h2>Articles</h2>' . "\n";
 
-echo '<p>Number of articles per journal (<a href="journals.php">more...</a>). Get most recently added articles as a <a href="http://biostor.org/rss.php?format=atom">RSS feed</a>.</p>';
+echo '<p>Number of articles per journal (<a href="journals.php">more...</a>). Get most recently added articles as a <a href="http://biostor.org/rss.php?format=atom">RSS feed</a>.</p>' . "\n";
 
 	
 $sql = 'SELECT secondary_title, issn, COUNT(reference_id) AS c
@@ -104,7 +116,7 @@ GROUP BY issn
 ORDER BY c DESC
 LIMIT 5';
 
-echo '<table border="0">';
+echo '<table border="0">' . "\n";
 echo '<tr>';
 
 $result = $db->Execute($sql);
@@ -128,7 +140,7 @@ GROUP BY issn
 ORDER BY c DESC
 LIMIT 5,5';
 
-echo '<tr>';
+echo '<tr>' . "\n";
 
 $result = $db->Execute($sql);
 if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
@@ -143,8 +155,8 @@ while (!$result->EOF)
 	
 	$result->MoveNext();		
 }
-echo '</tr>';
-echo '</table>';
+echo '</tr>' . "\n";
+echo '</table>' . "\n";
 
 echo '<h2>Authors</h2>';
 
@@ -161,8 +173,8 @@ LIMIT 10';
 $result = $db->Execute($sql);
 if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
 
-echo '<p>Most prolific authors:</p>';
-echo '<ol>';
+echo '<p>Most prolific authors:</p>' . "\n";
+echo '<ol>' . "\n";
 
 while (!$result->EOF) 
 {
@@ -170,12 +182,12 @@ while (!$result->EOF)
 	echo '<a href="' . $config['web_root'] . 'author/' . $result->fields['author_id'] . '">' 
 	. $result->fields['forename']  . ' ' .  $result->fields['lastname'] . '</a> ' 
 	. $result->fields['c'] . ' articles';
-	echo '</li>';
+	echo '</li>' . "\n";
 	
 	$result->MoveNext();		
 }
 
-echo '</ol>';
+echo '</ol>' . "\n";
 
 echo '<p>Some notable authors (images from Wikipedia)</p>';
 echo '<table>';
@@ -257,15 +269,12 @@ echo '
 <![endif]>';
 
 
-echo '<h1>Finding references using BioStor</h1>
-
-<p>The main purpose of BioStor is to find articles in the <a href="http://www.biodiversitylibrary.org/">Biodiversity Heritage Library</a>. To get started you can read the <a href="guide.php">guide to using BioStor</a>, or go directly to the <a href="openurl.php">Reference Finder</a>. You can also use BioStor to find references from within <a href="endnote.php">EndNote</a> and <a href="zotero.php">Zotero</a>. If you use the Firefox web browser you could install the <a href="referrer.php">OpenURL Referrer add on</a>, which will add the same functionality to sites that support support COinS, such as <a href="mendeley.php">Mendeley</a>.</p>
-';
 
 
-echo '<h1>About</h1>
-<p>BioStor is a project by <a href="http://iphylo.blogspot.com">Rod Page</a>. For data sources see <a href="credits.php">Credits</a>.</p>
-';
+
+echo '<hr />' . "\n";
+
+echo '<div id="recentcomments" class="dsq-widget"><h2 class="dsq-widget-title">Recent Comments</h2><script type="text/javascript" src="http://disqus.com/forums/biostor/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=200"></script></div><a href="http://disqus.com/">Powered by Disqus</a>';
 
 
 echo html_body_close();

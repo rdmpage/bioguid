@@ -9,8 +9,6 @@
  
 require_once('../db.php');
 
-$localities = retrieve_localities();
-
 $xml = '<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" 
 xmlns="http://www.w3.org/2000/svg" 
@@ -31,7 +29,7 @@ width="360px" height="180px">
  <g transform="translate(180,90) scale(1,-1)">';
  
  
-$localities = retrieve_localities();
+$localities = db_retrieve_localities();
 
 foreach ($localities as $loc)
 {
