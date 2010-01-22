@@ -166,7 +166,7 @@ function reference_to_meta_tags($reference)
 	
 
 	// Google Scholar
-	$html .= "\n\n<!-- Google Scholar metadata -->\n";
+	$html .= "\n<!-- Google Scholar metadata -->\n";
 	$html .= '<meta name="citation_publisher" content="BioStor" />' . "\n";
 	$html .= '<meta name="citation_title" content="' . htmlentities($reference->title) . '" />' . "\n";
 	$html .= '<meta name="citation_date" content="' . $reference->date . '" />' . "\n";
@@ -190,7 +190,7 @@ function reference_to_meta_tags($reference)
 		$html .= '<meta name="citation_lastpage" content="' . $reference->epage . '" />' . "\n";
 	}
 	$html .= '<meta name="citation_abstract_html_url" content="' . $config['web_root'] . 'reference/' . $reference->reference_id . '" />' . "\n";
-	$html .= '<meta name="citation_fulltext_html_url" content="' . $config['web_root'] . 'reference/' . $reference->reference_id . '" />' . "\n";
+	$html .= '<meta name="citation_fulltext_html_url" content="' . $config['web_root'] . 'reference/' . $reference->reference_id . '.text" />' . "\n";
 
 	$html .= "\n";
 	
@@ -236,7 +236,10 @@ function reference_to_coins($reference)
 			$coins .= '&amp;rft.issn=' . $reference->issn;
 			$coins .= '&amp;rft.volume=' . $reference->volume;
 			$coins .= '&amp;rft.spage=' . $reference->spage;
-			$coins .= '&amp;rft.epage=' . $reference->epage;
+			if (isset($reference->epage))
+			{
+				$coins .= '&amp;rft.epage=' . $reference->epage;
+			}
 			$coins .= '&amp;rft.date=' . $reference->year;
 			
 			if (isset($reference->sici))

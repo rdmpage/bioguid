@@ -110,7 +110,7 @@ function html_page_header($has_search = false, $query = '', $category = 'all')
 }
 
 //--------------------------------------------------------------------------------------------------
-function html_body_close()
+function html_body_close($disqus = false)
 {
 	global $starttime;
 	
@@ -123,6 +123,19 @@ function html_body_close()
 	$totaltime = round($totaltime,5);
 
 	$html = '';
+
+	if ($disqus)
+	{
+		$html .= '<hr/>' . "\n";
+	
+		$html .= '<div id="disqus_thread"></div>
+<script type="text/javascript" src="http://disqus.com/forums/biostor/embed.js"></script>
+<noscript>
+<a href="http://disqus.com/forums/biostor/?url=ref">View the discussion thread.</a>
+</noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>';
+	}
+	
 	$html .= '<script type="text/javascript">
 var uservoiceOptions = {
   /* required */
@@ -232,10 +245,11 @@ function html_search_box($query = '', $category = 'all')
 	
 	// Note use of <div> around <input>, in XHTML we can't have a naked <input> element
 	$html = '';
-	$html .='<div style="float:right;">';	
+	$html .='<div style="float:right;">' . "\n";	
 	$html .= '<form  method="get" action="' . $config['web_root'] . 'search.php" onsubmit="return validateTextSearch(this);">
 		<div >
-		<input  id="search" name="q" type="text" size="40" value="' . $query . '"/>
+		<input  id="search" name="q" type="text" size="40" value="' . $query . '"/>' . "\n";
+/*		
 		<select  id="category" name="category">
 			<!--<option value="all"';
 			if ($category == 'all')
@@ -267,11 +281,12 @@ function html_search_box($query = '', $category = 'all')
 				$html .= ' selected="selected"';
 			}
 			$html .= '>Taxon name</option>
-		</select>
+		</select> */
+	$html .= '
 		<input  name="submit" type="submit" value="Search" />
 		</div>
-	</form>';
-	$html .='</div>';
+	</form>' . "\n";
+	$html .='</div>' . "\n";
 	
 	return $html;
 }

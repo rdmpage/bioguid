@@ -359,7 +359,48 @@ function points_from_text($text)
 			
 			$points[] = $pt;
 		}
-	}	
+	}
+	
+	//http://biostor.org/reference/14507
+	// No hemisphere, but for this example it's N and E
+	// 36°58', 127 °57'
+	if (preg_match_all('/(
+		(?<latitude_degrees>([0-9]{1,2}))
+		[°]
+		\s?
+		(?<latitude_minutes>([0-9]+))\'
+		[,]\s
+		(?<longitude_degrees>([0-9]{1,3}))
+		[°]
+		\s?
+		(?<longitude_minutes>([0-9]+))\'
+		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
+	{
+		$num = count($matches[0]);
+		for ($i = 0; $i < $num; $i++)
+		{
+			$pt = new stdclass;
+		
+			if (isset($matches['latitude_seconds'][$i]))
+			{
+				$seconds = $matches['latitude_seconds'][$i];
+			}
+			$minutes = $matches['latitude_minutes'][$i];
+			$degrees = $matches['latitude_degrees'][$i];
+			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, 'N');
+	
+	
+			if (isset($matches['longitude_seconds'][$i]))
+			{
+				$seconds = $matches['longitude_seconds'][$i];
+			}
+			$minutes = $matches['longitude_minutes'][$i];
+			$degrees = $matches['longitude_degrees'][$i];
+			$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, 'E');
+			
+			$points[] = $pt;
+		}
+	}		
 	
 	
 	return $points;

@@ -10,6 +10,7 @@
 require_once (dirname(__FILE__) . '/col.php');
 
  
+//--------------------------------------------------------------------------------------------------
 function col_references_for_name($name)
 {
 	global $db;
@@ -45,6 +46,7 @@ ORDER BY `references`.year';
 	return $references;
 }
 
+//--------------------------------------------------------------------------------------------------
 function col_name_from_lsid($lsid)
 {
 	global $db;
@@ -66,6 +68,7 @@ function col_name_from_lsid($lsid)
 	return $col_taxon;
 }
 
+//--------------------------------------------------------------------------------------------------
 function col_accepted_name_for($name)
 {
 	global $db;
@@ -77,6 +80,7 @@ function col_accepted_name_for($name)
 		return $col_taxon;
 	}
 	
+	// Is name accepted?
 	$sql = 'SELECT * FROM scientific_names WHERE ';
 	
 	$parts = explode(" ", trim($name));
@@ -93,6 +97,7 @@ function col_accepted_name_for($name)
 	{
 		$sql .= ' AND (infraspecies=' . $db->qstr($parts[2]) . ')';
 	}
+	$sql .= ' AND (name_code = accepted_name_code)';
 	$sql .= ' LIMIT 1';
 		
 	$result = $db->Execute($sql);
@@ -100,6 +105,37 @@ function col_accepted_name_for($name)
 
 	if ($result->NumRows() == 1)
 	{
+		// $name is the accepted name
+		$col_taxon->name_code = $result->fields['name_code'];
+		$col_taxon->record_id = $result->fields['record_id'];
+		$col_taxon->author = $result->fields['author'];
+		$col_taxon->name = trim($result->fields['genus'] . ' ' . $result->fields['species']	. ' ' . $result->fields['infraspecies']);	
+	}
+	else
+	{
+		// OK, not the accepted name. Eventually do this better, as there may be multiple accepted
+		// names for a name (e.g., if same name corresponds to different parts of a taxon
+		$sql = 'SELECT * FROM scientific_names WHERE ';
+		
+		$parts = explode(" ", trim($name));
+		
+		if (isset($parts[0]))
+		{
+			$sql .= '(genus=' . $db->qstr($parts[0]) . ')';
+		}
+		if (isset($parts[1]))
+		{
+			$sql .= ' AND (species=' . $db->qstr($parts[1]) . ')';
+		}
+		if (isset($parts[2]))
+		{
+			$sql .= ' AND (infraspecies=' . $db->qstr($parts[2]) . ')';
+		}
+		$sql .= ' LIMIT 1';
+			
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
 		if ($result->fields['is_accepted_name'] == 0)
 		{
 			$sql = 'SELECT * FROM scientific_names WHERE name_code = ' . $db->qstr($result->fields['accepted_name_code']) . ' LIMIT 1';
@@ -115,13 +151,6 @@ function col_accepted_name_for($name)
 				$col_taxon->name = trim($result->fields['genus'] . ' ' . $result->fields['species']	. ' ' . $result->fields['infraspecies']);	
 			}
 		}
-		else
-		{
-			$col_taxon->name_code = $result->fields['name_code'];
-			$col_taxon->record_id = $result->fields['record_id'];
-			$col_taxon->author = $result->fields['author'];
-			$col_taxon->name = trim($result->fields['genus'] . ' ' . $result->fields['species']	. ' ' . $result->fields['infraspecies']);	
-		}		
 	}
 	
 	return $col_taxon;

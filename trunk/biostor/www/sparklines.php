@@ -258,6 +258,67 @@ ORDER BY year';
 	return $url;
 }
 
+//--------------------------------------------------------------------------------------------------
+// Sparkline of name over BHL
+// hits comes from bhl_name_search
+function sparkline_bhl_name($hits, $width=400, $height=100)
+{
+	$start_year = 3000;
+	$end_year = 0;
+	$max_value = 0;
+	
+	$count = array();
+	
+	foreach ($hits as $hit)
+	{
+		if (isset($hit->info->start))
+		{	
+			$year = $hit->info->start;
+			$start_year = min($start_year, $year);
+			$end_year = max($end_year, $year);
+			if (!isset($count[$year]))
+			{
+				$count[$year] = 0;
+			}
+			$count[$year]++;
+			$max_value = max($max_value, $count[$year]);
+		}
+	}
+
+	$start_year = floor($start_year/50) * 50;
+	$end_year = floor(($end_year+49)/50) * 50;
+	
+	for($i = $start_year; $i <= $end_year; $i++)
+	{
+		if (!isset($count[$i]))
+		{
+			$count[$i] = 0;
+		}
+	}
+	
+	ksort($count);
+	
+	// Axes
+	$decades = array();
+	for($i = $start_year; $i <= $end_year; $i+=50)
+	{
+		$decades[] = $i;
+	}
+	
+	$values = array();
+	foreach ($count as $k => $v)
+	{
+		$values[] = round(($v * 100.0)/$max_value);
+	}
+
+	$url = 'http://chart.apis.google.com/chart?chs=' . $width . 'x' . $height . '&amp;cht=ls&amp;chco=0077CC&amp;chm=B,e6f2fa,0,0.0,0.0&amp;chd=t:';
+	$url .= join(",", $values);
+	$url .= '&amp;chxt=x,y&amp;chxl=0:|' . join("|", $decades) .  '|1:||' . $max_value;
+
+	return $url;
+}
+
+
 
 // test
 if (0)

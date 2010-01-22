@@ -35,4 +35,31 @@ function issn_from_title($title)
 	return $issn;
 } 
 
+//--------------------------------------------------------------------------------------------------
+/**
+ * @brief Lookup taxon name in uBio using bioGUID web service
+ *
+ * @param name Name to look for
+ *
+ * @return NameBankID if found, 0 if name not found
+ *
+ */
+function bioguid_ubio_search($name)
+{
+	$NameBankID = 0;
+
+	$url = 'http://bioguid.info/ubiosearch.php?name=' . urlencode($name);
+	$json = get($url);
+	if ($json != '')
+	{
+		$ids = json_decode($json);
+		if (count($ids) == 1)
+		{
+			$NameBankID = $ids[0];	
+		}
+	}
+	return $NameBankID;
+}
+
+
 ?>

@@ -18,11 +18,6 @@ class DisplayJournal extends DisplayObject
 {
 	public $issn = '';
 	
-	function __construct()
-	{
-		$this->GetId();
-		$this->GetFormat();
-	}
 	
 	//----------------------------------------------------------------------------------------------
 	function GetId()
@@ -62,6 +57,8 @@ class DisplayJournal extends DisplayObject
 		
 		
 		echo '<h2>Coverage</h2>' . "\n";
+
+		echo '<p>' . bhl_articles_for_issn($this->issn) . ' articles identified.</p>' . "\n";
 
 		echo '<h3>Distribution of identified articles over time</h3>' . "\n";
 

@@ -549,7 +549,7 @@ var s = t.responseText.evalJSON();
 if (s.is_valid)
 {
 // we\'ve stored reference, so reload page, which will redirect us to page for reference
-window.location.reload(false);
+window.location.reload(true);
 }
 else
 {

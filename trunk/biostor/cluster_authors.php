@@ -8,12 +8,30 @@ global $config;
 global $db;
 
 //--------------------------------------------------------------------------------------------------
-
+// Get authors (only those linked to a reference so we avoid "orphans" cauased by editing author's
+// name when editing a publication
 $authors = array();
-$sql = 'SELECT DISTINCT(author_id), forename, lastname 
-FROM rdmp_author
-INNER JOIN rdmp_author_reference_joiner USING(author_id)
-WHERE (lastname <> "") AND (forename <> "")';
+
+if (1)
+{
+	// All authors
+	$sql = 'SELECT DISTINCT(author_id), forename, lastname 
+	FROM rdmp_author
+	INNER JOIN rdmp_author_reference_joiner USING(author_id)
+	WHERE (lastname <> "") AND (forename <> "")';
+}
+else
+{
+	// specific last name NOT DEBUGGED DONT USE!!!!
+	
+	$lastname = "Kirby";
+	
+	$sql = 'SELECT DISTINCT(author_id), forename, lastname 
+	FROM rdmp_author
+	INNER JOIN rdmp_author_reference_joiner USING(author_id)
+	WHERE (lastname = ' . $db->qstr($lastname) . ') AND (forename <> "")';
+
+}
 
 echo $sql . "\n";
 
@@ -34,16 +52,22 @@ while (!$result->EOF)
 
 print_r($authors);
 
+
+//--------------------------------------------------------------------------------------------------
+// Text indexing...
+$sql = 'DELETE FROM rdmp_text_index WHERE (object_type="author")';
+$result = $db->Execute($sql);
+if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+
 foreach ($authors as $author)
 {
-	// 
-	$sql = 'DELETE FROM rdmp_text_index WHERE (object_id=' . $author->id . ') AND (object_type=' . $db->qstr('author') . ')';
-		
-	$result = $db->Execute($sql);
-	if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
-
-	$sql = 'INSERT INTO rdmp_text_index(object_type, object_id, object_text)
-	VALUES ("author", ' . $author->id . ', ' . $db->qstr($author->name) . ')';
+	
+	$sql = 'INSERT INTO rdmp_text_index(object_type, object_id, object_uri, object_text)
+	VALUES ("author"'
+	. ', ' . $author->id 
+	. ', ' . $db->qstr($config['web_root'] . 'author/' . $author->id) 
+	. ', ' . $db->qstr($author->name)
+	. ')';	
 	
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);

@@ -12,6 +12,7 @@ require_once (dirname(__FILE__) . '/bhl_date.php');
 require_once (dirname(__FILE__) . '/bhl_search.php');
 
 require_once (dirname(__FILE__) . '/identifier.php');
+require_once (dirname(__FILE__) . '/namestring.php');
 require_once (dirname(__FILE__) . '/utilities.php');
 
 //--------------------------------------------------------------------------------------------------
@@ -88,10 +89,10 @@ function bhl_retrieve_name_from_namebankid($id)
 
 	if ($result->NumRows() == 1)
 	{
-		$name = new stdclass;
+		$name = new NameString;
 		$name->NameBankID = $result->fields['NameBankID'];
-		$name->NameString = $result->fields['NameConfirmed'];
-		$name->Identifier = 'urn:lsid:ubio.org:namebank:' . $result->fields['NameBankID'];
+		$name->namestring = $result->fields['NameConfirmed'];
+		//$name->Identifier = 'urn:lsid:ubio.org:namebank:' . $result->fields['NameBankID'];
 	}
 	
 	return $name;
@@ -114,10 +115,10 @@ function bhl_retrieve_name_from_namestring($namestring)
 
 	if ($result->NumRows() == 1)
 	{
-		$name = new stdclass;
+		$name = new NameString;
 		$name->NameBankID = $result->fields['NameBankID'];
-		$name->NameString = $result->fields['NameConfirmed'];
-		$name->Identifier = 'urn:lsid:ubio.org:namebank:' . $result->fields['NameBankID'];
+		$name->namestring = $result->fields['NameConfirmed'];
+//		$name->Identifier = 'urn:lsid:ubio.org:namebank:' . $result->fields['NameBankID'];
 	}
 	
 	return $name;
@@ -341,6 +342,23 @@ function db_retrieve_journal_from_issn ($issn)
 		$journal->title = $result->fields['secondary_title'];
 		$journal->issn = $issn;
 	}
+	else
+	{
+		// BHL journal we haven't got any articles from yet
+		$sql = 'SELECT IdentifierValue, FullTitle FROM bhl_title_identifier
+	INNER JOIN bhl_title USING(TitleID)
+	WHERE (IdentifierName="ISSN") AND (IdentifierValue=' . $db->qstr($issn) . ')';
+	
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+		if ($result->NumRows() > 0)
+		{
+			$journal = new stdclass;
+			$journal->title = $result->fields['FullTitle'];
+			$journal->issn = $issn;
+		}
+	}	
 	
 	return $journal;
 }
@@ -472,6 +490,103 @@ function bhl_retrieve_reference_pages($reference_id)
 		$page = new stdclass;
 		$page->PageID = $result->fields['PageID'];
 		$page->page_order = $result->fields['page_order'];
+		$page->PagePrefix = $result->fields['PagePrefix'];
+		$page->PageNumber = $result->fields['PageNumber'];
+		
+		$pages[] = $page;
+		$result->MoveNext();
+	}
+	
+	return $pages;
+}
+
+
+
+//--------------------------------------------------------------------------------------------------
+function bhl_titleid_from_item_id($ItemID)
+{
+	global $db;
+	
+	$TitleID = 0;
+	
+	$sql = 'SELECT TitleID FROM bhl_item WHERE (ItemID=' .  $ItemID . ') LIMIT 1';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	if ($result->NumRows() == 1)
+	{
+		$TitleID = $result->fields['TitleID'];
+	}
+	
+	return $TitleID;
+
+
+}
+
+//--------------------------------------------------------------------------------------------------
+function bhl_retrieve_identifiers($TitleID)
+{
+	global $db;
+	
+	$identifiers = array();
+	
+	$sql = 'SELECT * FROM bhl_title_identifier WHERE (TitleID=' .  $TitleID . ')';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	while (!$result->EOF) 
+	{
+		switch ($result->fields['IdentifierName'])
+		{
+			case 'OCLC':
+				$oclc = trim($result->fields['IdentifierValue']);
+				
+				// clean it (sigh)
+				$oclc = preg_replace('/^ocm/', '', $oclc);
+				$identifiers['oclc'] = $oclc;
+				break;
+
+			case 'ISBN':
+				$isbn = trim($result->fields['IdentifierValue']);
+
+				// clean it (sigh()
+				$isbn = preg_replace('/\s*:(.*)$/', '', $isbn);
+				$isbn = preg_replace('/\s*\((.*)$/', '', $isbn);
+				
+				$identifiers['isbn'] = $isbn;
+				break;
+				
+			default:
+				break;
+		}
+		
+		$result->MoveNext();			
+	}
+	return $identifiers;
+}
+	
+
+//--------------------------------------------------------------------------------------------------
+function bhl_retrieve_item_pages($ItemID)
+{
+	global $db;
+	global $ADODB_FETCH_MODE;
+	
+	$pages = array();
+	
+	$sql = 'SELECT DISTINCT(PageID), PagePrefix, PageNumber, SequenceOrder 
+	FROM bhl_page
+	INNER JOIN page USING(PageID)
+	WHERE (bhl_page.ItemID = ' . $ItemID . ')
+	ORDER BY SequenceOrder';
+	
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	while (!$result->EOF) 
+	{
+		$page = new stdclass;
+		$page->PageID = $result->fields['PageID'];
+		$page->page_order = $result->fields['SequenceOrder'];
 		$page->PagePrefix = $result->fields['PagePrefix'];
 		$page->PageNumber = $result->fields['PageNumber'];
 		
@@ -778,6 +893,28 @@ ORDER BY year';
 }
 
 //------------------------------------------------------------------------------
+function db_number_coauthored_references ($author1_id, $author2_id)
+{
+	global $db;
+	
+	$num = 0;
+	
+	$sql = 'SELECT COUNT(reference_id) AS c
+	FROM rdmp_author
+	INNER JOIN rdmp_author_reference_joiner USING (author_id)
+	INNER JOIN rdmp_author_reference_joiner AS coauthored USING (reference_id)
+	INNER JOIN rdmp_author AS coauthor ON coauthor.author_id = coauthored.author_id
+	WHERE rdmp_author.author_id = ' . $author1_id . ' AND coauthor.author_id = ' . $author2_id;
+	
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	$num = $result->fields['c'];
+	
+	return $num;	
+}
+
+//------------------------------------------------------------------------------
 function db_retrieve_coauthors ($author_id)
 {
 	global $db;
@@ -970,7 +1107,100 @@ function db_find_article($article)
 	
 	$sql = '';
 	
-	// Basic triple
+	$hits = array();
+	
+	if (
+		(isset($article->issn) && ($article->issn != ''))
+		&& isset($article->volume)
+		&& isset($article->spage)
+		)
+	{
+		$sql = 'SELECT * FROM rdmp_reference
+			WHERE (issn = ' .  $db->Quote($article->issn) . ')
+			AND (volume = ' .  $db->Quote($article->volume) . ')
+			AND (spage = ' .  $db->Quote($article->spage) . ')';
+	}
+	else
+	{
+		// No ISSN so try and match on journal title
+		$sql = 'SELECT * FROM rdmp_reference
+			WHERE (secondary_title = ' .  $db->Quote($article->secondary_title) . ')
+			AND (volume = ' .  $db->Quote($article->volume) . ')
+			AND (spage = ' .  $db->Quote($article->spage) . ')';
+	}
+				
+	// 	Do we have this?
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	while (!$result->EOF) 
+	{
+		$hits[] = $result->fields['reference_id'];
+		$result->MoveNext();
+	}	
+	
+	//print_r($hits);
+	
+	$matches = array();
+	if (count($hits) > 0)
+	{
+		// We have a potential match, but if journal pagination is with respect to issue,
+		// not journal, then we may have a problem as different articles may start with the
+		// same page number
+		
+		foreach ($hits as $hit)
+		{
+			$ref = db_retrieve_reference($hit);
+			
+			$matched = 0;
+			
+			// Does ending page match?
+			if (isset($article->epage))
+			{
+				if ($article->epage == $ref->epage)
+				{
+					$matched++;
+				}
+			}
+			
+			// Do issue numbers match?
+			if (isset($article->issue) && isset($ref->issue))
+			{
+				if (($article->issue != '') && ($article->issue == $ref->issue))
+				{
+					$matched++;
+				}
+			}
+			echo $matched;
+			
+			switch ($matched)
+			{
+				case 0:
+					// Unlikely to be same thing, unless mistake in pagination
+					break;
+					
+				case 1:
+				case 2:
+				default:
+					// gotta be this one
+					$matches[] = $hit;
+					break;
+			}
+		}
+			
+	}
+	
+	if (count($matches) == 1)
+	{
+		$id = $matches[0];
+	}
+			
+		
+		
+		
+	
+	
+/*	// Basic triple
 	if (
 		(isset($article->issn) && ($article->issn != ''))
 		&& isset($article->volume)
@@ -1001,7 +1231,7 @@ function db_find_article($article)
 	{
 		$id = $result->fields['reference_id'];
 	}
-	
+*/	
 	return $id;
 }
 
@@ -1022,6 +1252,25 @@ function db_retrieve_reference_from_doi($doi)
 	}
 	return $id;
 }
+
+//--------------------------------------------------------------------------------------------------
+function db_retrieve_reference_from_lsid($lsid)
+{
+	global $db;
+
+	$id = 0;
+	
+	$sql = 'SELECT * FROM rdmp_reference WHERE lsid=' . $db->qstr($lsid) . ' LIMIT 1';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	if ($result->NumRows() == 1)
+	{
+		$id = $result->fields['reference_id'];
+	}
+	return $id;
+}
+
 
 
 //--------------------------------------------------------------------------------------------------
@@ -1247,18 +1496,16 @@ function db_store_article($article, $PageID = 0, $updating = false)
 		}
 		$sql .= ' WHERE reference_id=' . $id;
 		
-		$cache_file = @fopen('/tmp/update.sql', "w+") or die("could't open file");
+/*		$cache_file = @fopen('/tmp/update.sql', "w+") or die("could't open file");
 		@fwrite($cache_file, $sql);
 		fclose($cache_file);
-
+*/
 		$result = $db->Execute($sql);
 		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 		
 	}
 	else
 	{
-		// Versioning?
-	
 		// Adding article for first time so add 'created' and 'updated' timestamp 
 		$keys[] = 'created';
 		$values[] = 'NOW()';
@@ -1273,6 +1520,22 @@ function db_store_article($article, $PageID = 0, $updating = false)
 		$id = $db->Insert_ID();
 	}
 	
+	// Indexing-------------------------------------------------------------------------------------
+	$sql = 'DELETE FROM rdmp_text_index WHERE (object_uri=' . $db->qstr($config['web_root'] . 'reference/' . $id) . ')';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	$sql = 'INSERT INTO rdmp_text_index(object_type, object_id, object_uri, object_text)
+	VALUES ("title"'
+	. ', ' . $id 
+	. ', ' . $db->qstr($config['web_root'] . 'reference/' . $id) 
+	. ', ' . $db->qstr($article->title) 
+	. ')';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	
+	// Versioning-----------------------------------------------------------------------------------
 	// Store this object in version table so we can recover it if we overwrite item
 	$ip = getip();
 	$sql = 'INSERT INTO rdmp_reference_version(reference_id, ip, json) VALUES('
@@ -1282,6 +1545,7 @@ function db_store_article($article, $PageID = 0, $updating = false)
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 		
+	// Author(s)------------------------------------------------------------------------------------
 	// Store author as and link to the article
 	if (isset($article->authors))
 	{
@@ -1409,5 +1673,68 @@ function db_retrieve_localities()
 	return $pts;
 
 }
+
+//--------------------------------------------------------------------------------------------------
+// Return reference(s) that include PageID (may be more than one if article is less than 1 page,
+// hence we return an array)
+function bhl_retrieve_reference_id_from_PageID($PageID)
+{
+	global $db;
+	
+	$references = array();
+	
+	$sql = 'SELECT reference_id FROM rdmp_reference_page_joiner WHERE (PageID=' . $PageID . ')';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	while (!$result->EOF) 
+	{
+		$references[] = $result->fields['reference_id'];
+		$result->MoveNext();
+	}
+	
+	return $references;
+}
+
+//--------------------------------------------------------------------------------------------------
+function bhl_retrieve_ItemID_from_PageID($PageID)
+{
+	global $db;
+	
+	$ItemID = 0;
+	
+	$sql = 'SELECT ItemID FROM bhl_page WHERE (PageID=' . $PageID . ') LIMIT 1';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	if ($result->NumRows() == 1)
+	{
+		$ItemID = $result->fields['ItemID'];
+	}
+	
+	return $ItemID;
+}
+
+//--------------------------------------------------------------------------------------------------
+function bhl_retrieve_title_from_ItemID($ItemID)
+{
+	global $db;
+	
+	$title = 0;
+	
+	$sql = 'SELECT FullTitle, ShortTitle FROM bhl_title
+	INNER JOIN bhl_item USING(TitleID)
+	WHERE (ItemID=' . $ItemID . ') LIMIT 1';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	if ($result->NumRows() == 1)
+	{
+		$title = $result->fields['ShortTitle'];
+	}
+	
+	return $title;
+}
+	
 
 ?>

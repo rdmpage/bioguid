@@ -31,6 +31,7 @@ class DisplayAuthor extends DisplayObject
 		}
 	}	
 
+	//----------------------------------------------------------------------------------------------
 	// Extra <HEAD> items
 	function DisplayHtmlHead()
 	{
@@ -77,6 +78,32 @@ class DisplayAuthor extends DisplayObject
 		
 		echo '<div>';
 		echo '<img src="' . sparkline_author_articles($this->id) . '" alt="sparkline" align="top"/>';
+		echo '</div>';
+		
+		echo '<div>';
+		
+		// Ideally make this SVG, but then we have to deal with clicks on nodes going to embedded object,
+		// not parent window (see issue with phylomash project)
+		if (0)
+		{
+			$graph_url = $config['web_root'] . 'cgi-bin/neato.cgi/' .  $config['web_root'] . 'coauthor/' . $this->id . '.svg';
+			
+			echo '
+			<!--[if IE]>
+			<embed width="360" height="180" src="' . $graph_url. '">
+			</embed>
+			<![endif]-->
+			<![if !IE]>
+			<object id="mysvg" type="image/svg+xml" width="360" height="180" data="' . $graph_url. '">
+			<p>Error, browser must support "SVG"</p>
+			</object>
+			<![endif]>';	
+		}
+		else
+		{
+			$graph_url = $config['web_root'] . 'cgi-bin/neato.cgi/' .  $config['web_root'] . 'coauthor/' . $this->id . '.png';
+			echo '<img src="' . $graph_url . '" alt="graph" align="top"/>';
+		}
 		echo '</div>';
 
 		// My original code
@@ -134,6 +161,9 @@ class DisplayAuthor extends DisplayObject
 		*/
 		
 		// Exhibit
+		
+		echo '<h2>Publications</h2>';
+		
 		echo '
     <table width="100%">
         <tr valign="top">

@@ -120,7 +120,7 @@ class DisplayObject
 		$this->DisplayBodyOpen();
 		$this->DisplayMicroformat();
 		$this->DisplayHtmlContent();
-		echo html_body_close();
+		echo html_body_close(true); // true to show Disqus comments
 		echo html_html_close();	
 	}
 	

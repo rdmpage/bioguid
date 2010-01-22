@@ -103,6 +103,8 @@ class DisplayReference extends DisplayObject
 	{
 		global $config;
 		
+		echo reference_to_meta_tags($this->object);
+		
 		echo html_include_css('css/viewer.css');
 		echo html_include_script('js/fadeup.js');
 		echo html_include_script('js/prototype.js');
@@ -122,7 +124,7 @@ class DisplayReference extends DisplayObject
 				$tags .= $name['namestring'] . '|' . $name['NameBankID'] . "\\n";
 			}
 		
-			echo  '<script type="text/javascript">';
+			echo  '<script type="text/javascript">' . "\n";
 			echo "function make_tag_tree()
 			{
 			var success	= function(t){tagtreeComplete(t);}
@@ -146,20 +148,20 @@ function tagtreeFailed(t)
 {
 }			
 			";
-			echo  '</script>';
+			echo  '</script>' . "\n";
 		}
 			
 		// Form validation
-		echo  '<script type="text/javascript">';
-		echo 'var check_issn = /^[0-9]{4}\-[0-9]{3}([0-9]|X)$/;';
-		echo 'var check_date = /^([0-9]{4})\-([0-9]{2})\-([0-9]{2})$/;';
-		echo 'var check_year = /^[0-9]{4}$/;';
+		echo  '<script type="text/javascript">' . "\n";
+		echo 'var check_issn = /^[0-9]{4}\-[0-9]{3}([0-9]|X)$/;' . "\n";
+		echo 'var check_date = /^([0-9]{4})\-([0-9]{2})\-([0-9]{2})$/;' . "\n";
+		echo 'var check_year = /^[0-9]{4}$/;' . "\n";
 		
-		echo  '</script>';
+		echo  '</script>' . "\n";
 		
 			
 		// Form editing
-		echo  '<script type="text/javascript">';
+		echo  '<script type="text/javascript">' . "\n";
 		echo '
 function reportErrors(errors)
 {
@@ -232,7 +234,7 @@ function updateSuccess (t)
 	if (s.is_valid)
 	{
 		// we\'ve updated metadata, so reload page (or do ajax calls, but reload is easier)
-		window.location.reload(false);
+		window.location.reload(true);
 	}
 	else
 	{
@@ -279,7 +281,7 @@ Event.observe(window, \'load\', function() {
 		{
 			echo html_include_script('http://maps.google.com/maps?file=api&amp;v=2&amp;key=' . $config['gmap']);
 			echo html_include_script('js/gmap.js');
-			echo  '<script type="text/javascript">';
+			echo  '<script type="text/javascript">' . "\n";
 			
 			echo '
 				function initialize() 
@@ -314,8 +316,8 @@ Event.observe(window, \'load\', function() {
 				echo '));' . "\n";
 			}
 			echo ' 	}
-			}';
-			echo  '</script>';
+			}' . "\n";
+			echo  '</script>' . "\n";
 		}
 	}
 	
@@ -352,11 +354,11 @@ Event.observe(window, \'load\', function() {
 
 		echo html_page_header(true, '', 'name');
 		
-		echo '<h1>' . $this->GetTitle() . '</h1>';
+		echo '<h1>' . $this->GetTitle() . '</h1>' . "\n";
 		
 		//------------------------------------------------------------------------------------------
 		// Authors
-		echo '<div>';
+		echo '<div>' . "\n";
 		$count = 0;
 		$num_authors = count($this->object->authors);
 		if ($num_authors > 0)
@@ -382,12 +384,12 @@ Event.observe(window, \'load\', function() {
 				
 			}
 		}
-		echo '</div>';
+		echo "\n" . '</div>' . "\n";
 		
 		
 		//------------------------------------------------------------------------------------------
 		// Metadata and COinS
-		echo '<div>';
+		echo '<div>' . "\n";
 		echo '<span class="journal">';
 		
 		// Various options for linking journal.
@@ -425,19 +427,19 @@ Event.observe(window, \'load\', function() {
 			echo '<span class="year">' . '(' . $this->object->year . ')' . '</span>';
 		}
 		echo reference_to_coins($this->object);
-		echo '</div>';
+		echo '</div>' . "\n";
 		
 		//------------------------------------------------------------------------------------------
 		// When record added and updated
 		echo '<p class="explanation">Reference added ';
 		echo distanceOfTimeInWords(strtotime($this->object->created) ,time(),true);
 		echo ' ago';		
-		echo '</p>';
+		echo '</p>' . "\n";
 		
 		//------------------------------------------------------------------------------------------
 		// Export options
-		echo '<h2>Export</h2>';
-		echo '<div>';
+		echo '<h2>Export</h2>' . "\n";
+		echo '<div>' . "\n";
 		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.xml" title="Endnote XML">Endnote XML</a></span>';
 		echo ' | ';
 		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.ris" title="RIS">Reference manager</a></span>';		
@@ -445,36 +447,36 @@ Event.observe(window, \'load\', function() {
 		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.bib" title="BibTex">BibTex</a></span>';		
 		echo ' | ';
 		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.text" title="Text">Text</a></span>';		
-		echo '</div>';
+		echo '</div>' . "\n";
 		
 		
 		//------------------------------------------------------------------------------------------
 		// Identifiers
-		echo '<h2>Identifiers</h2>';
-		echo '<ul>';
+		echo '<h2>Identifiers</h2>' . "\n";
+		echo '<ul>' . "\n";
 		if ($this->in_bhl)
 		{
 			// BHL reference
-			echo '<li><a href="http://www.biodiversitylibrary.org/page/' . $this->object->PageID . '" target="_new">' . $this->object->PageID . '</a></li>';
+			echo '<li><a href="http://www.biodiversitylibrary.org/page/' . $this->object->PageID . '" target="_new">BHL PageID:' . $this->object->PageID . '</a></li>' . "\n";
 		}
 		
 		if (isset($this->object->sici))
 		{
-			echo '<li><a href="' . $config['web_root'] . 'sici/' . $this->object->sici . '">' .  $this->object->sici . '</a></li>';
+			echo '<li><a href="' . $config['web_root'] . 'sici/' . $this->object->sici . '">' .  $this->object->sici . '</a></li>' . "\n";
 		}
 		if (isset($this->object->url))
 		{
-			echo '<li><a href="' . $this->object->url . '" target="_new">' .  $this->object->url . '</a></li>';
+			echo '<li><a href="' . $this->object->url . '" target="_new">' .  $this->object->url . '</a></li>' . "\n";
 		}
 		if (isset($this->object->doi))
 		{
-			echo '<li><a href="http://dx.doi.org/' . $this->object->doi . '" target="_new">' .  $this->object->doi . '</a></li>';
+			echo '<li><a href="http://dx.doi.org/' . $this->object->doi . '" target="_new">' .  $this->object->doi . '</a></li>' . "\n";
 		}
 		if (isset($this->object->lsid))
 		{
-			echo '<li>' . $this->object->lsid . '</li>';
+			echo '<li><a href="' . $config['web_root'] . $this->object->lsid . '">' . $this->object->lsid . '</a></li>' . "\n";
 		}
-		echo '</ul>';
+		echo '</ul>' . "\n";
 		
 		//------------------------------------------------------------------------------------------
 		if ($this->in_bhl)
