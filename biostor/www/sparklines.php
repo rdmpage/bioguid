@@ -9,7 +9,7 @@
 
 require_once ('../db.php');
 
-define(START_DATE, '2009-12-20');
+define('START_DATE', '2009-12-20');
 
 //--------------------------------------------------------------------------------------------------
 // get number of days since project started
@@ -189,7 +189,7 @@ ORDER BY year';
 
 //--------------------------------------------------------------------------------------------------
 // Sparkline of references over time
-function sparkline_references($issn = '', $width=400, $height=50)
+function sparkline_references($issn = '', $oclc = '', $width=400, $height=50)
 {
 	global $db;
 	
@@ -199,6 +199,10 @@ function sparkline_references($issn = '', $width=400, $height=50)
 	if ($issn != '')
 	{
 		$sql .= ' AND (issn=' . $db->qstr($issn) . ')';
+	}
+	if ($oclc != '')
+	{
+		$sql .= ' AND (oclc=' . $oclc . ')';
 	}
 	$sql .= ' GROUP BY year
 ORDER BY year';

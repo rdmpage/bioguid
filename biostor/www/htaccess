@@ -2,6 +2,10 @@ RewriteEngine on
 #RewriteBase /~rpage/bhl/www/
 RewriteBase /
 
+# If URL has "www" prefix strip and redirect to biostor.org
+# We also need to disable default hostname (uncheck checkbox in Server Admin/Web/Sites)
+RewriteCond %{HTTP_HOST} ^www.biostor.org$ 														[NC]
+RewriteRule ^(.*)$ 								http://biostor.org/$1 						[R=301,L]
 
 #---------------------------------------------------------------------------------------------------
 # Reference
@@ -51,6 +55,8 @@ RewriteRule ^sici:(.*)						display_sici.php?sici=$1							[NC,L]
 # DOI
 RewriteRule ^doi:(.*)						display_doi.php?doi=$1								[NC,L]
 
+# OCLC
+RewriteRule ^oclc/(.*)						display_oclc.php?oclc=$1							[NC,L]
 
 #---------------------------------------------------------------------------------------------------
 # Graphviz

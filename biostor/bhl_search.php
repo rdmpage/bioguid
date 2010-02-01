@@ -76,6 +76,58 @@ function bhl_title_retrieve ($bhl_title_id, &$obj)
 	}
 }
 
+
+//--------------------------------------------------------------------------------------------------
+// Return OCLC number for a BHL TitleID as an integer
+function oclc_for_titleid($TitleID)
+{
+	global $db;
+	
+	$oclc = 0;
+	
+	$sql = 'SELECT * FROM bhl_title_identifier WHERE (IdentifierName="OCLC") AND (TitleID=' . $TitleID . ') LIMIT 1';
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	if ($result->NumRows() == 1)
+	{
+		// clean
+		$oclc_string = $result->fields['IdentifierValue'];
+		
+		$oclc_string = preg_replace('/^ocm/', '', $oclc_string);
+		$oclc_string = preg_replace('/^0/', '', $oclc_string);
+		$oclc = $oclc_string;
+	}
+	
+	return $oclc;
+}
+
+//--------------------------------------------------------------------------------------------------
+function oclc_for_title($title)
+{
+	global $debug;
+	$oclc = 0;
+	
+	$hits = bhl_title_lookup($title);
+		
+	if (count($hits) > 0)
+	{
+		$TitleID = $hits[0]['TitleID'];
+		$oclc = oclc_for_titleid($TitleID);
+		
+		if ($debug)
+		{
+			echo __FILE__ . ' line ' . __LINE__ . "\n";
+			echo '<pre>';
+			echo "OCLC=$oclc";
+			echo '</pre>';
+		}
+	}	
+	
+	return $oclc;
+}
+
 //--------------------------------------------------------------------------------------------------
 /**
  * @brief Approximate string search for title
@@ -598,6 +650,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			case 11938:
 				$title_list = array(11933, 11938);
 				break;
+
+			// Ann. Mag. Nat. Hist.
+			case 2195:
+			case 15774:
+				$title_list = array(2195, 15774);
+				break;
 		
 			// Archiv für Naturgeschichte
 			case 6638:
@@ -672,13 +730,11 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 				$title_list = array(7541, 5604, 13505);
 				break;
 				
-			// Verhandlungen des Zoologisch-Botanischen Vereins in Wien
-			// and variations
-			case 13275: // Verhandlungen der Kaiserlich-Königlichen Zoologisch-Botanischen Gesellschaft in Wien
-			case 11285: // Verhandlungen des Zoologisch-Botanischen Vereins in Wien
-				$title_list = array(11285, 13275);
+			// The Kansas University science bulletin
+			case 3179:
+			case 15415:
+				$title_list = array(3179, 15415);
 				break;
-			
 
 			default:
 				break;
