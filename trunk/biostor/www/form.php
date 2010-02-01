@@ -47,6 +47,7 @@ function reference_hidden_form($reference)
 			case 'url':
 			case 'doi':
 			case 'lsid':
+			case 'oclc':
 				$html .= '<input type="text" name="' . $k . '" value="' . $v . '"></input>' . "\n";
 				break;
 				
@@ -68,6 +69,7 @@ function reference_form($reference, $recaptcha = true)
 	// field names
 	$field_names = array(
 		'issn' => 'ISSN',
+		'oclc' => 'OCLC',
 		'series' => 'Series',
 		'volume' => 'Volume',
 		'issue' => 'Issue',
@@ -76,8 +78,10 @@ function reference_form($reference, $recaptcha = true)
 		'date' => 'Date',
 		'year' => 'Year',
 		'url' => 'URL',
-		'doi' => 'DOI'
+		'doi' => 'DOI',
 		);
+		
+	//print_r($reference);
 	
 	$html = '';
 	
@@ -129,14 +133,14 @@ function reference_form($reference, $recaptcha = true)
 	}
 	$html .= '<tr><td class="field_name">Authors</td><td><textarea name="authors" rows="5" cols="40">' . trim($authors) . '</textarea><br/><span style="font-size:12px;color:rgb(192,192,192);">One author per line, "First name Last name" or "Last name, First name"</span></td></tr>';
 
-	$journal_fields = array('secondary_title', 'issn', 'series', 'volume', 'issue', 'spage', 'epage', 'date', 'year', 'url', 'doi');
+	$journal_fields = array('secondary_title', 'issn', 'oclc', 'series', 'volume', 'issue', 'spage', 'epage', 'date', 'year', 'url', 'doi');
 
 	foreach ($journal_fields as $k)
 	{
 		switch ($k)
 		{
 			case 'secondary_title':
-				$html .= '<tr><td class="field_name">' . 'Journal' . '</td><td><textarea name="' . $k . '" rows="2" cols="40">' . $reference->{$k} . '</textarea></td></tr>';
+				$html .= '<tr><td class="field_name">' . 'Journal' . '</td><td><textarea name="' . $k . '" rows="2" cols="40">' . $reference->{$k} . '</textarea></td></tr>' . "\n";
 				break;
 		
 			default:

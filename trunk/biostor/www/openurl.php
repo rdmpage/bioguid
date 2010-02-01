@@ -741,9 +741,36 @@ function main()
 		echo '</pre>';
 	}
 
+	// This is what we got from user
 	$referent = new stdclass;
 	parse_openurl($params, $referent);
 
+	
+	// Flesh it out 
+	// If we are looking for an article we need an ISSN, or at least an OCLC
+	// Ask whether have this in our database (assumes we have ISSN)
+	if (!isset($referent->issn))
+	{
+		// Try and get ISSN from bioGUID
+		$issn = issn_from_title($referent->secondary_title);
+		if ($issn != '')
+		{
+			$referent->issn = $issn;
+		}
+		else
+		{
+			// No luck with ISSN, look for OCLC
+			if (!isset($referent->oclc))
+			{
+				$oclc = oclc_for_title($referent->secondary_title);
+				if ($oclc != 0)
+				{
+					$referent->oclc = $oclc;
+				}
+			}
+		}
+	}
+	
 	if ($debug)
 	{
 		echo '<h1>Referent</h1>';
@@ -751,6 +778,7 @@ function main()
 		print_r($referent);
 		echo '</pre>';
 	}
+	
 	
 	// Handle identifiers
 	if (isset($referent->url))
@@ -813,23 +841,7 @@ function main()
 		}
 	}
 	
-	
-	// Ask whether have this in our database (assumes we have ISSN)
-	if (!isset($referent->issn))
-	{
-		// Try and get ISSN from bioGUID
-		$issn = issn_from_title($referent->secondary_title);
-		if ($issn != '')
-		{
-			$referent->issn = $issn;
-		}
-		else
-		{
-			// No luck, could try BHL
-						
-		}
-	}
-	
+	// OK, we're not forcing a match to BHL, so do we have this article?
 	$id = db_find_article($referent);
 	
 	if ($id != 0)
@@ -883,16 +895,6 @@ function main()
 	
 	// At this point if we haven't found it in BHL we could go elsewhere, e.g. bioGUID,
 	// in which case we'd need to take this into account when displaying HTML and JSON
-	
-	
-	// Add ISSN to referent if we don't have it
-/*	if (!isset($referent->issn))
-	{
-		if (isset($search_hits->ISSN))
-		{
-			$referent->issn = $search_hits->ISSN;
-		}
-	}	*/
 	
 	if ($debug)
 	{

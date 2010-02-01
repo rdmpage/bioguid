@@ -399,7 +399,13 @@ Event.observe(window, \'load\', function() {
 			echo $this->object->secondary_title;
 			echo '</a>';
 		}
-		else 
+		elseif (isset($this->object->oclc))
+		{
+			echo '<a href="' . $config['web_root'] . 'oclc/' . $this->object->oclc . '">';
+			echo $this->object->secondary_title;
+			echo '</a>';
+		}
+		else		
 		{
 			echo $this->object->secondary_title;
 		}
@@ -483,7 +489,7 @@ Event.observe(window, \'load\', function() {
 		{
 			//--------------------------------------------------------------------------------------
 			echo '<h2>Viewer</h2>';
-			
+			echo '<p id="viewer_status"></p>' . "\n";
 			echo '<table width="100%" >';
 			echo '<tr  valign="top"><td>';
 			echo bhl_reference_viewer($this->id, $this->page);

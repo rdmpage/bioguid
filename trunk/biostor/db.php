@@ -364,8 +364,49 @@ function db_retrieve_journal_from_issn ($issn)
 }
 
 //--------------------------------------------------------------------------------------------------
+function db_retrieve_journal_from_oclc ($oclc)
+{
+	global $db;
+	global $ADODB_FETCH_MODE;
+	
+	$journal = NULL;
+	
+	// for now grab details from references
+	$sql = 'SELECT * FROM rdmp_reference WHERE (oclc=' . $oclc . ') LIMIT 1';
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	if ($result->NumRows() == 1)
+	{
+		$journal = new stdclass;
+		$journal->title = $result->fields['secondary_title'];
+		$journal->issn = $issn;
+	}
+	else
+	{
+		// BHL journal we haven't got any articles from yet
+		$sql = 'SELECT IdentifierValue, FullTitle FROM bhl_title_identifier
+	INNER JOIN bhl_title USING(TitleID)
+	WHERE (IdentifierName="OCLC") AND (IdentifierValue=' . $db->qstr($oclc) . ')';
+	
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+		if ($result->NumRows() > 0)
+		{
+			$journal = new stdclass;
+			$journal->title = $result->fields['FullTitle'];
+			$journal->oclc = $oclc;
+		}
+	}	
+	
+	return $journal;
+}
+
+//--------------------------------------------------------------------------------------------------
 // Note that we use MySQL CAST() to ensure ordering is numeric, not lexical
-function db_retrieve_articles_from_journal ($issn)
+function db_retrieve_articles_from_journal ($issn='', $oclc='')
 {
 	global $db;
 	global $ADODB_FETCH_MODE;
@@ -373,8 +414,17 @@ function db_retrieve_articles_from_journal ($issn)
 	$articles = array();
 	
 	// for now grab details from references
-	$sql = 'SELECT *  FROM rdmp_reference WHERE (issn=' . $db->qstr($issn) . ')
-	ORDER BY CAST(volume AS SIGNED), CAST(spage AS SIGNED)';
+	$sql = 'SELECT * FROM rdmp_reference WHERE ';
+	
+	if ($issn != '')
+	{
+		$sql .= '(issn=' . $db->qstr($issn) . ')';
+	}
+	if ($oclc != '')
+	{
+		$sql .= '(oclc=' . $db->qstr($oclc) . ')';
+	}
+	$sql .= 'ORDER BY CAST(volume AS SIGNED), CAST(spage AS SIGNED)';
 	
 	// , CAST(issue AS SIGNED)
 
@@ -418,6 +468,8 @@ function db_retrieve_articles_from_journal ($issn)
 }
 
 
+
+
 //--------------------------------------------------------------------------------------------------
 function db_retrieve_journal_names_from_issn ($issn)
 {
@@ -430,6 +482,31 @@ function db_retrieve_journal_names_from_issn ($issn)
 	$sql = 'SELECT DISTINCT(secondary_title) FROM rdmp_reference 
 	WHERE (issn=' . $db->qstr($issn) . ')';
 
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	while (!$result->EOF) 
+	{
+		$titles[] = $result->fields['secondary_title'];
+		$result->MoveNext();
+	}
+	
+	return $titles;
+
+}
+
+//--------------------------------------------------------------------------------------------------
+function db_retrieve_journal_names_from_oclc ($oclc)
+{
+	global $db;
+	global $ADODB_FETCH_MODE;
+	
+	$titles = array();
+	
+	// for now grab details from references
+	$sql = 'SELECT DISTINCT(secondary_title) FROM rdmp_reference 
+	WHERE (oclc=' . $oclc . ')';
+	
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 
@@ -1120,6 +1197,18 @@ function db_find_article($article)
 			AND (volume = ' .  $db->Quote($article->volume) . ')
 			AND (spage = ' .  $db->Quote($article->spage) . ')';
 	}
+	elseif (
+		(isset($article->oclc) && ($article->oclc != ''))
+		&& isset($article->volume)
+		&& isset($article->spage)
+		)
+	{
+		// OCLC
+		$sql = 'SELECT * FROM rdmp_reference
+			WHERE (oclc = ' .  $db->Quote($article->oclc) . ')
+			AND (volume = ' .  $db->Quote($article->volume) . ')
+			AND (spage = ' .  $db->Quote($article->spage) . ')';
+	}
 	else
 	{
 		// No ISSN so try and match on journal title
@@ -1171,7 +1260,6 @@ function db_find_article($article)
 					$matched++;
 				}
 			}
-			echo $matched;
 			
 			switch ($matched)
 			{
@@ -1271,6 +1359,23 @@ function db_retrieve_reference_from_lsid($lsid)
 	return $id;
 }
 
+//--------------------------------------------------------------------------------------------------
+function db_retrieve_reference_from_oclc($oclc)
+{
+	global $db;
+
+	$id = 0;
+	
+	$sql = 'SELECT * FROM rdmp_reference WHERE oclc=' . $oclc . ' LIMIT 1';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	if ($result->NumRows() == 1)
+	{
+		$id = $result->fields['reference_id'];
+	}
+	return $id;
+}
 
 
 //--------------------------------------------------------------------------------------------------
@@ -1434,6 +1539,7 @@ function db_store_article($article, $PageID = 0, $updating = false)
 			case 'genre':
 			case 'doi':
 			case 'lsid':
+			case 'oclc':
 				$keys[] = $k;
 				$values[] = $db->qstr($v);
 				break;			

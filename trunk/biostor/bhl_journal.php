@@ -25,6 +25,22 @@ function bhl_articles_for_issn ($issn)
 }
 
 //--------------------------------------------------------------------------------------------------
+function bhl_articles_for_oclc ($oclc)
+{
+	global $db;
+
+	$sql = 'SELECT COUNT(reference_id) AS c
+	FROM rdmp_reference WHERE (oclc=' . $oclc . ') AND (genre="article")';
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	$num_articles = $result->fields['c'];
+	
+	return $num_articles;
+}
+
+//--------------------------------------------------------------------------------------------------
 function bhl_num_pages_in_item ($ItemID)
 {
 	global $db;
@@ -154,6 +170,42 @@ WHERE (issn=' . $db->qstr($issn) . ')';
 	
 	$sql = 'SELECT TitleID FROM bhl_title_identifier
 	WHERE (IdentifierName="ISSN") AND (IdentifierValue=' . $db->qstr($issn) . ')';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+			
+	while (!$result->EOF) 
+	{
+		$titles[] = $result->fields['TitleID'];
+
+		$result->MoveNext();		
+	}
+
+	$titles = array_unique($titles);
+	
+	return $titles;
+}
+
+
+//--------------------------------------------------------------------------------------------------
+/**
+ * @brief Retrieve list of BHL titles for a OCLC
+ *
+ * List is based on manual matching in database table rdmp_issn_title_joiner, as well as by
+ * implication from rdmp_reference_page_joiner
+ *
+ * @param oclc OCLC
+ *
+ * @return Array of BHL TitleIDs
+ *
+ */
+function bhl_titles_for_oclc($oclc)
+{
+	global $db;
+	
+	$titles = array();
+	
+	$sql = 'SELECT TitleID FROM bhl_title_identifier
+	WHERE (IdentifierName="OCLC") AND (IdentifierValue=' . $oclc . ')';
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 			

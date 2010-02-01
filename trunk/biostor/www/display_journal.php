@@ -17,6 +17,7 @@ require_once (dirname(__FILE__) . '/sparklines.php');
 class DisplayJournal extends DisplayObject
 {
 	public $issn = '';
+	public $oclc = '';
 	
 	
 	//----------------------------------------------------------------------------------------------
@@ -29,6 +30,10 @@ class DisplayJournal extends DisplayObject
 		if (isset($_GET['issn']))
 		{
 			$this->issn = $_GET['issn'];
+		}
+		if (isset($_GET['oclc']))
+		{
+			$this->oclc = $_GET['oclc'];
 		}
 	}	
 
@@ -58,12 +63,21 @@ class DisplayJournal extends DisplayObject
 		
 		echo '<h2>Coverage</h2>' . "\n";
 
-		echo '<p>' . bhl_articles_for_issn($this->issn) . ' articles identified.</p>' . "\n";
+		echo '<p>';
+		if ($this->issn != '')
+		{
+			echo bhl_articles_for_issn($this->issn);
+		}
+		if ($this->oclc != '')
+		{
+			echo bhl_articles_for_oclc($this->oclc);
+		}
+		echo ' articles identified.</p>' . "\n";
 
 		echo '<h3>Distribution of identified articles over time</h3>' . "\n";
 
 		echo '<div>' . "\n";
-		echo '   <img src="' . sparkline_references($this->issn, 360,100) . '" alt="sparkline" />' . "\n";
+		echo '   <img src="' . sparkline_references($this->issn, $this->oclc, 360,100) . '" alt="sparkline" />' . "\n";
 		echo '</div>' . "\n";
 		
 		echo '<h3>Distribution of identified articles across BHL items</h3>' . "\n";
@@ -76,7 +90,16 @@ class DisplayJournal extends DisplayObject
 		echo '</div>';
 		echo '<p />';
 		
-		$titles = bhl_titles_for_issn($this->issn);
+		$titles = array();
+		if ($this->issn != '')
+		{
+			$titles = bhl_titles_for_issn($this->issn);
+		}
+		if ($this->oclc != '')
+		{
+			$titles = bhl_titles_for_oclc($this->oclc);
+		}		
+		
 		$institutions = institutions_from_titles($titles);
 
 		$items = array();
@@ -199,8 +222,15 @@ class DisplayJournal extends DisplayObject
 		
 		
 		// How does journal relate to BHL Titles and Items?
-		
-		$titles = db_retrieve_journal_names_from_issn($this->issn);
+		$titles = array();
+		if ($this->issn != '')
+		{
+			$titles = db_retrieve_journal_names_from_issn($this->issn);
+		}
+		if ($this->oclc != '')
+		{
+			$titles = db_retrieve_journal_names_from_oclc($this->oclc);
+		}
 		if (count($titles) > 1)
 		{	
 			echo '<h2>Alternative titles</h2>';
@@ -214,7 +244,7 @@ class DisplayJournal extends DisplayObject
 		
 		echo '<h2>Articles</h2>';
 		
-		$articles = db_retrieve_articles_from_journal($this->issn);
+		$articles = db_retrieve_articles_from_journal($this->issn, $this->oclc);
 		echo '<ul>';
 		foreach ($articles as $k => $v)
 		{
@@ -275,6 +305,10 @@ class DisplayJournal extends DisplayObject
 		if ($this->issn != '')
 		{
 			$this->object = db_retrieve_journal_from_issn ($this->issn);
+		}
+		if ($this->oclc != '')
+		{
+			$this->object = db_retrieve_journal_from_oclc ($this->oclc);
 		}
 		
 		return $this->object;

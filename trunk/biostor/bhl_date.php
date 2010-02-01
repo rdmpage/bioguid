@@ -151,6 +151,22 @@ function parse_bhl_date($str, &$info)
 	$str = preg_replace('/:plates$/', '', $str);
 	$str = trim($str);
 	
+	// 8 (Series 2)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volume>\d+)\s+\(Series\s+(?<series>\d+)\)$/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$info->series = $m['series'];
+			$matched = true;
+		}
+	}		
+	
 	// 1912 v. 59
 	if (!$matched)
 	{

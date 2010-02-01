@@ -23,6 +23,136 @@ echo html_head_open();
 echo html_include_link('application/atom+xml', 'ATOM', 'rss.php?format=atom', 'alternate');
 
 echo html_title($config['site_name']);
+
+echo html_include_script('js/prototype.js');
+
+?>
+<script type="text/javascript">
+
+function treemap_mouse_over(id) 
+{
+	var e = document.getElementById(id);
+//    	e.style.opacity= "1.0";
+//	    e.style.filter = "alpha(opacity=100)";
+	e.style.opacity=0.6;
+   e.style.filter = "alpha(opacity=60)";
+
+}
+
+function treemap_mouse_out(id) 
+{
+	var e = document.getElementById(id);
+//    	e.style.opacity=0.6;
+//        e.style.filter = "alpha(opacity=60)";
+	e.style.opacity=1.0;
+	e.style.filter = "alpha(opacity=100)";
+} 
+
+function treemap_drill_down(id, width, height)
+{
+	url = 'http://biostor.org/tm.php';
+	pars = 'node=' + id + '&width=' + width + '&height=' + height;
+	
+	var success	= function(t){redrawSuccess(t);}
+	var failure	= function(t){redrawFailure(t);}
+
+	var myAjax = new Ajax.Request( url, 
+		{method: 'get', parameters: pars, onSuccess:success, onFailure:failure});
+}
+
+function redrawSuccess (t) 
+{
+	var s = t.responseText.evalJSON();
+	tm(s);
+}
+
+function redrawFailure(t)
+{
+	alert("Failed: " + t);
+}
+
+function lineage_click(id, width, height)
+{
+	var h = $('node_' + id);
+	
+	if (id == 0)
+	{
+		h.innerHTML = '<span style="background-image: url(images/notlast16.gif);background-repeat: no-repeat;" onClick="lineage_click(0,400,400);">Life<\/span>';
+	}
+	else
+	{
+		h.remove();
+	}
+	
+	treemap_drill_down(id, width,height);
+}
+
+function tm(obj) 
+{
+	// history
+	
+	// Find parent node and insert current node below it
+	if (obj.id != 0)
+	{
+		var h = $('node_' + obj.parent_id);
+		h.insert( '<div style="margin-left:8px;" id="node_' + obj.id + '"><span style="padding-left:8px;background-image: url(images/last16.gif);background-repeat: no-repeat;" onClick="lineage_click(\'' + obj.id + '\', \'' + obj.width + '\',\'' + obj.height + '\');">' + obj.label + '<\/span><\/div>');
+	}
+	
+	var d = $('treemap');
+	d.innerHTML= '';
+	
+	var html = '';
+	
+	for (i = 0; i < obj.panels.length; i++)
+	{	
+		html += '<div id="div' + obj.panels[i].id + '" class="cell"';
+		html += 'style="position: absolute;overflow:hidden;text-align:center;';
+//		html += 'background-color:rgb(242,242,242);';
+		html += 'background-color:#' + obj.panels[i].colour + ';';
+		html += ' left:' + obj.panels[i].bounds.x + 'px;';
+		html +=' top:' + obj.panels[i].bounds.y + 'px;';
+		html += ' width:' + obj.panels[i].bounds.w + 'px;';
+		html += ' height:' + obj.panels[i].bounds.h + 'px;';
+		html +=' border:2px solid rgb(228,228,228);';
+		html += '" ';
+		
+    	html += ' onMouseOver="treemap_mouse_over(\'div' + obj.panels[i].id + '\');" ';
+    	html += ' onMouseOut="treemap_mouse_out(\'div' + obj.panels[i].id + '\');" ';
+    	
+    	// Link to drill down
+		if (!obj.panels[i].isLeaf)
+		{
+			html += ' onClick="treemap_drill_down(\'' + obj.panels[i].id + '\', \'' + obj.width + '\',\'' + obj.height + '\');"';
+		}
+		html += ' >';
+		
+		var tag = obj.panels[i].label; 
+		
+		var n = obj.panels[i].size;
+		
+		max_length = 0;
+		var words = tag.split(' ');
+		for (j = 0; j < words.length; j++)
+		{
+			max_length = Math.max(max_length, words[j].length);
+		}
+		font_height = obj.panels[i].bounds.w / max_length;
+		font_height *= 1.2;
+		font_height = Math.max(10, font_height);
+		
+		html +='<span style="font-size:' + font_height + 'px;">' + tag + '</span>';
+		
+		html +='</div>';
+	}
+
+	d.innerHTML = html;
+ 
+}
+</script>
+<?php
+
+
+
 echo html_head_close();
 echo html_body_open();
 echo html_page_header(true);
@@ -73,8 +203,6 @@ echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Authors</td><td sty
 echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Journals</td><td style="font-size:20px;text-align:right;">' . $num_journals . '</td></tr>' . "\n";
 echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Participants</td><td style="font-size:20px;text-align:right;">' . $num_editors . '</td></tr>' . "\n";
 
-echo '<tr><td colspan="2"><img src="' . sparkline_references('', 360,100) . '" alt="sparkline" align="top"/></td></tr>' . "\n";
-
 
 echo '</table>' . "\n";
 
@@ -103,6 +231,43 @@ echo '<p>BioStor is a project by <a href="http://iphylo.blogspot.com">Rod Page</
 echo '<h1>Progress</h1>';
 
 echo '<p>Numbers of articles per year</p>' . "\n";
+echo '<img src="' . sparkline_references('', '', 360,100) . '" alt="sparkline" align="top"/>' . "\n";
+
+
+
+echo '<h1>Coverage</h1>';
+
+echo '<h2>Taxonomic coverage</h2>';
+echo '<p>Numbers of references for each taxonomic group, mapped on to the Catalogue of Life classification. Size of cells in TreeMap corresponds to number of species in Catalogue of Life, intensity of colour corresponds to number of references extracted form BHL. Click on cell to drill down, click on classification on left to step back up.</p>';
+
+echo '<div style="width:600px;">
+
+<div id="history" style="width:180px;float:left;">
+<div id="node_0"><span onClick="lineage_click(0,400,400);">Life</span></div>
+</div>
+
+<div id="treemap" style="float:right;position:relative;font-family:Arial;font-size:10px;height:400px;width:400px;">
+</div>
+
+<div style="clear: both;"></div>
+
+</div>';
+
+echo '<script type="text/javascript" src="http://biostor.org/tm.php?node=0&width=400&height=400&callback=tm"></script>';
+
+echo '<h2>Geography</h2>';
+echo '<p>Localities extracted from articles (<a href="kml.php">click here</a> for Google Earth KML file).</p>';
+
+echo '
+<!--[if IE]>
+<embed width="360" height="180" src="map_references.php">
+</embed>
+<![endif]-->
+<![if !IE]>
+<object id="mysvg" type="image/svg+xml" width="360" height="180" data="map_references.php">
+<p>Error, browser must support "SVG"</p>
+</object>
+<![endif]>';
 
 
 echo '<h2>Articles</h2>' . "\n";
@@ -253,20 +418,6 @@ echo '</td>';
 
 echo '</tr>';
 echo '</table>';
-
-echo '<h1>Localities</h1>';
-echo '<p>Localities extracted from articles (<a href="kml.php">click here</a> for Google Earth KML file).</p>';
-
-echo '
-<!--[if IE]>
-<embed width="360" height="180" src="map_references.php">
-</embed>
-<![endif]-->
-<![if !IE]>
-<object id="mysvg" type="image/svg+xml" width="360" height="180" data="map_references.php">
-<p>Error, browser must support "SVG"</p>
-</object>
-<![endif]>';
 
 
 

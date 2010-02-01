@@ -371,6 +371,8 @@ function bhl_name_search($NameBankID)
 		$result->MoveNext();
 	}
 	
+	
+	
 	// Try and date each item...
 	foreach ($hits as $k => $v)
 	{
@@ -390,7 +392,7 @@ function bhl_name_search($NameBankID)
 			}
 		}
 	}
-	
+		
 	return $hits;
 }
 	
