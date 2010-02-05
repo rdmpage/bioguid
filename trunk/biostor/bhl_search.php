@@ -100,6 +100,23 @@ function oclc_for_titleid($TitleID)
 		$oclc = $oclc_string;
 	}
 	
+	if ($oclc == 0)
+	{
+		// local mapping
+		$sql = 'SELECT * FROM rdmp_oclc_title_joiner WHERE (TitleID=' . $TitleID . ')';
+	
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+				
+		if ($result->NumRows() > 0)
+		{
+			// clean
+			$oclc = $result->fields['oclc'];
+		}
+		
+		
+	}
+	
 	return $oclc;
 }
 
@@ -303,6 +320,8 @@ function bhl_itemid_from_volume($TitleID, $volume, $series = '')
 		$info = new stdclass;	
 		$VolumeInfo = $result->fields['VolumeInfo'];
 		$matched = parse_bhl_date($VolumeInfo, $info);
+		
+		//echo $VolumeInfo. '<br/>';
 				
 		if ($matched)
 		{
@@ -551,6 +570,7 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 		$obj->TitleID = bhl_titleid_from_issn($obj->ISSN);
 	}
 	
+	
 	if ($debug)
 	{
 		echo __FILE__ . ' line ' . __LINE__ . ' ISSN = ' . $obj->ISSN . "\n";
@@ -573,6 +593,8 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 		echo __FILE__ . ' line ' . __LINE__ . ' TitleID = ' . $obj->TitleID . "\n";
 	}
 	
+	/*$obj->ISSN = '0150-9322';
+	$obj->TitleID = 4647;*/
 	
 	// If no ISSN, or no mapping available via ISSN, so try string matching
 	if ($obj->TitleID == 0)
@@ -695,11 +717,29 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 				$title_list = array(34360, 2356,2359);
 				break;
 				
-			// Occasional papers of the Museum of Natural History, the University of Kansas.
+			// Misc Pub Kansas (some of these are treated as individual titles)
+			case 4050:
+			case 16171:
+				$title_list = array(4050, 16171);
+				break;	
+				
+			// Occasional papers of the California Academy of Sciences
 			case 4672:
 			case 5584:
 				$title_list = array(4672, 5584);
-				break;				
+				break;	
+				
+			// Occasional papers of the Museum of Natural History, the University of Kansas.
+			case 7410:
+			case 15798:
+				$title_list = array(7410, 15798);
+				break;	
+				
+			// Notes from the Leyden Museum
+			case 8740:
+			case 12935:
+				$title_list = array(8740, 12935);
+				break;	
 				
 			// Proceedings of the Biological Society of Washington
 			case 2211:

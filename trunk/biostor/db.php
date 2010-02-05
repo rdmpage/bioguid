@@ -1469,6 +1469,7 @@ function db_retrieve_reference_from_sici($sici)
 function db_store_article($article, $PageID = 0, $updating = false)
 {
 	global $db;
+	global $config;
 	
 	$update = false;
 	
@@ -1540,6 +1541,7 @@ function db_store_article($article, $PageID = 0, $updating = false)
 			case 'doi':
 			case 'lsid':
 			case 'oclc':
+			case 'pdf':
 				$keys[] = $k;
 				$values[] = $db->qstr($v);
 				break;			

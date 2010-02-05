@@ -204,6 +204,18 @@ function bhl_titles_for_oclc($oclc)
 	
 	$titles = array();
 	
+	// 1. We have a mapping of ISSN to titles
+	$sql = 'SELECT * FROM rdmp_oclc_title_joiner WHERE (oclc=' . $db->qstr($oclc) . ')';
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+			
+	while (!$result->EOF) 
+	{
+		$titles[] = $result->fields['TitleID'];
+		$result->MoveNext();		
+	}	
+	
 	$sql = 'SELECT TitleID FROM bhl_title_identifier
 	WHERE (IdentifierName="OCLC") AND (IdentifierValue=' . $oclc . ')';
 	$result = $db->Execute($sql);
