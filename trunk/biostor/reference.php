@@ -216,52 +216,8 @@ function reference_to_coins($reference)
 	switch ($reference->genre)
 	{
 		case 'article':
-			$coins .= '<span class="Z3988"';
-			$coins .= ' title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal';
-			if (count($reference->authors) > 0)
-			{
-				$coins .= '&amp;rft.aulast=' . urlencode($reference->authors[0]->lastname);
-				$coins .= '&amp;rft.aufirst=' . urlencode($reference->authors[0]->forename);
-			}
-			foreach ($reference->authors as $author)
-			{
-				$coins .= '&amp;rft.au=' . urlencode($author->forename . ' ' . $author->lastname);
-			}
-			$coins .= '&amp;rft.atitle=' . urlencode($reference->title);
-			$coins .= '&amp;rft.jtitle=' . urlencode($reference->secondary_title);
-			if (isset($reference->series))
-			{
-				$coins .= '&amp;rft.series/' . urlencode($reference->series);
-			}
-			$coins .= '&amp;rft.issn=' . $reference->issn;
-			$coins .= '&amp;rft.volume=' . $reference->volume;
-			$coins .= '&amp;rft.spage=' . $reference->spage;
-			if (isset($reference->epage))
-			{
-				$coins .= '&amp;rft.epage=' . $reference->epage;
-			}
-			$coins .= '&amp;rft.date=' . $reference->year;
-			
-			if (isset($reference->sici))
-			{
-				$coins .= '&amp;rft.sici=' . urlencode($reference->sici);
-			}
-			
-	//		$coins .= '&amp;rft.id=' . $config['web_server'] . $config['web_root'] . 'reference/' . $reference->reference_id;
-			
-			if (isset($reference->doi))
-			{
-				$coins .= '&amp;rft_id=info:doi/' . urlencode($reference->doi);
-			}
-			else if (isset($reference->hdl))
-			{
-				$coins .= '&amp;rft_id=info:hdl/' . urlencode($reference->hdl);
-			}
-			else if (isset($reference->url))
-			{
-				$coins .= '&amp;rft_id='. urlencode($reference->url);
-			}
-			
+			$coins .= '<span class="Z3988" title="';
+			$coins .= reference_to_openurl($reference); 
 			$coins .= '">';
 			$coins .= '</span>';
 			break;
@@ -271,6 +227,75 @@ function reference_to_coins($reference)
 	}
 	
 	return $coins;
+}
+
+//--------------------------------------------------------------------------------------------------
+/**
+ * @brief Create an OpenURL for a reference
+ * *
+ * @param reference Reference object to be encoded
+ *
+ * @return OpenURL
+ */
+function reference_to_openurl($reference)
+{
+	global $config;
+	
+	$openurl = '';
+	
+	switch ($reference->genre)	
+	{
+		case 'article':
+			$openurl .= 'ctx_ver=Z39.88-2004&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal';
+			$openurl .= '&amp;genre=article';
+			if (count($reference->authors) > 0)
+			{
+				$openurl .= '&amp;rft.aulast=' . urlencode($reference->authors[0]->lastname);
+				$openurl .= '&amp;rft.aufirst=' . urlencode($reference->authors[0]->forename);
+			}
+			foreach ($reference->authors as $author)
+			{
+				$openurl .= '&amp;rft.au=' . urlencode($author->forename . ' ' . $author->lastname);
+			}
+			$openurl .= '&amp;rft.atitle=' . urlencode($reference->title);
+			$openurl .= '&amp;rft.jtitle=' . urlencode($reference->secondary_title);
+			if (isset($reference->series))
+			{
+				$openurl .= '&amp;rft.series/' . urlencode($reference->series);
+			}
+			$openurl .= '&amp;rft.issn=' . $reference->issn;
+			$openurl .= '&amp;rft.volume=' . $reference->volume;
+			$openurl .= '&amp;rft.spage=' . $reference->spage;
+			if (isset($reference->epage))
+			{
+				$openurl .= '&amp;rft.epage=' . $reference->epage;
+			}
+			$openurl .= '&amp;rft.date=' . $reference->year;
+			
+			if (isset($reference->sici))
+			{
+				$openurl .= '&amp;rft.sici=' . urlencode($reference->sici);
+			}
+						
+			if (isset($reference->doi))
+			{
+				$openurl .= '&amp;rft_id=info:doi/' . urlencode($reference->doi);
+			}
+			else if (isset($reference->hdl))
+			{
+				$openurl .= '&amp;rft_id=info:hdl/' . urlencode($reference->hdl);
+			}
+			else if (isset($reference->url))
+			{
+				$openurl .= '&amp;rft_id='. urlencode($reference->url);
+			}
+			break;
+			
+		default:
+			break;
+	}
+	
+	return $openurl;
 }
 
 //--------------------------------------------------------------------------------------------------

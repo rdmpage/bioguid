@@ -1,10 +1,15 @@
 <?php
 
+/**
+ * @file ris.php
+ *
+ */
+
 // Parse RIS file and try and find first page of article in BHL
 
 require_once (dirname(__FILE__) . '/nameparse.php');
 
-$debug = 1;
+$debug = false;
 
 $logfile;
 
@@ -27,6 +32,7 @@ $key_map = array(
 	'L2' => 'fulltext' // check this, we want to have a link to the PDF...
 	);
 	
+//--------------------------------------------------------------------------------------------------
 function process_ris_key($key, $value, &$obj)
 {
 	global $key_map;
@@ -128,30 +134,42 @@ function process_ris_key($key, $value, &$obj)
 			break;
 			
 		case 'PY': // used by Ingenta, and others
-			$date = $value;	
-			
-			if (preg_match("/[0-9]{4}\/\/\//", $date))
-			{			
-				$year = trim(preg_replace("/\/\/\//", "", $date));
-				if ($year != '')
-				{
-					$obj->year = $year;
-				}
-			}
-			
-			// Simple year
-			if (preg_match("/^[0-9]{4}$/", $date))
-			{			
-				$obj->year = $date;
-			}
+		case 'Y1':
+		   $date = $value; 
+		   
+		   if (preg_match("/(?<year>[0-9]{4})\/(?<month>[0-9]{1,2})\/(?<day>[0-9]{1,2})/", $date, $matches))
+		   {                       
+			   $obj->year = $matches['year'];
+			   $obj->date = sprintf("%d-%02d-%02d", $matches['year'], $matches['month'], $matches['day']);			   
+		   }
+		   
 
-			
-			if (preg_match("/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/", $date))
-			{
-				$obj->date = $date;
-			}
-			break;
-			
+		   if (preg_match("/(?<year>[0-9]{4})\/(?<month>[0-9]{1,2})\/\//", $date, $matches))
+		   {                       
+				   $obj->year = $matches['year'];
+		   }
+
+		   if (preg_match("/[0-9]{4}\/\/\//", $date))
+		   {                       
+			   $year = trim(preg_replace("/\/\/\//", "", $date));
+			   if ($year != '')
+			   {
+					   $obj->year = $year;
+			   }
+		   }
+
+		   if (preg_match("/^[0-9]{4}$/", $date))
+		   {                       
+				  $obj->year = $date;
+		   }
+		   
+		   
+		   if (preg_match("/^(?<year>[0-9]{4})\-[0-9]{2}\-[0-9]{2}$/", $date, $matches))
+		   {
+		   		$obj->year = $matches['year'];
+				  $obj->date = $date;
+		   }
+		   break;
 	
 			
 		default:
@@ -169,6 +187,7 @@ function process_ris_key($key, $value, &$obj)
 
 
 
+//--------------------------------------------------------------------------------------------------
 function import_ris($ris, $callback_func = '')
 {
 	global $debug;
@@ -178,9 +197,7 @@ function import_ris($ris, $callback_func = '')
 	$rows = split("\n", $ris);
 	
 	$state = 1;	
-	
-	$genre = '';
-	
+		
 	foreach ($rows as $r)
 	{
 		$parts = split ("  - ", $r);
@@ -200,7 +217,7 @@ function import_ris($ris, $callback_func = '')
 			
 			if ('JOUR' == $value)
 			{
-				$genre = 'article';
+				$obj->genre = 'article';
 			}
 		}
 		if (isset($key) && ($key == 'ER'))

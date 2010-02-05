@@ -72,7 +72,7 @@ class DisplayJournal extends DisplayObject
 		{
 			echo bhl_articles_for_oclc($this->oclc);
 		}
-		echo ' articles identified.</p>' . "\n";
+		echo ' articles in database.</p>' . "\n";
 
 		echo '<h3>Distribution of identified articles over time</h3>' . "\n";
 
@@ -100,7 +100,6 @@ class DisplayJournal extends DisplayObject
 			$titles = bhl_titles_for_oclc($this->oclc);
 		}		
 		
-		$institutions = institutions_from_titles($titles);
 
 		$items = array();
 		$volumes = array();		
@@ -152,74 +151,77 @@ class DisplayJournal extends DisplayObject
 		$html .= '</div>' . "\n";
 		echo $html;
 		
-		echo '<h3>BHL source(s)</h3>' . "\n";
-		echo '<table>' . "\n";
-		foreach ($institutions as $k => $v)
+		$institutions = institutions_from_titles($titles);
+		if (count($institutions) != 0)
 		{
-			echo '<tr>' . "\n";
-			echo '<td>' . "\n";
-			switch ($k)
+			echo '<h3>BHL source(s)</h3>' . "\n";
+			echo '<table>' . "\n";
+			foreach ($institutions as $k => $v)
 			{
-				case 'American Museum of Natural History Library':
-					echo '<img src="' . $config['web_root'] . 'images/institutions/' . 'AMNH_logo_--_blue_rectangle.jpg' . '" width="48" />';
-					break;
-
-				case 'Harvard University, MCZ, Ernst Mayr Library':
-					echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'Mod_Color_Harvard_Shield_small_bigger.jpg' . '" width="48" />';
-					break;
+				echo '<tr>' . "\n";
+				echo '<td>' . "\n";
+				switch ($k)
+				{
+					case 'American Museum of Natural History Library':
+						echo '<img src="' . $config['web_root'] . 'images/institutions/' . 'AMNH_logo_--_blue_rectangle.jpg' . '" width="48" />';
+						break;
+	
+					case 'Harvard University, MCZ, Ernst Mayr Library':
+						echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'Mod_Color_Harvard_Shield_small_bigger.jpg' . '" width="48" />';
+						break;
+						
+					case 'Missouri Botanical Garden':
+						echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'twitter_icon_MBG.jpg' . '" width="48" />';
+						break;
+						
+					case 'New York Botanical Garden':
+						echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'NYBGDOMEHEADERWEB.jpg' . '" />';
+						break;
+	
+					case 'Smithsonian Institution Libraries':
+						echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'SILCatesbyMagnolia.jpg' . '"  width="48" />';
+						break;
 					
-				case 'Missouri Botanical Garden':
-					echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'twitter_icon_MBG.jpg' . '" width="48" />';
-					break;
+					case 'The Field Museum':
+						echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'field.jpg' . '" width="48" />';
+						break;
 					
-				case 'New York Botanical Garden':
-					echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'NYBGDOMEHEADERWEB.jpg' . '" />';
-					break;
-
-				case 'Smithsonian Institution Libraries':
-					echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'SILCatesbyMagnolia.jpg' . '"  width="48" />';
-					break;
-				
-				case 'The Field Museum':
-					echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'field.jpg' . '" width="48" />';
-					break;
-				
-				case 'BHL-Europe':
-					echo '<br /><div style="background-color:green;width:120px;text-align:center"><img src="' . $config['web_root'] . 'images/institutions/' . 'BHL_logo_wg.png' . '" height="48" /></div>';			
-					break;
+					case 'BHL-Europe':
+						echo '<br /><div style="background-color:green;width:120px;text-align:center"><img src="' . $config['web_root'] . 'images/institutions/' . 'BHL_logo_wg.png' . '" height="48" /></div>';			
+						break;
+						
+					case 'Boston Public Library':
+						echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'BPLcards.jpg' . '" width="48" />';			
+						break;
+						
+					case 'Harvard University Herbarium':
+						echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'huh_logo_bw_100.png' . '" width="48" />';
+						break;
 					
-				case 'Boston Public Library':
-					echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'BPLcards.jpg' . '" width="48" />';			
-					break;
+					case 'MBLWHOI Library':
+						echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'library_logo2_bigger.jpg' . '" width="48" />';
+						break;
+						
+					case 'Natural History Museum, London':
+						echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'natural_history_museum-01.jpg' . '" width="48" />';
+						break;
 					
-				case 'Harvard University Herbarium':
-					echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'huh_logo_bw_100.png' . '" width="48" />';
-					break;
-				
-				case 'MBLWHOI Library':
-					echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'library_logo2_bigger.jpg' . '" width="48" />';
-					break;
-					
-				case 'Natural History Museum, London':
-					echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'natural_history_museum-01.jpg' . '" width="48" />';
-					break;
-				
-				case 'University of Illinois Urbana Champaign':
-					echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'ilogo_horz_bold.gif' . '" height="48" />';
-					break;
-							
-				default:
-					break;
+					case 'University of Illinois Urbana Champaign':
+						echo '<br /><img src="' . $config['web_root'] . 'images/institutions/' . 'ilogo_horz_bold.gif' . '" height="48" />';
+						break;
+								
+					default:
+						break;
+				}
+				echo '</td>' . "\n";	
+				echo '<td>' . "\n";	
+				echo $k . '<br />' . $v . ' items';	
+				echo '</td>' . "\n";	
+				echo '</tr>' . "\n";	
+	
 			}
-			echo '</td>' . "\n";	
-			echo '<td>' . "\n";	
-			echo $k . '<br />' . $v . ' items';	
-			echo '</td>' . "\n";	
-			echo '</tr>' . "\n";	
-
+			echo '</table>' . "\n";	
 		}
-		echo '</table>' . "\n";	
-		
 		
 		// How does journal relate to BHL Titles and Items?
 		$titles = array();
