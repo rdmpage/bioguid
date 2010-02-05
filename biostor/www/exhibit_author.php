@@ -85,6 +85,11 @@ if ($id != 0)
 			$image = bhl_fetch_page_image($reference->PageID);
 			$item->imageURL = $image->thumbnail->url;
 		}
+		else
+		{
+			// if it's an article we could use journal image
+			$item->imageURL = 'http://bioguid.info/issn/image.php?issn=' . $reference->issn;
+		}
 		
 		$item->coauthors = array(); 
 		foreach ($reference->authors as $author)

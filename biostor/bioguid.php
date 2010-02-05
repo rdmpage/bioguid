@@ -8,6 +8,7 @@
  */
  
 require_once (dirname(__FILE__) . '/lib.php'); 
+require_once (dirname(__FILE__) . '/reference.php'); 
 
 //--------------------------------------------------------------------------------------------------
 /**
@@ -59,6 +60,66 @@ function bioguid_ubio_search($name)
 		}
 	}
 	return $NameBankID;
+}
+
+//--------------------------------------------------------------------------------------------------
+/**
+ * @brief Pass refrence object to bioGUID openURL resolver to find it and add any identifiers found
+ *
+ * @param reference Reference object, this gets populated with additional fields (such as DOI) if found
+ *
+ * @return True if found in bioGUID, false otherwise.
+ */
+function bioguid_openurl_search(&$reference)
+{
+	$found = false;
+	
+	$url = 'http://bioguid.info/openurl.php?' . str_replace('&amp;', '&', reference_to_openurl($reference)) . '&display=json';
+	
+	$json = get($url);
+		
+	if ($json != '')
+	{
+		$obj = json_decode($json);
+		$found = ($obj->status == 'ok');
+		if ($found)
+		{
+			// DOI
+			if (isset($obj->doi))
+			{
+				if (!isset($reference->doi))
+				{
+					$reference->doi = $obj->doi;
+				}
+			}
+			// Handle
+			if (isset($obj->hdl))
+			{
+				if (!isset($reference->hdl))
+				{
+					$reference->hdl = $obj->hdl;
+				}
+			}
+			// URL
+			if (isset($obj->url))
+			{
+				if (!isset($reference->url))
+				{
+					$reference->url = $obj->url;
+				}
+			}
+			// PDF
+			if (isset($obj->pdf))
+			{
+				if (!isset($reference->pdf))
+				{
+					$reference->pdf = $obj->pdf;
+				}
+			}
+		}
+	}
+
+	return $found;
 }
 
 

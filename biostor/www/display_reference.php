@@ -450,9 +450,13 @@ Event.observe(window, \'load\', function() {
 		echo ' | ';
 		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.ris" title="RIS">Reference manager</a></span>';		
 		echo ' | ';
-		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.bib" title="BibTex">BibTex</a></span>';		
-		echo ' | ';
-		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.text" title="Text">Text</a></span>';		
+		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.bib" title="BibTex">BibTex</a></span>';	
+		
+		if ($this->in_bhl)
+		{
+			echo ' | ';
+			echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.text" title="Text">Text</a></span>';
+		}
 		echo '</div>' . "\n";
 		
 		
@@ -473,6 +477,10 @@ Event.observe(window, \'load\', function() {
 		if (isset($this->object->url))
 		{
 			echo '<li><a href="' . $this->object->url . '" target="_new">' .  $this->object->url . '</a></li>' . "\n";
+		}
+		if (isset($this->object->pdf))
+		{
+			echo '<li><a href="' . $this->object->pdf . '" target="_new">' .  $this->object->pdf . '</a></li>' . "\n";
 		}
 		if (isset($this->object->doi))
 		{
@@ -527,7 +535,12 @@ Event.observe(window, \'load\', function() {
 			}
 			
 			
-		}		
+		}
+		else
+		{
+			echo '<h2>This reference is not in BHL</h2>';
+		
+		}
 	}
 	
 	//----------------------------------------------------------------------------------------------
