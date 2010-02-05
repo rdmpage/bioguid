@@ -74,6 +74,7 @@ if ($can_update)
 			case 'url':
 			case 'doi':
 			case 'lsid':
+			case 'oclc':
 				$reference->{$key} = stripcslashes($value);
 				break;
 				
