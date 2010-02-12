@@ -20,6 +20,7 @@ class DisplayObject
 	public $format = 'html';
 	public $id = 0;
 	public $object = NULL;
+	public $display_disqus = true;
 	
 	//----------------------------------------------------------------------------------------------
 	function __construct()
@@ -120,7 +121,7 @@ class DisplayObject
 		$this->DisplayBodyOpen();
 		$this->DisplayMicroformat();
 		$this->DisplayHtmlContent();
-		echo html_body_close(true); // true to show Disqus comments
+		echo html_body_close($this->display_disqus); // true to show Disqus comments
 		echo html_html_close();	
 	}
 	

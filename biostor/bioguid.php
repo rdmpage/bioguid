@@ -81,15 +81,50 @@ function bioguid_openurl_search(&$reference)
 	if ($json != '')
 	{
 		$obj = json_decode($json);
+				
 		$found = ($obj->status == 'ok');
 		if ($found)
 		{
+			// Flesh out
+			// Abstract
+			if (isset($obj->abstract))
+			{
+				if (!isset($reference->abstract))
+				{
+					$reference->abstract = $obj->abstract;
+				}
+			}
+			// epage
+			if (isset($obj->epage))
+			{
+				if (!isset($reference->epage))
+				{
+					$reference->epage = $obj->epage;
+				}
+			}
+		
+			// ISSN
+			if (isset($obj->issn))
+			{
+				if (!isset($reference->issn))
+				{
+					$reference->issn = $obj->issn;
+				}
+			}
 			// DOI
 			if (isset($obj->doi))
 			{
 				if (!isset($reference->doi))
 				{
 					$reference->doi = $obj->doi;
+				}
+			}
+			// PMID
+			if (isset($obj->pmid))
+			{
+				if (!isset($reference->pmid))
+				{
+					$reference->pmid = $obj->pmid;
 				}
 			}
 			// Handle

@@ -79,7 +79,10 @@ function parse_openurl($params, &$referent)
 			case 'rft.jtitle':
 			case 'rft.title':
 			case 'title':
-				$referent->secondary_title = $value[0];
+				$secondary_title = trim($value[0]);
+				$secondary_title = preg_replace('/^\[\[/', '', $secondary_title);
+				$secondary_title = preg_replace('/\]\]$/', '', $secondary_title);
+				$referent->secondary_title = $secondary_title;
 				$referent->genre = 'article';
 				break;
 				
