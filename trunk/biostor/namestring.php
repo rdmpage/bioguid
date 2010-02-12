@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file class_namestring.php
+ * @file namestring.php
  *
  * Encapsulate a name string (taxon name without authorship)
  *

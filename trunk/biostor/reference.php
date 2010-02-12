@@ -263,7 +263,10 @@ function reference_to_openurl($reference)
 			{
 				$openurl .= '&amp;rft.series/' . urlencode($reference->series);
 			}
-			$openurl .= '&amp;rft.issn=' . $reference->issn;
+			if (isset($reference->issn))
+			{
+				$openurl .= '&amp;rft.issn=' . $reference->issn;
+			}
 			$openurl .= '&amp;rft.volume=' . $reference->volume;
 			$openurl .= '&amp;rft.spage=' . $reference->spage;
 			if (isset($reference->epage))
@@ -395,6 +398,10 @@ function reference_to_ris($reference)
 			$ris .= "ID  - " . $reference->reference_id . "\n";
 			$ris .= "TI  - " . $reference->title . "\n";
 			$ris .= "JF  - " . $reference->secondary_title . "\n";
+			if (isset($reference->issn))
+			{
+				$ris .= "SN  - " . $reference->issn . "\n";
+			}			
 			$ris .= "VL  - " . $reference->volume . "\n";
 			if (isset($reference->issue))
 			{
@@ -471,16 +478,10 @@ function reference_to_atom($reference, &$feed, &$rss)
  *
  * @return XML 
  */
-function reference_to_endnote_xml($reference)
+function reference_to_endnote_xml($reference, &$doc, &$records)
 {
-	$doc = new DomDocument('1.0', 'UTF-8');
+	global $config;
 	
-	// xml
-	$xml = $doc->appendChild($doc->createElement('xml'));
-
-	// records
-	$records = $xml->appendChild($doc->createElement('records'));
-
 	// record
 	$record = $records->appendChild($doc->createElement('record'));
 	
@@ -498,7 +499,7 @@ function reference_to_endnote_xml($reference)
 	$authors = $contributors->appendChild($doc->createElement('authors'));
 	foreach ($reference->authors as $a)
 	{
-		$author = $authors->appendChild($doc->createElement('authors'));
+		$author = $authors->appendChild($doc->createElement('author'));
 		$author->setAttribute('first-name', $a->forename);
 		$author->setAttribute('last-name', $a->lastname);
 		if (isset($a->suffix))
@@ -523,6 +524,12 @@ function reference_to_endnote_xml($reference)
 	
 		$full_title = $periodical->appendChild($doc->createElement('full-title'));
 		$full_title->appendChild($doc->createTextNode($reference->secondary_title));
+		
+		if (isset($reference->issn))
+		{
+			$isbn = $record->appendChild($doc->createElement('isbn'));
+			$isbn->appendChild($doc->createTextNode($reference->issn));		
+		}
 	
 		$volume = $record->appendChild($doc->createElement('volume'));
 		$volume->appendChild($doc->createTextNode($reference->volume));
@@ -543,14 +550,17 @@ function reference_to_endnote_xml($reference)
 			$pages->setAttribute('end', $reference->epage);
 		}
 		$pages->appendChild($doc->createTextNode($page_string));
+		
+		$urls = $record->appendChild($doc->createElement('urls'));
+		$related_urls = $urls->appendChild($doc->createElement('related-urls'));
+		$url = $related_urls->appendChild($doc->createElement('url'));
+		$url->appendChild($doc->createTextNode($config['web_root'] . 'reference/' . $reference->reference_id));
 
 	}
 	// Dates
 	$dates = $record->appendChild($doc->createElement('dates'));
 	$year = $dates->appendChild($doc->createElement('year'));
 	$year->appendChild($doc->createTextNode($reference->year));
-
-	return $doc->saveXML();
 }
 
 ?>

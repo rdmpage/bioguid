@@ -970,18 +970,39 @@ ORDER BY year';
 }
 
 //------------------------------------------------------------------------------
+// Get set of all author_ids for cluster containing this author
+function db_get_all_author_ids($author_id)
+{
+	$all_ids = array();
+
+	$all_names = db_get_all_author_names($author_id);
+	foreach ($all_names as $name)
+	{
+		$all_ids[] = $name['author_id'];
+	}
+	
+	return $all_ids;
+}
+
+
+//------------------------------------------------------------------------------
 function db_number_coauthored_references ($author1_id, $author2_id)
 {
 	global $db;
 	
 	$num = 0;
 	
+	// Get sets of ids for two authors
+	$all1_ids = db_get_all_author_ids($author1_id);
+	$all2_ids = db_get_all_author_ids($author2_id);
+	
 	$sql = 'SELECT COUNT(reference_id) AS c
 	FROM rdmp_author
 	INNER JOIN rdmp_author_reference_joiner USING (author_id)
 	INNER JOIN rdmp_author_reference_joiner AS coauthored USING (reference_id)
 	INNER JOIN rdmp_author AS coauthor ON coauthor.author_id = coauthored.author_id
-	WHERE rdmp_author.author_id = ' . $author1_id . ' AND coauthor.author_id = ' . $author2_id;
+	WHERE rdmp_author.author_id IN (' . implode(",", $all1_ids) . ')  
+	AND  coauthor.author_id IN ( ' . implode(",", $all2_ids) . ')';
 	
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
@@ -1002,14 +1023,9 @@ function db_retrieve_coauthors ($author_id)
 	$c->coauthors = array();
 	
 	// Get set of author_ids for this cluster containing this author
-	$all_names = db_get_all_author_names($author_id);
-	$all_ids = array();
-	foreach ($all_names as $name)
-	{
-		$all_ids[] = $name['author_id'];
-	}
+	$all_ids = db_get_all_author_ids($author_id);
 
-	$sql = 'SELECT coauthored.author_id, coauthor.forename, coauthor.lastname, coauthor.suffix, COUNT(coauthored.author_id) AS c  
+	$sql = 'SELECT coauthored.author_id, coauthor.author_cluster_id, coauthor.forename, coauthor.lastname, coauthor.suffix, COUNT(coauthored.author_id) AS c  
 	FROM rdmp_author
 	INNER JOIN rdmp_author_reference_joiner USING (author_id)
 	INNER JOIN rdmp_author_reference_joiner AS coauthored USING (reference_id)
@@ -1027,6 +1043,7 @@ function db_retrieve_coauthors ($author_id)
 	{
 		$author = new stdClass;
 		$author->id = $result->fields['author_id'];
+		$author->cluster_id = $result->fields['author_cluster_id'];
 		$author->lastname = str_replace("'", "&rsquo;", $result->fields['lastname']);
 		$author->forename = $result->fields['forename'];
 		$author->count = $result->fields['c'];
@@ -1073,6 +1090,9 @@ function db_find_author($author)
 	// Compress extra blank space to a single space
 	$author->forename = preg_replace('/\s+/', ' ', $author->forename);
 	$author->forename = preg_replace('/ \-/', '-', $author->forename);
+	
+	// Trim
+	$author->forename = trim($author->forename);
 	
 	// Make nice (in most cases will already be nice)
 	$author->forename = mb_convert_case($author->forename, 
@@ -1244,7 +1264,7 @@ function db_find_article($article)
 			$matched = 0;
 			
 			// Does ending page match?
-			if (isset($article->epage))
+			if (isset($article->epage) && isset($ref->epage))
 			{
 				if ($article->epage == $ref->epage)
 				{
@@ -1539,9 +1559,12 @@ function db_store_article($article, $PageID = 0, $updating = false)
 			case 'issn':
 			case 'genre':
 			case 'doi':
+			case 'hdl':
 			case 'lsid':
 			case 'oclc':
 			case 'pdf':
+			case 'abstract':
+			case 'pmid':
 				$keys[] = $k;
 				$values[] = $db->qstr($v);
 				break;			

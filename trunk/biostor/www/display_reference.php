@@ -12,9 +12,11 @@ require_once (dirname(__FILE__) . '/form.php');
 require_once ('../bhl_names.php');
 require_once ('../bhl_text.php');
 require_once ('../bhl_viewer.php');
+require_once ('../cites.php');
 require_once ('../identifier.php');
 require_once ('../reference.php');
 require_once ('../geocoding.php');
+require_once ('../nomenclator.php');
 
 //--------------------------------------------------------------------------------------------------
 class DisplayReference extends DisplayObject
@@ -354,6 +356,58 @@ Event.observe(window, \'load\', function() {
 
 		echo html_page_header(true, '', 'name');
 		
+		echo '<div style="float:right;background-color:rgb(230,242,250);padding:6px">' . "\n";
+		echo '<h2>Identifiers</h2>' . "\n";
+		echo '<ul class="guid-list">' . "\n";
+			
+		echo '<li class="permalink"><a href="' . $config['web_root'] . 'reference/' . $this->id . '" title="Permalink">' . $config['web_root'] . 'reference/' . $this->id . '</a></li>' . "\n";	
+		if ($this->in_bhl)
+		{
+			echo '<li class="bhl"><a href="http://www.biodiversitylibrary.org/page/' . $this->object->PageID . '" target="_new" title="BHL page">' .  $this->object->PageID . '</a></li>' . "\n";
+		}
+		
+		if (isset($this->object->doi))
+		{
+			echo '<li class="doi"><a href="http://dx.doi.org/' . $this->object->doi . '" target="_new" title="DOI">' .  $this->object->doi . '</a></li>' . "\n";
+		}
+		if (isset($this->object->url))
+		{
+			echo '<li class="url"><a href="' . $this->object->url . '" target="_new" title="URL">' .  trim_string($this->object->url, 30) . '</a></li>' . "\n";
+		}
+		if (isset($this->object->pdf))
+		{
+			echo '<li class="pdf"><a href="' . $this->object->pdf . '" target="_new" title="PDF">' .  trim_string($this->object->pdf, 30) . '</a></li>' . "\n";
+		}
+		if (isset($this->object->hdl))
+		{
+			echo '<li class="handle"><a href="http://hdl.handle.net/' . $this->object->hdl . '" target="_new" title="Handle">' .  $this->object->hdl . '</a></li>' . "\n";
+		}
+		if (isset($this->object->lsid))
+		{
+			echo '<li class="lsid"><a href="' . $config['web_root'] . $this->object->lsid . '" title="LSID">' . $this->object->lsid . '</a></li>' . "\n";
+		}
+		if (isset($this->object->pmid))
+		{
+			echo '<li class="pmid"><a href="http://www.ncbi.nlm.nih.gov/pubmed/' . $this->object->pmid . '" target="_new" title="PMID" >' . $this->object->pmid . '</a></li>' . "\n";
+		}
+		echo '</ul>' . "\n";
+
+		echo '<h2>Export</h2>' . "\n";
+		echo '<ul class="export-list">' . "\n";
+		echo '<li class="xml"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.xml" title="Endnote XML">Endnote XML</a></li>';
+		echo '<li class="ris"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.ris" title="RIS">Reference manager</a></li>';		
+		echo '<li class="bibtex"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.bib" title="BibTex">BibTex</a></li>';	
+		
+		if ($this->in_bhl)
+		{
+			echo '<li class="text"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.text" title="Text">Text</a></li>';
+		}
+		echo '</ul>' . "\n";
+
+
+		echo '</div>' . "\n";
+		
+		
 		echo '<h1>' . $this->GetTitle() . '</h1>' . "\n";
 		
 		//------------------------------------------------------------------------------------------
@@ -444,7 +498,7 @@ Event.observe(window, \'load\', function() {
 		
 		//------------------------------------------------------------------------------------------
 		// Export options
-		echo '<h2>Export</h2>' . "\n";
+/*		echo '<h2>Export</h2>' . "\n";
 		echo '<div>' . "\n";
 		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.xml" title="Endnote XML">Endnote XML</a></span>';
 		echo ' | ';
@@ -458,11 +512,11 @@ Event.observe(window, \'load\', function() {
 			echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '.text" title="Text">Text</a></span>';
 		}
 		echo '</div>' . "\n";
-		
+*/		
 		
 		//------------------------------------------------------------------------------------------
 		// Identifiers
-		echo '<h2>Identifiers</h2>' . "\n";
+/*		echo '<h2>Identifiers</h2>' . "\n";
 		echo '<ul>' . "\n";
 		if ($this->in_bhl)
 		{
@@ -486,11 +540,46 @@ Event.observe(window, \'load\', function() {
 		{
 			echo '<li><a href="http://dx.doi.org/' . $this->object->doi . '" target="_new">' .  $this->object->doi . '</a></li>' . "\n";
 		}
+		if (isset($this->object->hdl))
+		{
+			echo '<li><a href="http://hdl.handle.net/' . $this->object->hdl . '" target="_new">' .  $this->object->hdl . '</a></li>' . "\n";
+		}
 		if (isset($this->object->lsid))
 		{
 			echo '<li><a href="' . $config['web_root'] . $this->object->lsid . '">' . $this->object->lsid . '</a></li>' . "\n";
 		}
-		echo '</ul>' . "\n";
+		if (isset($this->object->pmid))
+		{
+			echo '<li><a href="http://www.ncbi.nlm.nih.gov/pubmed/' . $this->object->pmid . '" target="_new">' . $this->object->pmid . '</a></li>' . "\n";
+		}
+		echo '</ul>' . "\n";*/
+		
+		//------------------------------------------------------------------------------------------
+		// Linking
+		echo '<div>' . "\n";
+		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '/backlinks" title="References">Cites (' . num_cites($this->id) . ')</a></span>';
+		echo ' | ';
+		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '/forwardlinks" title="Forward links">Cited by (' . num_cited_by($this->id) . ')</a></span>';
+		echo '</div>' . "\n";
+		
+		//------------------------------------------------------------------------------------------
+		// Nomenclature
+		$acts = array();
+		if (isset($this->object->lsid))
+		{
+			$acts = array_merge($acts, acts_in_publication($this->object->lsid));
+		}
+		if (count($acts) > 0)
+		{
+			echo '<h2>Names published</h2>';
+			echo '<ul>';
+			foreach ($acts as $tn)
+			{
+				echo '<li><a href="' . $config['web_root'] . 'name/' . urlencode($tn->ToHTML()) . '">' . $tn->ToHTML() . '</a></li>';
+			}
+			echo '</ul>';
+		}
+		
 		
 		//------------------------------------------------------------------------------------------
 		if ($this->in_bhl)
@@ -538,7 +627,51 @@ Event.observe(window, \'load\', function() {
 		}
 		else
 		{
-			echo '<h2>This reference is not in BHL</h2>';
+			echo '<table width="100%" >';
+			echo '<tr><td valign="top" width="600">';
+			
+			$have_content = false;
+			
+			// PDF displayed using Google Docs
+			if (!$have_content)
+			{
+				// If we have a PDF display it using Google Docs Viewer http://docs.google.com/viewer
+				if ($this->object->url)
+				{
+					if (preg_match('/\.pdf$/', $this->object->url))
+					{
+						echo '<iframe src="http://docs.google.com/viewer?url=';
+						echo urlencode($this->object->url) . '&embedded=true" width="600" height="700" style="border: none;">' . "\n";
+						echo '</iframe>' . "\n";
+						
+						$have_content = true;
+					}
+				}
+			}
+			
+			if (!$have_content)
+			{
+				if (isset($this->object->abstract))
+				{
+					echo '<h3>Abstract</h3>' . "\n";
+					echo '<div>' . $this->object->abstract . '</div>' . "\n";
+					$have_content = true;
+				}
+			}
+			
+			if (!$have_content)
+			{
+				echo '<span>[No text or abstract to display]</span>';
+			}
+			
+			
+			echo '</td>';
+			echo '<td>';
+			
+			echo $this->DisplayEditForm();
+			
+			echo '</td></tr>';
+			echo '</table>';
 		
 		}
 	}
@@ -569,8 +702,19 @@ Event.observe(window, \'load\', function() {
 	// Endnote XML export format
 	function DisplayXml()
 	{
+		// Create XML document
+		$doc = new DomDocument('1.0', 'UTF-8');
+		$xml = $doc->appendChild($doc->createElement('xml'));
+
+		// root element is <records>
+		$records = $xml->appendChild($doc->createElement('records'));
+
+		// add record for this reference
+		reference_to_endnote_xml($this->object, $doc, $records);
+		
+		// Dump XML
 		header("Content-type: text/xml; charset=utf-8\n\n");
-		echo reference_to_endnote_xml($this->object);
+		echo $doc->saveXML();
 	}
 	
 	

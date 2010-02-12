@@ -1,6 +1,6 @@
 <?php
 
-// handle name lookup and harvesting
+// Handle taxon name lookup and harvesting
 
 
 require_once(dirname(__FILE__) . '/bhl_names.php');
@@ -106,5 +106,28 @@ function ubio_lookup($namestring)
 	return $name;
 }
 
+//--------------------------------------------------------------------------------------------------
+// find name string, adding the query string if needed, and return namestring_id
+function find_namestring($str)
+{
+	$namestring_id = 0;
+	
+	$name = db_get_namestring($str);
+	if ($name == NULL)
+	{
+		$name = ubio_lookup($str);
+	}
+	if ($name == NULL)
+	{
+		// not in local BHL copy, nor uBio webservice, so store this ourselves
+		$namestring_id = db_store_namestring($str);
+	}
+	else
+	{
+		$namestring_id = $name->namestring_id;
+	}
+	return $namestring_id;
+}
+		
 
 ?>

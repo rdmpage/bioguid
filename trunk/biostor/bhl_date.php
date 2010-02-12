@@ -7,38 +7,8 @@
  *
  */
  
-//--------------------------------------------------------------------------------------------------
-// From http://snipplr.com/view/6314/roman-numerals/
-
-// Expand subtractive notation in Roman numerals.
-function roman_expand($roman)
-{
-	$roman = str_replace("CM", "DCCCC", $roman);
-	$roman = str_replace("CD", "CCCC", $roman);
-	$roman = str_replace("XC", "LXXXX", $roman);
-	$roman = str_replace("XL", "XXXX", $roman);
-	$roman = str_replace("IX", "VIIII", $roman);
-	$roman = str_replace("IV", "IIII", $roman);
-	return $roman;
-}
-    
-function arabic($roman)
-{
-	$result = 0;
-
-	// Remove subtractive notation.
-	$roman = roman_expand($roman);
-
-	// Calculate for each numeral.
-	$result += substr_count($roman, 'M') * 1000;
-	$result += substr_count($roman, 'D') * 500;
-	$result += substr_count($roman, 'C') * 100;
-	$result += substr_count($roman, 'L') * 50;
-	$result += substr_count($roman, 'X') * 10;
-	$result += substr_count($roman, 'V') * 5;
-	$result += substr_count($roman, 'I');
-	return $result;
-} 
+require_once(dirname(__FILE__) . '/utilities.php');
+ 
 
 //--------------------------------------------------------------------------------------------------
 function bhl_date_from_details($str, &$info)

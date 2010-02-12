@@ -36,6 +36,120 @@ class DisplayJournal extends DisplayObject
 			$this->oclc = $_GET['oclc'];
 		}
 	}	
+	
+	//----------------------------------------------------------------------------------------------
+	function GetFormat()
+	{
+		if (isset($_GET['format']))
+		{
+			switch ($_GET['format'])
+			{
+				case 'xml':
+					$this->format = 'xml';
+					break;
+
+				case 'ris':
+					$this->format = 'ris';
+					break;
+
+				case 'bib':
+					$this->format = 'bib';
+					break;
+		
+				default:
+					parent::GetFormat();
+					break;
+			}
+		}
+	}	
+	
+	
+	//----------------------------------------------------------------------------------------------
+	function DisplayFormattedObject()
+	{
+		switch ($this->format)
+		{
+			case 'xml':
+				$this->DisplayXml();
+				break;
+
+			case 'ris':
+				$this->DisplayRis();
+				break;
+
+			case 'bib':
+				$this->DisplayBibtex();
+				break;
+
+			default:
+				parent::DisplayFormattedObject();
+				break;
+		}
+	}	
+	
+	//----------------------------------------------------------------------------------------------
+	function DisplayRis()
+	{
+		$ris = '';
+		
+		$articles = db_retrieve_articles_from_journal($this->issn, $this->oclc);
+		foreach ($articles as $k => $v)
+		{
+			foreach ($v as $ref)
+			{
+				$reference = db_retrieve_reference ($ref->id);
+				$ris .= reference_to_ris($reference);
+			}
+		}
+	
+		header("Content-type: text/plain; charset=utf-8\n\n");
+		echo $ris;
+	}	
+	
+	//----------------------------------------------------------------------------------------------
+	function DisplayBibtex()
+	{
+		$bibtex = '';
+		
+		$articles = db_retrieve_articles_from_journal($this->issn, $this->oclc);
+		foreach ($articles as $k => $v)
+		{
+			foreach ($v as $ref)
+			{
+				$reference = db_retrieve_reference ($ref->id);
+				$bibtex .= reference_to_bibtex($reference);
+			}
+		}
+		
+		header("Content-type: application/x-bibtex; charset=utf-8\n\n");
+		echo $bibtex;
+	}	
+
+	//----------------------------------------------------------------------------------------------
+	// Endnote XML export format
+	function DisplayXml()
+	{
+		// Create XML document
+		$doc = new DomDocument('1.0', 'UTF-8');
+		$xml = $doc->appendChild($doc->createElement('xml'));
+
+		// root element is <records>
+		$records = $xml->appendChild($doc->createElement('records'));
+		
+		$articles = db_retrieve_articles_from_journal($this->issn, $this->oclc);
+		foreach ($articles as $k => $v)
+		{
+			foreach ($v as $ref)
+			{
+				$reference = db_retrieve_reference ($ref->id);
+				reference_to_endnote_xml($reference, $doc, $records);
+			}
+		}
+		
+		// Dump XML
+		header("Content-type: text/xml; charset=utf-8\n\n");
+		echo $doc->saveXML();
+	}	
 
 
 	//----------------------------------------------------------------------------------------------
@@ -44,6 +158,40 @@ class DisplayJournal extends DisplayObject
 		global $config;
 		
 		echo html_page_header(true, '', 'name');
+		
+		echo '<div style="float:right;background-color:rgb(230,242,250);padding:6px">' . "\n";
+			
+		if ($this->issn != '')
+		{
+			echo '<h2>Identifiers</h2>' . "\n";
+			echo '<ul class="guid-list">' . "\n";
+			echo '<li class="permalink"><a href="' . $config['web_root'] . 'issn/' . $this->issn . '" title="Permalink">' . $config['web_root'] . 'issn/' . $this->issn . '</a></li>' . "\n";	
+			echo '<li class="worldcat"><a href="http://www.worldcat.org/issn/' . $this->issn . '" title="ISSN">' .  $this->issn . '</a></li>' . "\n";	
+
+			echo '<h2>Export</h2>' . "\n";
+			echo '<ul class="export-list">' . "\n";
+			echo '<li class="xml"><a href="' . $config['web_root'] . 'issn/' . $this->issn . '.xml" title="Endnote XML">Endnote XML</a></li>';
+			echo '<li class="ris"><a href="' . $config['web_root'] . 'issn/' . $this->issn . '.ris" title="RIS">Reference manager</a></li>';		
+			echo '<li class="bibtex"><a href="' . $config['web_root'] . 'issn/' . $this->issn . '.bib" title="BibTex">BibTex</a></li>';	
+			echo '</ul>' . "\n";
+		}
+		if ($this->oclc != '')
+		{
+			echo '<h2>Identifiers</h2>' . "\n";
+			echo '<ul class="guid-list">' . "\n";
+			echo '<li class="permalink"><a href="' . $config['web_root'] . 'oclc/' . $this->oclc . '" title="Permalink">' . $config['web_root'] . 'oclc/' . $this->oclc . '</a></li>' . "\n";	
+			echo '<li class="worldcat"><a href="http://www.worldcat.org/oclc/' . $this->oclc . '" title="OCLC">' .  $this->oclc . '</a></li>' . "\n";	
+
+			echo '<h2>Export</h2>' . "\n";
+			echo '<ul class="export-list">' . "\n";
+			echo '<li class="xml"><a href="' . $config['web_root'] . 'oclc/' . $this->oclc . '.xml" title="Endnote XML">Endnote XML</a></li>';
+			echo '<li class="ris"><a href="' . $config['web_root'] . 'oclc/' . $this->oclc . '.ris" title="RIS">Reference manager</a></li>';		
+			echo '<li class="bibtex"><a href="' . $config['web_root'] . 'oclc/' . $this->oclc . '.bib" title="BibTex">BibTex</a></li>';	
+			echo '</ul>' . "\n";
+		}
+
+		echo '</div>' . "\n";
+		
 		
 		echo '<h1>' . $this->GetTitle() . '</h1>';
 		
@@ -80,15 +228,6 @@ class DisplayJournal extends DisplayObject
 		echo '   <img src="' . sparkline_references($this->issn, $this->oclc, 360,100) . '" alt="sparkline" />' . "\n";
 		echo '</div>' . "\n";
 		
-		echo '<h3>Distribution of identified articles across BHL items</h3>' . "\n";
-		
-		echo '<div>';
-		echo '<div style="display:inline;background-color:rgb(230,242,250);width:20px;height:20px;">&nbsp;&nbsp;&nbsp;&nbsp;</div>';
-		echo '&nbsp;Scanned pages&nbsp;';
-		echo '<div style="display:inline;background-color:rgb(0,119,204);width:10px;height:10px;">&nbsp;&nbsp;&nbsp;&nbsp;</div>';
-		echo '&nbsp;Articles&nbsp;';
-		echo '</div>';
-		echo '<p />';
 		
 		$titles = array();
 		if ($this->issn != '')
@@ -100,56 +239,70 @@ class DisplayJournal extends DisplayObject
 			$titles = bhl_titles_for_oclc($this->oclc);
 		}		
 		
-
-		$items = array();
-		$volumes = array();		
-		items_from_titles($titles, $items, $volumes);
-		$html = '<div style="height:400px;border:1px solid rgb(192,192,192);overflow:auto;">' . "\n";
-		$html .= '<table>' . "\n";
-		$html .= '<tbody style="font-size:10px;">' . "\n";
-		
-		foreach ($volumes as $volume)
+		if (count($titles) > 0)
 		{
-			$item = $items[$volume];
+			echo '<h3>Distribution of identified articles across BHL items</h3>' . "\n";
 			
-			// How many pages in this item?
-			$num_pages = bhl_num_pages_in_item($item->ItemID);
-			
-			// Coverage
-			$coverage = bhl_item_page_coverage($item->ItemID);	
-			
-			$row_height = 10;
-			
-			// Draw as DIV
-			
-			$html .= '<tr>' . "\n";
-			$html .= '<td>';
-			$html .= '<a href="http://www.biodiversitylibrary.org/item/' . $item->ItemID .'" target="_new">';
-			$html .= $item->VolumeInfo;
-			$html .= '</a>';
-			$html .= '</td>' . "\n";
-			$html .= '<td>' . "\n";
-			$html .= '<div style="position:relative">' . "\n";
-			$html .= '   <div style="background-color:rgb(230,242,250);border-bottom:1px solid rgb(192,192,192);border-right:1px solid rgb(192,192,192);position:absolute;left:0px;top:0px;width:' . $num_pages . 'px;height:' . $row_height . 'px;">' . "\n";
-			
-			foreach ($coverage as $c)
-			{   
-				$html .= '      <div style="background-color:rgb(0,119,204);position:absolute;left:' . $c->start . 'px;top:0px;width:' . ($c->end - $c->start) . 'px;height:' . $row_height . 'px;">' . "\n";
-				$html .= '      </div>' . "\n";
-			}   
+			echo '<div>';
+			echo '<div style="display:inline;background-color:rgb(230,242,250);width:20px;height:20px;">&nbsp;&nbsp;&nbsp;&nbsp;</div>';
+			echo '&nbsp;Scanned pages&nbsp;';
+			echo '<div style="display:inline;background-color:rgb(0,119,204);width:10px;height:10px;">&nbsp;&nbsp;&nbsp;&nbsp;</div>';
+			echo '&nbsp;Articles&nbsp;';
+			echo '</div>';
+			echo '<p />';
 			
 			
-			$html .= '   </div>' . "\n";
+	
+			$items = array();
+			$volumes = array();		
+			items_from_titles($titles, $items, $volumes);
+			$html = '<div style="height:400px;border:1px solid rgb(192,192,192);overflow:auto;">' . "\n";
+			$html .= '<table>' . "\n";
+			$html .= '<tbody style="font-size:10px;">' . "\n";
+			
+			foreach ($volumes as $volume)
+			{
+				$item = $items[$volume];
+				
+				// How many pages in this item?
+				$num_pages = bhl_num_pages_in_item($item->ItemID);
+				
+				// Coverage
+				$coverage = bhl_item_page_coverage($item->ItemID);	
+				
+				$row_height = 10;
+				
+				// Draw as DIV
+				
+				$html .= '<tr>' . "\n";
+				$html .= '<td>';
+				$html .= '<a href="http://www.biodiversitylibrary.org/item/' . $item->ItemID .'" target="_new">';
+				$html .= $item->VolumeInfo;
+				$html .= '</a>';
+				$html .= '</td>' . "\n";
+				$html .= '<td>' . "\n";
+				$html .= '<div style="position:relative">' . "\n";
+				$html .= '   <div style="background-color:rgb(230,242,250);border-bottom:1px solid rgb(192,192,192);border-right:1px solid rgb(192,192,192);position:absolute;left:0px;top:0px;width:' . $num_pages . 'px;height:' . $row_height . 'px;">' . "\n";
+				
+				foreach ($coverage as $c)
+				{   
+					$html .= '      <div style="background-color:rgb(0,119,204);position:absolute;left:' . $c->start . 'px;top:0px;width:' . ($c->end - $c->start) . 'px;height:' . $row_height . 'px;">' . "\n";
+					$html .= '      </div>' . "\n";
+				}   
+				
+				
+				$html .= '   </div>' . "\n";
+				$html .= '</div>' . "\n";
+				$html .= '</td>' . "\n";
+				$html .= '</tr>' . "\n";
+			
+			}
+			
+			$html .= '</tbody>' . "\n";
+			$html .= '</table>' . "\n";
 			$html .= '</div>' . "\n";
-			$html .= '</td>' . "\n";
-			$html .= '</tr>' . "\n";
-		
+			echo $html;
 		}
-		
-		$html .= '</tbody>' . "\n";
-		$html .= '</table>' . "\n";
-		$html .= '</div>' . "\n";
-		echo $html;
 		
 		$institutions = institutions_from_titles($titles);
 		if (count($institutions) != 0)
