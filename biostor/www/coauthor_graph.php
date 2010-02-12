@@ -31,20 +31,22 @@ if ($author_id != 0)
 	
 	for ($i = 0; $i < $n; $i++)
 	{
-		$sourceNode = $G->AddNode($coauthors->coauthors[$i]->id, $coauthors->coauthors[$i]->forename . ' ' . $coauthors->coauthors[$i]->lastname);
+		$sourceNode = $G->AddNode($coauthors->coauthors[$i]->cluster_id, $coauthors->coauthors[$i]->forename . ' ' . $coauthors->coauthors[$i]->lastname);
 		
 		for ($j = $i+1; $j < $n; $j++)
 		{
-			$num  = db_number_coauthored_references(
-				$coauthors->coauthors[$i]->id, $coauthors->coauthors[$j]->id);
-	
-			if ($num > 0)
+			if ($coauthors->coauthors[$i]->cluster_id != $coauthors->coauthors[$j]->cluster_id)
 			{
-				$targetNode = $G->AddNode(
-					$coauthors->coauthors[$j]->id, 
-					$coauthors->coauthors[$j]->forename . ' '  . $coauthors->coauthors[$j]->lastname);
-				$G->AddEdge($sourceNode, $targetNode, $num);
-				
+				$num  = db_number_coauthored_references(
+					$coauthors->coauthors[$i]->id, $coauthors->coauthors[$j]->id);
+		
+				if ($num > 0)
+				{
+					$targetNode = $G->AddNode(
+						$coauthors->coauthors[$j]->cluster_id, 
+						$coauthors->coauthors[$j]->forename . ' '  . $coauthors->coauthors[$j]->lastname);
+					$G->AddEdge($sourceNode, $targetNode, $num);
+				}		
 			}
 		}
 	}
