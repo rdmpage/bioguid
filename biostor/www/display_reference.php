@@ -554,31 +554,16 @@ Event.observe(window, \'load\', function() {
 		}
 		echo '</ul>' . "\n";*/
 		
+		
 		//------------------------------------------------------------------------------------------
 		// Linking
+		/*
 		echo '<div>' . "\n";
 		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '/backlinks" title="References">Cites (' . num_cites($this->id) . ')</a></span>';
 		echo ' | ';
 		echo '<span><a href="' . $config['web_root'] . 'reference/' . $this->id . '/forwardlinks" title="Forward links">Cited by (' . num_cited_by($this->id) . ')</a></span>';
 		echo '</div>' . "\n";
-		
-		//------------------------------------------------------------------------------------------
-		// Nomenclature
-		$acts = array();
-		if (isset($this->object->lsid))
-		{
-			$acts = array_merge($acts, acts_in_publication($this->object->lsid));
-		}
-		if (count($acts) > 0)
-		{
-			echo '<h2>Names published</h2>';
-			echo '<ul>';
-			foreach ($acts as $tn)
-			{
-				echo '<li><a href="' . $config['web_root'] . 'name/' . urlencode($tn->ToHTML()) . '">' . $tn->ToHTML() . '</a></li>';
-			}
-			echo '</ul>';
-		}
+		*/
 		
 		
 		//------------------------------------------------------------------------------------------
@@ -674,6 +659,30 @@ Event.observe(window, \'load\', function() {
 			echo '</table>';
 		
 		}
+		
+		
+		//------------------------------------------------------------------------------------------
+		// Nomenclature (experimental)
+		$acts = acts_in_publication($this->id);
+		if (count($acts) > 0)
+		{
+			echo '<h2>Names published</h2>' . "\n";
+			echo '<p class="explanation">New names or combinations published in this reference.</p>' . "\n";
+			echo '<table cellspacing="0" cellpadding="2">' . "\n";
+			echo '<tr><th>Name</th><th>Identifier</th></tr>' . "\n";
+			foreach ($acts as $tn)
+			{
+				echo '<tr>';
+				echo '<td style="border-bottom:1px solid rgb(228,228,228);"><a href="' . $config['web_root'] . 'name/' . urlencode($tn->ToHTML()) . '">' . $tn->ToHTML() . '</td>';
+				
+				echo '<td style="border-bottom:1px solid rgb(228,228,228);">' . $tn->global_id . '</td>';
+				
+				echo '</tr>' . "\n";
+			}
+			echo '</table>' . "\n";
+		}
+		
+		
 	}
 	
 	//----------------------------------------------------------------------------------------------

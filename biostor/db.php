@@ -1206,6 +1206,26 @@ function db_find_article($article)
 	
 	$hits = array();
 	
+	// Check first for identifiers
+	if (isset($article->doi) && ($article->doi != ''))
+	{
+		$id = db_retrieve_reference_from_doi($article->doi);
+		if ($id != 0)
+		{
+			return $id;
+		}
+	}
+
+	if (isset($article->hdl) && ($article->hdl != ''))
+	{
+		$id = db_retrieve_reference_from_handle($article->hdl);
+		if ($id != 0)
+		{
+			return $id;
+		}
+	}
+	
+	// Metadata lookup
 	if (
 		(isset($article->issn) && ($article->issn != ''))
 		&& isset($article->volume)
@@ -1360,6 +1380,25 @@ function db_retrieve_reference_from_doi($doi)
 	}
 	return $id;
 }
+
+//--------------------------------------------------------------------------------------------------
+function db_retrieve_reference_from_handle($handle)
+{
+	global $db;
+
+	$id = 0;
+	
+	$sql = 'SELECT * FROM rdmp_reference WHERE hdl=' . $db->qstr($handle) . ' LIMIT 1';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	if ($result->NumRows() == 1)
+	{
+		$id = $result->fields['reference_id'];
+	}
+	return $id;
+}
+
 
 //--------------------------------------------------------------------------------------------------
 function db_retrieve_reference_from_lsid($lsid)
@@ -1656,15 +1695,18 @@ function db_store_article($article, $PageID = 0, $updating = false)
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 	
-	$sql = 'INSERT INTO rdmp_text_index(object_type, object_id, object_uri, object_text)
-	VALUES ("title"'
-	. ', ' . $id 
-	. ', ' . $db->qstr($config['web_root'] . 'reference/' . $id) 
-	. ', ' . $db->qstr($article->title) 
-	. ')';
-	$result = $db->Execute($sql);
-	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
-	
+	// Only do this if we have a title, as sometimes we don't (e.g. CrossRef lacks metadata)
+	if (isset($article->title))
+	{
+		$sql = 'INSERT INTO rdmp_text_index(object_type, object_id, object_uri, object_text)
+		VALUES ("title"'
+		. ', ' . $id 
+		. ', ' . $db->qstr($config['web_root'] . 'reference/' . $id) 
+		. ', ' . $db->qstr($article->title) 
+		. ')';
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	}
 	
 	// Versioning-----------------------------------------------------------------------------------
 	// Store this object in version table so we can recover it if we overwrite item

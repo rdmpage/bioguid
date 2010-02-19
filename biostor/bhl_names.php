@@ -329,6 +329,13 @@ function bhl_name_search($NameBankID)
 {
 	global $db;
 	
+	$hits = array();
+
+	if ($NameBankID == 0)
+	{
+		return $hits;
+	}
+	
 	$sql = 'SELECT DISTINCT bhl_item.TitleID, bhl_item.ItemID, bhl_item.VolumeInfo, bhl_page.PageID, 
 	bhl_page.Year as y1,
 	bhl_item.Year as y2,
@@ -339,8 +346,7 @@ function bhl_name_search($NameBankID)
 	INNER JOIN bhl_title USING(TitleID)
 	WHERE (NameBankID=' . $NameBankID . ')';
 	
-	$hits = array();
-
+	
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 	

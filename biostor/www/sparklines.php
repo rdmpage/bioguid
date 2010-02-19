@@ -84,7 +84,7 @@ function sparkline_cummulative_articles_added()
 	// Get daily counts of articles created since start of project
 	$sql = 'SELECT count(reference_id) AS c, year(created), month(created), day(created), 
 	datediff(created, ' . $db->qstr(START_DATE) . ') AS days, created FROM rdmp_reference 
-	GROUP BY day(created)
+	GROUP BY days
 	ORDER BY created';
 	
 	$time_span = days_since_start();
@@ -272,6 +272,8 @@ function sparkline_bhl_name($hits, $width=400, $height=100)
 	$max_value = 0;
 	
 	$count = array();
+	
+	//print_r($hits);
 	
 	foreach ($hits as $hit)
 	{

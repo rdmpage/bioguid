@@ -126,7 +126,7 @@ function html_body_close($disqus = false)
 
 	if ($disqus)
 	{
-		$html .= '<hr/>' . "\n";
+		//$html .= '<hr/>' . "\n";
 	
 		$html .= '<div id="disqus_thread"></div>
 <script type="text/javascript" src="http://disqus.com/forums/biostor/embed.js"></script>
