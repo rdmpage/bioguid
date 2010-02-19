@@ -147,8 +147,37 @@
 					//console.log(this.position[1] + ' ' + $('thumbnail_list').viewportOffset()[1] + ' ' + $('thumbnail_list').positionedOffset()[1] + ' ' + parseInt(this.options.treshold) + ' ' +	(Math.abs($('thumbnail_list').viewportOffset()[1] - $('thumbnail_list').positionedOffset()[1]) + parseInt(this.options.treshold)));
 					
 					// rdmp Fold is relative to container
-					if ((Math.abs($('thumbnail_list').viewportOffset()[1] - $('thumbnail_list').positionedOffset()[1]) + $('thumbnail_list').getHeight() + parseInt(this.options.treshold)) 
-						> this.position[1]) {
+/*					if ((Math.abs($('thumbnail_list').viewportOffset()[1] - $('thumbnail_list').positionedOffset()[1]) + $('thumbnail_list').getHeight() + parseInt(this.options.treshold)) 
+						> this.position[1]) 
+*/					
+				// Get position of element enclosing the thumbnail list (w.r.t. browser window)
+				page_top = Position.page($('page'))[1];
+				
+				// Get coordinates of thumbnail (relative to thumbnail_list)
+				thumbnail_top = this.element.offsetTop;
+				thumbnail_bottom = thumbnail_top + this.element.getHeight();
+				
+				// Dimensions of list of thumbnails
+				list_height = $('thumbnail_list').scrollHeight; // height of complete thumbnail_list (much of which may not be visible)
+				view_height = $('thumbnail_list').getHeight(); // height of visible part thumbnail_list element (by default 600px)
+		
+				// What part of the thumbnail list is visible in the web browser window?
+				// Get start and end of 600px view port on thumbnail_list
+				list_top 			= Position.page($('thumbnail_list'))[1]; 	// where is top of thumbnail_list element w.r.t. browser window?
+				list_top 			-= page_top; 								// offset by position of enclosing element on browser page
+				list_visible_start 	= Math.abs(list_top);
+				list_visible_end 	= list_visible_start + view_height;
+				
+				// Is any part of thumbnail in list view port?
+				thumb_is_visible = 
+					((thumbnail_top > list_visible_start) && (thumbnail_top < list_visible_end))
+					||
+					((thumbnail_bottom > list_visible_start) && (thumbnail_bottom < list_visible_end));
+					
+				if (thumb_is_visible)
+					
+					
+					{
 	
 						this.loading	= true;
 						

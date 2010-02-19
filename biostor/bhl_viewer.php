@@ -102,7 +102,7 @@ function bhl_viewer ($pages, $page_to_display = 0)
 	
 	$html .=  "<!-- Page -->\n";
 	$html .=  '<div id="page">' . "\n";
-	$html .=  '<img id="page_image"  src="" width="' . $img_width . '"/>' . "\n";
+	$html .=  '<img id="page_image"  src="' . $image->thumbnail->url . '" width="' . $img_width . '" />' . "\n";
 	$html .=  '</div>' . "\n";
 	
 	$html .=  "<!-- Page thumbnails -->\n";
@@ -112,7 +112,7 @@ function bhl_viewer ($pages, $page_to_display = 0)
 		$image = bhl_fetch_page_image($page->PageID);
 	
 		$html .=  "<!-- Thumbnail -->\n";
-		$html .=  '<div class="thumbnail_item" id="thumbnail_' . $page->PageID . '" onclick="show_page(\'' . $image->url . '\', \'' . $page->PageID . '\', \'' . $page->page_order . '\');">' . "\n";
+		$html .=  '<div class="thumbnail_item" id="thumbnail_' . $page->PageID . '" onclick="show_page(\'' . $image->url . '\', \'' . $image->thumbnail->url . '\', \'' . $page->PageID . '\');">' . "\n";
 		$html .=  '<a name="' . $page->PageID . '"></a>' . "\n";
 		$html .=  '<img class="thumbnail" id="thumbnail_image_' . $page->PageID . '" src="' . $image->thumbnail->url . '" width="' . $image->thumbnail->width . '" height="' . $image->thumbnail->height . '"/>';
 		
@@ -133,15 +133,7 @@ function bhl_viewer ($pages, $page_to_display = 0)
 	$html .=  '</div>' . "\n";
 	
 	$html .=  '</div>' . "\n";
-	
-/*	// Default is first page image in item
-	$image = fetch_page_image($pages[0]->PageID);
-	
-	$html .=  '<!-- initialise -->' . "\n";
-	$html .=  '<script type="text/javascript">';
-	$html .=  	'show_page(\'' . $image->url . '\', \'' . $pages[0]->PageID . '\');';	
-	$html .=  '</script>';*/
-	
+		
 	if ($page_to_display == 0)
 	{
 		$page_to_display = $pages[0]->PageID;
@@ -150,7 +142,7 @@ function bhl_viewer ($pages, $page_to_display = 0)
 		
 	$html .=  '<!-- initialise -->' . "\n";
 	$html .=  '<script type="text/javascript">';
-	$html .=  	'show_page(\'' . $image->url . '\', \'' . $page_to_display . '\');';	
+	$html .=  	'show_page(\'' . $image->url . '\', \'' . $image->thumbnail->url . '\', \'' . $page_to_display . '\');';	
 	$html .=  '</script>';
 	
 	
