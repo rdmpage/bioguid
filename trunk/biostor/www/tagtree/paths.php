@@ -69,5 +69,62 @@ WHERE (path =  ' . $db->qstr($path) . ') LIMIT 1';
 	return $paths;
 }
 
+//--------------------------------------------------------------------------------------------------
+// Find the majority_rule path, on the asusmption that this is the best way to represent
+// what taxon a set of paths represents. We use majority rule (starting from the base of the path)
+// as this should ensure that we have a real path
+function majority_rule_path($paths)
+{	 
+	$n = array();
+	foreach ($paths as $p)
+	{
+		$nodes= explode("/", $p);
+		
+		$num = count($nodes);
+		for ($i = 1; $i < $num; $i++)
+		{
+			if (!isset($n[$i]))
+			{
+				$n[$i] = array();
+			}
+			if (isset($n[$i][$nodes[$i]]))
+			{
+				$n[$i][$nodes[$i]]++;
+			}
+			else
+			{
+				$n[$i][$nodes[$i]] = 1;
+			}
+		}		
+		
+	}
+	// find majority rule taxon...
+	
+	$num_taxa = count($paths);
+	$threshold = round($num_taxa/2);
+	if ($num_taxa % 2 == 0)
+	{
+		$threshold++;
+	}
+	
+	$path_string = '';
+	foreach ($n as $level)
+	{
+		$level_count = 0;
+		foreach ($level as $k => $v)
+		{
+			if ($v >= $threshold)
+			{
+				$path_string .= '/' . $k;
+				$level_count = 1;
+			}
+		}
+		if ($level_count == 0)
+		{
+			break;
+		}
+	}
+	return $path_string;
+}
 
 ?>
