@@ -7,6 +7,15 @@
  *
  */
  
+ 
+// Need to build table linking names to references
+
+/*
+INSERT INTO rdmp_reference_taxon_name_joiner(taxon_name_id, reference_id) 
+SELECT rdmp_taxon_name.taxon_name_id, rdmp_reference.reference_id FROM rdmp_taxon_name 
+INNER JOIN rdmp_reference WHERE rdmp_taxon_name.publishedInCitation = rdmp_reference.lsid;
+*/
+ 
 require_once(dirname(__FILE__) .'/taxon.php');
 require_once(dirname(__FILE__) .'/taxon_name.php');
 
@@ -135,8 +144,10 @@ function resolve_nomenclator_lsid($lsid)
 {
 	global $config;
 	
-	$url = 'http://bioguid.info/lsid.php?lsid=' . $lsid . '&display=rdf';
-//	$url = 'http://lsid.tdwg.org/' . $lsid;
+	$taxon_name_id = 0;
+	
+//	$url = 'http://bioguid.info/lsid.php?lsid=' . $lsid . '&display=rdf';
+	$url = 'http://lsid.tdwg.org/' . $lsid;
 
 	$rdf = get($url);
 	
@@ -239,7 +250,10 @@ function resolve_nomenclator_lsid($lsid)
 		$nodeCollection = $xpath->query ('//tcom:microreference');
 		foreach($nodeCollection as $node)
 		{
-			$taxon_name->microreference = $node->firstChild->nodeValue;
+			if (isset($node->firstChild)) // ION may have this blank
+			{
+				$taxon_name->microreference = $node->firstChild->nodeValue;
+			}
 		}	
 			
 		//------------------------------------------------------------------------------------------
@@ -298,10 +312,36 @@ function resolve_nomenclator_lsid($lsid)
 		print_r($taxon_name);
 		
 		// Store taxon name
-		db_store_taxon_name($lsid, $taxon_name);	
+		$taxon_name_id = db_store_taxon_name($lsid, $taxon_name);	
+	}
+	
+	return $taxon_name_id;
+}
+
+
+//--------------------------------------------------------------------------------------------------
+// Link a taxon name and a reference
+function link_reference_to_act($reference_id, $taxon_name_id)
+{
+	global $db;
+	
+	$sql = 'SELECT * FROM rdmp_reference_taxon_name_joiner 
+WHERE (reference_id=' . $reference_id . ') AND (taxon_name_id=' . $taxon_name_id . ') LIMIT 1';
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	if ($result->NumRows() == 0)
+	{
+		$sql = 'INSERT INTO rdmp_reference_taxon_name_joiner(reference_id, taxon_name_id) VALUES ('
+		. $reference_id . ',' . $taxon_name_id . ')';
+
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 	}
 }
 
+/*
 //--------------------------------------------------------------------------------------------------
 // Return array of taxon name objects published in a publication
 function acts_in_publication($guid)
@@ -330,6 +370,93 @@ WHERE publishedInCitation=' . $db->qstr($guid);
 	
 	return $acts;
 }
+*/
+//--------------------------------------------------------------------------------------------------
+// Return array of taxon name objects published in a publication
+function acts_in_publication($reference_id)
+{
+	global $db;
+	
+	$ids = array();
+	
+	$sql = 'SELECT taxon_name_id FROM rdmp_reference_taxon_name_joiner 
+WHERE reference_id=' . $db->qstr($reference_id);
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	while (!$result->EOF) 
+	{
+		$ids[] = $result->fields['taxon_name_id'];
+		$result->MoveNext();
+	}
+
+	$acts = array();
+	foreach ($ids as $id)
+	{
+		$acts[] = db_retrieve_taxon_name($id);	
+	}
+	
+	return $acts;
+}
+
+//--------------------------------------------------------------------------------------------------
+// Taxonomic names/acts for a given namestring
+function acts_for_namestring($namestring)
+{
+	global $db;
+	
+	$ids = array();
+	
+	$sql = 'SELECT rdmp_taxon_name.taxon_name_id FROM rdmp_namestring
+INNER JOIN rdmp_taxon_name USING(namestring_id)
+WHERE rdmp_namestring.namestring = ' . $db->qstr($namestring);
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	while (!$result->EOF) 
+	{
+		$ids[] = $result->fields['taxon_name_id'];
+		$result->MoveNext();
+	}
+
+	$acts = array();
+	foreach ($ids as $id)
+	{
+		$acts[] = db_retrieve_taxon_name($id);	
+	}
+	
+	return $acts;	
+}
+
+
+//--------------------------------------------------------------------------------------------------
+// References with acts for this string
+function references_for_acts_for_namestring($namestring)
+{
+	global $db;
+	
+	$reference_ids = array();
+	
+	$sql = 'SELECT rdmp_reference_taxon_name_joiner.reference_id
+FROM rdmp_reference_taxon_name_joiner
+INNER JOIN rdmp_taxon_name USING (taxon_name_id)
+INNER JOIN rdmp_namestring USING(namestring_id)
+WHERE rdmp_namestring.namestring = ' . $db->qstr($namestring);
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	while (!$result->EOF) 
+	{
+		$reference_ids[] = $result->fields['reference_id'];
+		$result->MoveNext();
+	}
+
+	return $reference_ids;
+}
+
 
 // test
 if (0)

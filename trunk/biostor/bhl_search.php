@@ -775,6 +775,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			case 15415:
 				$title_list = array(3179, 15415);
 				break;
+				
+			// Verhandlungen des Zoologisch-Botanischen Vereins in Wien
+			case 11285:
+			case 13275:
+				$title_list = array(11285, 13275);
+				break;
 
 			default:
 				break;

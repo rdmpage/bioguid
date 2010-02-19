@@ -76,6 +76,8 @@ function bioguid_openurl_search(&$reference)
 	
 	$url = 'http://bioguid.info/openurl.php?' . str_replace('&amp;', '&', reference_to_openurl($reference)) . '&display=json';
 	
+	//echo $url . "\n";
+	
 	$json = get($url);
 		
 	if ($json != '')
@@ -151,10 +153,100 @@ function bioguid_openurl_search(&$reference)
 					$reference->pdf = $obj->pdf;
 				}
 			}
+			// Authors
+			if (isset($obj->authors))
+			{
+				if (count($reference->authors == 0))
+				{
+					foreach ($obj->authors as $author)
+					{
+						$reference->authors[] = $author;
+					}
+				}
+			}
+			
 		}
 	}
 
 	return $found;
+}
+
+//--------------------------------------------------------------------------------------------------
+/**
+ * @brief Call bioGUID to retrieve metadata for a bibliographic identifier (e.g., doi)
+ *
+ * @param reference Reference object, this gets populated with additional fields (such as DOI) if found
+ *
+ * @return True if found in bioGUID, false otherwise.
+ */
+function bioguid_resolve_identifier($namespace, $id)
+{
+	$reference = NULL;
+	
+	$url = 'http://bioguid.info/openurl.php?id=' . $namespace . ':' . urlencode($id) . '&display=json';
+	
+	//echo $url . "\n";
+	
+	$json = get($url);
+
+	if ($json != '')
+	{
+		$obj = json_decode($json);
+				
+		$found = ($obj->status == 'ok');
+		if ($found)
+		{
+			$reference = new stdclass;
+			$reference->authors = array();
+			
+			foreach ($obj as $k => $v)
+			{
+				switch ($k)
+				{
+					case 'doi':
+					case 'hdl':
+					case 'pmid':
+					case 'url':
+					case 'pdf':
+					case 'volume':
+					case 'issue':
+					case 'spage':
+					case 'epage':
+					case 'year':
+					case 'date':
+					case 'issn':
+					case 'genre':
+						if (trim($v) != '')
+						{
+							$reference->{$k} = trim($v);
+						}
+						break;
+						
+					case 'title':
+						$reference->secondary_title = $v;
+						break;
+
+					case 'atitle':
+						$reference->title = $v;
+						break;
+						
+					case 'authors':
+						foreach ($obj->authors as $author)
+						{
+							$reference->authors[] = $author;
+						}
+						break;					
+						
+					default:
+						break;
+				}
+			}
+			
+			print_r($reference);
+
+		}
+	}
+	return $reference;
 }
 
 
