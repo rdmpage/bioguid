@@ -268,6 +268,8 @@ function url2meta($url)
 	$item = new stdClass;
 	$item->status = 'failed';
 	$item->authors = array();
+	
+	//echo $url;
 
 
 	$match=array();
@@ -785,7 +787,7 @@ function url2meta($url)
 			. $match['journal'] . '.org/cgi/citmgr?type=refman&gca=';
 			
 			
-		//echo $match[2], '<br/>';
+		//echo $match['journal'], '<br/>';
 		
 		switch($match['journal'])
 		{
@@ -822,10 +824,22 @@ function url2meta($url)
 				$ris_url .= 'icbiol';
 				$item->issn = '1540-7063';
 				break;
+				
+			case 'jeb.biologists':
+				$ris_url .= 'jexbio';
+				$item->issn = '0022-0949';
+				break;
+			
 			case 'jvi.asm':
 				$ris_url .= 'jvi';
 				$item->issn = '0022-538X';
 				break;
+				
+			case 'jwildlifedis':
+				$ris_url .= 'wildlifedis';
+				$item->issn = '0090-3558';
+				break;
+				
 			case 'mbe.oxfordjournals':
 				$ris_url .= 'molbiolevol';
 				$item->issn = '0737-4038';
@@ -849,8 +863,6 @@ function url2meta($url)
 			case 'reproduction-online':
 				$ris_url .= 'reprod';
 				$item->issn = '1470-1626';
-				
-				echo $ris_url;
 				break;
 
 			default:
@@ -1193,6 +1205,52 @@ function url2meta($url)
 	// http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1679-62252009000100001&lng=en&nrm=iso&tlng=en
 	if (preg_match('/http:\/\/www.scielo.br/', $url))
 	{
+	
+		//echo $url;
+		if (preg_match('/pid=(?<id>S(?<issn>[0-9]{4}\-[0-9]{3}[0-9|X])[0-9]+)/', $url, $match))
+		{
+			//print_r($match);
+			
+			$url = 'http://www.scielo.br/scieloOrg/php/articleXML.php?pid=' . $match['id'] . '&lang=en';
+
+			//echo "Url:$url\n";
+			
+			$xml = get($url);
+			
+			//echo $xml;
+			
+			$xp = new XsltProcessor();
+			$xsl = new DomDocument;
+			$xsl->load('xsl/scielo.xsl');
+			$xp->importStylesheet($xsl);
+					
+			
+			$xml_doc = new DOMDocument;
+			$xml_doc->loadXML($xml);
+			
+			$json = $xp->transformToXML($xml_doc);
+			
+			$item = json_decode($json);
+			
+			// Handle cases like spage = 01
+			if (isset($item->spage))
+			{
+				$item->spage = preg_replace('/^0/', '', $item->spage);
+			}
+
+			// ISSN is set in XSL, but make sure it is correct in case we forget...
+			if (isset($item->issn))
+			{
+				$item->issn = $match['issn'];
+			}
+			
+			//print_r($obj);
+			
+			$item->status = 'ok';
+
+		}
+	
+/*
 		
 		$html = get($url);
 	
@@ -1217,6 +1275,9 @@ function url2meta($url)
 		}
 		
 		$item->status = 'ok';
+*/		
+		
+		
 
 	}	
 	
@@ -1401,7 +1462,14 @@ function url2meta($url)
 }
 
 /*
+$url = 'http://apt.allenpress.com/perlserv/?request=get-abstract&doi=10.1043%2F1070-9428%282000%29009%5B0001%3AASOTBO%5D2.3.CO%3B2';
+$item = url2meta($url);
+print_r($item);
+*/
+/*
 $url = 'http://www.bioone.org/doi/abs/10.1651/08-3058a.1?ai=tr&af=R';
+
+$url = 'http://www.scielo.br/scielo.php?pid=S0101-81751998000400011&script=sci_arttext&tlng=en';
 $item = url2meta($url);
 print_r($item);
 */
