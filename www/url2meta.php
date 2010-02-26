@@ -456,11 +456,11 @@ function url2meta($url)
 	// New style...
 	// http://www.bioone.org/doi/abs/10.1651/08-3058a.1?ai=tr&af=R
 	//------------------------------------------------------------------------------
-	if (preg_match('/http:\/\/www.bioone.org\/doi\/abs\/(.*)\?/', $url, $match))
+	if (preg_match('/http:\/\/www.bioone.org\/doi\/(abs|full)\/(?<doi>.*)\?/', $url, $match))
 	{
 		$item->status = 'ok';
 		$item->comment = 'url';
-		$item->doi = $match[1];
+		$item->doi = $match['doi'];
 	}
 
 	
@@ -648,14 +648,14 @@ function url2meta($url)
 		if (isset($match[1]))
 		{
 			$item->status='ok';
-			$item->status='url';
+			$item->comment='url';
 			$item->pmid = $match[1];
 		}
 		
 		if (preg_match('/http:\/\/www.ncbi.nlm.nih.gov\/pubmed\/([0-9]+)/', $url, $match))
 		{
 				$item->status='ok';
-				$item->status='url';
+				$item->comment='url';
 				$item->pmid = $match[1];
 		}
 	}
@@ -778,10 +778,9 @@ function url2meta($url)
 	
 	//------------------------------------------------------------------------------
 	// Highwire Press
-	if (preg_match('/http:\/\/(?<prefix>(www.))?(?<journal>.*).org\/cgi\/content\/(abstract|short)\/(?<item>([0-9]+\/[0-9]+\/[0-9]+))/', $url, $match))
+	if (preg_match('/http:\/\/(?<prefix>(www.))?(?<journal>.*).org\/cgi\/((content\/(abstract|short))|(reprint))\/(?<item>([0-9]+\/[0-9]+\/[0-9]+))/', $url, $match))
 	{
 		//print_r($match);
-		
 		
 		$ris_url = 'http://' . $match['prefix'] 
 			. $match['journal'] . '.org/cgi/citmgr?type=refman&gca=';
@@ -890,11 +889,27 @@ function url2meta($url)
 	}
 	
 	// JSTOR stable
-	if (preg_match('/http:\/\/www.jstor.org\/pss\/[0-9]+/', $url, $match))
+	if (preg_match('/http:\/\/www.jstor.org\/(pss|stable)\/(?<id>[0-9]+)/', $url, $match))
 	{
-		$id = $match[2];
+		$id = $match['id'];
 		
-		$html = get($url);
+		$html = '';
+		
+		//echo $html;
+		
+		if ('' == $config['proxy_name'])
+		{
+			// Outside Glasgow so we get metadata directly 
+			$html = get($url);
+		}
+		else
+		{
+			// At Glasgow, one more step
+			$u = 	'http://www.jstor.org/stable/info/' . $id . '?seq=1';
+			$html = get($u);
+			
+		}
+		
 		// Add line feeds so regular expresison works
 		$html = str_replace('<meta', "\n<meta", $html);
 
@@ -911,8 +926,31 @@ function url2meta($url)
 	
 		parseDcMeta($out, $item);
 		
+		$html = str_replace("\n", "", $html);
+		if (preg_match('/
+		<title>
+		JSTOR:\s+
+		(?<title>(.*)),
+		\s+
+		Vol.\s+(?<volume>\d+),
+		(\s+No.\s+(?<issue>\d+(-\d+)?)\s+)?
+		\(((.*),\s+)?(?<year>[0-9]{4})\),\s+
+		pp.\s+(?<spage>\d+)-(?<epage>\d+)
+		<\/title>
+		/Ux', $html, $matches))
+		{
+			//print_r($matches);
+			
+			$item->title = $matches['title'];
+			$item->volume = $matches['volume'];
+			$item->issue = $matches['issue'];
+			$item->spage = $matches['spage'];
+			$item->epage = $matches['epage'];
+			$item->year = $matches['year'];
+		}
+		
 		// Kill DOI on assumption we wouldn't be harvesting stable URL if DOI worked
-		unset($item->doi);
+		//unset($item->doi);
 		
 		
 		$item->status = 'ok';
@@ -1005,6 +1043,12 @@ function url2meta($url)
 			$item->status = 'ok';
 			$item->doi = $match[1];
 		}
+		
+		if (preg_match('/http:\/\/linkinghub.elsevier.com\/retrieve\/pii\/(?<pii>S(.*))/', $url, $match))
+		{
+			$item->pii = $match['pii'];
+		}
+		
 		$item->status = 'ok';
 		
 	}	
@@ -1462,12 +1506,21 @@ function url2meta($url)
 }
 
 /*
-$url = 'http://apt.allenpress.com/perlserv/?request=get-abstract&doi=10.1043%2F1070-9428%282000%29009%5B0001%3AASOTBO%5D2.3.CO%3B2';
-$item = url2meta($url);
-print_r($item);
-*/
-/*
-$url = 'http://www.bioone.org/doi/abs/10.1651/08-3058a.1?ai=tr&af=R';
+$url = 'http://www.ncbi.nlm.nih.gov/pubmed/4133322';
+$url = 'http://www.springerlink.com/index/U52X650525501VL6.pdf';
+$url = 'http://linkinghub.elsevier.com/retrieve/pii/S0304380099000575';
+$url = 'http://www.bioone.org/doi/full/10.1643/0045-8511(2007)7%5B1006:EEFAIT%5D2.0.CO%3B2?prevSearch=';
+$url = 'http://www3.interscience.wiley.com/journal/122264987/abstract';
+$url = 'http://www.ingentaconnect.com/content/brill/beh/2009/00000146/00000003/art00002';
+$url = 'http://mollus.oxfordjournals.org/cgi/reprint/43/3/286.pdf';
+
+$url = 'http://www.jstor.org/stable/3891667';
+$url = 'http://www.jstor.org/stable/1447192';
+
+//$url = 'http://www.springerlink.com/index/W421307363Q1N68N.pdf';
+//$url = 'http://linkinghub.elsevier.com/retrieve/pii/S0304380099000575';
+
+echo $url . "\n";
 
 $url = 'http://www.scielo.br/scielo.php?pid=S0101-81751998000400011&script=sci_arttext&tlng=en';
 $item = url2meta($url);
