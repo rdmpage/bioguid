@@ -4,6 +4,26 @@
  * @file utils.php
  *
  */
+ 
+ 
+//------------------------------------------------------------------------------
+// Convert codes such as &#37; to corresponding character (e.g., '%')
+function convert_html_hash_codes($text)
+{
+	$a = preg_split('/(&#[0-9]+;)/', $text, 0, PREG_SPLIT_DELIM_CAPTURE);
+	
+	$str = '';
+	foreach ($a as $part)
+	{
+		if (preg_match('/&#(?<c>[0-9]+);/', $part, $match))
+		{
+			$part = chr($match['c']);
+		}
+		$str .= $part;
+	}
+	
+	return $str;
+}
 
 //------------------------------------------------------------------------------
 /**
