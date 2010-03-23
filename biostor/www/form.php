@@ -85,12 +85,15 @@ function reference_form($reference, $recaptcha = true)
 	
 	$html = '';
 	
-	$html .= '<form id="metadata_form" action="#">';
-	$html .= '<table width="100%">';
+	$html .= '<form id="metadata_form" action="#">' . "\n";
+	$html .= '<table width="100%">' . "\n";
 	
 	// Reference type
 	// for now
-	$html .= '<tr><td></td><td><input type="hidden" name="genre" value="article" ></td></tr>';
+	$html .= '<tr><td></td><td><input type="hidden" name="genre" value="article" ></td></tr>' . "\n";
+
+	// reference id
+	$html .= '<tr><td></td><td><input type="hidden" name="reference_id" value="' . $reference->reference_id . '" ></td></tr>' . "\n";
 
 /*	$html .= '<tr><td class="field_name">Type:</td><td>';
 	$html .= '<select id="genre">';

@@ -8,6 +8,11 @@ RewriteCond %{HTTP_HOST} ^www.biostor.org$ 														[NC]
 RewriteRule ^(.*)$ 								http://biostor.org/$1 						[R=301,L]
 
 #---------------------------------------------------------------------------------------------------
+# Short URLs for wiki
+RewriteRule ^wiki/(.*)$ 						w/index.php?title=$1 							[PT,L,QSA]
+RewriteRule ^wiki/*$ 							w/index.php 									[L,QSA]
+
+#---------------------------------------------------------------------------------------------------
 # Reference
 RewriteRule ^reference/([0-9]+)$				display_reference.php?id=$1						[NC,L]
 RewriteRule ^reference/([0-9]+)/page/([0-9]+)$	display_reference.php?id=$1&page=$2				[NC,L]

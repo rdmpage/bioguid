@@ -74,7 +74,7 @@ function parse_citation($citation, &$reference)
 	}
 	
 	
-	// Wikiepdia cite
+	// Wikipedia cite
 	if (!$matched)
 	{
 		$rows = preg_split("/\|/", $citation);

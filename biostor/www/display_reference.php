@@ -17,6 +17,7 @@ require_once ('../identifier.php');
 require_once ('../reference.php');
 require_once ('../geocoding.php');
 require_once ('../nomenclator.php');
+require_once ('../user.php');
 
 //--------------------------------------------------------------------------------------------------
 class DisplayReference extends DisplayObject
@@ -193,7 +194,6 @@ function store(form_id, page_id)
   		errors[errors.length] = "Please supply a journal name";
  	}	
 
-
  	if ((issn != "") && !check_issn.test(issn)) 
  	{
   		errors[errors.length] = "ISSN " + "\"" + issn + "\" is not valid";
@@ -258,7 +258,7 @@ function updateFailure (t)
 
 // Based on http://ne0phyte.com/blog/2008/09/02/javascript-keypress-event/
 // and http://blog.evandavey.com/2008/02/how-to-capture-return-key-from-field.html
-// I want to cpature enter key press in recaptcha to avoid submitting the form (user must click
+// I want to capture enter key press in recaptcha to avoid submitting the form (user must click
 // on button for that). We listen for keypress and eat it. Note that we attach the listener after
 // the window has loaded.
 echo 'function onMyTextKeypress(event)
@@ -296,17 +296,23 @@ Event.observe(window, \'load\', function() {
 						map.addControl(new GOverviewMapControl());
 						map.addControl(new GMapTypeControl());        
 						map.addMapType(G_PHYSICAL_MAP);
-						//map.setMapType(G_PHYSICAL_MAP);
+						map.setMapType(G_PHYSICAL_MAP);
 						';
 			
+			echo '// Bounding box to contain points, from http://www.svennerberg.com/2008/11/bounding-box-in-google-maps/ ' . "\n";
+			echo '// see especially comment by Aiska http://www.svennerberg.com/2008/11/bounding-box-in-google-maps/#comment-1546 ' . "\n";
+
+			echo 'var bounds = new GLatLngBounds();' . "\n";
 			
 			foreach ($this->localities as $loc)
 			{
-				echo 'map.addOverlay(createMarker(new GLatLng(';
+				echo 'var latlng = new GLatLng(';
 				echo $loc->latitude;
 				echo ',';
 				echo $loc->longitude;
-				echo '),\'\',';
+				echo ');' . "\n";
+				echo 'map.addOverlay(createMarker(latlng), \'\',';
+								
 				if ($loc->name != '')
 				{
 					echo "'" . $loc->name . "'";
@@ -315,10 +321,19 @@ Event.observe(window, \'load\', function() {
 				{
 					echo "'" . format_decimal_latlon($loc->latitude, $loc->longitude) . "'";
 				}
-				echo '));' . "\n";
+				echo ');' . "\n";
+				
+				echo 'bounds.extend(latlng);' . "\n";
+				
 			}
-			echo ' 	}
-			}' . "\n";
+			echo ' 	}' . "\n";
+			
+			echo '// Center map in the center of the bounding box' . "\n";
+			echo '// and calculate the appropriate zoom level' . "\n"; 
+			echo 'map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds));' . "\n";
+
+			
+			echo '}' . "\n";
 			echo  '</script>' . "\n";
 		}
 	}
@@ -345,7 +360,7 @@ Event.observe(window, \'load\', function() {
 	//----------------------------------------------------------------------------------------------
 	function DisplayEditForm()
 	{
-		$html = reference_form($this->object);
+		$html = reference_form($this->object, !user_is_logged_in());
 		return $html;
 	}
 
