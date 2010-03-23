@@ -121,6 +121,25 @@ function parse_bhl_date($str, &$info)
 	$str = preg_replace('/:plates$/', '', $str);
 	$str = trim($str);
 	
+	// nuova ser.:v.1 (1901-1905)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^nuova ser.:v.(?<volume>[0-9]+)\s*\((?<yearstart>[0-9]{4})-(?<yearend>[0-9]{4})\)$/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = $m['yearend'];
+			$matched = true;
+		}
+		
+	}	
+	
+	
 	// 8 (Series 2)
 	if (!$matched)
 	{
@@ -503,7 +522,7 @@ function parse_bhl_date($str, &$info)
 		$m = array();
 		
 		if ($debug) echo "Trying " . __LINE__ . "\n";
-		if (preg_match("/^(v|t|bd|Bd)\.?\s*(?<volume>[0-9]+)\s*\(?(?<year>[0-9]{4})\)?$/", $str, $m))
+		if (preg_match("/^(v|t|bd|Bd|anno)\.?\s*(?<volume>[0-9]+)\s*\(?(?<year>[0-9]{4})\)?$/", $str, $m))
 		{
 			if ($debug) { echo "$str
 "; print_r($m); }

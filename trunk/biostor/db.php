@@ -1206,6 +1206,15 @@ function db_find_article($article)
 	
 	$hits = array();
 	
+	// Unset things we don't have
+	foreach ($article as $k => $v)
+	{
+		if ($v == '') 
+		{
+			unset($article->${k});
+		}
+	}
+	
 	// Check first for identifiers
 	if (isset($article->doi) && ($article->doi != ''))
 	{
@@ -1269,6 +1278,7 @@ function db_find_article($article)
 	}	
 	
 	//print_r($hits);
+	//print_r($article);
 	
 	$matches = array();
 	if (count($hits) > 0)
@@ -1280,6 +1290,7 @@ function db_find_article($article)
 		foreach ($hits as $hit)
 		{
 			$ref = db_retrieve_reference($hit);
+			//print_r($ref);
 			
 			$matched = 0;
 			
@@ -1290,6 +1301,11 @@ function db_find_article($article)
 				{
 					$matched++;
 				}
+			}
+			else
+			{
+				// no epage, accept hit by default
+				$matched++;
 			}
 			
 			// Do issue numbers match?
@@ -1304,7 +1320,7 @@ function db_find_article($article)
 			switch ($matched)
 			{
 				case 0:
-					// Unlikely to be same thing, unless mistake in pagination
+					// Unlikely to be same thing, unless mistake in pagination, but allow for missing epage
 					break;
 					
 				case 1:
@@ -1371,6 +1387,24 @@ function db_retrieve_reference_from_doi($doi)
 	$id = 0;
 	
 	$sql = 'SELECT * FROM rdmp_reference WHERE doi=' . $db->qstr($doi) . ' LIMIT 1';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	if ($result->NumRows() == 1)
+	{
+		$id = $result->fields['reference_id'];
+	}
+	return $id;
+}
+
+//--------------------------------------------------------------------------------------------------
+function db_retrieve_reference_from_url($url)
+{
+	global $db;
+
+	$id = 0;
+	
+	$sql = 'SELECT * FROM rdmp_reference WHERE url=' . $db->qstr($url) . ' LIMIT 1';
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 	
@@ -1532,7 +1566,17 @@ function db_store_article($article, $PageID = 0, $updating = false)
 	
 	$update = false;
 	
-	$id = db_find_article($article);
+	$id = 0;
+	
+	// If we are editing an existing reference then we already know its id
+	if (isset($article->reference_id))
+	{
+		$id = $article->reference_id;
+	}
+	else
+	{
+		$id = db_find_article($article);
+	}
 	if ($id != 0)
 	{
 		if ($updating)

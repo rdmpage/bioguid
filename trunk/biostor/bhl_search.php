@@ -720,7 +720,8 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			// Misc Pub Kansas (some of these are treated as individual titles)
 			case 4050:
 			case 16171:
-				$title_list = array(4050, 16171);
+			case 16222:
+				$title_list = array(4050, 16171, 16222);
 				break;	
 				
 			// Occasional papers of the California Academy of Sciences

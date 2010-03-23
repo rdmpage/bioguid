@@ -8,6 +8,7 @@
  */
 
 require_once('../config.inc.php');
+require_once('../user.php');
 
 $starttime = '';
 
@@ -96,15 +97,41 @@ function html_page_header($has_search = false, $query = '', $category = 'all')
 	global $config;
 	
 	$html = '';
-	$html .= '<div style="border-bottom:1px dotted rgb(128,128,128);padding-bottom:10px;">';
+	$html .= '<div style="border-bottom:1px dotted rgb(128,128,128);padding-bottom:15px;">';
 	$html .= '<a href="' . $config['web_root'] . '"><span style="font-size:24px;">' . $config['site_name'] . '</span></a>';
 	
 	if ($has_search)
 	{
-		echo html_search_box($query, $category);
-	}
+		$html .='<div style="float:right;">' . "\n";	
+		$html .= '<table>';
+		$html .= '<tr>';
+	
+/*		// Login/out
+		if (user_is_logged_in())
+		{
+			$user = user_with_openid($_COOKIE['openid']);
+			if ($user != NULL)
+			{
+				$html .= '<td><img src="http://www.gravatar.com/avatar/' . md5($user->email) . '" width="32" /></td>';
+			
+				$html .= '<td>   '. $user->username . '   </td>';			
+			}
+			$html .= '<td>   <a href="logout.php">Logout</a>   </td>';
+		}
+		else
+		{
+			$html .=  '<td>   <a href="login.php">Login</a>   </td>';
+		}	
+*/		
+		$html .= html_search_box($query, $category);
 
-	$html .= '</div>';
+		$html .='</tr>' . "\n";
+		$html .='</table>' . "\n";
+		$html .='</div>' . "\n";
+	}
+	
+	$html .='</div>' . "\n";
+	
 
 	return $html;
 }
@@ -244,11 +271,10 @@ function html_search_box($query = '', $category = 'all')
 	global $config;
 	
 	// Note use of <div> around <input>, in XHTML we can't have a naked <input> element
-	$html = '';
-	$html .='<div style="float:right;">' . "\n";	
+	$html = '<td>';
 	$html .= '<form  method="get" action="' . $config['web_root'] . 'search.php" onsubmit="return validateTextSearch(this);">
 		<div >
-		<input  id="search" name="q" type="text" size="40" value="' . $query . '"/>' . "\n";
+		<input  id="search" name="q" type="text" size="20" value="' . $query . '"/>' . "\n";
 /*		
 		<select  id="category" name="category">
 			<!--<option value="all"';
@@ -282,11 +308,11 @@ function html_search_box($query = '', $category = 'all')
 			}
 			$html .= '>Taxon name</option>
 		</select> */
-	$html .= '
-		<input  name="submit" type="submit" value="Search" />
+	$html .= '<input  name="submit" type="submit" value="Search" />
 		</div>
 	</form>' . "\n";
-	$html .='</div>' . "\n";
+	
+	$html .= "</td>\n";
 	
 	return $html;
 }

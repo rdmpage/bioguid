@@ -488,7 +488,7 @@ if (0)
 	
 	$lsid = 'urn:lsid:zoobank.org:act:2305A61F-D1B5-4796-8EE1-E9E4136EB0B0';
 	
-	
+	$lsid = 'urn:lsid:organismnames.com:name:661830';
 	resolve_nomenclator_lsid($lsid);
 }
 

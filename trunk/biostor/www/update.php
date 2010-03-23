@@ -60,6 +60,7 @@ if ($can_update)
 	{
 		switch ($key)
 		{
+			case 'reference_id':
 			case 'genre':
 			case 'title':
 			case 'secondary_title':

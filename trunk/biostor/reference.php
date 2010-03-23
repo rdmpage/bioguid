@@ -414,6 +414,19 @@ function reference_to_ris($reference)
 			}	
 			$ris .= "Y1  - " . $reference->year . "\n";
 			$ris .= "UR  - " .  $config['web_root'] . "reference/" . $reference->reference_id . "\n";
+
+			// PDF
+			if (isset($reference->pdf))
+			{
+				$ris .= "L1  - " . $reference->pdf . "\n";
+			}	
+			// BHL
+			if (isset($reference->PageID))
+			{
+				$ris .= "L2  - http://www.biodiversitylibrary.org/page/" . $reference->PageID . "\n";
+			}	
+
+
 			$ris .= "ER  - \n\n";
 			
 			break;

@@ -183,7 +183,21 @@ function bioguid_resolve_identifier($namespace, $id)
 {
 	$reference = NULL;
 	
-	$url = 'http://bioguid.info/openurl.php?id=' . $namespace . ':' . urlencode($id) . '&display=json';
+	$url = 'http://bioguid.info/openurl.php?id=';
+	
+	switch ($namespace)
+	{
+		case 'hdl':
+		case 'doi':
+		case 'pmid':
+			$url .= $namespace . ':';
+			break;
+			
+		default:
+			break;
+	
+	}
+	$url .= urlencode($id) . '&display=json';
 	
 	//echo $url . "\n";
 	
