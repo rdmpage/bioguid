@@ -140,6 +140,7 @@ function HttpCodeValid($http_code)
 function get($url, $userAgent = '')
 {
 	global $config;
+	global $debug;
 	
 	$data = '';
 	
@@ -148,6 +149,10 @@ function get($url, $userAgent = '')
 	curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
 	curl_setopt ($ch, CURLOPT_FOLLOWLOCATION,	1); 
 	//curl_setopt ($ch, CURLOPT_HEADER,		  1);  
+	
+	// Index Fungorum needs some extra time
+	//curl_setopt ($ch, CURLOPT_TIMEOUT, 20);	
+	curl_setopt ($ch, CURLOPT_TIMEOUT, 10);	
 
 	curl_setopt ($ch, CURLOPT_COOKIEJAR, 'cookie.txt');
 	
@@ -167,7 +172,10 @@ function get($url, $userAgent = '')
 	
 	if (curl_errno ($ch) != 0 )
 	{
-		echo "CURL error: ", curl_errno ($ch), " ", curl_error($ch);
+		if ($debug)
+		{
+			echo "<pre>CURL error: " . curl_errno ($ch) . " " . curl_error($ch) . '</pre>';
+		}
 	}
 	else
 	{
