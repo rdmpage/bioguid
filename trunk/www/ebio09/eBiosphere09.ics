@@ -1,0 +1,313 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:eBiosphere09
+X-WR-TIMEZONE:UTC
+X-WR-CALDESC:The e-Biosphere 09 International Conference on Biodiversity In
+ formatics will bring together an exceptional array of speakers and particip
+ ants to highlight the achievements in Biodiversity Informatics today and to
+  discuss strategies for its future. This conference presents a unique oppor
+ tunity for a wide range of professionals\, researchers\, and students to co
+ me together to help plan the future of the field.
+BEGIN:VEVENT
+DTSTART:20090601T133000Z
+DTEND:20090601T150000Z
+DTSTAMP:20090526T233633Z
+UID:j1212p9iore54lj3adn48eiqgk@google.com
+CLASS:PRIVATE
+CREATED:20090526T232854Z
+DESCRIPTION:Conference participants will have several hours to visit the e-
+ Biosphere 09 "Street Fair". They are invited to view poster presentations\,
+  see demonstrations of biodiversity databases and software\, and visit comm
+ ercial exhibits.
+LAST-MODIFIED:20090526T232854Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:The e-Biosphere 09 Street Fair
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090601T083000Z
+DTEND:20090601T093000Z
+DTSTAMP:20090526T233633Z
+UID:m696v4098m8km4hodgh74a3268@google.com
+CLASS:PRIVATE
+CREATED:20090526T232816Z
+DESCRIPTION:Two plenary keynote speakers will provide overviews of the impa
+ ct that Biodiversity Informatics is having on research and societal applica
+ tions\, and the importance of building globally integrated capabilities for
+  biodiversity information.
+LAST-MODIFIED:20090526T232816Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Impact and Integration of Biodiversity Informatics
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090602T163000Z
+DTEND:20090602T173000Z
+DTSTAMP:20090526T233633Z
+UID:rml8q51kd2evnlk6p9chg0du5g@google.com
+CLASS:PRIVATE
+CREATED:20090526T233312Z
+DESCRIPTION:
+LAST-MODIFIED:20090526T233312Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Breakout Session conveners and rapporteurs meet to collate results 
+ and plan for presentations on Day 3
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090601T080000Z
+DTEND:20090601T083000Z
+DTSTAMP:20090526T233633Z
+UID:0l36j10g98irn1vec3qluopjrk@google.com
+CLASS:PRIVATE
+CREATED:20090526T232538Z
+DESCRIPTION:
+LAST-MODIFIED:20090526T233021Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Opening
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:This is an event reminder
+TRIGGER:-P0DT0H10M0S
+END:VALARM
+BEGIN:VALARM
+ACTION:EMAIL
+DESCRIPTION:This is an event reminder
+SUMMARY:Alarm notification
+ATTENDEE:mailto:rdmpage@googlemail.com
+TRIGGER:-P0DT0H10M0S
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090601T163000Z
+DTEND:20090601T180000Z
+DTSTAMP:20090526T233633Z
+UID:un5mjaqo9r6ppdq0aurgejggik@google.com
+CLASS:PRIVATE
+CREATED:20090526T233006Z
+DESCRIPTION:
+LAST-MODIFIED:20090526T233007Z
+LOCATION:The Natural History Museum
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Evening Reception
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090601T160000Z
+DTEND:20090601T163000Z
+DTSTAMP:20090526T233633Z
+UID:390fdcvlogh9tmhvlhvtooggf4@google.com
+CLASS:PRIVATE
+CREATED:20090526T232938Z
+DESCRIPTION:
+LAST-MODIFIED:20090526T232938Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Stella Simiyu
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090601T100000Z
+DTEND:20090601T120000Z
+DTSTAMP:20090526T233633Z
+UID:bhqda6p1tbccmu8crs6c7o3b4g@google.com
+CLASS:PRIVATE
+CREATED:20090526T232744Z
+DESCRIPTION:Seven members of a discussion panel will give very brief presen
+ tations on some of the largest and most important initiatives in Biodiversi
+ ty Informatics. These introductory remarks will be followed by a full-panel
+  discussion and interactions with the audience.
+LAST-MODIFIED:20090526T232744Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Major Initiatives
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:This is an event reminder
+TRIGGER:-P0DT0H10M0S
+END:VALARM
+BEGIN:VALARM
+ACTION:EMAIL
+DESCRIPTION:This is an event reminder
+SUMMARY:Alarm notification
+ATTENDEE:mailto:rdmpage@googlemail.com
+TRIGGER:-P0DT0H10M0S
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090603T110000Z
+DTEND:20090603T120000Z
+DTSTAMP:20090526T233633Z
+UID:pt5m5n8hv77o35jk2im6m7ufu0@google.com
+CLASS:PRIVATE
+CREATED:20090526T233428Z
+DESCRIPTION:This final plenary session will bring together the recommendati
+ ons of the Conference participants for the future of Biodiversity Informati
+ cs. These recommendations will provide critical input to the Planning Meeti
+ ng that will follow the International Conference.
+LAST-MODIFIED:20090526T233428Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Summing Up
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090603T080000Z
+DTEND:20090603T093000Z
+DTSTAMP:20090526T233633Z
+UID:npo5qmjtn6of0hdp7mdkce6dgc@google.com
+CLASS:PRIVATE
+CREATED:20090526T233343Z
+DESCRIPTION:The rapporteurs of the break-out discussions will present the f
+ indings and recommendations of Session 8.
+LAST-MODIFIED:20090526T233343Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Planning Ahead III: Results of Break-Out Discussions
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090602T080000Z
+DTEND:20090602T090000Z
+DTSTAMP:20090526T233633Z
+UID:ntcviem0dbuftg4i59jh6hiios@google.com
+CLASS:PRIVATE
+CREATED:20090526T233112Z
+DESCRIPTION:Three plenary speakers will show how advances in informatics no
+ w make it possible to bring together information about biodiversity from a 
+ wealth of online databases and both historical and current literature. Thes
+ e approaches allow information to be recombined and used in support of rese
+ arch and planning in ways that may not have been foreseen by those who firs
+ t produced it.
+LAST-MODIFIED:20090526T233112Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Biodiversity Informatics at Work
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090603T100000Z
+DTEND:20090603T110000Z
+DTSTAMP:20090526T233633Z
+UID:o2e1s7rbsd3k7md3mqnceh42ro@google.com
+CLASS:PRIVATE
+CREATED:20090526T233408Z
+DESCRIPTION:Four members of the discussion panel will react to the results 
+ of the break-out discussions from the perspective of potential users of Bio
+ diversity Informatics\, and will engage the audience in a discussion of fut
+ ure needs.
+LAST-MODIFIED:20090526T233408Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Planning Ahead IV: The User's Perspective
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090602T143000Z
+DTEND:20090602T163000Z
+DTSTAMP:20090526T233633Z
+UID:tkvfoeoej54ljljcpgq3su97hk@google.com
+CLASS:PRIVATE
+CREATED:20090526T233245Z
+DESCRIPTION:The Conference organizers have created an Online Conference Com
+ munity (OCC) to help conference participants prepare for these break-out di
+ scussion sessions. For each of the following topics\, members of the discus
+ sion groups will be invited to articulate their vision for the future of Bi
+ odiversity Informatics.
+LAST-MODIFIED:20090526T233245Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Planning Ahead II: Setting the Stage
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090603T130000Z
+DTEND:20090603T160000Z
+DTSTAMP:20090526T233633Z
+UID:nckipga2bc3svtn54650qp6f80@google.com
+CLASS:PRIVATE
+CREATED:20090526T233538Z
+DESCRIPTION:The JRS Biodiversity Foundation is hosting a side-event in the 
+ Guild Room.\n\n
+LAST-MODIFIED:20090526T233538Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:JRS Biodiversity Foundation
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090601T153000Z
+DTEND:20090601T160000Z
+DTSTAMP:20090526T233633Z
+UID:nqcpi5v3e88pom0516sb9k2a6g@google.com
+CLASS:PRIVATE
+CREATED:20090526T232924Z
+DESCRIPTION:
+LAST-MODIFIED:20090526T232924Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Townsend Peterson
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090602T093000Z
+DTEND:20090602T113000Z
+DTSTAMP:20090526T233633Z
+UID:nfnlvqb0du1432oug3j48bhr24@google.com
+CLASS:PRIVATE
+CREATED:20090526T233141Z
+DESCRIPTION:Six members of a discussion panel will present their views on h
+ ow the growth of Biodiversity Informatics is changing community policies an
+ d practices in areas such as data sharing\, intellectual property rights\, 
+ and open access publication. These introductory presentations will be follo
+ wed by discussion among panelists and with the audience.
+LAST-MODIFIED:20090526T233141Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Cultural Challenges and Changes
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090602T130000Z
+DTEND:20090602T140000Z
+DTSTAMP:20090526T233633Z
+UID:eud528ra2toio5qpl4i1obj828@google.com
+CLASS:PRIVATE
+CREATED:20090526T233222Z
+DESCRIPTION:This session begins the second half of the International Confer
+ ence\, in which participants will play the major role by contributing their
+  ideas for the future development of Biodiversity Informatics. Three plenar
+ y speakers will set the stage for the second half of the Conference by fram
+ ing the major challenges ahead...
+LAST-MODIFIED:20090526T233222Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Planning Ahead I: Setting the Stage
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
