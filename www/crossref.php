@@ -104,6 +104,8 @@ function search_for_doi($issn, $volume, $page, $genre, &$item)
 	{
 		// Did we get a hit?
 		
+		//echo __LINE__ . " ok";
+		
 		$ok = true;
 		
 		$xml = str_replace("\n", "", $xml);
@@ -122,6 +124,8 @@ function search_for_doi($issn, $volume, $page, $genre, &$item)
 		}
 		if ($ok)
 		{
+			//echo __LINE__ . " ok";
+		
 			// Get JSON
 			$xp = new XsltProcessor();
 			$xsl = new DomDocument;
@@ -133,6 +137,8 @@ function search_for_doi($issn, $volume, $page, $genre, &$item)
 			
 			$json = $xp->transformToXML($xml_doc);
 			
+			$json = str_replace("\t", " ", $json);
+			
 			//echo $json;
 			
 			//echo json_format($json);
@@ -140,6 +146,8 @@ function search_for_doi($issn, $volume, $page, $genre, &$item)
 		
 			$item = json_decode($json);
 			
+			//print_r($item);
+						
 			// Ensure metadata is OK (assumes a journal for now)
 			if (!isset($item->issn))
 			{
@@ -179,15 +187,17 @@ function doi_metadata ($doi, &$item)
 	global $config;
 	global $debug;
 	
+	//$debug = true;
+	
 	$ok = false;
 	
 	$url = "http://www.crossref.org/openurl"
 		. "?pid=" . $config['crossref_user'] . ":" . $config['crossref_pass']
 		. "&rft_id=info:doi/$doi&noredirect=true"
 		. "&format=unixref";
-	
+		
 	//echo $url;
-
+	
 	$xml = get($url);
 	
 	if ($debug)
@@ -206,10 +216,11 @@ function doi_metadata ($doi, &$item)
 		$ok = true;
 		
 		// remove
-		$xml = str_replace('xmlns="http://www.crossref.org/xschema/1.0"', '', $xml);
+		$xml = preg_replace('/xmlns="http:\/\/www.crossref.org\/xschema\/[0-9]\.[0-9]"/', '', $xml);
 		$xml = str_replace('xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"', '', $xml);
-		
-		// strip end of lines (CSIRO sometimes has this, and it kills the JSON decoding
+		$xml = str_replace('xsi:schemaLocation="http://www.crossref.org/xschema/1.1 http://www.crossref.org/schema/unixref1.1.xsd http://www.crossref.org/xschema/1.0 http://www.crossref.org/schema/unixref1.0.xsd"', '', $xml);
+				
+		// strip end of lines (CSIRO sometimes has this, and it kills the JSON decoding)
 		$xml = str_replace("\n", "", $xml);
 		$xml = str_replace("\r", "", $xml);
 		$xml = preg_replace('/\s\s+/', " ", $xml);

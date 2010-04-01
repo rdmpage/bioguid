@@ -18,6 +18,7 @@ if (isset($_GET['format']))
 {
 	switch($format)
 	{
+		case 'json':
 		case 'html':
 		case 'rdf':
 			$format = $_GET['format'];
@@ -345,6 +346,9 @@ else
 		case 200:
 			switch ($format)
 			{
+				case 'json':
+					echo json_encode($obj);
+					break;
 				case 'rdf':
 				case 'xml':
 					$feed = new DomDocument('1.0');
@@ -405,17 +409,6 @@ else
 					$tcommon_taxonomicPlacementFormal = $taxon->appendChild($feed->createElement('tcommon:taxonomicPlacementFormal'));
 					$tcommon_taxonomicPlacementFormal->appendChild($feed->createTextNode(str_replace(';', ',', $obj->Lineage)));
 					
-					// Lineage as list of ids (will make displaying tree much easier)
-					$a = $taxon->appendChild($feed->createElement('gla:lineage'));
-					$rdfseq = $a->appendChild($feed->createElement('rdf:Seq'));
-					foreach ($obj->ancestors as $anc)
-					{
-						$li = $rdfseq->appendChild($feed->createElement('rdf:li'));
-						$li->setAttribute('rdf:resource', 'taxonomy:' . $anc->TaxonId);
-						$title = $li->appendChild($feed->createElement('dcterms:title'));
-						$title->appendChild($feed->createTextNode($anc->name));
-						
-					}
 					
 					// Parent
 					$parent = $taxon->appendChild($feed->createElement('rdfs:subClassOf'));
@@ -436,6 +429,19 @@ else
 						$rdfs_seeAlso = $taxon->appendChild($feed->createElement('rdfs:seeAlso'));
 						$rdfs_seeAlso->setAttribute('rdf:resource', $obj->seeAlso[$i]);									
 					}
+					
+/*					// Lineage as list of ids (will make displaying tree much easier)
+					$a = $taxon->appendChild($feed->createElement('gla:lineage'));
+					$rdfseq = $a->appendChild($feed->createElement('rdf:Seq'));
+					foreach ($obj->ancestors as $anc)
+					{
+						$li = $rdfseq->appendChild($feed->createElement('rdf:li'));
+						$li->setAttribute('rdf:resource', 'taxonomy:' . $anc->TaxonId);
+						$title = $li->appendChild($feed->createElement('dcterms:title'));
+						$title->appendChild($feed->createTextNode($anc->name));
+						
+					}
+*/					
 						
 					$h = 'Content-type: application/';
 					if ($format == 'rdf')
