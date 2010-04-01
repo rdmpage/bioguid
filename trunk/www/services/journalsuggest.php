@@ -20,6 +20,20 @@ function getJournal($str)
 	// Ensure fields are (only) indexed by column name
 	$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
 	
+	$str = str_replace(' of ', ' ', $str);
+	$str = str_replace(' for ', ' ', $str);
+	$str = preg_replace('/^The /', '', $str);
+
+	$str = str_replace('(', '', $str);
+	$str = str_replace(')', '', $str);
+
+	$str = str_replace(',', '', $str);
+	$str = str_replace(':', '', $str);
+	$str = str_replace('\'', '', $str);
+	$str = str_replace('.', '%', $str);
+	
+	$str = preg_replace('/\s\s*/', ' ', $str);
+	
 	$str = str_replace (' ', '%', $str);
 	$str .= '%';
 		
@@ -27,6 +41,8 @@ function getJournal($str)
 		WHERE title LIKE ' .  $db->Quote($str) .'
 		ORDER BY title
 		LIMIT 10';
+		
+	//echo $sql;
 
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed"); 
