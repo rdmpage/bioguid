@@ -101,12 +101,22 @@ function find_in_cache($item, $include_issue = false)
 	
 	// Does a reference exist?
 	
-	// Do we have a version of this in the cache?
-	$sql = 'SELECT * FROM article_cache
-		WHERE (issn = ' .  $db->Quote($item->issn) . ')
-		AND (volume = ' .  $db->Quote($item->volume) . ')
-		AND (spage = ' .  $db->Quote($item->spage) . ')';
-		
+	if (isset($item->issn) && ($item->issn != ''))
+	{
+		// Do we have a version of this in the cache?
+		$sql = 'SELECT * FROM article_cache
+			WHERE (issn = ' .  $db->Quote($item->issn) . ')
+			AND (volume = ' .  $db->Quote($item->volume) . ')
+			AND (spage = ' .  $db->Quote($item->spage) . ')';
+	}
+	else
+	{
+		$sql = 'SELECT * FROM article_cache
+			WHERE (title = ' .  $db->Quote($item->title) . ')
+			AND (volume = ' .  $db->Quote($item->volume) . ')
+			AND (spage = ' .  $db->Quote($item->spage) . ')';	
+	}
+			
 	if ($include_issue)
 	{
 		if (isset($item->issue))
@@ -294,6 +304,9 @@ function find_author($author)
 		}
 	}	*/
 	
+	// Space initials nicely
+	$author->forename = preg_replace("/\.([A-Z])/", ". $1", $author->forename);
+	
 	// Make nice (in most cases will already be nice
 	$author->forename = mb_convert_case($author->forename, 
 		MB_CASE_TITLE, mb_detect_encoding($author->forename));
@@ -426,6 +439,12 @@ function update_article_attribute($id, $attribute_name, $attribute_value)
 function store_in_cache($item)
 {
 	global $db;
+	
+	
+	// sanity check (to do)
+	
+	
+	
 
 	$sql = 'INSERT INTO article_cache(';
 	$columns = '';
