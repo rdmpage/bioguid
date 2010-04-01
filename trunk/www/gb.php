@@ -620,6 +620,39 @@ function get_sequence($accession, &$item)
 		
 		//echo $xml;
 		
+		// Did we get an error?
+		
+		// Nothing returned
+		if ($xml == '')
+		{
+			return 0;
+		}
+		
+		//echo "\n\n" . __LINE__ . "\n\n";
+		
+		// NCBI error (sequence doesn't exist, or might not be released
+		$dom= new DOMDocument;
+		$dom->loadXML($xml);
+		$xpath = new DOMXPath($dom);
+		$xpath_query = "//Error";
+		$nodeCollection = $xpath->query ($xpath_query);
+		
+		$ok = true;
+		foreach ($nodeCollection as $node)
+		{
+			if ($node->firstChild->nodeValue != '')
+			{
+				$ok = false;
+			}
+		}
+		if (!$ok)
+		{
+			return 0;
+		}		
+	
+		//echo "\n\n" . __LINE__ . "\n\n";
+	
+	
 		$xp = new XsltProcessor();
 		$xsl = new DomDocument;
 		$xsl->load('xsl/gb2JSON.xsl');

@@ -213,6 +213,11 @@ function process_ris_key($key, $value, &$obj)
 			{
 				$obj->date = $date;
 			}
+
+			if (preg_match("/^[0-9]{4}$/", $date))
+			{
+				$obj->year = $date;
+			}
 			break;
 			
 		case 'M3': // used by Ingenta for DOI
@@ -237,8 +242,7 @@ function process_ris_key($key, $value, &$obj)
 		case 'UR': // May be URL, may be identifier with proxy prefix
 		case 'N1':
 			// Extract any other identifiers
-			$value = urldecode($value);
-			$id = IdentifierKind($value);
+			$id = IdentifierKind(urldecode($value));
 			
 			//print_r($id);
 			
@@ -269,7 +273,7 @@ function process_ris_key($key, $value, &$obj)
 				$obj->$key_map[$key] = $value;
 			}
 			break;
-			
+						
 		case 'M1':
 			if (preg_match('/^S/', $value))
 			{
@@ -366,6 +370,12 @@ function import_ris($ris)
 					if ($doi != '')
 					{
 						$obj->doi = $doi;
+						
+						// Fix missing metadata
+						if (!isset($obj->epage) && isset($item->epage))
+						{
+							$obj->epage= $item->epage;
+						}
 					}
 				}
 			}
