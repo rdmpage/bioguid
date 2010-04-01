@@ -129,6 +129,22 @@ function parse_ion_ref($str, &$matches, $debug = 0)
 		}	
 	}
 	
+ 	//Memoirs of the Queensland Museum, 50(2), 10 January 2005: 133-194.
+	
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>(.*)), (?<volume>\d+)(\((?<issue>\d+)\)),?((.*)(?<year>[0-9]{4}))?:\s*(?<spage>\d+)-(?<epage>\d+)./', $str, $matches))
+		{
+			if ($debug)
+			{
+				echo __LINE__ . "\n";
+				print_r($matches);	
+			}
+			$matched = true;
+		}
+	}
+	
+	
 	if (!$matched)
 	{
 		if (preg_match('/(?<journal>(.*)), (No. )?(?<volume>\d+),?\s*(\((?<issue>\d+)\))?,?(?<date>\s*((\d+ \w+)|(\w+ \d+)|(\w+))?(\s*(?<year>[0-9]{4})))(\((?<actualyear>[0-9]{4})\))?:\s*(?<spage>\d+)-(?<epage>\d+).(\s*http:\/\/(?<url>.*) \[)?/', $str, $matches))
@@ -145,6 +161,20 @@ function parse_ion_ref($str, &$matches, $debug = 0)
 	if (!$matched)
 	{
 		if (preg_match('/(?<journal>(.*)), (?<volume>\d+)\s*(?<year>[0-9]{4}):\s*pp.\s*(?<spage>\d+)-(?<epage>\d+)./', $str, $matches))
+		{
+			if ($debug)
+			{
+				echo __LINE__ . "\n";
+				print_r($matches);	
+			}
+			$matched = true;
+		}
+	}
+
+	// Venus (Tokyo), 63(3-4), January 2005: 109-119.
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>(.*)), (?<volume>\d+)(\((?<issue>\d+\-\d+)\)), (.*)\s*(?<year>[0-9]{4}):\s*(?<spage>\d+)-(?<epage>\d+)./', $str, $matches))
 		{
 			if ($debug)
 			{
@@ -344,12 +374,14 @@ if (0)
 	$refs = array();
 	$failed = array();
 	
-	array_push($refs, 'A new species of glassfrog from the elfin forests of the Cordillera del Condor, southeastern Ecuador. (Anura: Centrolenidae). Herpetozoa, 21(1-2), 30 Juni 2008: 49-56.');
+/*	array_push($refs, 'A new species of glassfrog from the elfin forests of the Cordillera del Condor, southeastern Ecuador. (Anura: Centrolenidae). Herpetozoa, 21(1-2), 30 Juni 2008: 49-56.');
 	array_push($refs, 'A new species of mermithid nematode parasite Romanomermis narayani n. sp. from Culex sp. Mosquito larvae in the rice fields of A.P. Current Nematology, 17(1-2), June-December 2006: 7-15.');
 	array_push($refs, 'A review of the Telorchiinae, a group of Distomid Trematodes. Parasitology Cambridge, 20 1928: pp. 336-356.');
 	array_push($refs, 'Mas datos para el conocimiento de las esponjas de las costas espanolas. Boletin de Pescas Madrid, 7 1922: pp. 247-272.');
 	array_push($refs,	'Caruncle in Megalomma Johansson, 1925 (Polychaeta: Sabellidae) and the description of a new species from the eastern Tropical Pacific. Journal of Natural History, 42(29-30) 2008: 1951-1973.');
-	
+*/
+array_push($refs, '. Memoirs of the Queensland Museum, 50(2), 10 January 2005: 133-194.');
+array_push($refs, '. Venus (Tokyo), 63(3-4), January 2005: 109-119.');
 	$ok = 0;
 	foreach ($refs as $str)
 	{

@@ -224,7 +224,9 @@ function ion_process(&$item)
 		//echo "author=$author\n";
 	}
 	
-	if (preg_match('/<h4>Original Description Reference<\/h4><ul><li>(.*)\s*\[Zoological/', $html, $matches))
+//	if (preg_match('/<h4>Original Description Reference<\/h4><ul><li>(.*)\s*\[Zoological/', $html, $matches))
+
+	if (preg_match('/<h3>Original Description Reference<\/h3><ul><li>([^<]+|(?R))*<\/li>/', $html, $matches))
 	{
 		//print_r($matches);
 		
@@ -232,7 +234,7 @@ function ion_process(&$item)
 		
 		$item->full_publication = $description;
 		
-		if (preg_match('/(.*)<\/li>/', $description))
+		if (preg_match('/(.*)\[Zoological Record/', $description))
 		{
 			$pos = strpos($description, "[Zoological Record");
 			if ($pos != false)
@@ -243,9 +245,11 @@ function ion_process(&$item)
 		
 		
 		// Remove article title
-		$description = str_replace($item->publicationTitle, '', $description);
+		$description = trim(str_replace($item->publicationTitle, '', $description));
 
 		//echo "description=$description\n";
+		
+		$item->full_publication = $description;
 		
 		//Natuurwetenschappelijke Studiekring voor Suriname en de Nederlandse Antillen, No. 112 1984: 1-167.
 		
@@ -314,9 +318,9 @@ function ion_process(&$item)
 		}
 	
 		
-		// Store
-		store_item($item);
 	}
+	// Store
+	store_item($item);	
 }
 
 
@@ -338,7 +342,7 @@ function ion_fetch_rss($url, &$data)
 	$rss = '';
 	$msg = '200';
 	
-	$result = GetRSS ($url, $rss, true);
+	$result = GetRSS ($url, $rss, false);//true);
 	if ($result == 0)
 	{
 		// Archive
@@ -475,6 +479,8 @@ function main()
 			// Extract details from each item
 			foreach ($data->items as $item)
 			{
+			
+				//print_r($item);
 			
 				// Don't hammer the server
 				if (item_exists($item))
