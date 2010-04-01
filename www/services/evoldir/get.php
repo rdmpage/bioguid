@@ -50,6 +50,8 @@ body {
 <p>From the Evolution Directory (<a href="http://evol.mcmaster.ca/evoldir.html">EvolDir</a>) via <a href="http://twitter.com/evoldir">Twitter</a>.</p>
 <hr />
 <p><?php echo nl2br($output); ?> </p>
+<hr />
+<p><a href="http://bioguid.info/services/evoldir/">About</a></p>
 </div>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
