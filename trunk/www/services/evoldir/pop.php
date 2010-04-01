@@ -7,8 +7,8 @@ require_once('db.php');
 require_once('lib.php');
 
 // twitter
-$username = '<twitter username>';
-$password = '<twitter password>';
+$username = 'evoldir';
+$password = 'peacrab';
 $url = 'http://twitter.com/statuses/update.json';
 $ch = curl_init(); 
 curl_setopt($ch, CURLOPT_URL, $url); 
@@ -25,12 +25,12 @@ if ($config['proxy_name'] != '')
 $pop3 = new Net_POP3();
 
 // attempt connection to server
-if (!$pop3->connect("<email server>", 110)) {
+if (!$pop3->connect("udcf.gla.ac.uk", 110)) {
     die("Error in connection");
 } 
 
 // attempt login
-$ret = $pop3->login("<email username>", "<email password>");
+$ret = $pop3->login("dpage", "peacrab");
 if (is_a($ret, 'PEAR_Error')) {
     die("Error in authentication: " . $ret->getMessage());
 } 
