@@ -53,6 +53,23 @@ $error_msg = '';
 if (count($_GET) == 0)
 {
 	// No parameters, so just tell people about service
+	
+	// Get article count
+	$article_count = 0;
+	
+	$sql = 'SELECT COUNT(id) AS c FROM article_cache';
+	
+	
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+
+	if ($result->NumRows() == 1)
+	{
+		$article_count = $result->fields['c'];	
+	}
+	
+	
+	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -259,6 +276,27 @@ function validate_advanced_form(form)
  
 }
 
+function validate_identifier_form(form)
+{
+/*if (!validateISSN(form.issn))
+	{
+		alert(form.issn.value + " is not a valid ISSN");
+		form.issn.focus();
+		return false;
+	}*/
+	if (form.id.value == '')
+	{
+		alert("Please enter an identifier");
+		form.id.focus();
+		return false;
+	}
+	
+	// does it look like an identifier?
+
+    return true; 
+}
+
+
  
 
 function ws_journals(jData) 
@@ -365,10 +403,12 @@ function setText(id, str)
 <div id="details" ></div>
 <div>
 
+<p>Resolver uses CrossRef, PubMed, JSTOR, and local cache to locate an article. The cache currently has <b><?php echo $article_count;?></b> articles.</p>
+
 <!-- <fieldset>
 <legend>Quick search</legend> -->
 
-<h2>Simple lookup using JACC</h2>
+<h2>Simple lookup using metadata</h2>
 
 <div class="blueRect" style="width:100%">
 	<div class="top">
@@ -384,25 +424,36 @@ function setText(id, str)
 
 <table>
 <tr>
+<!--<td></td>-->
+<td>issn</td>
+<td>volume</td>
+<td>start&nbsp;page</td>
+<td>format</td>
 <td></td>
-<td>issn</td><td></td>
-<td>volume</td><td></td>
-<td>start&nbsp;page</td><td></td>
 </tr>
 
 <tr>
-<td width="200" align="right"><b>bioguid.info/openurl/jacc/</b></td>
+<!--<td width="200" align="right"><b>bioguid.info/openurl/jacc/</b></td>-->
 <td><input id="issn" name="issn" value=""/></td>
-<td><b>/</b></td>
 <td><input name="volume" value="" size="6"/></td>
-<td><b>/</b></td>
 <td><input name="spage" value="" size="6"/></td>
+<td>
+<select name="display">
+	<option value="html">HTML</option>
+	<option value="json">JSON</option>
+	<option value="rdf">RDF</option>
+	<option value="cite">Wikipedia</option>
+	<option value="itaxon">iTaxon</option>
+</select>
+
+</td>
 <td>&nbsp;<input type="Submit" name="submit" value="Go" /></td></tr>
 
 <tr>
-<td></td>
+<!--<td></td>-->
 <td><input id="title" name="title" value="" onkeyup="journalsuggest(this.value)" autocomplete="off" /></td>
-<td></td>
+<!--<td></td>
+<td></td>-->
 <td></td>
 <td></td>
 <td></td>
@@ -410,9 +461,10 @@ function setText(id, str)
 </tr>
 
 <tr>
-<td></td>
+<!--<td></td>-->
 <td>journal</td>
-<td></td>
+<!--<td></td>
+<td></td>-->
 <td></td>
 <td></td>
 <td></td>
@@ -432,7 +484,68 @@ function setText(id, str)
 	</div>
 </div>
 
+<h2>Simple lookup using identifier</h2>
 
+<div class="blueRect" style="width:100%">
+	<div class="top">
+		<div class="cn tl"></div>
+		<div class="cn tr"></div>
+	</div>
+	<div class="middle">
+
+
+<form action="openurl.php" method="GET" onsubmit="return validate_identifier_form(this)">
+
+<table>
+<tr>
+<!--<td></td>-->
+<!-- <td>namespace</td> -->
+<td>identifier<br/>(include prefix, such as doi: or pmid:)</td><td></td>
+<td>format</td>
+<td></td>
+</tr>
+
+<tr>
+<!--<td width="200" align="right"><b>bioguid.info/</b></td>-->
+
+<!--<td>
+<select name="namespace">
+<option value="doi:">doi</option>
+<option value="hdl:">hdl</option>
+<option value="pmid:">pmid</option>
+<option value="url:">url</option>
+</select>
+</td> -->
+
+<td><input id="id" name="id" value="" size="40"/></td>
+
+<td>
+<select name="display">
+<option value="html">HTML</option>
+<option value="json">JSON</option>
+<option value="rdf">RDF</option>
+<option value="cite">Wikipedia</option>
+<option value="itaxon">iTaxon</option>
+</select>
+</td>
+
+<td>&nbsp;<input type="Submit" name="submit" value="Go" /></td></tr>
+
+
+</table>
+
+
+
+</form>
+
+	</div>
+	<div class="bottom">
+		<div class="cn bl"></div>
+		<div class="cn br"></div>
+	</div>
+</div>
+
+<!--
 <h2>Simple lookup using OpenRef</h2>
 
 <div class="blueRect" style="width:100%">
@@ -481,6 +594,7 @@ function setText(id, str)
 	</div>
 </div>
 
+-->
 
 <h2>Clean URLs</h2>
 
@@ -598,7 +712,15 @@ such as <a href="http://dataviewer.zitgist.com/">Zitgist</a> will retrieve RDF a
 </fieldset>
 
 -->
-
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-4542557-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
 </body>
 </html>
 
@@ -909,7 +1031,7 @@ function find_article_from_id($referent, &$item)
 	{
 		$error = ERROR_OK;
 		
-		$cache_id = find_in_cache_from_guid('url', $referent->id['url']);
+		$cache_id = find_in_cache_from_guid('url', 'http://' . urldecode($referent->id['url']));
 		
 		//echo $referent->id['url'];
 		//echo $cache_id;
@@ -953,20 +1075,30 @@ function find_article_from_id($referent, &$item)
 							$temp_values->url = $item->url;
 						}					
 						
-						doi_metadata ($item->doi, $item);
-						
-						if (isset($temp_values->publisher_id))
+						if (doi_metadata ($item->doi, $item))
 						{
-							$item->publisher_id = $temp_values->publisher_id;
+							
+							if (isset($temp_values->publisher_id))
+							{
+								$item->publisher_id = $temp_values->publisher_id;
+							}
+							if (isset($temp_values->xml_url))
+							{
+								$item->xml_url = $temp_values->xml_url;
+							}
+							if (isset($temp_values->url))
+							{
+								$item->url = $temp_values->url;
+							}	
 						}
-						if (isset($temp_values->xml_url))
+						else
 						{
-							$item->xml_url = $temp_values->xml_url;
+							// Bad DOI, bail out...
+							$error = ERROR_DOI_NOT_IN_CROSSREF;
+							$error_msg = $referent->id['url'];
+							return false;
 						}
-						if (isset($temp_values->url))
-						{
-							$item->url = $temp_values->url;
-						}						
+							
 						
 						//echo "\n" . __LINE__ . "\n";
 						//print_r($item);
@@ -1013,7 +1145,30 @@ function find_article_from_id($referent, &$item)
 	{
 		if (find_in_cache($item) == 0)
 		{
-			store_in_cache($item);
+		
+			// Sanity check
+			
+			$sane = false;
+			
+			if (
+				(isset($item->issn) || isset($item->title))
+				&& (isset($item->volume) || isset($item->doi))
+				&& (isset($item->spage) || isset($item->doi))
+				)
+			{
+				$sane = true;
+			}
+			
+			if ($sane)
+			{
+				store_in_cache($item);
+			}
+			else
+			{
+				$found = false;
+				$error = ERROR_FAILED_TO_RESOLVE_IDENTIFIER;
+				$error_msg = $referent->id['url'];
+			}
 		}
 	}
 	
@@ -1174,7 +1329,7 @@ function find_article_from_page($values, &$item)
 			$upper_bound = $page; // save the original starting page
 				
 			$count = 0;
-			while (!$found && ($count < $max_tries))
+			while (!$found && ($count < $max_tries) && ($page >= 0))
 			{
 				if ($debug)
 				{
@@ -1231,7 +1386,14 @@ function find_article_from_page($values, &$item)
 			{
 				echo '<p>Trying JSTOR ' . $values['issn'] . '</p>';
 				
+				if (in_jstor($values['issn'], $values['date']))
+				{
+					echo "in JSTOR\n";
+				}
+				
 			}
+			
+			
 		
 			
 			if (enough_for_jstor_lookup($values) && in_jstor($values['issn'], $values['date']) )
@@ -1247,7 +1409,7 @@ function find_article_from_page($values, &$item)
 				$temp_values = $values;				
 					
 				$count = 0;
-				while (!$found && ($count < $max_tries))
+				while (!$found && ($count < $max_tries) && ($page >= 0))
 				{
 					if ($debug)
 					{
@@ -1413,9 +1575,24 @@ function write_coins($item)
 		$html .= '&amp;rft.aufirst=' . urlencode($item->authors[0]->forename);
 	}
 	$html .= '&amp;rft.jtitle=' . urlencode($item->title);
+	$html .= '&amp;rft.atitle=' . urlencode($item->atitle);
 	$html .= '&amp;rft.issn=' . $item->issn;
 	$html .= '&amp;rft.volume=' . $item->volume;
 	$html .= '&amp;rft.spage=' . $item->spage;
+	
+	if (isset($item->doi))
+	{
+		$html .= '&amp;rft_id=info:doi/' . urlencode($item->doi);
+	}
+	else if (isset($item->hdl))
+	{
+		$html .= '&amp;rft_id=info:hdl/' . urlencode($item->hdl);
+	}
+	else if (isset($item->url))
+	{
+		$html .= '&amp;rft_id='. urlencode($item->url);
+	}
+	
 	$html .= '">';
 	$html .= '</span>';
 	
@@ -1532,7 +1709,17 @@ function display_error($display_type)
 			echo '<br/>';
 			
 			echo "<a href=\"" . $config['server'] . "openurl/\">Back</a>";
-			
+?>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-4542557-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<?php
 			echo '</body>';
 			echo '</html>';
 			break;
@@ -1561,6 +1748,8 @@ function display_json($item)
 //--------------------------------------------------------------------------------------------------
 function display_rdf($item)
 {
+	global $config;
+	
 	$item->status = 'ok';
 
 	header("Content-type: application/rdf+xml; charset=utf-8\n\n");	
@@ -1572,6 +1761,7 @@ function display_rdf($item)
 	$rdf .= ' xmlns:dc="http://purl.org/dc/elements/1.1/" ';
 	$rdf .= ' xmlns:dcterms="http://purl.org/dc/terms/" ';
 	$rdf .= ' xmlns:prism="http://prismstandard.org/namespaces/2.0/basic/" ';
+	$rdf .= ' xmlns:bibo="http://purl.org/ontology/bibo/"' ;
 	$rdf .= '>';
 	
 	// Primary identifier
@@ -1588,7 +1778,7 @@ function display_rdf($item)
 	{
 		if (isset($item->pmid))
 		{
-			$id = 'http://bioguid.info/pmid:' . $item->pmid;
+			$id = 'pmid:' . $item->pmid;
 			$primaryId = 'pmid';
 		}
 	}
@@ -1596,27 +1786,54 @@ function display_rdf($item)
 	{
 		if (isset($item->hdl))
 		{
-			$id = 'http://bioguid.info/hdl:' . $item->hdl;
+			$id = 'hdl:' . $item->hdl;
 			$primaryId = 'hdl';
 		}
 	}
+	if ($id == '')
+	{
+		if (isset($item->url))
+		{
+			if (preg_match('/(?<cinii>(http:\/\/ci.nii.ac.jp\/naid\/[0-9]+))/', $item->url, $match))
+			{
+				$id = $match['cinii'] . '#article';
+				$primaryId = 'url';
+			}
+		}
+	}
 	
+	if ($id == '')
+	{
+		// jacc
+		if (isset($item->issn) && isset($item->volume) && isset($item->spage))
+		{
+			$id = "jacc:" . $item->issn . ":" . $item->volume . '@' . $item->spage;
+		}
+		else
+		{
+			// Local id (not resolvable)
+			$id = 'http://bioguid.info/item/' . md5($item->title);
+		}
+		
+	}
 	
-	$rdf .= '<rdf:Description rdf:about="' . $id . '">';
+	$rdf .= '<bibo:Article rdf:about="' . $id . '">';
 	
 	// Identifiers
 	
 	if (isset($item->doi))
 	{
+		$rdf .= '<bibo:doi>' . $item->doi . '</bibo:doi>';
 		$rdf .= '<prism:doi>' . $item->doi . '</prism:doi>';
-		$rdf .= '<dc:identifier>' . 'doi:' . htmlspecialchars($item->doi, ENT_NOQUOTES) . '</dc:identifier>';
+		$rdf .= '<dcterms:identifier>' . 'doi:' . htmlspecialchars($item->doi, ENT_NOQUOTES) . '</dcterms:identifier>';
 	}
 	
 	if (isset($item->pmid))
 	{
 		if ($primaryId != 'pmid')
 		{
-			$rdf .= '<dc:identifier rdf:resource="http://bioguid.info/pmid:' . $item->pmid . '" />';
+//			$rdf .= '<dc:identifier rdf:resource="http://bioguid.info/pmid:' . $item->pmid . '" />';
+			$rdf .= '<dcterms:identifier rdf:resource="pmid:' . $item->pmid . '" />';
 		}
 	}
 			
@@ -1624,20 +1841,18 @@ function display_rdf($item)
 	{
 		if ($primaryId != 'hdl')
 		{
-			$rdf .= '<dc:identifier rdf:resource="http://bioguid.info/hdl:' . $item->hdl . '" />';
+			$rdf .= '<dcterms:identifier rdf:resource="http://bioguid.info/hdl:' . $item->hdl . '" />';
 		}
 	}
 	
 	if (isset($item->url))
 	{
-		if ($primaryId != 'url')
-		{
-			$rdf .= '<prism:url rdf:resource="'. str_replace('&', '&amp;', $item->url) . '" />';
-		}
+		$rdf .= '<prism:url rdf:resource="'. str_replace('&', '&amp;', $item->url) . '" />';
 	}
+	
 	if (isset($item->publisher_id))
 	{
-		$rdf .= '<dc:identifier>' . htmlspecialchars($item->publisher_id, ENT_NOQUOTES) . '</dc:identifier>';
+		$rdf .= '<dcterms:identifier>' . htmlspecialchars($item->publisher_id, ENT_NOQUOTES) . '</dcterms:identifier>';
 	}
 	
 		
@@ -1647,12 +1862,12 @@ function display_rdf($item)
 	{
 		foreach ($item->authors as $author)
 		{
-			$rdf .= '<dc:creator>' . $author->forename . ' ' . $author->lastname;
+			$rdf .= '<dcterms:creator>' . $author->forename . ' ' . $author->lastname;
 			if (isset($author->suffix))
 			{
 				$rdf .= ' ' . $author->suffix;
 			}
-			$rdf .= '</dc:creator>';
+			$rdf .= '</dcterms:creator>';
 		}
 	}
 	
@@ -1660,41 +1875,79 @@ function display_rdf($item)
 	// Bibliographic details
 	if (isset($item->atitle))
 	{
-		$rdf .= '<dc:title>' . htmlspecialchars($item->atitle, ENT_NOQUOTES) . '</dc:title>';
+		$rdf .= '<dcterms:title>' . htmlspecialchars($item->atitle, ENT_NOQUOTES) . '</dcterms:title>';
 	}
 	if (isset($item->title))
 	{
 		$rdf .= '<prism:publicationName>' .  htmlspecialchars($item->title, ENT_NOQUOTES) . '</prism:publicationName>';
 	}
+	
 	if (isset($item->issn))
 	{
 		$rdf .= '<prism:issn>' . $item->issn . '</prism:issn>';
+		$rdf .= '<dcterms:isPartOf rdf:resource="' . 'urn:issn:' . $item->issn . '" />';
 	}
+	
+	
 	if (isset($item->volume))
 	{
+		$rdf .= '<bibo:volume>' . $item->volume . '</bibo:volume>';
 		$rdf .= '<prism:volume>' . $item->volume . '</prism:volume>';
 	}
+	
 	if (isset($item->issue))
 	{
+		$rdf .= '<bibo:issue>' . $item->issue . '</bibo:issue>';
 		$rdf .= '<prism:number>' . $item->issue . '</prism:number>';
 	}
+	
 	if (isset($item->spage))
 	{
+		$rdf .= '<bibo:pageStart>' . $item->spage . '</bibo:pageStart>';
 		$rdf .= '<prism:startingPage>' . $item->spage . '</prism:startingPage>';
 	}
+	
 	if (isset($item->epage))
 	{
+		$rdf .= '<bibo:pageEnd>' . $item->epage . '</bibo:pageEnd>';
 		$rdf .= '<prism:endingPage>' . $item->epage . '</prism:endingPage>';
 	}
+	
 	if (isset($item->year))
 	{
-		$rdf .= '<dc:date>' . $item->year . '</dc:date>';
+		$rdf .= '<dcterms:date>' . $item->year . '</dcterms:date>';
 	}
+	
 	if (isset($item->abstract))
 	{
 		$rdf .= '<dcterms:abstract>' . htmlspecialchars($item->abstract, ENT_NOQUOTES) . '</dcterms:abstract>';
 	}
-	$rdf .= '</rdf:Description>';
+	
+	// pdf
+	if (isset($item->pdf))
+	{
+		$rdf .= '<dcterms:relation>';
+		$rdf .= '<bibo:Document rdf:about="' . htmlspecialchars($item->pdf, ENT_NOQUOTES) . '" >';
+		$rdf .= '<bibo:uri>' . htmlspecialchars($item->pdf, ENT_NOQUOTES) . '</bibo:uri>';
+		$rdf .= '<dcterms:format>' . 'application/pdf' . '</dcterms:format>';
+		$rdf .= '</bibo:Document>';
+		$rdf .= '</dcterms:relation>';
+	}
+
+	// flash
+	if (isset($item->swf))
+	{
+		$swf = $config['webroot'] . "files/" . $item->issn . "/swf/" . $item->swf;
+	
+		$rdf .= '<dcterms:relation>';
+		$rdf .= '<bibo:Document rdf:about="' . htmlspecialchars($swf, ENT_NOQUOTES) . '" >';
+		$rdf .= '<bibo:uri>' . htmlspecialchars($swf, ENT_NOQUOTES) . '</bibo:uri>';
+		$rdf .= '<dcterms:format>' . 'application/x-shockwave-flash' . '</dcterms:format>';
+		$rdf .= '</bibo:Document>';
+		$rdf .= '</dcterms:relation>';
+	}
+	
+	$rdf .= '</bibo:Article>';
 	$rdf .= '</rdf:RDF>';
 	
 	echo $rdf;
@@ -1924,11 +2177,11 @@ function ws_connotea(obj)
 			)
 		{
 		
-			$openref = $item->title . '/' . $item->year . '/' .  $item->volume . '/' . $item->spage;
+/*			$openref = $item->title . '/' . $item->year . '/' .  $item->volume . '/' . $item->spage;
 			echo '<li style="padding-bottom:4px;">';
 			echo '<a class="link" href="openref/' . $openref . '" target="_blank">openref://' . $openref . '</a>';
 			echo '</li>';
-		}
+*/		}
 	}
 	
 	
@@ -1959,7 +2212,7 @@ function ws_connotea(obj)
 	echo '</div>';
 	
 	// Connotea tags
-	if ($config['connotea_user'] != '')
+/*	if ($config['connotea_user'] != '')
 	{
 		if (isset($item->doi) or isset($item->pmid))
 		{
@@ -1974,7 +2227,7 @@ function ws_connotea(obj)
 			}
 			echo '</div>';
 		}	
-	}
+	}*/
 	echo '</div>';
 	
 	if (isset($item->abstract))
@@ -2012,8 +2265,17 @@ function ws_connotea(obj)
 	
 	
 	echo "<p><a href=\"" . $config['server'] . "openurl/\">Back</a></p>";
-	
-	
+?>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-4542557-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<?	
 	echo '</body>';
 	echo '</html>';
 
@@ -2131,6 +2393,128 @@ function display_cite($item)
 
 
 //--------------------------------------------------------------------------------------------------
+// iTaxon cite
+function display_publication_itaxon($item)
+{
+	global $config;
+	
+	$item->status = 'ok';
+
+	header("Content-type: text/plain; charset=utf-8\n\n");	
+	$cite = '{{Publication ' . "\n";
+	
+	// Identifiers
+	
+	if (isset($item->doi))
+	{
+		$cite .= '| doi = '  . $item->doi . "\n";
+
+		$wiki_safe_doi = $item->doi;
+		$wiki_safe_doi = preg_replace('/^(.*)\[(.*)\](.*)$/i', "$1-$2-$3", $wiki_safe_doi);
+		$wiki_safe_doi = preg_replace('/^(.*)\<(.*)\>(.*)$/i', "$1-$2-$3", $wiki_safe_doi);
+		
+		$cite .= '|wikisafedoi=' . $wiki_safe_doi . "\n";
+	}
+	
+	if (isset($item->pmid))
+	{
+		$cite .= '| pmid = '  . $item->pmid . "\n";
+	}
+			
+	if (isset($item->hdl))
+	{
+		$cite .= '| hdl = '  . $item->hdl . "\n";
+	}
+	
+	if (isset($item->url))
+	{
+		$cite .= '| url  = '  . $item->url . "\n";
+	}
+		
+	// Authors
+	$num_authors = count($item->authors);
+	if ($num_authors > 0)
+	{
+		$cite .= '| authors = ';
+		$count = 0;
+		foreach ($item->authors as $author)
+		{
+			if ($count == 0)
+			{
+				$cite .=  $author->forename . ' ' . $author->lastname;
+			}
+			else
+			{
+				$cite .= ', ';
+				$cite .= $author->forename . ' ' . $author->lastname;
+			}
+			$count++;
+		}
+		$cite .= "\n";
+	}
+	
+	if (isset($item->issn)
+		&& isset($item->volume)
+		&& isset($item->spage)
+		)
+	{
+		$cite .= "|jacc=" . $item->issn . ":" . $item->volume . "@" . $item->spage . "\n";
+	}
+	
+	// Bibliographic details
+	if (isset($item->atitle))
+	{
+		$cite .= '|title = ' . $item->atitle . "\n";
+	}
+	if (isset($item->title))
+	{
+		$cite .= '| journal = ' . $item->title . "\n";
+	}
+	if (isset($item->issn))
+	{
+		$cite .= '| issn = ' . $item->issn . "\n";
+	}
+	if (isset($item->volume))
+	{
+		$cite .= '| volume = ' . $item->volume . "\n";
+	}
+	if (isset($item->issue))
+	{
+		$cite .= '| issue = ' . $item->issue . "\n";
+	}
+	if (isset($item->spage))
+	{
+		$cite .= '| spage = ' . $item->spage . "\n";
+	}
+	if (isset($item->epage))
+	{
+		$cite .= '| epage = '  . $item->epage . "\n";
+	}
+	if (isset($item->year))
+	{
+		$cite .= '| year = ' . $item->year . "\n";
+	}
+	
+	$cite .= '}}' . "\n";
+	
+	if (isset($item->abstract))
+	{
+		$cite .= "\n===Abstract===\n" . $item->abstract;
+	}
+	
+	// Flash paper
+	if (isset($item->swf))
+	{
+		$swf = $config['webroot'] . "files/" . $item->issn . "/swf/" . $item->swf;
+		$cite .= "<swf width=\"400\" height=\"500\">$swf</swf>\n";
+	}
+	
+	echo $cite;
+}
+
+
+
+//--------------------------------------------------------------------------------------------------
 function display($item, $display_type)
 {
 	// We might be able to redirect
@@ -2169,6 +2553,10 @@ function display($item, $display_type)
 			display_cite($item);
 			break;
 
+		case DISPLAY_ITAXON:			
+			display_publication_itaxon($item);
+			break;
+
 		case DISPLAY_HTML:
 		default:
 			display_html($item);
@@ -2192,6 +2580,12 @@ function display_specimen($item, $display_type)
 			
 		case DISPLAY_HTML:
 			display_specimen_html($item);
+			break;
+			
+		case DISPLAY_ITAXON:
+			display_specimen_itaxon($item);
+			
+			
 		default:
 			break;
 	}
@@ -2269,10 +2663,150 @@ function display_specimen_html($item)
 	
 	
 	}
-
+?>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-4542557-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<?php
 	echo '</body>';
 	echo '</html>';
 }
+
+//--------------------------------------------------------------------------------------------------
+function display_specimen_itaxon($item)
+{
+	global $config;
+	
+
+	$itaxon = "{{Specimen\n";
+	
+	$itaxon .= "|organism = " . $item->organism . "\n";
+	$itaxon .= "|locality = " . $item->locality . "\n";
+	$itaxon .= "|country = " . $item->country . "\n";
+	
+	// identifiers
+	if (isset($item->institutionCode))
+	{
+		$itaxon .= "|institutionCode = " . $item->institutionCode . "\n";		
+	}
+	if (isset($item->collectionCode))
+	{
+		$itaxon .= "|collectionCode = " . $item->collectionCode . "\n";		
+	}
+	if (isset($item->catalogNumber))
+	{
+		$itaxon .= "|catalogNumber = " . $item->catalogNumber . "\n";		
+	}
+	
+	// Type status
+	if (isset($item->typeStatus))
+	{
+		$itaxon .= "|typeStatus = " . $item->typeStatus . "\n";		
+	}
+	
+	// Taxonomy
+	if (isset($item->kingdom))
+	{
+		$itaxon .= "|kingdom = " . $item->kingdom . "\n";		
+	}
+	if (isset($item->phylum))
+	{
+		$itaxon .= "|phylum = " . $item->phylum . "\n";		
+	}
+	if (isset($item->class))
+	{
+		$itaxon .= "|class = " . $item->class . "\n";		
+	}
+	if (isset($item->family))
+	{
+		$itaxon .= "|family = " . $item->family . "\n";		
+	}
+	if (isset($item->genus))
+	{
+		$itaxon .= "|genus = " . $item->genus . "\n";		
+	}
+	if (isset($item->species))
+	{
+		$itaxon .= "|species = " . $item->species . "\n";		
+	}
+	if (isset($item->subspecies))
+	{
+		$itaxon .= "|subspecies = " . $item->subspecies . "\n";		
+	}
+  
+	// Geography
+	if (isset($item->island))
+	{
+		$itaxon .= "|island = " . $item->island . "\n";		
+	}
+	if (isset($item->stateProvince))
+	{
+		$itaxon .= "|stateProvince = " . $item->stateProvince . "\n";		
+	}
+
+	// Collector details
+	if (isset($item->collector))
+	{
+		$itaxon .= "|collector = " . $item->collector . "\n";		
+	}	
+	if (isset($item->fieldNumber))
+	{
+		$itaxon .= "|fieldNumber = " . $item->fieldNumber . "\n";		
+	}
+	if (isset($item->collectorNumber))
+	{
+		$itaxon .= "|collectorNumber = " . $item->collectorNumber . "\n";		
+	}
+	if (isset($item->verbatimCollectingDate))
+	{
+		$itaxon .= "|verbatimCollectingDate = " . $item->verbatimCollectingDate . "\n";		
+	}
+
+
+	// Georeferencing
+	if (isset($item->latitude))
+	{
+		$itaxon .= "|decimalLatitude = " . $item->latitude . "\n";		
+	}
+	if (isset($item->longitude))
+	{
+		$itaxon .= "|decimalLongitude = " . $item->longitude . "\n";		
+	}
+	if (isset($item->verbatimLatitude))
+	{
+		$itaxon .= "|verbatimLatitude = " . $item->verbatimLatitude . "\n";		
+	}
+	if (isset($item->verbatimLongitude))
+	{
+		$itaxon .= "|verbatimLongitude = " . $item->verbatimLongitude . "\n";		
+	}
+	
+	// Dates	
+	if (isset($item->dateCollected))
+	{
+		$itaxon .= "|dateCollected = " . $item->dateCollected . "\n";		
+	}
+	if (isset($item->dateModified))
+	{
+		$itaxon .= "|dateModified = " . $item->dateModified . "\n";		
+	}
+	
+	// BCI
+	if (isset($item->bci))
+	{
+		$itaxon .= "|hostCollection = " . $item->bci . "\n";		
+	}
+	$itaxon .= '}}';
+	
+	echo $itaxon;
+}
+
 
 
 //--------------------------------------------------------------------------------------------------
@@ -2290,6 +2824,21 @@ function display_genbank($item, $display_type)
 			
 		case DISPLAY_HTML:
 			display_genbank_html($item);
+			break;
+			
+		case DISPLAY_ITAXON:
+			header("Content-type: text/plain; charset=utf-8\n\n");	
+			echo display_genbank_itaxon($item);
+			break;
+
+		case DISPLAY_RDF:
+		
+//	header("Content-type: application/rdf+xml; charset=utf-8\n\n");	
+				
+			header("Content-type: application/xml; charset=utf-8\n\n");	
+			echo display_genbank_rdf($item);
+			break;
+			
 		default:
 			break;
 	}
@@ -2366,10 +2915,304 @@ function display_genbank_html($item)
 	
 	
 	}
-
+?>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-4542557-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<?php
 	echo '</body>';
 	echo '</html>';
 }
+
+//--------------------------------------------------------------------------------------------------
+function display_genbank_rdf($item)
+{
+	$feed = new DomDocument('1.0');
+	$rdf = $feed->createElement('rdf:RDF');
+	$rdf->setAttribute('xmlns:rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+	$rdf->setAttribute('xmlns:dcterms', 'http://purl.org/dc/terms/');
+	$rdf->setAttribute('xmlns:tcommon', 'http://rs.tdwg.org/ontology/voc/Common#');
+	$rdf->setAttribute('xmlns:toccurrence', 'http://rs.tdwg.org/ontology/voc/TaxonOccurrence#');
+
+	$rdf->setAttribute('xmlns:uniprot', 'http://purl.uniprot.org/core/');
+
+	// GenBank record is for Genomic DNA
+	$genbank = $rdf->appendChild($feed->createElement('uniprot:Genomic_DNA'));
+	$genbank->setAttribute('rdf:about', 'genbank:' . $item->accession);
+		
+	// Document metadata
+	$created = $genbank->appendChild($feed->createElement('dcterms:created'));
+	$created->appendChild($feed->createTextNode($item->created));
+
+	$modified = $genbank->appendChild($feed->createElement('dcterms:modified'));
+	$modified->appendChild($feed->createTextNode($item->updated));
+
+	$title = $genbank->appendChild($feed->createElement('dcterms:title'));
+	$title->appendChild($feed->createTextNode($item->accession));
+	
+	// Reference
+	// Do we have a GUID?
+	$publication_guid = '';
+
+	// If we have a publication GUID then link to that
+	if ($publication_guid == '')
+	{
+		if (isset($item->references[0]->doi))
+		{
+			$reference = $genbank->appendChild($feed->createElement('tcommon:publishedInCitation'));
+			$reference->setAttribute('rdf:resource', 'doi:' . $item->references[0]->doi);
+			$publication_guid = $item->references[0]->doi;
+		}
+	}
+	if ($publication_guid == '')
+	{
+		if (isset($item->references[0]->pmid))
+		{
+			$reference = $genbank->appendChild($feed->createElement('tcommon:publishedInCitation'));
+			$reference->setAttribute('rdf:resource', 'pmid:' . $item->references[0]->pmid);
+			$publication_guid = $item->references[0]->pmid;
+		}
+	}	
+	if ($publication_guid == '')
+	{
+		if (isset($item->references[0]->hdl))
+		{
+			$reference = $genbank->appendChild($feed->createElement('tcommon:publishedInCitation'));
+			$reference->setAttribute('rdf:resource', 'hdl:' . $item->references[0]->hdl);
+			$publication_guid = $item->references[0]->hdl;
+		}
+	}
+
+	// No GUID so blank node
+	if ($publication_guid == '')
+	{
+		$reference = $genbank->appendChild($feed->createElement('tcommon:publishedInCitation'));
+		$reference->setAttribute('rdf:parseType', 'Resource');
+
+		$citation = $reference->appendChild($feed->createElement('dcterms:bibliographicCitation'));
+		$citation->appendChild($feed->createTextNode($item->references[0]->bibliographicCitation));
+
+		$atitle = $reference->appendChild($feed->createElement('dcterms:title'));
+		$atitle->appendChild($feed->createTextNode($item->references[0]->atitle));
+	}
+	
+	
+	// Source (blank node)
+	$source = $genbank->appendChild($feed->createElement('uniprot:source'));
+	$source->setAttribute('rdf:parseType', 'Resource');
+		
+	$type = $source->appendChild($feed->createElement('rdf:type'));
+	$type->setAttribute('rdf:resource', 'http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence');
+	
+	// Taxon
+	
+	// Name
+	$organism = $source->appendChild($feed->createElement('toccurrence:identifiedToString'));
+	$organism->appendChild($feed->createTextNode($item->source->organism));
+	
+	// URI
+	$db_xref = $source->appendChild($feed->createElement('uniprot:organism'));
+	
+	// http://www.lsrn.org/lsrn/registry.html#taxon is taxon:
+	// Uniprot is taxonomy
+	
+	$t = $item->source->db_xref;
+	$t = str_replace('taxon:', 'taxonomy:', $t);
+	$db_xref->setAttribute('rdf:resource', $t);
+	
+	
+	// Locality information
+	if (isset($item->source->latitude))
+	{
+		$latitude = $source->appendChild($feed->createElement('toccurrence:decimalLatitude'));
+		$latitude->appendChild($feed->createTextNode($item->source->latitude));
+	}
+	if (isset($item->source->longitude))
+	{
+		$longitude = $source->appendChild($feed->createElement('toccurrence:decimalLongitude'));
+		$longitude->appendChild($feed->createTextNode($item->source->longitude));
+	}
+	if (isset($item->source->lat_lon))
+	{
+		$verbatimCoordinates = $source->appendChild($feed->createElement('toccurrence:verbatimCoordinates'));
+		$verbatimCoordinates->appendChild($feed->createTextNode($item->source->lat_lon));
+	}
+	if (isset($item->source->locality))
+	{
+		$locality = $source->appendChild($feed->createElement('toccurrence:locality'));
+		$locality->appendChild($feed->createTextNode($item->source->locality));
+	}
+	if (isset($item->source->country))
+	{
+		$country = $source->appendChild($feed->createElement('toccurrence:country'));
+		$country->appendChild($feed->createTextNode($item->source->country));
+	}
+	
+	
+	
+	
+	$rdf = $feed->appendChild($rdf);
+
+	$feed->encoding='utf-8';
+	return $feed->saveXML();
+}
+
+//--------------------------------------------------------------------------------------------------
+function display_genbank_itaxon($item)
+{
+	global $config;
+	
+	$itaxon = "{{GenBank\n";
+	
+	$itaxon .= "|accession=" .  $item->accession . "\n";
+	$itaxon .= "|version=" .  $item->version . "\n";
+	$itaxon .= "|gi=" .  $item->gi . "\n";
+	$itaxon .= "|created=" .  $item->created . "\n";
+	$itaxon .= "|modified=" .  $item->updated . "\n";
+	$itaxon .= "|description=" .  $item->description . "\n";
+	$itaxon .= "|organism=" .  $item->source->organism . "\n";
+	
+	$s = str_replace('taxon:', '', $item->source->db_xref);
+	
+	// Source
+	$itaxon .= "|source=" .  $s . "\n";
+	
+	if (isset($item->source->organelle))
+	{
+		$itaxon .= "|organelle=" .  $item->source->organelle . "\n";
+	}
+	if (isset($item->source->isolate))
+	{
+		$itaxon .= "|isolate=" .  $item->source->isolate . "\n";
+	}
+	if (isset($item->source->specimen_code))
+	{
+		$itaxon .= "|specimenCode=" .  $item->source->specimen_code . "\n";
+	}
+	if (isset($item->source->specimen_voucher))
+	{
+		$itaxon .= "|specimenVoucher=" .  $item->source->specimen_voucher . "\n";
+	}
+	if (isset($item->source->isolate))
+	{
+		$itaxon .= "|isolate=" .  $item->source->isolate . "\n";
+	}
+	if (isset($item->source->note))
+	{
+		$itaxon .= "|note=" .  $item->source->note . "\n";
+	}
+	if (isset($item->source->host))
+	{
+		$itaxon .= "|host=" .  $item->source->host . "\n";
+	}
+	
+	if (isset($item->source->latitude))
+	{
+		$itaxon .= "|latitude=" .  $item->source->latitude . "\n";
+	}
+	if (isset($item->source->longitude))
+	{
+		$itaxon .= "|longitude=" .  $item->source->longitude . "\n";
+	}
+	
+	
+	// Publication
+	if (isset($item->references[0]->bibliographicCitation))
+	{
+		$itaxon .= "|bibliographicCitation=" . $item->references[0]->bibliographicCitation . "\n";
+	}
+	
+	$publication_guid = '';
+	
+	if ($publication_guid == '')
+	{
+		if (isset($item->references[0]->doi))
+		{
+			$itaxon .= "|openurl=id%3Ddoi:" . $item->references[0]->doi . "\n";
+			
+			$wiki_safe_doi = 'doi:' . $item->references[0]->doi;
+			$wiki_safe_doi = preg_replace('/^doi:(.*)\[(.*)\](.*)$/i', "Doi:$1-$2-$3", $wiki_safe_doi);
+			$wiki_safe_doi = preg_replace('/^doi:(.*)\<(.*)\>(.*)$/i', "Doi:$1-$2-$3", $wiki_safe_doi);
+			
+			$publication_guid = $wiki_safe_doi;
+		}
+	}
+	if ($publication_guid == '')
+	{
+		if (isset($item->references[0]->hdl))
+		{
+			$publication_guid = 'hdl:' . $item->references[0]->hdl;
+		}
+	}
+	if ($publication_guid == '')
+	{
+		if (isset($item->references[0]->issn)
+		&& isset($item->references[0]->volume)
+		&& isset($item->references[0]->spage)
+		)
+		{
+			$publication_guid = 'jacc:' 
+				. $item->references[0]->issn 
+				. ':' . $item->references[0]->volume
+				. '@' . $item->references[0]->spage;
+
+			$itaxon .= "|openurl=genre%3Darticle"
+				. "%26issn%3D" . $item->references[0]->issn
+				. "%26volume%3D" . $item->references[0]->volume
+				. "%26spage%3D" . $item->references[0]->spage
+				. "\n";
+			
+		}
+	}
+	
+	if ($publication_guid == '')
+	{
+		if (isset($item->references[0]->url))
+		{
+			$publication_guid = $item->references[0]->url;
+		}
+	}
+	if ($publication_guid != '')
+	{
+		$itaxon .= "|publishedIn=" . $publication_guid . "\n";
+	}
+	
+	// Feature tags
+	$feature_list = array();
+	foreach ($item->features as $feature)
+	{
+		$s = $feature->key . ':' . $feature->name;
+		
+		array_push($feature_list, $s);
+	}
+	$feature_list = array_unique($feature_list);
+	
+	$itaxon .= '|features=';
+	$count = 0;
+	foreach ($feature_list as $f)
+	{
+		if ($count > 0)
+		{
+			$itaxon .= ';';
+		}
+		$itaxon .= $f;
+		$count++;
+	}
+	$itaxon .= "\n";
+		
+	
+	$itaxon .= "}}\n";
+
+	return $itaxon;
+	
+}
+
 
 
 //--------------------------------------------------------------------------------------------------
@@ -2383,7 +3226,7 @@ define('DISPLAY_JSON', 		1);
 define('DISPLAY_HTML', 		2);	
 define('DISPLAY_RDF', 		3);	
 define('DISPLAY_CITE', 		4);	
-
+define(DISPLAY_ITAXON,	5);
 
 $display_type = DISPLAY_HTML; // default
 if (isset($_GET['display']))
@@ -2404,6 +3247,9 @@ if (isset($_GET['display']))
 			break;
 		case 'cite':
 			$display_type = DISPLAY_CITE;
+			break;
+		case 'itaxon':
+			$display_type = DISPLAY_ITAXON;
 			break;
 		default:
 			$display_type = DISPLAY_HTML;
