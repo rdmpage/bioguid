@@ -190,6 +190,9 @@ the <a href="http://www.simile-widgets.org/timeline/">SIMILE Timeline widget</a>
 
 <p/>
 
+<div>
+<p>Timeline for &quot;<?php echo $name; ?>&quot; (uBio namebankID <a href="http://www.ubio.org/browser/details.php?namebankID=<?php echo $id; ?>" target=_"new"><?php echo $id; ?></a>):</p>
+</div>
 <div id="my-timeline" style="height: 500px; border: 1px solid #aaa"></div>
 
 <p>This tool only displays references that have a date associated with them. To see the complete set of BHL results you can 
