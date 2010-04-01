@@ -17,6 +17,7 @@ function main()
 {
 	$feeds = array(
 		// BioOne ----------------------------------------------------------------------------------
+		'http://www.bioone.org/action/showFeed?type=etoc&feed=rss&jc=harv',
 		'http://www.bioone.org/action/showFeed?type=etoc&feed=rss&jc=novi',
 		'http://www.bioone.org/action/showFeed?type=etoc&feed=rss&jc=afzo',
 		'http://www.bioone.org/action/showFeed?type=etoc&feed=rss&jc=mobt',
@@ -33,6 +34,11 @@ function main()
 		'http://api.ingentaconnect.com/content/iapt/tax/latest?format=rss',
 		'http://api.ingentaconnect.com/content/schweiz/novh/latest?format=rss',
 		'http://api.ingentaconnect.com/content/nhn/pimj/latest?format=rss',
+		'http://api.ingentaconnect.com/content/rssa/trssa/latest?format=rss',
+		
+		// Entomological Society of America
+		'http://api.ingentaconnect.com/content/esa/jme/latest?format=rss',
+		'http://api.ingentaconnect.com/content/esa/aesa/latest?format=rss',
 		
 		// Scielo ----------------------------------------------------------------------------------
 		'http://www.scielo.br/rss.php?pid=0085-562620090001&lang=en',

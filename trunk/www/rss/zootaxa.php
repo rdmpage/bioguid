@@ -154,7 +154,7 @@ class ZootaxaFeed extends FeedMaker
 				
 				
 				// date
-				if (preg_match('/<i>(?<date>[0-9]+\s+[A-Z][a-z]+\s+[0-9]{4})<\/i>/', $paragraph, $m))
+				if (preg_match('/<i>(?<date>[0-9]+\s+[A-Z][a-z]+(\.)?\s+[0-9]{4})<\/i>/', $paragraph, $m))
 				{
 					//print_r($m);
 					
@@ -163,7 +163,7 @@ class ZootaxaFeed extends FeedMaker
 				}
 				
 				// (11 <i>May 2009</i>)
-				if (preg_match('/(?<date>[0-9]+\s+<i>[A-Z][a-z]+\s+[0-9]{4})<\/i>/', $paragraph, $m))
+				if (preg_match('/(?<date>[0-9]+\s+<i>[A-Z][a-z]+(\.)?\s+[0-9]{4})<\/i>/', $paragraph, $m))
 				{
 					$date = strip_tags($m['date']);
 					

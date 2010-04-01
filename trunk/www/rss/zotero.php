@@ -11,7 +11,11 @@ require_once ($root_dir . 'db.php');
 require_once ($root_dir . 'issn-functions.php');
 require_once (dirname(__FILE__) . '/rss.php');
 
+// rdmpage
 $url = 'https://api.zotero.org/users/14509/items';
+
+// Bulletin of Zoological Nomenclature
+//$url = 'https://api.zotero.org/groups/5839/items';
 
 $result = GetRSS ($url, $rss, true);
 
