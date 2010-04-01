@@ -246,7 +246,7 @@ else
 					
 					if (isset($obj->image_url))
 					{
-						$depiction = $rdf->appendChild($feed->createElement('foaf:depiction'));
+						$depiction = $journal->appendChild($feed->createElement('foaf:depiction'));
 						$depiction->setAttribute('rdf:resource', $obj->image_url);
 					}					
 					
