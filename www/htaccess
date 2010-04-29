@@ -16,7 +16,30 @@ RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
 RewriteRule ^pmid:(.*)			openurl.php?id=pmid:$1&display=rdf	[NC,R=303]
 
 RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^hdl:(.*)			openurl.php?id=hdl:$1&display=rdf	[NC,R=303]
+
+# Not working :(
+#RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+#RewriteRule ^http:\/\/(.*)			openurl.php?id=http://$1&display=rdf	[NC,R=303]
+
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
 RewriteRule ^urn:lsid:(.*)			lsid.php?lsid=urn:lsid:$1&display=rdf	[NC,R=303]
+
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^issn/([0-9]{4}[\-]?[0-9]{3}[0-9X])			/issn/index.php?issn=$1&format=rdf	[NC,R=303]
+
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^issn:([0-9]{4}[\-]?[0-9]{3}[0-9X])			/issn/index.php?issn=$1&format=rdf	[NC,R=303]
+
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^urn:issn:([0-9]{4}[\-]?[0-9]{3}[0-9X])		/issn/index.php?issn=$1&format=rdf	[NC,R=303]
+
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^jacc:([0-9]{4})-?([0-9]{3})([0-9]|X):(.*)@(.*)		openurl.php?issn=$1-$2$3&volume=$4&spage=$5&genre=article&display=rdf	[NC,R=303]
+
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^taxonomy/([0-9]+)			/taxonomy/index.php?taxon_id=$1&format=rdf	[NC,R=303]
+
 
 # HTML
 RewriteCond %{HTTP_ACCEPT} !application/rdf\+xml.*(text/html|application/xhtml\+xml)
@@ -50,6 +73,9 @@ RewriteRule ^pmid:(.*).json		openurl.php?id=pmid:$1&display=json	[NC,L]
 RewriteRule ^pmid/(.*)			openurl.php?id=pmid:$1	[NC,L]
 RewriteRule ^pmid:(.*)			openurl.php?id=pmid:$1	[NC,R=303] # 303 for Linked data
 
+# URL
+#RewriteRule ^http:(.*)			openurl.php?id=http:/$1	[NC,R=303] # 303 for Linked data
+
 # Genbank
 RewriteRule ^genbank/(.*).json	openurl.php?id=genbank:$1&display=json	[NC,L]
 RewriteRule ^genbank/(.*)		openurl.php?id=genbank:$1	[NC,L]
@@ -60,3 +86,11 @@ RewriteRule ^gi/(.*)			openurl.php?id=gi:$1	[NC,L]
 
 # LSID
 RewriteRule ^urn:lsid:(.*)		lsid.php?lsid=urn:lsid:$1	[NC,R=303] # 303 for Linked data
+
+# ISSN
+RewriteRule ^issn/([0-9]{4}[\-]?[0-9]{3}[0-9X])		issn/index.php?issn=$1	[NC,R=303] # 303 for Linked data
+RewriteRule ^issn:([0-9]{4}[\-]?[0-9]{3}[0-9X])		issn/index.php?issn=$1	[NC,R=303] # 303 for Linked data
+RewriteRule ^urn:issn:([0-9]{4}[\-]?[0-9]{3}[0-9X])		issn/index.php?issn=$1	[NC,R=303] # 303 for Linked data
+
+# Taxonomy
+RewriteRule ^taxonomy/([0-9]+)	taxonomy/index.php?taxon_id=$1	[NC,R=303] # 303 for Linked data
