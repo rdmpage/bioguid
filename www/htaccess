@@ -38,7 +38,7 @@ RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
 RewriteRule ^jacc:([0-9]{4})-?([0-9]{3})([0-9]|X):(.*)@(.*)		openurl.php?issn=$1-$2$3&volume=$4&spage=$5&genre=article&display=rdf	[NC,R=303]
 
 RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
-RewriteRule ^taxonomy/([0-9]+)			/taxonomy/index.php?taxon_id=$1&format=rdf	[NC,R=303]
+RewriteRule ^taxonomy:([0-9]+)			/taxonomy/index.php?taxon_id=$1&format=rdf	[NC,R=303]
 
 
 # HTML
@@ -93,4 +93,4 @@ RewriteRule ^issn:([0-9]{4}[\-]?[0-9]{3}[0-9X])		issn/index.php?issn=$1	[NC,R=30
 RewriteRule ^urn:issn:([0-9]{4}[\-]?[0-9]{3}[0-9X])		issn/index.php?issn=$1	[NC,R=303] # 303 for Linked data
 
 # Taxonomy
-RewriteRule ^taxonomy/([0-9]+)	taxonomy/index.php?taxon_id=$1	[NC,R=303] # 303 for Linked data
+RewriteRule ^taxonomy:([0-9]+)	taxonomy/index.php?taxon_id=$1	[NC,R=303] # 303 for Linked data
