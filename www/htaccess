@@ -18,9 +18,8 @@ RewriteRule ^pmid:(.*)			openurl.php?id=pmid:$1&display=rdf	[NC,R=303]
 RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
 RewriteRule ^hdl:(.*)			openurl.php?id=hdl:$1&display=rdf	[NC,R=303]
 
-# Not working :(
-#RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
-#RewriteRule ^http:\/\/(.*)			openurl.php?id=http://$1&display=rdf	[NC,R=303]
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^jstor:(.*)     openurl.php?id=http://www.jstor.org/stable/$1&display=rdf [NC,R=303]
 
 RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
 RewriteRule ^urn:lsid:(.*)			lsid.php?lsid=urn:lsid:$1&display=rdf	[NC,R=303]
@@ -39,6 +38,10 @@ RewriteRule ^jacc:([0-9]{4})-?([0-9]{3})([0-9]|X):(.*)@(.*)		openurl.php?issn=$1
 
 RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
 RewriteRule ^taxonomy:([0-9]+)			/taxonomy/index.php?taxon_id=$1&format=rdf	[NC,R=303]
+
+# c-square
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^csquare:([1357][0-9]{3}(:[0-9]{3}))?	csquare/index.php?csquare=$1&format=rdf	[NC,R=303] 
 
 
 # HTML
@@ -73,8 +76,8 @@ RewriteRule ^pmid:(.*).json		openurl.php?id=pmid:$1&display=json	[NC,L]
 RewriteRule ^pmid/(.*)			openurl.php?id=pmid:$1	[NC,L]
 RewriteRule ^pmid:(.*)			openurl.php?id=pmid:$1	[NC,R=303] # 303 for Linked data
 
-# URL
-#RewriteRule ^http:(.*)			openurl.php?id=http:/$1	[NC,R=303] # 303 for Linked data
+# JSTOR
+RewriteRule ^jstor:(.*)     openurl.php?id=http://www.jstor.org/stable/$1 [NC,L]
 
 # Genbank
 RewriteRule ^genbank/(.*).json	openurl.php?id=genbank:$1&display=json	[NC,L]
@@ -94,3 +97,6 @@ RewriteRule ^urn:issn:([0-9]{4}[\-]?[0-9]{3}[0-9X])		issn/index.php?issn=$1	[NC,
 
 # Taxonomy
 RewriteRule ^taxonomy:([0-9]+)	taxonomy/index.php?taxon_id=$1	[NC,R=303] # 303 for Linked data
+
+# c-square
+RewriteRule ^csquare:([1357][0-9]{3}(:[0-9]{3}))?	csquare/index.php?csquare=$1	[NC,R=303] # 303 for Linked data
