@@ -583,6 +583,10 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 		case '1945-9432':
 			$obj->TitleID = 2203;
 			break;
+
+		case '0771-0488':
+			$obj->TitleID = 10603;
+			break;
 		
 		default:
 			break;
@@ -716,12 +720,18 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			case 2359:
 				$title_list = array(34360, 2356,2359);
 				break;
-				
+					
 			// Misc Pub Kansas (some of these are treated as individual titles)
 			case 4050:
 			case 16171:
 			case 16222:
 				$title_list = array(4050, 16171, 16222);
+				break;	
+				
+			// Mitteilungen aus dem Naturhistorischen Museum in Hamburg
+			case 8009:
+			case 9579:
+				$title_list = array(8009, 9579);
 				break;	
 				
 			// Occasional papers of the California Academy of Sciences
@@ -756,6 +766,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			case 4274:
 			case 3943:
 				$title_list = array(3952, 7411, 15816, 3966, 4274, 3943);
+				break;
+				
+			// Tijdschrift voor entomologie.
+			case 10088:
+			case 39564:
+				$title_list = array(10088, 39564);
 				break;
 			
 			// Transactions of Kansas Academy of Sciences
@@ -1077,44 +1093,47 @@ function bhl_find_article_from_article_title($atitle, $title, $volume, $page, $s
 			//print_r($obj->ItemIDs);
 		}
 		
-		$sql = 'SELECT * FROM bhl_page 
-		INNER JOIN page USING(PageID)
-		WHERE (bhl_page.ItemID = ' . $obj->ItemIDs[0]->ItemID . ') 
-		AND (PageNumber = ' . $db->qstr($page) . ') 
-		ORDER BY SequenceOrder';
-				
-		$result = $db->Execute($sql);
-		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
-
-		switch ($result->NumRows())
+		if (count($obj->ItemIDs) != 0)
 		{
-			case 0:
-				//no hit :(
-				
-				// Try and handle case where page one is a title page
-				if ($page == 1)
-				{
-					$guess = bhl_step_back($obj->ItemIDs[0]->ItemID, $page, $obj->ItemIDs[0]->volume_offset);
-					if ($guess != 0)
+		
+			$sql = 'SELECT * FROM bhl_page 
+			INNER JOIN page USING(PageID)
+			WHERE (bhl_page.ItemID = ' . $obj->ItemIDs[0]->ItemID . ') 
+			AND (PageNumber = ' . $db->qstr($page) . ') 
+			ORDER BY SequenceOrder';
+					
+			$result = $db->Execute($sql);
+			if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+			switch ($result->NumRows())
+			{
+				case 0:
+					//no hit :(
+					
+					// Try and handle case where page one is a title page
+					if ($page == 1)
 					{
-						array_push($obj->hits, $guess);
-						$obj->ItemIDs[0]->PageID = $guess;						
+						$guess = bhl_step_back($obj->ItemIDs[0]->ItemID, $page, $obj->ItemIDs[0]->volume_offset);
+						if ($guess != 0)
+						{
+							array_push($obj->hits, $guess);
+							$obj->ItemIDs[0]->PageID = $guess;						
+						}
 					}
-				}
-				break;
-				
-			case 1:
-				// unique hit
-				array_push($obj->hits, $result->fields['PageID']);
-				$obj->ItemIDs[0]->PageID = $result->fields['PageID'];
-				break;
+					break;
+					
+				case 1:
+					// unique hit
+					array_push($obj->hits, $result->fields['PageID']);
+					$obj->ItemIDs[0]->PageID = $result->fields['PageID'];
+					break;
+			
+				default:
+					break;
+					
+			}
 		
-			default:
-				break;
-				
 		}
-		
-		
 	
 	}
 

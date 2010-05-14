@@ -21,6 +21,7 @@ function bhl_date_from_details($str, &$info)
 	
 	//echo "$str\n";
 	
+
 	
 	if (!$matched)
 	{
@@ -120,6 +121,90 @@ function parse_bhl_date($str, &$info)
 	$str = preg_replace('/text$/', '', $str);
 	$str = preg_replace('/:plates$/', '', $str);
 	$str = trim($str);
+	
+	// Bd.2.E.b
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Bd\.(?<volume>[0-9]+)\./", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$matched = true;
+		}		
+	}		
+	
+	
+	// Jahrg. 74:bd. 2:heft 2 (1908)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Jahrg\.\s+(?<volume>[0-9]+):(.*)\((?<year>[0-9]{4})\)$/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}		
+	}
+	
+	// Jahrg. 73:bd. 2:heft 2: Lief. 3 - Jahrg. 73:bd. 2:
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Jahrg\.\s+(?<volume>[0-9]+):/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$matched = true;
+		}		
+	}		
+	
+	// 88.d. (1945)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volume>\d+)\.d\.\s+\((?<year>[0-9]{4})\)$/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}
+	}		
+	// 65./66. d. 1922/23
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volumefrom>\d+)\.\/(?<volumeto>\d+)\.\s*d\.\s*(?<yearstart>[0-9]{4})\/(?<yearend>[0-9]{2})$/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume_from = $m['volumefrom'];
+			$info->volume_to = $m['volumeto'];
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}
+		
+	}		
+	
+	
+	
 	
 	// nuova ser.:v.1 (1901-1905)
 	if (!$matched)

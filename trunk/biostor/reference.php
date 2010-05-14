@@ -191,6 +191,7 @@ function reference_to_meta_tags($reference)
 	}
 	$html .= '<meta name="citation_abstract_html_url" content="' . $config['web_root'] . 'reference/' . $reference->reference_id . '" />' . "\n";
 	$html .= '<meta name="citation_fulltext_html_url" content="' . $config['web_root'] . 'reference/' . $reference->reference_id . '.text" />' . "\n";
+	$html .= '<meta name="citation_pdf_url" content="' . $config['web_root'] . 'reference/' . $reference->reference_id . '.pdf" />' . "\n";
 
 	$html .= "\n";
 	
