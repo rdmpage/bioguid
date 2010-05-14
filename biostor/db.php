@@ -1266,6 +1266,8 @@ function db_find_article($article)
 			AND (volume = ' .  $db->Quote($article->volume) . ')
 			AND (spage = ' .  $db->Quote($article->spage) . ')';
 	}
+	
+	//echo $sql;
 				
 	// 	Do we have this?
 	$result = $db->Execute($sql);

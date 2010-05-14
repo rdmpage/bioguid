@@ -47,6 +47,9 @@ function html_head_open()
 	$html .= 'var gWebRoot = \'' .  $config['web_root'] . '\';' . "\n";
 	$html .= '</script>' . "\n";
 		
+	// Favicon
+	$html .= '<link rel="shortcut icon" href="' . $config['web_root'] . '/images/biostor-shadow32x32.ico" />' . "\n";
+		
 	// CSS
 	$html .= html_include_css ('css/main.css');
 	
@@ -98,7 +101,7 @@ function html_page_header($has_search = false, $query = '', $category = 'all')
 	
 	$html = '';
 	$html .= '<div style="border-bottom:1px dotted rgb(128,128,128);padding-bottom:15px;">';
-	$html .= '<a href="' . $config['web_root'] . '"><span style="font-size:24px;">' . $config['site_name'] . '</span></a>';
+	$html .= '<a href="' . $config['web_root'] . '"><img src="' . $config['web_root'] . '/images/biostor-shadow32x32.png" border="0" align="top" />&nbsp;<span style="font-size:32px;">' . $config['site_name'] . '</span></a>';
 	
 	if ($has_search)
 	{

@@ -117,7 +117,7 @@ function sparkline_cummulative_articles_added()
 	}
 	
 	
-	return make_sparkline($count, $running_total, 80, 30);
+	return make_sparkline($count, $running_total, 200, 100);
 }
 
 //--------------------------------------------------------------------------------------------------

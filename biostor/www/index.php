@@ -233,9 +233,9 @@ echo '<h1>Progress</h1>';
 echo '<p>Numbers of articles per year</p>' . "\n";
 echo '<img src="' . sparkline_references('', '', 360,100) . '" alt="sparkline" align="top"/>' . "\n";
 
-/*
-echo '<img src="' . sparkline_cummulative_articles_added() . '" alt="sparkline" />' . "\n";
-*/
+
+//echo '<img src="' . sparkline_cummulative_articles_added() . '" alt="sparkline" />' . "\n";
+
 
 echo '<h1>Coverage</h1>';
 
