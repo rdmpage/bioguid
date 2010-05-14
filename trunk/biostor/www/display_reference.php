@@ -8,6 +8,7 @@
  */
 
 require_once (dirname(__FILE__) . '/display_object.php');
+require_once (dirname(__FILE__) . '/display_pdf.php');
 require_once (dirname(__FILE__) . '/form.php');
 require_once ('../bhl_names.php');
 require_once ('../bhl_text.php');
@@ -63,6 +64,14 @@ class DisplayReference extends DisplayObject
 				case 'bib':
 					$this->format = 'bib';
 					break;
+
+				case 'pdf':
+					$this->format = 'pdf';
+					break;
+
+				case 'rss':
+					$this->format = 'rss';
+					break;
 		
 				default:
 					parent::GetFormat();
@@ -91,6 +100,15 @@ class DisplayReference extends DisplayObject
 			case 'bib':
 				$this->DisplayBibtex();
 				break;
+				
+			case 'pdf':
+				$this->DisplayPdf();
+				break;
+
+			case 'rss':
+				$this->DisplayRSS();
+				break;
+				
 
 			default:
 				parent::DisplayFormattedObject();
@@ -107,6 +125,8 @@ class DisplayReference extends DisplayObject
 		global $config;
 		
 		echo reference_to_meta_tags($this->object);
+		
+		echo html_include_link('application/rss+xml', 'RSS2.0', 'reference/' . $this->id . '.rss', 'alternate');
 		
 		echo html_include_css('css/viewer.css');
 		echo html_include_script('js/fadeup.js');
@@ -409,6 +429,10 @@ Event.observe(window, \'load\', function() {
 
 		echo '<h2>Export</h2>' . "\n";
 		echo '<ul class="export-list">' . "\n";
+		if ($this->in_bhl)
+		{
+			echo '<li class="pdf"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.pdf" title="PDF">PDF</a></li>';
+		}
 		echo '<li class="xml"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.xml" title="Endnote XML">Endnote XML</a></li>';
 		echo '<li class="ris"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.ris" title="RIS">Reference manager</a></li>';		
 		echo '<li class="bibtex"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.bib" title="BibTex">BibTex</a></li>';	
@@ -774,6 +798,65 @@ Event.observe(window, \'load\', function() {
 		header("Content-type: text/plain; charset=utf-8\n\n");
 		echo $text;
 	}
+	
+	//----------------------------------------------------------------------------------------------
+	function DisplayPdf()
+	{
+		pdf_get($this->id);
+	}	
+	
+	//----------------------------------------------------------------------------------------------
+	// Endnote RSS media format of thumbnails
+	function DisplayRSS()
+	{
+		global $config;
+				
+		// Create XML document
+		$feed = new DomDocument('1.0', 'UTF-8');
+		
+		$rss = $feed->createElement('rss');
+		$rss->setAttribute('version', '2.0');
+		$rss->setAttribute('xmlns:media', 'http://search.yahoo.com/mrss/');
+		$rss = $feed->appendChild($rss);
+		
+		// channel
+		$channel = $feed->createElement('channel');
+		$channel = $rss->appendChild($channel);
+		
+		$title = $channel->appendChild($feed->createElement('title'));
+		$title->appendChild($feed->createTextNode($this->GetTitle() ));
+
+		$description = $channel->appendChild($feed->createElement('description'));
+		$description->appendChild($feed->createTextNode("Page images from " . $this->GetTitle() ));
+
+		$link = $channel->appendChild($feed->createElement('link'));
+		$link->appendChild($feed->createTextNode($config['web_server'] . 'reference/' . $this->id ));
+		
+		$pages = bhl_retrieve_reference_pages($this->id);
+		
+		foreach ($pages as $page)
+		{
+			$image = bhl_fetch_page_image($page->PageID);
+			
+			$item = $channel->appendChild($feed->createElement('item'));
+			
+			$title = $item->appendChild($feed->createElement('title'));
+			$title->appendChild($feed->createTextNode('Page ' . $page->PageID));
+			
+			$link = $item->appendChild($feed->createElement('link'));
+			$link->appendChild($feed->createTextNode($image->url));
+				
+			$thumbnail = $item->appendChild($feed->createElement('media:thumbnail'));
+			$thumbnail->setAttribute('url', $image->thumbnail->url);
+	
+			$content = $item->appendChild($feed->createElement('media:content'));
+			$content->setAttribute('url', $image->url);
+		}
+			
+		// Dump XML
+		header("Content-type: text/xml; charset=utf-8\n\n");
+		echo $feed->saveXML();
+	}	
 
 	//----------------------------------------------------------------------------------------------
 	function GetTitle()
