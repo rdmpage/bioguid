@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Working with Remote Stores and Endpoints - ARC RDF Classes for PHP</title>
+    <style type="text/css" media="all">
+     @import url("/code/trice/trice.css?d=3");
+     @import url("/themes/arc_2007/theme.css?d=3");
+    </style>
+    
+    <script type="text/javascript" src="/code/trice/wiki/wiki.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/stats/stats.js?d=3"></script>
+    <script type="text/javascript" src="/themes/arc_2007/theme.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/dom.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/trice.js?d=3"></script>
+    <script type="text/javascript">
+      <!--
+      var root_path = '/';
+      var request_method = 'get';
+      //-->
+    </script>
+  </head>
+  <body>
+    <div class="page">
+
+  <div class="sysnavbar">
+    <ul><li><a href="/login">log in</a></li><li><a href="/imprint">imprint</a></li></ul>  </div>
+  
+  <div class="applogo">
+    <a href="/"><img src="/themes/arc_2007/logo.gif" alt="ARC" /></a>
+  </div>
+
+  <div class="header">
+
+    <div class="topnavbar">
+      <ul><li><a href="/home">Home</a></li><li><a href="/features">Features</a></li><li><a href="/docs">Documentation</a></li><li><a href="/community">Community</a></li><li><a href="/download">Download</a></li><li><a href="/dev">Development</a></li><li><a href="/sites">Sites</a></li></ul>
+    </div>
+  
+  </div>
+
+  <div class="canvas">
+    <div class="title"><h1>Working with Remote Stores and Endpoints</h1></div>
+    <div class="content">
+      
+      <div  class="w65 fl">
+        
+ARC provides a RemoteStore component (starting with revision 2008-07-04 and based on Morten Frederiksen's excellent RemoteEndpointPlugin) which makes it possible to work with SPARQL (and <a href="/docs/v2/sparql+">SPARQL+</a>) endpoints (almost) as if they were local stores (please see "<a href="/docs/v2/store">Using the RDF Store</a>" for general methods and options). <br />
+ <br />
+<h3>Setup</h3>
+A remote store is instantiated like a local store, but with a <code>remote_store_endpoint</code> configuration parameter instead of database settings:<br />
+
+
+      <div class="code w95"><pre class="code">/* ARC2 static class inclusion */ 
+include_once('path/to/arc/ARC2.php');
+
+/* configuration */ 
+$config = array(
+  /* remote endpoint */
+  'remote_store_endpoint' =&gt; 'http://example.com/sparql',
+);
+
+/* instantiation */
+$store = ARC2::getRemoteStore($config);</pre></div>
+    
+
+<div class="hr"><hr /></div>
+<h3>Running Queries</h3>
+
+      <div class="code w95"><pre class="code">$q = 'SELECT ...';
+$rows = $store-&gt;query($q, 'rows');
+...</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>Unsupported methods</h3>
+A couple of the usual store methods are not available while working with remote endpoints:<br />
+<ul>
+<li>  <strong><code>hasSetting(), getSetting(), setSetting()</code></strong> </li>
+<li>  <strong><code>reset()</code></strong> </li>
+<li>  <strong><code>drop()</code></strong> </li>
+<li>  <strong><code>dump()</code></strong> (you can use DUMP as non-standard SPARQL query, if supported)<br /></li>
+<li>  <strong><code>createBackup()</code></strong> </li>
+<li>  <strong><code>renameTo()</code></strong> </li>
+<li>  <strong><code>replicateTo()</code></strong> </li>
+<li>  <strong><code>consolidation methods</code></strong> 
+</li></ul>
+      </div>
+    
+
+
+      <div  class="w30 fr">
+        
+
+      <div class="box">
+        <h3><a href="/docs">Documentation</a></h3>
+<ul><li><a href="/docs/v2/intro">Introducing ARC2</a></li><li><a href="/docs/v2/getting_started">Getting Started</a></li><li><a href="/docs/v2/structures">Internal Structures</a></li><li><a href="/docs/v2/parsing">Parsing RDF</a></li><li><a href="/docs/v2/store">Using the RDF Store</a></li><li><a href="/docs/v2/endpoint">SPARQL Endpoint Setup</a></li><li><a href="/docs/v2/serializing">Serializing ARC structures</a></li><li><a href="/docs/v2/extractors">Extracting RDF from HTML</a></li><li><a href="/docs/v2/remote_stores">Remote Stores/Endpoints</a></li><li><a href="/docs/v2/sparql+">SPARQL+</a></li><li><a href="/docs/v2/sparqlscript">SPARQLScript</a></li><li><a href="/docs/v2/sparql_extension_functions">SPARQL Extension Functions</a></li></ul>
+
+
+      </div>
+    
+      </div>
+          <div class="clb"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Last modified: 2008-07-04 08:55:04 UTC</p><p>Powered by <a href="http://trice.semsol.org/" title="Version: 2007-11-13">Trice</a> Wiki Module</p>  </div>
+    
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Writing Triggers for ARC - ARC RDF Classes for PHP</title>
+    <style type="text/css" media="all">
+     @import url("/code/trice/trice.css?d=3");
+     @import url("/themes/arc_2007/theme.css?d=3");
+    </style>
+    
+    <script type="text/javascript" src="/code/trice/wiki/wiki.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/stats/stats.js?d=3"></script>
+    <script type="text/javascript" src="/themes/arc_2007/theme.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/dom.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/trice.js?d=3"></script>
+    <script type="text/javascript">
+      <!--
+      var root_path = '/';
+      var request_method = 'get';
+      //-->
+    </script>
+  </head>
+  <body>
+    <div class="page">
+
+  <div class="sysnavbar">
+    <ul><li><a href="/login">log in</a></li><li><a href="/imprint">imprint</a></li></ul>  </div>
+  
+  <div class="applogo">
+    <a href="/"><img src="/themes/arc_2007/logo.gif" alt="ARC" /></a>
+  </div>
+
+  <div class="header">
+
+    <div class="topnavbar">
+      <ul><li><a href="/home">Home</a></li><li><a href="/features">Features</a></li><li><a href="/docs">Documentation</a></li><li><a href="/community">Community</a></li><li><a href="/download">Download</a></li><li><a href="/dev">Development</a></li><li><a href="/sites">Sites</a></li></ul>
+    </div>
+  
+  </div>
+
+  <div class="canvas">
+    <div class="title"><h1>Writing Triggers for ARC</h1></div>
+    <div class="content">
+      
+      <div  class="w65 fl">
+        The latest versions of ARC can be extended with Trigger classes if those files follow certain conventions, as described on this page: <br />
+ <br />
+Name your extension ARC2_<em>MyTrigger</em>Trigger, save it as ARC2_<em>MyTrigger</em>Trigger.php, and place the file in the recently added <code>triggers</code> directory. This will allow ARC to later locate and include your class file. <br />
+ <br />
+Triggers have to be explicitly registered/activated via the Store or Endpoint configuration:<br />
+
+      <div class="code w95"><pre class="code">...
+$config = array(
+  'store_triggers' =&gt; array(
+    /* register a trigger for INSERTs and LOADs */
+    'insert' =&gt; array('countTriples'),
+    'load' =&gt; array('countTriples'),
+  ),
+);
+...
+$store = ARC2::getStore($config);
+...</pre></div>
+    
+ 
+ <br />
+The class file itself can be an arbitrary PHP class, but you have to define some parent Class (e.g. <code>Class</code> to be able to access ARC functionality). <br />
+  <br />
+Below, you see a basic example for an ARC Trigger that counts the triples in a store (e.g. after a LOAD operation). <br />
+
+
+      <div class="code w95"><pre class="code">&lt;?php
+/*
+class:    ARC2 Trigger
+version:  2008-02-01
+*/
+
+ARC2::inc('Class');
+
+class ARC2_CountTriplesTrigger extends ARC2_Class {
+
+  function __construct($a = '', &amp;$caller) {/* caller is a store */
+    parent::__construct($a, $caller);
+  }
+  
+  function ARC2_CountTriplesTrigger($a = '', &amp;$caller) {
+    $this-&gt;__construct($a, $caller);
+  }
+
+  function __init() {
+    parent::__init();
+    $this-&gt;store = $this-&gt;caller;
+  }
+
+  /*  */
+
+  function go() { /* automatically called by store or endpoint */
+    $q = 'SELECT COUNT(*) AS ?t_count WHERE { ?s ?p ?o }';
+    $row = $this-&gt;store-&gt;query($q, 'row');
+    /* do something */
+    ...
+  }
+
+}</pre></div>
+    
+      </div>
+    
+
+
+      <div  class="w30 fr">
+        
+
+      <div class="box">
+        <h3><a href="/docs">Documentation</a> (<a href="/docs/misc">misc.</a>)</h3>
+<ul><li><a href="/docs/v2/misc/sparql_parsing">Stand-alone SPARQL Parsing</a></li><li><a href="/docs/v2/misc/turtle_templates">Turtle Templates</a></li><li><a href="/docs/v2/misc/writing_plugins">How to write plugins for ARC2</a></li><li><a href="/docs/v2/misc/writing_triggers">How to write triggers for ARC</a></li></ul>
+
+
+      </div>
+    
+
+
+      <div class="box">
+        <strong><a href="/download/plugins">Available Plugins</a></strong>
+
+      </div>
+    
+      </div>
+          <div class="clb"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Last modified: 2008-09-30 11:25:53 UTC</p><p>Powered by <a href="http://trice.semsol.org/" title="Version: 2007-11-13">Trice</a> Wiki Module</p>  </div>
+    
+</div>
+
+  </body>
+</html>

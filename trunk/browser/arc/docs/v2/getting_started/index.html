@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Getting Started with ARC2 - ARC RDF Classes for PHP</title>
+    <style type="text/css" media="all">
+     @import url("/code/trice/trice.css?d=3");
+     @import url("/themes/arc_2007/theme.css?d=3");
+    </style>
+    
+    <script type="text/javascript" src="/code/trice/wiki/wiki.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/stats/stats.js?d=3"></script>
+    <script type="text/javascript" src="/themes/arc_2007/theme.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/dom.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/trice.js?d=3"></script>
+    <script type="text/javascript">
+      <!--
+      var root_path = '/';
+      var request_method = 'get';
+      //-->
+    </script>
+  </head>
+  <body>
+    <div class="page">
+
+  <div class="sysnavbar">
+    <ul><li><a href="/login">log in</a></li><li><a href="/imprint">imprint</a></li></ul>  </div>
+  
+  <div class="applogo">
+    <a href="/"><img src="/themes/arc_2007/logo.gif" alt="ARC" /></a>
+  </div>
+
+  <div class="header">
+
+    <div class="topnavbar">
+      <ul><li><a href="/home">Home</a></li><li><a href="/features">Features</a></li><li><a href="/docs">Documentation</a></li><li><a href="/community">Community</a></li><li><a href="/download">Download</a></li><li><a href="/dev">Development</a></li><li><a href="/sites">Sites</a></li></ul>
+    </div>
+  
+  </div>
+
+  <div class="canvas">
+    <div class="title"><h1>Getting Started with ARC2</h1></div>
+    <div class="content">
+      
+      <div  class="w65 fl">
+        ARC2 is a complete rewrite of ARC1. We tried to incorporate all the feedback we received, especially requests by people used to PHP frameworks, and new to RDF. Here we go:<br />
+<div class="hr"><hr /></div>
+<h3>Setup</h3>
+ARC2 introduces a static class which is all that needs to be included. Any other component can then be loaded via ARC2, without the need to know the exact path to the class file.<br />
+
+      <div class="code w95"><pre class="code">include_once("path/to/arc/ARC2.php");
+</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>Accessing and using ARC components</h3>
+Once the static ARC2 class is made available, you can load the components with simple method calls and start using them:<br />
+
+      <div class="code w95"><pre class="code">$parser = ARC2::getRDFParser();
+$parser->parse('http://example.com/foaf.ttl');
+$triples = $parser->getTriples();
+</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>Database requirements</h3>
+Some components need a MySQL database (for example the RDF store and the SPARQL engine). The database has to be set up in advance, but ARC will auto-create the necessary tables. A single DB can be used for multiple ARC stores, you can provide a custom name for each store which is then used as a table prefix.<br />
+<div class="hr"><hr /></div>
+<h3>Configuration options</h3>
+Configuration options can be provided during any class instantiation. Dynamically loaded sub-components will inherit their caller's configuration. This allows you to specify certain settings once, without having to worry about them later:<br />
+
+      <div class="code w95"><pre class="code">$config = array(
+  /* db */
+  'db_host' => 'localhost', /* default: localhost */
+  'db_name' => 'my_db',
+  'db_user' => 'user',
+  'db_pwd' => 'secret',
+  /* store */
+  'store_name' => 'arc_tests',
+  /* network */
+  'proxy_host' => '192.168.1.1',
+  'proxy_port' => 8080,
+  /* parsers */
+  'bnode_prefix' => 'bn',
+  /* sem html extraction */
+  'sem_html_formats' => 'rdfa microformats',
+);
+$store = ARC2::getStore($config);
+</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>Error collection</h3>
+Similar to the configuration settings that are passed to sub-components, any processing error that occurs will be logged and forwarded to the calling component:<br />
+
+      <div class="code w95"><pre class="code">$rs = $store-&gt;query('...');
+if ($errs = $store-&gt;getErrors()) {
+  /* $errs contains errors from the store and any called 
+     sub-component such as the query processor, parsers, or
+     the web reader */
+  ...
+}</pre></div>
+    
+
+<div class="hr"><hr /></div>
+<h3>A complete example</h3>
+Detailed component descriptions are available in the other documentation sections. Here is a quick example that hopefully illustrates how ARC2 works:<br />
+
+      <div class="code w95"><pre class="code">include_once(&quot;path/to/arc/ARC2.php&quot;);
+
+$config = array(
+  /* db */
+  'db_name' =&gt; 'my_db',
+  'db_user' =&gt; 'user',
+  'db_pwd' =&gt; 'secret',
+  /* store */
+  'store_name' =&gt; 'arc_tests',
+);
+$store = ARC2::getStore($config);
+if (!$store-&gt;isSetUp()) {
+  $store-&gt;setUp();
+}
+
+/* LOAD will call the Web reader, which will call the
+format detector, which in turn triggers the inclusion of an
+appropriate parser, etc. until the triples end up in the store. */
+$store-&gt;query('LOAD &lt;http://example.com/home.html&gt;');
+
+/* list names */
+$q = '
+  PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+  SELECT ?person ?name WHERE {
+    ?person a foaf:Person ; foaf:name ?name .
+  }
+';
+$r = '';
+if ($rows = $store-&gt;query($q, 'rows')) {
+  foreach ($rows as $row) {
+    $r .= '&lt;li&gt;' . $row['name'] . '&lt;/li&gt;';
+  }
+}
+
+echo $r ? '&lt;ul&gt;' . $r . '&lt;/ul&gt;' : 'no named persons found';</pre></div>
+    
+      </div>
+    
+
+
+      <div  class="w30 fr">
+        
+
+      <div class="box">
+        <h3><a href="/docs">Documentation</a></h3>
+<ul><li><a href="/docs/v2/intro">Introducing ARC2</a></li><li><a href="/docs/v2/getting_started">Getting Started</a></li><li><a href="/docs/v2/structures">Internal Structures</a></li><li><a href="/docs/v2/parsing">Parsing RDF</a></li><li><a href="/docs/v2/store">Using the RDF Store</a></li><li><a href="/docs/v2/endpoint">SPARQL Endpoint Setup</a></li><li><a href="/docs/v2/serializing">Serializing ARC structures</a></li><li><a href="/docs/v2/extractors">Extracting RDF from HTML</a></li><li><a href="/docs/v2/remote_stores">Remote Stores/Endpoints</a></li><li><a href="/docs/v2/sparql+">SPARQL+</a></li><li><a href="/docs/v2/sparqlscript">SPARQLScript</a></li><li><a href="/docs/v2/sparql_extension_functions">SPARQL Extension Functions</a></li></ul>
+
+
+      </div>
+    
+      </div>
+          <div class="clb"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Last modified: 2008-11-21 13:00:53 UTC</p><p>Powered by <a href="http://trice.semsol.org/" title="Version: 2007-11-13">Trice</a> Wiki Module</p>  </div>
+    
+</div>
+
+  </body>
+</html>
