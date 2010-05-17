@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SPARQL Extension Functions in ARC - ARC RDF Classes for PHP</title>
+    <style type="text/css" media="all">
+     @import url("/code/trice/trice.css?d=3");
+     @import url("/themes/arc_2007/theme.css?d=3");
+    </style>
+    
+    <script type="text/javascript" src="/code/trice/wiki/wiki.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/stats/stats.js?d=3"></script>
+    <script type="text/javascript" src="/themes/arc_2007/theme.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/dom.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/trice.js?d=3"></script>
+    <script type="text/javascript">
+      <!--
+      var root_path = '/';
+      var request_method = 'get';
+      //-->
+    </script>
+  </head>
+  <body>
+    <div class="page">
+
+  <div class="sysnavbar">
+    <ul><li><a href="/login">log in</a></li><li><a href="/imprint">imprint</a></li></ul>  </div>
+  
+  <div class="applogo">
+    <a href="/"><img src="/themes/arc_2007/logo.gif" alt="ARC" /></a>
+  </div>
+
+  <div class="header">
+
+    <div class="topnavbar">
+      <ul><li><a href="/home">Home</a></li><li><a href="/features">Features</a></li><li><a href="/docs">Documentation</a></li><li><a href="/community">Community</a></li><li><a href="/download">Download</a></li><li><a href="/dev">Development</a></li><li><a href="/sites">Sites</a></li></ul>
+    </div>
+  
+  </div>
+
+  <div class="canvas">
+    <div class="title"><h1>SPARQL Extension Functions in ARC</h1></div>
+    <div class="content">
+      
+      <div  class="w65 fl">
+         
+SPARQL can be extended with <a href="http://www.w3.org/TR/rdf-sparql-query/#extensionFunctions">custom (URI-based) functions</a>. ARC is based on MySQL and following the pattern below, you can add a variety of MySQL-specific functions to your SPARQL queries. (Note that these extensions are most probably not going to work in other SPARQL engines.) <br />
+ <br />
+The MySQL function namespace is <a href="http://web-semantics.org/ns/mysql/">http://web-semantics.org/ns/mysql/ </a> 
+ <br />
+ <br />
+A specific function identifier: <code>http://web-semantics.org/ns/mysql/<strong>concat</strong></code> 
+ <br />
+ <br />
+Example:<br />
+
+      <div class="code w95"><pre class="code">PREFIX mysql: &lt;http://web-semantics.org/ns/mysql/&gt; 
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt; 
+
+SELECT ?person WHERE {
+  ?person foaf:givenname ?n1 ;
+          foaf:family_name ?n2 .
+  FILTER (mysql:concat(?n1, &quot; &quot;, ?n2) = &quot;Alec Tronnick&quot;) .
+}</pre></div>
+    
+ 
+ <br />
+By default, extension functions are enabled in ARC's RDF Store class, but disabled in the Endpoint class, as they could introduce security risks. In order to activate them in your endpoint, add a <code>store_allow_extension_functions</code> option to your configuration array:<br />
+
+      <div class="code w95"><pre class="code">$config = array(
+  ...
+  'store_allow_extension_functions' =&gt; 1,
+  ...
+);
+
+/* instantiation */
+$ep = ARC2::getStoreEndpoint($config);</pre></div>
+    
+      </div>
+    
+
+
+      <div  class="w30 fr">
+        
+
+      <div class="box">
+        <h3><a href="/docs">Documentation</a></h3>
+<ul><li><a href="/docs/v2/intro">Introducing ARC2</a></li><li><a href="/docs/v2/getting_started">Getting Started</a></li><li><a href="/docs/v2/structures">Internal Structures</a></li><li><a href="/docs/v2/parsing">Parsing RDF</a></li><li><a href="/docs/v2/store">Using the RDF Store</a></li><li><a href="/docs/v2/endpoint">SPARQL Endpoint Setup</a></li><li><a href="/docs/v2/serializing">Serializing ARC structures</a></li><li><a href="/docs/v2/extractors">Extracting RDF from HTML</a></li><li><a href="/docs/v2/remote_stores">Remote Stores/Endpoints</a></li><li><a href="/docs/v2/sparql+">SPARQL+</a></li><li><a href="/docs/v2/sparqlscript">SPARQLScript</a></li><li><a href="/docs/v2/sparql_extension_functions">SPARQL Extension Functions</a></li></ul>
+
+
+      </div>
+    
+      </div>
+          <div class="clb"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Last modified: 2008-02-04 20:21:50 UTC</p><p>Powered by <a href="http://trice.semsol.org/" title="Version: 2007-11-13">Trice</a> Wiki Module</p>  </div>
+    
+</div>
+
+  </body>
+</html>

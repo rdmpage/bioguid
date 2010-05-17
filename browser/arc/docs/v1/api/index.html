@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>API (v1) - ARC RDF Classes for PHP</title>
+    <style type="text/css" media="all">
+     @import url("/code/trice/trice.css?d=3");
+     @import url("/themes/arc_2007/theme.css?d=3");
+    </style>
+    
+    <script type="text/javascript" src="/code/trice/wiki/wiki.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/stats/stats.js?d=3"></script>
+    <script type="text/javascript" src="/themes/arc_2007/theme.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/dom.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/trice.js?d=3"></script>
+    <script type="text/javascript">
+      <!--
+      var root_path = '/';
+      var request_method = 'get';
+      //-->
+    </script>
+  </head>
+  <body>
+    <div class="page">
+
+  <div class="sysnavbar">
+    <ul><li><a href="/login">log in</a></li><li><a href="/imprint">imprint</a></li></ul>  </div>
+  
+  <div class="applogo">
+    <a href="/"><img src="/themes/arc_2007/logo.gif" alt="ARC" /></a>
+  </div>
+
+  <div class="header">
+
+    <div class="topnavbar">
+      <ul><li><a href="/home">Home</a></li><li><a href="/features">Features</a></li><li><a href="/docs">Documentation</a></li><li><a href="/community">Community</a></li><li><a href="/download">Download</a></li><li><a href="/dev">Development</a></li><li><a href="/sites">Sites</a></li></ul>
+    </div>
+  
+  </div>
+
+  <div class="canvas">
+    <div class="title"><h1>API (v1)</h1></div>
+    <div class="content">
+      
+      <div  class="w65 fl">
+        This class provides convenient access to ARC's classes and methods.<br />
+<div class="hr"><hr /></div>
+<h2>Setup</h2>
+Simply include the class file:<br />
+
+      <div class="code w95"><pre class="code">include_once("path/to/arc/ARC_api.php");</pre></div>
+    
+<div class="hr"><hr /></div>
+<h2>Instantiation</h2>
+The class can be instantiated with an array of parameters:<br />
+<ul>
+<li> inc_path  (the path to the ARC class files, relative to the calling PHP script)<br /></li>
+<li> config  (an array containing the detailed configuration parameters)<br /></li>
+<li> config_path  (instead of passing a config array directly, it is possible to specify a config-path from where ARC tries to load the configuration on demand. The file at config_path should be a PHP script and provide a function <code>arc_get_api_config()</code>  which returns the array with configuration parameters)<br />
+</li></ul>
+
+e.g.<br />
+
+
+      <div class="code w95"><pre class="code">$args = array(
+  "inc_path"=>"code/arc/",
+  "config"=>array(
+    /* db */
+    "db_host"=>"localhost",
+    "db_name"=>"my_db1",
+    "db_user"=>"user",
+    "db_pwd"=>"secret",
+
+    /* store prefix */
+    "prefix"=>"intranet1",
+
+    /* store */
+    "store_type"=>"basic+",
+    "id_type"=>"hash_int", 
+    "reversible_consolidation"=>true,
+    "index_type"=>"advanced",
+    "index_graph_iris"=>true,
+    "index_words"=>false
+  )
+);
+$api = new ARC_api($args);
+</pre></div>
+    
+or<br />
+
+      <div class="code w95"><pre class="code">$args = array(
+  "inc_path"=>"path/to/arc/",
+  "config_path"=>"sys/arc_config.php"
+);
+$api = new ARC_api($args);
+</pre></div>
+    
+Here is an example config array with commented store parameters:<br />
+
+      <div class="code w95"><pre class="code">$config = array(
+  /* db */
+  "db_host"=>"localhost",
+  "db_name"=>"my_db1",
+  "db_user"=>"user",
+  "db_pwd"=>"secret",
+
+  /* store prefix */
+  "prefix"=>"intranet1",
+
+  /* store */
+  "store_type"=>"basic+",            // (basic|basic+|split)
+  "id_type"=>"hash_int",             // (hash_int|hash_md5|hash_sha1|incr_int)
+  "reversible_consolidation"=>false, // adds additional columns
+  "index_type"=>"advanced",          // (basic|advanced)
+  "index_graph_iris"=>true,          // add graph columns to indexes
+  "index_words"=>false,              // creates FULLTEXT index on values
+  "charset"=>"utf8"                  // for MySQL, if supported
+);
+</pre></div>
+    
+The possible parameters in more detail:<br />
+<ul>
+<li> A <strong>basic</strong> store uses a single triple table. Although it offers means to move triple duplicates (from different graphs) to a separate duplicates table, it is not possible to query those tables in a single query. The basic store does not use MySQL's MERGE storage engine. It can be used on servers running an older MySQL version (e.g. 4.0.18) where MERGE tables are still too experimental, or when duplicates are not an issue.<br /></li>
+<li> A <strong>basic+</strong> store uses the same table layout as the basic store (a triple table, and a duplicates table), but will create MERGE tables on the two triple tables to allow GRAPH queries across both tables.<br /></li>
+<li> A <strong>split</strong> store uses several triple tables to increase query and insert speed. By default, datatype properties are separated from object properties. Additionally, it's possible to specify so-called <em>prop-tables</em> to split out selected properties. Below is an example which specifies two prop-tables:<br />
+
+      <div class="code w95"><pre class="code">$rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+$foaf="http://xmlns.com/foaf/0.1/";
+$pim="http://example.com/pim/pim#";
+
+$config["prop_tables"] = array(
+  array(
+    "name"=>"type",
+    "prop_type"=>"obj",
+    "props"=>array($rdf."type")
+  ),
+  array(
+    "name"=>"private",
+    "prop_type"=>"obj",
+    "props"=>array($foaf."mbox", $pim."fax")
+  )
+);
+</pre></div>
+    
+The <em>prop_tables</em> feature is a possibility to significantly speed up store operations, e.g. if you are building a social networking app, a dedicated table for a group of relation properties (<code>foaf:knows</code>, <code>rel:friendOf</code>, etc) will lead to faster path queries. Or for an OWL or SKOS editor, you could specify a prop_table for <code>rdfs:subClassOf</code>  or <code>skos:broader</code>, <code>skos:narrower</code> respectively to accelerate the recursive generation of (sub-)tree structures.<br />
+
+However, this feature is not well-tested in MySQL. If you want to stay on the safe side, it's best to use the basic store only. If you use the split store, it is recommended to add a script which calls the <code>__destruct()</code> method to drop and re-create the MERGEd tables once in a while.<br /></li>
+<li> The <strong>id_type</strong> defines if and how hashes for the normalized table layout are created: hash_int  uses integers created from an md5 subset of a value, hash_md5  uses a 21-char version of a full md5 hash, hash_sha1  uses a 26-char version of a full sha1 hash, and incr_int does not use hashes, but incremented integers to identify values. The non-integer ids cause larger index size but reduce the probability of colliding ids, incr_int avoids hash-collision completely, but leads to a slower insert speed as a table look-up is needed for each ID creation.<br /></li>
+<li> The <strong>advanced</strong> index_type uses some additional indexes to increase query performance.<br /></li>
+<li> <strong>Reversible consolidation</strong> allows to undo a smushing operation (in case some meant-to-be distinct resoure descriptions were merged).<br />
+</li></ul>
+
+Please note that the store configuration cannot be changed after data has been added to the store.<br />
+<div class="hr"><hr /></div>
+<h2>Methods</h2>
+<dl><dt>db_connect()</dt>
+<dd>
+      <div class="code w95"><pre class="code">$api->db_connect();</pre></div>
+    
+</dd>
+<dt>__destruct</dt>
+<dd>Drop MERGEd tables. (PHP5 calls this automatically)<br />
+
+      <div class="code w95"><pre class="code">$api->__destruct();</pre></div>
+    
+</dd>
+<dt>db_disconnect</dt>
+<dd>
+      <div class="code w95"><pre class="code">$api->db_disconnect();</pre></div>
+    
+</dd>
+<dt>store_exists</dt>
+<dd>
+      <div class="code w95"><pre class="code">echo ($api->store_exists()) ? "it exists" : "it doesn't exist";</pre></div>
+    
+</dd>
+<dt>create_store</dt>
+<dd>Creates tables, if they don't exist already. <br />
+
+      <div class="code w95"><pre class="code">$success=$api->create_store();</pre></div>
+    
+</dd>
+<dt>delete_store</dt>
+<dd>Deletes all tables. <br />
+
+      <div class="code w95"><pre class="code">$success=$api->delete_store();</pre></div>
+    
+</dd>
+<dt>reset_store</dt>
+<dd>Truncates the tables. <br />
+
+      <div class="code w95"><pre class="code">$success=$api->reset_store();</pre></div>
+    
+</dd>
+<dt>add_data</dt>
+<dd>Streaming insert from the Web: <br />
+
+      <div class="code w95"><pre class="code">$args = array(
+  "result_type"=>"json", // (plain|array|json|xml)
+  "graph_iri"=>"http://www.planetrdf.com/index.rdf"
+ );
+$sub_r = $api->add_data($args);
+echo ($sub_r["error"]) ? $sub_r["error"] : $sub_r["result"];</pre></div>
+    
+
+Adding a single triple (the triple has to be encoded in Turtle):<br />
+
+      <div class="code w95"><pre class="code">$dc=&quot;http://purl.org/dc/elements/1.1/&quot;;
+$args = array(
+  &quot;result_type&quot;=&gt;&quot;array&quot;, // (plain|array|json|xml)
+  &quot;graph_iri&quot;=&gt;&quot;http://localhost/tests/g1&quot;, // required
+  &quot;add_triple&quot;=&gt;'&lt;http://arc.web-semantics.org/&gt; &lt;'.$dc.'creator&gt; &quot;Benjamin Nowack&quot; .' 
+);
+$tmp=$api-&gt;add_data($args);</pre></div>
+    
+
+Adding RDF/XML code directly:<br />
+
+      <div class="code w95"><pre class="code">$dc=&quot;http://purl.org/dc/elements/1.1/&quot;;
+$args = array(
+  &quot;result_type&quot;=&gt;&quot;array&quot;, // (plain|array|json|xml)
+  &quot;graph_iri&quot;=&gt;&quot;http://localhost/tests/g1&quot;, // required
+  &quot;add_rdfxml&quot;=&gt;'
+    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;rdf:RDF ...&gt;
+      ...
+    &lt;/rdf:RDF&gt;
+  '
+);
+$sub_r=$api-&gt;add_data($args);</pre></div>
+    
+</dd>
+<dt>query</dt>
+<dd>SPARQL SELECT/ASK/DESCRIBE/CONSTRUCT<br />
+
+
+      <div class="code w95"><pre class="code">$q='
+ PREFIX foaf:   &lt;http://xmlns.com/foaf/0.1/&gt; 
+ SELECT DISTINCT ?g ?p1_name ?p2_name
+ WHERE {
+   GRAPH ?g { ?p1 foaf:knows ?p2 } .
+   ?p1 foaf:name ?p1_name .
+   ?p2 foaf:name ?p2_name .
+   FILTER(REGEX(?p2_name, &quot;^D&quot;)).
+ }
+ LIMIT 50
+';
+
+$args=array(
+  &quot;result_type&quot;=&gt;&quot;rows&quot;, // (rows|json|xml|single|rows_n_count|row_count|sql)
+  &quot;query&quot;=&gt;$q
+);
+
+$qr=$api-&gt;query($args);
+
+if($rows=$qr[&quot;result&quot;]){
+  foreach($rows as $row){
+   echo $row[&quot;g&quot;].&quot; &quot;;
+   echo $row[&quot;p1_name&quot;].&quot; &quot;;
+   echo $row[&quot;p2_name&quot;];
+   echo &quot;n&quot;;
+}</pre></div>
+    
+</dd>
+<dt>delete_data</dt>
+<dd>Deleting triples from a given graph:<br />
+
+      <div class="code w95"><pre class="code">$args = array(
+  &quot;result_type&quot;=&gt;&quot;array&quot; // (sql|array|plain|xml|json)
+  &quot;graph_iri&quot;=&gt;&quot;http://localhost/tests/g1&quot;
+);
+$sub_r=$api-&gt;delete_data($args);</pre></div>
+    
+
+Deleting triples matching a given pattern:<br />
+
+      <div class="code w95"><pre class="code">$args = array(
+  &quot;del_s&quot;=&gt;&quot;http://arc.web-semantics.org/&quot;,
+  &quot;graph_iri&quot;=&gt;&quot;http://localhost/tests/g1&quot;
+);
+$sub_r=$api-&gt;delete_data($args);</pre></div>
+    
+Possible pattern elements:<br />
+Any combination of <code>del_s, del_p, del_o, del_o_lang, del_o_dt, graph_iri</code>. <br />
+</dd>
+<dt>update_data</dt>
+<dd>Combines delete_data and add_data in a single call:<br />
+
+      <div class="code w95"><pre class="code">$dc=http://purl.org/dc/elements/1.1/
+$args = array(
+  &quot;graph_iri&quot;=&gt;&quot;http://localhost/tests/g1&quot;,
+  &quot;del_s&quot;=&gt;&quot;http://arc.web-semantics.org/&quot;,
+  &quot;del_p&quot;=&gt;$dc.&quot;creator&quot;,
+  &quot;add_triple&quot;=&gt;'&lt;http://arc.web-semantics.org/&gt; &lt;'.$dc.'creator&gt; &quot;Benjamin Nowack&quot; .' 
+);
+$sub_r=$api-&gt;update_data($args);</pre></div>
+    
+</dd>
+<dt>move_duplicates</dt>
+<dd>Moves quads that only differ in their graph value (i.e. s, p, and o are redundant) to a separate duplicates table. Calling this method keeps the main triple table smaller and avoids combinatorial explosions in the SQL engine. The basic+ and the split stores still allow GRAPH queries after duplicate removal.<br />
+
+      <div class="code w95"><pre class="code">$tmp=$api-&gt;move_duplicates();</pre></div>
+    
+</dd>
+<dt>restore_duplicates</dt>
+<dd>Moves duplicates back to the main triple table(s).<br />
+
+      <div class="code w95"><pre class="code">$tmp=$api-&gt;restore_duplicates();</pre></div>
+    
+</dd>
+<dt>consolidate_resources</dt>
+<dd>Consolidates resources based on functional properties or inverse function properties. The ARC store supports incremental "smushing", the process gets faster when called multiple times.<br />
+
+      <div class="code w95"><pre class="code">$owl=&quot;http://www.w3.org/2002/07/owl#&quot;;
+$foaf=&quot;http://xmlns.com/foaf/0.1/&quot;;
+$args=array(
+  &quot;fp&quot;=&gt;$owl.&quot;sameAs&quot;,
+  &quot;ifps&quot;=&gt;array($foaf.&quot;mbox&quot;, $foaf.&quot;homepage&quot;, $owl.&quot;sameAs&quot;)
+);
+$sub_r=$api-&gt;consolidate_resources($args);</pre></div>
+    
+Possible parameters: <code>fp or fps, ifp or ifps</code>
+
+</dd>
+<dt>undo_resource_consolidation</dt>
+<dd>Tries to "un-merge" a smushed resource (needs reversible_consolidation to be set to true ). It may make sense to move back the triple duplicates first.<br />
+
+      <div class="code w95"><pre class="code">$args=array(
+  &quot;resource_id&quot;=&gt;&quot;_:bnode27&quot; // either a resource IRI or a bnode id
+);
+$sub_r=$api-&gt;undo_resource_consolidation($args);</pre></div>
+    
+</dd>
+<dt>remove_unlinked_ids</dt>
+<dd>Cleans up the id2val table.<br />
+
+      <div class="code w95"><pre class="code">$sub_r=$api-&gt;remove_unlinked_ids();</pre></div>
+    
+</dd>
+<dt>optimize_tables</dt>
+<dd>Should not be needed as ARC uses a fixed table layout.<br />
+
+      <div class="code w95"><pre class="code">$tmp=$api-&gt;optimize_tables();</pre></div>
+    
+
+</dd></dl>
+      </div>
+    
+
+
+      <div  class="w30 fr">
+        
+      <div class="box">
+        <h3><a href="/docs">Documentation</a></h3> <ul><li><a href="/docs/v1/rdfxml_parser">RDF/XML Parser (v1)</a></li><li><a href="/docs/v1/ntriples_serializer">N-Triples Serializer (v1)</a></li><li><a href="/docs/v1/erdf_parser">eRDF Parser (v1)</a></li><li><a href="/docs/v1/api">API (v1)</a></li></ul>
+
+      </div>
+    
+      </div>
+          <div class="clb"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Last modified: 2007-11-19 11:56:09 UTC</p><p>Powered by <a href="http://trice.semsol.org/" title="Version: 2007-11-13">Trice</a> Wiki Module</p>  </div>
+    
+</div>
+
+  </body>
+</html>

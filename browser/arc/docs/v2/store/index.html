@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Using ARC's RDF Store - ARC RDF Classes for PHP</title>
+    <style type="text/css" media="all">
+     @import url("/code/trice/trice.css?d=3");
+     @import url("/themes/arc_2007/theme.css?d=3");
+    </style>
+    
+    <script type="text/javascript" src="/code/trice/wiki/wiki.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/stats/stats.js?d=3"></script>
+    <script type="text/javascript" src="/themes/arc_2007/theme.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/dom.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/trice.js?d=3"></script>
+    <script type="text/javascript">
+      <!--
+      var root_path = '/';
+      var request_method = 'get';
+      //-->
+    </script>
+  </head>
+  <body>
+    <div class="page">
+
+  <div class="sysnavbar">
+    <ul><li><a href="/login">log in</a></li><li><a href="/imprint">imprint</a></li></ul>  </div>
+  
+  <div class="applogo">
+    <a href="/"><img src="/themes/arc_2007/logo.gif" alt="ARC" /></a>
+  </div>
+
+  <div class="header">
+
+    <div class="topnavbar">
+      <ul><li><a href="/home">Home</a></li><li><a href="/features">Features</a></li><li><a href="/docs">Documentation</a></li><li><a href="/community">Community</a></li><li><a href="/download">Download</a></li><li><a href="/dev">Development</a></li><li><a href="/sites">Sites</a></li></ul>
+    </div>
+  
+  </div>
+
+  <div class="canvas">
+    <div class="title"><h1>Using ARC's RDF Store</h1></div>
+    <div class="content">
+      
+      <div  class="w65 fl">
+        
+<h3>Setup</h3>
+An ARC Store is instantiated like any other component:<br />
+
+      <div class="code w95"><pre class="code">/* ARC2 static class inclusion */ 
+include_once('path/to/arc/ARC2.php');
+
+/* configuration */ 
+$config = array(
+  /* db */
+  'db_host' =&gt; 'localhost', /* optional, default is localhost */
+  'db_name' =&gt; 'my_db',
+  'db_user' =&gt; 'user',
+  'db_pwd' =&gt; 'secret',
+
+  /* store name (= table prefix) */
+  'store_name' =&gt; 'my_store',
+);
+
+/* instantiation */
+$store = ARC2::getStore($config);</pre></div>
+    
+
+<div class="hr"><hr /></div>
+<h3>Creating the MySQL tables</h3>
+
+      <div class="code w95"><pre class="code">if (!$store-&gt;isSetUp()) {
+  $store-&gt;setUp();
+}</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>Running Queries</h3>
+
+      <div class="code w95"><pre class="code">$q = 'SELECT ...';
+$rs = $store-&gt;query($q);
+if (!$store-&gt;getErrors()) {
+  $rows = $rs['result']['rows'];
+  ...
+}</pre></div>
+    
+ARC supports <a href="http://www.w3.org/TR/rdf-sparql-query/">standard SPARQL</a> queries as well as <a href="http://arc.semsol.org/docs/v2/sparql+">SPARQL+</a> for write operations.<br />
+<div class="hr"><hr /></div>
+<h3>Result formats</h3>
+The default <code>query()</code> method returns an associative array with two keys: "query_time" and "result". The former tells how long the SPARQL engine needed to process the query (excluding parse time), the latter contains query-dependent sub-structures. The <code>query()</code> method also accepts a second parameter to specify a result format. Examples are listed below:<br />
+<ul>
+<li> <strong><code>query('SELECT ?fname ...')</code></strong>
+
+      <div class="code w95"><pre class="code">$duration = $rs['query_time'];
+$rows = $rs['result']['rows'];
+$row = $rows[0];
+$val = $row['fname'];</pre></div>
+    
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('SELECT ?fname ...', 'rows')</code></strong>
+
+      <div class="code w95"><pre class="code">$rows = $rs;
+...</pre></div>
+    
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('SELECT ?fname ...', 'row')</code></strong>
+
+      <div class="code w95"><pre class="code">$row = $rs;
+...</pre></div>
+    
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('ASK ...')</code></strong>
+
+      <div class="code w95"><pre class="code">$duration = $rs['query_time'];
+$true_or_false = $rs['result'];</pre></div>
+    
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('ASK ...', 'raw')</code></strong>
+
+      <div class="code w95"><pre class="code">$true_or_false = $rs;</pre></div>
+    
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('DESCRIBE &lt;http://example.com/&gt;...')</code></strong>
+
+      <div class="code w95"><pre class="code">$duration = $rs['query_time'];
+$index = $rs['result'];
+$res = $index['http://example.com/'];</pre></div>
+    
+The index format is described in <a href="/docs/v2/structures">Internal Structures</a>.<br />
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('DESCRIBE &lt;http://example.com/&gt;...', 'raw')</code></strong>
+
+      <div class="code w95"><pre class="code">$index = $rs;
+...</pre></div>
+    
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('CONSTRUCT ...')</code></strong> works analogue to DESCRIBE<br />
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('LOAD ...')</code></strong>
+
+      <div class="code w95"><pre class="code">$duration = $rs['query_time'];
+$added_triples = $rs['result']['t_count'];
+$load_time = $rs['result']['load_time'];
+$index_update_time = $rs['result']['index_update_time'];</pre></div>
+    
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('LOAD ...', 'raw')</code></strong>
+
+      <div class="code w95"><pre class="code">$added_triples = $rs['t_count'];
+$load_time = $rs['load_time'];
+$index_update_time = $rs['index_update_time'];</pre></div>
+    
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('INSERT ...')</code></strong> works analogue to LOAD<br />
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('DELETE ...')</code></strong>
+
+      <div class="code w95"><pre class="code">$duration = $rs['query_time'];
+$removed_triples = $rs['result']['t_count'];
+$delete_time = $rs['result']['delete_time'];
+$index_update_time = $rs['result']['index_update_time'];</pre></div>
+    
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('DELETE ...', 'raw')</code></strong>
+
+      <div class="code w95"><pre class="code">$removed_triples = $rs['t_count'];
+$delete_time = $rs['delete_time'];
+$index_update_time = $rs['index_update_time'];</pre></div>
+    
+<div class="hr"><hr /></div></li>
+<li> <strong><code>query('DUMP)</code></strong> creates (and outputs) a store backup (see dump method below), the result format parameter has no effect<br />
+
+</li></ul>
+<div class="hr"><hr /></div>
+<h3>Advanced query parameters</h3>
+Besides a <em>query</em> and <em>result_format</em>, the <code>query()</code> method accepts two other parameters: <em>query_base</em> and whether to <em>keep_bnode_ids</em>. <br />
+<ul>
+<li> "query_base" (parameter #3, default: empty) allows you to specify a base for the query (e.g. if the query contains relative paths, but no BASE).  <br /></li>
+<li> "keep_bnode_ids" (parameter #4, default: false) is an advanced trigger that enables deletes and updates of blank nodes. ARC supports bnode identification for read operations, i.e. bnode IDs returned by a SELECT can be used in successive queries, if masked as URIs (e.g. <_:bn27>). Likewise, ARC can be told to write bnodes to the store without changing their IDs:<br />
+
+      <div class="code w95"><pre class="code">$q1 = 'DELETE FROM &lt;...&gt; { &lt;_:methuselah&gt; ex:age ?age . }';
+$q2 = 'INSERT INTO &lt;...&gt; { &lt;_:methuselah&gt; ex:age 969 . }';
+$store-&gt;query($q1, 'raw', '', true);
+$store-&gt;query($q2, 'raw', '', true);</pre></div>
+    
+</li></ul>
+<div class="hr"><hr /></div>
+<h3>Other methods</h3>
+<ul>
+<li>  <strong><code>reset()</code></strong> 
+ <br />
+All tables are emptied.<br /></li>
+<li>  <strong><code>drop()</code></strong> 
+ <br />
+All tables are deleted.<br /></li>
+<li>  <strong><code>insert($doc, $g, $keep_bnode_ids = 0)</code></strong> 
+ <br />
+A convenience method. <code>$doc</code> can be an <a href="/docs/v2/structures">ARC structure</a>, or an ARC-supported RDF format (including HTML), <code>$g</code> is the target graph URI, <code>$keep_bnode_ids</code> is explained in the paragraph above.<br /></li>
+<li>  <strong><code>dump()</code></strong> 
+ <br />
+Creates a <a href="http://www.wasab.dk/morten/blog/archives/2008/04/04/introducing-spog">SPOG</a> document from all quads in the store. This method can be used for streamed store backups.<br /></li>
+<li>  <strong><code>createBackup($path, $q = '')</code></strong> 
+ <br />
+Saves a SPOG file that either contains a complete store dump, or triples/quads from a custom, SPO(G)-compliant SELECT query (via the $q parameter). <br /></li>
+<li>  <strong><code>replicateTo($name)</code></strong> 
+ <br />
+Creates a new store and replicates all tables and quads to it.<br /></li>
+<li>  <strong><code>renameTo($name)</code></strong> 
+ <br />
+Renames the store's underlying database tables. <br /></li>
+<li>  <strong><code>optimizeTables($level = 2)</code></strong> /* 1: triple + g2t, 2: triple + *2val, 3: all tables */<br />
+
+Defragments the MySQL tables. This method is automatically called every ~50th LOAD or DELETE query. You can also call it explicitly, though, when queries are getting slower than they should due to store updates.<br />
+
+</li></ul>
+
+<div class="hr"><hr /></div>
+<h3>Querying remote SPARQL endpoints</h3>
+ARC provides a dedicated "<a href="/docs/v2/remote_stores">RemoteStore</a>" component for running queries against Web-accessible SPARQL endpoints.
+      </div>
+    
+
+
+      <div  class="w30 fr">
+        
+
+      <div class="box">
+        <h3><a href="/docs">Documentation</a></h3>
+
+
+      </div>
+    
+      </div>
+          <div class="clb"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Last modified: 2008-07-15 15:19:52 UTC</p><p>Powered by <a href="http://trice.semsol.org/" title="Version: 2007-11-13">Trice</a> Wiki Module</p>  </div>
+    
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SPARQLScript - ARC RDF Classes for PHP</title>
+    <style type="text/css" media="all">
+     @import url("/code/trice/trice.css?d=3");
+     @import url("/themes/arc_2007/theme.css?d=3");
+    </style>
+    
+    <script type="text/javascript" src="/code/trice/wiki/wiki.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/stats/stats.js?d=3"></script>
+    <script type="text/javascript" src="/themes/arc_2007/theme.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/dom.js?d=3"></script>
+    <script type="text/javascript" src="/code/trice/trice.js?d=3"></script>
+    <script type="text/javascript">
+      <!--
+      var root_path = '/';
+      var request_method = 'get';
+      //-->
+    </script>
+  </head>
+  <body>
+    <div class="page">
+
+  <div class="sysnavbar">
+    <ul><li><a href="/login">log in</a></li><li><a href="/imprint">imprint</a></li></ul>  </div>
+  
+  <div class="applogo">
+    <a href="/"><img src="/themes/arc_2007/logo.gif" alt="ARC" /></a>
+  </div>
+
+  <div class="header">
+
+    <div class="topnavbar">
+      <ul><li><a href="/home">Home</a></li><li><a href="/features">Features</a></li><li><a href="/docs">Documentation</a></li><li><a href="/community">Community</a></li><li><a href="/download">Download</a></li><li><a href="/dev">Development</a></li><li><a href="/sites">Sites</a></li></ul>
+    </div>
+  
+  </div>
+
+  <div class="canvas">
+    <div class="title"><h1>SPARQLScript</h1></div>
+    <div class="content">
+      
+      <div  class="w65 fl">
+        
+Many RDF toolkits provide <a href="http://esw.w3.org/topic/SPARQL/Extensions/Update">SPARQL/Update</a> functionality and move from simple query operations to more powerful data manipulation. SPARQLScript goes another step further and enables or simplifies the implementation of<br />
+<ul>
+<li> semantic Mashups,<br /></li>
+<li> custom, portable rule and inference scripts using a SPARQL-based syntax<br /></li>
+<li> Output templates for RDF data and SPARQL query results<br /></li>
+<li> RDF/SPARQL-driven <a href="http://pipes.yahoo.com/pipes/">Yahoo! Pipes</a>-like systems<br />
+</li></ul> 
+ <br />
+SPARQLScript is meant to<br />
+<ul>
+<li> look and feel like a simple scripting language (i.e. it's not purely declarative)<br /></li>
+<li> re-use SPARQL syntax where possible (ARC feedback suggests that SPARQL is probably the most intuitive SemWeb syntax for Not-Yet-SemWeb developers. Many ARC users never studied the SPARQL spec and still find their way around with SQL knowledge and some examples)<br /></li>
+<li> allow the intuitive combination and processing  of native SPARQL result types such as record sets (SELECT), RDF graphs (CONSTRUCT, DESCRIBE), and TRUE/FALSE (ASK)<br />
+</li></ul> 
+ <br />
+Please note that SPARQLScript is work in progress. Feedback and suggestions are welcome. <br />
+
+<div class="hr"><hr /></div> <br />
+<h3>Endpoint Selection</h3>
+SPARQLScript allows the specification of target SPARQL/SPARUL/SPARQL+ endpoints which should be used for queries. A SPARQLScript processor may fall back to a default endpoint or local SPARQL store if no endpoint is defined in the script.<br />
+
+
+      <div class="code w95"><pre class="code">ENDPOINT &lt;http://dbpedia.org/sparql&gt;
+SELECT ...</pre></div>
+    
+<div class="hr"><hr /></div> <br />
+<h3>Query Chaining</h3>
+SPARQLScript allows the sequential execution of SPARQL queries.<br />
+
+
+      <div class="code w95"><pre class="code">LOAD &lt;http://example.com/g1&gt;
+LOAD &lt;http://example.com/g2&gt;
+SELECT * WHERE { ... }
+...</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>Re-usable prefixes</h3>
+PREFIX declarations have a script-wide scope and can be shared by multiple queries.<br />
+ <br />
+
+      <div class="code w95"><pre class="code">PREFIX foaf: &lt;http://...&gt;
+SELECT ?name WHERE { ?s foaf:name ?name}
+SELECT ?nick WHERE { ?s foaf:nick ?nick}</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>Variable Assignments</h3>
+Variables can be used to combine the results from one operation with those from another one.<br />
+ <br />
+
+      <div class="code w95"><pre class="code">$doc := CONSTRUCT ...
+$bool := ASK ...
+$rows := SELECT ...
+$text := &quot;foo bar baz&quot;
+$text2 := $text</pre></div>
+     
+(Assignments work with either "<code>:=</code>" or just "<code>=</code>".)<br />
+ <br />
+It is possible to merge the values of two variables:<br />
+
+      <div class="code w95"><pre class="code">$rows1 = SELECT ...
+$rows2 = SELECT ...
+$rows = $rows1 + $rows2</pre></div>
+     
+<div class="hr"><hr /></div>
+<h3>Placeholders and structured variables</h3>
+SPARQLScript re-uses a simple and  widely deployed notation for placeholder definitions that can be injected in scripts and strings. Property paths and extended syntax is supported for certain structures such as dates (via NOW), GET/POST arguments, or string manipulation.<br />
+ <br />
+
+      <div class="code w95"><pre class="code"># very simple
+$foo := &quot;Foo&quot;
+$bar := ${foo} # $bar is now &quot;Foo&quot; (and yes, we could have simply used $bar = $foo)</pre></div>
+    
+
+
+      <div class="code w95"><pre class="code"># query placeholder
+$name := &quot;John Doe&quot;
+SELECT * WHERE {?person foaf:name &quot;${name}&quot;} # ${name} will be replaced with &quot;John Doe&quot; before the query is evaluated</pre></div>
+    
+
+
+      <div class="code w95"><pre class="code"># pre-defined constant NOW with offset functionality
+SELECT * WHERE {?s dc:date ?date . FILTER ($date &lt; &quot;${NOW - 2h}&quot;) }</pre></div>
+    
+
+
+      <div class="code w95"><pre class="code"># access to GET and POST
+$my_arg = ${GET.my_arg}</pre></div>
+    
+
+
+      <div class="code w95"><pre class="code"># property paths
+$items = SELECT * WHERE {?item a rss:item ; rss:title ?title . };
+$first_title = ${items.0.title}</pre></div>
+    
+
+
+      <div class="code w95"><pre class="code"># string concatenation
+$str = &quot;Hello&quot;
+$str = &quot;${str} World&quot;</pre></div>
+    
+
+
+      <div class="code w95"><pre class="code"># string manipulation (1st argument = regular expression)
+$str = ${str.replace(&quot;/world/i&quot;, &quot;Mom&quot;)}</pre></div>
+    
+
+
+      <div class="code w95"><pre class="code"># URL-encoding
+$str = ${str.urlEncode(&quot;get&quot;)} # space to &quot;+&quot;
+$str = ${str.urlEncode(&quot;post&quot;)} # space to &quot;%20&quot; etc.</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>Branches</h3>
+SPARQLScript supports conditional evaluation of script blocks:<br />
+ <br />
+
+      <div class="code w95"><pre class="code">$exists := ASK ...
+IF ($exists) {
+ DELETE FROM ...
+}
+ELSE {
+ INSERT INTO ...
+}</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>Loops</h3>
+SPARQLScript supports iterating through query result sets:<br />
+ <br />
+
+      <div class="code w95"><pre class="code">$items := SELECT * WHERE {?item a rss:item ; rss:title ?title . };
+FOR ($row in $items) {
+  $title := ${row.title}
+  $uri := ${row.item}
+}</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>Output Templating</h3>
+Stand-alone SPARQL/Turtle literals are added to the SPARQLScript processor's output buffer. This simple method to create custom results can be combined with the other features such as loops and placeholders: <br />
+ <br />
+
+      <div class="code w95"><pre class="code">$items = SELECT * WHERE {?item a rss:item ; rss:title ?title . };
+
+$size = ${items.size}
+IF ($size) {
+  &quot;&quot;&quot; I found ${items.size} items: &lt;ul&gt; &quot;&quot;&quot;
+  FOR ($item in $items) {
+    &quot;&lt;li&gt;${item.title}&lt;/li&gt;&quot;
+  }
+  &quot; &lt;/ul&gt; &quot;
+}
+ELSE { &quot; no items found &quot;}</pre></div>
+    
+
+If a recordset or array is used in a template, the SPARQLScript processor will try to auto-detect the target format and serialize the given array.<br />
+
+      <div class="code w95"><pre class="code">$res = DESCRIBE &lt;http://example.com/foaf.rdf#self&gt;
+# generate an RDF document 
+# (JSON, XML, Turtle, depending on Accept headers or GET parameter &quot;format&quot;)
+&quot;${res}&quot;</pre></div>
+    
+
+<div class="hr"><hr /></div>
+<h3>SPARQL/SPARQL+ Grammar Changes and Additions</h3>
+
+      <div class="code w95"><pre class="code">Script ::= (Query | EndpointDecl | PrefixDecl | Assignment | IFBlock | FORBlock | String | FunctionCall)*
+
+EndpointDecl ::= 'ENDPOINT' IRI_REF
+
+Assignment ::= Var (':=' | '=') ( Query | String | Var | Placeholder | VarMerge) ';'?
+
+IFBlock ::= 'IF' BrackettedExpression '{' Script '}' ( 'ELSE' '{' Script '}')?
+
+FORBlock ::= 'FOR' '(' Var 'IN' Var ')' '{' Script '}'
+
+Placeholder ::= ('$' | '?') '{' [^}]* '}'
+
+VarMerge ::= Var '+' Var</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>Using SPARQLScript in ARC</h3>
+ARC's SPARQLScript processor is instantiated like the <a href="http://arc.semsol.org/docs/v2/store">RDF Store component</a>. If you are going to work with external SPARQL endpoints only, you don't need to define a store (or database connection). The number of queries or general script operation can be limited (see snippet below).<br />
+ <br />
+
+      <div class="code w95"><pre class="code">/* ARC2 static class inclusion */ 
+include_once('path/to/arc/ARC2.php');
+
+/* configuration */ 
+$config = array(
+  /* db */
+  ...
+  /* store name */
+  ...
+  /* sparqlscript */
+  'sparqlscript_default_endpoint' =&gt; 'http://...|local', /* uses defined store if set to &quot;local&quot; */
+  'sparqlscript_max_operations' =&gt; 100, /* queries, assignments, endpoint declarations */
+  'sparqlscript_max_queries' =&gt; 10 /* restricts the allowed number of queries */
+);
+
+/* instantiation */
+$ssp = ARC2::getSPARQLScriptProcessor($config);
+
+/* script evaluation */
+$scr = '
+  PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt; 
+  PREFIX dbpedia2: &lt;http://dbpedia.org/property/&gt; 
+
+  ENDPOINT &lt;http://dbpedia.org/sparql&gt;
+
+  $rows = SELECT ?person ?name ?birth WHERE { 
+    ?person dbpedia2:birthPlace &lt;http://dbpedia.org/resource/Berlin&gt; .
+    ?person dbpedia2:birth ?birth .
+    ?person foaf:name ?name .
+  }
+  LIMIT 10
+  ...
+';
+
+$ssp-&gt;processScript($scr);
+echo $ssp-&gt;env['output'];</pre></div>
+    
+<div class="hr"><hr /></div>
+<h3>References</h3>
+<ul>
+<li> <a href="http://esw.w3.org/topic/SPARQL/Extensions/SPARQLScript">SPARQLScript on the ESW Wiki</a> 
+</li></ul>
+      </div>
+    
+
+
+      <div  class="w30 fr">
+        
+
+      <div class="box">
+        <h3><a href="/docs">Documentation</a></h3>
+<ul><li><a href="/docs/v2/intro">Introducing ARC2</a></li><li><a href="/docs/v2/getting_started">Getting Started</a></li><li><a href="/docs/v2/structures">Internal Structures</a></li><li><a href="/docs/v2/parsing">Parsing RDF</a></li><li><a href="/docs/v2/store">Using the RDF Store</a></li><li><a href="/docs/v2/endpoint">SPARQL Endpoint Setup</a></li><li><a href="/docs/v2/serializing">Serializing ARC structures</a></li><li><a href="/docs/v2/extractors">Extracting RDF from HTML</a></li><li><a href="/docs/v2/remote_stores">Remote Stores/Endpoints</a></li><li><a href="/docs/v2/sparql+">SPARQL+</a></li><li><a href="/docs/v2/sparqlscript">SPARQLScript</a></li><li><a href="/docs/v2/sparql_extension_functions">SPARQL Extension Functions</a></li></ul>
+
+
+      </div>
+    
+      </div>
+          <div class="clb"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Last modified: 2008-09-22 10:53:02 UTC</p><p>Powered by <a href="http://trice.semsol.org/" title="Version: 2007-11-13">Trice</a> Wiki Module</p>  </div>
+    
+</div>
+
+  </body>
+</html>
