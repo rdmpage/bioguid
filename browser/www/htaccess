@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /~rpage/browser/www/
+
+# Handle HTTP prefix to URI
+RewriteRule ^uri/http:/(.*)     get.php?uri=http:\%2F\%2F$1 [NC,L]
+RewriteRule ^uri/(.*)   get.php?uri=$1 [NC,L]
