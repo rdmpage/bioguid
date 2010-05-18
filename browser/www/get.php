@@ -72,6 +72,8 @@ WHERE
 		$index = $r['result'];
 		$parser = ARC2::getRDFParser();
 		$rdfxml_doc = $parser->toRDFXML($index);
+		
+		//echo $rdfxml_doc;
 
 		// What type if this?
 		$dom= new DOMDocument;
@@ -109,6 +111,11 @@ WHERE
 		if (in_array('http://www.w3.org/2002/07/owl#Thing', $type))
 		{
 			$xsl_filename = 'xsl/dbpedia.xsl';
+		}
+		
+		if (in_array('http://purl.uniprot.org/core/Molecule', $type))
+		{
+			$xsl_filename = 'xsl/genbank.xsl';
 		}
 		
 		if ($xsl_filename != '')
