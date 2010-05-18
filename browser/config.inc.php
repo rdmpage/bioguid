@@ -14,8 +14,8 @@ global $config;
 // Server-------------------------------------------------------------------------------------------
 $config['web_dir']	= dirname(__FILE__) . '/www/';
 
-//$config['web_root']	= 'http://localhost/~rpage/browser/www/';
-$config['web_root']	= 'http://iphylo.org/~rpage/browser/www/';
+$config['web_root']	= 'http://localhost/~rpage/browser/www/';
+//$config['web_root']	= 'http://iphylo.org/~rpage/browser/www/';
 
 $config['site_name'] = 'Browser';
 
@@ -33,8 +33,8 @@ $config['db_name'] 	    = 'plos';
 $config['proxy_name'] 	= '';
 $config['proxy_port'] 	= '';
 
-$config['proxy_name'] 	= 'wwwcache.gla.ac.uk';
-$config['proxy_port'] 	= '8080';
+//$config['proxy_name'] 	= 'wwwcache.gla.ac.uk';
+//$config['proxy_port'] 	= '8080';
 
 // Keys---------------------------------------------------------------------------------------------
 $config['gmap'] = 'ABQIAAAAk2P0FJHPZEvUQyY4pt_aIRSvftEOPUiKz5aBpUmr8CSVBljEWxSYgNtBN2k3SX-RkJCsOKiTGZtRkg';
