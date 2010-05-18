@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>truncate-phrase.xsl</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="reference" lang="en" xml:lang="en"><div class="titlepage"><div><div><h1 class="title"><a id="id722993"></a>truncate-phrase.xsl</h1></div><div><div class="author"><h3 class="author"><span class="firstname">Aaron</span> <span class="othername">Straup</span> <span class="surname">Cope</span></h3></div></div><div><p class="releaseinfo">
+	$Id: truncate-phrase.xsl,v 1.1 2005/09/21 13:46:39 asc Exp $
+       </p></div><div><p class="copyright">Copyright © 2005 Aaron Straup Cope</p></div><div><div class="legalnotice"><a id="id829492"></a><p>Permission to use, copy, modify and distribute this
+      stylesheet and its accompanying documentation for any purpose
+      and without fee is hereby granted in perpetuity, provided that
+      the above copyright notice and this paragraph appear in all
+      copies.  The copyright holders make no representation about the
+      suitability of the stylesheet for any purpose.</p></div></div></div><hr /></div><div class="partintro" lang="en" xml:lang="en"><div></div><div class="section" lang="en" xml:lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="id829520"></a>Introduction</h2></div></div></div><p>The truncate phrase stylesheet
+       defines a single public template that will truncate a phrase
+       at a maximum length, with the option to truncate on a word
+       boundary.</p><p>This template is not internationalized and assumes a
+       left-to-right writing orientation. Patches are welcome.</p></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="refentrytitle"><a href="#id829540">truncate-phrase</a></span><span class="refpurpose"> - Truncate a phrase at a maximum length, with the
+      option to truncate on a word boundary.</span></dt></dl></div></div><div class="refentry" lang="en" xml:lang="en"><a id="id829540"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>truncate-phrase — Truncate a phrase at a maximum length, with the
+      option to truncate on a word boundary.</p></div><div class="refsynopsisdiv"><h2>Synopsis</h2><div class="example"><a id="id829559"></a><p class="title"><b>Example 1. Using the truncate-phrase template in your stylesheet</b></p><pre class="programlisting">
+
+ &lt;xsl:include href="/path/to/truncate-phrase.xsl" /&gt;
+
+ &lt;xsl:call-template name="truncate_phrase"&gt;
+  &lt;xsl:with-param name="phrase"&gt;
+   &lt;xsl:value-of select="/h:html/h:head/h:link[@rel='next']/@title" /&gt;
+  &lt;/xsl:with-param&gt;
+  &lt;xsl:with-param name="length" select="25" /&gt;
+  &lt;xsl:with-param name="truncate_to_word_boundary" select="1" /&gt;
+ &lt;/xsl:call-template&gt;
+        </pre></div></div><div class="refsection" lang="en" xml:lang="en"><a id="id829576"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">phrase</span></dt><dd><p>The phrase to be truncated.</p></dd><dt><span class="term">length</span></dt><dd><p>The number of characters to truncate the phrase to.</p></dd><dt><span class="term">truncate_to_word_boundary</span></dt><dd><p>A boolean parameter to indicate whether or not the
+       phrase should be truncated on a word boundary. Default is false.</p></dd><dt><span class="term">trailing_string</span></dt><dd><p>The string to append to the truncated phrase. Default
+       is “...”</p></dd></dl></div></div></div></div></body></html>
