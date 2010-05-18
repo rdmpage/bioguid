@@ -3,7 +3,7 @@
 
 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
   xmlns:dcterms="http://purl.org/dc/terms/"
   xmlns:dbpedia-owl="http://dbpedia.org/ontology/"
   xmlns:dbpprop="http://dbpedia.org/property/"
@@ -24,7 +24,6 @@ exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf  rdf rdfs "
 <b>View</b><br/>
 <ul type="square">
 <li>
-<!-- wikipedia -->
 <a>
 <xsl:attribute name="href">
 <xsl:value-of select="//foaf:page/@rdf:resource" />
@@ -32,6 +31,7 @@ exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf  rdf rdfs "
 <xsl:text>Wikipedia</xsl:text>
 </a>
 </li>
+<xsl:apply-templates select="//owl:sameAs/@rdf:resource" />
 </ul>
 
 <!-- image -->
@@ -71,7 +71,7 @@ exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf  rdf rdfs "
 		</xsl:when>
 
 		<xsl:otherwise>
-			<img src="images/wikipedia/200px-Status_iucn3.1_blank.svg.png" />
+			<!-- <img src="images/wikipedia/200px-Status_iucn3.1_blank.svg.png" /> -->
 		</xsl:otherwise> 
 	</xsl:choose>
 
@@ -96,5 +96,21 @@ exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf  rdf rdfs "
 </img>
 </xsl:template>
 
+<xsl:template match="owl:sameAs/@rdf:resource">
+	<xsl:choose>
+	<xsl:when test="contains(., 'http://rdf.freebase.com/')">
+	<li>
+	<a>
+	<xsl:attribute name="href">
+	<xsl:value-of select="." />
+	</xsl:attribute>
+	<xsl:text>Freebase</xsl:text>
+	</a>
+	</li>
+	</xsl:when>
+	<xsl:otherwise>
+	</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
 
 </xsl:stylesheet>

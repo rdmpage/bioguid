@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+<reference>
+  <referenceinfo xmlns="" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:doc="http://xsltsl.org/xsl/documentation/1.0">
+       <releaseinfo role="meta">
+	$Id: truncate-phrase.xsl,v 1.1 2005/09/21 13:46:39 asc Exp $
+       </releaseinfo>
+       <author>
+	<surname>Cope</surname>
+        <othername>Straup</othername>
+	<firstname>Aaron</firstname>
+       </author>
+       <copyright>
+	<year>2005</year>
+	<holder>Aaron Straup Cope</holder>
+       </copyright>
+       <legalnotice>
+        <para>Permission to use, copy, modify and distribute this
+      stylesheet and its accompanying documentation for any purpose
+      and without fee is hereby granted in perpetuity, provided that
+      the above copyright notice and this paragraph appear in all
+      copies.  The copyright holders make no representation about the
+      suitability of the stylesheet for any purpose.</para>
+       </legalnotice> 
+     </referenceinfo>
+  <title xmlns="" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:doc="http://xsltsl.org/xsl/documentation/1.0">truncate-phrase.xsl</title>
+  <partintro xmlns="" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:doc="http://xsltsl.org/xsl/documentation/1.0">
+       <section>
+        <title>Introduction</title>
+
+	<para>The truncate phrase stylesheet
+       defines a single public template that will truncate a phrase
+       at a maximum length, with the option to truncate on a word
+       boundary.</para>
+
+       <para>This template is not internationalized and assumes a
+       left-to-right writing orientation. Patches are welcome.</para>
+       </section>
+
+      </partintro>
+  <refentry xmlns="" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:doc="http://xsltsl.org/xsl/documentation/1.0">
+       <refnamediv>
+        <refname>truncate-phrase</refname>
+        <refpurpose>Truncate a phrase at a maximum length, with the
+      option to truncate on a word boundary.</refpurpose>
+       </refnamediv>
+
+       <refsynopsisdiv>
+        <example>
+        <title>Using the truncate-phrase template in your stylesheet</title>
+	<programlisting>
+
+ &lt;xsl:include href="/path/to/truncate-phrase.xsl" /&gt;
+
+ &lt;xsl:call-template name="truncate_phrase"&gt;
+  &lt;xsl:with-param name="phrase"&gt;
+   &lt;xsl:value-of select="/h:html/h:head/h:link[@rel='next']/@title" /&gt;
+  &lt;/xsl:with-param&gt;
+  &lt;xsl:with-param name="length" select="25" /&gt;
+  &lt;xsl:with-param name="truncate_to_word_boundary" select="1" /&gt;
+ &lt;/xsl:call-template&gt;
+        </programlisting>
+	</example>
+       </refsynopsisdiv>
+
+       <refsection>
+        <title>Parameters</title>
+
+       <variablelist>
+
+        <varlistentry>
+	 <term>phrase</term>
+	 <listitem>
+	  <para>The phrase to be truncated.</para>
+         </listitem>
+	</varlistentry>
+        <varlistentry>
+	 <term>length</term>
+	 <listitem>
+	  <para>The number of characters to truncate the phrase to.</para>
+         </listitem>
+	</varlistentry>
+        <varlistentry>
+	 <term>truncate_to_word_boundary</term>
+	 <listitem>
+	  <para>A boolean parameter to indicate whether or not the
+       phrase should be truncated on a word boundary. Default is false.</para>
+         </listitem>
+	</varlistentry>
+        <varlistentry>
+	 <term>trailing_string</term>
+	 <listitem>
+	  <para>The string to append to the truncated phrase. Default
+       is “...”</para>
+         </listitem>
+	</varlistentry>
+       </variablelist>
+      </refsection>
+      </refentry>
+</reference>

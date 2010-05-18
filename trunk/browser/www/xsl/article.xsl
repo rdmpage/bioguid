@@ -59,7 +59,9 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 <xsl:text> (</xsl:text>
 <xsl:value-of select="//dcterms:date" />
 <xsl:text>)</xsl:text>
+
 <!-- external links -->
+<xsl:text> </xsl:text>
 <xsl:text>doi:</xsl:text>
 <xsl:value-of select="//bibo:doi" />
 </div>
