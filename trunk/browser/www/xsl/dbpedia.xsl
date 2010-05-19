@@ -8,8 +8,9 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:dbpedia-owl="http://dbpedia.org/ontology/"
   xmlns:dbpprop="http://dbpedia.org/property/"
   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
 
-exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf  rdf rdfs "
+exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf geo rdf rdfs "
 
 >
 
@@ -21,7 +22,7 @@ exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf  rdf rdfs "
 <!-- operations -->
 <div id="rightnav">
 
-<b>View</b><br/>
+<h4>View</h4>
 <ul type="square">
 <li>
 <a>
@@ -36,11 +37,21 @@ exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf  rdf rdfs "
 
 <!-- image -->
 <div>
-<xsl:apply-templates select="//dbpedia-owl:thumbnail/@rdf:resource" />
+<!-- temporary hack as Dbpedia has broken CAS image -->
+<xsl:choose>
+	<xsl:when test="//dbpedia-owl:thumbnail/@rdf:resource = 'http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/CAS_new_logo.png/200px-CAS_new_logo.png'">
+		<img src="http://upload.wikimedia.org/wikipedia/en/thumb/9/9c/CAS_new_logo.png/200px-CAS_new_logo.png" />
+	</xsl:when>
+	<xsl:otherwise>
+		<xsl:apply-templates select="//dbpedia-owl:thumbnail/@rdf:resource" />
+	</xsl:otherwise>
+</xsl:choose>
 </div>
 
 <!-- status -->
+<xsl:if test="//dbpedia-owl:conservationStatus != ''">
 <div>
+<h4>Status</h4>
 	<xsl:choose>
 		<xsl:when test="//dbpedia-owl:conservationStatus = 'LC'">
 			<img src="images/wikipedia/200px-Status_iucn3.1_LC.svg.png" />
@@ -76,6 +87,29 @@ exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf  rdf rdfs "
 	</xsl:choose>
 
 </div>
+</xsl:if>
+
+<!-- map -->
+<xsl:if test="//geo:lat != ''">
+<div>
+<h4>Map</h4>
+<div>
+	<xsl:value-of select="//geo:lat" />
+	<xsl:text>, </xsl:text>
+	<xsl:value-of select="//geo:long" />
+</div>
+<img>
+<xsl:attribute name="src">
+<xsl:text>http://maps.google.com/maps/api/staticmap?size=200x200&amp;maptype=terrain&amp;zoom=3
+&amp;markers=color:red|</xsl:text>
+<xsl:value-of select="//geo:lat" />
+<xsl:text>,</xsl:text>
+<xsl:value-of select="//geo:long" />
+<xsl:text>&amp;sensor=false</xsl:text>
+</xsl:attribute>
+</img>
+</div>
+</xsl:if>
 
 </div>
 
