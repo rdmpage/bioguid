@@ -6,6 +6,45 @@ require_once (dirname(__FILE__) . '/uri_functions.php');
 
 // http://snipplr.com/view/231/dead-centre-a-div/
 
+//--------------------------------------------------------------------------------------------------
+function append_xml (&$dom, $xml)
+{
+	$extraDom = new DOMDocument;
+	$extraDom->loadXML($xml);
+	$n = $dom->importNode($extraDom->documentElement, true);
+	$dom->documentElement->appendChild($n);
+}
+
+//--------------------------------------------------------------------------------------------------
+function query_sequences_from_specimen ($uri)
+{
+	global $store_config;
+	global $store;
+
+	$xml = '';
+	
+	$sparql = '
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX uniprot: <http://purl.uniprot.org/core/>
+CONSTRUCT 
+{
+	?s dcterms:title ?o . 
+	?s rdf:type <http://purl.uniprot.org/core/Molecule>
+}
+WHERE 
+{ 
+	?s dcterms:relation <' . $uri . '> .
+	?s dcterms:title ?o
+}';
+
+	$r = $store->query($sparql);
+	$index = $r['result'];
+	$parser = ARC2::getRDFParser();
+	$xml = $parser->toRDFXML($index);
+	
+	return $xml;
+}
 
 
 
@@ -28,8 +67,14 @@ function main($uri)
 		echo '<body>';
 		echo  'Sorry, don\'t have this URI <b>' . $uri . '</b>, trying to fetch it...';
 		
+		$uri_to_fetch = $uri;
+		if (preg_match('/^urn:lsid:/', $uri_to_fetch))
+		{
+			$uri_to_fetch = 'http://bioguid.info/' . $uri_to_fetch;
+		}
+		
 		// can we get it, if so redirect...
-		$query = "LOAD <" . $uri . ">";
+		$query = "LOAD <" . $uri_to_fetch . ">";
 		$r = $store->query($query);
 		
 		if ($r['result']['t_count'] > 0)
@@ -81,13 +126,14 @@ WHERE
 		$xpath = new DOMXPath($dom);
 		
 		$xpath->registerNamespace("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+		$xpath->registerNamespace("dcterms", "http://purl.org/dc/terms/");
 							
 		$type = array();
 		$xsl_filename = '';
 		$html = '';
 
 		//------------------------------------------------------------------------------------------
-		// Name
+		// Get type(s) of objects
 		$name = '';
 		$nodeCollection = $xpath->query ('//rdf:type/@rdf:resource');
 		foreach($nodeCollection as $node)
@@ -96,7 +142,44 @@ WHERE
 		}
 		
 		//------------------------------------------------------------------------------------------
-		// add links...?		
+		// Post process objects...
+		
+		// GenBank: Add specimen if we have it...
+		if (in_array('http://purl.uniprot.org/core/Molecule', $type))
+		{
+			$specimen_uri = '';
+			$nodeCollection = $xpath->query ('//dcterms:relation/@rdf:resource');
+			foreach($nodeCollection as $node)
+			{
+				$specimen_uri = $node->firstChild->nodeValue;
+			}			
+			
+			if ($specimen_uri != '')
+			{
+				// Fetch RDF
+				$r = describe($specimen_uri);
+				$index = $r['result'];
+				$extraXml = $parser->toRDFXML($index);
+
+				// Load into current DOM
+				$extraDom = new DOMDocument;
+				$extraDom->loadXML($extraXml);
+				$n = $dom->importNode($extraDom->documentElement, true);
+				// Append to root node
+				$dom->documentElement->appendChild($n);
+			}			
+		}
+		
+		// Specimen
+		if (in_array('http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence', $type))
+		{
+			// Get sequences from this specimen
+			
+			$xml = query_sequences_from_specimen($uri);
+			append_xml ($dom, $xml);
+			
+		}
+		
 		
 		//print_r($type);
 				
@@ -108,16 +191,47 @@ WHERE
 			$xsl_filename = 'xsl/article.xsl';
 		}
 
+		// to do, sort out CASE
+		if (in_array('http://purl.org/ontology/bibo/journal', $type))
+		{
+			$xsl_filename = 'xsl/journal.xsl';
+		}
+		if (in_array('http://purl.org/ontology/bibo/Journal', $type))
+		{
+			$xsl_filename = 'xsl/journal.xsl';
+		}
+
+		// Dbpedia thing
 		if (in_array('http://www.w3.org/2002/07/owl#Thing', $type))
 		{
 			$xsl_filename = 'xsl/dbpedia.xsl';
 		}
+
+		// Dbpedia feature
+		if (in_array('http://www.opengis.net/gml/_Feature', $type))
+		{
+			$xsl_filename = 'xsl/dbpedia.xsl';
+		}
+		
+		
 		
 		if (in_array('http://purl.uniprot.org/core/Molecule', $type))
 		{
-			$xsl_filename = 'xsl/genbank.xsl';
+			$xsl_filename = 'xsl/genbank.xsl';			
 		}
+
+		if (in_array('http://rs.tdwg.org/ontology/voc/Collection#Collection', $type))
+		{
+			$xsl_filename = 'xsl/collection.xsl';			
+		}
+
+		if (in_array('http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence', $type) && !in_array('http://purl.uniprot.org/core/Molecule', $type))
+		{
+			$xsl_filename = 'xsl/occurrence.xsl';
+		}
+
 		
+		//------------------------------------------------------------------------------------------
 		if ($xsl_filename != '')
 		{
 			$xp = new XsltProcessor();
@@ -131,7 +245,7 @@ WHERE
 		{
 			$html .= '<p/>';
 			$html .= '<div style="padding:10px;background:white;-webkit-border-radius:10px;">';
-			$html .= '<pre class="brush:xml">' . htmlentities($rdfxml_doc, ENT_COMPAT, 'UTF-8') . '</pre>';
+			$html .= '<pre class="brush:xml">' . htmlentities($dom->saveXML(), ENT_COMPAT, 'UTF-8') . '</pre>';
 			$html .= '</div>';
 		}
 		
@@ -145,6 +259,7 @@ WHERE
 		
 		echo html_include_script('js/prototype.js');
 		echo html_include_script('js/lookahead.js');
+		echo html_include_script('js/browse.js');
 
 		// RDF display
 		echo html_include_script('js/shCore.js');
@@ -180,8 +295,18 @@ echo '
 	SyntaxHighlighter.all()
 </script>';
 
-	echo '</div>';
-		
+	echo '<div style="
+	margin-top:20px;
+	padding:0px;
+	border-top:1px dotted rgb(128,128,128);
+	"><p>About:</p></div>';	
+	
+
+	echo '</div>'; // main
+	
+	// footer
+
+			
 		echo html_body_close();
 		echo html_html_close();	
 	}

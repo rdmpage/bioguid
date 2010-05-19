@@ -170,8 +170,8 @@ function html_browse_box($uri = '')
 	
 	$html = '';
 	$html .='<div style="padding:20px;float:right;">' . "\n";	
-	$html .= '<input  style="font-size:18px;" id="browse" name="browse" type="text" size="40" value="' . $uri . '"/>' . "\n";
-	$html .= '<button style="font-size:18px;" type="button" onclick="validate_input(browse);">Browse</button>' . "\n";
+	$html .= '<input  style="font-size:18px;" id="browse" name="browse" type="text" size="60" value="' . $uri . '" onkeypress="handleKeyPress(event,browse);"/>' . "\n";
+	$html .= '<button style="font-size:18px;" type="button" onclick="browseUri(browse);">Browse</button>' . "\n";
 	$html .= '</div>' . "\n";	
 	
 	return $html;

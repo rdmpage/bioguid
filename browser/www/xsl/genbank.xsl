@@ -64,6 +64,10 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 <div class="document">
 <h2>Source</h2>
 
+<!-- specimen with GUID -->
+<xsl:apply-templates select="//dcterms:relation" />
+
+<!-- no specimen with GUID so use GenBank record -->
 <xsl:for-each select="//rdf:type[@rdf:resource='http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence']">
 	<div><xsl:value-of select="../toccurrence:identifiedToString" /></div>
 
@@ -163,11 +167,28 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 
 </xsl:template>
 
+<!-- publication(s) in GenBank linked to this specimen -->
 <xsl:template match="//dcterms:isReferencedBy">
 
 <!--<xsl:value-of select="@rdf:resource" /> -->
 
-<span>
+<span class="internal_link">
+<xsl:attribute name="onclick">
+<xsl:text>lookahead('</xsl:text>
+<xsl:value-of select="@rdf:resource" />
+<xsl:text>')</xsl:text>
+</xsl:attribute>
+<xsl:value-of select="substring-after(@rdf:resource, 'http://bioguid.info/')" />
+</span>
+
+</xsl:template>
+
+<!-- specimen -->
+<xsl:template match="//dcterms:relation">
+
+<!--<xsl:value-of select="@rdf:resource" /> -->
+
+<span class="internal_link">
 <xsl:attribute name="onclick">
 <xsl:text>lookahead('</xsl:text>
 <xsl:value-of select="@rdf:resource" />

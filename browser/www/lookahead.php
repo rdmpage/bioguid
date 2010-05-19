@@ -11,29 +11,32 @@ $status = 400;
 
 $uri = urldecode($uri);
 
-// URI might be alias
-$ntriples = get_canonical_uri($uri);
-
-$obj = new stdclass;
-$obj->uri = $uri;
-$obj->ntriples = $ntriples;
-
-if ($obj->ntriples == 0)
+if ($uri != '')
 {
-	$query = "LOAD <" . $uri . ">";
-	$r = $store->query($query);
+
+	// URI might be alias
+	$ntriples = get_canonical_uri($uri);
 	
-	if ($r['result']['t_count'] > 0)
+	$obj = new stdclass;
+	$obj->uri = $uri;
+	$obj->ntriples = $ntriples;
+	
+	if ($obj->ntriples == 0)
 	{
-		$obj->ntriples = $r['result']['t_count'];
+		$query = "LOAD <" . $uri . ">";
+		$r = $store->query($query);
+		
+		if ($r['result']['t_count'] > 0)
+		{
+			$obj->ntriples = $r['result']['t_count'];
+			$status = 200;
+		}
+	}
+	else
+	{
 		$status = 200;
 	}
 }
-else
-{
-	$status = 200;
-}
-
 
 switch ($status)
 {			
