@@ -15,7 +15,7 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 <!-- operations -->
 <div id="rightnav">
 <div>
-<b>View</b><br/>
+<b>On the Web</b><br/>
 <ul type="square">
 <li>
 <a>
@@ -110,7 +110,7 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 
 <!-- cited sequences -->
 <xsl:template match="//dcterms:references/@rdf:resource">
-<span>
+<span class="internal_link">
 <xsl:attribute name="onclick">
 <xsl:text>lookahead('</xsl:text>
 <xsl:value-of select="." />

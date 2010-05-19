@@ -65,8 +65,30 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 </xsl:attribute>
 <xsl:value-of select="../dcterms:title" />
 </span>
+</li>
+</xsl:for-each>
+</ul>
+</div>
+</xsl:if>
 
-
+<!-- publications -->
+<xsl:if test="//rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article']">
+<div>
+<h4>Publications
+<xsl:text> [</xsl:text>
+<xsl:value-of select="count(//rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article'])" />
+<xsl:text>]</xsl:text>
+</h4>
+<ul type="square">
+<xsl:for-each select="//rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article']">
+<li>
+<span class="internal_link">
+<xsl:attribute name="onclick">
+<xsl:text>lookahead('</xsl:text>
+<xsl:value-of select="../../rdf:Description/@rdf:about" />
+<xsl:text>')</xsl:text>
+</xsl:attribute>
+<xsl:value-of select="//bibo:doi" /></span>
 </li>
 </xsl:for-each>
 </ul>
@@ -95,6 +117,9 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 	<div><xsl:text> </xsl:text> <!-- empty div breaks webkit rendering -->
 		<xsl:if test="//toccurrence:country != ''">
 			<xsl:value-of select="//toccurrence:country" /><xsl:text>: </xsl:text>
+		</xsl:if>
+		<xsl:if test="//toccurrence:stateProvince != ''">
+			<xsl:value-of select="//toccurrence:stateProvince" />
 		</xsl:if>
 		<xsl:if test="//toccurrence:locality != ''">
 			<xsl:value-of select="//toccurrence:locality" />

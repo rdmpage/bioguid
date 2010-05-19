@@ -23,7 +23,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 <!-- operations -->
 <div id="rightnav">
 <div>
-<h4>View</h4>
+<h4>On the Web</h4>
 <ul type="square">
 <li>
 <a>
@@ -64,11 +64,24 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 <div class="document">
 <h2>Source</h2>
 
+<!-- taxon -->
+<div>
+<span class="internal_link">
+<xsl:attribute name="onclick">
+<xsl:text>lookahead('</xsl:text>
+<xsl:value-of select="//dcterms:subject/@rdf:resource" />
+<xsl:text>')</xsl:text>
+</xsl:attribute>
+<xsl:value-of select="//dcterms:subject/@rdf:resource" />
+</span>
+</div>
+
 <!-- specimen with GUID -->
-<xsl:apply-templates select="//dcterms:relation" />
+<xsl:apply-templates select="//dcterms:relation/@rdf:resource" />
 
 <!-- no specimen with GUID so use GenBank record -->
 <xsl:for-each select="//rdf:type[@rdf:resource='http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence']">
+	<div class="abstract">
 	<div><xsl:value-of select="../toccurrence:identifiedToString" /></div>
 
 	<!-- locality -->
@@ -142,6 +155,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 			<xsl:value-of select="../dcterms:identifier" />
 		</xsl:if>
 	</div>
+	</div>
 </xsl:for-each>
 
 </div>
@@ -168,35 +182,31 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 </xsl:template>
 
 <!-- publication(s) in GenBank linked to this specimen -->
-<xsl:template match="//dcterms:isReferencedBy">
-
-<!--<xsl:value-of select="@rdf:resource" /> -->
-
+<xsl:template match="//dcterms:isReferencedBy/@rdf:resource">
 <span class="internal_link">
 <xsl:attribute name="onclick">
 <xsl:text>lookahead('</xsl:text>
-<xsl:value-of select="@rdf:resource" />
+<xsl:value-of select="." />
 <xsl:text>')</xsl:text>
 </xsl:attribute>
-<xsl:value-of select="substring-after(@rdf:resource, 'http://bioguid.info/')" />
+<xsl:value-of select="substring-after(., 'http://bioguid.info/')" />
 </span>
+
 
 </xsl:template>
 
-<!-- specimen -->
-<xsl:template match="//dcterms:relation">
-
-<!--<xsl:value-of select="@rdf:resource" /> -->
-
+<!-- specimen with guid -->
+<xsl:template match="//dcterms:relation/@rdf:resource">
+<div>
 <span class="internal_link">
 <xsl:attribute name="onclick">
 <xsl:text>lookahead('</xsl:text>
-<xsl:value-of select="@rdf:resource" />
+<xsl:value-of select="." />
 <xsl:text>')</xsl:text>
 </xsl:attribute>
-<xsl:value-of select="substring-after(@rdf:resource, 'http://bioguid.info/')" />
+<xsl:value-of select="substring-after(., 'http://bioguid.info/')" />
 </span>
-
+</div>
 
 </xsl:template>
 
