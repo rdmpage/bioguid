@@ -9,13 +9,17 @@ require_once (dirname(__FILE__) . '/uri_functions.php');
 //--------------------------------------------------------------------------------------------------
 function append_xml (&$dom, $xml)
 {
-	$extraDom = new DOMDocument;
-	$extraDom->loadXML($xml);
-	$n = $dom->importNode($extraDom->documentElement, true);
-	$dom->documentElement->appendChild($n);
+	if ($xml != '')
+	{
+		$extraDom = new DOMDocument;
+		$extraDom->loadXML($xml);
+		$n = $dom->importNode($extraDom->documentElement, true);
+		$dom->documentElement->appendChild($n);
+	}
 }
 
 //--------------------------------------------------------------------------------------------------
+// find sequences linked to a specimen
 function query_sequences_from_specimen ($uri)
 {
 	global $store_config;
@@ -35,7 +39,82 @@ CONSTRUCT
 WHERE 
 { 
 	?s dcterms:relation <' . $uri . '> .
+	?s rdf:type <http://purl.uniprot.org/core/Molecule> .
 	?s dcterms:title ?o
+}';
+
+
+
+	$r = $store->query($sparql);
+	$index = $r['result'];
+	$parser = ARC2::getRDFParser();
+	$xml = $parser->toRDFXML($index);
+	
+	return $xml;
+}
+
+//--------------------------------------------------------------------------------------------------
+// find publications linked to specimen via sequence
+function query_publications_from_specimen ($uri)
+{
+	global $store_config;
+	global $store;
+
+	$xml = '';
+	
+	$sparql = '
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+
+CONSTRUCT 
+{
+  ?pub bibo:doi ?o .
+?pub dcterms:title ?doi .
+?pub rdf:type ?t .
+}
+WHERE
+{
+   ?s dcterms:relation <' . $uri . '> .
+?s dcterms:isReferencedBy ?pub . 
+?pub rdf:type ?t .
+?pub bibo:doi ?o .
+?pub dcterms:title ?doi .
+  
+}';
+
+//echo $sparql;
+
+	$r = $store->query($sparql);
+	$index = $r['result'];
+	$parser = ARC2::getRDFParser();
+	$xml = $parser->toRDFXML($index);
+	
+	return $xml;
+}
+
+//--------------------------------------------------------------------------------------------------
+// find sequences for taxon 
+function query_sequences_from_taxon ($uri)
+{
+	global $store_config;
+	global $store;
+
+	$xml = '';
+	$sparql = '
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+CONSTRUCT 
+{
+ ?gb rdf:type <http://purl.uniprot.org/core/Molecule> .
+?gb dcterms:title ?accession . 
+ }
+WHERE 
+{ 
+   ?gb dcterms:subject <' . $uri . '> .
+ ?gb dcterms:title ?accession
+ 
 }';
 
 	$r = $store->query($sparql);
@@ -46,6 +125,40 @@ WHERE
 	return $xml;
 }
 
+//--------------------------------------------------------------------------------------------------
+// find localities for taxon based on localities for sequences (and specimens linked to sequences)
+function query_localities_from_taxon ($uri)
+{
+	global $store_config;
+	global $store;
+
+	$xml = '';
+	$sparql = '
+	PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+CONSTRUCT 
+{
+   ?specimen geo:lat ?lat . 
+   ?specimen geo:long ?long .
+ ?specimen rdf:type <http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence> .
+}
+WHERE 
+{ 
+   ?gb dcterms:subject <' . $uri . '> .
+ 
+ ?gb dcterms:relation ?specimen .
+?specimen geo:lat ?lat .
+?specimen geo:long ?long
+}';
+
+	$r = $store->query($sparql);
+	$index = $r['result'];
+	$parser = ARC2::getRDFParser();
+	$xml = $parser->toRDFXML($index);
+	
+	return $xml;
+}
 
 
 //--------------------------------------------------------------------------------------------------
@@ -177,8 +290,25 @@ WHERE
 			
 			$xml = query_sequences_from_specimen($uri);
 			append_xml ($dom, $xml);
+
+			$xml = query_publications_from_specimen($uri);
+			append_xml ($dom, $xml);
 			
 		}
+		
+		// NCBI taxon
+		if (in_array('http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept', $type))
+		{
+			// Get sequences from this specimen
+			
+			$xml = query_sequences_from_taxon($uri);
+			append_xml ($dom, $xml);
+
+			$xml = query_localities_from_taxon($uri);
+			append_xml ($dom, $xml);
+			
+		}
+		
 		
 		
 		//print_r($type);
@@ -186,16 +316,13 @@ WHERE
 		//------------------------------------------------------------------------------------------
 		// Display
 		
+		// Article
 		if (in_array('http://purl.org/ontology/bibo/Article', $type))
 		{
 			$xsl_filename = 'xsl/article.xsl';
 		}
 
-		// to do, sort out CASE
-		if (in_array('http://purl.org/ontology/bibo/journal', $type))
-		{
-			$xsl_filename = 'xsl/journal.xsl';
-		}
+		// Journal
 		if (in_array('http://purl.org/ontology/bibo/Journal', $type))
 		{
 			$xsl_filename = 'xsl/journal.xsl';
@@ -214,17 +341,25 @@ WHERE
 		}
 		
 		
-		
+		// genbank sequence
 		if (in_array('http://purl.uniprot.org/core/Molecule', $type))
 		{
 			$xsl_filename = 'xsl/genbank.xsl';			
 		}
 
+		// taxon concept
+		if (in_array('http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept', $type))
+		{
+			$xsl_filename = 'xsl/taxonomy.xsl';			
+		}
+
+		// Collection
 		if (in_array('http://rs.tdwg.org/ontology/voc/Collection#Collection', $type))
 		{
 			$xsl_filename = 'xsl/collection.xsl';			
 		}
 
+		// Specimen (by itself)
 		if (in_array('http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence', $type) && !in_array('http://purl.uniprot.org/core/Molecule', $type))
 		{
 			$xsl_filename = 'xsl/occurrence.xsl';

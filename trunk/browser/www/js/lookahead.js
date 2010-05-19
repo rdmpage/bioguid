@@ -12,8 +12,6 @@ function lookahead(uri)
 
 	$("content").show(); 
 	
-	
-	
 	var loading	= function(t){lookaheadLoading();}
 	var failure	= function(t){lookaheadFailure();}
 	var success	= function(t){lookaheadSuccess(t);}
@@ -48,6 +46,5 @@ function lookaheadSuccess (t)
 	{
 		$("content").innerHTML ="No triples found";
 		setTimeout('$("content").hide()', 500);
-
 	}
 }
