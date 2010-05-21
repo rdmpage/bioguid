@@ -32,6 +32,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 <xsl:text>http://view.ncbi.nlm.nih.gov/nucleotide/</xsl:text>
 <xsl:value-of select="//dcterms:title" />
 </xsl:attribute>
+<xsl:attribute name="target">_new</xsl:attribute>
 <xsl:value-of select="//dcterms:title" />
 </a>
 </li>
@@ -68,7 +69,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 
 
 <div class="document">
-<h1><xsl:value-of select="//dcterms:title" /></h1>
+<h1>[DNA sequence] <xsl:value-of select="//dcterms:title" /></h1>
 <div><xsl:value-of select="//dcterms:description" /></div>
 </div>
 

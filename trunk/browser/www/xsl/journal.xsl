@@ -21,6 +21,7 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 <xsl:text>http://www.worldcat.org/issn/</xsl:text>
 <xsl:value-of select="//bibo:issn" />
 </xsl:attribute>
+<xsl:attribute name="target">_new</xsl:attribute>
 <xsl:text>ISSN:</xsl:text>
 <xsl:value-of select="//bibo:issn" />
 </a>

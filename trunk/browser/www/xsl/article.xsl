@@ -25,6 +25,7 @@ xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
 <xsl:text>http://dx.doi.org/</xsl:text>
 <xsl:value-of select="//bibo:doi" />
 </xsl:attribute>
+<xsl:attribute name="target">_new</xsl:attribute>
 <xsl:text>doi:</xsl:text>
 <xsl:value-of select="//bibo:doi" />
 </a>
@@ -69,7 +70,7 @@ xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
 
 <div class="document">
 
-<h1><xsl:value-of select="//dcterms:title" /></h1>
+<h1>[Article] <xsl:value-of select="//dcterms:title" /></h1>
 
 <!-- authors -->
 <h2>

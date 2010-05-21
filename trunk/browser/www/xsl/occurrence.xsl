@@ -64,6 +64,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 
 <div class="document">
 <h1>
+<xsl:text>[Specimen] </xsl:text>
 <xsl:choose>
 	<xsl:when test="//toccurrence:institutionCode = 'casent'">
 	</xsl:when>
@@ -152,6 +153,19 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 		</xsl:if>
 	</div>
 
+	<div><xsl:text> </xsl:text> <!-- empty div breaks webkit rendering -->
+		<xsl:if test="//toccurrence:hostCollection/@rdf:resource != ''">
+			<xsl:text>Collection </xsl:text>
+<span class="internal_link">
+<xsl:attribute name="onclick">
+<xsl:text>lookahead('</xsl:text>
+<xsl:value-of select="//toccurrence:hostCollection/@rdf:resource" />
+<xsl:text>')</xsl:text>
+</xsl:attribute>
+<xsl:value-of select="//toccurrence:hostCollection/@rdf:resource" />
+</span>			
+		</xsl:if>
+	</div>
 
 </div>
 
