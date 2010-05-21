@@ -10,7 +10,7 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:foaf="http://xmlns.com/foaf/0.1/"
 xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
 
-exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf geo rdf rdfs "
+exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf geo owl rdf rdfs "
 
 >
 
@@ -119,6 +119,8 @@ exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf geo rdf rdfs "
 
 	<xsl:value-of select="//dbpedia-owl:abstract[@xml:lang='en']" />
 </div>
+
+
 
 </xsl:template>
 

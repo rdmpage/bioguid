@@ -81,7 +81,7 @@ exclude-result-prefixes="bibo dcterms geo rdf tcommon tconcept uniprot"
 </div>
 
 <div class="document">
-<h1><xsl:value-of select="//tconcept:nameString" /></h1>
+<h1>[Taxon] <xsl:value-of select="//tconcept:nameString" /></h1>
 <div><xsl:value-of select="//tcommon:taxonomicPlacementFormal" /></div>
 </div>
 
