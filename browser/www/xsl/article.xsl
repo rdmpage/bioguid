@@ -4,6 +4,8 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:dcterms='http://purl.org/dc/terms/'
   xmlns:bibo='http://purl.org/ontology/bibo/'
   xmlns:prism='http://prismstandard.org/namespaces/2.0/basic/'
+xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+
 >
 
 
@@ -35,6 +37,34 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 <li>Mendeley</li>
 </ul>
 </div>
+
+<h4>Map</h4>
+<div>
+
+<img>
+<xsl:attribute name="src">
+<xsl:text>http://maps.google.com/maps/api/staticmap?size=200x200&amp;maptype=terrain&amp;zoom=0
+&amp;markers=color:red</xsl:text>
+<xsl:for-each select="//rdf:type[@rdf:resource = 'http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence']">
+<xsl:text>|</xsl:text>
+<xsl:value-of select="../geo:lat" />
+<xsl:text>,</xsl:text>
+<xsl:value-of select="../geo:long" />
+</xsl:for-each>
+<xsl:text>&amp;sensor=false</xsl:text>
+</xsl:attribute>
+</img>
+</div>
+
+<!-- sequences -->
+<div><span>Sequences </span>
+<span style="font-size:36px">
+<xsl:value-of select="count(//rdf:type[@rdf:resource = 'http://purl.uniprot.org/core/Molecule'])" />
+</span>
+</div>
+
+
+
 </div>
 
 <div class="document">
@@ -47,7 +77,23 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 </h2>
 <!-- metadata -->
 <div>
-<xsl:value-of select="//prism:publicationName" />
+<xsl:choose>
+	<xsl:when test="//prism:issn != ''">
+		<span class="internal_link">
+		<xsl:attribute name="onclick">
+		<xsl:text>lookahead('</xsl:text>
+		<xsl:text>http://bioguid.info/issn:</xsl:text>
+		<xsl:value-of select="//prism:issn" />
+		<xsl:text>')</xsl:text>
+		</xsl:attribute>
+		<xsl:value-of select="//prism:publicationName" />
+		</span>
+	</xsl:when>
+	<xsl:otherwise>
+		<xsl:value-of select="//prism:publicationName" />
+	</xsl:otherwise>
+</xsl:choose>
+
 <xsl:text> </xsl:text>
 <xsl:value-of select="//prism:volume" />
 <xsl:text>: </xsl:text>
@@ -76,9 +122,31 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 </div>
 
 <!-- sequences -->
-<div style="padding-top:10px;">
+<!--<div style="padding-top:10px;">
 <xsl:apply-templates select="//dcterms:references/@rdf:resource" />
+</div> -->
+
+<!-- sequences that list thsis pub -->
+<!-- why doesn't rdf:about work? -->
+<div>
+<ul type="square">
+<xsl:for-each select="//rdf:type[@rdf:resource='http://purl.uniprot.org/core/Molecule']">
+<li>
+<span class="internal_link">
+<xsl:attribute name="onclick">
+<xsl:text>lookahead('</xsl:text>
+<xsl:text>http://bioguid.info/genbank:</xsl:text>
+<xsl:value-of select="../dcterms:title" />
+<xsl:text>')</xsl:text>
+</xsl:attribute>
+<xsl:value-of select="../dcterms:title" />
+</span>
+</li>
+</xsl:for-each>
+</ul>
 </div>
+
+
 
 </div>
 </xsl:template>

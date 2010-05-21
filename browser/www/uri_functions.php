@@ -43,7 +43,7 @@ WHERE
 			}
 		}	
 	}
-	// GenBank accession numbrs are primary id
+	// GenBank accession numbers are primary id
 	if (ntriples == 0)
 	{
 		if (preg_match('/(?<gi>gi:\d+)/', $canonical_uri, $matches))

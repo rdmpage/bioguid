@@ -26,6 +26,9 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 </a>
 </li>
 </ul>
+</div>
+
+<div>
 <xsl:if test="//foaf:depiction[@rdf:resource != '']">
 <img>
 <xsl:attribute name="width">
@@ -36,8 +39,15 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 </xsl:attribute>
 </img>
 </xsl:if>
-
 </div>
+
+<!-- articles -->
+<div><span>Articles </span>
+<span style="font-size:36px">
+<xsl:value-of select="count(//rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article'])" />
+</span>
+</div>
+
 </div>
 
 <div class="document">
@@ -47,6 +57,31 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 <xsl:apply-templates select="//bibo:shortTitle" />
 </ul>
 </div>
+
+
+<div class="document">
+<h2>Articles in this journal</h2>
+<ul type="square">
+
+<xsl:for-each select="//rdf:Description">
+<xsl:if test="rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article']">
+<li>
+<span class="internal_link">
+<xsl:attribute name="onclick">
+<xsl:text>lookahead('</xsl:text>
+<xsl:value-of select="@rdf:about" />
+<xsl:text>')</xsl:text>
+</xsl:attribute>
+<xsl:value-of select="dcterms:title" />
+</span>
+</li>
+</xsl:if>
+</xsl:for-each>
+</ul>
+</div>
+
+
+
 </xsl:template>
 
 <xsl:template match="//bibo:shortTitle">

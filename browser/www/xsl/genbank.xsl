@@ -22,6 +22,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 
 <!-- operations -->
 <div id="rightnav">
+
 <div>
 <h4>On the Web</h4>
 <ul type="square">
@@ -53,6 +54,16 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 </img>
 </div>
 </xsl:if>
+
+
+<!-- publications -->
+<div><span>Publications </span>
+<span style="font-size:36px">
+<!--<xsl:value-of select="count(//rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article'])" /> -->
+<xsl:value-of select="count(//dcterms:isReferencedBy)" />
+</span>
+</div>
+
 </div>
 
 
@@ -165,7 +176,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 <h2>Publication</h2>
 <div><xsl:text> </xsl:text>
 <!-- guid -->
-<xsl:apply-templates select="//dcterms:isReferencedBy" />
+<xsl:apply-templates select="//dcterms:isReferencedBy/@rdf:resource" />
 
 <!-- no guid -->
 <xsl:for-each select="//rdf:type[@rdf:resource='http://purl.org/ontology/bibo/Document']">

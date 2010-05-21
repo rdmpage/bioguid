@@ -47,56 +47,20 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 
 
 <!-- sequences -->
-<xsl:if test="//rdf:type[@rdf:resource = 'http://purl.uniprot.org/core/Molecule']">
-<div>
-<h4>Sequences
-<xsl:text> [</xsl:text>
+<div><span>Sequences </span>
+<span style="font-size:36px">
 <xsl:value-of select="count(//rdf:type[@rdf:resource = 'http://purl.uniprot.org/core/Molecule'])" />
-<xsl:text>]</xsl:text>
-</h4>
-<ul type="square">
-<xsl:for-each select="//rdf:type[@rdf:resource = 'http://purl.uniprot.org/core/Molecule']">
-<li>
-<span class="internal_link">
-<xsl:attribute name="onclick">
-<xsl:text>lookahead('</xsl:text>
-<xsl:value-of select="../../rdf:Description/@rdf:about" />
-<xsl:text>')</xsl:text>
-</xsl:attribute>
-<xsl:value-of select="../dcterms:title" />
 </span>
-</li>
-</xsl:for-each>
-</ul>
 </div>
-</xsl:if>
 
 <!-- publications -->
-<xsl:if test="//rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article']">
-<div>
-<h4>Publications
-<xsl:text> [</xsl:text>
+<div><span>Publications </span>
+<span style="font-size:36px">
 <xsl:value-of select="count(//rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article'])" />
-<xsl:text>]</xsl:text>
-</h4>
-<ul type="square">
-<xsl:for-each select="//rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article']">
-<li>
-<span class="internal_link">
-<xsl:attribute name="onclick">
-<xsl:text>lookahead('</xsl:text>
-<xsl:value-of select="../../rdf:Description/@rdf:about" />
-<xsl:text>')</xsl:text>
-</xsl:attribute>
-<xsl:value-of select="//bibo:doi" /></span>
-</li>
-</xsl:for-each>
-</ul>
-</div>
-</xsl:if>
-
+</span>
 </div>
 
+</div>
 
 <div class="document">
 <h1>
@@ -189,6 +153,42 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 	</div>
 
 
+</div>
+
+<div class="document">
+<h2>Sequences from this specimen</h2>
+<ul type="square">
+<xsl:for-each select="//rdf:type[@rdf:resource = 'http://purl.uniprot.org/core/Molecule']">
+<li>
+<span class="internal_link">
+<xsl:attribute name="onclick">
+<xsl:text>lookahead('</xsl:text>
+<xsl:value-of select="../../rdf:Description/@rdf:about" />
+<xsl:text>')</xsl:text>
+</xsl:attribute>
+<xsl:value-of select="../dcterms:title" />
+</span>
+</li>
+</xsl:for-each>
+</ul>
+</div>
+
+<div class="document">
+<h2>Publications</h2>
+<ul type="square">
+<xsl:for-each select="//rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article']">
+<li>
+<span class="internal_link">
+<xsl:attribute name="onclick">
+<xsl:text>lookahead('</xsl:text>
+<xsl:value-of select="../../rdf:Description/@rdf:about" />
+<xsl:text>')</xsl:text>
+</xsl:attribute>
+<xsl:value-of select="../bibo:doi" />
+</span>
+</li>
+</xsl:for-each>
+</ul>
 </div>
 
 
