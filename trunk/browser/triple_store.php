@@ -200,6 +200,50 @@ WHERE
 	return $type;
 }
 
+
+//--------------------------------------------------------------------------------------------------
+/**
+ * @brief Get title of object 
+ *
+ */
+function get_title($uri, $predicate='dcterms:title', $lang='')
+{
+	// Triple store
+	global $store_config;
+	global $store;
+	
+	$type = '';
+	
+	// Get object type
+	$query = '
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+SELECT DISTINCT  ?title
+WHERE 
+{ 
+   <' . $uri . '> ' . $predicate . ' ?title . ';
+   
+   if ($lang != '')
+   {
+   		$query .= '
+FILTER langMatches( lang(?title), \'' . $lang . '\')';
+	}
+   
+$query .= '
+}';
+
+		
+	$triples = $store->query($query);
+	
+	if (isset($triples['result']['rows'][0]['title']))
+	{
+		$type = $triples['result']['rows'][0]['title'];
+	}
+	
+	return $type;
+}
+
 //--------------------------------------------------------------------------------------------------
 /**
  * @brief Get triples where URI is the target node (and source node is a URI)

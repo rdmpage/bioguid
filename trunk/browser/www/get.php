@@ -19,6 +19,44 @@ function append_xml (&$dom, $xml)
 }
 
 //--------------------------------------------------------------------------------------------------
+function query_articles_from_journal ($uri)
+{
+	global $store_config;
+	global $store;
+
+	$xml = '';
+
+	$sparql = '
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+CONSTRUCT 
+{
+      ?article dcterms:isPartOf <' . $uri . '> .
+  ?article rdf:type ?type .
+ ?article dcterms:title ?title 
+
+}
+
+WHERE 
+{ 
+   ?article dcterms:isPartOf <' . $uri . '> .
+  ?article rdf:type ?type .
+ ?article dcterms:title ?title 
+
+}';
+
+
+	$r = $store->query($sparql);
+	$index = $r['result'];
+	$parser = ARC2::getRDFParser();
+	$xml = $parser->toRDFXML($index);
+	
+	return $xml;
+}
+
+
+//--------------------------------------------------------------------------------------------------
 // find sequences linked to a specimen
 function query_sequences_from_specimen ($uri)
 {
@@ -126,6 +164,44 @@ WHERE
 }
 
 //--------------------------------------------------------------------------------------------------
+// find publications for taxon 
+function query_publications_from_taxon ($uri)
+{
+	global $store_config;
+	global $store;
+
+	$xml = '';
+	$sparql = '
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+
+
+CONSTRUCT 
+{
+  ?pub bibo:doi ?o .
+?pub dcterms:title ?doi .
+?pub rdf:type ?t .
+}
+WHERE
+{
+    ?gb dcterms:subject <' . $uri . '> .
+ ?gb dcterms:title ?accession .
+?gb dcterms:isReferencedBy ?pub .
+?pub rdf:type ?t .
+?pub bibo:doi ?o .
+?pub dcterms:title ?doi .
+}';
+
+
+	$r = $store->query($sparql);
+	$index = $r['result'];
+	$parser = ARC2::getRDFParser();
+	$xml = $parser->toRDFXML($index);
+	
+	return $xml;
+}
+
+//--------------------------------------------------------------------------------------------------
 // find localities for taxon based on localities for sequences (and specimens linked to sequences)
 function query_localities_from_taxon ($uri)
 {
@@ -160,6 +236,72 @@ WHERE
 	return $xml;
 }
 
+//--------------------------------------------------------------------------------------------------
+// find sequences published by this paper from GenBank records
+function query_sequences_from_publication ($uri)
+{
+	global $store_config;
+	global $store;
+
+	$xml = '';
+	$sparql = '
+	PREFIX dcterms: <http://purl.org/dc/terms/>
+
+CONSTRUCT 
+{
+   ?gb dcterms:isReferencedBy <' . $uri . '> .
+?gb rdf:type ?type .
+ ?gb dcterms:title ?title .
+}
+WHERE 
+{ 
+  ?gb dcterms:isReferencedBy <' . $uri . '> .
+ ?gb rdf:type ?type .
+ ?gb dcterms:title ?title .
+}';
+
+	$r = $store->query($sparql);
+	$index = $r['result'];
+	$parser = ARC2::getRDFParser();
+	$xml = $parser->toRDFXML($index);
+	
+	return $xml;
+}
+
+//--------------------------------------------------------------------------------------------------
+// find localities for taxon based on localities for sequences (and specimens linked to sequences)
+function query_localities_from_publication ($uri)
+{
+	global $store_config;
+	global $store;
+
+	$xml = '';
+	$sparql = '
+	PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+CONSTRUCT 
+{
+   ?specimen geo:lat ?lat . 
+   ?specimen geo:long ?long .
+ ?specimen rdf:type <http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence> .
+}
+WHERE 
+{ 
+   ?gb dcterms:isReferencedBy <' . $uri . '> .
+ 
+ ?gb dcterms:relation ?specimen .
+?specimen geo:lat ?lat .
+?specimen geo:long ?long
+}';
+
+	$r = $store->query($sparql);
+	$index = $r['result'];
+	$parser = ARC2::getRDFParser();
+	$xml = $parser->toRDFXML($index);
+	
+	return $xml;
+}
 
 //--------------------------------------------------------------------------------------------------
 function main($uri)
@@ -172,6 +314,8 @@ function main($uri)
 	
 	$uri = urldecode($uri);	
 	$ntriples = get_canonical_uri($uri);
+	
+	//echo $ntriples; exit();
 		
 	if ($ntriples == 0)
 	{
@@ -185,10 +329,18 @@ function main($uri)
 		{
 			$uri_to_fetch = 'http://bioguid.info/' . $uri_to_fetch;
 		}
+		echo $uri_to_fetch;
 		
 		// can we get it, if so redirect...
 		$query = "LOAD <" . $uri_to_fetch . ">";
 		$r = $store->query($query);
+		
+		/*echo $query;
+		
+		echo '<pre>';
+		print_r($r);
+		echo '</pre>';
+		exit(); */
 		
 		if ($r['result']['t_count'] > 0)
 		{
@@ -244,6 +396,8 @@ WHERE
 		$type = array();
 		$xsl_filename = '';
 		$html = '';
+		
+		$topic_title = '';
 
 		//------------------------------------------------------------------------------------------
 		// Get type(s) of objects
@@ -257,9 +411,43 @@ WHERE
 		//------------------------------------------------------------------------------------------
 		// Post process objects...
 		
+		// Publication add sequences...
+		// possibe relations are isReferencedBy (stated in GenBank record) and references
+		// which is stated in publication if we have links via PubMed.
+		if (in_array('http://purl.org/ontology/bibo/Article', $type))
+		{
+			$topic_title = get_title ($uri);		
+		
+			// Sequences
+			$xml = query_sequences_from_publication($uri);
+			append_xml ($dom, $xml);
+			
+			// Taxa
+			
+			// Geography
+			$xml = query_localities_from_publication($uri);
+			append_xml ($dom, $xml);
+
+		}
+		
+		// Journal
+		
+		// Journal
+		if (in_array('http://purl.org/ontology/bibo/Journal', $type))
+		{
+			$topic_title = get_title($uri);
+			$xml = query_articles_from_journal($uri);
+			append_xml ($dom, $xml);
+		}
+		
+		
+				
+		
 		// GenBank: Add specimen if we have it...
 		if (in_array('http://purl.uniprot.org/core/Molecule', $type))
 		{
+			$topic_title = get_title ($uri);		
+
 			$specimen_uri = '';
 			$nodeCollection = $xpath->query ('//dcterms:relation/@rdf:resource');
 			foreach($nodeCollection as $node)
@@ -299,6 +487,8 @@ WHERE
 		// NCBI taxon
 		if (in_array('http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept', $type))
 		{
+			$topic_title = get_title($uri, '<http://rs.tdwg.org/ontology/voc/TaxonConcept#nameString>');
+		
 			// Get sequences from this specimen
 			
 			$xml = query_sequences_from_taxon($uri);
@@ -306,9 +496,25 @@ WHERE
 
 			$xml = query_localities_from_taxon($uri);
 			append_xml ($dom, $xml);
+
+			$xml = query_publications_from_taxon($uri);
+			append_xml ($dom, $xml);
 			
 		}
 		
+		
+		// Dbpedia
+		if (in_array('http://www.opengis.net/gml/_Feature', $type))
+		{
+			$topic_title = get_title($uri, 'rdfs:label', 'en');
+		}
+		
+		if (in_array('http://www.w3.org/2002/07/owl#Thing', $type))
+		{
+			$topic_title = get_title($uri, 'rdfs:label', 'en');
+		}
+		
+
 		
 		
 		//print_r($type);
@@ -388,7 +594,7 @@ WHERE
 		header("Content-type: text/html; charset=utf-8\n\n");
 		echo html_html_open();
 		echo html_head_open();
-		echo html_title($uri . ' - ' . $config['site_name']);
+		echo html_title($topic_title);
 		
 		echo html_include_css('css/main.css');
 		

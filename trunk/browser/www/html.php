@@ -90,7 +90,8 @@ function html_page_header($has_browse = true, $uri = '')
 	
 	$html = '';
 	$html .= '<div style="padding:20px;">';
-	$html .= '<a href="' . $config['web_root'] . '"><span style="font-size:24px;">' . $config['site_name'] . '</span></a>';
+
+//	$html .= '<a href="' . $config['web_root'] . '"><span style="font-size:24px;">' . $config['site_name'] . '</span></a>';
 	
 	if ($has_browse)
 	{
