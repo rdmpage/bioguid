@@ -3,14 +3,14 @@ function lookahead(uri)
 {
 	element = $("horizon");
 			
-	var elementDims = $("content").getDimensions();
+	var elementDims = $("progress").getDimensions();
 	var viewPort = document.viewport.getDimensions();
 	var offsets = document.viewport.getScrollOffsets();
 	var centerY = viewPort.height / 2 + offsets.top - elementDims.height / 2;
 	element.setStyle( { position: 'absolute', top: Math.floor(centerY) + 'px' } );
 	
 
-	$("content").show(); 
+	$("progress").show(); 
 	
 	var loading	= function(t){lookaheadLoading();}
 	var failure	= function(t){lookaheadFailure();}
@@ -23,13 +23,13 @@ function lookahead(uri)
 
 function lookaheadLoading()
 {
-	$("content").innerHTML ='<img src="images/12740500515.gif" \/><br />Resolving';
+	$("progress").innerHTML ='<img src="images/12740500515.gif" \/><br />Resolving';
 }
 
 function lookaheadFailure()
 {
-	$("content").innerHTML ="×<br />Failed";
-	setTimeout('$("content").hide()', 500);
+	$("progress").innerHTML ="×<br />Failed";
+	setTimeout('$("progress").hide()', 500);
 }
 
 function lookaheadSuccess (t)
@@ -38,13 +38,13 @@ function lookaheadSuccess (t)
 	if (s.ntriples > 0)
 	{
 		// we\'ve loaded URI, so go see
-		$("content").innerHTML ="✓<br />Found";
-		setTimeout('$("content").hide()', 500);
+		$("progress").innerHTML ="✓<br />Found";
+		setTimeout('$("progress").hide()', 500);
 		window.location=gWebRoot + 'uri/' + s.uri;
 	}
 	else
 	{
-		$("content").innerHTML ="No triples found";
-		setTimeout('$("content").hide()', 500);
+		$("progress").innerHTML ="No triples found";
+		setTimeout('$("progress").hide()', 500);
 	}
 }
