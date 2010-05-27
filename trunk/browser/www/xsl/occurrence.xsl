@@ -21,7 +21,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 <xsl:template match="/">
 
 <!-- operations -->
-<div id="rightnav">
+<div id="nav">
 
 <!-- map -->
 <xsl:if test="//geo:lat != ''">
@@ -61,6 +61,8 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 </div>
 
 </div>
+
+<div id="content">
 
 <div class="document">
 <h1>
@@ -205,7 +207,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 </ul>
 </div>
 
-
+</div>
 
 
 
