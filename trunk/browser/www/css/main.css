@@ -1,10 +1,66 @@
 body 
 {
-	margin: 0px;
-	padding: 0px;
-	background:#e7e7de;
-	font-family: Arial, Verdana,sans-serif;
-	font-size:small;
+	margin: 0; 
+	padding: 0;
+	/*background-color: rgb(0,19,26);*/
+	/*color:rgb(206,206,206);*/
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+h1, h2, h3
+{
+	/*color:white;*/
+}
+
+a 
+{
+	/*color:rgb(166,214,0);*/
+}
+
+#container
+{
+	margin: 0;
+	/*background-color: rgb(34,54,61);
+	background-image: url(../background.png);
+	background-repeat: repeat-y;
+	background-position: right; */
+}
+
+#banner
+{
+	
+	/*background-color: rgb(0,19,26);*/
+	height:80px;
+	/*border-bottom: 1px solid #333;*/
+	border-bottom:1px dotted black;
+}
+#banner h1
+{
+	margin: 0;
+	padding: .5em;
+	
+	
+}
+#nav
+{
+	float: right; 
+	width: 260px;
+	margin-right: 10px; 
+	padding-top: 1em;
+/*	border:1px solid yellow; */
+}
+
+#content
+{
+	padding-top: 1em;
+	margin: 0 300px 0 2em; /* SWAP ORDER */
+}
+#footer
+{
+	clear: both;
+	/*background-color: rgb(0,19,26);*/
+	padding: 1em;
 }
 
 #horizon        
@@ -21,8 +77,8 @@ body
 	visibility: hidden;
 	display: block
 	}
- 
-#content    
+	
+#progress    
 {
 	font-family: Verdana, Geneva, Arial, sans-serif;
 	font-size:24px;
@@ -37,67 +93,22 @@ body
 	opacity:0.6;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
-	}
-	
-#rightnav 
-{
-	position: absolute; 
-	right: 10px; width: 300px; 
-	height: auto; 
-	margin-left: 10px; 
-	z-index: 5; 
-}	
+	}	
 
 
 .internal_link 
 {
-	text-decoration: underline;
-	color: #002bb8;
-	background: none;
+	text-decoration: none;
+	/*border-bottom:1px dotted rgb(166,214,0);*/
+	border-bottom:1px dotted blue;
+	
+	/*color: rgb(166,214,0);*/
+/*	color: #002bb8;
+	background: rgb(166,214,0);*/
 }
 
 .internal_link:hover 
 {
 	color: white;
 	background-color: #002bb8;	
-}
-
-.main
-{
-	margin:20px;
-	padding:20px;
-	background-color:white;
-	-webkit-border-radius:20px;
-	-moz-border-radius:20px;
-}
-
-.maincontent
-{
-	padding:10px 330px 0px 10px;
-}
-
-.maincontent_border
-{
-	padding:10px;
-	background-color:#e6e6dc;
-	-webkit-border-radius:20px;
-	-moz-border-radius:20px;
-}
-
-.document
-{
-	padding:6px;
-	background:white;
-	margin-bottom:10px;
-	-webkit-border-radius:10px;
-	-moz-border-radius:10px;
-}
-
-.abstract
-{
-	margin-top:10px;
-	padding:20px;
-	background-color:#f2f5c3;
-	-webkit-border-radius:10px;
-	-moz-border-radius: 10px;
 }
