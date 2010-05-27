@@ -6,16 +6,18 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:prism='http://prismstandard.org/namespaces/2.0/basic/'
 xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
 
+exclude-result-prefixes="bibo dcterms geo prism rdf "
+
 >
 
 
-<xsl:output method='html' version='1.0' encoding='utf-8' indent='no'/>
+<xsl:output method='html' version='1.0' encoding='utf-8' indent='yes'/>
 
 <xsl:template match="/">
 
 
 <!-- operations -->
-<div id="rightnav">
+<div id="nav">
 <div>
 <b>On the Web</b><br/>
 <ul type="square">
@@ -68,7 +70,7 @@ xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
 
 </div>
 
-<div class="document">
+<div id="content">
 
 <h1>[Article] <xsl:value-of select="//dcterms:title" /></h1>
 

@@ -4,6 +4,8 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:dcterms='http://purl.org/dc/terms/'
   xmlns:bibo='http://purl.org/ontology/bibo/'
 	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+
+exclude-result-prefixes="bibo dcterms foaf rdf " 
 >
 
 <xsl:output method='html' version='1.0' encoding='utf-8' indent='yes'/>
@@ -11,7 +13,7 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 <xsl:template match="/">
 
 <!-- operations -->
-<div id="rightnav">
+<div id="nav">
 <div>
 <b>View</b><br/>
 <ul type="square">
@@ -51,7 +53,7 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 
 </div>
 
-<div class="document">
+<div id="content">
 <h1><xsl:value-of select="//dcterms:title" /></h1>
 <ul>
 <li><xsl:value-of select="//dcterms:title" /><xsl:text> (</xsl:text><xsl:value-of select="//dcterms:title/@xml:lang" /><xsl:text>)</xsl:text></li>

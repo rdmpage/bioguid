@@ -19,7 +19,7 @@ exclude-result-prefixes="bibo dcterms geo rdf tcommon tconcept uniprot"
 <xsl:template match="/">
 
 <!-- operations -->
-<div id="rightnav">
+<div id="nav">
 
 <div>
 <h4>On the Web</h4>
@@ -80,6 +80,8 @@ exclude-result-prefixes="bibo dcterms geo rdf tcommon tconcept uniprot"
 
 </div>
 
+<div id="content">
+
 <div class="document">
 <h1>[Taxon] <xsl:value-of select="//tconcept:nameString" /></h1>
 <div><xsl:value-of select="//tcommon:taxonomicPlacementFormal" /></div>
@@ -122,7 +124,7 @@ exclude-result-prefixes="bibo dcterms geo rdf tcommon tconcept uniprot"
 </div>
 
 
-
+</div>
 
 
 

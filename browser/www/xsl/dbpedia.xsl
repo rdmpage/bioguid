@@ -20,7 +20,7 @@ exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf geo owl rdf rdfs "
 
 
 <!-- operations -->
-<div id="rightnav">
+<div id="nav">
 
 <h4>View</h4>
 <ul type="square">
@@ -113,6 +113,8 @@ exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf geo owl rdf rdfs "
 
 </div>
 
+<div id="content">
+
 <div class="document">
 
 <h1><xsl:value-of select="//rdfs:label[@xml:lang='en']" /></h1>
@@ -120,6 +122,7 @@ exclude-result-prefixes="dcterms dbpedia-owl dbpprop foaf geo owl rdf rdfs "
 	<xsl:value-of select="//dbpedia-owl:abstract[@xml:lang='en']" />
 </div>
 
+</div>
 
 
 </xsl:template>

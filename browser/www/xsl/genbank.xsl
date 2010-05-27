@@ -21,7 +21,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 <xsl:template match="/">
 
 <!-- operations -->
-<div id="rightnav">
+<div id="nav">
 
 <div>
 <h4>On the Web</h4>
@@ -67,6 +67,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 
 </div>
 
+<div id="content">
 
 <div class="document">
 <h1>[DNA sequence] <xsl:value-of select="//dcterms:title" /></h1>
@@ -190,7 +191,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 </div>
 </div>
 
-
+</div>
 </xsl:template>
 
 <!-- publication(s) in GenBank linked to this specimen -->

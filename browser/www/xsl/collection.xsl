@@ -15,7 +15,7 @@ exclude-result-prefixes=" dcterms geo owl rdf tcollection vcard"
 <xsl:template match="/">
 
 <!-- operations -->
-<div id="rightnav">
+<div id="nav">
 
 <h4>Map</h4>
 <div>
@@ -45,7 +45,7 @@ exclude-result-prefixes=" dcterms geo owl rdf tcollection vcard"
 </div>
 
 
-<div class="document">
+<div id="content">
 <h1><xsl:value-of select="//dcterms:title" /></h1>
 <div><xsl:value-of select="//dcterms:identifier" /></div>
 <div><xsl:value-of select="//tcollection:geospatialCoverage" /></div>
