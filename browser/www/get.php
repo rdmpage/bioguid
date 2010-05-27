@@ -93,6 +93,56 @@ WHERE
 
 //--------------------------------------------------------------------------------------------------
 // find publications linked to specimen via sequence
+function query_specimens_from_collection ($uri)
+{
+	global $store_config;
+	global $store;
+	
+	if (preg_match('/^urn:/', $uri))
+	{
+		$uri = 'http://bioguid.info/' . $uri;
+	}
+
+	$xml = '';
+	
+	$sparql = '
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX toccurrence: <http://rs.tdwg.org/ontology/voc/TaxonOccurrence#>
+
+
+CONSTRUCT 
+{
+ ?specimen toccurrence:hostCollection <' . $uri . '> .
+ ?specimen geo:lat ?lat . 
+?specimen geo:long ?long . 
+?specimen rdf:type ?type .
+}
+WHERE 
+{ 
+   ?specimen toccurrence:hostCollection <' . $uri .'> .
+?specimen rdf:type ?type .
+OPTIONAL
+{
+  ?specimen geo:lat ?lat . 
+?specimen geo:long ?long . 
+}
+}
+';
+
+//echo $sparql;
+
+	$r = $store->query($sparql);
+	$index = $r['result'];
+	$parser = ARC2::getRDFParser();
+	$xml = $parser->toRDFXML($index);
+	
+	return $xml;
+}
+
+//--------------------------------------------------------------------------------------------------
+// find publications linked to specimen via sequence
 function query_publications_from_specimen ($uri)
 {
 	global $store_config;
@@ -430,7 +480,6 @@ WHERE
 
 		}
 		
-		// Journal
 		
 		// Journal
 		if (in_array('http://purl.org/ontology/bibo/Journal', $type))
@@ -439,9 +488,15 @@ WHERE
 			$xml = query_articles_from_journal($uri);
 			append_xml ($dom, $xml);
 		}
+
+		// Collection
+		if (in_array('http://rs.tdwg.org/ontology/voc/Collection#Collection', $type))
+		{
+			$topic_title = get_title($uri);
+			$xml = query_specimens_from_collection($uri);
+			append_xml ($dom, $xml);
+		}
 		
-		
-				
 		
 		// GenBank: Add specimen if we have it...
 		if (in_array('http://purl.uniprot.org/core/Molecule', $type))
@@ -582,7 +637,7 @@ WHERE
 						
 			$html = $xp->transformToXML($dom);
 		}
-		//else
+		else
 		{
 			$html .= '<p/>';
 			$html .= '<div style="padding:10px;background:white;-webkit-border-radius:10px;">';
@@ -610,25 +665,78 @@ WHERE
 		
 		echo html_head_close();
 		echo html_body_open();
-		echo html_page_header(true, $uri);
 		
-		echo '<div class="main">';
+		//echo html_page_header(true, $uri);
+		
+		echo '<div id="container">' . "\n";
+		echo '   <div id="banner">' . "\n";
+		echo html_page_header(true, $uri);
+		echo '   </div>' . "\n";
+		
+		/*echo '<div id="nav">';
+		echo '   </div>' . "\n";
+		echo '<div id="content">';
+		echo 'xxxxxx';
+		echo '   </div>' . "\n"; */
+		
+		
+/*		echo '<div class="main">';
 		
 		echo '<div class="maincontent">';
-		echo '<div class="maincontent_border">';
+		echo '<div class="maincontent_border">'; */
 		
-		echo $html;
+		
+		if (1)
+		{
+			echo $html;
+		}
+		else
+		{
+	?>
+<div id="nav">
+  <div>
+    <b>On the Web</b>
+    <br>
+    <ul type="square">
+      <li>
+        <a href="http://dx.doi.org/10.1073/pnas.0907926106" target="_new">doi:10.1073/pnas.0907926106</a>
+      </li>
+    </ul>
+    <b>Post to:</b>
+    <br>
+    <ul type="square">
+      <li>Citeulike</li>
+      <li>Connotea</li>
+      <li>Mendeley</li>
+    </ul>
+  </div>
+</div>
+<div id="content">
+  <h1>[Article] Bacterial gut symbionts are tightly linked with the evolution of herbivory in ants.</h1>
+  <h2>Jacob A Russell, Corrie S Moreau, Benjamin Goldman-Huertas, Mikiko Fujiwara, David J Lohman, Naomi E Pierce</h2>
+  <div><span class="internal_link" onclick="lookahead('http://bioguid.info/issn:0027-8424')">Proceedings of the National Academy of Sciences of the United States of America</span> 106: 21236 (2009) doi:10.1073/pnas.0907926106</div>
+  <div class="abstract">Ants are a dominant feature of terrestrial ecosystems, yet we know little about the forces that drive their evolution. Recent findings illustrate that their diets range from herbivorous to predaceous, with &amp;quot;herbivores&amp;quot; feeding primarily on exudates from plants and sap-feeding insects. Persistence on these nitrogen-poor food sources raises the question of how ants obtain sufficient nutrition. To investigate the potential role of symbiotic microbes, we have surveyed 283 species from 18 of the 21 ant subfamilies using molecular techniques. Our findings uncovered a wealth of bacteria from across the ants. Notable among the surveyed hosts were herbivorous &amp;quot;turtle ants&amp;quot; from the related genera Cephalotes and Procryptocerus (tribe Cephalotini). These commonly harbored bacteria from ant-specific clades within the Burkholderiales, Pseudomonadales, Rhizobiales, Verrucomicrobiales, and Xanthomonadales, and studies of lab-reared Cephalotes varians characterized these microbes as symbiotic residents of ant guts. Although most of these symbionts were confined to turtle ants, bacteria from an ant-specific clade of Rhizobiales were more broadly distributed. Statistical analyses revealed a strong relationship between herbivory and the prevalence of Rhizobiales gut symbionts within ant genera. Furthermore, a consideration of the ant phylogeny identified at least five independent origins of symbioses between herbivorous ants and related Rhizobiales. Combined with previous findings and the potential for symbiotic nitrogen fixation, our results strongly support the hypothesis that bacteria have facilitated convergent evolution of herbivory across the ants, further implicating symbiosis as a major force in ant evolution.</div>
+  <div>
+    <ul type="square">
+      <li><span class="internal_link" onclick="lookahead('http://bioguid.info/genbank:AF465438')">AF465438</span></li>
+    </ul>
+  </div>
+</div>
+
+	<?php
+		}
+		
+		echo '   <div id="footer">' . "\n";
+		echo '     <p>About:</p>' . "\n";
+		echo '   </div>' . "\n";
+		echo '</div>' . "\n"; // container
 		
 echo '	
 <div id="horizon">
-	<div id="content" style="display:none">
+	<div id="progress" style="display:none">
         <p>Hello</p>
 	</div>
 </div>';		
-		echo '</div>'; // maincontent_border
-		echo '</div>'; // maincontent
-		
-		
 		
 
 		echo '
@@ -636,15 +744,6 @@ echo '
 	SyntaxHighlighter.all()
 </script>';
 
-	echo '<div style="
-	margin-top:20px;
-	padding:0px;
-	border-top:1px dotted rgb(128,128,128);
-	"><p>About:</p></div>';	
-	
-
-	echo '</div>'; // main
-	
 	// footer
 
 			
