@@ -89,17 +89,10 @@ function html_page_header($has_browse = true, $uri = '')
 	global $config;
 	
 	$html = '';
-	$html .= '<div style="padding:20px;">';
-
-//	$html .= '<a href="' . $config['web_root'] . '"><span style="font-size:24px;">' . $config['site_name'] . '</span></a>';
-	
 	if ($has_browse)
 	{
-		echo html_browse_box($uri);
+		$html .= html_browse_box($uri);
 	}
-
-	$html .= '</div>';
-
 	return $html;
 }
 
@@ -171,8 +164,8 @@ function html_browse_box($uri = '')
 	
 	$html = '';
 	$html .='<div style="padding:20px;float:right;">' . "\n";	
-	$html .= '<input  style="font-size:18px;" id="browse" name="browse" type="text" size="60" value="' . $uri . '" onkeypress="handleKeyPress(event,browse);"/>' . "\n";
-	$html .= '<button style="font-size:18px;" type="button" onclick="browseUri(browse);">Browse</button>' . "\n";
+	$html .= '<input  style="font-size:16px;" id="browse" name="browse" type="text" size="50" value="' . $uri . '" onkeypress="handleKeyPress(event,browse);"/>' . "\n";
+	$html .= '<button style="font-size:16px;" type="button" onclick="browseUri(browse);">Browse</button>' . "\n";
 	$html .= '</div>' . "\n";	
 	
 	return $html;
