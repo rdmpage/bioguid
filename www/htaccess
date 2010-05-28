@@ -43,6 +43,21 @@ RewriteRule ^taxonomy:([0-9]+)			/taxonomy/index.php?taxon_id=$1&format=rdf	[NC,
 RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
 RewriteRule ^csquare:([1357][0-9]{3}(:[0-9]{3}))?	csquare/index.php?csquare=$1&format=rdf	[NC,R=303] 
 
+# genbank
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^genbank:(.*)			openurl.php?id=genbank:$1&display=rdf	[NC,R=303]
+
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^gi:(.*)			openurl.php?id=gi:$1&display=rdf	[NC,R=303]
+
+# specimen
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^occurrence:(.*):(.*):(.*)	openurl.php?genre=specimen&institutionCode=$1&collectionCode=$2&catalogNumber=$3&display=rdf	[NC,R=303] 
+
+#CASENT
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^occurrence:antweb:casent(.*)	tapir.php?id=$1&format=rdf	[NC,R=303] # 303 for Linked data
+
 
 # HTML
 RewriteCond %{HTTP_ACCEPT} !application/rdf\+xml.*(text/html|application/xhtml\+xml)
@@ -82,10 +97,11 @@ RewriteRule ^jstor:(.*)     openurl.php?id=http://www.jstor.org/stable/$1 [NC,L]
 # Genbank
 RewriteRule ^genbank/(.*).json	openurl.php?id=genbank:$1&display=json	[NC,L]
 RewriteRule ^genbank/(.*)		openurl.php?id=genbank:$1	[NC,L]
+RewriteRule ^genbank:(.*)		openurl.php?id=genbank:$1	[NC,R=303] # 303 for Linked data
 
 RewriteRule ^gi/(.*).json		openurl.php?id=gi:$1&display=json	[NC,L]
 RewriteRule ^gi/(.*)			openurl.php?id=gi:$1	[NC,L]
-
+RewriteRule ^gi:(.*)			openurl.php?id=gi:$1	[NC,R=303] # 303 for Linked data
 
 # LSID
 RewriteRule ^urn:lsid:(.*)		lsid.php?lsid=urn:lsid:$1	[NC,R=303] # 303 for Linked data
@@ -100,3 +116,9 @@ RewriteRule ^taxonomy:([0-9]+)	taxonomy/index.php?taxon_id=$1	[NC,R=303] # 303 f
 
 # c-square
 RewriteRule ^csquare:([1357][0-9]{3}(:[0-9]{3}))?	csquare/index.php?csquare=$1	[NC,R=303] # 303 for Linked data
+
+# specimen
+RewriteRule ^occurrence:(.*):(.*):(.*)	openurl.php?genre=specimen&institutionCode=$1&collectionCode=$2&catalogNumber=$3	[NC,R=303] # 303 for Linked data
+#CASENT
+RewriteRule ^occurrence:antweb:casent(.*)	tapir.php?id=$1	[NC,R=303] # 303 for Linked data
+

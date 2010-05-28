@@ -151,8 +151,8 @@ function get($url, $userAgent = '')
 	//curl_setopt ($ch, CURLOPT_HEADER,		  1);  
 	
 	// Index Fungorum needs some extra time
-	//curl_setopt ($ch, CURLOPT_TIMEOUT, 20);	
-	curl_setopt ($ch, CURLOPT_TIMEOUT, 10);	
+	curl_setopt ($ch, CURLOPT_TIMEOUT, 20);	
+	//curl_setopt ($ch, CURLOPT_TIMEOUT, 10);	
 
 	curl_setopt ($ch, CURLOPT_COOKIEJAR, 'cookie.txt');
 	

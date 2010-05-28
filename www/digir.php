@@ -1412,13 +1412,13 @@ class DiGIRProvider extends Service
 				}
 			}
 					
-			//echo $record_count;
+			//echo "Record count=$record_count\n";
 			
 
 			if ($record_count != 0)
 			{
 			
-				//print $xml;
+				//echo $xml;
 			
 				$xp = new XsltProcessor();
 				$xsl = new DomDocument;
@@ -1432,13 +1432,25 @@ class DiGIRProvider extends Service
 				
 				//echo $json;
 				
-				$json = str_replace("\n\"", "\"", $json);
+				$json = str_replace("\n", "", $json);
 						
 				$data = json_decode($json);
 							
 				//print_r($data);
 				
 				//echo $data->status, "\n";
+				
+				// Clean weird KU stuff where they have lat=long=0
+				if (isset($data->record[0]->latitude) && isset($data->record[0]->longitude))
+				{
+					if (($data->record[0]->latitude == 0) && ($data->record[0]->longitude == 0))
+					{
+						unset ($data->record[0]->latitude);
+						unset ($data->record[0]->longitude);
+					}
+				}
+				//print_r($data);
+				
 				
 				if (isset($data->status))
 				{
@@ -1637,6 +1649,10 @@ function get_specimen($institutionCode, $collectionCode, $catalogNumber, &$item)
 							if ($collectionCode == 'Herps')
 							{
 								$d->collectionCode = $collectionCode;
+								if (preg_match('/CAS::(?<id>\d+)/', $d->guid, $m))
+								{
+									$d->guid = 'CAS:Herps:' . $m['id'];
+								}
 							}
 							break;
 							
