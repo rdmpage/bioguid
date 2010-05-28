@@ -83,12 +83,12 @@ exclude-result-prefixes="bibo dcterms geo rdf tcommon tconcept uniprot"
 <div id="content">
 
 <div class="document">
-<h1>[Taxon] <xsl:value-of select="//tconcept:nameString" /></h1>
+<h1 class="taxa"><xsl:value-of select="//tconcept:nameString" /></h1>
 <div><xsl:value-of select="//tcommon:taxonomicPlacementFormal" /></div>
 </div>
 
 <div class="document">
-<h2>Sequences</h2>
+<h2 class="dna">Sequences</h2>
 <ul type="square">
 <xsl:for-each select="//rdf:type[@rdf:resource = 'http://purl.uniprot.org/core/Molecule']">
 <li>
@@ -106,7 +106,7 @@ exclude-result-prefixes="bibo dcterms geo rdf tcommon tconcept uniprot"
 </div>
 
 <div class="document">
-<h2>Publications</h2>
+<h2 class="publication">Publications</h2>
 <ul type="square">
 <xsl:for-each select="//rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article']">
 <li>
@@ -116,7 +116,7 @@ exclude-result-prefixes="bibo dcterms geo rdf tcommon tconcept uniprot"
 <xsl:value-of select="../../rdf:Description/@rdf:about" />
 <xsl:text>')</xsl:text>
 </xsl:attribute>
-<xsl:value-of select="../bibo:doi" />
+<xsl:text>doi:</xsl:text><xsl:value-of select="../bibo:doi" />
 </span>
 </li>
 </xsl:for-each>

@@ -65,8 +65,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 <div id="content">
 
 <div class="document">
-<h1>
-<xsl:text>[Specimen] </xsl:text>
+<h1 class="specimen">
 <xsl:choose>
 	<xsl:when test="//toccurrence:institutionCode = 'casent'">
 	</xsl:when>
@@ -172,7 +171,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 </div>
 
 <div class="document">
-<h2>Sequences from this specimen</h2>
+<h2 class="dna">Sequences from this specimen</h2>
 <ul type="square">
 <xsl:for-each select="//rdf:type[@rdf:resource = 'http://purl.uniprot.org/core/Molecule']">
 <li>
@@ -190,7 +189,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 </div>
 
 <div class="document">
-<h2>Publications</h2>
+<h2 class="publication">Publications</h2>
 <ul type="square">
 <xsl:for-each select="//rdf:type[@rdf:resource = 'http://purl.org/ontology/bibo/Article']">
 <li>

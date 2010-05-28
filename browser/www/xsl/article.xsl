@@ -72,10 +72,10 @@ exclude-result-prefixes="bibo dcterms geo prism rdf "
 
 <div id="content">
 
-<h1>[Article] <xsl:value-of select="//dcterms:title" /></h1>
+<h1 class="publication"><xsl:value-of select="//dcterms:title" /></h1>
 
 <!-- authors -->
-<h2>
+<h2 class="people">
 <xsl:apply-templates select="//dcterms:creator" />
 </h2>
 <!-- metadata -->
@@ -121,14 +121,16 @@ exclude-result-prefixes="bibo dcterms geo prism rdf "
 
 <!-- topics -->
 <div style="padding-top:10px;">
+<ul type="square">
 <xsl:apply-templates select="//dcterms:subject/@rdf:resource" />
+</ul>
 </div>
 
 <!-- sequences -->
-<!--<div style="padding-top:10px;">
+<h2 class="dna">Sequences</h2>
+<ul type="square">
 <xsl:apply-templates select="//dcterms:references/@rdf:resource" />
-</div> -->
-
+</ul>
 <!-- sequences that list thsis pub -->
 <!-- why doesn't rdf:about work? -->
 <div>
@@ -168,7 +170,7 @@ exclude-result-prefixes="bibo dcterms geo prism rdf "
 
 <!-- tag -->
 <xsl:template match="//dcterms:subject/@rdf:resource">
-<span style="background-color:rgb(218,218,218);padding:4px;-webkit-border-radius:6">
+<li>
 <a>
 <xsl:attribute name="href">
 <xsl:text>/~rpage/ispecies/www/search/topic/</xsl:text>
@@ -176,11 +178,12 @@ exclude-result-prefixes="bibo dcterms geo prism rdf "
 </xsl:attribute>
 <xsl:value-of select="substring-after(., 'http://ispecies.org/topic/')" />
 </a>
-</span>
+</li>
 </xsl:template>
 
 <!-- cited sequences -->
 <xsl:template match="//dcterms:references/@rdf:resource">
+<li>
 <span class="internal_link">
 <xsl:attribute name="onclick">
 <xsl:text>lookahead('</xsl:text>
@@ -189,7 +192,7 @@ exclude-result-prefixes="bibo dcterms geo prism rdf "
 </xsl:attribute>
 <xsl:value-of select="substring-after(., 'http://bioguid.info/')" />
 </span>
-<xsl:text> </xsl:text>
+</li>
 </xsl:template>
 
 </xsl:stylesheet>
