@@ -70,12 +70,12 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 <div id="content">
 
 <div class="document">
-<h1>[DNA sequence] <xsl:value-of select="//dcterms:title" /></h1>
+<h1 class="dna"><xsl:value-of select="//dcterms:title" /></h1>
 <div><xsl:value-of select="//dcterms:description" /></div>
 </div>
 
 <div class="document">
-<h2>Source</h2>
+<h2 class="taxa">Source</h2>
 
 <!-- taxon -->
 <div>
@@ -94,7 +94,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 
 <!-- no specimen with GUID so use GenBank record -->
 <xsl:for-each select="//rdf:type[@rdf:resource='http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence']">
-	<div class="abstract">
+	<div class="detail">
 	<div><xsl:value-of select="../toccurrence:identifiedToString" /></div>
 
 	<!-- locality -->
@@ -175,20 +175,26 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 
 
 <div class="document">
-<h2>Publication</h2>
-<div><xsl:text> </xsl:text>
+<h2 class="publication">Publications</h2>
+<ul type="square">
 <!-- guid -->
+
 <xsl:apply-templates select="//dcterms:isReferencedBy/@rdf:resource" />
 
 <!-- no guid -->
 <xsl:for-each select="//rdf:type[@rdf:resource='http://purl.org/ontology/bibo/Document']">
+<li>
 <div>
 <div><xsl:value-of select="../dcterms:title" /></div>
 <xsl:apply-templates select="../dcterms:creator" />
 </div>
 <div><xsl:value-of select="../dcterms:bibliographicCitation" /></div>
+</li>
 </xsl:for-each>
-</div>
+
+
+</ul>
+
 </div>
 
 </div>
@@ -196,6 +202,7 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 
 <!-- publication(s) in GenBank linked to this specimen -->
 <xsl:template match="//dcterms:isReferencedBy/@rdf:resource">
+<li>
 <span class="internal_link">
 <xsl:attribute name="onclick">
 <xsl:text>lookahead('</xsl:text>
@@ -203,8 +210,9 @@ exclude-result-prefixes="bibo dcterms geo rdf toccurrence uniprot"
 <xsl:text>')</xsl:text>
 </xsl:attribute>
 <xsl:value-of select="substring-after(., 'http://bioguid.info/')" />
-</span>
 
+</span>
+</li>
 
 </xsl:template>
 

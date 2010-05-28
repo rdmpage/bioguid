@@ -54,16 +54,15 @@ exclude-result-prefixes="bibo dcterms foaf rdf "
 </div>
 
 <div id="content">
-<h1><xsl:value-of select="//dcterms:title" /></h1>
+<h1 class="journal"><xsl:value-of select="//dcterms:title" /></h1>
 <ul>
 <li><xsl:value-of select="//dcterms:title" /><xsl:text> (</xsl:text><xsl:value-of select="//dcterms:title/@xml:lang" /><xsl:text>)</xsl:text></li>
 <xsl:apply-templates select="//bibo:shortTitle" />
 </ul>
-</div>
 
 
 <div class="document">
-<h2>Articles in this journal</h2>
+<h2 class="publication">Articles in this journal</h2>
 <ul type="square">
 
 <xsl:for-each select="//rdf:Description">
@@ -83,6 +82,7 @@ exclude-result-prefixes="bibo dcterms foaf rdf "
 </ul>
 </div>
 
+</div>
 
 
 </xsl:template>

@@ -13,6 +13,63 @@ h1, h2, h3
 	/*color:white;*/
 }
 
+h1.publication, h2.publication
+{
+	background-image: url(../images/document.png);
+	background-repeat: no-repeat;
+	padding-left:32px;
+	min-height:32px;
+}
+
+h1.dna, h2.dna
+{
+	background-image: url(../images/dna.png);
+	background-repeat: no-repeat;
+	padding-left:32px;
+	height:32px;
+}
+
+h1.taxa, h2.taxa
+{
+	background-image: url(../images/taxa.png);
+	background-repeat: no-repeat;
+	padding-left:32px;
+	height:32px;
+}
+
+h1.specimen, h2.specimen
+{
+	background-image: url(../images/specimen.png);
+	background-repeat: no-repeat;
+	padding-left:32px;
+	height:32px;
+}
+
+h1.journal, h2.journal
+{
+	background-image: url(../images/journal.png);
+	background-repeat: no-repeat;
+	padding-left:32px;
+	height:32px;
+}
+
+h1.collection, h2.collection
+{
+	background-image: url(../images/collection.png);
+	background-repeat: no-repeat;
+	padding-left:32px;
+	height:32px;
+}
+
+h1.people, h2.people
+{
+	background-image: url(../images/people.png);
+	background-repeat: no-repeat;
+	padding-left:32px;
+	height:32px;
+}
+
+
 a 
 {
 	/*color:rgb(166,214,0);*/
@@ -61,6 +118,7 @@ a
 	clear: both;
 	/*background-color: rgb(0,19,26);*/
 	padding: 1em;
+	border-top:1px dotted black;
 }
 
 #horizon        
@@ -111,4 +169,12 @@ a
 {
 	color: white;
 	background-color: #002bb8;	
+}
+
+
+.detail
+{
+	border:1px dotted black;
+	margin-left:32px;
+	margin-top:10px;
 }

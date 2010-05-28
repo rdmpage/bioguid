@@ -46,13 +46,13 @@ exclude-result-prefixes=" dcterms geo owl rdf tcollection vcard"
 
 
 <div id="content">
-<h1><xsl:value-of select="//dcterms:title" /></h1>
+<h1 class="collection"><xsl:value-of select="//dcterms:title" /></h1>
 <div><xsl:value-of select="//dcterms:identifier" /></div>
 <div><xsl:value-of select="//tcollection:geospatialCoverage" /></div>
-</div>
+
 
 <div class="document">
-<h2>Specimens in this collection</h2>
+<h2 class="specimen">Specimens in this collection</h2>
 <ul type="square">
 
 <xsl:for-each select="//rdf:Description">
@@ -72,6 +72,7 @@ exclude-result-prefixes=" dcterms geo owl rdf tcollection vcard"
 </ul>
 </div>
 
+</div>
 
 </xsl:template>
 
