@@ -3,6 +3,7 @@
 // Pubmed related routines
 
 require_once ('db.php');
+require_once ('issn-functions.php');
 require_once ('lib.php');
 
 
@@ -74,6 +75,11 @@ function pubmed_metadata ($pmid, &$item)
 	{
 		$ok = true;
 		
+		if ($debug)
+		{
+			echo $xml;
+		}
+		
 		$dom= new DOMDocument;
 		$dom->loadXML($xml);
 		$xpath = new DOMXPath($dom);
@@ -133,14 +139,64 @@ function pubmed_metadata ($pmid, &$item)
 	
 	return $ok;
 }
+// Get nucleotide and cited by links for a pubmed reference
+function get_pubmed_links($pmid)
+{
+	$links = array();
+	$links['gi'] = array();
+	$links['cited'] = array();
+	
+	$url = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?'
+				. '&dbfrom=pubmed'
+				. '&db=nucleotide'
+				. '&id=' . $pmid;
+				
+	$xml = get($url);
+	
+	if ($xml .= '')
+	{
+	
+		$dom= new DOMDocument;
+		$dom->loadXML($xml);
+		$xpath = new DOMXPath($dom);
+		$xpath_query = "//eLinkResult/LinkSet/LinkSetDb/Link/Id";
+		$nodeCollection = $xpath->query ($xpath_query);
+		foreach($nodeCollection as $node)
+		{
+			$links['gi'][] = $node->firstChild->nodeValue;
+		}
+	}
+	
+	$url = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&linkname=pubmed_pubmed_citedin&id='
+	. $pmid;
+	
+	if ($xml .= '')
+	{
+		$xml = get($url);
+		
+		$dom->loadXML($xml);
+		$xpath = new DOMXPath($dom);
+		$xpath_query = "//eLinkResult/LinkSet/LinkSetDb/Link/Id";
+		$nodeCollection = $xpath->query ($xpath_query);
+		foreach($nodeCollection as $node)
+		{
+			$links['cited'][] = $node->firstChild->nodeValue;
+		}
+	}	
+	
+	return $links;
+}
 
 
 // test
 
 //echo get_pubmed_from_doi('doi:10.1016/j.ijpara.2005.03.014');
 
+
+//$debug=1;
 //$item = new stdClass;
-//pubmed_metadata(9036860, $item);
+//18490997
+//pubmed_metadata(19589848, $item);
 //echo get_pubmed_from_doi('doi:10.1016/j.ijpara.2005.03.014');
 
 ?>

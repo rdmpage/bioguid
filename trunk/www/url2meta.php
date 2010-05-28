@@ -200,9 +200,9 @@ function fetchIngenta($url, &$item)
 	
 		$r = print_r ($out, true);
 
-	/*	echo "<pre>";
-		echo htmlentities($r);
-		echo "</pre>";*/
+		//echo "<pre>";
+		//echo htmlentities($r);
+		//echo "</pre>";
 	
 	
 	
@@ -430,7 +430,8 @@ function url2meta($url)
 	}
 	
 	//------------------------------------------------------------------------------
-	if (preg_match('/http:\/\/www.journals.uchicago.edu\/doi\/(abs|full)\/(.*)/', $url, $match))
+	// http://www.journals.uchicago.edu/doi/pdf/10.1086/376890
+	if (preg_match('/http:\/\/www.journals.uchicago.edu\/doi\/(abs|full|pdf)\/(.*)/', $url, $match))
 	{
 			$item->status = 'ok';
 			$item->comment = 'url';
@@ -455,14 +456,45 @@ function url2meta($url)
 	
 	// New style...
 	// http://www.bioone.org/doi/abs/10.1651/08-3058a.1?ai=tr&af=R
+	// http://www.bioone.org/doi/pdf/10.3099/0006-9698-515.1.1
 	//------------------------------------------------------------------------------
-	if (preg_match('/http:\/\/www.bioone.org\/doi\/(abs|full)\/(?<doi>.*)\?/', $url, $match))
+	if (preg_match('/http:\/\/www.bioone.org\/doi\/(abs|full|pdf)\/(?<doi>.*)[\?]?/', $url, $match))
+	{
+		//echo $match['doi'] . "\n";
+		
+		
+	
+		$item->status = 'ok';
+		$item->comment = 'url';
+		$item->doi = $match['doi'];
+		
+		$pos = strpos($item->doi, '?');
+		if ($pos === false)
+		{
+		}
+		else
+		{
+			$item->doi = substr($item->doi, 0, $pos);
+		}
+	}
+
+	//------------------------------------------------------------------------------
+	if (preg_match('/http:\/\/pinnacle.allenpress.com\/doi\/(abs|full|pdf)\/(?<doi>.*)\??/', $url, $match))
 	{
 		$item->status = 'ok';
 		$item->comment = 'url';
 		$item->doi = $match['doi'];
+		
+		$pos = strpos($item->doi, '?');
+		if (pos === false)
+		{
+		}
+		else
+		{
+			$item->doi = substr($item->doi, 0, $pos);
+		}
+		
 	}
-
 	
 	//------------------------------------------------------------------------------
 	if (preg_match('/http:\/\/www.bioone.org\/perlserv\/\?request=get-(abstract|document)&doi=(.*)/', $url, $match))
@@ -674,6 +706,7 @@ function url2meta($url)
 		parseAllenUrl($url, $item);
 	}	
 	
+	
 	//------------------------------------------------------------------------------
 	// Raffles
 	if (preg_match('/http:\/\/rmbr.nus.edu.sg\/rbz\//', $url))
@@ -710,7 +743,7 @@ function url2meta($url)
 	
 	//echo $url;
 	
-	if (preg_match('/(http:\/\/www.publish.csiro.au\/\?paper=(.*)|http:\/\/www.publish.csiro.au\/nid\/[0-9]+\/display\/citation\/paper\/(.*).htm|http:\/\/www.publish.csiro.au\/\?act=view_file&file_id=(.*).pdf|http:\/\/www.publish.csiro.au\/nid\/[0-9]+\/paper\/(.*).htm)/', $url, $match))
+	if (preg_match('/(http:\/\/www.publish.csiro.au\/\?paper=(.*)|http:\/\/www.publish.csiro.au\/paper\/(.*).htm|http:\/\/www.publish.csiro.au\/nid\/[0-9]+\/display\/citation\/paper\/(.*).htm|http:\/\/www.publish.csiro.au\/\?act=view_file&file_id=(.*).pdf|http:\/\/www.publish.csiro.au\/nid\/[0-9]+\/paper\/(.*).htm)/', $url, $match))
 	{
 		//print_r($match);
 		//echo '<br/>';
@@ -889,7 +922,8 @@ function url2meta($url)
 	}
 	
 	// JSTOR stable
-	if (preg_match('/http:\/\/www.jstor.org\/(pss|stable)\/(?<id>[0-9]+)/', $url, $match))
+	// http://www.jstor.org/stable/pdfplus/1446094.pdf
+	if (preg_match('/http:\/\/www.jstor.org\/(pss|stable)\/(pdfplus\/)?(?<id>[0-9]+)(\.pdf)?/', $url, $match))
 	{
 		$id = $match['id'];
 		
@@ -954,7 +988,8 @@ function url2meta($url)
 		
 		
 		$item->status = 'ok';
-		$item->url = $url;
+		
+		$item->url = 'http://www.jstor.org/stable/' . $id;
 	}
 	
 	
@@ -1478,9 +1513,24 @@ function url2meta($url)
 	{
 		$html = get($url);
 	
-		//echo $html;	
+		preg_match_all('|<meta[^>]+name=\"([^\"]*)\"\s*(scheme=\"([^\"]*)\"\s*)*content=\"([^\"]*)\"[^>]+>|',  $html, $out, PREG_PATTERN_ORDER);
+	
+		$r = print_r ($out, true);
 		
-		if (preg_match('/<span class="doi">(?<doi>.*)<\/span>/', $html, $match))
+		$citation = parse_google_citation($out);
+		
+		if (isset($citation['citation_doi']))
+		{
+			$item->status = 'ok';
+			$item->doi = $citation['citation_doi'];
+			$item->url = $url;
+		}			
+
+
+		//print_r($citation);
+		//print_r($item);
+		
+		/*if (preg_match('/<span class="doi">(?<doi>.*)<\/span>/', $html, $match))
 		{
 			if (isset($match['doi']))
 			{
@@ -1489,13 +1539,93 @@ function url2meta($url)
 				$item->url = $url;
 			}
 		}
+		*/
 		
-		
-		$item->status = 'ok';
+		//$item->status = 'ok';
 	}	
 	
+	// 
+	// http://cat.inist.fr/?aModele=afficheN&cpsidt=6892704
+	if (preg_match('/http:\/\/cat.inist.fr\/\?aModele=afficheN&cpsidt=/', $url, $match))
+	{
+		$html = get($url);
+		
+		//echo $url;
+		
+		//echo $html;
 	
+		$html = str_replace('<meta', "\n<meta", $html);
+		//echo $html;
+		
+		// <meta name="citation_issue" content="4">
+		preg_match_all('|<meta[^>]+name=\"([^\"]*)\"\s+(scheme=\"(.*)\")?content=\"(.*)\">|U',  $html, $out, PREG_PATTERN_ORDER);
 	
+		$r = print_r ($out, true);
+		
+		/*echo "<pre>";
+		print_r($out);
+		echo "</pre>";*/
+		
+		$citation = parse_google_citation($out);
+		
+		/*if (isset($citation['citation_doi']))
+		{
+			$item->status = 'ok';
+			$item->doi = $citation['citation_doi'];
+			$item->url = $url;
+		}	
+		*/
+		
+		if (isset($citation['citation_issn']))
+		{		
+			$item->atitle=$citation['citation_title'];
+			$item->title=$citation['citation_journal_title'];
+			$item->issn=$citation['citation_issn'];
+			$item->volume=$citation['citation_volume'];
+			$item->issue=$citation['citation_issue'];
+			$item->spage=$citation['citation_firstpage'];
+			$item->epage=$citation['citation_lastpage'];
+			$item->year=$citation['citation_date'];
+			$item->publisher_id=$citation['citation_id'];
+			$item->url = $url;
+			
+			
+			$author_string = $citation['citation_authors'];
+			$a = explode(";", trim($author_string));
+			
+			foreach ($a as $value)
+			{
+				// Get parts of name
+				$parts = parse_name($value);
+							
+				$author = new stdClass();
+				
+				if (isset($parts['last']))
+				{
+					$author->lastname = $parts['last'];
+				}
+				if (isset($parts['suffix']))
+				{
+					$author->suffix = $parts['suffix'];
+				}
+				if (isset($parts['first']))
+				{
+					$author->forename = $parts['first'];
+					if (array_key_exists('middle', $parts))
+					{
+						$author->forename .= ' ' . $parts['middle'];
+					}
+				}
+			
+				$item->authors[] = $author;
+			}
+			$item->status = 'ok';
+		}
+	}	
+
+	
+	//echo __LINE__ . "\n";
+	//print_r($item);
 	
 	
 	return $item;

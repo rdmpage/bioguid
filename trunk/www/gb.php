@@ -268,30 +268,57 @@ function gb_specimen_code(&$data)
 
 	$voucher_code = '';
 	
-	if  (isset($data->source->specimen_voucher))
+	if ('' == $voucher_code)
 	{
-		$v = $data->source->specimen_voucher;
-		
-		// clean
-
-		// Cases such as EF629441 have colons in the specimen name
-		$v = str_replace(":", " ", $v);
-		//  AY193412 has - in name
-		$v = str_replace("-", " ", $v);
-		
-		
-		//echo "v=$v\n";
-		
-		$ids = extract_specimen_codes($v);
-		
-		//print_r($ids);
-		
-		if (count($ids) == 1)
+		if (isset($data->source->specimen_voucher))
 		{
-			$voucher_code = $ids[0];
+			if (preg_match('/^CASENT/', $data->source->specimen_voucher))
+			{
+				$voucher_code = $data->source->specimen_voucher;
+			}
+		}
+		else
+		{
+			// Try isolate field
+			if  (isset($data->source->isolate))
+			{
+				if (preg_match('/^CASENT/', $data->source->isolate))
+				{
+					$voucher_code = $data->source->isolate;
+				}
+			}
 		}
 	}
-
+	
+	echo $voucher_code;
+	
+	
+	if ('' == $voucher_code)
+	{
+		if  (isset($data->source->specimen_voucher))
+		{
+			$v = $data->source->specimen_voucher;
+			
+			// clean
+	
+			// Cases such as EF629441 have colons in the specimen name
+			$v = str_replace(":", " ", $v);
+			//  AY193412 has - in name
+			$v = str_replace("-", " ", $v);
+			
+			
+			//echo "v=$v\n";
+			
+			$ids = extract_specimen_codes($v);
+			
+			//print_r($ids);
+			
+			if (count($ids) == 1)
+			{
+				$voucher_code = $ids[0];
+			}
+		}
+	}
 
 	if ('' == $voucher_code)
 	{
@@ -365,7 +392,7 @@ function gb_specimen_code(&$data)
 					$collectionCode = $data->taxonomic_group;
 					break;
 			}
-			
+		
 			$parts = split(" ", $voucher_code);
 			$url = 'http://bioguid.info/openurl?genre=specimen&institutionCode=' . $parts[0] .
 				'&collectionCode=' . $collectionCode . '&catalogNumber=' . $parts[1] . '&display=json';
@@ -380,12 +407,17 @@ function gb_specimen_code(&$data)
 			{
 				$data->source->specimen = $j;
 			}
-			
 		
 		}
 		
-		
-		
+		// Special handling of CASENT (tapir)
+		if (preg_match('/^CASENT/', $voucher_code))
+		{
+			$data->source->specimen = new stdclass;
+			$data->source->specimen->guid = 'antweb:' . str_replace(' ', '', strtolower($voucher_code));
+		}
+	
+
 	}
 }
 
@@ -395,37 +427,42 @@ function gb_lat_lon(&$data)
 	if (isset($data->source->lat_lon))
 	{
 		$lat_lon = $data->source->lat_lon;
+		
+		$matched = false;
 
 		if (preg_match ("/(N|S)[;|,] /", $lat_lon))
 		{
 			// it's a literal string description, not a pair of decimal coordinates.
 			
-			//  35deg12'07'' N; 83deg05'2'' W, e.g. DQ995039
-			if (preg_match("/([0-9]{1,2})deg([0-9]{1,2})'(([0-9]{1,2})'')?\s*([S|N])[;|,]\s*([0-9]{1,3})deg([0-9]{1,2})'(([0-9]{1,2})'')?\s*([W|E])/", $lat_lon, $matches))
+			if (!$matched)
 			{
-				//print_r ($matches);
-				
-				$degrees = $matches[1];
-				$minutes = $matches[2];
-				$seconds = $matches[4];
-				$hemisphere = $matches[5];
-				$lat = $degrees + ($minutes/60.0) + ($seconds/3600);
-				if ($hemisphere == 'S') { $lat *= -1.0; };
-
-				$data->source->latitude = $lat;
-
-				$degrees = $matches[6];
-				$minutes = $matches[7];
-				$seconds = $matches[9];
-				$hemisphere = $matches[10];
-				$long = $degrees + ($minutes/60.0) + ($seconds/3600);
-				if ($hemisphere == 'W') { $long *= -1.0; };
-				
-				$data->source->longitude = $long;
-				
-				
+				//  35deg12'07'' N; 83deg05'2'' W, e.g. DQ995039
+				if (preg_match("/([0-9]{1,2})deg([0-9]{1,2})'(([0-9]{1,2})'')?\s*([S|N])[;|,]\s*([0-9]{1,3})deg([0-9]{1,2})'(([0-9]{1,2})'')?\s*([W|E])/", $lat_lon, $matches))
+				{
+					//print_r ($matches);
+					
+					$degrees = $matches[1];
+					$minutes = $matches[2];
+					$seconds = $matches[4];
+					$hemisphere = $matches[5];
+					$lat = $degrees + ($minutes/60.0) + ($seconds/3600);
+					if ($hemisphere == 'S') { $lat *= -1.0; };
+	
+					$data->source->latitude = $lat;
+	
+					$degrees = $matches[6];
+					$minutes = $matches[7];
+					$seconds = $matches[9];
+					$hemisphere = $matches[10];
+					$long = $degrees + ($minutes/60.0) + ($seconds/3600);
+					if ($hemisphere == 'W') { $long *= -1.0; };
+					
+					$data->source->longitude = $long;
+					
+					$matched = true;
+				}
 			}
-			else
+			if (!$matched)
 			{
 				
 				list ($lat, $long) = split ("; ", $lat_lon);
@@ -449,51 +486,35 @@ function gb_lat_lon(&$data)
 				$long = $degrees + ($minutes/60.0) + ($decimal_minutes/6000);
 				if ($hemisphere == 'W') { $long *= -1.0; };
 				$data->source->longitude = $long;
+				
+				$matched = true;
 			}
 
 		}
 		
-		// 8 deg 45 min S, 63 deg 26 min W [DQ098864]
-		if (preg_match("/([0-9]{1,2})\s*deg\s*([0-9]{1,2})\s*min\s*([S|N]),\s*([0-9]{1,3})\s*deg\s*([0-9]{1,2})\s*min\s*([W|E])/", $lat_lon, $matches))
+		
+		if (!$matched)
 		{
-			print_r ($matches);
 			
-			$degrees = $matches[1];
-			$minutes = $matches[2];
-			$seconds = 0;
-			$hemisphere = $matches[3];
-			$lat = $degrees + ($minutes/60.0) + ($seconds/3600);
-			if ($hemisphere == 'S') { $lat *= -1.0; };
-		
-			$data->source->latitude = $lat;
-		
-			$degrees = $matches[4];
-			$minutes = $matches[5];
-			$seconds = 0;
-			$hemisphere = $matches[6];
-			$long = $degrees + ($minutes/60.0) + ($seconds/3600);
-			if ($hemisphere == 'W') { $long *= -1.0; };
-			
-			$data->source->longitude = $long;
+			// N19.49048, W155.91167 [EF219364]
+			if (preg_match ("/(?<lat_hemisphere>(N|S))(?<latitude>(\d+(\.\d+))), (?<long_hemisphere>(W|E))(?<longitude>(\d+(\.\d+)))/", $lat_lon, $matches))
+			{
+				//print_r($matches);
+				
+				$lat = $matches['latitude'];
+				if ($matches['lat_hemisphere'] == 'S') { $lat *= -1.0; };
+				$data->source->latitude = $lat;
+				
+				$long = $matches['longitude'];
+				if ($matches['long_hemisphere'] == 'W') { $long *= -1.0; };
+				$data->source->longitude = $long;
+				
+				$matched = true;
+	
+			}
 		}
 		
-		
-		// N19.49048, W155.91167 [EF219364]
-		if (preg_match ("/(?<lat_hemisphere>(N|S))(?<latitude>(\d+(\.\d+))), (?<long_hemisphere>(W|E))(?<longitude>(\d+(\.\d+)))/", $lat_lon, $matches))
-		{
-			//print_r($matches);
-			
-			$lat = $matches['latitude'];
-			if ($matches['lat_hemisphere'] == 'S') { $lat *= -1.0; };
-			$data->source->latitude = $lat;
-			
-			$long = $matches['longitude'];
-			if ($matches['long_hemisphere'] == 'W') { $long *= -1.0; };
-			$data->source->longitude = $long;
-
-		}
-		
-		if (!isset($data->source->latitude))
+		if (!$matched)		
 		{
 			//13.2633 S 49.6033 E
 			if (preg_match("/([0-9]+(\.[0-9]+)*) ([S|N]) ([0-9]+(\.[0-9]+)*) ([W|E])/", $lat_lon, $matches))
@@ -507,14 +528,43 @@ function gb_lat_lon(&$data)
 				$long = $matches[4];
 				if ($matches[6] == 'W') { $long *= -1.0; };
 				$data->source->longitude = $long;
+				
+				$matched = true;
 			}
 		}
 		
-		if (!isset($data->source->latitude))
+		
+		// AY249471 Palmer Archipelago 64deg51.0'S, 63deg34.0'W 
+		if (!$matched)		
 		{
-			$parts = explode (",", $lat_lon);
-			$data->source->latitude = $parts[0];
-			$data->source->longitude = $parts[1];
+			if (preg_match("/([0-9]{1,2})deg([0-9]{1,2}(\.\d+)?)'\s*([S|N]),\s*([0-9]{1,3})deg([0-9]{1,2}(\.\d+)?)'\s*([W|E])/", $lat_lon, $matches))
+			{
+				//print_r ($matches);
+				
+				$lat = $matches[1];
+				if ($matches[3] == 'S') { $lat *= -1.0; };
+				$data->source->latitude = $lat;
+	
+				$long = $matches[4];
+				if ($matches[6] == 'W') { $long *= -1.0; };
+				$data->source->longitude = $long;
+				
+				$matched = true;
+			}
+		}
+		
+		if (!$matched)
+		{
+			
+			if (preg_match("/(?<latitude>\-?\d+(\.\d+)?),?\s*(?<longitude>\-?\d+(\.\d+)?)/", $lat_lon, $matches))
+			{
+				//print_r($matches);
+				
+				$data->source->latitude = $matches['latitude'];
+				$data->source->longitude = $matches['longitude'];
+			
+				$matched = true;
+			}
 		}
 		
 		
@@ -552,6 +602,34 @@ function gb_locality(&$data)
 			$long = $degrees + ($minutes/60);
 			if ($hemisphere == 'W') { $long *= -1.0; };
 			$data->source->longitude = $long;
+		}
+	
+		if (isset($data->source->locality))
+		{
+			// AY249471 Palmer Archipelago 64deg51.0'S, 63deg34.0'W 
+			if (preg_match("/(?<latitude_degrees>[0-9]{1,2})deg(?<latitude_minutes>[0-9]{1,2}(\.\d+)?)'\s*(?<latitude_hemisphere>[S|N]),\s*(?<longitude_degrees>[0-9]{1,3})deg(?<longitude_minutes>[0-9]{1,2}(\.\d+)?)'\s*(?<longitude_hemisphere>[W|E])/", $data->source->locality, $matches))
+			{
+				//print_r ($matches);
+				
+					
+				$degrees = $matches['latitude_degrees'];
+				$minutes = $matches['latitude_minutes'];
+				$hemisphere = $matches['latitude_hemisphere'];
+				$lat = $degrees + ($minutes/60.0);
+				if ($hemisphere == 'S') { $lat *= -1.0; };
+
+				$data->source->latitude = $lat;
+
+				$degrees = $matches['longitude_degrees'];
+				$minutes = $matches['longitude_minutes'];
+				$hemisphere = $matches['longitude_hemisphere'];
+				$long = $degrees + ($minutes/60.0);
+				if ($hemisphere == 'W') { $long *= -1.0; };
+				
+				$data->source->longitude = $long;
+				
+				$matched = true;
+			}
 		}
 		
 		//(GPS: 33 38' 07'', 146 33' 12'') e.g. AY281244

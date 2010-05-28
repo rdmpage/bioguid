@@ -836,6 +836,28 @@ function find_specimen($institutionCode, $collectionCode, $catalogNumber)
 }
 
 //--------------------------------------------------------------------------------------------------
+function find_specimen_from_guid($guid)
+{
+	global $db;
+	
+	$id = 0;
+	
+	$sql = 'SELECT * FROM darwin_core
+	WHERE (guid = ' . $db->qstr($guid) . ') LIMIT 1';
+	
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __LINE__ . "]: " . $db->ErrorMsg() . ' ' . $sql );
+
+	if ($result->NumRows() == 1)
+	{
+		$id = $result->fields['id'];
+	}
+	
+	return $id;
+		
+}
+
+//--------------------------------------------------------------------------------------------------
 function retrieve_specimen_json($id)
 {
 	global $db;
