@@ -148,6 +148,7 @@ function issn_from_journal_title($journal, $threshold = 0.75)
 		$query = preg_replace('/^The /', '', $query);
 		
 		$query = str_replace(',', '', $query);
+		$query = str_replace(':', '', $query);
 		$query = str_replace('\'', '', $query);
 		$query = str_replace('.', '', $query);
 		$query = str_replace(' ', '% ', $query);
