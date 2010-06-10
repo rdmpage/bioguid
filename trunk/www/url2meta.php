@@ -485,14 +485,17 @@ function url2meta($url)
 		$item->comment = 'url';
 		$item->doi = $match['doi'];
 		
-		$pos = strpos($item->doi, '?');
-		if (pos === false)
+		//print_r($item);	
+		
+		$pos 	= strpos($item->doi, '?');
+		if ($pos === false)
 		{
 		}
 		else
 		{
 			$item->doi = substr($item->doi, 0, $pos);
 		}
+		//print_r($item);	
 		
 	}
 	
@@ -954,7 +957,7 @@ function url2meta($url)
 	
 		/*
 		echo "<pre>";
-		echo htmlentities($r);
+		print_r($out);
 		echo "</pre>";
 		*/
 	
@@ -967,7 +970,7 @@ function url2meta($url)
 		(?<title>(.*)),
 		\s+
 		Vol.\s+(?<volume>\d+),
-		(\s+No.\s+(?<issue>\d+(-\d+)?)\s+)?
+		(\s+No.\s+(?<issue>\d+([-\/]\d+)?)\s+)?
 		\(((.*),\s+)?(?<year>[0-9]{4})\),\s+
 		pp.\s+(?<spage>\d+)-(?<epage>\d+)
 		<\/title>
@@ -982,10 +985,32 @@ function url2meta($url)
 			$item->epage = $matches['epage'];
 			$item->year = $matches['year'];
 		}
+
+		
 		
 		// Kill DOI on assumption we wouldn't be harvesting stable URL if DOI worked
 		//unset($item->doi);
-		
+
+		if (!isset($item->issn))
+		{
+			$issn = issn_from_journal_title($item->title);
+			if ($issn != '')
+			{
+				$item->issn = $issn;
+			}
+		}
+		if (isset($item->issn))
+		{
+			$doi = search_for_doi($item->issn, $item->volume, $item->spage, 'article', $item);		
+			if ($doi == '')
+			{
+				unset($item->doi);
+			}
+			else
+			{
+				$item->doi = $doi;
+			}		
+		}
 		
 		$item->status = 'ok';
 		

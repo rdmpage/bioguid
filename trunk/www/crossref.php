@@ -70,7 +70,8 @@ function search_for_doi($issn, $volume, $page, $genre, &$item)
 	$doi = '';
 	$url = 'http://www.crossref.org/openurl?';
 
-	$url .=  "pid=" . $config['crossref_user'] . ":" . $config['crossref_pass'];
+//	$url .=  "pid=" . $config['crossref_user'] . ":" . $config['crossref_pass'];
+	$url .=  "pid=" . $config['crossref_pid'];
 
 	$url .= "&genre=" . $genre;
 	$url .= "&issn=" . $issn;
@@ -192,7 +193,8 @@ function doi_metadata ($doi, &$item)
 	$ok = false;
 	
 	$url = "http://www.crossref.org/openurl"
-		. "?pid=" . $config['crossref_user'] . ":" . $config['crossref_pass']
+//		. "?pid=" . $config['crossref_user'] . ":" . $config['crossref_pass']
+		. "?pid=" . $config['crossref_pid']
 		. "&rft_id=info:doi/$doi&noredirect=true"
 		. "&format=unixref";
 		

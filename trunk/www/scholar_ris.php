@@ -7,6 +7,7 @@
 //.scholar.google.com	TRUE	/	FALSE	2147483647	GSP	ID=353e8f974d766dcd:CF=2
 
 require_once(dirname(__FILE__) . '/config.inc.php');
+require_once(dirname(__FILE__) . '/ris.php');
 
 /*
 
@@ -25,10 +26,20 @@ require_once(dirname(__FILE__) . '/config.inc.php');
 
 $title = $_GET['title'];
 
+$store = 0;
+if (isset($_GET['store']))
+{
+	$store = 1;
+}
+
+
+//$title = 'Biomagnification of cycad neurotoxins in flying foxes Implications for ALS-PDC in Guam';
+
+
 
 $title = strip_tags($title);
 
-$url = 'http://scholar.google.com';
+$url = 'http://scholar.google.co.uk';
 
 $url .= '/scholar';
 $url .= "?q=allintitle:";
@@ -46,6 +57,10 @@ curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt ($ch, CURLOPT_FOLLOWLOCATION,	1); 
 curl_setopt ($ch, CURLOPT_COOKIEJAR, 'scholar_cookie.txt');
 curl_setopt ($ch, CURLOPT_COOKIEFILE, 'scholar_cookie.txt');
+curl_setopt ($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.14) Gecko/2009082706 Firefox/3.0.14');
+curl_setopt ($ch, CURLOPT_REFERER, 'http://scholar.google.co.uk/scholar?q=flying+foxes&hl=en&btnG=Search');
+
+
 if ($config['proxy_name'] != '')
 {
 	curl_setopt ($ch, CURLOPT_PROXY, $config['proxy_name'] . ':' . $config['proxy_port']);
@@ -57,6 +72,8 @@ if( curl_errno ($ch) != 0 )
 {
 }
 
+//$info = curl_getinfo($ch);
+//print_r($info);
 
 // Clean
 $html = preg_replace('/<font size=-2 class="w"><b>\[PDF\]<\/b><\/font>&nbsp;<span class=a>&#x25ba;<\/span>/', '', $html);
@@ -90,11 +107,20 @@ if (preg_match('/<a href="\/scholar.ris\?(?<q>.*)">Import into RefMan<\/a>/', $h
 	{
 	}
 	
-	$ris = str_replace ("\nER", "UR  - $title_url\nER", $ris);
+	$ris = str_replace ("\r\nER", "\r\nUR  - $title_url\r\nER", $ris);
 	$ris = utf8_encode($ris);
 	
 	header("Content-type: text/plain; charset=utf-8\n\n");	
 	echo $ris;	
+	
+	if (preg_match('/TY  \- JOUR/', $ris))
+	{
+		if ($store)
+		{
+			import_ris($ris);
+			echo "\r\nStored\r\n";
+		}
+	}
 	
 }
 

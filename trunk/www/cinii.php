@@ -21,6 +21,8 @@ function cinii_rdf($rdf_url, &$item, $issn='', $debug = 0)
 	
 	$rdf = get($rdf_url);
 	
+	//echo $rdf;
+	
 	// convert...
 	$dom= new DOMDocument;
 	$dom->loadXML($rdf);
@@ -95,6 +97,21 @@ function cinii_rdf($rdf_url, &$item, $issn='', $debug = 0)
 		}
 	}
 	
+	// Clean pages
+	if (isset($item->spage))
+	{
+		$item->spage = preg_replace('/^p/', '', $item->spage);
+	}
+	
+	// Title if not english...
+	if ($item->atitle == '')
+	{
+		if (isset($item->jp_atitle))
+		{
+			$item->atitle = $item->jp_atitle;
+		}
+	}
+	
 	if ($debug)
 	{
 		print_r($item);
@@ -149,21 +166,25 @@ function search_cinii($jtitle, $issn, $volume, $spage, &$item, $debug = 0)
 		$url .= '&rft.epage=' . $epage;		
 	}
 */	
+
+	// Use ISSN for OpenURL lookup as this seems to work better
+	if ($issn == '')
+	{
+		$issn = issn_from_journal_title($jtitle);
+	}
 	if ($issn != '')
 	{
 		$item->issn = $issn;
+		$url .= '&rft.issn=' . $issn;
 	}
-	
-	if ($jtitle == '')
+	else
 	{
-		if ($issn != 0)
+		if ($jtitle == '')
 		{
-			$jtitle = journal_title_from_issn($issn);
-			$item->title = $jtitle;
-		}
-	}		
-	$url .= '&rft.jtitle=' . str_replace(" ", "%20", $jtitle);
-	
+			$url .= '&rft.jtitle=' . str_replace(" ", "%20", $jtitle);
+		}	
+	}
+		
 	if ($debug)
 	{
 		echo $url . "\n";

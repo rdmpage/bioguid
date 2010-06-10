@@ -11,6 +11,29 @@ require_once('ris.php');
 
 //--------------------------------------------------------------------------------------------------
 /**
+ * @brief Parse Google Scholar metadata embedded in <meta> tags
+ *
+ * @param meta array of tag attributes
+ *
+ */
+function parse_google_citation($meta)
+{
+	$citation = array();
+	
+	//print_r($meta);
+	
+	foreach($meta[1] as $k => $v)
+	{
+		$citation[$v] = $meta[4][$k];
+	}
+	
+	//print_r($citation);
+	return $citation;
+}
+
+
+//--------------------------------------------------------------------------------------------------
+/**
  * @brief Parse Dubin Core metadata embedded in <meta> tags
  *
  * @param dc array of tag attributes

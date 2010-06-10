@@ -1758,7 +1758,9 @@ function display_rdf($item)
 	$rdf .= '<rdf:RDF';
 	$rdf .= ' xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" ';
 	$rdf .= ' xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" ';
-	$rdf .= ' xmlns:dc="http://purl.org/dc/elements/1.1/" ';
+	$rdf .= ' xmlns:owl="http://www.w3.org/2002/07/owl#" ';
+
+	//$rdf .= ' xmlns:dc="http://purl.org/dc/elements/1.1/" ';
 	$rdf .= ' xmlns:dcterms="http://purl.org/dc/terms/" ';
 	$rdf .= ' xmlns:prism="http://prismstandard.org/namespaces/2.0/basic/" ';
 	$rdf .= ' xmlns:bibo="http://purl.org/ontology/bibo/"' ;
@@ -1769,16 +1771,32 @@ function display_rdf($item)
 	$id = '';
 	if (isset($item->doi))
 	{
-//		$id = 'http://bioguid.info/doi:' . $item->doi;
-		// Don't use a specific resolver for rdf:about
-		$id = 'doi:' . $item->doi;
+		if ($config['rdf_about_is_http_uri'])
+		{
+			// HTTP URI
+			$id = 'http://bioguid.info/doi:' . $item->doi;
+		}
+		else
+		{
+			// Don't use a specific resolver for rdf:about
+			$id = 'doi:' . $item->doi;
+		}		
 		$primaryId = 'doi';
 	}
 	if ($id == '')
 	{
 		if (isset($item->pmid))
 		{
-			$id = 'pmid:' . $item->pmid;
+			if ($config['rdf_about_is_http_uri'])
+			{
+				// HTTP URI
+				$id = 'http://bioguid.info/pmid:' . $item->pmid;
+			}
+			else
+			{
+				// Don't use a specific resolver for rdf:about
+				$id = 'pmid:' . $item->pmid;
+			}
 			$primaryId = 'pmid';
 		}
 	}
@@ -1786,7 +1804,16 @@ function display_rdf($item)
 	{
 		if (isset($item->hdl))
 		{
-			$id = 'hdl:' . $item->hdl;
+			if ($config['rdf_about_is_http_uri'])
+			{
+				// HTTP URI
+				$id = 'http://bioguid.info/hdl:' . $item->hdl;
+			}
+			else
+			{
+				// Don't use a specific resolver for rdf:about
+				$id = 'hdl:' . $item->hdl;
+			}
 			$primaryId = 'hdl';
 		}
 	}
@@ -1799,6 +1826,11 @@ function display_rdf($item)
 				$id = $match['cinii'] . '#article';
 				$primaryId = 'url';
 			}
+			if (preg_match('/http:\/\/www.jstor.org\/stable/', $item->url, $match))
+			{
+				$id = 'http://bioguid.info/' . $item->url;
+				$primaryId = 'url';
+			}
 		}
 	}
 	
@@ -1807,7 +1839,16 @@ function display_rdf($item)
 		// jacc
 		if (isset($item->issn) && isset($item->volume) && isset($item->spage))
 		{
-			$id = "jacc:" . $item->issn . ":" . $item->volume . '@' . $item->spage;
+			if ($config['rdf_about_is_http_uri'])
+			{
+				// HTTP URI
+				$id = 'http://bioguid.info/' . "jacc:" . $item->issn . ":" . $item->volume . '@' . $item->spage;
+			}
+			else
+			{
+				// Don't use a specific resolver for rdf:about
+				$id = "jacc:" . $item->issn . ":" . $item->volume . '@' . $item->spage;
+			}
 		}
 		else
 		{
@@ -1826,15 +1867,26 @@ function display_rdf($item)
 		$rdf .= '<bibo:doi>' . $item->doi . '</bibo:doi>';
 		$rdf .= '<prism:doi>' . $item->doi . '</prism:doi>';
 		$rdf .= '<dcterms:identifier>' . 'doi:' . htmlspecialchars($item->doi, ENT_NOQUOTES) . '</dcterms:identifier>';
+		$rdf .= '<dcterms:identifier>' . 'http://dx.doi.org/' . htmlspecialchars($item->doi, ENT_NOQUOTES) . '</dcterms:identifier>';
 	}
 	
 	if (isset($item->pmid))
 	{
 		if ($primaryId != 'pmid')
 		{
-//			$rdf .= '<dc:identifier rdf:resource="http://bioguid.info/pmid:' . $item->pmid . '" />';
-			$rdf .= '<dcterms:identifier rdf:resource="pmid:' . $item->pmid . '" />';
+			if ($config['rdf_about_is_http_uri'])
+			{	
+				$rdf .= '<dcterms:identifier rdf:resource="http://bioguid.info/pmid:' . $item->pmid . '" />';
+			}
+			else
+			{
+				$rdf .= '<dcterms:identifier rdf:resource="pmid:' . $item->pmid . '" />';
+			}
+			$rdf .= '<dcterms:identifier>' . 'pmid:' . $item->pmid . '</dcterms:identifier>';
 		}
+		$rdf .= "<!-- link to other RDF sources using sameAs -->\n";
+		$rdf .= '<owl:sameAs rdf:resource="http://purl.uniprot.org/pubmed/' . $item->pmid . '" />';
+		$rdf .= '<owl:sameAs rdf:resource="http://bio2rdf.org/pubmed:' . $item->pmid . '" />';
 	}
 			
 	if (isset($item->hdl))
@@ -1855,6 +1907,22 @@ function display_rdf($item)
 		$rdf .= '<dcterms:identifier>' . htmlspecialchars($item->publisher_id, ENT_NOQUOTES) . '</dcterms:identifier>';
 	}
 	
+	// PMID links
+	if (isset($item->pmid))
+	{
+		// citation links
+		$links = get_pubmed_links($item->pmid);
+		foreach ($links['cited'] as $pmid)
+		{
+			$rdf .= '<bibo:citedBy rdf:resource="http://bioguid.info/pmid:' . $pmid . '" />';			
+		}
+		// genbank links 
+		foreach ($links['gi'] as $gi)
+		{
+			$rdf .= '<dcterms:references rdf:resource="http://bioguid.info/gi:' . $gi . '" />';			
+		}
+
+	}
 		
 	// Authors
 	$num_authors = count($item->authors);
@@ -1885,7 +1953,15 @@ function display_rdf($item)
 	if (isset($item->issn))
 	{
 		$rdf .= '<prism:issn>' . $item->issn . '</prism:issn>';
-		$rdf .= '<dcterms:isPartOf rdf:resource="' . 'urn:issn:' . $item->issn . '" />';
+		if ($config['rdf_about_is_http_uri'])
+		{	
+			$rdf .= '<dcterms:isPartOf rdf:resource="http://bioguid.info/issn:' . $item->issn . '" />';
+		}
+		else
+		{
+			$rdf .= '<dcterms:isPartOf rdf:resource="' . 'urn:issn:' . $item->issn . '" />';
+		}
+		
 	}
 	
 	
@@ -2584,12 +2660,167 @@ function display_specimen($item, $display_type)
 			
 		case DISPLAY_ITAXON:
 			display_specimen_itaxon($item);
+			break;
+			
+		case DISPLAY_RDF:
+			header("Content-type: application/rdf+xml; charset=utf-8\n\n");	
+			echo display_specimen_rdf($item);
+			break;	
+
+		case DISPLAY_XML:
+			header("Content-type: application/xml; charset=utf-8\n\n");			
+			echo display_specimen_rdf($item);
+			break;
 			
 			
 		default:
 			break;
 	}
 }
+
+//--------------------------------------------------------------------------------------------------
+function display_specimen_rdf($item)
+{
+	$feed = new DomDocument('1.0');
+	$rdf = $feed->createElement('rdf:RDF');
+	$rdf->setAttribute('xmlns:rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+	$rdf->setAttribute('xmlns:rdfs', 'http://www.w3.org/2000/01/rdf-schema#');
+	$rdf->setAttribute('xmlns:dcterms', 'http://purl.org/dc/terms/');
+	
+	$rdf->setAttribute('xmlns:geo', 'http://www.w3.org/2003/01/geo/wgs84_pos#');
+		
+	$rdf->setAttribute('xmlns:tcommon', 'http://rs.tdwg.org/ontology/voc/Common#');
+	$rdf->setAttribute('xmlns:toccurrence', 'http://rs.tdwg.org/ontology/voc/TaxonOccurrence#');
+
+	// Specimen
+	$specimen = $rdf->appendChild($feed->createElement('toccurrence:TaxonOccurrence'));
+	$specimen->setAttribute('rdf:about', 'http://bioguid.info/occurrence:' . $item->guid);
+	
+	// Document metadata
+	$modified = $specimen->appendChild($feed->createElement('dcterms:modified'));
+	$modified->appendChild($feed->createTextNode($item->dateModified));
+	
+	
+	// Specimen codes
+	$institutionCode = $specimen->appendChild($feed->createElement('toccurrence:institutionCode'));
+	$institutionCode->appendChild($feed->createTextNode($item->institutionCode));
+
+	$collectionCode = $specimen->appendChild($feed->createElement('toccurrence:collectionCode'));
+	$collectionCode->appendChild($feed->createTextNode($item->collectionCode));
+
+	$catalogNumber = $specimen->appendChild($feed->createElement('toccurrence:catalogNumber'));
+	$catalogNumber->appendChild($feed->createTextNode($item->catalogNumber));
+
+	// Taxon
+	$identifiedToString = $specimen->appendChild($feed->createElement('toccurrence:identifiedToString'));
+	$identifiedToString->appendChild($feed->createTextNode($item->organism));
+	
+	
+	// Type status
+	if (isset($item->typeStatus))
+	{
+		$typeStatusString = $specimen->appendChild($feed->createElement('toccurrence:typeStatusString'));
+		$typeStatusString->appendChild($feed->createTextNode($item->typeStatus));
+	}
+	
+	// Locality information
+	if (isset($item->latitude))
+	{
+		$latitude = $specimen->appendChild($feed->createElement('toccurrence:decimalLatitude'));
+		$latitude->appendChild($feed->createTextNode($item->latitude));
+
+		// geo
+		$latitude = $specimen->appendChild($feed->createElement('geo:lat'));
+		$latitude->appendChild($feed->createTextNode($item->latitude));
+
+	}
+	if (isset($item->longitude))
+	{
+		$longitude = $specimen->appendChild($feed->createElement('toccurrence:decimalLongitude'));
+		$longitude->appendChild($feed->createTextNode($item->longitude));
+
+		// geo
+		$longitude = $specimen->appendChild($feed->createElement('geo:long'));
+		$longitude->appendChild($feed->createTextNode($item->longitude));
+	}
+	
+	if (isset($item->locality))
+	{
+		$locality = $specimen->appendChild($feed->createElement('toccurrence:locality'));
+		$locality->appendChild($feed->createTextNode($item->locality));
+	}
+	if (isset($item->county))
+	{
+		$county = $specimen->appendChild($feed->createElement('toccurrence:county'));
+		$county->appendChild($feed->createTextNode($item->county));
+	}
+	if (isset($item->island))
+	{
+		$island = $specimen->appendChild($feed->createElement('toccurrence:island'));
+		$island->appendChild($feed->createTextNode($item->island));
+	}
+	if (isset($item->country))
+	{
+		$country = $specimen->appendChild($feed->createElement('toccurrence:country'));
+		$country->appendChild($feed->createTextNode($item->country));
+	}
+	if (isset($item->stateProvince))
+	{
+		$stateProvince = $specimen->appendChild($feed->createElement('toccurrence:stateProvince'));
+		$stateProvince->appendChild($feed->createTextNode($item->stateProvince));
+	}
+	if (isset($item->continentOcean))
+	{
+		$continentOcean = $specimen->appendChild($feed->createElement('toccurrence:continentOcean'));
+		$continentOcean->appendChild($feed->createTextNode($item->continentOcean));
+	}
+		
+
+	// Collector details
+	if (isset($item->collector))
+	{
+		$collector = $specimen->appendChild($feed->createElement('toccurrence:collector'));
+		$collector->appendChild($feed->createTextNode($item->collector));
+	}
+	if (isset($item->collectorNumber))
+	{
+		$collectorsFieldNumber = $specimen->appendChild($feed->createElement('toccurrence:collectorsFieldNumber'));
+		$collectorsFieldNumber->appendChild($feed->createTextNode($item->collectorNumber));
+	}
+	if (isset($item->fieldNumber))
+	{
+		$collectorsBatchNumber = $specimen->appendChild($feed->createElement('toccurrence:collectorsBatchNumber'));
+		$collectorsBatchNumber->appendChild($feed->createTextNode($item->fieldNumber));
+	}
+	if (isset($item->verbatimCollectingDate))
+	{
+		$verbatimCollectingDate = $specimen->appendChild($feed->createElement('toccurrence:verbatimCollectingDate'));
+		$verbatimCollectingDate->appendChild($feed->createTextNode($item->verbatimCollectingDate));
+	}
+	if (isset($item->dateCollected))
+	{
+		$earliestDateCollected = $specimen->appendChild($feed->createElement('toccurrence:earliestDateCollected'));
+		$earliestDateCollected->appendChild($feed->createTextNode($item->dateCollected));
+
+		$latestDateCollected = $specimen->appendChild($feed->createElement('toccurrence:latestDateCollected'));
+		$latestDateCollected->appendChild($feed->createTextNode($item->dateCollected));
+	}
+	
+	// BCI
+	if (isset($item->bci))
+	{
+		$type = $specimen->appendChild($feed->createElement('toccurrence:hostCollection'));
+		$type->setAttribute('rdf:resource', 'http://biocol.org/' . $item->bci);		
+	}
+
+	
+	$rdf = $feed->appendChild($rdf);
+
+	$feed->encoding='utf-8';
+	return $feed->saveXML();
+
+}
+
 
 //--------------------------------------------------------------------------------------------------
 function display_specimen_html($item)
@@ -2832,10 +3063,12 @@ function display_genbank($item, $display_type)
 			break;
 
 		case DISPLAY_RDF:
-		
-//	header("Content-type: application/rdf+xml; charset=utf-8\n\n");	
-				
-			header("Content-type: application/xml; charset=utf-8\n\n");	
+			header("Content-type: application/rdf+xml; charset=utf-8\n\n");	
+			echo display_genbank_rdf($item);
+			break;	
+
+		case DISPLAY_XML:
+			header("Content-type: application/xml; charset=utf-8\n\n");			
 			echo display_genbank_rdf($item);
 			break;
 			
@@ -2936,16 +3169,34 @@ function display_genbank_rdf($item)
 	$feed = new DomDocument('1.0');
 	$rdf = $feed->createElement('rdf:RDF');
 	$rdf->setAttribute('xmlns:rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+	$rdf->setAttribute('xmlns:rdfs', 'http://www.w3.org/2000/01/rdf-schema#');
+	$rdf->setAttribute('xmlns:owl', 'http://www.w3.org/2002/07/owl#');
+		
 	$rdf->setAttribute('xmlns:dcterms', 'http://purl.org/dc/terms/');
+	
+	$rdf->setAttribute('xmlns:geo', 'http://www.w3.org/2003/01/geo/wgs84_pos#');
+		
 	$rdf->setAttribute('xmlns:tcommon', 'http://rs.tdwg.org/ontology/voc/Common#');
 	$rdf->setAttribute('xmlns:toccurrence', 'http://rs.tdwg.org/ontology/voc/TaxonOccurrence#');
 
 	$rdf->setAttribute('xmlns:uniprot', 'http://purl.uniprot.org/core/');
 
-	// GenBank record is for Genomic DNA
-	$genbank = $rdf->appendChild($feed->createElement('uniprot:Genomic_DNA'));
-	$genbank->setAttribute('rdf:about', 'genbank:' . $item->accession);
+//	$genbank = $rdf->appendChild($feed->createElement('rdf:Description'));
+	$genbank = $rdf->appendChild($feed->createElement('uniprot:Molecule'));
+	$genbank->setAttribute('rdf:about', 'http://bioguid.info/genbank:' . $item->accession);
+	
+	//----------------------------------------------------------------------------------------------
+	// sameAs links
+	$sameAs = $genbank->appendChild($feed->createElement('owl:sameAs'));
+	$sameAs->setAttribute('rdf:resource', 'http://bio2rdf.org/genbank:' . $item->accession);
+
+	if (isset($item->gi))
+	{
+		$sameAs = $genbank->appendChild($feed->createElement('owl:sameAs'));
+		$sameAs->setAttribute('rdf:resource', 'http://bioguid.info/gi:' . $item->gi);
+	}
 		
+	//----------------------------------------------------------------------------------------------
 	// Document metadata
 	$created = $genbank->appendChild($feed->createElement('dcterms:created'));
 	$created->appendChild($feed->createTextNode($item->created));
@@ -2955,18 +3206,29 @@ function display_genbank_rdf($item)
 
 	$title = $genbank->appendChild($feed->createElement('dcterms:title'));
 	$title->appendChild($feed->createTextNode($item->accession));
+
+	$title = $genbank->appendChild($feed->createElement('dcterms:description'));
+	$title->appendChild($feed->createTextNode($item->description));
+		
+	//----------------------------------------------------------------------------------------------
+	// Taxon (link to bioguid URI)
+	$db_xref = $genbank->appendChild($feed->createElement('dcterms:subject'));	
+	$t = $item->source->db_xref;
+	$t = str_replace('taxon:', 'taxonomy:', $t);
+	$db_xref->setAttribute('rdf:resource', "http://bioguid.info/" . $t);
 	
+	//----------------------------------------------------------------------------------------------
 	// Reference
 	// Do we have a GUID?
 	$publication_guid = '';
 
-	// If we have a publication GUID then link to that
+	// If we have a publication GUID then link to that (make sure there's only one GUID used)
 	if ($publication_guid == '')
 	{
 		if (isset($item->references[0]->doi))
 		{
-			$reference = $genbank->appendChild($feed->createElement('tcommon:publishedInCitation'));
-			$reference->setAttribute('rdf:resource', 'doi:' . $item->references[0]->doi);
+			$reference = $genbank->appendChild($feed->createElement('dcterms:isReferencedBy'));
+			$reference->setAttribute('rdf:resource', 'http://bioguid.info/doi:' . $item->references[0]->doi);
 			$publication_guid = $item->references[0]->doi;
 		}
 	}
@@ -2974,8 +3236,8 @@ function display_genbank_rdf($item)
 	{
 		if (isset($item->references[0]->pmid))
 		{
-			$reference = $genbank->appendChild($feed->createElement('tcommon:publishedInCitation'));
-			$reference->setAttribute('rdf:resource', 'pmid:' . $item->references[0]->pmid);
+			$reference = $genbank->appendChild($feed->createElement('dcterms:isReferencedBy'));
+			$reference->setAttribute('rdf:resource', 'http://bioguid.info/pmid:' . $item->references[0]->pmid);
 			$publication_guid = $item->references[0]->pmid;
 		}
 	}	
@@ -2983,77 +3245,169 @@ function display_genbank_rdf($item)
 	{
 		if (isset($item->references[0]->hdl))
 		{
-			$reference = $genbank->appendChild($feed->createElement('tcommon:publishedInCitation'));
-			$reference->setAttribute('rdf:resource', 'hdl:' . $item->references[0]->hdl);
+			$reference = $genbank->appendChild($feed->createElement('dcterms:isReferencedBy'));
+			$reference->setAttribute('rdf:resource', 'http://bioguid.info/hdl:' . $item->references[0]->hdl);
 			$publication_guid = $item->references[0]->hdl;
 		}
 	}
 
-	// No GUID so blank node
+	//----------------------------------------------------------------------------------------------
+	// No GUID for publication so make a generic document blank node
 	if ($publication_guid == '')
 	{
-		$reference = $genbank->appendChild($feed->createElement('tcommon:publishedInCitation'));
+		$reference = $genbank->appendChild($feed->createElement('dcterms:isReferencedBy'));
 		$reference->setAttribute('rdf:parseType', 'Resource');
+		
+		$type = $reference->appendChild($feed->createElement('rdf:type'));
+		$type->setAttribute('rdf:resource', 'http://purl.org/ontology/bibo/Document');		
 
 		$citation = $reference->appendChild($feed->createElement('dcterms:bibliographicCitation'));
 		$citation->appendChild($feed->createTextNode($item->references[0]->bibliographicCitation));
 
 		$atitle = $reference->appendChild($feed->createElement('dcterms:title'));
 		$atitle->appendChild($feed->createTextNode($item->references[0]->atitle));
-	}
-	
-	
-	// Source (blank node)
-	$source = $genbank->appendChild($feed->createElement('uniprot:source'));
-	$source->setAttribute('rdf:parseType', 'Resource');
 		
-	$type = $source->appendChild($feed->createElement('rdf:type'));
-	$type->setAttribute('rdf:resource', 'http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence');
-	
-	// Taxon
-	
-	// Name
-	$organism = $source->appendChild($feed->createElement('toccurrence:identifiedToString'));
-	$organism->appendChild($feed->createTextNode($item->source->organism));
-	
-	// URI
-	$db_xref = $source->appendChild($feed->createElement('uniprot:organism'));
-	
-	// http://www.lsrn.org/lsrn/registry.html#taxon is taxon:
-	// Uniprot is taxonomy
-	
-	$t = $item->source->db_xref;
-	$t = str_replace('taxon:', 'taxonomy:', $t);
-	$db_xref->setAttribute('rdf:resource', $t);
-	
-	
-	// Locality information
-	if (isset($item->source->latitude))
-	{
-		$latitude = $source->appendChild($feed->createElement('toccurrence:decimalLatitude'));
-		$latitude->appendChild($feed->createTextNode($item->source->latitude));
-	}
-	if (isset($item->source->longitude))
-	{
-		$longitude = $source->appendChild($feed->createElement('toccurrence:decimalLongitude'));
-		$longitude->appendChild($feed->createTextNode($item->source->longitude));
-	}
-	if (isset($item->source->lat_lon))
-	{
-		$verbatimCoordinates = $source->appendChild($feed->createElement('toccurrence:verbatimCoordinates'));
-		$verbatimCoordinates->appendChild($feed->createTextNode($item->source->lat_lon));
-	}
-	if (isset($item->source->locality))
-	{
-		$locality = $source->appendChild($feed->createElement('toccurrence:locality'));
-		$locality->appendChild($feed->createTextNode($item->source->locality));
-	}
-	if (isset($item->source->country))
-	{
-		$country = $source->appendChild($feed->createElement('toccurrence:country'));
-		$country->appendChild($feed->createTextNode($item->source->country));
+		if (isset($item->references[0]->authors))
+		{
+			foreach ($item->references[0]->authors as $author)
+			{
+				$a = $reference->appendChild($feed->createElement('dcterms:creator'));
+				
+				$astring = '';
+				if (isset($author->forename))
+				{
+					$astring .= $author->forename;
+				}
+				if (isset($author->lastname))
+				{
+					$astring .= ' ' . $author->lastname;
+				}
+				$astring = trim($astring);
+				
+				$a->appendChild($feed->createTextNode($astring));
+			}
+		}
+		
 	}
 	
+	// handle legacy CASENT in cache
+	if (!isset($item->source->specimen))
+	{
+		if (isset($item->source->specimen_voucher))
+		{
+			if (preg_match('/^CASENT/', $item->source->specimen_voucher))
+			{
+				$item->source->specimen = new stdclass;
+				$item->source->specimen->guid = 'antweb:' . str_replace(' ', '', strtolower($item->source->specimen_voucher));
+			}
+		}
+	}
+		
+	//----------------------------------------------------------------------------------------------
+	if (isset($item->source->specimen))
+	{
+		// Specimen exists online
+		
+		// need URI for it...
+		
+		
+		
+		if (isset($item->source->specimen->guid))
+		{
+			// fix broken CAS
+			if (preg_match('/CAS::(?<id>\d+)/', $item->source->specimen->guid, $m))
+			{
+				$item->source->specimen->guid = 'CAS:Herps:' . $m['id'];
+			}
+		
+			$source = $genbank->appendChild($feed->createElement('dcterms:relation'));
+			$source->setAttribute('rdf:resource', 'http://bioguid.info/occurrence:' . $item->source->specimen->guid);
+		}
+	}
+	else
+	{
+	
+	
+		// Source is not available online, create blank node
+		
+		// Source (blank node)
+		$source = $genbank->appendChild($feed->createElement('dcterms:relation'));
+		$source->setAttribute('rdf:parseType', 'Resource');
+		
+		$type = $source->appendChild($feed->createElement('rdf:type'));
+		$type->setAttribute('rdf:resource', 'http://rs.tdwg.org/ontology/voc/TaxonOccurrence#TaxonOccurrence');
+
+		// Name
+		$organism = $source->appendChild($feed->createElement('toccurrence:identifiedToString'));
+		$organism->appendChild($feed->createTextNode($item->source->organism));
+		
+		// Locality information
+		if (isset($item->source->latitude))
+		{
+			$latitude = $source->appendChild($feed->createElement('toccurrence:decimalLatitude'));
+			$latitude->appendChild($feed->createTextNode($item->source->latitude));
+	
+			// geo
+			$latitude = $source->appendChild($feed->createElement('geo:lat'));
+			$latitude->appendChild($feed->createTextNode($item->source->latitude));
+	
+		}
+		if (isset($item->source->longitude))
+		{
+			$longitude = $source->appendChild($feed->createElement('toccurrence:decimalLongitude'));
+			$longitude->appendChild($feed->createTextNode($item->source->longitude));
+	
+			// geo
+			$longitude = $source->appendChild($feed->createElement('geo:long'));
+			$longitude->appendChild($feed->createTextNode($item->source->longitude));
+	
+		}
+		if (isset($item->source->lat_lon))
+		{
+			$verbatimCoordinates = $source->appendChild($feed->createElement('toccurrence:verbatimCoordinates'));
+			$verbatimCoordinates->appendChild($feed->createTextNode($item->source->lat_lon));
+		}
+		if (isset($item->source->locality))
+		{
+			$locality = $source->appendChild($feed->createElement('toccurrence:locality'));
+			$locality->appendChild($feed->createTextNode($item->source->locality));
+		}
+		if (isset($item->source->country))
+		{
+			$country = $source->appendChild($feed->createElement('toccurrence:country'));
+			$country->appendChild($feed->createTextNode($item->source->country));
+		}
+		
+		
+		
+		// Collection
+		if (isset($item->source->collected_by))
+		{
+			$f = $source->appendChild($feed->createElement('toccurrence:collector'));
+			$f->appendChild($feed->createTextNode($item->source->collected_by));
+		}
+		if (isset($item->source->collection_date))
+		{
+			$f = $source->appendChild($feed->createElement('toccurrence:verbatimCollectingDate'));
+			$f->appendChild($feed->createTextNode($item->source->collection_date));
+		}
+		
+		// Voucher code
+		// See http://rs.tdwg.org/ontology/voc/TaxonOccurrence#catalogNumber for advice:
+		// The identifier used for this TaxonOccurrence within the scope of the collection. 
+		// e.g. specimen id. This should be the preferred identifier. Alternative identifiers, 
+		// such as additional barcodes, can be given using the dc:identifier property.
+		if (isset($item->source->specimen_voucher))
+		{
+			$f = $source->appendChild($feed->createElement('dcterms:identifier'));
+			$f->appendChild($feed->createTextNode($item->source->specimen_voucher));
+		}
+		
+		
+		// Other...
+		
+		
+	}
 	
 	
 	
@@ -3226,7 +3580,8 @@ define('DISPLAY_JSON', 		1);
 define('DISPLAY_HTML', 		2);	
 define('DISPLAY_RDF', 		3);	
 define('DISPLAY_CITE', 		4);	
-define(DISPLAY_ITAXON,	5);
+define(DISPLAY_ITAXON,		5);
+define(DISPLAY_RDF, 		6);	
 
 $display_type = DISPLAY_HTML; // default
 if (isset($_GET['display']))
@@ -3250,6 +3605,9 @@ if (isset($_GET['display']))
 			break;
 		case 'itaxon':
 			$display_type = DISPLAY_ITAXON;
+			break;
+		case 'xml':
+			$display_type = DISPLAY_XML;
 			break;
 		default:
 			$display_type = DISPLAY_HTML;
