@@ -304,7 +304,7 @@ else
 				{
 					$id = $link->Url;
 					$id = str_replace('http://www.indexfungorum.org/Names/namesrecord.asp?RecordId=', '', $id);
-					array_push($obj->hasName, 'urn:lsid:indexfungorum.org:names:' . $id);
+					array_push($obj->hasName, 'http://bioguid.info/urn:lsid:indexfungorum.org:names:' . $id);
 				}
 				break;
 
@@ -313,7 +313,7 @@ else
 				$ids = $ipni->LinkoutUrl2Id($link->Url, false);				
 				foreach ($ids as $id)
 				{
-					array_push($obj->hasName, 'urn:lsid:ipni.org:names:' . $id);
+					array_push($obj->hasName, 'http://bioguid.info/urn:lsid:ipni.org:names:' . $id);
 				}
 				break;
 				
@@ -355,20 +355,29 @@ else
 					$rdf = $feed->createElement('rdf:RDF');
 					$rdf->setAttribute('xmlns:rdf', 	'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 					$rdf->setAttribute('xmlns:rdfs', 	'http://www.w3.org/2000/01/rdf-schema#');
+					$rdf->setAttribute('xmlns:owl', 	'http://www.w3.org/2002/07/owl#');
 					$rdf->setAttribute('xmlns:dcterms', 'http://purl.org/dc/terms/');
 					$rdf->setAttribute('xmlns:gla', 	'urn:lsid:lsid.zoology.gla.ac.uk:predicates:');					
 					$rdf->setAttribute('xmlns:tcommon',	'http://rs.tdwg.org/ontology/voc/Common#');
 					$rdf->setAttribute('xmlns:tc', 		'http://rs.tdwg.org/ontology/voc/TaxonConcept#');
 					$rdf->setAttribute('xmlns:uniprot', 'http://purl.uniprot.org/core/');
-					
+										
 					$rdf = $feed->appendChild($rdf);
 					
 					$taxon = $rdf->appendChild($feed->createElement('tc:TaxonConcept'));
-					$taxon->setAttribute('rdf:about', 'taxonomy:' . $obj->TaxonId);
+					$taxon->setAttribute('rdf:about', 'http://bioguid.info/taxonomy:' . $obj->TaxonId);
+					
+					// Same as links
+					//- Uniprot
+					$owl_sameas = $taxon->appendChild($feed->createElement('owl:sameAs'));
+					$owl_sameas->setAttribute('rdf:resource', 'http://purl.uniprot.org/taxonomy/' . $obj->TaxonId);	
+					//- bio2rdf
+					$owl_sameas = $taxon->appendChild($feed->createElement('owl:sameAs'));
+					$owl_sameas->setAttribute('rdf:resource', 'http://bio2rdf.org/taxonomy:' . $obj->TaxonId);	
 					
 					// Dublin Core
-					$dcterm_title = $taxon->appendChild($feed->createElement('dcterms:title'));
-					$dcterm_title->appendChild($feed->createTextNode($obj->ScientificName));
+					//$dcterm_title = $taxon->appendChild($feed->createElement('dcterms:title'));
+					//$dcterm_title->appendChild($feed->createTextNode($obj->ScientificName));
 
 					$dcterm_created = $taxon->appendChild($feed->createElement('dcterms:created'));
 					$dcterm_created->appendChild($feed->createTextNode($obj->CreateDate));
@@ -412,7 +421,7 @@ else
 					
 					// Parent
 					$parent = $taxon->appendChild($feed->createElement('rdfs:subClassOf'));
-					$parent->setAttribute('rdf:resource', 'taxonomy:' . $anc->TaxonId);					
+					$parent->setAttribute('rdf:resource', 'http://bioguid.info/taxonomy:' . $anc->TaxonId);					
 
 					// LSIDs or linked data-style links
 					$num_names = count($obj->hasName);
