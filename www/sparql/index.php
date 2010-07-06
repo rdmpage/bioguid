@@ -4,8 +4,6 @@ require_once('../config.inc.php');
 require_once('../arc/ARC2.php');
 
 $query = (isset($_GET['query']) ? $_GET['query'] : '');
-$ss = (isset($_GET['stylesheet']) ? $_GET['stylesheet'] : '' );
-
 
 if ($query) 
 {
@@ -20,19 +18,49 @@ if ($query)
 	  'store_name' => 'arc'
 	);
 	
-	$store_config['proxy_host'] = $config['proxy_host'];
+	$store_config['proxy_host'] = $config['proxy_name'];
 	$store_config['proxy_port'] = $config['proxy_port'];
 		
 	$store = ARC2::getStore($store_config);
 	if (!$store->isSetUp()) 
 	{
 		$store->setUp();
+		
+		// Add core vocabularies
+		$store->query('LOAD <http://purl.org/dc/elements/1.1/>');
+		
+		// Add specific vocabularies
+		$store->query('LOAD <http://rs.tdwg.org/ontology/voc/TaxonName>');		
 	}
 	
+	//print_r($store_config);
+	
+/*	$parser = ARC2::getRDFParser($store_config);	
+	//$parser->parse('http://purl.org/dc/elements/1.1/');
+	$parser->parse('http://purl.org/dc/elements/1.1/');
+	//$parser->parse('http://bioguid.info/urn:lsid:indexfungorum.org:names:213649');
+	print_r($parser->getTriples());*/
+	
+	//$store->query('LOAD <http://purl.org/dc/elements/1.1/>');
+	
+	// mve to !store->isSet...
+	// fill with vocabulary terms...
+	/*
+	$parser = ARC2::getRDFParser();	
+	
+	$parser->parse('http://bioguid.info/urn:lsid:indexfungorum.org:names:213649');
+	
+	print_r($parser->getTriples());
+	
+	//$store->query('LOAD <http://rs.tdwg.org/ontology/voc/TaxonName>');
+	*/
+
 	
 	$query = str_replace("\\", "", $query);
 	
 	$r = $store->query($query);
+	
+	header("Content-type: text/html; charset=utf-8\n\n");	
 		
 	echo '<pre>' . htmlentities ($query) . '</pre>';
 	
@@ -68,7 +96,7 @@ if ($query)
 }
 else
 {
-	header("Content-Type: text/html");
+	
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
  "http://www.w3.org/TR/REC-html40/loose.dtd">

@@ -1544,12 +1544,71 @@ function url2meta($url)
 		
 		$citation = parse_google_citation($out);
 		
-		if (isset($citation['citation_doi']))
+/*		if (isset($citation['citation_doi']))
 		{
 			$item->status = 'ok';
 			$item->doi = $citation['citation_doi'];
 			$item->url = $url;
 		}			
+*/		
+		if (isset($citation['citation_issn']))
+		{		
+			$item->atitle=$citation['citation_title'];
+			$item->title=$citation['citation_journal_title'];
+			$item->issn=$citation['citation_issn'];
+			$item->volume=$citation['citation_volume'];
+			$item->issue=$citation['citation_issue'];
+			$item->spage=$citation['citation_firstpage'];
+			$item->epage=$citation['citation_lastpage'];
+			$item->year=$citation['citation_date'];
+			$item->publisher_id=$citation['citation_id'];
+			$item->url = $url;
+			
+			if (preg_match("/[0-9]{4}\/[0-9]{1,2}\/[0-9]{1,2}/", $item->year))
+			{			
+				// Save the date (taxonomists care about this)
+				$item->date = $item->year;
+				
+				if (-1 != strtotime($date))
+				{
+					$item->year = date("Y", strtotime($item->year));
+				}
+			}
+			
+			$item->doi = $citation['citation_doi'];			
+			
+			$author_string = $citation['citation_authors'];
+			$a = explode(",", trim($author_string));
+			
+			foreach ($a as $value)
+			{
+				// Get parts of name
+				$parts = parse_name($value);
+							
+				$author = new stdClass();
+				
+				if (isset($parts['last']))
+				{
+					$author->lastname = $parts['last'];
+				}
+				if (isset($parts['suffix']))
+				{
+					$author->suffix = $parts['suffix'];
+				}
+				if (isset($parts['first']))
+				{
+					$author->forename = $parts['first'];
+					if (array_key_exists('middle', $parts))
+					{
+						$author->forename .= ' ' . $parts['middle'];
+					}
+				}
+			
+				$item->authors[] = $author;
+			}
+			$item->status = 'ok';
+		}
+		
 
 
 		//print_r($citation);
