@@ -133,6 +133,14 @@ function process_ris_key($key, $value, &$obj)
 			}				
 			break;
 			
+		// DOI
+		case 'M3':
+			if (preg_match('/^10\./u', trim($value)))
+			{
+				$obj->doi = trim($value);
+			}				
+			break;			
+			
 		case 'PY': // used by Ingenta, and others
 		case 'Y1':
 		   $date = $value; 

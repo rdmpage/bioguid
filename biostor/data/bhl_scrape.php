@@ -66,6 +66,25 @@ $Items=array(54081,54281,54284,54285,54286,54289,54290,54294,54295,54309,54359,5
 // Wissenschaftliche Ergebnisse der Schwedischen Expedition nach de
 $Items=array(54337);
 
+// Verhandlungen der Kaiserlich-Königlichen Zoologisch-Botanischen 
+$Items=array(55238,86010,55295,86027,55310,55293,86028,86029,81414,55339,55340,55318,55316,55331,55313,86002,55292,55299,55284,50549);
+
+$Items=array(55044);
+$Items=array(54839);
+$Items=array(84644);
+
+$Items=array(87679);
+
+$Items=array(87995);
+
+$Items=array(55127,96544,55130,55138,55133,55146,51239,51053);
+
+$Items=array(94495); // ann mag
+
+$Items=array(97152); // proc zool soc
+
+//Zoologischer Anzeiger.
+$Items=array(94932,94933,94945,94946,95251,95254,95255,95256,95257,95259,95261,95283,95286,95288,95289,95291,95292,95293,95294,95304,95536,95538,97248,97492);
 
 foreach ($Items as $ItemID)
 {
