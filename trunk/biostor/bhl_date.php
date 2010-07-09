@@ -122,6 +122,59 @@ function parse_bhl_date($str, &$info)
 	$str = preg_replace('/:plates$/', '', $str);
 	$str = trim($str);
 	
+	// Vol 10 (3)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Vol (?<volumefrom>[0-9]+) \((?<issue>[0-9]+)\)$/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume_from = $m['volumefrom'];
+			$info->issue = $m['issue'];
+			$info->issue = $info->issue;
+			$matched = true;
+		}
+		
+	}	
+	
+	//
+	
+	
+	// Band I - Band II
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Band (?<volumefrom>[XVI]+) - Band (?<volumeto>[XVI]+)/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume_from = arabic($m['volumefrom']);
+			$info->volume_to = arabic($m['volumeto']);
+			$matched = true;
+		}		
+	}		
+	
+	// Band V
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Band (?<volume>[XVI]+)/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = arabic($m['volume']);
+			$matched = true;
+		}		
+	}		
+	
+	
 	// Bd.2.E.b
 	if (!$matched)
 	{
@@ -591,7 +644,7 @@ function parse_bhl_date($str, &$info)
 		$m = array();
 		
 		if ($debug) echo "Trying " . __LINE__ . "\n";
-		if (preg_match("/^(bd|v|t|ser)\.\s*(?<volume>[0-9]+)(.*)\((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})\)$/i", $str, $m))
+		if (preg_match("/^(bd|v|t|ser|Haft)\.\s*(?<volume>[0-9]+)(.*)\((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})\)$/i", $str, $m))
 		{
 			if ($debug) { echo "$str
 "; print_r($m); }
@@ -607,7 +660,7 @@ function parse_bhl_date($str, &$info)
 		$m = array();
 		
 		if ($debug) echo "Trying " . __LINE__ . "\n";
-		if (preg_match("/^(v|t|bd|Bd|anno)\.?\s*(?<volume>[0-9]+)\s*\(?(?<year>[0-9]{4})\)?$/", $str, $m))
+		if (preg_match("/^(v|t|bd|Bd|anno|Haft)\.?\s*(?<volume>[0-9]+)\s*\(?(?<year>[0-9]{4})\)?$/", $str, $m))
 		{
 			if ($debug) { echo "$str
 "; print_r($m); }
@@ -761,7 +814,7 @@ function parse_bhl_date($str, &$info)
 		$m = array();
 		
 		if ($debug) echo "Trying " . __LINE__ . "\n";
-		if (preg_match("/^(no|v|t)\.\s*(?<volume>[0-9]+)(.*)\(?(?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})\)?$/", $str, $m))
+		if (preg_match("/^(Bd|no|v|t)\.\s*(?<volume>[0-9]+)(.*)\(?(?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})\)?$/", $str, $m))
 		{
 			if ($debug) { echo "$str
 "; print_r($m); }

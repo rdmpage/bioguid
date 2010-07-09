@@ -289,6 +289,37 @@ function bhl_title_page($ItemID)
 }
 
 //--------------------------------------------------------------------------------------------------
+// Crude search for items based just on year (which for some journals is all we have in the VolumeInfo field
+function bhl_itemid_from_year($TitleID, $year)
+{
+	global $db;
+	global $debug;
+		
+	// Find ItemID of item that contains relevant volume
+	$sql = 'SELECT * FROM bhl_item WHERE TitleID=' . $TitleID . ' AND ((VolumeInfo LIKE ' . $db->qstr('%' . $year . '%')
+	 . ') OR (VolumeInfo LIKE ' . $db->qstr('%' . ($year-1) . '%') . '))';
+	
+	//echo $sql;
+	
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	$items = array();
+		
+	while (!$result->EOF) 
+	{	
+		$item = new stdclass;
+		$item->ItemID = $result->fields['ItemID'];
+		
+		$items[] = $item;
+			
+		$result->MoveNext();
+	}
+		
+	return $items;
+}
+
+//--------------------------------------------------------------------------------------------------
 /**
  * @brief Find BHL item(s) that correspond to a given volume
  *
@@ -541,7 +572,7 @@ so we first use bioguid to get ISSN for journal name, then retrieve TitleID usin
  * )
  *
  */
-function bhl_find_article($atitle, $title, $volume, $page, $series = '')
+function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date = '')
 {
 	global $db;
 	global $debug;
@@ -586,6 +617,18 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 
 		case '0771-0488':
 			$obj->TitleID = 10603;
+			break;
+			
+		// Scientific papers of the Natural History Museum, University of Kansas
+		case '1094-0782':
+			$hits = bhl_title_lookup($atitle);
+			if (count($hits) > 0)
+			{
+				if ($hits[0]['sl'] > 90)
+				{
+					$obj->TitleID = $hits[0]['TitleID'];
+				}
+			}
 			break;
 		
 		default:
@@ -664,6 +707,21 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			print_r($obj->ItemIDs);
 		}
 		
+		// Special cases where VolumeInfo is year, not volume
+		if ((count($obj->ItemIDs) == 0) && ($date != ''))
+		{
+			$year = substr($date, 0, 4);
+			switch ($obj->TitleID)
+			{
+				case 11516:
+					$obj->ItemIDs = bhl_itemid_from_year($obj->TitleID, $year);
+					break;
+					
+				default:
+					break;
+			}
+		}
+		
 		// Special cases where we know there are problems. For example, there may be multiple titles
 		// that correspond to the same journal. In these cases we clear the item list, and add to it 
 		// items from all titles that match our query
@@ -681,6 +739,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			case 2195:
 			case 15774:
 				$title_list = array(2195, 15774);
+				break;
+				
+			// 	Annales des sciences naturelles, Zoologie
+			case 13266:
+			case 4647:
+				$title_list = array(4647,13266);
 				break;
 		
 			// Archiv für Naturgeschichte
@@ -734,6 +798,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 				$title_list = array(8009, 9579);
 				break;	
 				
+			// Meddelanden af Societatis pro Fauna et Flora Fennica
+			case 3613:
+			case 13470:
+				$title_list = array(3613, 13470);
+				break;	
+				
 			// Occasional papers of the California Academy of Sciences
 			case 4672:
 			case 5584:
@@ -768,6 +838,17 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 				$title_list = array(3952, 7411, 15816, 3966, 4274, 3943);
 				break;
 				
+			// Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe
+			case 6884:
+			case 8219:
+			case 6888:
+			case 6776:
+			case 8100:
+				$title_list = array(6884, 8219, 6888, 6776, 8100);
+				break;
+			
+			
+			
 			// Tijdschrift voor entomologie.
 			case 10088:
 			case 39564:
@@ -807,12 +888,19 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '')
 			$obj->ItemIDs = array();
 			foreach ($title_list as $id)
 			{
+				//echo "<h2>Title list $id</h2>";
 				$obj->ItemIDs = array_merge(bhl_itemid_from_volume($id, $volume, $series), $obj->ItemIDs);
 			}
 		}
 	}
 	
 	//echo __LINE__;
+	
+	if ($debug)
+	{
+		echo '<h2>Title list</h2>';
+		print_r($title_list);
+	}
 		
 	// At this point if we have any items then we have a potential hit. For each item in the list we
 	// query the BHL database and look for pages with PageNumber matching our query

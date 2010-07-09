@@ -236,11 +236,31 @@ echo '<img src="' . sparkline_references('', '', 360,100) . '" alt="sparkline" a
 
 //echo '<img src="' . sparkline_cummulative_articles_added() . '" alt="sparkline" />' . "\n";
 
+echo '
+<h2>Examples</h2>
+<table>
+<tr><th>Reference</th><th>Feature reference demonstrates</th></tr>
+<tr>
+<td width="50%">Achille P Raselimanana, Christopher J Raxworthy and Ronald A Nussbaum (2000) A revision of the dwarf Zonosaurus Boulenger (Reptilia: Squamata: Cordylidae) from Madagascar, including descriptions of three new species Scientific Papers Natural History Museum University of Kansas 18, 1-16 <a href="http://biostor.org/reference/50335">50335</td>
+<td>Automatically extracted map</td>
+</tr>
+<tr>
+<td>Beiträge zur nähem naturhistorischen Kenntniß des Unterdonaukreises in Bayern,J Waltl, Isis von Oken 31: 250-261 (1838) <a href="http://biostor.org/reference/50357">50357</a></td>
+<td>Single physical page has two columns of text, each of which has a separate page number, i.e., one page corresponds to two "pages" of text.</td>
+</tr>
+<tr>
+<td>Description of a new species of subterraean isopod, W P Hay, 
+Proceedings of the United States National Museum 21(1176): 871-872 (1921) <a href="http://biostor.org/reference/50287">50287</a></td>
+<td>Haplophthalmus puteus n. sp. (not picked up by OCR)</td>
+</tr>
+</table>';
 
 echo '<h1>Coverage</h1>';
 
-echo '<h2>Taxonomic coverage</h2>';
+/*echo '<h2>Taxonomic coverage</h2>';
 echo '<p>Numbers of references for each taxonomic group, mapped on to the Catalogue of Life classification. Size of cells in TreeMap corresponds to number of species in Catalogue of Life, intensity of colour corresponds to number of references extracted form BHL. Click on cell to drill down, click on classification on left to step back up.</p>';
+
+
 
 echo '<div style="width:600px;">
 
@@ -271,6 +291,7 @@ echo '
 </object>
 <![endif]>';
 
+*/
 
 echo '<h2>Articles</h2>' . "\n";
 

@@ -881,7 +881,8 @@ function main()
 		$referent->secondary_title,
 		$referent->volume,
 		(isset($referent->spage) ? $referent->spage : $referent->pages),
-		(isset($referent->series) ? $referent->series : '')
+		(isset($referent->series) ? $referent->series : ''),
+		(isset($referent->date) ? $referent->date : '')
 		);
 
 	if (count($search_hits) == 0)
