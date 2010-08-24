@@ -918,13 +918,28 @@ function parse_bhl_date($str, &$info)
 		if ($debug) echo "Trying " . __LINE__ . "\n";
 		if (preg_match("/^((Vol|tome\.?)\s*)?(?<volume>[0-9]+[A-Z]?)$/", $str, $m))
 		{
-			if ($debug) { echo "$str
-"; print_r($m); }
+			if ($debug) { echo "$str"; print_r($m); }
 			$info->volume = $m['volume'];
 			$matched = true;
 		}
 		
 	}	
+	
+	// Tome 20
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Tome\s+(?<volume>[0-9]+)$/", $str, $m))
+		{
+			if ($debug) { echo "$str"; print_r($m); }
+			$info->volume = $m['volume'];
+			$matched = true;
+		}
+		
+	}	
+	
 
 	// 18 and index to v.1-17
 	if (!$matched)
