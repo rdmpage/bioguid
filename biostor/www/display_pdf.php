@@ -114,17 +114,33 @@ function pdf_file_exists($reference_id, &$pdf_filename)
  */
 function pdf_get($reference_id)
 {
+	global $config;
+	
 	$pdf_filename = '';
 	if (!pdf_file_exists($reference_id, $pdf_filename))
 	{
 		pdf_create ($reference_id, $pdf_filename);
 	}
-	$file = @fopen($pdf_filename, "r") or die("could't open file --\"$pdf_filename\"");
-	$pdf = fread($file, filesize($pdf_filename));
-	fclose($file);
 	
-	header('Content-type: application/pdf');
-	echo $pdf;		
+	if (1)
+	{
+		// Redirect browser to PDF
+		$pdf_url = $pdf_filename;
+		$pdf_url = str_replace($config['web_dir'] , '', $pdf_url);
+				
+		header('Location: ' . $pdf_url . "\n\n");		
+	}
+	else
+	{
+		// Read PDF into memory and display in browser, this will fail if PDF exceeds memory allocated
+		// to PHP
+		$file = @fopen($pdf_filename, "r") or die("could't open file --\"$pdf_filename\"");
+		$pdf = fread($file, filesize($pdf_filename));
+		fclose($file);
+	
+		header('Content-type: application/pdf');
+		echo $pdf;	
+	}
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -134,7 +150,7 @@ function pdf_get($reference_id)
  * We create a simple cover page for the PDF. This page contains basic bibliographic metadata
  * for the PDF, in order for Mendeley to process the PDF correctly. In response to my discovery
  * that Mendeley doesn't accept all XMP (Ticket#2010040110000015) support@mendeley.com replied that
- * they have some heuristic tests to see if the metadata is valid, sich as whether the information 
+ * they have some heuristic tests to see if the metadata is valid, such as whether the information 
  * about the title and authors occurs on the first of the PDF.
  *
  *
