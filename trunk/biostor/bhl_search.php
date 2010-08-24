@@ -734,6 +734,15 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 11938:
 				$title_list = array(11933, 11938);
 				break;
+				
+			// Annales des Sciences naturelles
+			case 6343:
+			case 2205:
+			case 13266:
+			case 4647:
+			case 5010:
+				$title_list = array(6343, 2205, 13266, 4647, 5010);
+				break;
 
 			// Ann. Mag. Nat. Hist.
 			case 2195:
