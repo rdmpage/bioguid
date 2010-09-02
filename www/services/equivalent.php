@@ -235,9 +235,12 @@ else
 			break;
 			
 		case 'html':
-			$output = array();
-			exec ($cmd, $output);
-			$json = join("\n", $output);
+			// Mark Wilden @mark_wilden reported a bug when using curl. The HTML output broke.
+			// For some reason using exec, capturing output in array, then joining array would
+			// result in an extra '}' at the end of the output, breaking the JSON decoding step.
+			// shell_exec seems to fix this.
+			// http://iphylo.blogspot.com/2009/01/equivalent-author-names.html?showComment=1283366346799#c2859342363665685046
+			$json = shell_exec($cmd);
 			
 			header("Content-type: text/html; charset=utf-8");
 			$obj = json_decode($json);
