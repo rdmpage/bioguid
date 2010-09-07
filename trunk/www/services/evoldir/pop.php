@@ -6,20 +6,37 @@ require_once('config.inc.php');
 require_once('db.php');
 require_once('lib.php');
 
-// twitter
-$username = 'evoldir';
-$password = 'peacrab';
-$url = 'http://twitter.com/statuses/update.json';
-$ch = curl_init(); 
-curl_setopt($ch, CURLOPT_URL, $url); 
-curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
-if ($config['proxy_name'] != '')
+// OAuth
+require_once('twitteroauth/twitteroauth.php');
+
+function getConnectionWithAccessToken($oauth_token, $oauth_token_secret) 
 {
-	curl_setopt ($ch, CURLOPT_PROXY, $config['proxy_name'] . ':' . $config['proxy_port']);
+	global $config;
+	
+	$connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $oauth_token, $oauth_token_secret);
+	return $connection;
 }
 
+if ($config['oauth'])
+{
+	$connection = getConnectionWithAccessToken($config['oauth_token'], $config['oauth_token_secret']);
+}
+else
+{
+	// twitter
+	$username = 'evoldir';
+	$password = 'peacrab';
+	$url = 'http://twitter.com/statuses/update.json';
+	$ch = curl_init(); 
+	curl_setopt($ch, CURLOPT_URL, $url); 
+	curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+	if ($config['proxy_name'] != '')
+	{
+		curl_setopt ($ch, CURLOPT_PROXY, $config['proxy_name'] . ':' . $config['proxy_port']);
+	}
+}
 
 // initialize object
 $pop3 = new Net_POP3();
@@ -49,6 +66,7 @@ if ($pop3->numMsg() > 0) {
         
         // Only process emails from xxx.
         if (preg_match('/evoldir\@evol.biology.mcmaster.ca/', $hdrs['From']))
+ //       if (preg_match('/springeralerts@springer.delivery.net/', $hdrs['From']))
         {
         
         	$id = store_message ($hdrs, $pop3->getBody($x));
@@ -60,14 +78,25 @@ if ($pop3->numMsg() > 0) {
 				$url = 'http://tinyurl.com/api-create.php?url=http://bioguid.info/services/evoldir/get.php?id=' . $id;
 				$tiny = get($url); 
 				
+				$status = $hdrs['Subject'] . ' ' . $tiny;
+				echo $status . "\n";
+				
 				// Send message to twitter
-				
-				curl_setopt($ch, CURLOPT_POSTFIELDS, "status=" . $hdrs['Subject'] . ' ' . $tiny);
-				$result=curl_exec ($ch); 
-				
-				if( curl_errno ($ch) != 0 )
+				if ($config['oauth'])
 				{
-					echo "error\n";
+					$parameters = array('status' => $status);
+					$status = $connection->post('statuses/update', $parameters);
+					print_r($status);
+				}
+				else
+				{
+					curl_setopt($ch, CURLOPT_POSTFIELDS, "status=" . $hdrs['Subject'] . ' ' . $tiny);
+					$result=curl_exec ($ch); 
+					
+					if( curl_errno ($ch) != 0 )
+					{
+						echo "error\n";
+					}
 				}
 			}
         
@@ -80,6 +109,12 @@ if ($pop3->numMsg() > 0) {
 // disconnect from server
 $pop3->disconnect();
 
-curl_close ($ch); 
+if ($config['oauth'])
+{
+}
+else
+{
+	curl_close ($ch); 
+}
 
 ?>
