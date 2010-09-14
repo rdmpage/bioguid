@@ -146,6 +146,7 @@ function bhl_titles_for_issn($issn)
 
 		$result->MoveNext();		
 	}
+	//print_r($titles);
 	
 	// 2. We may also have discovered additional titles if individual articles are titles
 	// e.g., Fieldiana
@@ -165,6 +166,7 @@ WHERE (issn=' . $db->qstr($issn) . ')';
 
 		$result->MoveNext();		
 	}
+	//print_r($titles);
 	
 	// 3. We might not have any articles from this ISSN yet
 	
@@ -179,7 +181,7 @@ WHERE (issn=' . $db->qstr($issn) . ')';
 
 		$result->MoveNext();		
 	}
-
+	//print_r($titles);
 	$titles = array_unique($titles);
 	
 	return $titles;
