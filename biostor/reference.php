@@ -347,7 +347,7 @@ function reference_to_bibtex($reference)
 				$bibtex .= "},\n";
 			}
 			$bibtex .= "   title = {" . latex_safe($reference->title) . "},\n";
-			$bibtex .= "   journal = {" . $reference->secondary_title . "},\n";
+			$bibtex .= "   journal = {" . latex_safe($reference->secondary_title) . "},\n";
 			$bibtex .= "   volume = {" . $reference->volume . "},\n";
 			if (isset($reference->issue) && ($reference->issue != ''))
 			{
