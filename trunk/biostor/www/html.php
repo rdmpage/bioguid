@@ -108,6 +108,21 @@ function html_page_header($has_search = false, $query = '', $category = 'all')
 		$html .='<div style="float:right;">' . "\n";	
 		$html .= '<table>';
 		$html .= '<tr>';
+		
+		if ($config['use_mendeley_oauth'])
+		{
+			$html .= '<td>';
+			if (user_is_logged_in())
+			{
+				$html .= '<a href="./clearsessions.php">Sign out</a>';
+			}
+			else						
+			{
+				$html .= '<a href="./redirect.php?url=' . urlencode($_SERVER["REQUEST_URI"]) . '
+">Sign in using Mendeley</a>';
+			}
+			$html .= '</td>';
+		}	
 	
 /*		// Login/out
 		if (user_is_logged_in())
@@ -143,6 +158,7 @@ function html_page_header($has_search = false, $query = '', $category = 'all')
 function html_body_close($disqus = false)
 {
 	global $starttime;
+	global $config;
 	
 	$startarray = explode(" ", $starttime);
 	$starttime = $startarray[1] + $startarray[0];
@@ -154,7 +170,7 @@ function html_body_close($disqus = false)
 
 	$html = '';
 
-	if ($disqus)
+	if ($disqus && $config['use_disqus'])
 	{
 		//$html .= '<hr/>' . "\n";
 	
@@ -166,30 +182,34 @@ function html_body_close($disqus = false)
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>';
 	}
 	
-	$html .= '<script type="text/javascript">
-var uservoiceOptions = {
-  /* required */
-  key: \'biostor\',
-  host: \'biostor.uservoice.com\', 
-  forum: \'36526\',
-  showTab: true,  
-  /* optional */
-  alignment: \'right\',
-  background_color:\'#f00\', 
-  text_color: \'white\',
-  hover_color: \'#06C\',
-  lang: \'en\'
-};
-
-function _loadUserVoice() {
-  var s = document.createElement(\'script\');
-  s.setAttribute(\'type\', \'text/javascript\');
-  s.setAttribute(\'src\', ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js");
-  document.getElementsByTagName(\'head\')[0].appendChild(s);
-}
-_loadSuper = window.onload;
-window.onload = (typeof window.onload != \'function\') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
-</script>';
+	if ($config['use_uservoice'])
+	{
+		
+		$html .= '<script type="text/javascript">
+	var uservoiceOptions = {
+	  /* required */
+	  key: \'biostor\',
+	  host: \'biostor.uservoice.com\', 
+	  forum: \'36526\',
+	  showTab: true,  
+	  /* optional */
+	  alignment: \'right\',
+	  background_color:\'#f00\', 
+	  text_color: \'white\',
+	  hover_color: \'#06C\',
+	  lang: \'en\'
+	};
+	
+	function _loadUserVoice() {
+	  var s = document.createElement(\'script\');
+	  s.setAttribute(\'type\', \'text/javascript\');
+	  s.setAttribute(\'src\', ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js");
+	  document.getElementsByTagName(\'head\')[0].appendChild(s);
+	}
+	_loadSuper = window.onload;
+	window.onload = (typeof window.onload != \'function\') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
+	</script>';
+	}
 
 	$html .= '<div style="border-top:1px dotted rgb(128,128,128);text-align:center;padding:4px;font-size:10px;">Page loaded in ' . $totaltime . ' seconds</div>';
 

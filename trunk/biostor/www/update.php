@@ -9,6 +9,7 @@
  * Called as a Ajax web service with variables passed in $_POST, returns JSON response
  *
  */
+session_start();
 
 $can_update = false;
 $response = new stdclass;
@@ -18,6 +19,7 @@ require_once ('../config.inc.php');
 require_once ('../db.php');
 require_once ('../nameparse.php');
 require_once ('../recaptcha-php-1.10/recaptchalib.php');
+require_once ('../user.php');
 
 if (!isset($_POST))
 {
@@ -30,15 +32,29 @@ if (!isset($_POST))
 	exit();
 }
 
-// Check recaptcha
-if (isset($_POST['recaptcha_response_field']))
+// We can update only if user is logged in, or has passed recaptcha
+
+// Check whether user is logged
+if (user_is_logged_in())
 {
-	$response = recaptcha_check_answer ($config['recaptcha_privatekey'],
-									$_SERVER["REMOTE_ADDR"],
-									$_POST["recaptcha_challenge_field"],
-									$_POST["recaptcha_response_field"]);
-									
-	$can_update = $response->is_valid;
+	$can_update = true;
+	$response->is_valid = true;
+}
+else
+{
+	if (isset($_POST['recaptcha_response_field']))
+	{
+		$response = recaptcha_check_answer ($config['recaptcha_privatekey'],
+										$_SERVER["REMOTE_ADDR"],
+										$_POST["recaptcha_challenge_field"],
+										$_POST["recaptcha_response_field"]);
+										
+		$can_update = $response->is_valid;
+	}
+	else
+	{
+		$can_update = true;
+	}
 }
 
 // Are we storing (e.g., called by openurl.php) or updating (called by display_reference.php)

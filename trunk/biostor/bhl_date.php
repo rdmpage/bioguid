@@ -122,17 +122,33 @@ function parse_bhl_date($str, &$info)
 	$str = preg_replace('/:plates$/', '', $str);
 	$str = trim($str);
 	
+	// 1923, pt. 3-4 (pp. 483-1097)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volume>[0-9]{4}),\s*p[p|t]\./", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$matched = true;
+		}
+		
+	}		
+	
 	// Vol 10 (3)
 	if (!$matched)
 	{
 		$m = array();
 		
 		if ($debug) echo "Trying " . __LINE__ . "\n";
-		if (preg_match("/^Vol (?<volumefrom>[0-9]+) \((?<issue>[0-9]+)\)$/", $str, $m))
+		if (preg_match("/^Vol (?<volume>[0-9]+) \((?<issue>[0-9]+)\)$/", $str, $m))
 		{
 			if ($debug) { echo "$str
 "; print_r($m); }
-			$info->volume_from = $m['volumefrom'];
+			$info->volume_from = $m['volume'];
 			$info->issue = $m['issue'];
 			$info->issue = $info->issue;
 			$matched = true;
