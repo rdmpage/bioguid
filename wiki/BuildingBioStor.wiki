@@ -1,4 +1,5 @@
 #summary Building BioStor on Snow Leopard
+#labels Featured,Phase-Implementation
 
 On Snow Leopard Server need to create 
  {{{
