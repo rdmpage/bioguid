@@ -629,7 +629,7 @@ Event.observe(\'recaptcha_response_field\', \'keypress\', onMyTextKeypress);
 		echo '</table>';	
 
 		// Recaptcha
-		$recaptcha = true;
+		$recaptcha = !user_is_logged_in();
 		if ($recaptcha)
 		{
 			echo '<script type="text/javascript">';

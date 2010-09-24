@@ -229,12 +229,21 @@ function store(form_id, page_id)
 
 	if (errors.length > 0)
 	{
-		reportErrors(errors);
+		reportErrors(errors);';
+ 
+	 if (user_is_logged_in())
+ 	{
+ 	}
+ 	else
+ 	{
+ 		echo '
 		Recaptcha.create("' . $config['recaptcha_publickey'] . '",
 			"recaptcha_div", {
 			theme: "clean",
 			callback: Recaptcha.focus_response_field
-		});
+		});';
+	}
+	echo '
 		return false;
 	}
 		

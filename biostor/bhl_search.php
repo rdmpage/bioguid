@@ -847,6 +847,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(3952, 7411, 15816, 3966, 4274, 3943);
 				break;
 				
+			// Proceedings of the Zoological Society of London
+			case 1594:
+			case 44963:
+				$title_list = array(1594,44963);
+				break;
+				
 			// Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe
 			case 6884:
 			case 8219:
@@ -907,8 +913,10 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 	
 	if ($debug)
 	{
+		echo "Line " . __LINE__ . "<br/>";
 		echo '<h2>Title list</h2>';
 		print_r($title_list);
+		print_r($obj->ItemIDs);
 	}
 		
 	// At this point if we have any items then we have a potential hit. For each item in the list we
@@ -976,6 +984,7 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 		
 	if ($debug)
 	{
+		echo __LINE__;
 		echo '<pre>';
 		print_r($obj);
 		echo '</pre>';

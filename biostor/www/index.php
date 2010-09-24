@@ -159,8 +159,8 @@ echo html_page_header(true);
 
 // How many pages?
 
-// How many articles?
-$sql = 'SELECT COUNT(reference_id) AS c FROM rdmp_reference';
+// How many articles? [in BHL]
+$sql = 'SELECT COUNT(reference_id) AS c FROM rdmp_reference WHERE (PageID <> 0)';
 $result = $db->Execute($sql);
 if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 
@@ -201,7 +201,8 @@ echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">References</td><td 
 echo $num_references .'</td></tr>' . "\n";
 echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Authors</td><td style="font-size:20px;text-align:right;">' . $num_authors . '</td></tr>';
 echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Journals</td><td style="font-size:20px;text-align:right;">' . $num_journals . '</td></tr>' . "\n";
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Participants</td><td style="font-size:20px;text-align:right;">' . $num_editors . '</td></tr>' . "\n";
+
+//echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Participants</td><td style="font-size:20px;text-align:right;">' . $num_editors . '</td></tr>' . "\n";
 
 
 echo '</table>' . "\n";

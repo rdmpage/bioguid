@@ -249,7 +249,7 @@ class DisplayJournal extends DisplayObject
 			echo '<div style="display:inline;background-color:rgb(0,119,204);width:10px;height:10px;">&nbsp;&nbsp;&nbsp;&nbsp;</div>';
 			echo '&nbsp;Articles&nbsp;';
 			echo '</div>';
-			echo '<p />';
+			echo '<p></p>';
 			
 			
 	
