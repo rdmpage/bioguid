@@ -45,7 +45,7 @@ cd tiff-3.8.2
 ./configure
 make
 sudo make install
-}}
+}}}
 
 ===GhostScript===
 {{{
@@ -77,7 +77,7 @@ sudo make install
 }}}
 
 ===xpdf===
-=
+
 Need to tell it explicitly where to find FreeType
 {{{
 cd xpdf-3.02
@@ -85,7 +85,4 @@ cd xpdf-3.02
 make
 sudo make install
 }}}
-
-==MySQL==
-Download and install MySQL
 
