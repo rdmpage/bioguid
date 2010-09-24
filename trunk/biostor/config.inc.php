@@ -14,6 +14,9 @@ global $config;
 // Date timezone
 date_default_timezone_set('UTC');
 
+// Default encoding
+mb_internal_encoding("UTF-8");
+
 // Server-------------------------------------------------------------------------------------------
 $config['web_server']	= 'http://biostor.org';
 $config['site_name']	= 'BioStor';
@@ -61,5 +64,17 @@ $config['gmap'] = "";
 // biostor.org
 $config['recaptcha_publickey'] 	= "";
 $config['recaptcha_privatekey']	= "";
+
+// Mendeley api
+define('CONSUMER_KEY', '');
+define('CONSUMER_SECRET', '');
+define('OAUTH_CALLBACK', 'http://biostor.org/callback.php');
+
+// Flags--------------------------------------------------------------------------------------------
+
+$config['use_mendeley_oauth'] 	= true;
+$config['use_disqus'] 			= true;
+$config['use_uservoice'] 		= true;
+
 
 ?>
