@@ -48,30 +48,33 @@ class DisplayReference extends DisplayObject
 		{
 			switch ($_GET['format'])
 			{
-
-				case 'text':
-					$this->format = 'text';
-					break;					
-
-				case 'xml':
-					$this->format = 'xml';
-					break;
-
-				case 'ris':
-					$this->format = 'ris';
-					break;
-
 				case 'bib':
 					$this->format = 'bib';
+					break;
+
+				case 'json':
+					$this->format = 'json';
 					break;
 
 				case 'pdf':
 					$this->format = 'pdf';
 					break;
+					
+				case 'ris':
+					$this->format = 'ris';
+					break;					
 
 				case 'rss':
 					$this->format = 'rss';
 					break;
+			
+				case 'text':
+					$this->format = 'text';
+					break;										
+					
+				case 'xml':
+					$this->format = 'xml';
+					break;					
 		
 				default:
 					parent::GetFormat();
@@ -107,6 +110,10 @@ class DisplayReference extends DisplayObject
 
 			case 'rss':
 				$this->DisplayRSS();
+				break;
+
+			case 'json':
+				$this->DisplayJSON();
 				break;
 				
 
@@ -737,8 +744,42 @@ Event.observe(window, \'load\', function() {
 	// JSON format
 	function DisplayJson()
 	{
+		$j = reference_to_mendeley($this->object);
+		
+		// Array of BHL pages		
+		$j->bhl_pages = array();
+		
+		$pages = bhl_retrieve_reference_pages($this->id);
+		foreach ($pages as $page)
+		{
+			$j->bhl_pages[] = $page->PageID;
+		}
+				
+		// Names
+		$j->names = bhl_names_in_reference_by_page($this->id);
+		
+		// Output localities in text as array of features in GeoJSON format
+		$j->featurecollection = new stdclass;
+		$j->featurecollection->type = "FeatureCollection";
+		$j->featurecollection->features = array();
+		foreach ($this->localities as $loc)
+		{
+			$feature = new stdclass;
+			$feature->type = "Feature";
+			$feature->geometry = new stdclass;
+			$feature->geometry->type = "Point";
+			$feature->geometry->coordinates = array();
+			$feature->geometry->coordinates[] = (Double)$loc->longitude;
+			$feature->geometry->coordinates[] = (Double)$loc->latitude;
+			
+			$j->featurecollection->features[] = $feature;
+		}
+		
+		
+		// ?
+	
 		header("Content-type: text/plain; charset=utf-8\n\n");
-		echo json_format(json_encode($this->object));
+		echo json_format(json_encode($j));
 	}
 	
 	//----------------------------------------------------------------------------------------------
