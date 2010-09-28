@@ -171,6 +171,52 @@ function bhl_names_in_reference ($reference_id)
 	return $obj;	
 }
 
+//---------------------------------------------------------------------------------------------------
+// Get list of names in reference, together with pages they occur on....
+function bhl_names_in_reference_by_page ($reference_id)
+{
+	global $db;
+	
+	$names = array();
+	
+	$pages = bhl_retrieve_reference_pages($reference_id);
+			
+	// If we don't have a page range then we can't get taxa
+	if (count($pages) == 0)
+	{
+		return $names;
+	}
+	
+	foreach ($pages as $page)
+	{
+		$sql = 'SELECT * FROM bhl_page_name
+		WHERE PageID=' . $page->PageID;
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+		while (!$result->EOF) 
+		{	
+			$namestring = $result->fields['NameConfirmed'];
+			$namebankID = $result->fields['NameBankID'];
+		
+			if (!isset($names[$namestring]))
+			{
+				$n = new stdclass;
+				$n->identifiers = new stdclass;
+				$n->identifiers->namebankID = $namebankID;
+				$n->pages = array();
+				$names[$namestring] = $n;
+			}
+			$names[$namestring]->pages[] = $page->PageID;
+			
+			$result->MoveNext();
+		}	
+	}
+	ksort($names);
+	
+	return $names;	
+}
+
+
 //--------------------------------------------------------------------------------------------------
 // Tag cloud from names object 
 function name_tag_cloud($obj)

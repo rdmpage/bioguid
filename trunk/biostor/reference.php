@@ -577,4 +577,94 @@ function reference_to_endnote_xml($reference, &$doc, &$records)
 	$year->appendChild($doc->createTextNode($reference->year));
 }
 
+//--------------------------------------------------------------------------------------------------
+function reference_to_mendeley($reference)
+{
+	global $config;
+	
+	$obj = new stdclass;
+	$obj->authors = array();
+	foreach ($reference->authors as $a)
+	{
+		$author = new stdclass;
+		$author->forename = $a->forename;
+		$author->surname = $a->lastname;
+		
+		$obj->authors[] = $author;
+	}
+	
+	if (isset($reference->date))
+	{
+		$obj->date = $reference->date;
+	}	
+	
+	// Identifiers
+	$obj->identifiers = new stdclass;
+	$obj->identifiers->biostor = $reference->reference_id;
+	if (isset($reference->doi))
+	{
+		$obj->identifiers->doi = $reference->doi;
+	}
+	if (isset($reference->issn))
+	{
+		$obj->identifiers->issn = $reference->issn;
+	}
+	if (isset($reference->oclc))
+	{
+		if ($reference->oclc != 0)
+		{
+			$obj->identifiers->oclc = $reference->oclc;
+		}
+	}
+	
+	if (isset($reference->issue))
+	{
+		$obj->issue = $reference->issue;
+	}
+	
+	if (isset($reference->spage))
+	{
+		$obj->pages = $reference->spage;
+	}
+	if (isset($reference->epage))
+	{
+		$obj->pages .= '-' . $reference->epage;
+	}
+	
+	$obj->publication_outlet = $reference->secondary_title;
+	$obj->title = $reference->title;
+	
+	
+	$obj->type = '';
+	switch ($reference->genre)
+	{
+		case 'article':
+			$obj->type = 'Journal Article';
+			break;
+
+		case 'book':
+			$obj->type = 'Book';
+			break;
+
+		default:
+			$obj->type = 'Unknown';
+			break;
+	}			
+
+	if (isset($reference->volume))
+	{
+		$obj->volume = $reference->volume;
+	}
+	
+	if (isset($reference->year))
+	{
+		$obj->year = $reference->year;
+	}
+	
+	
+	
+	return $obj;
+}
+
+
 ?>
