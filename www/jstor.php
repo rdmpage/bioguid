@@ -113,13 +113,13 @@ function sici_from_meta($metadata)
 	
 	$sici = '';
 
-/*	if ($debug)
+	if ($debug)
 	{
 		echo '<pre>';
 		print_r($metadata);
 		echo '</pre>';
 	}
-*/	
+	
 	$issn = '';
 	$year = '';
 	$volume = '';
@@ -258,19 +258,17 @@ function jstor_metadata ($sici, &$item)
 	{
 		// Inside Glasgow, we are licensed, so we need one more step
 		// Extract stable indentifier
-		preg_match('/&amp;suffix=([0-9]+)/', $html, $match);
-		
-		//print_r($match);
-	
-		if (isset($match[1]))
+		if (preg_match('/stable\/info\/(?<jstorid>\d+)\?/', $html, $match))
 		{
-			$stable = $match[1];
+			$stable = $match['jstorid'];
 			$item->url = 'http://www.jstor.org/stable/' . $match[1];
 			
 			// ok, harvest						
 			$html = get('http://www.jstor.org/stable/info/' . $match[1]);
 		}			
 	}
+	
+	//echo "url=" . $item->url;
 
 	// Add line feeds so regular expresison works
 	$html = str_replace('<meta', "\n<meta", $html);
@@ -282,7 +280,11 @@ function jstor_metadata ($sici, &$item)
 		
 	parseDcMeta($out, $item);
 
-	//print_r($out);
+	if ($debug)
+	{	
+		echo '<h3>metadata</h3>';
+		print_r($out);
+	}
 		
 	$out = unpack_sici($sici);
 	
@@ -316,6 +318,13 @@ function jstor_metadata ($sici, &$item)
 		$stable = 'http://www.jstor.org/stable/' . $stable;
 		$item->url = $stable;
 	}
+	
+	/*if ($debug)
+	{
+		print_r($item);
+		echo __LINE__ . ' in ' . __FILE__ . "\n";
+		exit();
+	}*/
 	
 	// Is the DOI valid? (not all DOIs in the HTML metadata are valid
 	if (isset($item->doi))
