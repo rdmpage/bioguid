@@ -177,7 +177,7 @@ function bhl_names_in_reference_by_page ($reference_id)
 {
 	global $db;
 	
-	$names = array();
+	$names = new stdclass();
 	
 	$pages = bhl_retrieve_reference_pages($reference_id);
 			
@@ -186,6 +186,11 @@ function bhl_names_in_reference_by_page ($reference_id)
 	{
 		return $names;
 	}
+	
+	$names->found = array();
+	$names->names = array();
+	
+	$count = 0;
 	
 	foreach ($pages as $page)
 	{
@@ -197,21 +202,26 @@ function bhl_names_in_reference_by_page ($reference_id)
 		{	
 			$namestring = $result->fields['NameConfirmed'];
 			$namebankID = $result->fields['NameBankID'];
-		
-			if (!isset($names[$namestring]))
+			
+			// Have we processed this name before?
+			if (!isset($names->found[$namestring])) 
 			{
 				$n = new stdclass;
+				$n->namestring = $namestring;
 				$n->identifiers = new stdclass;
-				$n->identifiers->namebankID = $namebankID;
+				$n->identifiers->namebankID = (Integer)$namebankID;
 				$n->pages = array();
-				$names[$namestring] = $n;
-			}
-			$names[$namestring]->pages[] = $page->PageID;
+				$names->names[] = $n;
+				$names->found[$namestring] = $count++;
+		}
+			$index = $names->found[$namestring];
+				
+			$names->names[$index]->pages[] = (Integer)$page->PageID; 
 			
 			$result->MoveNext();
 		}	
 	}
-	ksort($names);
+	//ksort($names);
 	
 	return $names;	
 }

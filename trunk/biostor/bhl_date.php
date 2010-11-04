@@ -122,6 +122,25 @@ function parse_bhl_date($str, &$info)
 	$str = preg_replace('/:plates$/', '', $str);
 	$str = trim($str);
 	
+	// v 11 (1914-15)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^v (?<volume>\d+) \((?<yearstart>[0-9]{4})-(?<yearend>[0-9]{2})\)$/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}
+		
+	}	
+	
+	
 	// 1923, pt. 3-4 (pp. 483-1097)
 	if (!$matched)
 	{
@@ -272,6 +291,24 @@ function parse_bhl_date($str, &$info)
 		
 	}		
 	
+	
+	// bd. 2 (1901-04)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^bd.\s*(?<volume>\d+)\s*\((?<yearstart>[0-9]{4})-(?<yearend>[0-9]{2})\)$/", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}
+		
+	}		
 	
 	
 	

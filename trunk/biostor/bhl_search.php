@@ -341,6 +341,11 @@ function bhl_itemid_from_volume($TitleID, $volume, $series = '')
 	// Find ItemID of item that contains relevant volume
 	$sql = 'SELECT * FROM bhl_item WHERE TitleID=' . $TitleID;
 	
+	if ($debug)
+	{
+		echo $sql;
+	}
+	
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 
@@ -619,6 +624,10 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			$obj->TitleID = 10603;
 			break;
 			
+		case '1019-8563':
+			$obj->TitleID =  15675;
+			break;
+			
 		// Scientific papers of the Natural History Museum, University of Kansas
 		case '1094-0782':
 			$hits = bhl_title_lookup($atitle);
@@ -807,6 +816,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(8009, 9579);
 				break;	
 				
+			// Mitteilungen aus dem Zoologischen Museum in Berlin.
+			case 11448:
+			case 42540:
+				$title_list = array(11448,42540);
+				break;
+				
 			// Meddelanden af Societatis pro Fauna et Flora Fennica
 			case 3613:
 			case 13470:
@@ -844,7 +859,9 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 3966:
 			case 4274:
 			case 3943:
-				$title_list = array(3952, 7411, 15816, 3966, 4274, 3943);
+			case 12931:
+			case 45400:
+				$title_list = array(3952, 7411, 15816, 3966, 4274, 3943, 12931, 45400);
 				break;
 				
 			// Proceedings of the Zoological Society of London

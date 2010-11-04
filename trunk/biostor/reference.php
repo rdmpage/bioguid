@@ -600,10 +600,18 @@ function reference_to_mendeley($reference)
 	
 	// Identifiers
 	$obj->identifiers = new stdclass;
-	$obj->identifiers->biostor = $reference->reference_id;
+	$obj->identifiers->biostor = (Integer)$reference->reference_id;
 	if (isset($reference->doi))
 	{
 		$obj->identifiers->doi = $reference->doi;
+	}
+	if (isset($reference->hdl))
+	{
+		$obj->identifiers->hdl = $reference->hdl;
+	}
+	if (isset($reference->isbn))
+	{
+		$obj->identifiers->isbn = $reference->isbn;
 	}
 	if (isset($reference->issn))
 	{
@@ -613,7 +621,18 @@ function reference_to_mendeley($reference)
 	{
 		if ($reference->oclc != 0)
 		{
-			$obj->identifiers->oclc = $reference->oclc;
+			$obj->identifiers->oclc = (Integer)$reference->oclc;
+		}
+	}
+	if (isset($reference->pmid))
+	{
+		$obj->identifiers->pmid = (Integer)$reference->pmid;
+	}
+	if (isset($reference->lsid))
+	{
+		if (preg_match('/urn:lsid:zoobank.org:pub:(?<id>.*)/', $reference->lsid, $m))
+		{
+			$obj->identifiers->zoobank = $m['id'];
 		}
 	}
 	
