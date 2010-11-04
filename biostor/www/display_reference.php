@@ -752,14 +752,70 @@ Event.observe(window, \'load\', function() {
 		$pages = bhl_retrieve_reference_pages($this->id);
 		foreach ($pages as $page)
 		{
-			$j->bhl_pages[] = $page->PageID;
+			$j->bhl_pages[] = (Integer)$page->PageID;
 		}
 				
 		// Names
-		$j->names = bhl_names_in_reference_by_page($this->id);
+		$nm = bhl_names_in_reference_by_page($this->id);
+		$j->names = $nm->names;
+		
+		// Nomenclatural acts
+		$acts = acts_in_publication($this->id);
+		if (count($acts) > 0)
+		{
+			$count = count($nm->names);
+			foreach ($acts as $tn)
+			{
+				$name = $tn->nameComplete;
+				
+				// Zoobank crap
+				$name = preg_replace('/ subsp\. /', ' ', $name);
+				$name = preg_replace('/ var\. /', ' ', $name);
+				
+				// BHL might have missed this name
+				if (!isset($nm->found[$name]))
+				{
+					$n = new stdclass;
+					$n->namestring = $name;
+					$n->identifiers = new stdclass;
+					$n->pages = array();
+					$j->names[] = $n;
+					$nm->found[$name] = $count++;					
+				}
+
+				$index = $nm->found[$name];
+				
+				// ION
+				if (preg_match('/urn:lsid:organismnames.com:name:(?<id>\d+)/', $tn->global_id, $m))
+				{
+					$j->names[$index]->identifiers->ion = (Integer)$m['id'];
+				}
+				// Zoobank
+				if (preg_match('/urn:lsid:zoobank.org:act:(?<id>.*)/', $tn->global_id, $m))
+				{
+					$j->names[$index]->identifiers->zoobank = $m['id'];
+				}
+				// IPNI
+				if (preg_match('/urn:lsid:ipni.org:names:(?<id>.*)/', $tn->global_id, $m))
+				{
+					$j->names[$index]->identifiers->ipni = $m['id'];
+				}
+				// Index Fungorum
+				if (preg_match('/urn:lsid:indexfungorum.org:names(?<id>.*)/', $tn->global_id, $m))
+				{
+					$j->names[$index]->identifiers->indexfungorum = (Integer)$m['id'];
+				}
+			
+			}
+			
+			//ksort($j->names);
+		}
+	
+		
+		
 		
 		// Output localities in text as array of features in GeoJSON format
-		$j->featurecollection = new stdclass;
+/*		$j->featurecollection = new stdclass;
 		$j->featurecollection->type = "FeatureCollection";
 		$j->featurecollection->features = array();
 		foreach ($this->localities as $loc)
@@ -774,7 +830,17 @@ Event.observe(window, \'load\', function() {
 			
 			$j->featurecollection->features[] = $feature;
 		}
-		
+*/
+		if (count($this->localities) > 0)
+		{
+			$j->geometry = new stdclass;
+			$j->geometry->type = "MultiPoint";
+			$j->geometry->coordinates = array();
+			foreach ($this->localities as $loc)
+			{
+				$j->geometry->coordinates[] = array((Double)$loc->longitude, (Double)$loc->latitude);
+			}
+		}
 		
 		// ?
 	
