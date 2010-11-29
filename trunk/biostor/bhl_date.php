@@ -122,6 +122,107 @@ function parse_bhl_date($str, &$info)
 	$str = preg_replace('/:plates$/', '', $str);
 	$str = trim($str);
 	
+	
+	// v. 99- 100 1956-57
+	if (!$matched)
+	{
+		if ($str == 'v. 99- 100 1956-57')
+		{
+			$info->volume_from = 99;
+			$info->volume_to = 100;
+			$info->start = 1956;
+			$info->end = 1957;
+			
+		}	
+	}
+	
+	// v. 88/89 1977/78
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^v\.\s+(?<volume_from>\d+)\/(?<volume_to>\d+)\s+(?<yearstart>[0-9]{4})\/(?<yearend>[0-9]{2})/", $str, $m))
+		{
+			$info->volume_from = $m['volume_from'];
+			$info->volume_to = $m['volume_to'];
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}
+	}
+	
+	// 1901, v. 1 (Jan.-Apr.)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volume>[0-9]{4}),\s+v.\s+\d+\s+\($/", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$matched = true;
+		}
+	}
+	
+	// 1867 (incomplete)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volume>[0-9]{4})\s+\(incomplete\)$/", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$matched = true;
+		}
+	}
+	
+	// 1921 v. 1-2
+	if (!$matched)
+	{
+		if ($str == '1921 v. 1-2')
+		{
+			$info->volume = 1921;
+			$matched = true;
+		}
+	}
+	
+	// Part 19  - Part 20 (1851-52)
+	if (!$matched)
+	{
+		if ($str == 'Part 19  - Part 20 (1851-52)')
+		{
+			$info->volume_from = 1851;
+			$info->volume_to = 1852;
+			$matched = true;
+		}
+	}
+	
+	// [1908-1944]
+	if (!$matched)
+	{
+		if ($str == '[1908-1944]')
+		{
+			$info->start = 1908;
+			$info->end = 1944;
+			$matched = true;
+		}
+	}
+	
+	
+	// Vol 10 - Vol 10
+	if (!$matched)
+	{
+		if ($str == 'Vol 10 - Vol 10')
+		{
+			$info->volume = 10;
+			$matched = true;
+		}
+	}
+	if (!$matched)
+	{
+		if ($str == 'Vol 20 - Vol 20')
+		{
+			$info->volume = 10;
+			$matched = true;
+		}
+	}
+	
 	// v 11 (1914-15)
 	if (!$matched)
 	{

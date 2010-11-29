@@ -195,6 +195,10 @@ function bhl_fetch_page_image ($PageID)
 				$cache_file = @fopen($image->file_name, "w+") or die("could't open file --\"$image->file_name\"");
 				@fwrite($cache_file, $bits);
 				fclose($cache_file);
+				
+				// resize to 800 px wide to save space
+				$command = $config['mogrify']  . ' -resize 800 ' . $image->file_name;
+				system($command);
 
 				// thumbnail
 				$command = $config['convert']  . ' -thumbnail 100 ' . $image->file_name . ' ' . $image->thumbnail->file_name;

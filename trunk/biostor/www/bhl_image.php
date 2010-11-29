@@ -33,6 +33,9 @@ if ($image != NULL)
 		
 		header('Content-type: image/gif');
 		echo $img;		
+		
+		//header("Content-type: image/gif\nContent-type: image/jpeg\nLocation: " . $image->thumbnail->url . "\n\n");
+		
 	}
 	else
 	{
@@ -42,6 +45,8 @@ if ($image != NULL)
 		
 		header('Content-type: image/jpeg');
 		echo $img;		
+		
+		//header("Content-type: image/jpeg\nLocation: " . $image->url . "\n\n");
 	}
 	
 }	
