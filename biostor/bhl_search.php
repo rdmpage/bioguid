@@ -639,6 +639,10 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				}
 			}
 			break;
+			
+		case '0375-099X':
+			$obj->TitleID = 10294;
+			break;
 		
 		default:
 			break;
