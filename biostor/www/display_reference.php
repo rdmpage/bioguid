@@ -445,6 +445,10 @@ Event.observe(window, \'load\', function() {
 
 		echo '<h2>Export</h2>' . "\n";
 		echo '<ul class="export-list">' . "\n";
+
+		// Mendeley
+		echo '<li class="mendeley"><a href="http://www.mendeley.com/import/?url=' . urlencode($config['web_root'] . 'reference/' . $this->id) . '" title="Add to Mendeley" target="_new">Mendeley</a></li>';
+		
 		if ($this->in_bhl)
 		{
 			echo '<li class="pdf"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.pdf" title="PDF">PDF</a></li>';
@@ -748,12 +752,34 @@ Event.observe(window, \'load\', function() {
 		
 		// Array of BHL pages		
 		$j->bhl_pages = array();
+		$j->thumbnails = array();
+		
+		$count = 0;
 		
 		$pages = bhl_retrieve_reference_pages($this->id);
 		foreach ($pages as $page)
 		{
 			$j->bhl_pages[] = (Integer)$page->PageID;
+			
+			// Store thumbnails of pages (just page 1 for now)
+			if ($count == 0)
+			{
+				$image = bhl_fetch_page_image($page->PageID);
+				$file = @fopen($image->thumbnail->file_name, "r") or die("could't open file --\"$image->thumbnail->file_name\"");
+				$img = fread($file, filesize($image->thumbnail->file_name));
+				fclose($file);
+				
+				// to do: test for MIME type, don't assume it
+				
+				$base64 = chunk_split(base64_encode($img));
+				$thumbnail = 'data:image/gif;base64,' . $base64;
+				
+				$j->thumbnails[] = $thumbnail;
+			}
+			$count++;
 		}
+		
+		
 				
 		// Names
 		$nm = bhl_names_in_reference_by_page($this->id);

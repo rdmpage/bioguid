@@ -817,7 +817,8 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			// Mitteilungen aus dem Naturhistorischen Museum in Hamburg
 			case 8009:
 			case 9579:
-				$title_list = array(8009, 9579);
+			case 42281:
+				$title_list = array(8009, 9579, 42281);
 				break;	
 				
 			// Mitteilungen aus dem Zoologischen Museum in Berlin.

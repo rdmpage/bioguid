@@ -79,6 +79,13 @@ li.guid-list
   background: url("/images/link.png") no-repeat 0 50%;
 }
 
+.mendeley 
+{
+  margin-left: 3px;
+  padding: 2px 2px 2px 19px;
+  background: url("/images/icon_mendeley_16x16.gif") no-repeat 0 50%;
+}
+
 .bhl 
 {
   margin-left: 3px;
