@@ -297,12 +297,13 @@ echo '
 /*
 
 echo '<h2>Articles</h2>' . "\n";
-
+*/
 echo '<p>Number of articles per journal (<a href="journals.php">more...</a>). Get most recently added articles as a <a href="http://biostor.org/rss.php?format=atom">RSS feed</a>.</p>' . "\n";
 
 	
 $sql = 'SELECT secondary_title, issn, COUNT(reference_id) AS c
 FROM rdmp_reference
+WHERE PageID <>0
 GROUP BY issn
 ORDER BY c DESC
 LIMIT 5';
@@ -327,6 +328,7 @@ echo '</tr>';
 
 $sql = 'SELECT secondary_title, issn, COUNT(reference_id) AS c
 FROM rdmp_reference
+WHERE PageID <>0
 GROUP BY issn
 ORDER BY c DESC
 LIMIT 5,5';
@@ -348,7 +350,7 @@ while (!$result->EOF)
 }
 echo '</tr>' . "\n";
 echo '</table>' . "\n";
-
+/*
 echo '<h2>Authors</h2>';
 
 // Most prolific authors...

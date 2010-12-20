@@ -136,6 +136,35 @@ function parse_bhl_date($str, &$info)
 		}	
 	}
 	
+	// bd. 17-18 (1899-1900)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^bd\.\s+(?<volume_from>\d+)\-(?<volume_to>\d+)\s+\((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})\)$/", $str, $m))
+		{
+			$info->volume_from = $m['volume_from'];
+			$info->volume_to = $m['volume_to'];
+			$info->start = $m['yearstart'];
+			$info->end = $m['yearend'];
+			$matched = true;
+		}
+	}
+	
+	
+	// bd. 19-20 (1901-02)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^bd\.\s+(?<volume_from>\d+)\-(?<volume_to>\d+)\s+\((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})\)$/", $str, $m))
+		{
+			$info->volume_from = $m['volume_from'];
+			$info->volume_to = $m['volume_to'];
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}
+	}
+	
 	// v. 88/89 1977/78
 	if (!$matched)
 	{
