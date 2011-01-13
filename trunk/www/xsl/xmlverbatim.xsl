@@ -19,7 +19,6 @@
    <xsl:param name="indent-elements" select="false()" />
 
    <xsl:template match="/">
-   
    <html>
 	<head>
     <link rel="stylesheet" type="text/css" href="xmlverbatim.css" />
