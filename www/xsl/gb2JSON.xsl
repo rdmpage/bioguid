@@ -308,7 +308,7 @@ version="1.0">
 		<xsl:when test="GBFeature_key='exon'">
 			<xsl:if test="position() != 2"><xsl:text>,&#x0D;</xsl:text></xsl:if>
 			<xsl:text>{</xsl:text>
-			<xsl:text>"key":"rRNA", </xsl:text>	
+			<xsl:text>"key":"exon", </xsl:text>	
 
 			<xsl:text>"location":"</xsl:text><xsl:value-of select="GBFeature_location"/><xsl:text>",</xsl:text>
 
