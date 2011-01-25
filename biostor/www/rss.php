@@ -116,6 +116,12 @@ switch ($format)
 		$link->setAttribute('href', $config['web_root']);
 		$link = $rss->appendChild($link);
 		
+		$link = $feed->createElement('link');
+		$link->setAttribute('rel', 'self');
+		$link->setAttribute('type', 'application/atom+xml');
+		$link->setAttribute('href', $config['web_root'] . 'rss.php?format=atom');
+		$link = $rss->appendChild($link);
+				
 		// updated
 		$updated = $feed->createElement('updated');
 		$updated = $rss->appendChild($updated);
@@ -183,7 +189,7 @@ switch ($format)
 		break;
 }
 
-header("Content-type: text/xml");
+header("Content-type: text/xml;charset=utf-8");
 header("Last-modified: $last_modified");
 header("ETag: $etag");
 echo $feed->saveXML();

@@ -468,8 +468,17 @@ function reference_to_atom($reference, &$feed, &$rss)
 	$id = $entry->appendChild($feed->createElement('id'));
 	$id->appendChild($feed->createTextNode('urn:uuid:' . uuid()));
 	
-	$description = reference_authors_to_text_string($reference) . '<br/>';
+	$description = '';
+	$description .= '<div>';
+	
+	$description .= reference_authors_to_text_string($reference) . '<br/>';
 	$description .= reference_to_citation_text_string($reference);
+	$pages = bhl_retrieve_reference_pages($reference->reference_id);
+	if (count($pages) > 0)
+	{
+		$description .= '<div><img src="http://biostor.org/bhl_image.php?PageID=' . $pages[0]->PageID . '&thumbnail" /></div>';
+	}
+	$description .= '</div>';
 	
 	// content
 	$content = $entry->appendChild($feed->createElement('content'));

@@ -84,14 +84,7 @@ $Items=array(100258);
 // Ent News
 $Items=array(79668);
 
-$Items=array(94910, 95696, 94839,95649);
-
-// Entomological News
-$Items=array(55165, 55166, 55163); 
-
-// Entomological News
-$Items=array(79353,88499);
-
+$Items=array(59708);
 
 foreach ($Items as $ItemID)
 {

@@ -192,7 +192,7 @@ function bhl_fetch_page_image ($PageID)
 			$bits = get($image->ExternalURL);
 			if ($bits != '')
 			{
-				$cache_file = @fopen($image->file_name, "w+") or die("could't open file --\"$image->file_name\"");
+				$cache_file = @fopen($image->file_name, "w+") or die(__LINE__ . " could't open file --\"$image->file_name\"");
 				@fwrite($cache_file, $bits);
 				fclose($cache_file);
 				

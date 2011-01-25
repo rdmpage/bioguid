@@ -22,6 +22,7 @@ $image = bhl_fetch_page_image($PageID);
 
 if ($image != NULL)
 {
+	//print_r($image);
 	
 	// Load image
 	if ($thumbnail)
@@ -39,7 +40,7 @@ if ($image != NULL)
 	}
 	else
 	{
-		$file = @fopen($image->file_name, "r") or die("could't open file --\"$image->thumbnail->file_name\"");
+		$file = @fopen($image->file_name, "r") or die("could't open file --\"$image->file_name\"");
 		$img = fread($file, filesize($image->file_name));
 		fclose($file);
 		
