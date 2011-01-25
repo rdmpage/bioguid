@@ -170,7 +170,8 @@ $num_references = $result->fields['c'];
 $sql = 'SELECT COUNT(DISTINCT(author_id))	 AS c
 FROM rdmp_author
 INNER JOIN rdmp_author_reference_joiner USING(author_id)
-WHERE (lastname <> "") AND (forename <> "")';
+INNER JOIN rdmp_reference USING(reference_id)
+WHERE (lastname <> "") AND (forename <> "") AND (rdmp_reference.PageID <> 0)';
 
 $result = $db->Execute($sql);
 if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
@@ -178,7 +179,7 @@ if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql)
 $num_authors = $result->fields['c'];
 
 // How many journals?
-$sql = 'SELECT COUNT(DISTINCT(issn)) AS c FROM rdmp_reference';
+$sql = 'SELECT COUNT(DISTINCT(issn)) AS c FROM rdmp_reference WHERE (PageID <> 0)';
 
 $result = $db->Execute($sql);
 if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);

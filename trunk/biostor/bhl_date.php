@@ -122,6 +122,33 @@ function parse_bhl_date($str, &$info)
 	$str = preg_replace('/:plates$/', '', $str);
 	$str = trim($str);
 	
+	// 35-36, 1918-1920
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volume_from>\d+)\-(?<volume_to>\d+),\s+(?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})$/", $str, $m))
+		{
+			$info->volume_from = $m['volume_from'];
+			$info->volume_to = $m['volume_to'];
+			$info->start = $m['yearstart'];
+			$info->end = $m['yearend'];
+			$matched = true;
+		}	
+	}
+
+	// 34, 1917-1918
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volume>\d+),\s+(?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})$/", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = $m['yearend'];
+			$matched = true;
+		}	
+	}
+	
 	
 	// v. 99- 100 1956-57
 	if (!$matched)
@@ -132,6 +159,7 @@ function parse_bhl_date($str, &$info)
 			$info->volume_to = 100;
 			$info->start = 1956;
 			$info->end = 1957;
+			$matched = true;
 			
 		}	
 	}

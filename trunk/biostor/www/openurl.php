@@ -472,6 +472,10 @@ function validate_openurl_form(form)
 	echo '<table>';
 	echo '<tr id="citation_row"><td class="openurl_field_name">Citation</td>';
 	echo '<td><textarea class="field_value" id="citation" rows="6" cols="60"></textarea></td></tr>';
+	
+	echo '<tr><td></td><td style="font-size:12px;color:rgb(128,128,128);">Author(s) (Year) Title. Journal. Volume: Starting page-End page, e.g.:<br/>
+	J D Lynch (1968) Genera of leptodactylid frogs in México. University of Kansas Publications Museum of Natural History 17: 503-515</td></tr>';
+	
 	echo '<tr><td></td><td><span style="padding:2px;cursor:pointer;background-color:#2D7BB2;color:white;font-size:18px;font-family:Arial;text-align:center;" onclick="parse_citation();">&nbsp;Parse&nbsp;</span>&nbsp;<span id="citation_message"></span></td></tr>';
 	echo '</table>';
 	
@@ -660,12 +664,20 @@ Event.observe(\'recaptcha_response_field\', \'keypress\', onMyTextKeypress);
 
 
 //--------------------------------------------------------------------------------------------------
-function display_bhl_result_json($referent, $hits)
+function display_bhl_result_json($referent, $hits, $callback = '')
 {
 	if (count($hits) > 0)
 	{
 		header("Content-type: text/plain; charset=utf-8\n\n");
+		if ($callback != '')
+		{
+			echo $callback . '(';
+		}
 		echo json_format(json_encode($hits));
+		if ($callback != '')
+		{
+			echo ')';
+		}
 	}
 	else
 	{
@@ -693,13 +705,14 @@ function main()
 	global $format;
 	
 	$id = 0;
+	$callback = '';
 		
 	// If no query parameters 
 	if (count($_GET) == 0)
 	{
 		display_form();
 		exit(0);
-	}
+	}	
 	
 	if (isset($_GET['format']))
 	{
@@ -717,6 +730,11 @@ function main()
 				$format = 'html';
 				break;
 		}
+	}
+	
+	if (isset($_GET['callback']))
+	{
+		$callback = $_GET['callback'];
 	}
 	
 	$debug = false;
@@ -830,7 +848,15 @@ function main()
 						// Display object
 						$reference = db_retrieve_reference($id);
 						header("Content-type: text/plain; charset=utf-8\n\n");
+						if ($callback != '')
+						{
+							echo $callback . '(';
+						}
 						echo json_format(json_encode($reference));
+						if ($callback != '')
+						{
+							echo ')';
+						}
 						break;
 						
 					case 'html':
@@ -856,7 +882,15 @@ function main()
 				// Display object
 				$reference = db_retrieve_reference($id);
 				header("Content-type: text/plain; charset=utf-8\n\n");
+				if ($callback != '')
+				{
+					echo $callback . '(';
+				}
 				echo json_format(json_encode($reference));
+				if ($callback != '')
+				{
+					echo ')';
+				}
 				break;
 				
 			case 'html':
@@ -912,7 +946,7 @@ function main()
 	switch ($format)
 	{	
 		case 'json':
-			display_bhl_result_json($referent, $search_hits);
+			display_bhl_result_json($referent, $search_hits, $callback);
 			break;
 			
 		case 'html':

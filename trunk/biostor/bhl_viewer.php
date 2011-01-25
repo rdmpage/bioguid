@@ -22,6 +22,8 @@ require_once(dirname(__FILE__) . '/bhl_utilities.php');
 function bhl_reference_viewer($reference_id, $page_to_display = 0)
 {
 	$pages = bhl_retrieve_reference_pages($reference_id);
+	
+	//print_r($pages);
 	echo bhl_viewer($pages, $page_to_display);
 }
 

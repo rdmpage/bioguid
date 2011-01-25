@@ -158,7 +158,7 @@ function oclc_for_title($title)
  *
  * @return Array of matching titles, together with scores
  */
-function bhl_title_lookup($str, $threshold = 75)
+function bhl_title_lookup($str, $threshold = 70)
 {
 	global $db;
 	
@@ -172,6 +172,8 @@ function bhl_title_lookup($str, $threshold = 75)
 	$sql = 'SELECT TitleID, ShortTitle, MATCH(ShortTitle) AGAINST(' . $db->qstr($str) . ')
 AS score FROM bhl_title
 WHERE MATCH(ShortTitle) AGAINST(' . $db->qstr($str) . ') LIMIT 10';
+
+//echo $sql;
 	
 	$lcs = array();
 	$count = 0;
@@ -189,7 +191,13 @@ WHERE MATCH(ShortTitle) AGAINST(' . $db->qstr($str) . ') LIMIT 10';
 		
 		// length of subsequence as percentage of query string
 		$subsequence_length =  round((100.0 * $C[$cleaned_hit_length][$str_length])/$str_length);
-		if ($subsequence_length >= $threshold)
+		
+		// length of subsequence as percentage of hit
+		$hit_subsequence_length = round((100.0 * $C[$cleaned_hit_length][$str_length])/$cleaned_hit_length);
+		
+		//echo $cleaned_hit . ' ' . $subsequence_length . ' ' . $hit_subsequence_length . '<br/>';
+		
+		if ($subsequence_length >= $threshold && $hit_subsequence_length >= 33) // added this stop v. bad matches in reverse direction
 		{	
 			array_push($matches, array(
 				'TitleID' => $result->fields['TitleID'],
@@ -915,6 +923,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 11285:
 			case 13275:
 				$title_list = array(11285, 13275);
+				break;
+				
+			// The Victorian Naturalist
+			case 5027:
+			case 8941:
+				$title_list = array(5027, 8941);
 				break;
 
 			default:

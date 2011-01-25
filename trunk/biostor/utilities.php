@@ -28,6 +28,8 @@ function roman_expand($roman)
 function arabic($roman)
 {
 	$result = 0;
+	
+	$roman = strtoupper($roman);
 
 	// Remove subtractive notation.
 	$roman = roman_expand($roman);

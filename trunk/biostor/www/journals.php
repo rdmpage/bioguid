@@ -27,6 +27,7 @@ echo '<h1>Journals</h1>';
 	// Journals for which we have articles
 	$sql = 'SELECT secondary_title, issn, COUNT(reference_id) AS c
 FROM rdmp_reference
+WHERE (PageID <> 0)
 GROUP BY issn
 ORDER BY secondary_title';
 

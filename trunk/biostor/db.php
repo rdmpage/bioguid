@@ -1194,7 +1194,7 @@ function db_store_authors($id, $authors, $primary_authors = true)
 
 
 //------------------------------------------------------------------------------
-function db_find_article($article)
+function db_find_article($article, $allow_non_bhl = false)
 {
 	global $db;
 
@@ -1211,7 +1211,7 @@ function db_find_article($article)
 	{
 		if ($v == '') 
 		{
-			unset($article->${k});
+			unset($article->${$k});
 		}
 	}
 	
@@ -1265,6 +1265,14 @@ function db_find_article($article)
 			WHERE (secondary_title = ' .  $db->Quote($article->secondary_title) . ')
 			AND (volume = ' .  $db->Quote($article->volume) . ')
 			AND (spage = ' .  $db->Quote($article->spage) . ')';
+	}
+	
+	if ($allow_non_bhl)
+	{
+	}
+	else
+	{
+		$sql .= ' AND (PageID <> 0)';
 	}
 	
 	//echo $sql;
