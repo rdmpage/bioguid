@@ -404,6 +404,8 @@ Event.observe(window, \'load\', function() {
 	function DisplayHtmlContent()
 	{
 		global $config;
+		
+		log_access($this->id, 'html');
 
 		echo html_page_header(true, '', 'name');
 		
@@ -877,6 +879,8 @@ Event.observe(window, \'load\', function() {
 	//----------------------------------------------------------------------------------------------
 	function DisplayRis()
 	{
+		log_access($this->id, 'ris');
+	
 		header("Content-type: text/plain; charset=utf-8\n\n");
 		echo reference_to_ris($this->object);
 	}
@@ -884,6 +888,8 @@ Event.observe(window, \'load\', function() {
 	//----------------------------------------------------------------------------------------------
 	function DisplayBibtex()
 	{
+		log_access($this->id, 'bibtex');
+	
 		header("Content-type: application/x-bibtex; charset=utf-8\n\n");
 		echo reference_to_bibtex($this->object);
 	}	
@@ -892,6 +898,8 @@ Event.observe(window, \'load\', function() {
 	// Endnote XML export format
 	function DisplayXml()
 	{
+		log_access($this->id, 'xml');
+	
 		// Create XML document
 		$doc = new DomDocument('1.0', 'UTF-8');
 		$xml = $doc->appendChild($doc->createElement('xml'));
@@ -911,6 +919,8 @@ Event.observe(window, \'load\', function() {
 	//----------------------------------------------------------------------------------------------
 	function DisplayText()
 	{
+		log_access($this->id, 'text');
+	
 		$text = '';
 		if (db_reference_from_bhl($this->id))
 		{
@@ -944,6 +954,7 @@ Event.observe(window, \'load\', function() {
 	//----------------------------------------------------------------------------------------------
 	function DisplayPdf()
 	{
+		log_access($this->id, 'pdf');
 		pdf_get($this->id);
 	}	
 	
@@ -952,6 +963,8 @@ Event.observe(window, \'load\', function() {
 	function DisplayRSS()
 	{
 		global $config;
+		
+		log_access($this->id, 'rss');
 				
 		// Create XML document
 		$feed = new DomDocument('1.0', 'UTF-8');

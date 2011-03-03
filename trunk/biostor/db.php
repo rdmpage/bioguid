@@ -15,6 +15,9 @@ require_once (dirname(__FILE__) . '/identifier.php');
 require_once (dirname(__FILE__) . '/namestring.php');
 require_once (dirname(__FILE__) . '/utilities.php');
 
+require_once (dirname(__FILE__) . '/twitter.php');
+
+
 //--------------------------------------------------------------------------------------------------
 $db = NewADOConnection('mysql');
 $db->Connect("localhost", 
@@ -1211,7 +1214,7 @@ function db_find_article($article, $allow_non_bhl = false)
 	{
 		if ($v == '') 
 		{
-			unset($article->${$k});
+			unset($article->${k});
 		}
 	}
 	
@@ -1804,6 +1807,30 @@ function db_store_article($article, $PageID = 0, $updating = false)
 		}		
 	}	
 	
+	// Tweet----------------------------------------------------------------------------------------
+	if (!$update)
+	{
+		$url = $config['web_root'] . 'reference/' . $id . ' ' . '#bhlib'; // url + hashtag
+		$url_len = strlen($url);
+		$status = '';
+		if (isset($article->title))
+		{
+			$status = $article->title;
+			$status_len = strlen($status);
+			$extra = 140 - $status_len - $url_len - 1;
+			if ($extra < 0)
+			{
+				$status_len += $extra;
+				$status_len -= 1;
+				$status = substr($status, 0, $status_len);
+				$status .= '…';
+			}
+		}
+		$status .= ' ' . $url;
+		tweet($status);
+	}
+	
+	
 	return $id;
 }
 
@@ -1963,5 +1990,21 @@ function bhl_retrieve_title_from_ItemID($ItemID)
 	return $title;
 }
 	
+//--------------------------------------------------------------------------------------------------
+function log_access($reference_id, $doctype='html')
+{
+	global $db;
+	
+	$ip = getip();
+	$sql = 'INSERT INTO rdmp_log(reference_id, ip, useragent, doctype) VALUES('
+		. $reference_id 
+		. ', '.  'INET_ATON(\'' . $ip . '\')'
+		. ',' . $db->qstr($_SERVER['HTTP_USER_AGENT'])
+		. ',' . $db->qstr($doctype) . ')';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+}
+
 
 ?>

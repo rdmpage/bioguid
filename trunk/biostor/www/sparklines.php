@@ -204,6 +204,7 @@ function sparkline_references($issn = '', $oclc = '', $width=400, $height=50)
 	{
 		$sql .= ' AND (oclc=' . $oclc . ')';
 	}
+	$sql .= ' AND (PageID <> 0)';
 	$sql .= ' GROUP BY year
 ORDER BY year';
 

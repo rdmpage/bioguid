@@ -122,6 +122,26 @@ function parse_bhl_date($str, &$info)
 	$str = preg_replace('/:plates$/', '', $str);
 	$str = trim($str);
 	
+	if ($debug)
+	{
+		echo $str . '<br/>';
+	}
+	
+	// ser. 2 v. 6 (1894-1897)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/ser. (?<series>\d+) v. (?<volume>\d+) \((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})\)/", $str, $m))
+		{
+			$info->series = $m['series'];
+			$info->volume = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = $m['yearend'];
+			$matched = true;
+		}	
+	}
+	
+	
 	// 35-36, 1918-1920
 	if (!$matched)
 	{
