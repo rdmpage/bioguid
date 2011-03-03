@@ -652,6 +652,11 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			$obj->TitleID = 10294;
 			break;
 		
+		// Spixiana
+		case '0341-8391':
+			$obj->TitleID = 40214;
+			break;
+		
 		default:
 			break;
 	}
@@ -814,6 +819,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 2359:
 				$title_list = array(34360, 2356,2359);
 				break;
+				
+			// Kungliga Svenska Vetenskaps-Akademiens handlingar
+			case 2512:
+			case 12549:
+				$title_list=array(2512,12549);
+				break;
 					
 			// Misc Pub Kansas (some of these are treated as individual titles)
 			case 4050:
@@ -911,6 +922,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 5604:
 			case 13505:
 				$title_list = array(7541, 5604, 13505);
+				break;
+				
+			// Transactions of The Linnean Society of London
+			case 2203:
+			case 8257:
+				$title_list=array(2203,8257);
 				break;
 				
 			// The Kansas University science bulletin

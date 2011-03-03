@@ -569,6 +569,8 @@ function findInBiostor()
 			
 			if (data.length > 0)
 			{
+				found = true;
+				
 				html += '<a href="http://biostor.org/openurl?' + openurl + '" target="_blank">Search in BioStor</a>';
 			
 				html += '<ol>';
@@ -595,18 +597,16 @@ function findInBiostor()
 			else
 			{
 				html = '[Not found]';
+				$('#bioguid_progress').attr('src', 'images/exclamation.png');
 			}
 			$('#hits').html(html);
-		}	
-		
-		
-		if (!found)
-		{
-			// Let user know we failed to find this reference
-			$('#bioguid_progress').attr('src', 'images/exclamation.png');
-			$('#bioguid_progress').fadeOut(1000);
 		}
+		
+		$('#bioguid_progress').fadeOut(1000);
 	});	
+	
+	$('#bioguid_progress').fadeOut(1000);
+	
 	
 	
 	

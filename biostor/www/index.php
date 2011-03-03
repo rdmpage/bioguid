@@ -151,7 +151,7 @@ function tm(obj)
 </script>
 <?php
 
-
+//echo '<meta name="google-site-verification" content="G0IJlAyehsKTOUGWSc-1V2RMtYQLnqXs440NUSxbYgA" />';
 
 echo html_head_close();
 echo html_body_open();
@@ -196,17 +196,45 @@ $num_editors = $result->fields['c'];
 
 echo '<div style="float:right;padding:10px;">' . "\n";
 
-echo '<table cellpadding="4">' . "\n";
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">References</td><td style="font-size:20px;text-align:right;">';
-//<img src="' . sparkline_cummulative_articles_added() . '" alt="sparkline" />'
-echo $num_references .'</td></tr>' . "\n";
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Authors</td><td style="font-size:20px;text-align:right;">' . $num_authors . '</td></tr>';
-echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Journals</td><td style="font-size:20px;text-align:right;">' . $num_journals . '</td></tr>' . "\n";
+
 
 //echo '<tr><td style="font-size:20px;color:rgb(128,128,128);">Participants</td><td style="font-size:20px;text-align:right;">' . $num_editors . '</td></tr>' . "\n";
 
 
-echo '</table>' . "\n";
+echo "<script src=\"http://widgets.twimg.com/j/2/widget.js\"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'search',
+  search: 'biostor_org',
+  interval: 6000,
+  title: '',
+  subject: 'BioStor on Twitter',
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#8ec1da',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#444444',
+      links: '#1985b5'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: true,
+    live: true,
+    hashtags: true,
+    timestamp: true,
+    avatars: true,
+    toptweets: true,
+    behavior: 'default'
+  }
+}).render().start();
+</script>";
 
 echo '</div>' . "\n";
 
@@ -232,7 +260,14 @@ echo '<p>BioStor is a project by <a href="http://iphylo.blogspot.com">Rod Page</
 
 echo '<h1>Progress</h1>';
 
-echo '<p>Numbers of articles per year</p>' . "\n";
+echo '<table cellpadding="4">' . "\n";
+echo '<tr><td>References</td><td style="text-align:right;">';
+echo $num_references .'</td></tr>' . "\n";
+echo '<tr><td>Authors</td><td style="text-align:right;">' . $num_authors . '</td></tr>';
+echo '<tr><td>Journals</td><td style="text-align:right;">' . $num_journals . '</td></tr>' . "\n";
+echo '</table>';
+
+echo '<p>Distribution of articles over time</p>' . "\n";
 echo '<img src="' . sparkline_references('', '', 360,100) . '" alt="sparkline" align="top"/>' . "\n";
 
 
