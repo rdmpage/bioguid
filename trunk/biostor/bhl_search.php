@@ -917,6 +917,14 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(8255, 8256);
 				break;
 				
+			// Transactions of the American Entomological Society
+			case 7830:
+			case 7549:
+			case 5795:
+				$title_list = array(5795, 7549, 7830);
+				break;
+			
+				
 			// Transactions of the Connecticut Academy of Arts and Sciences
 			case 7541:
 			case 5604:

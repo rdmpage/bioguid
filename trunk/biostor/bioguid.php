@@ -25,9 +25,14 @@ function issn_from_title($title)
 	$url = 'http://bioguid.info/services/journalsuggest.php?title=' . urlencode($title);
 	$json = get($url);
 		
+		
 	if ($json != '')
 	{
+	
 		$obj = json_decode($json);
+		
+		//print_r($obj);
+		
 		if (count($obj->results) > 0)
 		{
 			$issn = $obj->results[0]->issn;

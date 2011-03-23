@@ -197,11 +197,11 @@ function bhl_fetch_page_image ($PageID)
 				fclose($cache_file);
 				
 				// resize to 800 px wide to save space
-				$command = $config['mogrify']  . ' -resize 800 ' . $image->file_name;
+				$command = 'nice ' . $config['mogrify']  . ' -resize 800 ' . $image->file_name;
 				system($command);
 
 				// thumbnail
-				$command = $config['convert']  . ' -thumbnail 100 ' . $image->file_name . ' ' . $image->thumbnail->file_name;
+				$command = 'nice ' . $config['convert']  . ' -thumbnail 100 ' . $image->file_name . ' ' . $image->thumbnail->file_name;
 				system($command);
 			}
 		}
