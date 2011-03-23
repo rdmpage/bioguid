@@ -173,6 +173,59 @@ function matching_pages($publication, $year)
 		}
 	}
 	
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>.*),\s+(?<volume>\d+),\s+(?<page>\d+)\.$/Uu', $publication, $matches))
+		{
+			$matched = true;
+		}
+	}	
+	
+	
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>.*),\s+(?<volume>\d+),\s+(?<page>\d+)/Uu', $publication, $matches))
+		{
+			$matched = true;
+		}
+	}	
+	
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>.*),\s+(?<volume>\d+),\s+(?<page>\d+),/Uu', $publication, $matches))
+		{
+			$matched = true;
+		}
+	}		
+	
+	// Proc. U.S. nat. Mus., 99, no. 3247, 475.
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>.*),\s+(?<volume>\d+), no. (?<issue>\d+),\s+(?<page>\d+)\.$/Uu', $publication, $matches))
+		{
+			$matched = true;
+		}
+	}	
+	
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>.*),\s+(?<volume>\d+) \((?<issue>\d+)\),\s+(?<page>\d+)\.$/Uu', $publication, $matches))
+		{
+			$matched = true;
+		}
+	}	
+	
+	// Spixiana 7 (2): 125.
+	if (!$matched)
+	{
+		if (preg_match('/(?<journal>.*)\s+(?<volume>\d+) \((?<issue>\d+)\):\s+(?<page>\d+)\.$/Uu', $publication, $matches))
+		{
+			$matched = true;
+		}
+	}		
+	
+	//print_r($matches);
+	
 	
 	if (!$matched)
 	{
@@ -447,7 +500,7 @@ function main()
 		// Not found
 		if ($format == 'html')
 		{
-			echo '<span style="background-color:red;color:white;">Oops, I don\'t understand the citation "' . $result->publication . '"</span>';
+			echo '<span style="background-color:red;color:white;">Couldn\'t find anything matching the citation "' . $result->publication . '"</span>';
 		}
 		if ($format == 'json')
 		{

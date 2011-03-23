@@ -127,6 +127,34 @@ function parse_bhl_date($str, &$info)
 		echo $str . '<br/>';
 	}
 	
+	// n.s., v. 4 1856-58
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/n.s., v. (?<volume>\d+) (?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})/", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}	
+	}
+	
+	// 3rd ser., v. 3 1864-69
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/(?<series>\d+)rd ser., v. (?<volume>\d+) (?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})/", $str, $m))
+		{
+			$info->series = $m['series'];
+			$info->volume = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}	
+	}
+	
+	
 	// ser. 2 v. 6 (1894-1897)
 	if (!$matched)
 	{
