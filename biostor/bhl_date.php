@@ -127,6 +127,31 @@ function parse_bhl_date($str, &$info)
 		echo $str . '<br/>';
 	}
 	
+	// no. 86 (June 1999)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^no. (?<volume>\d+) \(\w+ (?<year>[0-9]{4})\)$/", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}
+	
+	// arg. 59 (1902)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^arg. (?<volume>\d+) \((?<year>[0-9]{4})\)$/", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}
+	
+	
 	// n.s., v. 4 1856-58
 	if (!$matched)
 	{
