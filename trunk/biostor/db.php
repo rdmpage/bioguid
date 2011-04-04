@@ -430,6 +430,8 @@ function db_retrieve_articles_from_journal ($issn='', $oclc='')
 	$sql .= 'ORDER BY CAST(volume AS SIGNED), CAST(spage AS SIGNED)';
 	
 	// , CAST(issue AS SIGNED)
+	
+	//echo $sql;
 
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
@@ -1202,6 +1204,19 @@ function db_find_article($article, $allow_non_bhl = false)
 	global $db;
 
 	$id = 0;
+	
+	// Ensure we have enough info
+	// Otherwise tools like the Google Bot may cause spurious records to be added
+	
+	if (
+		!isset($article->volume)
+		|| !isset($article->spage)
+		|| !(isset($article->secondary_title) || isset($article->issn))
+		)
+	{
+		return $id;
+	}
+	
 	
 	// Does a reference exist?
 	

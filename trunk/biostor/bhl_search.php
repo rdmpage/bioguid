@@ -656,6 +656,11 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 		case '0341-8391':
 			$obj->TitleID = 40214;
 			break;
+			
+		// Iheringia. Série zoologia
+		case '0073-4721':
+			$obj->TitleID=50228;
+			break;
 		
 		default:
 			break;
@@ -862,6 +867,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 7410:
 			case 15798:
 				$title_list = array(7410, 15798);
+				break;	
+				
+			// Öfversigt af Kongl. Vetenskaps-akademiens forhandlingar
+			case 2515:
+			case 15534:
+				$title_list = array(2515, 15534);
 				break;	
 				
 			// Notes from the Leyden Museum
