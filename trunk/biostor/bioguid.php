@@ -21,21 +21,63 @@ require_once (dirname(__FILE__) . '/reference.php');
  */
 function issn_from_title($title)
 {
-	$issn = '';
-	$url = 'http://bioguid.info/services/journalsuggest.php?title=' . urlencode($title);
-	$json = get($url);
-		
-		
-	if ($json != '')
-	{
+	global $db;
 	
-		$obj = json_decode($json);
+	$issn = '';
+	
+	if (1)
+	{
+		// local
+		$str = $title;
+		$str = str_replace(' of ', ' ', $str);
+		$str = str_replace(' for ', ' ', $str);
+		$str = preg_replace('/^The /', '', $str);
+	
+		$str = str_replace('(', '', $str);
+		$str = str_replace(')', '', $str);
+	
+		$str = str_replace(',', '', $str);
+		$str = str_replace(':', '', $str);
+		$str = str_replace('\'', '', $str);
+		$str = str_replace('.', '%', $str);
 		
-		//print_r($obj);
+		$str = preg_replace('/\s\s*/', ' ', $str);
 		
-		if (count($obj->results) > 0)
+		$str = str_replace (' ', '%', $str);
+		$str .= '%';
+			
+		$sql = 'SELECT * FROM issn
+			WHERE title LIKE ' .  $db->Quote($str) .'
+			ORDER BY title
+			LIMIT 10';
+			
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed"); 
+		
+		if ($result->NumRows() > 0)
 		{
-			$issn = $obj->results[0]->issn;
+			$issn = $result->fields['issn'];
+		}
+	}
+	else
+	{
+		// Server
+		
+		$url = 'http://bioguid.info/services/journalsuggest.php?title=' . urlencode($title);
+		$json = get($url);
+			
+			
+		if ($json != '')
+		{
+		
+			$obj = json_decode($json);
+			
+			//print_r($obj);
+			
+			if (count($obj->results) > 0)
+			{
+				$issn = $obj->results[0]->issn;
+			}
 		}
 	}
 	return $issn;

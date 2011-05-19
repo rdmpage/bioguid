@@ -262,6 +262,8 @@ function store(form_id, page_id)
 	
 	var url = "' . $config['web_root'] . 'update.php";
 	var pars = $(form).serialize() + "&PageID=" + page_id + "&update=true";
+	
+	//alert (page_id);
 	var myAjax = new Ajax.Request(url, {method:"post", postBody:pars, onSuccess:success, onFailure:failure});
 }
 
@@ -269,6 +271,7 @@ function updateSuccess (t)
 {
 	var s = t.responseText.evalJSON();
 	//alert(t.responseText);
+	//alert("hi");
 	if (s.is_valid)
 	{
 		// we\'ve updated metadata, so reload page (or do ajax calls, but reload is easier)

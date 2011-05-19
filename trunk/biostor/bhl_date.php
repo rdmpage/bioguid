@@ -127,6 +127,45 @@ function parse_bhl_date($str, &$info)
 		echo $str . '<br/>';
 	}
 	
+	// 4e sér.:t.10e (1870)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/(?<series>\d+)e sér.:t.(?<volume>\d+)e \((?<year>[0-9]{4})\)$/", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}
+	
+	
+	// v. 1F (1958)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^v. (?<volume>\d+[A-Z]) \((?<year>[0-9]{4})\)$/", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}
+
+	// v. 1D (1956-57)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^v. (?<volume>\d+[A-Z]) \((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})\)$/", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}	
+	}
+	
+	
 	// no. 86 (June 1999)
 	if (!$matched)
 	{
