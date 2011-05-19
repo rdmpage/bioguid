@@ -661,6 +661,10 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 		case '0073-4721':
 			$obj->TitleID=50228;
 			break;
+			
+		case '0084-5620':
+			$obj->TitleID=45493;
+			break;
 		
 		default:
 			break;
@@ -835,7 +839,8 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 4050:
 			case 16171:
 			case 16222:
-				$title_list = array(4050, 16171, 16222);
+			case 5474:
+				$title_list = array(4050, 16171, 16222, 5474);
 				break;	
 				
 			// Mitteilungen aus dem Naturhistorischen Museum in Hamburg
@@ -884,7 +889,8 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			// Proceedings of the Biological Society of Washington
 			case 2211:
 			case 3622:
-				$title_list = array(2211, 3622);
+			case 50687:
+				$title_list = array(2211, 3622, 50687);
 				break;
 
 			// Proceedings of the California Academy of Sciences
@@ -966,6 +972,14 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 8941:
 				$title_list = array(5027, 8941);
 				break;
+
+			// Zoologische Jahrbücher
+			case 8980:
+			case 13352:
+				$title_list = array(8980, 13352);
+				break;
+			
+				
 
 			default:
 				break;

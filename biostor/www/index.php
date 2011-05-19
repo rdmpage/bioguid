@@ -19,6 +19,8 @@ header("Content-type: text/html; charset=utf-8\n\n");
 echo html_html_open();
 echo html_head_open();
 
+echo '<meta name="google-site-verification" content="G0IJlAyehsKTOUGWSc-1V2RMtYQLnqXs440NUSxbYgA" />';
+
 //echo html_include_link('application/rdf+xml', 'RSS 1.0', 'rss.php?format=rss1', 'alternate');
 echo html_include_link('application/atom+xml', 'ATOM', 'rss.php?format=atom', 'alternate');
 
@@ -365,6 +367,7 @@ echo '</tr>';
 $sql = 'SELECT secondary_title, issn, COUNT(reference_id) AS c
 FROM rdmp_reference
 WHERE PageID <>0
+AND (issn IS NOT NULL)
 GROUP BY issn
 ORDER BY c DESC
 LIMIT 5,5';

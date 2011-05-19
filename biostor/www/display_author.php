@@ -101,8 +101,10 @@ class DisplayAuthor extends DisplayObject
 		}
 		else
 		{
+			/* Turn off
 			$graph_url = $config['web_root'] . 'cgi-bin/neato.cgi/' .  $config['web_root'] . 'coauthor/' . $this->id . '.png';
 			echo '<img src="' . $graph_url . '" alt="graph" align="top"/>';
+			*/
 		}
 		echo '</div>';
 

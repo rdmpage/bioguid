@@ -1812,6 +1812,9 @@ function db_store_article($article, $PageID = 0, $updating = false)
 			$page_range = 
 				bhl_page_range($PageID, 0);				
 		}
+		
+		//print_r($page_range);
+		
 		$count = 0;
 		foreach ($page_range as $page)
 		{
@@ -2010,14 +2013,16 @@ function log_access($reference_id, $doctype='html')
 {
 	global $db;
 	
+	
 	$ip = getip();
 	$sql = 'INSERT INTO rdmp_log(reference_id, ip, useragent, doctype) VALUES('
 		. $reference_id 
 		. ', '.  'INET_ATON(\'' . $ip . '\')'
 		. ',' . $db->qstr($_SERVER['HTTP_USER_AGENT'])
 		. ',' . $db->qstr($doctype) . ')';
-	$result = $db->Execute($sql);
-	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+	
+	//$result = $db->Execute($sql);
+	//if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 	
 }
 

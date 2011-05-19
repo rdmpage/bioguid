@@ -212,6 +212,9 @@ function get($url, $userAgent = '', $timeout = 0)
 			$data = $curl_result;
 		}
 	}
+	
+	curl_close($ch);
+	
 	return $data;
 }
 
@@ -369,6 +372,9 @@ function get($url, $userAgent = '', $timeout = 0)
 			if ($sql_result == false) die("failed [" . __LINE__ . "]: " . $sql);
 		}
 	}
+	
+	curl_close($ch);
+	
 	return $result;
 }
 

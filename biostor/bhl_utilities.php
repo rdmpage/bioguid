@@ -189,20 +189,30 @@ function bhl_fetch_page_image ($PageID)
 		// Only fetch it we don't have cached copy	
 		if (!file_exists($image->thumbnail->file_name))
 		{
-			$bits = get($image->ExternalURL);
-			if ($bits != '')
+			if (1) // 0 to stop fetching images
 			{
-				$cache_file = @fopen($image->file_name, "w+") or die(__LINE__ . " could't open file --\"$image->file_name\"");
-				@fwrite($cache_file, $bits);
-				fclose($cache_file);
-				
-				// resize to 800 px wide to save space
-				$command = 'nice ' . $config['mogrify']  . ' -resize 800 ' . $image->file_name;
-				system($command);
-
-				// thumbnail
-				$command = 'nice ' . $config['convert']  . ' -thumbnail 100 ' . $image->file_name . ' ' . $image->thumbnail->file_name;
-				system($command);
+				$bits = get($image->ExternalURL);
+				if ($bits != '')
+				{
+					$cache_file = @fopen($image->file_name, "w+") or die(__LINE__ . " could't open file --\"$image->file_name\"");
+					@fwrite($cache_file, $bits);
+					fclose($cache_file);
+					
+					// resize to 800 px wide to save space
+					
+					if (0)
+					{
+						// turned off as slows things down, and can lead to gray pages	
+						$command = 'nice ' . $config['mogrify']  . ' -resize 800 ' . $image->file_name;
+						system($command);
+					}
+	
+					// thumbnail
+					$command = $config['convert']  . ' -thumbnail 100 ' . $image->file_name . ' ' . $image->thumbnail->file_name . '  2>&1 &';
+					//system($command);
+					
+					passthru($command);
+				}
 			}
 		}
 		
