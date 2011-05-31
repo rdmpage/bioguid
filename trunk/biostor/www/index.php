@@ -19,7 +19,9 @@ header("Content-type: text/html; charset=utf-8\n\n");
 echo html_html_open();
 echo html_head_open();
 
-echo '<meta name="google-site-verification" content="G0IJlAyehsKTOUGWSc-1V2RMtYQLnqXs440NUSxbYgA" />';
+echo '<meta name="google-site-verification" content="G0IJlAyehsKTOUGWSc-1V2RMtYQLnqXs440NUSxbYgA" />' . "\n";
+
+echo '<META name="y_key" content="77957dfab6d01a40" />' . "\n";
 
 //echo html_include_link('application/rdf+xml', 'RSS 1.0', 'rss.php?format=rss1', 'alternate');
 echo html_include_link('application/atom+xml', 'ATOM', 'rss.php?format=atom', 'alternate');
