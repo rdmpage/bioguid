@@ -127,6 +127,31 @@ function parse_bhl_date($str, &$info)
 		echo $str . '<br/>';
 	}
 	
+	// no. 202 v. 2 1960
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/no.\s+(?<volume>\d+) v. \d+ (?<year>[0-9]{4})$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}
+	
+	
+	// Jaarg.1 (1863)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/Jaarg\.(?<volume>\d+)\b(.*)\((?<year>[0-9]{4})\)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}
+	
 	// 4e sér.:t.10e (1870)
 	if (!$matched)
 	{
