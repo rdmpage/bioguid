@@ -189,7 +189,15 @@ function bhl_fetch_page_image ($PageID)
 		// Only fetch it we don't have cached copy	
 		if (!file_exists($image->thumbnail->file_name))
 		{
-			if (1) // 0 to stop fetching images
+			if (!$config['fetch_images']) 
+			{
+				$image->file_name = dirname(__FILE__) . '/www/images/blank350x500.png';
+				$image->thumbnail->file_name =  dirname(__FILE__) . '/www/images/blank70x100.png';
+				
+				$image->thumbnail->url = 'images/blank70x100.png';
+				$image->url = 'images/blank350x500.png';
+			}
+			else
 			{
 				$bits = get($image->ExternalURL);
 				if ($bits != '')
