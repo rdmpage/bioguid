@@ -289,6 +289,7 @@ function formToOpenurl()
 	
 	var parameters=[];
 	parameters.push('url_ver=Z39.88-2004');
+	var delimiter = '&';
 	
 	// Iterate over form elements to get list of parameters for OpenURL
 	$(':input', '#openurl').each(function() {
@@ -310,6 +311,15 @@ function formToOpenurl()
 					}
 					break;
 					
+				case 'authors':
+					var authorstring = this.value.replace(/^\s+|\s+$/g, '');
+					var authors = authorstring.split("\n");
+					for (var i in authors)
+					{
+						parameters.push(openurl_keys[this.name] + '=' + encodeURIComponent(authors[i]));
+					}
+					break;
+					
 				default:
 					if (this.name in openurl_keys)
 					{
@@ -320,7 +330,7 @@ function formToOpenurl()
 		}
 	});
   
-	var openurl = parameters.join("&");
+	var openurl = parameters.join(delimiter);
 
 	return openurl;
 }
@@ -410,6 +420,21 @@ function findFromMetadata()
 				$('#pmid').val(data.pmid);
 			}
 			else { $('#pmid').val(''); }
+			
+			// We found reference, so update form details
+			if (data.hdl)
+			{
+				$('#hdl').val(data.hdl);
+			}
+			else { $('#hdl').val(''); }
+			
+			
+			// We found reference, so update form details
+			if (data.url)
+			{
+				$('#url').val(data.url);
+			}
+			else { $('#url').val(''); }			
 			
 			
 			$('#bioguid_progress').fadeOut(1000);
@@ -552,10 +577,11 @@ function findInBiostor()
 		{
 			found = true;
 			
-			$('#bioguid_progress').attr('src', 'images/accept.png');		
+			$('#bioguid_progress').attr('src', 'images/accept.png');	
+
 			// Update URL field in form
 			$('#biostor').val(data.reference_id);
-			biostor_enable();
+			biostor_enable();			
 			
 			$('#bioguid_progress').fadeOut(1000);			
 		}
