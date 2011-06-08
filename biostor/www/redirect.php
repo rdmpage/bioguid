@@ -24,7 +24,7 @@ $_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
  
 /* If last connection failed don't display authorization link. */
 
-echo $connection->http_code;
+//echo $connection->http_code;
 
 switch ($connection->http_code) {
   case 200:

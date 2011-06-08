@@ -344,6 +344,7 @@ echo '<p>Number of articles per journal (<a href="journals.php">more...</a>). Ge
 $sql = 'SELECT secondary_title, issn, COUNT(reference_id) AS c
 FROM rdmp_reference
 WHERE PageID <>0
+AND issn IS NOT NULL
 GROUP BY issn
 ORDER BY c DESC
 LIMIT 5';
