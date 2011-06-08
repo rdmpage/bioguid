@@ -35,6 +35,9 @@ function search($query)
 		'hl'				=> 'on',
 		'hl.fl'				=> 'citation',
 		
+		// number of results to return
+		'rows'				=> 30,
+		
 		// JSON
 		'wt' 				=> 'json'
 		);
@@ -42,6 +45,7 @@ function search($query)
 	$url = 'http://localhost:8983/solr/select?';
 	
 	
+	// We need to remove the square brackets from the URL
 	
 	$query_string = http_build_query($params);
 	$query_string = preg_replace('/%5B(?:[0-9]|[1-9][0-9]+)%5D=/', '=', $query_string);	
@@ -107,7 +111,7 @@ if (isset($_GET['q']))
 		
 		//print_r($hits->facet_counts->facet_fields);
 		
-		echo '<ul>';
+		echo '<ul style="font-size:10px;">';
 		foreach ($hits->facet_counts->facet_fields as $k => $v)
 		{
 			echo '<li>';
