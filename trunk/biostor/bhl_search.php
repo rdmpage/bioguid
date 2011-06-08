@@ -763,6 +763,11 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 		$title_list = array();
 		switch ($obj->TitleID)
 		{
+			// Annali del Museo civico di storia naturale di Genova
+			case 7929:
+			case 9576:
+				$title_list = array(7929, 9576);
+				break;
 				
 			// Annales de la Société entomologique de Belgique
 			case 11933:
