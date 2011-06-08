@@ -694,5 +694,32 @@ function reference_to_mendeley($reference)
 	return $obj;
 }
 
+//--------------------------------------------------------------------------------------------------
+function reference_to_solr($reference)
+{
+	$obj  = reference_to_mendeley($reference);
+	
+
+	$item = array();
+	$item['id'] 				= 'reference/' . $reference->reference_id;
+	$item['title'] 				= $obj->title;
+	$item['publication_outlet'] = $obj->publication_outlet;
+	$item['year'] 				= $obj->year;
+	
+	$authors = array();
+	foreach ($obj->authors as $a)
+	{
+		$authors[] = $a->forename . ' ' . $a->surname;
+	}
+	$item['authors'] = $authors;
+	$item['citation'] = reference_authors_to_text_string($reference)
+		. ' ' . $reference->year 
+		. ' ' . $reference->title
+		. ' ' . reference_to_citation_text_string($reference);
+
+	return $item;
+}
+
+
 
 ?>
