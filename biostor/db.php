@@ -17,6 +17,8 @@ require_once (dirname(__FILE__) . '/utilities.php');
 
 require_once (dirname(__FILE__) . '/twitter.php');
 
+require_once(dirname(__FILE__) . '/Apache/Solr/Service.php');
+
 
 //--------------------------------------------------------------------------------------------------
 $db = NewADOConnection('mysql');
@@ -1763,21 +1765,149 @@ function db_store_article($article, $PageID = 0, $updating = false)
 	}
 	
 	// Indexing-------------------------------------------------------------------------------------
-	$sql = 'DELETE FROM rdmp_text_index WHERE (object_uri=' . $db->qstr($config['web_root'] . 'reference/' . $id) . ')';
-	$result = $db->Execute($sql);
-	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 	
-	// Only do this if we have a title, as sometimes we don't (e.g. CrossRef lacks metadata)
-	if (isset($article->title))
+	if (1)
 	{
-		$sql = 'INSERT INTO rdmp_text_index(object_type, object_id, object_uri, object_text)
-		VALUES ("title"'
-		. ', ' . $id 
-		. ', ' . $db->qstr($config['web_root'] . 'reference/' . $id) 
-		. ', ' . $db->qstr($article->title) 
-		. ')';
+		// solr
+		
+		// this code is redundant with code in reference.php but I use different objects
+		// here and there (doh!). Also once we've added old stuff to solr this is the only place we 
+		// should be calling solr
+		
+		$solr = new Apache_Solr_Service( 'localhost', '8983', '/solr' );
+  
+		  if ( ! $solr->ping() ) {
+			echo 'Solr service not responding.';
+			exit;
+		  }		
+		
+		$item = array();
+		$item['id'] 				= 'reference/' . $id;
+		$item['title'] 				= $article->title;
+		$item['publication_outlet'] = $article->secondary_title;
+		$item['year'] 				= $article->year;
+		
+		$authors = array();
+		foreach ($article->authors as $a)
+		{
+			$authors[] = $a->forename . ' ' . $a->surname;
+		}
+		
+		$item['authors'] = $authors;
+		
+		$citation = '';
+		$citation .= ' ' . $article->year;
+		$citation .= ' ' . $article->title;
+		$citation .= ' ' . $article->secondary_title;
+		$citation .= ' ' . $article->volume;
+		if (isset($article->issue))
+		{
+			$citation .= '(' . $article->issue . ')';
+		}		
+		$citation .= ':';
+		$citation .= ' ';
+		$citation .= $article->spage;
+		if (isset($article->epage))
+		{
+			$citation .= '-' . $article->epage;
+		}
+		
+		$item['citation'] = $citation;
+		
+		$text = '';
+		$num_authors = count($article->authors);
+		$count = 0;
+		if ($num_authors > 0)
+		{
+			foreach ($article->authors as $author)
+			{
+				$text .= $author->forename . ' ' . $author->lastname;
+				if (isset($author->suffix))
+				{
+					$text .= ' ' . $author->suffix;
+				}
+				$count++;
+				
+				if ($count == 2 && $num_authors > 3)
+				{
+					$text .= ' et al.';
+					break;
+				}
+				if ($count < $num_authors -1)
+				{
+					$text .= ', ';
+				}
+				else if ($count < $num_authors)
+				{
+					$text .= ' and ';
+				}			
+			}
+		}		
+		
+				
+		
+		$item['citation'] = $text . ' ' . $citation;
+		
+		$parts = array();
+		$parts[] = $item;
+		
+		//print_r($parts);
+		
+		// add to solr
+		
+	 	$documents = array();
+		  
+		  foreach ( $parts as $item => $fields ) {
+			$part = new Apache_Solr_Document();
+			
+			foreach ( $fields as $key => $value ) {
+			  if ( is_array( $value ) ) {
+				foreach ( $value as $datum ) {
+				  $part->setMultiValue( $key, $datum );
+				}
+			  }
+			  else {
+				$part->$key = $value;
+			  }
+			}
+			
+			$documents[] = $part;
+		  }
+			
+		  //
+		  //
+		  // Load the documents into the index
+		  // 
+		  try {
+			$solr->addDocuments( $documents );
+			$solr->commit();
+			$solr->optimize();
+		  }
+		  catch ( Exception $e ) {
+			echo $e->getMessage();
+		  }		
+
+		
+		
+	}
+	else
+	{
+		$sql = 'DELETE FROM rdmp_text_index WHERE (object_uri=' . $db->qstr($config['web_root'] . 'reference/' . $id) . ')';
 		$result = $db->Execute($sql);
 		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+		
+		// Only do this if we have a title, as sometimes we don't (e.g. CrossRef lacks metadata)
+		if (isset($article->title))
+		{
+			$sql = 'INSERT INTO rdmp_text_index(object_type, object_id, object_uri, object_text)
+			VALUES ("title"'
+			. ', ' . $id 
+			. ', ' . $db->qstr($config['web_root'] . 'reference/' . $id) 
+			. ', ' . $db->qstr($article->title) 
+			. ')';
+			$result = $db->Execute($sql);
+			if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+		}
 	}
 	
 	// Versioning-----------------------------------------------------------------------------------
