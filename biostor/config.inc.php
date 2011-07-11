@@ -12,7 +12,7 @@
 global $config;
 
 // Date timezone
-date_default_timezone_set('UTC');
+date_default_timezone_set('Europe/London');
 
 // Default encoding
 mb_internal_encoding("UTF-8");
@@ -52,6 +52,7 @@ $config['proxy_port'] 	= '8080';
 // Tools--------------------------------------------------------------------------------------------
 
 $config['convert'] 	= '/usr/local/bin/convert';
+$config['mogrify'] 	= '/usr/local/bin/mogrify';
 
 // Keys---------------------------------------------------------------------------------------------
 
@@ -70,11 +71,19 @@ define('CONSUMER_KEY', '');
 define('CONSUMER_SECRET', '');
 define('OAUTH_CALLBACK', 'http://biostor.org/callback.php');
 
+// Twitter API @biostor_org
+$config['twitter_oauth_token'] 			= '';
+$config['twitter_oauth_token_secret'] 	= '';
+
+$config['twitter_consumer_key'] 		= '';
+$config['twitter_consumer_secret'] 		= '';
+
 // Flags--------------------------------------------------------------------------------------------
 
 $config['use_mendeley_oauth'] 	= true;
 $config['use_disqus'] 			= true;
 $config['use_uservoice'] 		= true;
 
+$config['fetch_images'] 		= true; // false to suppress fetching of images, useful when adding lots of references
 
 ?>
