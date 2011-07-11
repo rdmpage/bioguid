@@ -1762,6 +1762,14 @@ function db_store_article($article, $PageID = 0, $updating = false)
 		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 
 		$id = $db->Insert_ID();
+		
+		// Store reference_cluster_id which we can use to group duplicates, by default 
+		// reference_cluster_id = reference_id
+		$sql = 'UPDATE rdmp_reference SET reference_cluster_id=' . $id . ' WHERE reference_id=' . $id;
+		
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+		
 	}
 	
 	// Indexing-------------------------------------------------------------------------------------

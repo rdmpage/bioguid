@@ -25,7 +25,7 @@ function issn_from_title($title)
 	
 	$issn = '';
 	
-	if (1)
+	if (0) // local version
 	{
 		// local
 		$str = $title;
@@ -65,7 +65,10 @@ function issn_from_title($title)
 		
 		$url = 'http://bioguid.info/services/journalsuggest.php?title=' . urlencode($title);
 		$json = get($url);
+		
+		//echo $url;
 			
+		//echo $json;
 			
 		if ($json != '')
 		{

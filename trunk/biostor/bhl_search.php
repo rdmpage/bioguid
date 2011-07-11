@@ -807,6 +807,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				break;
 				
 			// Bulletin de la Société botanique de France
+			case 5064:
+			case 9580:
+				$title_list = array(5064,9580);
+				break;
+				
+			// Bulletin de la Société philomathique de Paris
 			case 359:
 			case 5948:
 				$title_list = array(359,5948);

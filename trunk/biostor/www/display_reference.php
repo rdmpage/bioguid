@@ -416,7 +416,7 @@ Event.observe(window, \'load\', function() {
 		echo '<h2>Identifiers</h2>' . "\n";
 		echo '<ul class="guid-list">' . "\n";
 			
-		echo '<li class="permalink"><a href="' . $config['web_root'] . 'reference/' . $this->id . '" title="Permalink">' . $config['web_root'] . 'reference/' . $this->id . '</a></li>' . "\n";	
+		echo '<li class="permalink">' . '<div itemscope itemtype="http://schema.org/ScholarlyArticle">' . '<a href="' . $config['web_root'] . 'reference/' . $this->id . '" title="Permalink">' . $config['web_root'] . 'reference/' . $this->id . '</a>' . '</div>' . '</li>' . "\n";	
 		if ($this->in_bhl)
 		{
 			echo '<li class="bhl"><a href="http://www.biodiversitylibrary.org/page/' . $this->object->PageID . '" target="_new" title="BHL page">' .  $this->object->PageID . '</a></li>' . "\n";
@@ -471,8 +471,11 @@ Event.observe(window, \'load\', function() {
 
 		echo '</div>' . "\n";
 		
-		
-		echo '<h1>' . $this->GetTitle() . '</h1>' . "\n";
+		//------------------------------------------------------------------------------------------
+		echo '<div itemscope itemtype="http://schema.org/ScholarlyArticle">';
+
+
+		echo '<h1>' . '<div itemprop="name">' . $this->GetTitle() . '</div>' . '</h1>' . "\n";
 		
 		//------------------------------------------------------------------------------------------
 		// Authors
@@ -508,6 +511,7 @@ Event.observe(window, \'load\', function() {
 		//------------------------------------------------------------------------------------------
 		// Metadata and COinS
 		echo '<div>' . "\n";
+		echo '<div itemprop="description">';
 		echo '<span class="journal">';
 		
 		// Various options for linking journal.
@@ -552,6 +556,9 @@ Event.observe(window, \'load\', function() {
 		}
 		echo reference_to_coins($this->object);
 		echo '</div>' . "\n";
+		echo '</div>' . "\n";
+		
+		echo '</div>'; // schema
 		
 		//------------------------------------------------------------------------------------------
 		// When record added and updated
