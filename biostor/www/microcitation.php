@@ -156,6 +156,16 @@ function matching_pages($publication, $year)
 	$matched = false;
 
 	// Parse citation
+	
+	if (!$matched)
+	{
+		//echo $publication;
+		if (preg_match('/(?<journal>.*)\s+(?<volume>\d+):\s*(?<page>\d+)\.?$/Uu', $publication, $matches)) 
+		{
+			$matched = true;
+		}
+	}
+	
 	if (!$matched)
 	{
 		if (preg_match('/(?<journal>.*),\s+(\((?<series>.*)\)\s+)?(?<volume>\d+),(\s+\((?<issue>\d+)\))?\s+(?<page>\d+)\.$/Uu', $publication, $matches))
@@ -225,6 +235,7 @@ function matching_pages($publication, $year)
 	}		
 	
 	//print_r($matches);
+	//echo $publication;
 	
 	
 	if (!$matched)
