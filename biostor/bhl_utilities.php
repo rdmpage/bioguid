@@ -134,6 +134,8 @@ function bhl_fetch_page_image ($PageID)
 	WHERE (PageID=' . $PageID . ') 
 	LIMIT 1';
 	
+	//echo $sql;
+	
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 
@@ -183,6 +185,8 @@ function bhl_fetch_page_image ($PageID)
 		$image->file_name = $cache_namespace . "/" . $FileNamePrefix . '.jpg'; 
 		$image->url = $config['web_root']  . $config['cache_prefix'] . '/' .  $ItemID . "/" . $FileNamePrefix . '.jpg'; 	
 		
+		//echo $image->url . "\n";
+		
 		$image->thumbnail->file_name = $cache_namespace . "/thumbnails/" . $FileNamePrefix . '.gif'; 
 		$image->thumbnail->url = $config['web_root']  . $config['cache_prefix'] . '/' .  $ItemID . "/thumbnails/" . $FileNamePrefix . '.gif'; 
 		
@@ -199,6 +203,8 @@ function bhl_fetch_page_image ($PageID)
 			}
 			else
 			{
+				//echo $image->ExternalURL . "\n";
+			
 				$bits = get($image->ExternalURL);
 				if ($bits != '')
 				{
@@ -243,7 +249,7 @@ function bhl_fetch_page_image ($PageID)
 
 if (0)
 {
-	$PageID = 3190367;
+	$PageID = 34570568;
 	
 	bhl_fetch_page_image($PageID);
 	

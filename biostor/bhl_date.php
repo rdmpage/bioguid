@@ -126,6 +126,17 @@ function parse_bhl_date($str, &$info)
 	{
 		echo $str . '<br/>';
 	}
+	// 4 (1970)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/(?<volume>\d+)\s+\((?<year>[0-9]{4})\)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}	
 	
 	// t. 12, Index t. 1-12 (1904)
 	if (!$matched)

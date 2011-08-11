@@ -146,10 +146,17 @@ if (isset($_GET['q']))
 			if (preg_match('/reference\/(?<id>\d+)/', $doc->id, $m))
 			{
 				$pages = bhl_retrieve_reference_pages($m['id']);
-				$image = bhl_fetch_page_image($pages[0]->PageID);
-				$imageURL = $image->thumbnail->url;
-			
-				echo '<img style="border:1px solid rgb(192,192,192);" src="' . $imageURL . '" width="40" />';
+				
+				if (isset($pages[0]->PageID))
+				{
+					$image = bhl_fetch_page_image($pages[0]->PageID);
+					$imageURL = $image->thumbnail->url;
+					echo '<img style="border:1px solid rgb(192,192,192);" src="' . $imageURL . '" width="40" />';
+				}
+				else
+				{
+					echo '<img style="border:1px solid rgb(192,192,192);" src="' . $config['web_root'] .  'images/blank70x100.png' . '" width="40" />';
+				}
 			}
 	
 			echo '</td>';

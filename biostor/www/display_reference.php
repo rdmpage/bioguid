@@ -75,6 +75,10 @@ class DisplayReference extends DisplayObject
 				case 'xml':
 					$this->format = 'xml';
 					break;					
+
+				case 'wikispecies':
+					$this->format = 'wikispecies';
+					break;					
 		
 				default:
 					parent::GetFormat();
@@ -115,6 +119,10 @@ class DisplayReference extends DisplayObject
 			case 'json':
 				$this->DisplayJSON();
 				break;
+
+			case 'wikispecies':
+				$this->DisplayWikispecies();
+				break;
 				
 
 			default:
@@ -140,6 +148,9 @@ class DisplayReference extends DisplayObject
 		echo html_include_script('js/prototype.js');
 		echo html_include_script('js/lazierLoad.js'); // not working for some reason...
 		echo html_include_script('js/viewer.js');
+		
+		// Google +1
+		echo html_include_script('http://apis.google.com/js/plusone.js');
 		
 		// Recaptcha
 		echo html_include_script('http://api.recaptcha.net/js/recaptcha_ajax.js');
@@ -568,6 +579,10 @@ Event.observe(window, \'load\', function() {
 		echo '</p>' . "\n";
 		
 		//------------------------------------------------------------------------------------------
+		// Social bookmarking
+		echo '<g:plusone size=”tall”></g:plusone>';
+		
+		//------------------------------------------------------------------------------------------
 		// Export options
 /*		echo '<h2>Export</h2>' . "\n";
 		echo '<div>' . "\n";
@@ -923,6 +938,14 @@ Event.observe(window, \'load\', function() {
 		// Dump XML
 		header("Content-type: text/xml; charset=utf-8\n\n");
 		echo $doc->saveXML();
+	}
+
+	//----------------------------------------------------------------------------------------------
+	// Wikispecies reference
+	function DisplayWikispecies()
+	{
+		header("Content-type: text/plain; charset=utf-8\n\n");
+		echo reference_to_wikispecies($this->object);
 	}
 	
 	
