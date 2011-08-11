@@ -720,6 +720,55 @@ function reference_to_solr($reference)
 	return $item;
 }
 
+//--------------------------------------------------------------------------------------------------
+/**
+ * @brief Export reference in Wikispecies format
+ *
+ * @param reference Reference object to be encoded
+ *
+ * @return Wikispecies
+ */
+function reference_to_wikispecies($reference)
+{
+	global $config;
+	
+	$wikispecies = '';
+	
+	// * {{aut|Baptista, A.R.P.}}; {{aut|Mathis, W.N.}} 1996: A new species of ''Cyamops'' Melander (Diptera: Periscelididae) from Brazil, with distributional notes on another species. ''Proceedings of the Entomological Society of Washington'', '''98''': 245-248.
+	
+	$count = 0;
+	$num_authors = count($reference->authors);
+	foreach ($reference->authors as $author)
+	{
+		$wikispecies .= "{{aut| " . $author->lastname . ", " . $author->forename . "}}";
+		$count++;
+		if ($count < $num_authors )
+		{
+			$wikispecies .= '; ';
+		}
+	}
+	$wikispecies .= ' ';
+	$wikispecies .= $reference->year . ': ';
+	$wikispecies .= $reference->title . '. ';
+	$wikispecies .= "''" . $reference->secondary_title . "'', ";
+	$wikispecies .= "'''" . $reference->volume . "''': ";
+	$wikispecies .= $reference->spage;
+	if (isset($reference->epage))
+	{
+		$wikispecies .= "-" . $reference->epage;
+	}	
+	$wikispecies .= ".";
+	
+	$wikispecies .= " [" . $config['web_root'] . 'reference/' . $reference->reference_id. " BioStor]";
+	
+	if (isset($reference->doi))
+	{
+		$wikispecies .= " {{doi|" . $reference->doi . "}}";
+	}
+	
+	return $wikispecies;
+}
+
 
 
 ?>

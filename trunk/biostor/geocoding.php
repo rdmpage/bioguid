@@ -402,6 +402,47 @@ function points_from_text($text)
 		}
 	}		
 	
+	// http://biostor.org/reference/4047
+	// 34°49'N 24°32'W
+	if (preg_match_all('/(
+		(?<latitude_degrees>([0-9]{1,2}))
+		[°]
+		(?<latitude_minutes>([0-9]+))\'
+		(?<latitude_hemisphere>[N|S])
+		\s+
+		(?<longitude_degrees>([0-9]{1,3}))
+		[°]
+		(?<longitude_minutes>([0-9]+))\'
+		(?<longitude_hemisphere>[W|E])
+		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
+	{
+		$num = count($matches[0]);
+		for ($i = 0; $i < $num; $i++)
+		{
+			$pt = new stdclass;
+
+			$seconds = '';
+			if (isset($matches['latitude_seconds'][$i]))
+			{
+				$seconds = $matches['latitude_seconds'][$i];
+			}
+			$minutes = $matches['latitude_minutes'][$i];
+			$degrees = $matches['latitude_degrees'][$i];
+			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+	
+			$seconds = '';
+			if (isset($matches['longitude_seconds'][$i]))
+			{
+				$seconds = $matches['longitude_seconds'][$i];
+			}
+			$minutes = $matches['longitude_minutes'][$i];
+			$degrees = $matches['longitude_degrees'][$i];
+			$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+			
+			$points[] = $pt;
+		}
+	}		
+	
 	
 	return $points;
 }
@@ -478,6 +519,19 @@ $text = 'Homestead (25.08S, 116.54E) in West- as long as scape';
 	 $text = '19� 09\' S., 36� 55\' E.';
 	 
 	 $text = 'St. 3998\'". 7°34\'S., 8°48\'W. 1. III. 1930. ';
+	 
+	 $text = "Azores Material. 109522, RA^ Atlantis II 49, RHB1916, 
+35°30'N 2r46'W, 39-41 m, 2229-0003 h, 24-25.VI.I969, 8:42- 
+48 mm SL; 109523, RA' Atlantis II 49, RHB1919, 35°56'N 
+22°40'W, 650-750 m, 0708-1030 h, 25.VI.I969, 3:40-43 mm 
+SL; 109524, RA^ Atlantis II 49, RHB1920, 36°23'N 23°35'W, 63- 
+65 m, 2045-2218 h, 25.VI.1969, 3:42-44 mm SL; 109591, RA' 
+Chain 105, RHB2551, 34°49'N 24°32'W, 700-740 m, 1620-1845 
+h, 08. VII. 1972, 1:45 mm SL; 109592, R/V Chain 105, RHB2552, 
+34°17'N 24°05'W, 60-70 m, 2158-2305 h, 08.VII.1972, 2:40-43 
+mm SL; 109671, RA' Delaware 7/63-04, DL63-04:012, 36°57'N 
+24°50'W, 180 m, 1730-1815 h, 12.V.1963, 1:42 mm SL. 
+Loweina rara (Lutken 1892) ";
 	 
 	print_r(points_from_text($text));
 	
