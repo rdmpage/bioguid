@@ -27,7 +27,9 @@ function tweet($update)
 
 	$parameters = array('status' => $update);
 	$status = $connection->post('statuses/update', $parameters);
-	print_r($status);
+	
+	// Don't uncomment this as it will break "Update" button in OpenURL results
+	//print_r($status);
 }
 
 // test
