@@ -6,7 +6,7 @@ date_default_timezone_set('Europe/London');
 
 $result = array();
 
-$dir = '/Volumes/Macintosh HD2/WebServer/biostor/cache/';
+$dir = '/Volumes/My Book/WebServer/biostor/cache/';
 $handle = opendir($dir);
 while ($datei = readdir($handle))
 {

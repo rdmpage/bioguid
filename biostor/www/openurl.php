@@ -204,7 +204,13 @@ function parse_openurl($params, &$referent)
 	{
 		$referent->volume= $match['volume'];
 		$referent->series= $match['series'];
-	}		
+	}	
+	
+	// Roman to Arabic volume
+	if (!is_numeric($referent->volume))
+	{
+		$referent->volume = arabic($referent->volume);
+	}
 	
 	// Author array might not be populated, in which case add author from aulast and aufirst fields
 	if ((count($referent->authors) == 0) && (isset($referent->aulast) && isset($referent->aufirst)))
@@ -543,10 +549,11 @@ var form = $(form_id);
 
 // Update database
 var success	= function(t){updateSuccess(t);}
+var failure	= function(t){updateFailure(t);}
 
 var url = "update.php";
 var pars = $(form).serialize() + "&PageID=" + page_id;
-var myAjax = new Ajax.Request(url, {method:"post", postBody:pars, onSuccess:success});
+var myAjax = new Ajax.Request(url, {method:"post", postBody:pars, onSuccess:success, onFailure:failure});
 }
 
 function updateSuccess (t)
@@ -568,7 +575,14 @@ Recaptcha.create("' . $config['recaptcha_publickey'] . '",
 });
 //fadeUp($(recaptcha_div),255,255,153);
 }
-}';
+}
+
+function updateFailure (t)
+{
+	var s = t.responseText.evalJSON();
+	alert("Badness happened:\n" + t.responseText);
+}'
+;
 
 // Based on http://ne0phyte.com/blog/2008/09/02/javascript-keypress-event/
 // and http://blog.evandavey.com/2008/02/how-to-capture-return-key-from-field.html

@@ -27,6 +27,7 @@ class DisplayReference extends DisplayObject
 	public $page = 0;
 	public $taxon_names = NULL;
 	public $in_bhl = false;
+	public $callback = '';
 	
 	//----------------------------------------------------------------------------------------------
 	function GetId()
@@ -38,6 +39,10 @@ class DisplayReference extends DisplayObject
 		if (isset($_GET['page']))
 		{
 			$this->page = $_GET['page'];
+		}
+		if (isset($_GET['callback']))
+		{
+			$this->callback = $_GET['callback'];
 		}
 	}	
 	
@@ -580,7 +585,7 @@ Event.observe(window, \'load\', function() {
 		
 		//------------------------------------------------------------------------------------------
 		// Social bookmarking
-		echo '<g:plusone size=”tall”></g:plusone>';
+		echo '<g:plusone size="tall"></g:plusone>';
 		
 		//------------------------------------------------------------------------------------------
 		// Export options
@@ -898,7 +903,15 @@ Event.observe(window, \'load\', function() {
 		// ?
 	
 		header("Content-type: text/plain; charset=utf-8\n\n");
+		if ($this->callback != '')
+		{
+			echo $this->callback . '(';
+		}
 		echo json_format(json_encode($j));
+		if ($this->callback != '')
+		{
+			echo ')';
+		}
 	}
 	
 	//----------------------------------------------------------------------------------------------
