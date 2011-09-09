@@ -466,7 +466,9 @@ function reference_to_atom($reference, &$feed, &$rss)
 
 	// id
 	$id = $entry->appendChild($feed->createElement('id'));
-	$id->appendChild($feed->createTextNode('urn:uuid:' . uuid()));
+//	$id->appendChild($feed->createTextNode('urn:uuid:' . uuid()));
+	$id->appendChild($feed->createTextNode( $config['web_root'] . 'reference/' . $reference->reference_id ));
+
 	
 	$description = '';
 	$description .= '<div>';
