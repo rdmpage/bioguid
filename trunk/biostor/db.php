@@ -657,7 +657,7 @@ function bhl_retrieve_item_pages($ItemID)
 	
 	$pages = array();
 	
-	$sql = 'SELECT DISTINCT(PageID), PagePrefix, PageNumber, SequenceOrder 
+	$sql = 'SELECT DISTINCT(PageID), PagePrefix, PageNumber, SequenceOrder, FileNamePrefix 
 	FROM bhl_page
 	INNER JOIN page USING(PageID)
 	WHERE (bhl_page.ItemID = ' . $ItemID . ')
@@ -669,10 +669,11 @@ function bhl_retrieve_item_pages($ItemID)
 	while (!$result->EOF) 
 	{
 		$page = new stdclass;
-		$page->PageID = $result->fields['PageID'];
-		$page->page_order = $result->fields['SequenceOrder'];
-		$page->PagePrefix = $result->fields['PagePrefix'];
-		$page->PageNumber = $result->fields['PageNumber'];
+		$page->PageID 			= $result->fields['PageID'];
+		$page->page_order 		= $result->fields['SequenceOrder'];
+		$page->PagePrefix 		= $result->fields['PagePrefix'];
+		$page->PageNumber 		= $result->fields['PageNumber'];
+		$page->FileNamePrefix 	= $result->fields['FileNamePrefix'];
 		
 		$pages[] = $page;
 		$result->MoveNext();
@@ -1966,24 +1967,27 @@ function db_store_article($article, $PageID = 0, $updating = false)
 	// Tweet----------------------------------------------------------------------------------------
 	if (!$update)
 	{
-		$url = $config['web_root'] . 'reference/' . $id . ' ' . '#bhlib'; // url + hashtag
-		$url_len = strlen($url);
-		$status = '';
-		if (isset($article->title))
+		if ($config['twitter'])
 		{
-			$status = $article->title;
-			$status_len = strlen($status);
-			$extra = 140 - $status_len - $url_len - 1;
-			if ($extra < 0)
+			$url = $config['web_root'] . 'reference/' . $id . ' ' . '#bhlib'; // url + hashtag
+			$url_len = strlen($url);
+			$status = '';
+			if (isset($article->title))
 			{
-				$status_len += $extra;
-				$status_len -= 1;
-				$status = substr($status, 0, $status_len);
-				$status .= '…';
+				$status = $article->title;
+				$status_len = strlen($status);
+				$extra = 140 - $status_len - $url_len - 1;
+				if ($extra < 0)
+				{
+					$status_len += $extra;
+					$status_len -= 1;
+					$status = substr($status, 0, $status_len);
+					$status .= '…';
+				}
 			}
+			$status .= ' ' . $url;
+			tweet($status);
 		}
-		$status .= ' ' . $url;
-		tweet($status);
 	}
 	
 	
