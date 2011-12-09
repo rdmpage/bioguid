@@ -474,6 +474,70 @@ function db_retrieve_articles_from_journal ($issn='', $oclc='')
 
 }
 
+//--------------------------------------------------------------------------------------------------
+// Note that we use MySQL CAST() to ensure ordering is numeric, not lexical
+function db_retrieve_articles_from_journal_series ($issn, $series = '')
+{
+	global $db;
+	global $ADODB_FETCH_MODE;
+	
+	$articles = array();
+	
+	// for now grab details from references
+	$sql = 'SELECT * FROM rdmp_reference WHERE ';
+	$sql .= '(issn=' . $db->qstr($issn) . ')';
+	
+	if ($series == '')
+	{
+		$sql .= ' AND series IS NULL';
+	}
+	else
+	{
+		$sql .= ' AND (series=' . $db->qstr($series) . ')';
+	}
+	$sql .= ' ORDER BY CAST(volume AS SIGNED), CAST(spage AS SIGNED)';
+	
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	while (!$result->EOF) 
+	{
+		$reference = new stdclass;
+		$reference->id = $result->fields['reference_id'];
+		$reference->title = $result->fields['title'];
+		
+		if (isset($result->fields['volume']))
+		{
+			if (!isset($articles[$result->fields['volume']]))
+			{
+				$articles[$result->fields['volume']] = array();
+			}
+/*			if (isset($result->fields['issue']))
+			{
+				if (!isset($articles[$result->fields['volume']][$result->fields['issue']]))
+				{
+					$articles[$result->fields['volume']][$result->fields['issue']] = array();
+				}
+				$articles[$result->fields['volume']][$result->fields['issue']][] = $reference;
+			}
+			else*/
+			{
+				$articles[$result->fields['volume']][] = $reference;
+			}
+		}
+		else
+		{
+			$articles[] = $reference;
+		}
+		$result->MoveNext();
+	}
+	
+	return $articles;
+
+}
+
+
 
 
 

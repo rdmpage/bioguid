@@ -161,6 +161,7 @@ echo html_head_close();
 echo html_body_open();
 echo html_page_header(true);
 
+
 // How many pages?
 
 // How many articles? [in BHL]
@@ -169,6 +170,7 @@ $result = $db->Execute($sql);
 if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 
 $num_references = $result->fields['c'];
+
 
 // How many authors?
 $sql = 'SELECT COUNT(DISTINCT(author_id))	 AS c
@@ -185,11 +187,13 @@ $num_authors = $result->fields['c'];
 // How many journals?
 $sql = 'SELECT COUNT(DISTINCT(issn)) AS c FROM rdmp_reference WHERE (PageID <> 0)';
 
+
 $result = $db->Execute($sql);
 if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 
 $num_journals = $result->fields['c'];
 
+/*
 // How many editors (IP)?
 $sql = 'SELECT COUNT(DISTINCT(INET_NTOA(ip))) as c FROM rdmp_reference_version';
 
@@ -198,6 +202,7 @@ if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql)
 
 $num_editors = $result->fields['c'];
 
+*/
 echo '<div style="float:right;padding:10px;">' . "\n";
 
 
@@ -271,9 +276,10 @@ echo '<tr><td>Authors</td><td style="text-align:right;">' . $num_authors . '</td
 echo '<tr><td>Journals</td><td style="text-align:right;">' . $num_journals . '</td></tr>' . "\n";
 echo '</table>';
 
+/*
 echo '<p>Distribution of articles over time</p>' . "\n";
 echo '<img src="' . sparkline_references('', '', 360,100) . '" alt="sparkline" align="top"/>' . "\n";
-
+*/
 
 //echo '<img src="' . sparkline_cummulative_articles_added() . '" alt="sparkline" />' . "\n";
 
@@ -338,6 +344,8 @@ echo '
 
 echo '<h2>Articles</h2>' . "\n";
 */
+
+
 echo '<p>Number of articles per journal (<a href="journals.php">more...</a>). Get most recently added articles as a <a href="http://biostor.org/rss.php?format=atom">RSS feed</a>.</p>' . "\n";
 
 	

@@ -304,6 +304,8 @@ function items_from_titles($titles, &$items, &$volumes)
 	
 	// Sort
 	ksort($volumes);
+	
+	//print_r($volumes);
 }
 
 ?>

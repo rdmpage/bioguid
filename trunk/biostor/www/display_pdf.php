@@ -14,6 +14,8 @@ require_once ('../fpdf16/fpdf.php');
 // Get names in reference to use as tags for document
 function pdf_tags($reference_id, $num_tags = 5)
 {
+	$tags = array();
+	/*
 	$names = bhl_names_in_reference($reference_id);
 	$name_count = array();
 	foreach ($names->names as $n)
@@ -23,13 +25,13 @@ function pdf_tags($reference_id, $num_tags = 5)
 	array_multisort($name_count, SORT_DESC, SORT_NUMERIC, $name_count);
 	$t = array_slice($name_count, 0, $num_tags);
 	
-	$tags = array();
+	
 	foreach ($t as $k => $v)
 	{
 		$tags[] = $k;
 	}
 	sort($tags);
-
+	*/
 	return $tags;
 }
 

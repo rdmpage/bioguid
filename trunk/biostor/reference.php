@@ -150,9 +150,24 @@ function reference_to_meta_tags($reference)
 	
 	$html = '';
 	
+	/*
+	// Embed first page of OCR text
+	if (db_reference_from_bhl($reference->reference_id))
+	{
+		$pages = bhl_retrieve_reference_pages($reference->reference_id);
+		$page_ids = array($pages[0]->PageID);
+		$text = bhl_fetch_text_for_pages($page_ids);
+		$text = str_replace ('\n', '' , $text);
+		$text = str_replace ('- ', '-' , $text);
+		$text = str_replace ('- ', '-' , $text);
+		
+		$html .= "\n<!-- First page of OCR text -->\n";
+		$html .= '<meta name="description" content="' . htmlentities($text, ENT_COMPAT, "UTF-8") . '" />' . "\n";
+	}
+	*/
 	
 	// Dublin core
-	$html .= "\n\n<!-- Dublin Core metadata -->\n";
+	$html .= "\n<!-- Dublin Core metadata -->\n";
 	$html .= '<link title="schema(DC)" rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />' . "\n";
 	$html .= '<meta name="dc.publisher" content="BioStor" />' . "\n";
 	$html .= '<meta name="dc.title" content="' . htmlentities($reference->title) . '" />' . "\n";

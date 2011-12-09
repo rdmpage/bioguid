@@ -452,6 +452,13 @@ function bhl_itemid_from_volume($TitleID, $volume, $series = '')
 		$result->MoveNext();
 	}
 	
+	/*
+	echo '<b>Items</b><br/>';
+	echo '<pre>';
+	print_r($items);
+	echo '</pre>';
+	*/
+	
 	return $items;
 }
 
@@ -585,7 +592,7 @@ so we first use bioguid to get ISSN for journal name, then retrieve TitleID usin
  * )
  *
  */
-function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date = '')
+function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date = '', $issn= '')
 {
 	global $db;
 	global $debug;
@@ -593,7 +600,7 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 	// Data structure to hold search result
 	$obj = new stdclass;
 	$obj->TitleID = 0;
-	$obj->ISSN = '';
+	$obj->ISSN = $issn;
 	$obj->ItemIDs = array();
 	$obj->hits = array();
 	
@@ -608,13 +615,15 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 	// hits, we abandon search.
 	
 	// Can we do this via ISSN?	
-	$obj->ISSN = issn_from_title($title);
+	if ($obj->ISSN == '')
+	{
+		$obj->ISSN = issn_from_title($title);
+	}
 	if ($obj->ISSN != '')
 	{
 		$obj->TitleID = bhl_titleid_from_issn($obj->ISSN);
 	}
-	
-	
+
 	if ($debug)
 	{
 		echo __FILE__ . ' line ' . __LINE__ . ' ISSN = ' . $obj->ISSN . "\n";
@@ -623,6 +632,16 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 	// Special cases where mapping is tricky
 	switch ($obj->ISSN)
 	{
+		// Bulletin de la Société philomathique de Paris
+		case '0366-3515':
+			$obj->TitleID = 9580;
+			break;
+	
+		// Stuttgarter Beiträge zur Naturkunde
+		case '0341-0145':
+			$obj->TitleID = 49174;
+			break;
+			
 		// Transactions of the Linnean Society
 		case '1945-9432':
 			$obj->TitleID = 2203;
@@ -634,6 +653,10 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			
 		case '1019-8563':
 			$obj->TitleID =  15675;
+			break;
+			
+		case '0177-7424':
+			$obj->TitleID=42670;
 			break;
 			
 		// Scientific papers of the Natural History Museum, University of Kansas
@@ -713,7 +736,7 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				case '0015-0754':
 					//echo $title . "\n";
 					//echo "Handle Fieldiana...\n";
-					$obj->ItemIDs = bhl_itemid_from_pattern ('Fieldiana Zoology%', '/^Fieldiana Zoology/', $volume);
+					$obj->ItemIDs = bhl_itemid_from_pattern ('Fieldiana% Zoology%', '/^Fieldiana\.? Zoology/', $volume);
 					break;
 				
 				default:
@@ -775,6 +798,13 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(11933, 11938);
 				break;
 				
+			// Atti della Società italiana di scienze
+			case 9586:
+			case 16255:
+			case 16213:
+				$title_list = array(9586,16255,16213);
+				break;
+				
 			// Annales des Sciences naturelles
 			case 6343:
 			case 2205:
@@ -807,16 +837,16 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				break;
 				
 			// Bulletin de la Société botanique de France
-			case 5064:
-			case 9580:
+			//case 5064:
+			//case 9580:
 				$title_list = array(5064,9580);
 				break;
 				
 			// Bulletin de la Société philomathique de Paris
-			case 359:
-			case 5948:
-				$title_list = array(359,5948);
-				break;
+			//case 359:
+			//case 5948:
+			//	$title_list = array(359,5948);
+			//	break;
 				
 			// Bulletin du Muséum National d'Histoire Naturelle
 			case 14109:
@@ -831,6 +861,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 2192:
 			case 2201:
 				$title_list = array(2192, 2201);
+				break;
+				
+			// Comptes rendus des séances de la Société de biologie et de ses filiales.  
+			case 5068:
+			case 8070:
+				$title_list = array(5068, 8070);
 				break;
 
 			// Entomological News
@@ -922,6 +958,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(1594,44963);
 				break;
 				
+			// Records of the Indian Museum
+			case 53477:
+			case 10294:
+				$title_list=array(53477,10294);
+				break;
+				
 			// Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe
 			case 6884:
 			case 8219:
@@ -937,6 +979,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 10088:
 			case 39564:
 				$title_list = array(10088, 39564);
+				break;
+				
+			// Transactions and proceedings of the New Zealand Institute
+			case 48984:
+			case 4095:
+				$title_list = array(48984, 4095);
 				break;
 			
 			// Transactions of Kansas Academy of Sciences
@@ -961,15 +1009,23 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				break;
 				
 			// Transactions of The Linnean Society of London
-			case 2203:
-			case 8257:
-				$title_list=array(2203,8257);
+			case 2203: //-> 683
+			case 8257: //-> -> 51416
+			case 683:
+			case 51416:
+				$title_list=array(683,51416);
 				break;
 				
 			// The Kansas University science bulletin
 			case 3179:
 			case 15415:
 				$title_list = array(3179, 15415);
+				break;
+				
+			// Tulane
+			case 3119:
+			case 5361:
+				$title_list = array(3119, 5361);
 				break;
 				
 			// Verhandlungen des Zoologisch-Botanischen Vereins in Wien
@@ -1026,7 +1082,14 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			$sql = 'SELECT * FROM bhl_page 
 			INNER JOIN page USING(PageID)
 			WHERE (bhl_page.ItemID = ' . $obj->ItemIDs[$i]->ItemID . ') 
-			AND (PageNumber = ' . $db->qstr($page) . ') 
+			AND (PageNumber = ' . $db->qstr($page) . ')
+			OR (PageNumber = ' . $db->qstr('%[' . $page . ']') . ')
+			ORDER BY SequenceOrder';
+
+			$sql = 'SELECT * FROM bhl_page 
+			INNER JOIN page USING(PageID)
+			WHERE (bhl_page.ItemID = ' . $obj->ItemIDs[$i]->ItemID . ') 
+			AND (PageNumber = ' . $db->qstr($page) . ')
 			ORDER BY SequenceOrder';
 			
 			//echo $sql;

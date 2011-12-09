@@ -155,7 +155,7 @@ class DisplayReference extends DisplayObject
 		echo html_include_script('js/viewer.js');
 		
 		// Google +1
-		echo html_include_script('http://apis.google.com/js/plusone.js');
+		//echo html_include_script('http://apis.google.com/js/plusone.js');
 		
 		// Recaptcha
 		echo html_include_script('http://api.recaptcha.net/js/recaptcha_ajax.js');
@@ -209,6 +209,15 @@ function tagtreeFailed(t)
 		// Form editing
 		echo  '<script type="text/javascript">' . "\n";
 		echo '
+		
+function SetSC(id, sc) {
+	// Textarea.
+	var obj = $(id);
+	obj.value += sc;
+	obj.focus();
+}		
+		
+		
 function reportErrors(errors)
 {
  var msg = "The form contains errors...\n";
@@ -428,6 +437,23 @@ Event.observe(window, \'load\', function() {
 
 		echo html_page_header(true, '', 'name');
 		
+		// Embed first page of OCR text, added 2011-12-07
+		if ($this->in_bhl)
+		{
+			$pages = bhl_retrieve_reference_pages($this->id);
+			$page_ids = array($pages[0]->PageID);
+			$text = bhl_fetch_text_for_pages($page_ids);
+			$text = str_replace ('\n', '' , $text);
+			$text = str_replace ('- ', '-' , $text);
+			$text = str_replace ('- ', '-' , $text);
+			
+			echo "\n<!-- First page of OCR text -->\n";
+			echo '<div style="display:none;">' . "\n";
+			echo htmlentities($text, ENT_COMPAT, "UTF-8");
+			echo '</div>' . "\n";
+		}
+		
+		
 		echo '<div style="float:right;background-color:rgb(230,242,250);padding:6px">' . "\n";
 		echo '<h2>Identifiers</h2>' . "\n";
 		echo '<ul class="guid-list">' . "\n";
@@ -585,7 +611,8 @@ Event.observe(window, \'load\', function() {
 		
 		//------------------------------------------------------------------------------------------
 		// Social bookmarking
-		echo '<g:plusone size="tall"></g:plusone>';
+//		echo '<g:plusone size="tall"></g:plusone>';
+		echo '<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="rdmpage" data-related="biostor_org">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
 		
 		//------------------------------------------------------------------------------------------
 		// Export options
@@ -675,20 +702,24 @@ Event.observe(window, \'load\', function() {
 			echo '</table>';
 			
 			
-			//--------------------------------------------------------------------------------------
-			$tag_cloud = name_tag_cloud($this->taxon_names);
-			if ($tag_cloud != '')
+			if (0) // 0 to not display names
 			{
-				echo '<h2>Taxon name tag cloud</h2>';
-				echo '<p class="explanation">Taxonomic names extracted from OCR text for document using uBio tools.</p>';
-				echo $tag_cloud;
-
-				echo '<h2>Taxonomic classification</h2>';
-				echo '<p class="explanation">Catalogue of Life classification for taxonomic names in document</p>';
-				echo '<div id="taxon_names"></div>';
 				
-				echo  '<script type="text/javascript">make_tag_tree();</script>';
-
+				//--------------------------------------------------------------------------------------
+				$tag_cloud = name_tag_cloud($this->taxon_names);
+				if ($tag_cloud != '')
+				{
+					echo '<h2>Taxon name tag cloud</h2>';
+					echo '<p class="explanation">Taxonomic names extracted from OCR text for document using uBio tools.</p>';
+					echo $tag_cloud;
+	
+					echo '<h2>Taxonomic classification</h2>';
+					echo '<p class="explanation">Catalogue of Life classification for taxonomic names in document</p>';
+					echo '<div id="taxon_names"></div>';
+					
+					echo  '<script type="text/javascript">make_tag_tree();</script>';
+	
+				}
 			}
 			
 			//--------------------------------------------------------------------------------------
@@ -751,7 +782,7 @@ Event.observe(window, \'load\', function() {
 		
 		}
 		
-		
+		/*
 		//------------------------------------------------------------------------------------------
 		// Nomenclature (experimental)
 		$acts = acts_in_publication($this->id);
@@ -772,7 +803,7 @@ Event.observe(window, \'load\', function() {
 			}
 			echo '</table>' . "\n";
 		}
-		
+		*/
 		
 	}
 	
@@ -811,64 +842,65 @@ Event.observe(window, \'load\', function() {
 			$count++;
 		}
 		
-		
-				
-		// Names
-		$nm = bhl_names_in_reference_by_page($this->id);
-		$j->names = $nm->names;
-		
-		// Nomenclatural acts
-		$acts = acts_in_publication($this->id);
-		if (count($acts) > 0)
+		// don't do names..
+		if (0)
 		{
-			$count = count($nm->names);
-			foreach ($acts as $tn)
+			// Names
+			$nm = bhl_names_in_reference_by_page($this->id);
+			$j->names = $nm->names;
+			
+			// Nomenclatural acts
+			$acts = acts_in_publication($this->id);
+			if (count($acts) > 0)
 			{
-				$name = $tn->nameComplete;
-				
-				// Zoobank crap
-				$name = preg_replace('/ subsp\. /', ' ', $name);
-				$name = preg_replace('/ var\. /', ' ', $name);
-				
-				// BHL might have missed this name
-				if (!isset($nm->found[$name]))
+				$count = count($nm->names);
+				foreach ($acts as $tn)
 				{
-					$n = new stdclass;
-					$n->namestring = $name;
-					$n->identifiers = new stdclass;
-					$n->pages = array();
-					$j->names[] = $n;
-					$nm->found[$name] = $count++;					
-				}
-
-				$index = $nm->found[$name];
-				
-				// ION
-				if (preg_match('/urn:lsid:organismnames.com:name:(?<id>\d+)/', $tn->global_id, $m))
-				{
-					$j->names[$index]->identifiers->ion = (Integer)$m['id'];
-				}
-				// Zoobank
-				if (preg_match('/urn:lsid:zoobank.org:act:(?<id>.*)/', $tn->global_id, $m))
-				{
-					$j->names[$index]->identifiers->zoobank = $m['id'];
-				}
-				// IPNI
-				if (preg_match('/urn:lsid:ipni.org:names:(?<id>.*)/', $tn->global_id, $m))
-				{
-					$j->names[$index]->identifiers->ipni = $m['id'];
-				}
-				// Index Fungorum
-				if (preg_match('/urn:lsid:indexfungorum.org:names(?<id>.*)/', $tn->global_id, $m))
-				{
-					$j->names[$index]->identifiers->indexfungorum = (Integer)$m['id'];
-				}
-			
-			}
-			
-			//ksort($j->names);
-		}
+					$name = $tn->nameComplete;
+					
+					// Zoobank crap
+					$name = preg_replace('/ subsp\. /', ' ', $name);
+					$name = preg_replace('/ var\. /', ' ', $name);
+					
+					// BHL might have missed this name
+					if (!isset($nm->found[$name]))
+					{
+						$n = new stdclass;
+						$n->namestring = $name;
+						$n->identifiers = new stdclass;
+						$n->pages = array();
+						$j->names[] = $n;
+						$nm->found[$name] = $count++;					
+					}
 	
+					$index = $nm->found[$name];
+					
+					// ION
+					if (preg_match('/urn:lsid:organismnames.com:name:(?<id>\d+)/', $tn->global_id, $m))
+					{
+						$j->names[$index]->identifiers->ion = (Integer)$m['id'];
+					}
+					// Zoobank
+					if (preg_match('/urn:lsid:zoobank.org:act:(?<id>.*)/', $tn->global_id, $m))
+					{
+						$j->names[$index]->identifiers->zoobank = $m['id'];
+					}
+					// IPNI
+					if (preg_match('/urn:lsid:ipni.org:names:(?<id>.*)/', $tn->global_id, $m))
+					{
+						$j->names[$index]->identifiers->ipni = $m['id'];
+					}
+					// Index Fungorum
+					if (preg_match('/urn:lsid:indexfungorum.org:names(?<id>.*)/', $tn->global_id, $m))
+					{
+						$j->names[$index]->identifiers->indexfungorum = (Integer)$m['id'];
+					}
+				
+				}
+				
+				//ksort($j->names);
+			}
+		}
 		
 		
 		

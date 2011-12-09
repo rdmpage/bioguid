@@ -208,6 +208,8 @@ class DisplayJournal extends DisplayObject
 		echo '<img src="' . sparkline_articles_added_for_issn($this->issn) . '" alt="sparkline" />';
 		echo '</div>';*/
 		
+		echo '<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="rdmpage" data-related="biostor_org">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
+		
 		
 		echo '<h2>Coverage</h2>' . "\n";
 
@@ -399,78 +401,115 @@ class DisplayJournal extends DisplayObject
 		
 		echo '<h2>Articles</h2>';
 		
-		$articles = db_retrieve_articles_from_journal($this->issn, $this->oclc);
-		
-		//print_r($articles);
-		
-		echo '<ul>';
-		foreach ($articles as $k => $v)
+		if ($this->issn == '0374-5481')
 		{
-			echo '<li style="display:block;border-top:1px solid #EEE; ">' . $k;
-			echo '<ul>';
+			// Special treatment for Ann mag Nat Hist
 			
-			if (is_array($v))
+			echo '<ul>';
+			for ($series=1;$series <= 9; $series++)
 			{
-				foreach ($v as $ref)
-				{
-					if (0)
-					{
-						// fast
-						echo '<li><a href="' . $config['web_root'] . 'reference/' . $ref->id . '">' . $ref->title . '</a></li>';
-					}
-					else
-					{
-						// slower, but useful for debugging
-						$reference = db_retrieve_reference ($ref->id);
-						echo '<li style="border-bottom:1px dotted rgb(128,128,128);padding:4px;">';
-						echo '<a href="' . $config['web_root'] . 'reference/' . $ref->id . '">' . $reference->title . '</a><br/>';
-						echo '<span style="color:green;">' . reference_authors_to_text_string($reference);
-						if (isset($reference->year))
-						{
-							echo ' (' . $reference->year . ')';
-						}
-						echo ' ' . reference_to_citation_text_string($reference) . '</span>';
-						echo ' ' . reference_to_coins($reference);
-	
-						// Thumbail, useful for debugging
-						if (0)
-						{
-							echo '<div>';					
-							$pages = bhl_retrieve_reference_pages($ref->id);
-							$image = bhl_fetch_page_image($pages[0]->PageID);
-							echo '<a href="' . $config['web_root'] . 'reference/' . $ref->id . '">';
-							echo '<img style="padding:2px;border:1px solid blue;margin:2px;" id="thumbnail_image_' . $page->PageID . '" src="' . $image->thumbnail->url . '" width="' . $image->thumbnail->width . '" height="' . $image->thumbnail->height . '" alt="thumbnail"/>';	
-							echo '</a>';
-							echo '</div>'; 
-						}
-						echo '</li>';
-					}
-				}
-			}
-			else
-			{
-				// Article lacks volume
-				if (isset($v->id))
-				{
-						$reference = db_retrieve_reference ($v->id);
-						echo '<li style="border-bottom:1px dotted rgb(128,128,128);padding:4px;">';
-						echo '<a href="' . $config['web_root'] . 'reference/' . $v->id . '">' . $reference->title . '</a><br/>';
-						echo '<span style="color:green;">' . reference_authors_to_text_string($reference);
-						if (isset($reference->year))
-						{
-							echo ' (' . $reference->year . ')';
-						}
-						echo ' ' . reference_to_citation_text_string($reference) . '</span>';
-						echo ' ' . reference_to_coins($reference);
-	
-				
-				}
+				echo '<li><a href="' . $config['web_root'] . 'issn/' . $this->issn . '#series' . $series . '">Series ' . $series . '</a></li>';
 			}
 			echo '</ul>';
-			echo '</li>';
+			
+			for ($series=1;$series <= 9; $series++)
+			{
+				echo '<h3><a name="series' . $series . '"></a>Series ' . $series . '</h3>' . "\n";
+				$articles = db_retrieve_articles_from_journal_series($this->issn, ($series == 1 ? '' : $series));
+				echo '<ul>';
+				foreach ($articles as $k => $v)
+				{
+					echo '<li style="display:block;border-top:1px solid #EEE; ">' . $k;
+					echo '<ul>';
+					
+					if (is_array($v))
+					{
+						foreach ($v as $ref)
+						{
+							echo '<li><a href="' . $config['web_root'] . 'reference/' . $ref->id . '">' . $ref->title . '</a></li>';
+						}
+					}
+					echo '</ul>';
+					echo '</li>';
+				}
+				echo '</ul>';
+			}
 		}
-		echo '</ul>';
-
+		else
+		{
+			
+			$articles = db_retrieve_articles_from_journal($this->issn, $this->oclc);
+			
+			//print_r($articles);
+			
+			echo '<ul>';
+			foreach ($articles as $k => $v)
+			{
+				echo '<li style="display:block;border-top:1px solid #EEE; ">' . $k;
+				echo '<ul>';
+				
+				if (is_array($v))
+				{
+					foreach ($v as $ref)
+					{
+						if (0)
+						{
+							// fast
+							echo '<li><a href="' . $config['web_root'] . 'reference/' . $ref->id . '">' . $ref->title . '</a></li>';
+						}
+						else
+						{
+							// slower, but useful for debugging
+							$reference = db_retrieve_reference ($ref->id);
+							echo '<li style="border-bottom:1px dotted rgb(128,128,128);padding:4px;">';
+							echo '<a href="' . $config['web_root'] . 'reference/' . $ref->id . '">' . $reference->title . '</a><br/>';
+							echo '<span style="color:green;">' . reference_authors_to_text_string($reference);
+							if (isset($reference->year))
+							{
+								echo ' (' . $reference->year . ')';
+							}
+							echo ' ' . reference_to_citation_text_string($reference) . '</span>';
+							echo ' ' . reference_to_coins($reference);
+		
+							// Thumbail, useful for debugging
+							if (0)
+							{
+								echo '<div>';					
+								$pages = bhl_retrieve_reference_pages($ref->id);
+								$image = bhl_fetch_page_image($pages[0]->PageID);
+								echo '<a href="' . $config['web_root'] . 'reference/' . $ref->id . '">';
+								echo '<img style="padding:2px;border:1px solid blue;margin:2px;" id="thumbnail_image_' . $page->PageID . '" src="' . $image->thumbnail->url . '" width="' . $image->thumbnail->width . '" height="' . $image->thumbnail->height . '" alt="thumbnail"/>';	
+								echo '</a>';
+								echo '</div>'; 
+							}
+							echo '</li>';
+						}
+					}
+				}
+				else
+				{
+					// Article lacks volume
+					if (isset($v->id))
+					{
+							$reference = db_retrieve_reference ($v->id);
+							echo '<li style="border-bottom:1px dotted rgb(128,128,128);padding:4px;">';
+							echo '<a href="' . $config['web_root'] . 'reference/' . $v->id . '">' . $reference->title . '</a><br/>';
+							echo '<span style="color:green;">' . reference_authors_to_text_string($reference);
+							if (isset($reference->year))
+							{
+								echo ' (' . $reference->year . ')';
+							}
+							echo ' ' . reference_to_citation_text_string($reference) . '</span>';
+							echo ' ' . reference_to_coins($reference);
+		
+					
+					}
+				}
+				echo '</ul>';
+				echo '</li>';
+			}
+			echo '</ul>';
+		}
 	}
 
 	//----------------------------------------------------------------------------------------------

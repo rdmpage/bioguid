@@ -609,6 +609,28 @@ $Items=array(110723,
 
 $Items=array(107519);
 
+$Items=array(109151,
+109055,
+109114,
+109150,
+109153,
+109058,
+109060,
+109163,
+109152,
+109063,
+109062,
+109067,
+109066,
+108531,
+109057,
+109056,
+109203,
+109166,
+109068
+);
+
+$Items=array(110822);
 
 foreach ($Items as $ItemID)
 {
@@ -694,12 +716,27 @@ foreach ($Items as $ItemID)
 				
 				// fix
 				$sql .= 'DELETE FROM page WHERE PageID=' . $matches['PageID'] . ';' . "\n";
-				$sql .= 'INSERT INTO page (PageID,ItemID,FileNamePrefix,SequenceOrder) VALUES('
-				. $matches['PageID']
-				. ',' . $ItemID
-				. ',' . $matches['PageID'] // Fake this as we need FileNamePrefix to name images in cache
-				. ',' . $SequenceOrder++
-				.');' . "\n";
+				
+				if (1)
+				{
+					$sql .= 'INSERT INTO page (PageID,ItemID,FileNamePrefix,SequenceOrder) VALUES('
+					. $matches['PageID']
+					. ',' . $ItemID
+					. ',' . $matches['PageID'] // Fake this as we need FileNamePrefix to name images in cache
+					. ',' . $SequenceOrder++
+					.');' . "\n";
+				}
+				else
+				{
+					// proceedings6263194950biol
+					$sql .= 'INSERT INTO page (PageID,ItemID,FileNamePrefix,SequenceOrder) VALUES('
+					. $matches['PageID']
+					. ',' . $ItemID
+					. ',"' . 'proceedings6263194950biol' . sprintf("_%04d",  ($SequenceOrder)) . '"'
+					. ',' . $SequenceOrder
+					.');' . "\n";
+					$SequenceOrder++;
+				}
 			}
 		}
 	}
