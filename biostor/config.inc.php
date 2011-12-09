@@ -1,7 +1,5 @@
 <?php
 
-// $Id: //
-
 /**
  * @file config.php
  *
@@ -71,12 +69,19 @@ define('CONSUMER_KEY', '');
 define('CONSUMER_SECRET', '');
 define('OAUTH_CALLBACK', 'http://biostor.org/callback.php');
 
+// Twitter------------------------------------------------------------------------------------------
+
 // Twitter API @biostor_org
+$config['twitter']						= true;
 $config['twitter_oauth_token'] 			= '';
 $config['twitter_oauth_token_secret'] 	= '';
 
 $config['twitter_consumer_key'] 		= '';
 $config['twitter_consumer_secret'] 		= '';
+
+// BHL API
+$config['bhl_api_key']  				= '';
+
 
 // Flags--------------------------------------------------------------------------------------------
 
