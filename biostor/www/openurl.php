@@ -99,7 +99,7 @@ function parse_openurl($params, &$referent)
 				break;
 
 			// Identifiers
-			case 'rft_id':
+			case 'rft.id':
 			case 'id':
 				foreach ($value as $v)
 				{		
@@ -836,7 +836,7 @@ function main()
 				
 				//print_r($search_hit);
 				
-				if ($search_hit->score > 0.5)
+				//if ($search_hit->score > 0.5)
 				{
 					// Store
 					$id = db_store_article($referent, $PageID);
@@ -930,7 +930,8 @@ function main()
 		$referent->volume,
 		(isset($referent->spage) ? $referent->spage : $referent->pages),
 		(isset($referent->series) ? $referent->series : ''),
-		(isset($referent->date) ? $referent->date : '')
+		(isset($referent->date) ? $referent->date : ''),
+		(isset($referent->issn) ? $referent->issn : '')
 		);
 
 	if (count($search_hits) == 0)
@@ -941,7 +942,8 @@ function main()
 			$referent->secondary_title,
 			$referent->volume,
 			(isset($referent->spage) ? $referent->spage : $referent->pages),
-			(isset($referent->series) ? $referent->series : '')
+			(isset($referent->series) ? $referent->series : ''),
+			(isset($referent->issn) ? $referent->issn : '')
 			);		
 	}
 	

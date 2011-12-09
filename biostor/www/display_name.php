@@ -103,163 +103,168 @@ class DisplayName extends DisplayObject
 			}
 		}
 		
-		// What pages have this name? (BHL timeline)
-		$hits = bhl_name_search($this->object->NameBankID);
-		if (count($hits) > 0)
+		if (1) // 0 to turn off name search
 		{
-			echo '<h2>BHL</h2>' . "\n";		
-			echo '<h3>Distribution of name in BHL</h3>';		
-			echo '<div>' . "\n";
-			echo '   <img src="' . sparkline_bhl_name($hits, 360,100) . '" alt="sparkline" />' . "\n";
-			echo '</div>' . "\n";
-		}
-		else
-		{
-			//echo '<p>Name not found in BHL</p>';
-		}
-		
-		// What articles have this name?
-		echo '<hr />';
-		echo '<h2>References in BioStor</h2>';
-//		echo '<p><img src="/images/star.png"> indicates reference that publishes a "nomenclatural act", such as publishing the name.</p>';
-
-		echo '<div>';
-		echo '<div style="display:inline;border:1px solid rgb(192,192,192);background-color:#D8F3C9;width:20px;height:20px;">&nbsp;&nbsp;&nbsp;&nbsp;</div>';
-		echo '&nbsp;Reference contains nomenclatural act, such as publishing the name';
-		echo '</div>';
-		
-		echo '<p />';
-
-		
-		// Find using BHL bhl_page_name index
-		$refs = bhl_references_with_name($this->object->NameBankID);
-		
-		// Merge with references from nomenclators
-		$refs = array_merge($refs, $act_refs);
-		$refs = array_unique($refs);
-		//print_r($refs);
-		
-		if (count($refs) == 0)
-		{
-			echo '<p>[No references]</p>';
-		}
-		
-/*		
-		echo '<ul class="reference-list">';
-		foreach($refs as $reference_id)
-		{
-			$reference = db_retrieve_reference ($reference_id);
-			echo '<li ';
-			
-			if (in_array($reference_id, $act_refs))
+			/*
+			// What pages have this name? (BHL timeline)
+			$hits = bhl_name_search($this->object->NameBankID);
+			if (count($hits) > 0)
 			{
-				echo 'class="act"';
+				echo '<h2>BHL</h2>' . "\n";		
+				echo '<h3>Distribution of name in BHL</h3>';		
+				echo '<div>' . "\n";
+				echo '   <img src="' . sparkline_bhl_name($hits, 360,100) . '" alt="sparkline" />' . "\n";
+				echo '</div>' . "\n";
 			}
 			else
 			{
-				echo 'class="default"';
+				//echo '<p>Name not found in BHL</p>';
 			}
-			echo '>';
-			echo '<a href="' . $config['web_root'] . 'reference/' . $reference_id . '">' . $reference->title . '</a><br/>';
-			echo '<span style="color:green;">' . reference_authors_to_text_string($reference);
-			if (isset($reference->year))
+			*/
+			// What articles have this name?
+			echo '<hr />';
+			echo '<h2>References in BioStor</h2>';
+	//		echo '<p><img src="/images/star.png"> indicates reference that publishes a "nomenclatural act", such as publishing the name.</p>';
+	
+			echo '<div>';
+			echo '<div style="display:inline;border:1px solid rgb(192,192,192);background-color:#D8F3C9;width:20px;height:20px;">&nbsp;&nbsp;&nbsp;&nbsp;</div>';
+			echo '&nbsp;Reference contains nomenclatural act, such as publishing the name';
+			echo '</div>';
+			
+			echo '<p />';
+	
+			
+			// Find using BHL bhl_page_name index
+			//$refs = bhl_references_with_name($this->object->NameBankID);
+			$refs = bhl_references_with_namestring($this->GetTitle());
+			
+			// Merge with references from nomenclators
+			$refs = array_merge($refs, $act_refs);
+			$refs = array_unique($refs);
+			//print_r($refs);
+			
+			if (count($refs) == 0)
 			{
-				echo ' (' . $reference->year . ')';
+				echo '<p>[No references]</p>';
 			}
-			echo ' ' . reference_to_citation_text_string($reference) . '</span>';
-			echo ' ' . reference_to_coins($reference);
-			
-			if (0)
+				
+	/*		
+			echo '<ul class="reference-list">';
+			foreach($refs as $reference_id)
 			{
-				echo '<div>';
-				echo bhl_pages_with_name_thumbnails($reference_id,$this->object->NameBankID);	
-				echo '</div>';
-			}
-			echo '</li>';
-		}
-		echo '</ul>';
-*/
-
-		echo '<table cellspacing="0" cellpadding="2" width="100%">';
-		foreach($refs as $reference_id)
-		{
-			$reference = db_retrieve_reference ($reference_id);
-			echo '<tr';
-			
-			if (in_array($reference_id, $act_refs))
-			{
-				echo ' style="background-color:#D8F3C9;"';
-			}
-			echo '>';
-			
-			if ($reference->PageID != 0)
-			{
-				$image = bhl_fetch_page_image($reference->PageID);
-				$imageURL = $image->thumbnail->url;
-			}
-			else
-			{
-				// if it's an article we could use journal image
-				$imageURL = 'http://bioguid.info/issn/image.php?issn=' . $reference->issn;
-			}
-			
-			echo '<td valign="top"><img style="border:1px solid rgb(192,192,192);" src="' . $imageURL . '" width="40" />';
-			
-			echo '</td>';
-			
-			echo '<td valign="top">';
-			
-			
-			echo '<a href="' . $config['web_root'] . 'reference/' . $reference_id . '">' . $reference->title . '</a><br/>';
-			echo '<span>' . reference_authors_to_text_string($reference);
-			if (isset($reference->year))
-			{
-				echo ' (' . $reference->year . ')';
-			}
-			echo ' ' . reference_to_citation_text_string($reference) . '</span>';
-			echo ' ' . reference_to_coins($reference);
-			
-			if (0)
-			{
-				echo '<div>';
-				echo bhl_pages_with_name_thumbnails($reference_id,$this->object->NameBankID);	
-				echo '</div>';
-			}
-			echo '</td>';
-			echo '</tr>';
-		}
-		echo '</table>';
-
-
-
-		/*
-		$refs = col_references_for_name($this->GetTitle());
-		if (count($refs) != 0)
-		{
-			echo '<h2>Catalogue of Life Bibliography</h2>';
-			echo '<ol>';
-			foreach($refs as $ref)
-			{
-				echo '<li style="border-bottom:1px dotted rgb(128,128,128);padding:4px;">';
-				echo '<span>';
-				echo '[' . $ref->record_id . '] ';
-				if (isset($ref->reference_type))
+				$reference = db_retrieve_reference ($reference_id);
+				echo '<li ';
+				
+				if (in_array($reference_id, $act_refs))
 				{
-					echo '[' . $ref->reference_type . '] ';
+					echo 'class="act"';
 				}
-				echo $ref->author;
-				echo ' ';
-				echo $ref->year;
-				echo ' ';
-				echo $ref->title;
-				echo '. ';
-				echo $ref->source;
-				echo '</span>';
+				else
+				{
+					echo 'class="default"';
+				}
+				echo '>';
+				echo '<a href="' . $config['web_root'] . 'reference/' . $reference_id . '">' . $reference->title . '</a><br/>';
+				echo '<span style="color:green;">' . reference_authors_to_text_string($reference);
+				if (isset($reference->year))
+				{
+					echo ' (' . $reference->year . ')';
+				}
+				echo ' ' . reference_to_citation_text_string($reference) . '</span>';
+				echo ' ' . reference_to_coins($reference);
+				
+				if (0)
+				{
+					echo '<div>';
+					echo bhl_pages_with_name_thumbnails($reference_id,$this->object->NameBankID);	
+					echo '</div>';
+				}
 				echo '</li>';
 			}
-			echo '</ol>';
+			echo '</ul>';
+	*/
+	
+			echo '<table cellspacing="0" cellpadding="2" width="100%">';
+			foreach($refs as $reference_id)
+			{
+				$reference = db_retrieve_reference ($reference_id);
+				echo '<tr';
+				
+				if (in_array($reference_id, $act_refs))
+				{
+					echo ' style="background-color:#D8F3C9;"';
+				}
+				echo '>';
+				
+				if ($reference->PageID != 0)
+				{
+					$image = bhl_fetch_page_image($reference->PageID);
+					$imageURL = $image->thumbnail->url;
+				}
+				else
+				{
+					// if it's an article we could use journal image
+					$imageURL = 'http://bioguid.info/issn/image.php?issn=' . $reference->issn;
+				}
+				
+				echo '<td valign="top"><img style="border:1px solid rgb(192,192,192);" src="' . $imageURL . '" width="40" />';
+				
+				echo '</td>';
+				
+				echo '<td valign="top">';
+				
+				
+				echo '<a href="' . $config['web_root'] . 'reference/' . $reference_id . '">' . $reference->title . '</a><br/>';
+				echo '<span>' . reference_authors_to_text_string($reference);
+				if (isset($reference->year))
+				{
+					echo ' (' . $reference->year . ')';
+				}
+				echo ' ' . reference_to_citation_text_string($reference) . '</span>';
+				echo ' ' . reference_to_coins($reference);
+				
+				if (0)
+				{
+					echo '<div>';
+					echo bhl_pages_with_name_thumbnails($reference_id,$this->object->NameBankID);	
+					echo '</div>';
+				}
+				echo '</td>';
+				echo '</tr>';
+			}
+			echo '</table>';
+	
+	
+	
+			/*
+			$refs = col_references_for_name($this->GetTitle());
+			if (count($refs) != 0)
+			{
+				echo '<h2>Catalogue of Life Bibliography</h2>';
+				echo '<ol>';
+				foreach($refs as $ref)
+				{
+					echo '<li style="border-bottom:1px dotted rgb(128,128,128);padding:4px;">';
+					echo '<span>';
+					echo '[' . $ref->record_id . '] ';
+					if (isset($ref->reference_type))
+					{
+						echo '[' . $ref->reference_type . '] ';
+					}
+					echo $ref->author;
+					echo ' ';
+					echo $ref->year;
+					echo ' ';
+					echo $ref->title;
+					echo '. ';
+					echo $ref->source;
+					echo '</span>';
+					echo '</li>';
+				}
+				echo '</ol>';
+			}
+			*/
 		}
-		*/
 	}
 
 	//----------------------------------------------------------------------------------------------
@@ -271,17 +276,19 @@ class DisplayName extends DisplayObject
 	//----------------------------------------------------------------------------------------------
 	function Retrieve()
 	{
+		/*
 		// Called with just an integer, assume it is NameBankID
 		if ($this->namebankid != 0)
 		{
 			$this->object = bhl_retrieve_name_from_namebankid ($this->namebankid);
 		}
-
+		*/
 		// Called with a string
 		if ($this->namestring != '')
 		{
 			$this->object = bhl_retrieve_name_from_namestring ($this->namestring);
 			
+			/*
 			if ($this->object == NULL)
 			{
 				// Do name lookup
@@ -291,7 +298,8 @@ class DisplayName extends DisplayObject
 					// Try uBio
 					$this->object = ubio_lookup($this->namestring);
 				}					
-			}	
+			}
+			*/
 		}
 		
 		// CoL?

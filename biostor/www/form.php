@@ -120,7 +120,40 @@ function reference_form($reference, $recaptcha = true)
 	$html .= '</td></tr>'; */
 	
 	// Title
-	$html .= '<tr><td class="field_name">Title</td><td><textarea name="title" rows="5" cols="40">' . $reference->title . '</textarea></td></tr>';
+	$html .= '<tr><td class="field_name">Title</td><td><textarea id="title" name="title" rows="5" cols="40">' . $reference->title . '</textarea></td></tr>';
+	
+	$html .= '<tr><td></td><td>';
+	
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'á\');">á</span>';
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'à\');">à</span>';
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'å\');">å</span>';
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'ä\');">ä</span>';
+
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'ç\');">ç</span>';
+
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'é\');">é</span>';
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'è\');">è</span>';
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'É\');">É</span>';
+
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'ö\');">ö</span>';
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'ø\');">ø</span>';
+
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'ü\');">ü</span>';
+
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'æ\');">æ</span>';
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'œ\');">œ</span>';
+
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'ß\');">ß</span>';
+
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'—\');">—</span>';
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'„\');">„</span>';
+	$html .= '<span style="padding:4px;background-color:rgb(240,240,240);" onclick="SetSC(\'title\', \'‟\');">‟</span>';
+
+
+	
+	$html .= '</td></tr>';
+	
+
 	
 	// Authors
 	$authors = '';

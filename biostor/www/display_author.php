@@ -40,7 +40,11 @@ class DisplayAuthor extends DisplayObject
 		
 		// Exhibit
 		echo html_include_link('application/json','','exhibit_author.php?id=' . $this->id, 'exhibit/data');
-		echo html_include_script('http://static.simile.mit.edu/exhibit/api-2.0/exhibit-api.js');
+//		echo html_include_script('http://static.simile.mit.edu/exhibit/api-2.0/exhibit-api.js');
+
+		// From email from Ted Benson Ted Benson <eob@csail.mit.edu>
+		echo html_include_script('http://trunk.simile-widgets.org/ajax/api/simile-ajax-api.js');
+		echo html_include_script('http://trunk.simile-widgets.org/exhibit/api/exhibit-api.js?log=true');
 	}
 
 	//----------------------------------------------------------------------------------------------
@@ -75,6 +79,9 @@ class DisplayAuthor extends DisplayObject
 			}
 			echo ')</p>';
 		}
+		
+		echo '<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="rdmpage" data-related="biostor_org">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
+
 		
 		echo '<div>';
 		echo '<img src="' . sparkline_author_articles($this->id) . '" alt="sparkline" align="top"/>';
