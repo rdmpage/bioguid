@@ -27,7 +27,6 @@ class DisplayReference extends DisplayObject
 	public $page = 0;
 	public $taxon_names = NULL;
 	public $in_bhl = false;
-	public $callback = '';
 	
 	//----------------------------------------------------------------------------------------------
 	function GetId()

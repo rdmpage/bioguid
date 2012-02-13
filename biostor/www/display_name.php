@@ -15,6 +15,8 @@ require_once ('../reference.php');
 require_once ('../taxon.php');
 require_once (dirname(__FILE__) . '/sparklines.php');
 
+//print_r( $_GET);
+
 //--------------------------------------------------------------------------------------------------
 class DisplayName extends DisplayObject
 {
@@ -43,11 +45,13 @@ class DisplayName extends DisplayObject
 		{
 			$this->namestring = $_GET['namestring'];
 		}
+		parent::GetId();		
 /*		if (isset($_GET['lsid']))
 		{
 			$this->identifiers[] = $_GET['lsid'];
 		}*/
 	}	
+		
 
 	//----------------------------------------------------------------------------------------------
 	function DisplayHtmlContent()
@@ -266,6 +270,36 @@ class DisplayName extends DisplayObject
 			*/
 		}
 	}
+	
+	//----------------------------------------------------------------------------------------------
+	// JSON format
+	function DisplayJson()
+	{
+		$act_refs = array();
+		$refs = bhl_references_with_namestring($this->GetTitle());
+		
+		// Merge with references from nomenclators
+		$refs = array_merge($refs, $act_refs);
+		$refs = array_unique($refs);
+
+		$obj = new stdclass;
+		$obj->references = array();
+		foreach($refs as $reference_id)
+		{
+			$obj->references[] = db_retrieve_reference ($reference_id);
+		}		
+	
+		header("Content-type: text/plain; charset=utf-8\n\n");
+		if ($this->callback != '')
+		{
+			echo $this->callback . '(';
+		}
+		echo json_format(json_encode($obj));
+		if ($this->callback != '')
+		{
+			echo ')';
+		}
+	}	
 
 	//----------------------------------------------------------------------------------------------
 	function GetTitle()
