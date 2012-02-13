@@ -1684,6 +1684,20 @@ function db_store_article($article, $PageID = 0, $updating = false)
 		}
 	}
 	
+	// Try and trap empty references
+	if ($id == 0)
+	{
+		$ok = false;
+		if (isset($article->title))
+		{
+			$ok = ($article->title != '');
+		}
+		if (!$ok)
+		{
+			return 0;
+		}
+	}
+	
 	if (!isset($article->genre))
 	{
 		$article->genre = 'article';
