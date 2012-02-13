@@ -47,7 +47,9 @@ RewriteRule ^author/(.*)					display_author.php?id=$1							[NC,L]
 # Taxon name
 # 
 RewriteRule ^name/([0-9]+)$					display_name.php?namebankid=$1						[NC,L]
-RewriteRule ^name/(.*)						display_name.php?namestring=$1						[NC,L]
+RewriteRule ^name/(.*)\.json				display_name.php?namestring=$1&format=json			[QSA,L]
+RewriteRule ^name/(.*)$						display_name.php?namestring=$1						[NC,L]
+
 
 #---------------------------------------------------------------------------------------------------
 # BHL Title
