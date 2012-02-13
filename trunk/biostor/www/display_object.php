@@ -21,6 +21,8 @@ class DisplayObject
 	public $id = 0;
 	public $object = NULL;
 	public $display_disqus = true;
+	public $callback = '';
+	
 	
 	//----------------------------------------------------------------------------------------------
 	function __construct()
@@ -35,6 +37,10 @@ class DisplayObject
 		if (isset($_GET['id']))
 		{
 			$this->id = $_GET['id'];
+		}
+		if (isset($_GET['callback']))
+		{
+			$this->callback = $_GET['callback'];
 		}
 	}	
 	
