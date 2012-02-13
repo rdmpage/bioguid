@@ -636,6 +636,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 		case '0366-3515':
 			$obj->TitleID = 9580;
 			break;
+			
+		// Bulletin of the Southern California Academy of Sciences
+		case '0038-3872':
+			$obj->TitleID = 4949;
+			break;
+			
 	
 		// Stuttgarter Beiträge zur Naturkunde
 		case '0341-0145':
@@ -687,6 +693,11 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			
 		case '0084-5620':
 			$obj->TitleID=45493;
+			break;
+			
+		// Transactions of the Linnean Society of London. Zoology.
+		case '1945-9440':
+			$obj->TitleID=51416;
 			break;
 		
 		default:
@@ -789,7 +800,8 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			// Annali del Museo civico di storia naturale di Genova
 			case 7929:
 			case 9576:
-				$title_list = array(7929, 9576);
+			case 43408:
+				$title_list = array(7929, 9576, 43408);
 				break;
 				
 			// Annales de la Société entomologique de Belgique
@@ -836,6 +848,25 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(6638,7051,2371,5923,12937,12938);
 				break;
 				
+			// Bericht der Senckenbergischen Naturforschenden Gesellschaft in Frankfurt am Main
+			case 14292:
+			case 8745:
+				$title_list = array(14292,8745);
+				break;
+				
+			// Berliner entomologische Zeitschrift
+			case 46204:
+			case 46202:
+			case 8267:
+				$title_list = array(8267,46202,46204);
+				break;
+				
+			// Bollettino dei musei di zoologia ed anatomia comparata della R. Università di Torino
+			case 14698:
+			case 10776:
+				$title_list = array(14698,10776);
+				break;
+				
 			// Bulletin de la Société botanique de France
 			//case 5064:
 			//case 9580:
@@ -863,6 +894,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(2192, 2201);
 				break;
 				
+			// Bulletin of zoological nomenclature
+			case 11541:
+			case 51603:
+				$title_list = array(11541, 51603);
+				break;
+				
 			// Comptes rendus des séances de la Société de biologie et de ses filiales.  
 			case 5068:
 			case 8070:
@@ -874,6 +911,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 2356:
 			case 2359:
 				$title_list = array(34360, 2356,2359);
+				break;
+				
+			// Jahrbuch der Hamburgischen Wissenschaftlichen Anstalten
+			case 7925:
+			case 9594:
+				$title_list=array(7925,9594);
 				break;
 				
 			// Kungliga Svenska Vetenskaps-Akademiens handlingar
@@ -964,6 +1007,14 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list=array(53477,10294);
 				break;
 				
+			// Revue et magasin de zoologie pure et appliquée
+			case 51560:
+			case 51630:
+			case 2744:
+			case 2212:
+				$title_list = array(2744, 51630, 51560, 2212);
+				break;
+				
 			// Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe
 			case 6884:
 			case 8219:
@@ -1026,6 +1077,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 3119:
 			case 5361:
 				$title_list = array(3119, 5361);
+				break;
+				
+			// Verhandlungen der Naturforschenden Gesellschaft in Basel.
+			case 8939:
+			case 46540:
+				$title_list = array(8939, 46540);
 				break;
 				
 			// Verhandlungen des Zoologisch-Botanischen Vereins in Wien

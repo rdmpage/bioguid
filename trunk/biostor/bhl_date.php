@@ -127,6 +127,67 @@ function parse_bhl_date($str, &$info)
 		echo $str . '<br/>';
 	}
 	
+	// vol.72(1908)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^vol\.(?<volume>\d+)\((?<year>[0-9]{4})\)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];		
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}	
+	
+	// jahrg. 20 (1902)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^jahrg.\s+(?<volume>\d+)\s+\((?<year>[0-9]{4})\)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];		
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}	
+	//jahrg. 30, beiheft 5, 6, 8, 9 , 11 (1912) 
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^jahrg.\s+(?<volume>\d+),\s+beiheft (.*)\s+\((?<year>[0-9]{4})\)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];		
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}	
+	
+	
+	// 1902, v. 2 (May-Dec.)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<year>[0-9]{4}),\s+v\.\s+(?<volume>\d+)\s+\(\w+\.?-\w+\.?\)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];		
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}	
+	
+	//
+	// Jahrg.1892 
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Jahrg.(?<year>[0-9]{4})$/Uu", $str, $m))
+		{
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}	
+	
+	
 	// v. 40-45 1991-96 (Inc.)
 	if (!$matched)
 	{
@@ -141,6 +202,17 @@ function parse_bhl_date($str, &$info)
 			$matched = true;
 		}	
 	}	
+	
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Bd\.\s*(?<volume>\d+)$/Uiu", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$matched = true;
+		}	
+	}	
+	
 	
 	
 	// Bd.47, 1916
@@ -372,7 +444,7 @@ function parse_bhl_date($str, &$info)
 	if (!$matched)
 	{
 		if ($debug) echo "Trying " . __LINE__ . "\n";
-		if (preg_match("/^jahrg.\s*(?<volume>\d+) (?<year>[0-9]{4})$/Uu", $str, $m))
+		if (preg_match("/^jahrg.\s*(?<volume>\d+) (?<year>[0-9]{4})$/Uui", $str, $m))
 		{
 			$info->volume = $m['volume'];
 			$info->start = $m['year'];
@@ -383,7 +455,7 @@ function parse_bhl_date($str, &$info)
 	// jahrg. 32-34 1915-17
 	if (!$matched)
 	{
-		if (preg_match("/^jahrg. (?<volume_from>\d+)-(?<volume_to>\d+) (?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})/", $str, $m))
+		if (preg_match("/^jahrg.\s*(?<volume_from>\d+)-(?<volume_to>\d+) (?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})/Uui", $str, $m))
 		{
 			$info->volume_from = $m['volume_from'];
 			$info->volume_to = $m['volume_to'];
