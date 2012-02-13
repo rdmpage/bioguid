@@ -19,6 +19,7 @@ function search($query)
 	$hits = null;
 	//http://localhost:8983/solr/select?q=Florida&wt=json&facet.field=publication_outlet&facet=true&fl=*,score&facet.field=authors&facet.mincount=1&&hl=on&hl.fl=title
 	
+	$limit = 30;
 	
 	$params = array(
 		'q' 				=> $query,
@@ -27,6 +28,7 @@ function search($query)
 		'facet'				=> 'on',
 		'facet.field' 		=> array('publication_outlet', 'year', 'authors'),
 		'facet.mincount'	=> 1,
+		'facet.limit'		=> 5, // limit number of facets
 		
 		// Output scores
 		'fl'				=> '*,score',
@@ -36,7 +38,7 @@ function search($query)
 		'hl.fl'				=> 'citation',
 		
 		// number of results to return
-		'rows'				=> 30,
+		'rows'				=> $limit,
 		
 		// JSON
 		'wt' 				=> 'json'
