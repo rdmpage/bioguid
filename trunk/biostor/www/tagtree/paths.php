@@ -127,4 +127,38 @@ function majority_rule_path($paths)
 	return $path_string;
 }
 
+//--------------------------------------------------------------------------------------------------
+function expand_path($path)
+{
+	global $db;
+	
+	$expanded = array();
+	
+	$parts = explode("/", $path);
+	
+	while (count($parts) > 0)
+	{
+		$p = join("/", $parts);
+		
+		//$expanded .= $p . " | ";
+	
+		$sql = 'SELECT name, path FROM col_tree
+INNER JOIN taxa USING(record_id)
+WHERE (path =  ' . $db->qstr($p) . ') LIMIT 1';
+		
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+		
+		if ($result->NumRows() != 0)
+		{
+			$expanded[] = $result->fields['name'];
+		}
+	
+		array_pop($parts);
+	}
+	
+	$expanded = array_reverse($expanded);
+	return $expanded;
+}
+
 ?>

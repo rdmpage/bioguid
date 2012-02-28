@@ -82,7 +82,28 @@ if ($callback != '')
 {
 	echo $callback .'(';
 }
+
+if (0)
+{
+
+$obj->title="a";
+$obj->description="b";
+$obj->canonical_url = "http://gallica.bnf.fr/ark:/12148/bpt6k31239/f1614";
+$obj->pages = 3;
+$obj->resources->page = new stdclass;
+$obj->resources->page->text = 'http://iphylo.org/~rpage/itaxon/gallica/bpt6k31239/start/1614/pages/{page}';
+$obj->resources->page->image = 'http://iphylo.org/~rpage/itaxon/gallica/bpt6k31239/start/1614/pages/{page}-{size}';
+
+//$obj->resources->search = 'http://biostor.org/dvs/' . $id . '/json?q={query}';
+
+$obj->sections = array();
+
+$obj->annotations = array();
+
+}
+
 echo json_encode($obj);
+
 if ($callback != '')
 {
 	echo ')';

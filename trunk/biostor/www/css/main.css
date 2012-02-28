@@ -72,6 +72,19 @@ li.guid-list
 {
 }
 
+.blank
+{
+  margin-left: 3px;
+  padding: 2px 2px 2px 19px;
+}
+
+.gbif
+{
+  margin-left: 3px;
+  padding: 2px 2px 2px 19px;
+  background: url("/images/gbif.png") no-repeat 0 50%;
+}
+
 .permalink 
 {
   margin-left: 3px;
