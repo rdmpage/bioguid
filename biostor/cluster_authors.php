@@ -52,27 +52,29 @@ while (!$result->EOF)
 
 print_r($authors);
 
-
-//--------------------------------------------------------------------------------------------------
-// Text indexing...
-$sql = 'DELETE FROM rdmp_text_index WHERE (object_type="author")';
-$result = $db->Execute($sql);
-if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
-
-foreach ($authors as $author)
+if (0)
 {
 	
-	$sql = 'INSERT INTO rdmp_text_index(object_type, object_id, object_uri, object_text)
-	VALUES ("author"'
-	. ', ' . $author->id 
-	. ', ' . $db->qstr($config['web_root'] . 'author/' . $author->id) 
-	. ', ' . $db->qstr($author->name)
-	. ')';	
-	
+	//--------------------------------------------------------------------------------------------------
+	// Text indexing...
+	$sql = 'DELETE FROM rdmp_text_index WHERE (object_type="author")';
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
-}	
-
+	
+	foreach ($authors as $author)
+	{
+		
+		$sql = 'INSERT INTO rdmp_text_index(object_type, object_id, object_uri, object_text)
+		VALUES ("author"'
+		. ', ' . $author->id 
+		. ', ' . $db->qstr($config['web_root'] . 'author/' . $author->id) 
+		. ', ' . $db->qstr($author->name)
+		. ')';	
+		
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+	}	
+}
 
 //--------------------------------------------------------------------------------------------------
 // Get distinct last names that are linked to references

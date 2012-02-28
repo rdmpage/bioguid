@@ -29,8 +29,6 @@ $want=array();
 
 // 10428
 
-//
-
 
 
 
@@ -374,6 +372,235 @@ $want=array();
 
 $Titles=array(4050);
 $want=array(55046,55069,55047,25735);
+
+$Titles = array(13264);
+$want=array();
+
+// Bullettino della Società entomologica italiana
+$Titles =array(9612);
+$want=array(39875);
+
+// Entomological News
+$Titles =array(2356);
+$want=array(113866,113867,113865);
+
+// Verhandlungen der Naturforschenden Gesellschaft in Basel
+$Titles =array(46540);
+$want=array(106380);
+
+// Great Basin Naturalist
+$Titles=array(7928);
+$want=array();
+
+// Occasional papers of the California Academy of Sciences
+$Titles = array(7410);
+$want=array();
+
+$Titles = array(3179);
+$want=array(25828);
+
+// Zool Jahr Ab Syst
+$Titles = array(8980);
+$want=array();
+
+// Terra Nova
+$Titles = array(42665);
+$want=array();
+$Titles = array(18281);
+$want=array();
+
+$Titles=array(7928);
+$want=array(33366);
+
+$Titles=array(7922);
+$want=array();
+
+//$Titles=array(14107);
+//$want=array();
+
+$Titles=array(7933);
+$want = array(63349);
+
+// American Journal of Science
+$Titles=array(14965);
+$want = array(113468);
+
+$Titles=array(14924);
+$want = array();
+
+// Discovery Reports (one set)
+$Titles=array(15981);
+$want = array();
+
+// Journal of the College of Agriculture
+$Titles=array(8662);
+$want = array();
+
+// Papers and proceedings of the Royal Society of Tasmania
+$Titles=array(9494);
+$want = array();
+
+// Liangqi baxing dongwu yanjiu = Acta herpetologica Sinica
+$Titles=array(53832);
+$want = array();
+
+$Titles=array(53833);
+$want = array();
+
+$Titles=array(3141);
+$want = array();
+
+// Annali del Museo civico di storia naturale di Genova
+$Titles =array(7929);
+$want=array();
+
+// Memoirs of the Queensland Museum
+$Titles=array(12912);
+$want=array();
+
+// Comptes rendus des séances de la Société de biologie et de ses filiales
+$Titles=array(8070);
+$want=array(108557);
+
+// Bericht über die Senckenbergische Naturforschende Gesellschaft in Frankfurt am Main
+$Titles=array(8745);
+$want=array(33793);
+
+// Bollettino dei musei di zoologia ed anatomia comparata della R. Università di Torino
+$Titles=array(10776);
+$want=array();
+
+
+$Titles=array(6335);
+$want=array();
+
+
+
+$Titles = array(50753);
+$want=array();
+
+// Proc USNM
+$Titles=array(7519);
+$want=array(32319);
+
+$Titles=array(2744);
+$want=array();
+
+$Titles = array(49442);
+$want=array(104470);
+
+$Titles = array(48522);
+$want=array();
+
+$Titles = array(4252);
+$want=array();
+
+$Titles = array(46202);
+$want=array();
+
+$Titles=array(10241);
+$want=array();
+
+// Proceedings of the New England Zoölogical Club.
+$Titles=array(10605);
+$want=array();
+
+// Jahrbuch der Hamburgischen Wissenschaftlichen Anstalten
+$Titles=array(9594);
+$want=array();
+
+// Entomologische Blätter
+$Titles=array(50899);
+$want=array();
+
+// Memoirs of the American Entomological Society
+$Titles=array(6193);
+$want=array();
+
+// Annali del Museo civico di storia naturale Giacomo Doria
+$Titles=array(43408);
+$want=array();
+
+// Verhandlungen der Naturforschenden Gesellschaft in Basel.
+$Titles = array(46540);
+$want=array();
+
+// Spolia zeylanica
+$Titles = array(10229);
+$want=array();
+
+// Spolia zeylanica
+$Titles = array(10229);
+$want=array();
+
+// Journal of the Asiatic Society of Bengal
+$Titles = array(51678);
+$want=array();
+
+$Titles = array(13353);
+$want = array(49895);
+
+// Proceedings of the Malacological Society of London
+$Titles = array(15224);
+$want=array();
+
+// Archives de zoologie expérimentale et générale.
+$Titles = array(5559);
+$want=array(27784);
+
+// Pomona College journal of entomology
+$Titles = array(8154);
+$want=array();
+
+
+$Titles = array(7519);
+$want=array(53452);
+
+//Bulletin of the British Ornithologists' Club.
+$Titles = array(46639);
+$want=array();
+
+$Titles=array(43431);
+$want=array();
+
+// Arbeiten aus dem Zoologischen Instituten der Universität Wien und der Zoologischen Station in Triest
+$Titles=array(6106);
+$want=array();
+
+// Decapod crustacea of Bermuda
+$Titles=array(23648);
+$want=array(64731);
+
+$Titles=array(48602);
+$want=array();
+
+// Biologia Centrali-Americana
+$Titles=array(730);
+$want=array();
+
+
+$Titles = array(17344);
+$want=array();
+
+$Titles = array(20608);
+$want=array();
+
+$Titles = array(2087);
+$want=array();
+
+$Titles = array(44766);
+$want=array();
+
+$Titles = array(11687);
+$want=array();
+
+$Titles=array(1730);
+$want=array();
+
+// Archives de zoologie expérimentale et générale.
+$Titles = array(5559);
+$want=array();
+
 
 foreach ($Titles as $TitleID)
 {

@@ -51,7 +51,8 @@ function tag_cloud($obj)
 	{
 		$font_size = 8 + 3 * class_from_weight($name['count'] - $obj->min_frequency, $thresholds);
 		$html .= '<a style="font-size:' . $font_size . 'px;"';
-		$html .=  ' ' . 'href="' . $config['web_root'] . 'name/' . $name['NameBankID'];
+//		$html .=  ' ' . 'href="' . $config['web_root'] . 'name/' . $name['NameBankID'];
+		$html .=  ' ' . 'href="' . $config['web_root'] . 'name/' . $name['namestring'];
 		$html .= '">';
 		$html .=  $name['namestring'];
 		$html .= '</a> ';
@@ -69,7 +70,7 @@ function bhl_name($name_string)
 	global $db;
 	
 	$NameBankID = 0;
-	/*
+	
 	$sql = 'SELECT NameBankID 
 	FROM bhl_page_name
 	WHERE NameConfirmed=' . $db->qstr($name_string) . ' LIMIT 1';
@@ -81,7 +82,7 @@ function bhl_name($name_string)
 	{
 		$NameBankID = $result->fields['NameBankID'];
 	}
-	*/
+	
 	
 	return $NameBankID;
 }
@@ -94,7 +95,7 @@ function bhl_names_in_page($PageID)
 	
 	$names = array();
 
-	/*
+	
 	$sql = 'SELECT * FROM bhl_page_name
 	WHERE PageID=' . $PageID;
 	$result = $db->Execute($sql);
@@ -113,7 +114,7 @@ function bhl_names_in_page($PageID)
 		
 		$result->MoveNext();
 	}
-	*/
+	
 	
 	return $names;
 }
@@ -137,7 +138,7 @@ function bhl_names_in_reference ($reference_id)
 	$obj->max_frequency = 0;
 	$obj->min_frequency = 10000;
 
-	/*
+	
 	foreach ($pages as $page)
 	{
 		$sql = 'SELECT * FROM bhl_page_name
@@ -166,7 +167,7 @@ function bhl_names_in_reference ($reference_id)
 			$result->MoveNext();
 		}	
 	}
-	*/
+	
 	// sort alphabetically
 	array_multisort($obj->tags, SORT_ASC, SORT_STRING, $obj->names);
 
@@ -194,7 +195,7 @@ function bhl_names_in_reference_by_page ($reference_id)
 	$names->names = array();
 	
 	$count = 0;
-	/*
+	
 	foreach ($pages as $page)
 	{
 		$sql = 'SELECT * FROM bhl_page_name
@@ -224,7 +225,7 @@ function bhl_names_in_reference_by_page ($reference_id)
 			$result->MoveNext();
 		}	
 	}
-	*/
+	
 	//ksort($names);
 	
 	return $names;	
@@ -293,6 +294,8 @@ function bhl_references_with_namestring($namestring)
 	WHERE bhl_page_name.NameConfirmed=' . $db->qstr($namestring) . '
 	ORDER BY rdmp_reference.year
 	LIMIT 20';
+	
+	//echo $sql;
 	
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);

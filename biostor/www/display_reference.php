@@ -20,9 +20,15 @@ require_once ('../geocoding.php');
 require_once ('../nomenclator.php');
 require_once ('../user.php');
 
+require_once (dirname(__FILE__) . '/tagtree/paths.php');
+
+require_once ('../specimens.php');
+
+
 //--------------------------------------------------------------------------------------------------
 class DisplayReference extends DisplayObject
 {
+	public $specimens = array();
 	public $localities = array();
 	public $page = 0;
 	public $taxon_names = NULL;
@@ -701,7 +707,7 @@ Event.observe(window, \'load\', function() {
 			echo '</table>';
 			
 			
-			if (0) // 0 to not display names
+			if (1) // 0 to not display names
 			{
 				
 				//--------------------------------------------------------------------------------------
@@ -727,6 +733,38 @@ Event.observe(window, \'load\', function() {
 				echo '<h2>Localities</h2>';
 				echo '<p class="explanation">Localities extracted from OCR text.</p>';
 				echo '<div id="map_canvas" style="width: 600px; height: 300px"></div>';
+			}
+
+
+			//--------------------------------------------------------------------------------------
+			if (count($this->specimens) != 0)
+			{
+				echo '<h2>Specimens</h2>';
+				echo '<p class="explanation">Specimen codes extracted from OCR text.</p>';
+				echo '<ul style="-moz-column-width: 13em; -webkit-column-width: 13em; -moz-column-gap: 1em; -webkit-column-gap: 1em;">';
+				foreach ($this->specimens as $occurrence)
+				{
+					echo '<li';
+					
+					if (isset($occurrence->occurrenceID))
+					{
+						//echo $occurrence->occurrenceID;
+						echo ' class="gbif"';
+					}
+					else
+					{
+						echo ' class="blank"';
+					}
+
+					
+					echo '>';
+					echo '<a href="specimen/' . rawurlencode($occurrence->code) . '">' . $occurrence->code . '</a>';
+					
+					
+					echo '</li>';
+				}
+				
+				echo '</ul>';
 			}
 			
 			
@@ -842,12 +880,24 @@ Event.observe(window, \'load\', function() {
 		}
 		
 		// don't do names..
-		if (0)
+		if (1)
 		{
 			// Names
 			$nm = bhl_names_in_reference_by_page($this->id);
 			$j->names = $nm->names;
 			
+			// Get majority rule taxon (what paper is about)
+			$tags = array();
+			foreach ($nm->names as $name)
+			{
+				$tags[] = $name->namestring;
+			}
+			
+			$paths = get_paths($tags);
+			$majority_rule = majority_rule_path($paths);
+			$j->expanded = expand_path($majority_rule);
+			
+			/*
 			// Nomenclatural acts
 			$acts = acts_in_publication($this->id);
 			if (count($acts) > 0)
@@ -898,7 +948,7 @@ Event.observe(window, \'load\', function() {
 				}
 				
 				//ksort($j->names);
-			}
+			} */
 		}
 		
 		
@@ -1114,6 +1164,16 @@ Event.observe(window, \'load\', function() {
 				bhl_geocode_reference($this->id);
 			}
 			$this->localities = bhl_localities_for_reference($this->id);
+		}
+		
+		// Specimens?
+		if ($this->in_bhl)
+		{
+			if (!specimens_has_been_parsed($this->id))
+			{
+				specimens_from_reference($this->id);
+			}
+			$this->specimens = specimens_from_db($this->id);
 		}
 		
 		return $this->object;

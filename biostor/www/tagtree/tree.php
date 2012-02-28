@@ -481,7 +481,8 @@ class Tree
 				$linked = ($ids != NULL) && $is_tag;
 				if ($linked)
 				{
-					$html .= '<a href="' . $config['web_root'] . $url . $ids[$cur->GetLabel()] . '">';
+//					$html .= '<a href="' . $config['web_root'] . $url . $ids[$cur->GetLabel()] . '">';
+					$html .= '<a href="' . $config['web_root'] . $url . $cur->GetLabel() . '">';
 				}				
 				$html .= $cur->GetLabel();
 				if ($linked)
@@ -526,7 +527,8 @@ class Tree
 				$linked = ($ids != NULL) && $is_tag;
 				if ($linked)
 				{
-					$html .= '<a href="' . $config['web_root'] . $url . $ids[$cur->GetLabel()] . '">';
+//					$html .= '<a href="' . $config['web_root'] . $url . $ids[$cur->GetLabel()] . '">';
+					$html .= '<a href="' . $config['web_root'] . $url . $cur->GetLabel() . '">';
 				}				
 				$html .= $cur->GetLabel();
 				if ($linked)

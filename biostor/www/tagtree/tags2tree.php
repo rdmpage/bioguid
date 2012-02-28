@@ -124,7 +124,8 @@ else
 		echo '<ul>';
 		foreach ($not_found as $f)
 		{
-			echo '<li><a href="' . $config['web_root'] . $url . $ids[$f] . '">' . $f . '</a></li>';
+//			echo '<li><a href="' . $config['web_root'] . $url . $ids[$f] . '">' . $f . '</a></li>';
+			echo '<li><a href="' . $config['web_root'] . $url . $f . '">' . $f . '</a></li>';
 		}
 		echo '</ul>';
 	}
