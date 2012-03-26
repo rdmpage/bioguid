@@ -464,6 +464,7 @@ function display_form($context_object, $webhook = '')
 		if (preg_match ('/^(http:\/\/(.*))/', $webhook))
 		{
 			echo '<input type="hidden" id="webhook" name="webhook" value="' . $webhook . '">' . "\n";	
+//			echo '<input type="hidden" id="webhook" name="webhook" value="http://www.postbin.org/1b61x6c">' . "\n";	
 			echo '<div><label>Save</label><button type="button" onclick="save();">Save</button></div>' . "\n";
 		}
 	}
