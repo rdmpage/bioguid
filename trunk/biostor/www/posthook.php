@@ -126,7 +126,9 @@ if (isset($_POST['webhook']))
 		curl_setopt ($ch, CURLOPT_PROXY, $config['proxy_name'] . ':' . $config['proxy_port']);
 	}
 	curl_setopt ($ch, CURLOPT_POST, TRUE);
-	curl_setopt ($ch, CURLOPT_POSTFIELDS, $post_data);
+//	curl_setopt ($ch, CURLOPT_POSTFIELDS, $post_data);
+	curl_setopt ($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
+	//curl_setopt ($ch, CURLOPT_POSTFIELDS, 'data=hello');
 	$response = curl_exec($ch);
 	$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	
