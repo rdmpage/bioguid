@@ -196,7 +196,7 @@ function ion_process(&$item)
 	
 	$url = $item->link;
 
-	echo $url . "\n";
+	//echo $url . "\n";
 	$html = get($url);
 	
 	//echo $html;
@@ -474,13 +474,15 @@ function main()
 		
 		if ($result == 0)
 		{
-			#print_r($data);
+			//print_r($data);
 			
 			// Extract details from each item
 			foreach ($data->items as $item)
 			{
 			
 				//print_r($item);
+				
+				$item->guid = str_replace('urn:lsid:organismnames.com:name:', '', $item->guid);
 			
 				// Don't hammer the server
 				if (item_exists($item))
@@ -518,6 +520,13 @@ function main()
 						$item->publicationTitle = $title;
 						//echo "$title\n";
 					}
+					
+					// Clean date
+					$timestamp = strtotime($item->pubDate);					
+					$item->pubDate = strftime("%Y-%m-%d", $timestamp);
+					
+					//print_r($item);
+					
 					
 					// Fetch HTML so we can harvest taxon author name and bibliographic details
 					ion_process($item);

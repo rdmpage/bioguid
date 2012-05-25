@@ -42,7 +42,8 @@ $title = strip_tags($title);
 $url = 'http://scholar.google.co.uk';
 
 $url .= '/scholar';
-$url .= "?q=allintitle:";
+//$url .= "?q=allintitle:";
+$url .= "?q=";
 $url .= str_replace(' ', '+', $title);
 $url .= "&amp;ie=UTF-8";
 $url .= "&amp;oe=UTF-8";
@@ -83,6 +84,8 @@ $html = str_replace("\n", " ", $html);
 
 //echo $html;	
 
+//exit();
+
 $title_url = '';
 
 // get URLs
@@ -92,7 +95,7 @@ if (preg_match('/<h3 class="r"><a href="(?<url>([^"]|(?R))*)/', $html, $matches)
 }
 
 // get RIS
-if (preg_match('/<a href="\/scholar.ris\?(?<q>.*)">Import into RefMan<\/a>/', $html, $matches))
+if (preg_match('/<a href="\/scholar.ris\?(?<q>.*)">Import into RefMan<\/a>/Uu', $html, $matches))
 {
 	//print_r($matches);
 	

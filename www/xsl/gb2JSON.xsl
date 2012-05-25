@@ -179,7 +179,7 @@ version="1.0">
 
 
 	<xsl:template match="GBFeature">
-
+<!--
 	<xsl:choose>
 
 		<xsl:when test="GBFeature_key='operon'">
@@ -432,11 +432,15 @@ version="1.0">
 
 
 		<xsl:otherwise>
+			<xsl:if test="position() != 2"><xsl:text>,&#x0D;</xsl:text></xsl:if>
+			<xsl:text>{</xsl:text>
+			<xsl:text>"}</xsl:text>
+
 		</xsl:otherwise>
 
 	</xsl:choose>
 
-
+-->
 	</xsl:template>
 
 

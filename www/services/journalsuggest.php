@@ -31,6 +31,10 @@ function getJournal($str)
 	$str = str_replace(':', '', $str);
 	$str = str_replace('\'', '', $str);
 	$str = str_replace('.', '%', $str);
+
+	// Yuck!
+	$str = str_replace('é', 'e', $str);
+
 	
 	$str = preg_replace('/\s\s*/', ' ', $str);
 	
@@ -82,9 +86,10 @@ function getJournal($str)
 }
 
 $json = '';
+
 if (isset($_GET['title']))
 {
-	$str = $_GET['title'];
+	$str = ($_GET['title']);
 	$json = getJournal($str);
 }
 else

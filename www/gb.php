@@ -686,6 +686,7 @@ function gb_locality(&$data)
 function get_sequence($accession, &$item)
 {
 	$id = find_genbank($accession);
+	
 	if ($id == 0)
 	{
 		// We don't have this sequence (but see below)
@@ -729,6 +730,8 @@ function get_sequence($accession, &$item)
 		}		
 	
 		//echo "\n\n" . __LINE__ . "\n\n";
+		
+		$xml = str_replace('<!DOCTYPE GBSet PUBLIC "-//NCBI//NCBI GBSeq/EN" "http://www.ncbi.nlm.nih.gov/dtd/NCBI_GBSeq.dtd">', '', $xml);
 	
 	
 		$xp = new XsltProcessor();
@@ -741,10 +744,11 @@ function get_sequence($accession, &$item)
 		
 		$json = $xp->transformToXML($xml_doc);
 		
-		
 		//echo $json;
 		
 		$data = json_decode($json);
+		
+		//print_r($data);
 		
 		// Handle case where was have this sequnece from EMBL harvesting
 		$id = set_gi($data->accession, $data->gi);
@@ -772,6 +776,34 @@ function get_sequence($accession, &$item)
 		$json = retrieve_genbank_json($id);
 		$item = json_decode($json);
 	}
+	
+	// CouchDB modification
+	
+	if (isset($item->source->latitude))
+	{
+		// Geometry for sequence
+		$item->source->geometry = new stdclass;
+		$item->source->geometry->type = "MultiPoint";
+		$item->source->geometry->coordinates=array();
+		$item->source->geometry->coordinates[] = array((Double)$item->source->longitude,(Double)$item->source->latitude);
+	}
+	else
+	{
+		if (isset($item->source->specimen))
+		{
+			// Use geomtry from specimen
+			if (isset($item->source->specimen->latitude))
+			{
+				$item->source->geometry = new stdclass;
+				$item->source->geometry->type = "MultiPoint";
+				$item->source->geometry->coordinates=array();
+				$item->source->geometry->coordinates[] = array((Double)$item->source->specimen->longitude,(Double)$item->source->specimen->latitude);			
+			}
+		}
+	}
+		
+	
+	
 	return $id;
 }
 

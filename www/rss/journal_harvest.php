@@ -10,7 +10,7 @@
 require_once (dirname(__FILE__) . '/config.inc.php');
 require_once (dirname(__FILE__) . '/lib.php');
 require_once (dirname(__FILE__) . '/rss.php');
-require_once ('../nuytsia.php');
+require_once (dirname(dirname(__FILE__)) . '/nuytsia.php');
 
 
 function main()
@@ -154,7 +154,7 @@ function main()
 			{
 				$done = false;
 				
-				echo $link . "\n";
+				echo "Link=$link\n";
 				
 				// Journal-specific handling
 				

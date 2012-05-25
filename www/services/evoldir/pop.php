@@ -65,6 +65,7 @@ if ($pop3->numMsg() > 0) {
         //echo $hdrs['From'] . "\n" . $hdrs['Subject'] . "\n" . $hdrs['Message-Id'] . "\n\n"; 
         
         // Only process emails from xxx.
+//        if (preg_match('/evoldir\@evol.biology.mcmaster.ca/', $pop3->getBody($x)))
         if (preg_match('/evoldir\@evol.biology.mcmaster.ca/', $hdrs['From']))
  //       if (preg_match('/springeralerts@springer.delivery.net/', $hdrs['From']))
         {

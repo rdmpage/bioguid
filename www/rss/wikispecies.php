@@ -10,7 +10,11 @@ class WikispeciesFeed extends FeedMaker
 	//----------------------------------------------------------------------------------------------
 	function Harvest()
 	{
-		$xml = get($this->url);
+		$xml = get($this->url, "bioGUID");
+		
+		//echo $xml;
+		
+		//exit();
 		
 		// Extract records from RSS2 feed
 		$dom= new DOMDocument;

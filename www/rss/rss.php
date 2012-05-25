@@ -139,10 +139,10 @@ function GetRSS ($url, &$rss, $check = false)
 			if ($check)
 			{
 				// Retrieve ETag and LastModified
-				$rows = split ("\n", $header);
+				$rows = explode ("\n", $header);
 				foreach ($rows as $row)
 				{
-					$parts = split (":", $row, 2);
+					$parts = explode (":", $row, 2);
 					if (count($parts) == 2)
 					{
 						if (preg_match("/ETag/", $parts[0]))
@@ -181,7 +181,7 @@ if (0)
 //	$url = "http://localhost/~rpage/ants/rss/Formicidae.rss";
 	$url = 'http://www.connotea.org/rss/tag/phylogeny';
 //	$url = 'http://names.ubio.org/rss/rss_feed.php?username=rdmpage&rss1=1';
-	$url = 'http://www.organismnames.com/RSS/Acanthocephala.xml';
+	$url = 'http://taxacom.markmail.org/atom/';
 	
 	$rss = '';
 	$msg = '';

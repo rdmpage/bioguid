@@ -9,6 +9,7 @@ require_once('ipni.php');
 
 $taxon_id = '';
 $format = 'html';
+$callback = '';
 
 if (isset($_GET['taxon_id']))
 {
@@ -28,6 +29,10 @@ if (isset($_GET['format']))
 			$format = 'html';
 			break;
 	}
+}
+if (isset($_GET['callback']))
+{
+	$callback = $_GET['callback'];
 }
 
 if ($taxon_id == '')
@@ -347,7 +352,15 @@ else
 			switch ($format)
 			{
 				case 'json':
+					if ($callback != '')
+					{
+						echo $callback . '(';
+					}
 					echo json_encode($obj);
+					if ($callback != '')
+					{
+						echo ')';
+					}
 					break;
 				case 'rdf':
 				case 'xml':

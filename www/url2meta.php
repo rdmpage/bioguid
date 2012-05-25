@@ -411,6 +411,16 @@ function url2meta($url)
 			$item->comment = 'url';
 			$item->doi = $url;
 	}
+	
+	
+	//------------------------------------------------------------------------------
+	// Wiley
+	if (preg_match('/http:\/\/onlinelibrary.wiley.com\/doi\/(?<doi>.*)\/abstract/Uu', $url, $match))
+	{
+			$item->status = 'ok';
+			$item->comment = 'url';
+			$item->doi = $match['doi'];
+	}
 
 	//------------------------------------------------------------------------------
 	if (preg_match('/http:\/\/apsjournals.apsnet.org\/doi\/abs\//', $url))
@@ -813,8 +823,30 @@ function url2meta($url)
 	
 	
 	//------------------------------------------------------------------------------
+	if (preg_match('/http:\/\/sjg.lyellcollection.org\/content\/(?<item>([0-9]+\/[0-9]+\/[0-9]+))/', $url, $match))
+	{
+		print_r($match);
+		
+		$ris_url = 'http://sjg.lyellcollection.org/citmgr?type=refman&gca=sjg;' . $match['item'];
+		$ris = get($ris_url);
+		
+		//echo $ris;
+		
+		if ($ris == '')
+		{
+			$item->status = 'failed';
+		}
+		else
+		{
+			$item->status = 'ok';
+			parseRIS($ris, $item);
+		}
+			
+	}	
+	
+	//------------------------------------------------------------------------------
 	// Highwire Press
-	if (preg_match('/http:\/\/(?<prefix>(www.))?(?<journal>.*).org\/cgi\/((content\/(abstract|short))|(reprint))\/(?<item>([0-9]+\/[0-9]+\/[0-9]+))/', $url, $match))
+	if (preg_match('/http:\/\/(?<prefix>(www.))?(?<journal>.*).org\/((content\/(abstract|short))|(reprint))\/(?<item>([0-9]+\/[0-9]+\/[0-9]+))/', $url, $match))
 	{
 		//print_r($match);
 		
@@ -899,6 +931,10 @@ function url2meta($url)
 				$ris_url .= 'reprod';
 				$item->issn = '1470-1626';
 				break;
+			case 'sjg.lyellcollection':
+				$ris_url .= 'sjg';
+				$item->issn = '0036-9276';
+				break;
 
 			default:
 				$ris_url .= $match['journal'];
@@ -928,6 +964,8 @@ function url2meta($url)
 	// http://www.jstor.org/stable/pdfplus/1446094.pdf
 	if (preg_match('/http:\/\/www.jstor.org\/(pss|stable)\/(pdfplus\/)?(?<id>[0-9]+)(\.pdf)?/', $url, $match))
 	{
+		//print_r($match);
+	
 		$id = $match['id'];
 		
 		$html = '';
@@ -946,6 +984,8 @@ function url2meta($url)
 			$html = get($u);
 			
 		}
+		
+		//echo $html;
 		
 		// Add line feeds so regular expresison works
 		$html = str_replace('<meta', "\n<meta", $html);
@@ -1578,7 +1618,7 @@ function url2meta($url)
 			$item->doi = $citation['citation_doi'];			
 			
 			$author_string = $citation['citation_authors'];
-			$a = explode(",", trim($author_string));
+			$a = explode(";", trim($author_string));
 			
 			foreach ($a as $value)
 			{
@@ -1706,7 +1746,53 @@ function url2meta($url)
 			$item->status = 'ok';
 		}
 	}	
-
+	
+	/*
+	//http://pensoftonline.net/zookeys/index.php/journal/article/viewArticle/448
+	
+	if (preg_match('/http:\/\/www.pensoft.net\/journals\/zookeys\/article\//', $url))
+	{
+		$html = get($url);
+		//echo $url;
+		//echo $html;
+		
+		//$html = str_replace("\n", ' ', $html);
+		preg_match_all('/<meta name="(?<name>.*)"\s+content="(?<content>.*)"\s+\/>/Uum',  $html, $m);
+		
+		echo '<pre>';
+		print_r($m);
+		echo '</pre>';
+		
+		$n = count($m[0]);
+		
+		foreach ($i=0;$i<$n;$i++)
+		{
+			switch ($m['name'][$i])
+			{
+				case 'dc.identifier':
+					$item->doi = $m['content'][$i];
+					break;
+					
+				case 'prism.issn':
+					$item->issn = $m['content'][$i];
+					break;
+				case 'prism.publicationName':
+					$item->title = $m['content'][$i];
+					break;
+					
+				default:
+					break;
+			}
+				
+		}
+		
+		print_r($item);
+					
+		
+		
+		
+	}
+	*/
 	
 	//echo __LINE__ . "\n";
 	//print_r($item);
@@ -1718,6 +1804,12 @@ function url2meta($url)
 
 
 }
+
+/*
+$url = 'http://www.informaworld.com/index/908257777.pdf';
+$item = url2meta($url);
+print_r($item);
+*/
 
 /*
 $url = 'http://www.ncbi.nlm.nih.gov/pubmed/4133322';

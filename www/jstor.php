@@ -241,7 +241,7 @@ function jstor_metadata ($sici, &$item)
 	
 	
 	// Check for any error messages
-	if (preg_match("/<h1>We're Sorry.<\/h1>/", $html))
+	if (preg_match("/<h2>We're Sorry<\/h2>/", $html))
 	{
 		return $found;
 	}
