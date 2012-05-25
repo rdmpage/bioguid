@@ -259,7 +259,14 @@ function process_ris_key($key, $value, &$obj)
 				default:						
 					if ('UR' == $key)
 					{
-						$obj->$key_map[$key] = $value;
+						if (preg_match('/\.pdf/', $value))
+						{
+							$obj->$key_map['L1'] = $value;
+						}
+						else
+						{
+							$obj->$key_map[$key] = $value;
+						}
 					}
 				
 					break;

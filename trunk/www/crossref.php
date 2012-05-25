@@ -67,6 +67,7 @@ function search_for_doi($issn, $volume, $page, $genre, &$item)
 	global $config;
 	global $debug;
 
+
 	$doi = '';
 	$url = 'http://www.crossref.org/openurl?';
 
@@ -90,7 +91,10 @@ function search_for_doi($issn, $volume, $page, $genre, &$item)
 		echo "</pre>";
 	}
 	
-	//echo $url;
+	if ($debug)
+	{
+		echo $url;
+	}
 
 	$xml = get($url);
 	
@@ -108,6 +112,12 @@ function search_for_doi($issn, $volume, $page, $genre, &$item)
 		//echo __LINE__ . " ok";
 		
 		$ok = true;
+		
+		$xml = preg_replace('/xmlns="http:\/\/www.crossref.org\/xschema\/[0-9]\.[0-9]"/', '', $xml);
+		$xml = str_replace('xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"', '', $xml);
+		$xml = str_replace('xsi:schemaLocation="http://www.crossref.org/xschema/1.1 http://www.crossref.org/schema/unixref1.1.xsd http://www.crossref.org/xschema/1.0 http://www.crossref.org/schema/unixref1.0.xsd"', '', $xml);
+
+		
 		
 		$xml = str_replace("\n", "", $xml);
 		$xml = str_replace("\r", "", $xml);
@@ -142,12 +152,19 @@ function search_for_doi($issn, $volume, $page, $genre, &$item)
 			
 			//echo $json;
 			
-			//echo json_format($json);
-			
+			if ($debug)
+			{
+				echo '<pre style="text-align: left;border: 1px solid #c7cfd5;background: #f1f5f9;padding:15px;">';			
+				echo json_format($json);
+				echo '</pre>';
+			}
 		
 			$item = json_decode($json);
 			
-			//print_r($item);
+			if ($debug)
+			{
+				print_r($item);
+			}
 						
 			// Ensure metadata is OK (assumes a journal for now)
 			if (!isset($item->issn))
@@ -217,17 +234,26 @@ function doi_metadata ($doi, &$item)
 				
 		$ok = true;
 		
-		// remove
+		// remove junk that breaks XSLT
 		$xml = preg_replace('/xmlns="http:\/\/www.crossref.org\/xschema\/[0-9]\.[0-9]"/', '', $xml);
 		$xml = str_replace('xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"', '', $xml);
 		$xml = str_replace('xsi:schemaLocation="http://www.crossref.org/xschema/1.1 http://www.crossref.org/schema/unixref1.1.xsd http://www.crossref.org/xschema/1.0 http://www.crossref.org/schema/unixref1.0.xsd"', '', $xml);
-				
+
+
+//		$xml = preg_replace ('/<doi_records(.*)>/Uu', "<doi_records>", $xml);
+//		$xml = preg_replace ('/<doi_record(.*)>/Uu', "<doi_record>", $xml);
+
 		// strip end of lines (CSIRO sometimes has this, and it kills the JSON decoding)
 		$xml = str_replace("\n", "", $xml);
 		$xml = str_replace("\r", "", $xml);
 		$xml = preg_replace('/\s\s+/', " ", $xml);
 		
-		//echo $xml;
+		if ($debug)
+		{
+			echo '<pre style="text-align: left;border: 1px solid #c7cfd5;background: #f1f5f9;padding:15px;">';
+			echo htmlentities($xml);
+			echo "</pre>";
+		}
 		
 		
 		$dom= new DOMDocument;
@@ -282,7 +308,9 @@ function doi_metadata ($doi, &$item)
 			
 			if ($debug)
 			{
+				echo '<pre style="text-align: left;border: 1px solid #c7cfd5;background: #f1f5f9;padding:15px;">';			
 				print_r($item);
+				echo '</pre>';
 			}
 		}			
 	}
@@ -300,5 +328,47 @@ function doi_exists ($doi)
 	return $exists;
 }
 
+// test
+if (0)
+{
+	$doi = '10.1002/mmnd.19830300115';
+	
+	$url = "http://www.crossref.org/openurl"
+		. "?pid=" . $config['crossref_pid']
+		. "&rft_id=info:doi/$doi&noredirect=true"
+		. "&format=unixref";
+		
+	
+	$xml = get($url);
+	
+	echo $xml;
+	
+	$xml = preg_replace('/xmlns="http:\/\/www.crossref.org\/xschema\/[0-9]\.[0-9]"/', '', $xml);
+	$xml = str_replace('xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"', '', $xml);
+	$xml = str_replace('xsi:schemaLocation="http://www.crossref.org/xschema/1.1 http://www.crossref.org/schema/unixref1.1.xsd http://www.crossref.org/xschema/1.0 http://www.crossref.org/schema/unixref1.0.xsd"', '', $xml);
 
+	// strip end of lines (CSIRO sometimes has this, and it kills the JSON decoding)
+	$xml = str_replace("\n", "", $xml);
+	$xml = str_replace("\r", "", $xml);
+	$xml = preg_replace('/\s\s+/', " ", $xml);
+
+	$dom= new DOMDocument;
+	$dom->loadXML($xml);
+	$xpath = new DOMXPath($dom);
+
+	// Get JSON
+	$xp = new XsltProcessor();
+	$xsl = new DomDocument;
+	$xsl->load('xsl/unixref2JSON.xsl');
+	$xp->importStylesheet($xsl);
+	
+	$xml_doc = new DOMDocument;
+	$xml_doc->loadXML($xml);
+	
+	$json = $xp->transformToXML($xml_doc);
+	
+	echo $json;
+	
+}
+	
 ?>

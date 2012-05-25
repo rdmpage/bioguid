@@ -302,7 +302,7 @@ echo '<h1>Status of biodiversity services</h1>';
 
 
 <?php
-
+/*
 
 $sql = 'SELECT * FROM status
 ORDER BY tested DESC
@@ -315,7 +315,7 @@ if ($result == false) die("failed");
 //echo strtotime($result->fields['tested']) . ' ' . time();
 
 echo '<p>Services queried ' . distanceOfTimeInWords(strtotime($result->fields['tested']) ,time(),true) . ' ago.</p>'. "\n";
-
+*/
 
 echo "<table cellpadding=\"3\" cellspacing=\"0\" width=\"100%\">". "\n";
 echo '<tbody style="font-family:verdana,Arial,sans-serif;font-size:12px">'. "\n";

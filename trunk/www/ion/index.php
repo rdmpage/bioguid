@@ -48,11 +48,16 @@ if (isset($_GET['name']))
 	}
 	if ($result->fields['journal'] != '')
 	{
-		echo '<br/>OpenURL:' . '<a href="http://bioguid.info/openurl?genre=article&title=' . $result->fields['journal'] 
+		echo '<br/>OpenURL:' . '<a href="http://biostor.org/openurl.php?genre=article'
+		. '&atitle=' . urlencode($result->fields['publicationTitle']) 
+		. '&title=' . urlencode($result->fields['journal']) 
 			. '&volume=' . $result->fields['volume'] . '&spage=' . $result->fields['spage'] . '" target="_new">OpenURL</a>';
 	}
 	
 	echo '</p>';
+	
+	echo '<p>urn:lsid:organismnames.com:name:' . $result->fields['guid'] . '</p>';
+	echo '<p><a href="http://www.organismnames.com/details.htm?lsid=' . $result->fields['guid'] . '">web link</a></p>';
 }
 else
 {

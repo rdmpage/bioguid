@@ -32,6 +32,8 @@ if (isset($_GET['debug']))
 	$debug = ($_GET['debug']);
 }
 
+$callback = '';
+
 
 // define some errors 
 define('ERROR_OK', 								0);	
@@ -1058,7 +1060,9 @@ function find_article_from_id($referent, &$item)
 				
 				if (isset($item->doi))
 				{
-					if (!isset($item->atitle))
+					//echo '<b>Flesh out</b>';
+				
+					if (!isset($item->atitle) || !isset($item->title))
 					{
 						// store any specific metadata
 						$tmp_values = new stdclass;
@@ -1322,7 +1326,7 @@ function find_article_from_page($values, &$item)
 		{
 			//echo 'Should be in CrossRef';
 			
-			$max_tries = 10;
+			$max_tries = 50;
 			$doi = '';
 			
 			$page = $values['pages'];
@@ -1651,16 +1655,24 @@ function display_error($display_type)
 	global $config;
 	global $error;
 	global $error_msg;
+	global $callback;
 	
 	switch ($display_type)
 	{
 		case DISPLAY_JSON:
+		case DISPLAY_BIBJSON:
 			header("Content-type: text/plain; charset=utf-8\n\n");	
 
 			$obj = new stdClass;
 			$obj->status = "error";
 			$obj->error = $error . ' ' . get_error_msg($error);
 			$json = json_encode($obj);
+			
+			if ($callback != '')
+			{
+				$json = $callback . '(' . $json . ');';
+			}
+			
 			echo $json;
 			
 			break;
@@ -1680,7 +1692,13 @@ function display_error($display_type)
 			$rdf .= '</rdf:RDF>';
 			echo $rdf;
 			break;
-		
+
+
+		case DISPLAY_RIS:
+			header("Content-type: text/plain; charset=utf-8\n\n");	
+			$ris = '';
+			echo $ris;
+			break;
 		
 			
 		case DISPLAY_HTML:	
@@ -1738,10 +1756,133 @@ pageTracker._trackPageview();
 //--------------------------------------------------------------------------------------------------
 function display_json($item)
 {
+	global $callback;
+	
 	$item->status = 'ok';
 
 	header("Content-type: text/plain; charset=utf-8\n\n");	
 	$json = json_format(json_encode($item));
+	
+	if ($callback != '')
+	{
+		$json = $callback . '(' . $json . ');';
+	}
+	echo $json;
+}
+
+
+//--------------------------------------------------------------------------------------------------
+function display_bibjson($item)
+{
+	global $callback;
+	
+	$reference = new stdclass;
+	
+	$reference->type = 'generic';
+	
+	$reference->title = $item->atitle;
+	
+	
+	$reference->identifier = array();
+	
+	// identifiers
+	if (isset($item->doi))
+	{
+		$identifier = new stdclass;
+		$identifier->type = 'doi';
+		$identifier->id = $item->doi;
+		$reference->identifier[] = $identifier;
+	}	
+	if (isset($item->pmid))
+	{
+		$identifier = new stdclass;
+		$identifier->type = 'pmid';
+		$identifier->id = $item->pmid;
+		$reference->identifier[] = $identifier;
+	}	
+	if (isset($item->hdl))
+	{
+		$identifier = new stdclass;
+		$identifier->type = 'handle';
+		$identifier->id = $item->hdl;
+		$reference->identifier[] = $identifier;
+	}	
+	
+	if ($item->genre == 'article')
+	{
+		$reference->type = 'article';
+
+		$reference->journal = new stdclass;
+		$reference->journal->name = $item->title;
+		
+		if (isset($item->volume))
+		{
+			$reference->journal->volume = $item->volume;
+		}
+		if (isset($item->issue))
+		{
+			$reference->journal->issue = $item->issue;
+		}
+		if (isset($item->spage))
+		{
+			$reference->journal->pages = $item->spage;
+		}
+		if (isset($item->epage))
+		{
+			$reference->journal->pages .= '--' . $item->epage;
+		}
+		if (isset($item->issn))
+		{
+			$reference->journal->identifier = array();
+			
+			// identifiers
+			if (isset($item->issn))
+			{
+				$identifier = new stdclass;
+				$identifier->type = 'issn';
+				$identifier->id = $item->issn;
+				$reference->journal->identifier[] = $identifier;
+			}	
+		}
+	}
+	
+	$reference->author = array();
+	foreach($item->authors as $a)
+	{
+		$author = new stdclass;
+		$author->forename = $a->forename;
+		$author->lastname = $a->lastname;
+		$author->name = $a->forename . ' ' . $a->lastname;
+		$reference->author[] = $author;
+	}
+	
+	if (isset($item->abstract))
+	{
+		$reference->abstract = $item->abstract;
+	}
+	
+	
+	$reference->links = array();
+	if (isset($item->url))
+	{
+		$reference->links[] = $item->url;
+	}
+	if (isset($item->pdf))
+	{
+		$reference->links[] = $item->pdf;
+	}
+	
+	
+	$reference->year = $item->year;
+		
+
+	header("Content-type: text/plain; charset=utf-8\n\n");	
+	$json = json_format(json_encode($reference));
+	
+	if ($callback != '')
+	{
+		$json = $callback . '(' . $json . ');';
+	}
 	echo $json;
 }
 
@@ -2621,6 +2762,10 @@ function display($item, $display_type)
 			display_json($item);
 			break;
 
+		case DISPLAY_BIBJSON:
+			display_bibjson($item);
+			break;
+
 		case DISPLAY_RDF:			
 			display_rdf($item);
 			break;
@@ -2632,6 +2777,68 @@ function display($item, $display_type)
 		case DISPLAY_ITAXON:			
 			display_publication_itaxon($item);
 			break;
+			
+		case DISPLAY_RIS:
+			header("Content-type: text/plain; charset=utf-8\n\n");	
+			$ris = '';
+			$ris .= "TY  - JOUR\n";
+			$ris .= "TI  - " . $item->atitle . "\n";
+			if (isset($item->title))
+			{
+				$ris .= "JF  - " . $item->title . "\n";
+			}
+			if (isset($item->issn))
+			{
+				$ris .= "SN  - " . $item->issn . "\n";
+			}
+			if (isset($item->volume))
+			{
+				$ris .= "VL  - " . $item->volume . "\n";
+			}
+			if (isset($item->issue))
+			{
+				$ris .= "IS  - " . $item->issue . "\n";
+			}
+			if (isset($item->spage))
+			{
+				$ris .= "SP  - " . $item->spage . "\n";
+			}
+			if (isset($item->epage))
+			{
+				$ris .= "EP  - " . $item->epage . "\n";
+			}
+			if (isset($item->year))
+			{
+				$ris .= "Y1  - " . $item->year . "///\n";
+			}
+			if (isset($item->doi))
+			{
+				$ris .= "DO  - " . $item->doi . "\n";
+			}
+			if (isset($item->url))
+			{
+				$ris .= "UR  - " . $item->url . "\n";
+			}
+			if (isset($item->pmid))
+			{
+				$ris .= "UR  - http://www.ncbi.nlm.nih.gov/pubmed/" . $item->pmid . "\n";
+			}
+			if (isset($item->hdl))
+			{
+				$ris .= "UR  - http://hdl.handle.net/" . $item->hdl . "\n";
+			}
+			if (isset($item->pdf))
+			{
+				$ris .= "L1  - " . $item->pdf . "\n";
+			}
+			if (isset($item->abstract))
+			{
+				$ris .= "N2  - " . $item->abstract . "\n";
+			}
+			$ris .= "ER  - \n\n";
+			echo $ris;
+			break;
+			
 
 		case DISPLAY_HTML:
 		default:
@@ -3216,6 +3423,11 @@ function display_genbank_rdf($item)
 	$t = $item->source->db_xref;
 	$t = str_replace('taxon:', 'taxonomy:', $t);
 	$db_xref->setAttribute('rdf:resource', "http://bioguid.info/" . $t);
+
+	$db_xref = $genbank->appendChild($feed->createElement('dcterms:subject'));	
+	$t = $item->source->db_xref;
+	$t = str_replace('taxon:', 'taxonomy/', $t);
+	$db_xref->setAttribute('rdf:resource', "http://purl.uniprot.org/" . $t);
 	
 	//----------------------------------------------------------------------------------------------
 	// Reference
@@ -3228,7 +3440,8 @@ function display_genbank_rdf($item)
 		if (isset($item->references[0]->doi))
 		{
 			$reference = $genbank->appendChild($feed->createElement('dcterms:isReferencedBy'));
-			$reference->setAttribute('rdf:resource', 'http://bioguid.info/doi:' . $item->references[0]->doi);
+			$reference->setAttribute('rdf:resource', 'http://dx.doi.org/' . $item->references[0]->doi);
+//			$reference->setAttribute('rdf:resource', 'http://bioguid.info/doi:' . $item->references[0]->doi);
 			$publication_guid = $item->references[0]->doi;
 		}
 	}
@@ -3237,18 +3450,21 @@ function display_genbank_rdf($item)
 		if (isset($item->references[0]->pmid))
 		{
 			$reference = $genbank->appendChild($feed->createElement('dcterms:isReferencedBy'));
-			$reference->setAttribute('rdf:resource', 'http://bioguid.info/pmid:' . $item->references[0]->pmid);
+//			$reference->setAttribute('rdf:resource', 'http://bioguid.info/pmid:' . $item->references[0]->pmid);
+			$reference->setAttribute('rdf:resource', 'http://bio2rdf.org/pubmed:' . $item->references[0]->pmid);
 			$publication_guid = $item->references[0]->pmid;
 		}
 	}	
 	if ($publication_guid == '')
 	{
+	/*
 		if (isset($item->references[0]->hdl))
 		{
 			$reference = $genbank->appendChild($feed->createElement('dcterms:isReferencedBy'));
 			$reference->setAttribute('rdf:resource', 'http://bioguid.info/hdl:' . $item->references[0]->hdl);
 			$publication_guid = $item->references[0]->hdl;
 		}
+	*/
 	}
 
 	//----------------------------------------------------------------------------------------------
@@ -3582,6 +3798,8 @@ define('DISPLAY_RDF', 		3);
 define('DISPLAY_CITE', 		4);	
 define(DISPLAY_ITAXON,		5);
 define(DISPLAY_RDF, 		6);	
+define(DISPLAY_RIS, 		7);	
+define(DISPLAY_BIBJSON, 	8);	
 
 $display_type = DISPLAY_HTML; // default
 if (isset($_GET['display']))
@@ -3609,12 +3827,25 @@ if (isset($_GET['display']))
 		case 'xml':
 			$display_type = DISPLAY_XML;
 			break;
+		case 'ris':
+			$display_type = DISPLAY_RIS;
+			break;
+		case 'bibjson':
+			$display_type = DISPLAY_BIBJSON;
+			break;
+			
 		default:
 			$display_type = DISPLAY_HTML;
 			break;
 	}
 	
 	unset($_GET['display']);
+}
+
+if (isset($_GET['callback']))
+{
+	$callback = $_GET['callback'];
+	unset($_GET['callback']);
 }
 
 //--------------------------------------------------------------------------------------------------

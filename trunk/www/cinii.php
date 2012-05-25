@@ -148,7 +148,7 @@ function search_cinii($jtitle, $issn, $volume, $spage, &$item, $debug = 0)
 {
 	global $config;
 	$found = false;
-	//$debug = 0;
+	$debug = 0;
 	
 	$item->authors = array();
 		
@@ -167,8 +167,10 @@ function search_cinii($jtitle, $issn, $volume, $spage, &$item, $debug = 0)
 	}
 */	
 
+	$url .= '&rft.jtitle=' . str_replace(" ", "%20", $jtitle);
+
 	// Use ISSN for OpenURL lookup as this seems to work better
-	if ($issn == '')
+/*	if ($issn == '')
 	{
 		$issn = issn_from_journal_title($jtitle);
 	}
@@ -183,7 +185,7 @@ function search_cinii($jtitle, $issn, $volume, $spage, &$item, $debug = 0)
 		{
 			$url .= '&rft.jtitle=' . str_replace(" ", "%20", $jtitle);
 		}	
-	}
+	}*/
 		
 	if ($debug)
 	{

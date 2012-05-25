@@ -141,6 +141,8 @@ class DiGIRProvider extends Service
 			// MCZ Harvard (distinguishes between Amphibians and Reptiles)
 			'MCZ-Amph' => 'digir.mcz.harvard.edu/digir/DiGIR.php',
 			
+			'MCZ-Herps' => 'digir.mcz.harvard.edu/digir/DiGIR.php',			
+			
 			// LSUMZ Herpetology
 			'LSUMZ-Herps' => '130.39.185.43:80/digir/herps/DiGIR.php',
 			
@@ -191,6 +193,7 @@ class DiGIRProvider extends Service
 			
 			// MCZ Harvard
 			'MCZ-Amph' => 'mczamph',
+			'MCZ-Herps' => 'mczherp',
 			
 			// LSUMZ Herpetology
 			'LSUMZ-Herps' => 'HerpDwC2',
@@ -739,7 +742,7 @@ class DiGIRProvider extends Service
 	{		
 		$url = $this->search($institution, $queryType, $queryTerm, $start, $page_size);
 		
-		echo $url;
+		//echo $url;
 		
 		curl_setopt($this->ch, CURLOPT_URL, $url);
 		$this->Call();
@@ -1377,6 +1380,8 @@ class DiGIRProvider extends Service
 		
 		$xml = $this->result;
 		
+		//echo $xml;
+		
 		$data = '';
 		$ok = false;
 		
@@ -1419,6 +1424,10 @@ class DiGIRProvider extends Service
 			{
 			
 				//echo $xml;
+				
+				$xml = str_replace('&quot;', '\"', $xml);
+				
+				//echo $xml;
 			
 				$xp = new XsltProcessor();
 				$xsl = new DomDocument;
@@ -1432,6 +1441,8 @@ class DiGIRProvider extends Service
 				
 				//echo $json;
 				
+				
+				$json = str_replace("{,", "{", $json);
 				$json = str_replace("\n", "", $json);
 						
 				$data = json_decode($json);

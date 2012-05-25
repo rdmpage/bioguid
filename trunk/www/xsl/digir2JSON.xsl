@@ -50,7 +50,7 @@
  	</xsl:template>
 
     <xsl:template match="//record">
- 		<xsl:if test="position() != 1"><xsl:text>,&#x0D;</xsl:text></xsl:if>
+ 	<!--	<xsl:if test="position() != 1"><xsl:text>,&#x0D;</xsl:text></xsl:if> -->
        <xsl:text>&#x09;&#x09;{</xsl:text>
  
 
@@ -592,16 +592,38 @@
  
 
 					<xsl:choose>
-						<!-- -->						<xsl:when test="contains(., 'Herp')">							<xsl:text>Herps</xsl:text>						</xsl:when>						<xsl:when test="contains(., 'Mamm')">							<xsl:text>Mammals</xsl:text>						</xsl:when>						<xsl:when test="contains(., 'Bird')">							<xsl:text>Birds</xsl:text>						</xsl:when>
+						<!-- -->
+						<xsl:when test="contains(., 'Herp')">
+							<xsl:text>Herps</xsl:text>
+						</xsl:when>
+						<xsl:when test="contains(., 'Mamm')">
+							<xsl:text>Mammals</xsl:text>
+						</xsl:when>
+						<xsl:when test="contains(., 'Bird')">
+							<xsl:text>Birds</xsl:text>
+						</xsl:when>
 
 						<!-- SAMA -->
-						<xsl:when test="contains(., 'Reptiles')">							<xsl:text>Herps</xsl:text>						</xsl:when>
+						<xsl:when test="contains(., 'Reptiles')">
+							<xsl:text>Herps</xsl:text>
+						</xsl:when>
+
 
 						<!-- USNM -->
 
-						<xsl:when test="contains(., 'Amphibians')">							<xsl:text>Herps</xsl:text>						</xsl:when>
-						<xsl:when test="contains(., 'Vertebrate Zoology;')">							<xsl:value-of select="substring-after(., 'Vertebrate Zoology; ')"/>						</xsl:when>
-						<xsl:otherwise>							<xsl:value-of select="."/>						</xsl:otherwise>					</xsl:choose>
+						<xsl:when test="contains(., 'Amphibians')">
+							<xsl:text>Herps</xsl:text>
+						</xsl:when>
+
+						<xsl:when test="contains(., 'Vertebrate Zoology;')">
+							<xsl:value-of select="substring-after(., 'Vertebrate Zoology; ')"/>
+						</xsl:when>
+
+
+						<xsl:otherwise>
+							<xsl:value-of select="."/>						</xsl:otherwise>
+					</xsl:choose>
+
 
 
            <xsl:text>"</xsl:text>
