@@ -1583,6 +1583,10 @@ function write_coins($item)
 	$html .= '&amp;rft.issn=' . $item->issn;
 	$html .= '&amp;rft.volume=' . $item->volume;
 	$html .= '&amp;rft.spage=' . $item->spage;
+	if (isset($item->epage))
+	{
+		$html .= '&amp;rft.epage=' . urlencode($item->epage);
+	}
 	
 	if (isset($item->doi))
 	{

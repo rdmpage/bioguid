@@ -234,8 +234,21 @@ else
 					
 					$rdf = $feed->appendChild($rdf);
 					
-					$journal = $rdf->appendChild($feed->createElement('bibo:journal'));
-					$journal->setAttribute('rdf:about', 'urn:issn:' . $issn);
+					$journal = $rdf->appendChild($feed->createElement('bibo:Journal'));
+					
+					if ($config['rdf_about_is_http_uri'])
+					{
+						// HTTP URI form of rdf:about
+						$journal->setAttribute('rdf:about', 'http://bioguid.info/issn:' . $issn);					
+					}
+					else
+					{
+						// URN form of rdf:about
+						$journal->setAttribute('rdf:about', 'urn:issn:' . $issn);
+					}					
+					
+					$dcterms_identifier = $journal->appendChild($feed->createElement('dcterms:identifier'));
+					$dcterms_identifier->appendChild($feed->createTextNode('urn:issn:' . $obj->issn));
 					
 					$bibo_issn = $journal->appendChild($feed->createElement('bibo:issn'));
 					$bibo_issn->appendChild($feed->createTextNode($obj->issn));

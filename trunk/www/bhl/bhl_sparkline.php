@@ -36,6 +36,13 @@ function sparkline($id)
 
 $url = 'http://www.biodiversitylibrary.org/services/name/NameService.ashx?op=NameGetDetail&nameBankID=' . $id . '&format=json';
 
+$url = 'http://www.biodiversitylibrary.org/api/httpquery.ashx?op=NameGetDetail&nameBankID=' . $id . '&format=json';
+
+//echo $url;
+
+//exit();
+
+
 $json = get($url);
 
 $obj = json_decode($json);
@@ -45,7 +52,7 @@ $years = array();
 $decades = array();
 
 
-foreach ($obj->NameResult->Titles as $title)
+foreach ($obj->Result->Titles as $title)
 {
 	
 	// Try and get date for title
@@ -85,19 +92,25 @@ foreach ($obj->NameResult->Titles as $title)
 			}
 				
 			// Years
+			echo $event->start . ' ' . $event->end . ' ';
 			if (isset($event->end))
 			{
+				$weight = 1/($event->end - $event->start + 1);
+				
+				echo $weight . '<br />';
 				for ($i = $event->start; $i <= $event->end; $i++)
 				{
+					
 					if (!isset($years[$i]))
 					{
 						$years[$i] = 0;
 					}
-					$years[$i]++;
+					$years[$i] += $weight;
 				}
 			}
 			else
 			{
+				echo  '1<br />';
 				if (!isset($years[$event->start]))
 				{
 					$years[$event->start] = 0;
@@ -105,11 +118,14 @@ foreach ($obj->NameResult->Titles as $title)
 				$years[$event->start]++;
 			}
 			
+			/*
 			// Decades
 			if (isset($event->end))
 			{
 				for ($i = $event->start; $i <= $event->end; $i++)
 				{
+					$weight = 1/($event->end - $event->start);
+				
 					$d = floor($i / 10) * 10;
 				
 					if (!isset($decades[$d]))
@@ -128,7 +144,7 @@ foreach ($obj->NameResult->Titles as $title)
 				}
 				$decades[$d]++;
 			}
-			
+			*/
 			
 		}
 		else
@@ -140,7 +156,7 @@ foreach ($obj->NameResult->Titles as $title)
 	}
 }
 
-//print_r($years);
+print_r($years);
 
 /*
 $url = 'http://chart.apis.google.com/chart?chs=400x100&cht=ls&chco=0077CC&chm=B,e6f2fa,0,0.0,0.0&chd=t:';
@@ -175,6 +191,19 @@ echo $url;
 $url = 'http://chart.apis.google.com/chart?chs=400x100&cht=ls&chco=0077CC&chm=B,e6f2fa,0,0.0,0.0&chd=t:';
 //$chxl = '&chtx=x&chxl=0:';
 
+// Aggregate into decades
+$decades = array();
+foreach ($years as $k => $v)
+{
+	$d = floor($k / 10) * 10;
+
+	if (!isset($decades[$d]))
+	{
+		$decades[$d] = 0;
+	}
+	$decades[$d] += $v;
+}
+
 $max_items = 0;
 foreach ($decades as $k => $v)
 {
@@ -197,6 +226,20 @@ for ($i = 1750; $i < 2010; $i+= 10)
 }
 
 $url .= '&chxt=x,y&chxl=0:|1750|1800|1850|1900|1950|2000|1:||' . $max_items;
+
+for ($i = 1750; $i < 2010; $i+= 10)
+{
+	echo "$i|";
+	if (isset($decades[$i]))
+	{
+		echo  $decades[$i];
+	}
+	else
+	{
+		
+	}
+	echo "<br/>";
+}
 
 return $url;
 
