@@ -194,6 +194,13 @@ li.export-list
   background: url("/images/page_white_text.png") no-repeat 0 50%;
 }
 
+.bibjson
+{
+  margin-left: 3px;
+  padding: 2px 2px 2px 19px;
+  background: url("/images/json.png") no-repeat 0 50%;
+}
+
 /* Reference types */
 ul.reference-list
 {
