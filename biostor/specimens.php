@@ -62,7 +62,7 @@ function specimens_references_with_code($code)
 	
 	$references = array();
 
-	$sql = 'SELECT occurrenceID, reference_id FROM rdmp_reference_specimen_joiner 
+	$sql = 'SELECT DISTINCT occurrenceID, reference_id FROM rdmp_reference_specimen_joiner 
 WHERE (code = ' . $db->qstr($code) . ')';
 
 	$result = $db->Execute($sql);
@@ -164,6 +164,17 @@ WHERE (occurrenceID = ' . $occurrenceID . ') LIMIT 1';
 	return $occurrence;
 }
 
+//--------------------------------------------------------------------------------------------------
+function specimens_delete($reference_id)
+{
+	global $db;
+	
+	$sql = 'DELETE FROM rdmp_reference_specimen_joiner WHERE reference_id=' . $reference_id;
+	
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+}
 
 //--------------------------------------------------------------------------------------------------
 function specimens_from_db($reference_id)
@@ -172,7 +183,7 @@ function specimens_from_db($reference_id)
 	
 	$specimens = array();
 
-	$sql = 'SELECT * FROM rdmp_reference_specimen_joiner 
+	$sql = 'SELECT DISTINCT code, occurrenceID FROM rdmp_reference_specimen_joiner 
 WHERE (reference_id = ' . $reference_id . ') AND code IS NOT NULL';
 
 	$result = $db->Execute($sql);
@@ -212,6 +223,9 @@ function specimens_from_reference($reference_id)
 	{
 		$page_ids[] = $p->PageID;
 	}	
+	
+	//echo "PageIDs:\n";
+	//print_r($page_ids);
 
 	$text = bhl_fetch_text_for_pages($page_ids);
 	
@@ -265,6 +279,8 @@ function specimens_from_reference($reference_id)
 	
 	print_r($expanded);
 	*/
+	
+	return $specimens;
 	
 }
 

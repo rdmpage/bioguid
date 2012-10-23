@@ -4,13 +4,17 @@
 
 require_once (dirname(__FILE__) . '/specimens.php');
 
+
+
+
+
 $sql = 'SELECT * FROM rdmp_reference WHERE';
 
 //$sql .=  ' issn="0015-0754"';
 
 //$sql .= '  year > 1940';
 
-$sql .= ' and reference_id =13';
+$sql .= '  reference_id =101954';
 
 
 $ids = array();
@@ -28,6 +32,8 @@ while (!$result->EOF)
 foreach ($ids as $reference_id)
 {
 	echo $reference_id . "\n";
+	
+	specimens_delete($reference_id);
 
 	if (!specimens_has_been_parsed($reference_id))
 	{

@@ -786,6 +786,227 @@ function reference_to_wikispecies($reference)
 	return $wikispecies;
 }
 
+//--------------------------------------------------------------------------------------------------
+function reference_to_bibjson($reference)
+{
+	global $config;
+	
+	$obj = new stdclass;
+	$obj->author = array();
+	foreach ($reference->authors as $a)
+	{
+		$author = new stdclass;
+		
+		if (($a->forename == '') || ($author->lastname == ''))
+		{
+		}
+		else
+		{		
+			$author->forename = $a->forename;
+			$author->lastname = $a->lastname;
+		}
+		$author->name = trim($a->forename . ' ' . $a->lastname);
+		
+		$obj->author[] = $author;
+	}
+	
+	switch ($reference->genre)
+	{
+		case 'article':
+		case 'book':
+			$obj->type = $reference->genre;
+			break;
+
+		default:
+			$obj->type = 'generic';
+			break;
+	}			
+	
+	$obj->title = $reference->title;
+
+	if ($reference->genre == 'article')
+	{
+		$obj->journal = new stdclass;
+		$obj->journal->name = $reference->secondary_title;
+		
+		if (isset($reference->series))
+		{
+			$obj->journal->series = $reference->series;
+		}
+		
+		$obj->journal->volume = $reference->volume;
+		
+		if (isset($reference->issue))
+		{
+			$obj->journal->issue = $reference->issue;
+		}
+	
+		if (isset($reference->spage))
+		{
+			$obj->journal->pages = $reference->spage;
+		}
+		if (isset($reference->epage))
+		{
+			$obj->journal->pages .= '--' . $reference->epage;
+		}
+		if (isset($reference->issn))
+		{
+			$identifier = new stdclass;
+			$identifier->type = 'issn';
+			$identifier->id = $reference->issn; 
+			$obj->journal->identifier[] = $identifier;
+		}
+		if (isset($reference->oclc))
+		{
+			if ($reference->oclc != 0)
+			{
+				$identifier = new stdclass;
+				$identifier->type = 'oclc';
+				$identifier->id = (Integer)$reference->oclc; 
+				$obj->journal->identifier[] = $identifier;
+			}
+		}
+	}
+	
+	if (isset($reference->year))
+	{
+		$obj->year = $reference->year;
+	}
+	
+	$link = new stdclass;
+	$link->url = $config['web_root'] . 'reference/' . $reference->reference_id;
+	$obj->link[] = $link;
+	
+	if (isset($reference->PageID))
+	{
+		$link = new stdclass;
+		$link->url = 'http://www.biodiversitylibrary.org/page/' . $reference->PageID;
+		$obj->link[] = $link;
+	}
+	
+	
+	
+	// Identifiers
+	$obj->identifier = array();
+
+	$identifier = new stdclass;
+	$identifier->type = 'biostor';
+	$identifier->id = (Integer)$reference->reference_id; 
+	$obj->identifier[] = $identifier;
+	
+	if (isset($reference->PageID))
+	{
+		$identifier = new stdclass;
+		$identifier->type = 'bhl';
+		$identifier->id = (Integer)$reference->PageID; 
+		$obj->identifier[] = $identifier;
+	}
+	
+	if (isset($reference->doi))
+	{
+		$identifier = new stdclass;
+		$identifier->type = 'doi';
+		$identifier->id = $reference->doi; 
+		$obj->identifier[] = $identifier;
+	}
+	if (isset($reference->hdl))
+	{
+		$identifier = new stdclass;
+		$identifier->type = 'handle';
+		$identifier->id = $reference->hdl; 
+		$obj->identifier[] = $identifier;
+	}
+	if (isset($reference->isbn))
+	{
+		$identifier = new stdclass;
+		$identifier->type = 'isbn';
+		$identifier->id = $reference->isbn; 
+		$obj->identifier[] = $identifier;
+	}
+
+	if (isset($reference->lsid))
+	{
+		if (preg_match('/urn:lsid:zoobank.org:pub:(?<id>.*)/', $reference->lsid, $m))
+		{
+			$identifier = new stdclass;
+			$identifier->type = 'lsid';
+			$identifier->id = $reference->lsid; 
+			$obj->identifier[] = $identifier;			
+		}
+	}
+
+	if (isset($reference->pmid))
+	{
+		$identifier = new stdclass;
+		$identifier->type = 'pmid';
+		$identifier->id = (Integer)$reference->pmid; 
+		$obj->identifier[] = $identifier;			
+	}
+	
+	return $obj;
+}
+
+//--------------------------------------------------------------------------------------------------
+/**
+ * @brief Export reference in Wikispecies format
+ *
+ * @param reference Reference object to be encoded
+ *
+ * @return Wikispecies
+ */
+function reference_to_wikipedia($reference)
+{
+	global $config;
+	
+	$wikipedia = '{{cite journal ';
+	
+	/*
+{{cite journal | last = Zhou | first = K. | coauthors = Li, Y., Nishiwaki, M., Kataoka, T. | year = 1982 | title = A brief report on observations of the baiji (''Lipotes vexillifer'') in the lower reaches of the Yangtze River between Nanjing and Guichi | journal = Acta Theriologica Sinica | volume = 2 | pages = 253–254}}
+	*/
+	
+	$count = 0;
+	$num_authors = count($reference->authors);
+	
+	$wikipedia .= ' | last = ' . $reference->authors[0]->lastname;
+	$wikipedia .= ' | first = ' . $reference->authors[0]->forename;
+	
+	if ($num_authors > 1)
+	{
+		$wikipedia .= ' | coauthors = ';
+		for ($i = 1; $i < $num_authors; $i++)
+		{
+			$wikipedia .= $reference->authors[$i]->lastname . ', ' . $reference->authors[$i]->forename . ';';
+		}
+	}
+	$wikipedia .= ' ';
+	$wikipedia .= ' | year = ' . $reference->year;
+	
+	$wikipedia .= ' | title = ' . $reference->title;
+	$wikipedia .= ' | journal = ' . $reference->secondary_title;
+	$wikipedia .= ' | volume = ' . $reference->volume ;
+	if (isset($reference->issue))
+	{
+		$wikipedia .= ' | issue = ' . $reference->issue;
+	}	
+	$wikipedia .= ' | pages = ' . $reference->spage;
+	if (isset($reference->epage))
+	{
+		$wikipedia .= "-" . $reference->epage;
+	}	
+	
+	$wikipedia .= ' | url = ' .  $config['web_root'] . 'reference/' . $reference->reference_id;
+	
+	if (isset($reference->doi))
+	{
+		$wikipedia .= ' | doi = ' . $reference->doi;
+	}
+	
+	$wikipedia .= '}}';
+	
+	return $wikipedia;
+}
+
+
 
 
 ?>

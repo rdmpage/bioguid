@@ -162,13 +162,13 @@ function extract_specimen_codes($t)
 	// Standard acronyms that have simple [Acronym] [number] specimen codes
 	// (allowing for a prefix before [number]
 	$acronyms = array(
-		'ABTC','AMCC','AMNH','ANSP','ANWC','AMS','ANSP','ASIZB','ASU',
+		'ABTC','ADT-CRBMUV','AMCC','AMNH','ANSP','ANWC','AMS','ANSP','ASIZB','ASU',
 		'BNHS','BPBM',
-		'CAS','CASENT','CAS-SU','CFBH','CM','CMK','CWM',
+		'CAS','CASENT','CAS-SU','CFBH','CM','CMK','CRBMUV','CWM',
 		'DHMECN',
 		'FMNH',
 		'HKU',
-		'ICN','ILPLA','INHS','IRSNB','IZUA',
+		'IBUNAM-EM','ICN','ICN-MHN-CR','ILPLA','INHS','IRSNB','IZUA',
 		'JAC','JCV',
 		'KFBG','KU','KUHE',
 		'LACM','LSUMZ',		
