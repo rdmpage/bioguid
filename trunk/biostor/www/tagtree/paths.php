@@ -6,7 +6,7 @@
  * Extract paths from tree from local copy of Catalogue of Life database
  *
  */
-
+ 
 //--------------------------------------------------------------------------------------------------
 // MySQL
 
@@ -16,26 +16,72 @@ $root_dir = str_replace('/www/tagtree', '', $dir);
 require_once ($root_dir . '/db.php');
 
 //--------------------------------------------------------------------------------------------------
+function store_path($concept_id, $path)
+{
+	global $db;
+
+	$sql = "UPDATE nub_2011_10_31 SET path=" . $db->qstr($path) . " WHERE concept_id=$concept_id";
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+	
+}
+
+//--------------------------------------------------------------------------------------------------
 // Get key-value name-path pairs for a list of names
 function get_paths($names)
 {
 	global $db;
+	global $config;
 	
 	$paths = array();
 	$names = array_unique($names);
 	
 	foreach ($names as $name)
 	{
-		$sql = 'SELECT name, path FROM col_tree
-INNER JOIN taxa USING(record_id)
-WHERE (name =  ' . $db->qstr($name) . ') LIMIT 1';
-		
-		$result = $db->Execute($sql);
-		if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
-		
-		if ($result->NumRows() != 0)
+		if ($config['use_gbif'])
 		{
-			$paths[$name] = $result->fields['path'];
+			$sql = 'SELECT * FROM nub_2011_10_31 WHERE (name = ' . $db->qstr($name) . ') LIMIT 1';
+			
+			//echo $sql;
+			
+			$result = $db->Execute($sql);
+			if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+			
+			if ($result->NumRows() != 0)
+			{
+				$path = '';
+				
+				$keys=array('k','p','c','o','f','g','s');
+				
+				foreach ($keys as $k)
+				{
+					if ($result->fields[$k] != '')
+					{
+						$path .= '/' . $result->fields[$k];
+					}
+				}
+					
+				//echo $path . '<br/>';
+				
+				store_path($result->fields['concept_id'], $path);
+					
+				$paths[$name] = $path;
+			}
+			
+		}
+		else
+		{
+			$sql = 'SELECT name, path FROM col_tree
+	INNER JOIN taxa USING(record_id)
+	WHERE (name =  ' . $db->qstr($name) . ') LIMIT 1';
+			
+			$result = $db->Execute($sql);
+			if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+			
+			if ($result->NumRows() != 0)
+			{
+				$paths[$name] = $result->fields['path'];
+			}
 		}
 	}
 	
@@ -47,22 +93,42 @@ WHERE (name =  ' . $db->qstr($name) . ') LIMIT 1';
 function get_names($path_list)
 {
 	global $db;
+	global $config;
 	
 	$paths = array();
 	$path_list = array_unique($path_list);
 	
 	foreach ($path_list as $path)
 	{
-		$sql = 'SELECT name, path FROM col_tree
-INNER JOIN taxa USING(record_id)
-WHERE (path =  ' . $db->qstr($path) . ') LIMIT 1';
-		
-		$result = $db->Execute($sql);
-		if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
-		
-		if ($result->NumRows() != 0)
+		if ($config['use_gbif'])
 		{
-			$paths[$result->fields['name']] = $path;
+			$sql = 'SELECT * FROM nub_2011_10_31 WHERE (path =  ' . $db->qstr($path) . ') LIMIT 1';
+			
+			//echo $sql . '<br/>';
+			
+			$result = $db->Execute($sql);
+			if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+			
+			if ($result->NumRows() != 0)
+			{
+				$paths[$result->fields['name']] = $path;
+			}
+
+		
+		}
+		else
+		{
+			$sql = 'SELECT name, path FROM col_tree
+	INNER JOIN taxa USING(record_id)
+	WHERE (path =  ' . $db->qstr($path) . ') LIMIT 1';
+			
+			$result = $db->Execute($sql);
+			if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+			
+			if ($result->NumRows() != 0)
+			{
+				$paths[$result->fields['name']] = $path;
+			}
 		}
 	}
 	
@@ -131,33 +197,42 @@ function majority_rule_path($paths)
 function expand_path($path)
 {
 	global $db;
+	global $config;
 	
 	$expanded = array();
 	
 	$parts = explode("/", $path);
 	
-	while (count($parts) > 0)
+	if ($config['use_gbif'])
 	{
-		$p = join("/", $parts);
-		
-		//$expanded .= $p . " | ";
-	
-		$sql = 'SELECT name, path FROM col_tree
-INNER JOIN taxa USING(record_id)
-WHERE (path =  ' . $db->qstr($p) . ') LIMIT 1';
-		
-		$result = $db->Execute($sql);
-		if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
-		
-		if ($result->NumRows() != 0)
-		{
-			$expanded[] = $result->fields['name'];
-		}
-	
-		array_pop($parts);
+		array_shift($parts);
+		$expanded = $parts;
 	}
-	
-	$expanded = array_reverse($expanded);
+	else
+	{
+		
+		while (count($parts) > 0)
+		{
+			$p = join("/", $parts);
+			
+			//$expanded .= $p . " | ";
+		
+			$sql = 'SELECT name, path FROM col_tree
+	INNER JOIN taxa USING(record_id)
+	WHERE (path =  ' . $db->qstr($p) . ') LIMIT 1';
+			
+			$result = $db->Execute($sql);
+			if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+			
+			if ($result->NumRows() != 0)
+			{
+				$expanded[] = $result->fields['name'];
+			}
+		
+			array_pop($parts);
+		}
+		$expanded = array_reverse($expanded);
+	}
 	return $expanded;
 }
 
