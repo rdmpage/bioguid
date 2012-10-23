@@ -55,6 +55,9 @@ function bhl_fetch_ocr_text($PageID)
 {
 	global $db;
 	
+	//$refresh = true;
+	$refresh = false;
+	
 	$text = '';
 	
 	// Do we have this already in database?
@@ -65,18 +68,26 @@ function bhl_fetch_ocr_text($PageID)
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed $sql"); 
 	
-	if ($result->NumRows() == 1)
+	if (($result->NumRows() == 1) && !$refresh)
 	{
 		$text = $result->fields['ocr_text'];
 	}
 	else
 	{
 		$url = 'http://www.biodiversitylibrary.org/services/pagesummaryservice.ashx?op=FetchPageUrl&pageID=' . $PageID;		
+		
+		$url = 'http://www.biodiversitylibrary.org/api2/httpquery.ashx?op=GetPageOcrText&pageid=' . $PageID . '&apikey=' . '0d4f0303-712e-49e0-92c5-2113a5959159' . '&format=json';
+
+		
 		$json = get($url);
 		if ($json != '')
 		{
 			$j = json_decode($json);		
-			$text = $j[4];
+			
+			//$text = $j[4];
+			
+			$text = $j->Result;
+			//$text = utf8_decode($text);
 			
 			$text = bhl_clean_ocr_text($text);
 			
@@ -126,9 +137,13 @@ function bhl_store_ocr_text($PageID, $text)
 function bhl_clean_ocr_text($text, $html = false)
 {
 	// clean up for display
+	$text = preg_replace('/â€”/U', '—', $text);
+	
+	
 	$text = preg_replace('/<br \/>(<br \/>)+/', "<br />", $text);
 	$text = preg_replace('/<br \/>/', "\\n", $text);
-	$text = preg_replace('/\s\s*/', ' ', $text);
+	//$text = preg_replace('/\s\s+/', ' ', $text);
+	$text = preg_replace('/\\n\\n/', "\n", $text);
 	
 	if ($html)
 	{
@@ -237,5 +252,38 @@ echo '<pre>';
 echo str_replace("\\n", "\n", fetch_ocr_text(12229302));
 echo '</pre>';
 */
+
+if (0)
+{
+	$PageID = 5221087;
+	
+			$url = 'http://www.biodiversitylibrary.org/api2/httpquery.ashx?op=GetPageOcrText&pageid=' . $PageID . '&apikey=' . '0d4f0303-712e-49e0-92c5-2113a5959159' . '&format=json';
+
+		
+		$json = get($url);
+		if ($json != '')
+		{
+			$j = json_decode($json);		
+			
+			//$text = $j[4];
+			
+			//print_r($j);
+			
+			$text = $j->Result;
+			
+			$text = utf8_decode($text);
+			
+	
+			$text = preg_replace('/â€”/U', '—', $text);
+	
+			echo $text;
+			
+			$text = bhl_clean_ocr_text($text);
+			
+			echo $text;
+			
+		}
+}
+
 
 ?>
