@@ -114,12 +114,12 @@ function pdf_file_exists($reference_id, &$pdf_filename)
  * @param reference_id Reference id
  * @param pdf_filename Full path of PDF file to display
  */
-function pdf_get($reference_id)
+function pdf_get($reference_id, $refresh = false)
 {
 	global $config;
 	
 	$pdf_filename = '';
-	if (!pdf_file_exists($reference_id, $pdf_filename))
+	if (!pdf_file_exists($reference_id, $pdf_filename) || $refresh)
 	{
 		pdf_create ($reference_id, $pdf_filename);
 	}

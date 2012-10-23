@@ -110,7 +110,29 @@ class DisplayObject
 	//----------------------------------------------------------------------------------------------
 	function DisplayObjectNotFound()
 	{
-		echo "Object " . $this->id . " not found";
+		switch ($this->format)
+		{
+			case 'json':
+				$j = new stdclass;
+				$j->error = "Object " . $this->id . " not found";
+				header("Content-type: text/plain; charset=utf-8\n\n");
+				if ($this->callback != '')
+				{
+					echo $this->callback . '(';
+				}
+				echo json_format(json_encode($j));
+				if ($this->callback != '')
+				{
+					echo ')';
+				}
+				break;
+		
+			case 'html':
+			default:
+				echo "Object " . $this->id . " not found";
+				break;
+				
+		}
 	}
 
 	//----------------------------------------------------------------------------------------------

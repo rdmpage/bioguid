@@ -33,6 +33,7 @@ class DisplayReference extends DisplayObject
 	public $page = 0;
 	public $taxon_names = NULL;
 	public $in_bhl = false;
+	public $refresh = false;
 	
 	//----------------------------------------------------------------------------------------------
 	function GetId()
@@ -49,6 +50,10 @@ class DisplayReference extends DisplayObject
 		{
 			$this->callback = $_GET['callback'];
 		}
+		if (isset($_GET['refresh']))
+		{
+			$this->refresh = true;
+		}
 	}	
 	
 	//----------------------------------------------------------------------------------------------
@@ -60,6 +65,10 @@ class DisplayReference extends DisplayObject
 			{
 				case 'bib':
 					$this->format = 'bib';
+					break;
+					
+				case 'bibjson':
+					$this->format = 'bibjson';
 					break;
 
 				case 'json':
@@ -88,6 +97,10 @@ class DisplayReference extends DisplayObject
 
 				case 'wikispecies':
 					$this->format = 'wikispecies';
+					break;					
+
+				case 'wikipedia':
+					$this->format = 'wikipedia';
 					break;					
 		
 				default:
@@ -130,8 +143,16 @@ class DisplayReference extends DisplayObject
 				$this->DisplayJSON();
 				break;
 
+			case 'bibjson':
+				$this->DisplayBibJSON();
+				break;
+
 			case 'wikispecies':
 				$this->DisplayWikispecies();
+				break;
+
+			case 'wikipedia':
+				$this->DisplayWikipedia();
 				break;
 				
 
@@ -152,6 +173,9 @@ class DisplayReference extends DisplayObject
 		echo reference_to_meta_tags($this->object);
 		
 		echo html_include_link('application/rss+xml', 'RSS2.0', 'reference/' . $this->id . '.rss', 'alternate');
+
+		// Canonical link
+		echo html_include_link('', '', 'reference/' . $this->id, 'canonical');
 		
 		echo html_include_css('css/viewer.css');
 		echo html_include_script('js/fadeup.js');
@@ -508,6 +532,7 @@ Event.observe(window, \'load\', function() {
 		echo '<li class="xml"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.xml" title="Endnote XML">Endnote XML</a></li>';
 		echo '<li class="ris"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.ris" title="RIS">Reference manager</a></li>';		
 		echo '<li class="bibtex"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.bib" title="BibTex">BibTex</a></li>';	
+		echo '<li class="bibjson"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.bibjson" title="BibJSON">BibJSON</a></li>';	
 		
 		if ($this->in_bhl)
 		{
@@ -719,7 +744,15 @@ Event.observe(window, \'load\', function() {
 					echo $tag_cloud;
 	
 					echo '<h2>Taxonomic classification</h2>';
-					echo '<p class="explanation">Catalogue of Life classification for taxonomic names in document</p>';
+					
+					if ($config['use_gbif'])
+					{
+						echo '<p class="explanation">GBIF classification for taxonomic names in document</p>';					
+					}
+					else
+					{
+						echo '<p class="explanation">Catalogue of Life classification for taxonomic names in document</p>';
+					}
 					echo '<div id="taxon_names"></div>';
 					
 					echo  '<script type="text/javascript">make_tag_tree();</script>';
@@ -996,6 +1029,26 @@ Event.observe(window, \'load\', function() {
 	}
 	
 	//----------------------------------------------------------------------------------------------
+	// JSON format
+	function DisplayBibJson()
+	{
+		
+		$j = reference_to_bibjson($this->object);
+	
+		header("Content-type: text/plain; charset=utf-8\n\n");
+		if ($this->callback != '')
+		{
+			echo $this->callback . '(';
+		}
+		echo json_format(json_encode($j));
+		if ($this->callback != '')
+		{
+			echo ')';
+		}
+	}
+	
+
+	//----------------------------------------------------------------------------------------------
 	function DisplayRis()
 	{
 		log_access($this->id, 'ris');
@@ -1042,6 +1095,14 @@ Event.observe(window, \'load\', function() {
 		echo reference_to_wikispecies($this->object);
 	}
 	
+	//----------------------------------------------------------------------------------------------
+	// Wikipedia reference
+	function DisplayWikipedia()
+	{
+		header("Content-type: text/plain; charset=utf-8\n\n");
+		echo reference_to_wikipedia($this->object);
+	}
+	
 	
 	//----------------------------------------------------------------------------------------------
 	function DisplayText()
@@ -1082,7 +1143,7 @@ Event.observe(window, \'load\', function() {
 	function DisplayPdf()
 	{
 		log_access($this->id, 'pdf');
-		pdf_get($this->id);
+		pdf_get($this->id, $this->refresh);
 	}	
 	
 	//----------------------------------------------------------------------------------------------
