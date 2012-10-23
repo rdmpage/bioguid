@@ -727,6 +727,8 @@ function bhl_retrieve_item_pages($ItemID)
 	WHERE (bhl_page.ItemID = ' . $ItemID . ')
 	ORDER BY SequenceOrder';
 	
+	echo $sql . "\n";
+	
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 
@@ -1732,8 +1734,17 @@ function db_store_article($article, $PageID = 0, $updating = false)
 				}
 				else
 				{
-					$keys[] = $k;
-					$values[] = $db->qstr($v);
+					// extract Handle if it exists
+					if (preg_match('/^http:\/\/hdl.handle.net\/(?<hdl>.*)$/', $v, $m))
+					{
+						$keys[] = 'hdl';
+						$values[] = $db->qstr($m['hdl']);
+					}
+					else
+					{
+						$keys[] = $k;
+						$values[] = $db->qstr($v);
+					}
 				}
 				break;			
 				
@@ -1796,9 +1807,13 @@ function db_store_article($article, $PageID = 0, $updating = false)
 		// Versioning?
 	
 		// Delete links	(author, pages, etc)
+		
+		// Don't delete page range as we may loose plates, etc. outside range
+		/*
 		$sql = 'DELETE FROM rdmp_reference_page_joiner WHERE reference_id=' . $id;
 		$result = $db->Execute($sql);
 		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+		*/
 		
 		$sql = 'DELETE FROM rdmp_author_reference_joiner WHERE reference_id = ' . $id;
 		$result = $db->Execute($sql);
@@ -2014,8 +2029,10 @@ function db_store_article($article, $PageID = 0, $updating = false)
 		db_store_authors($id, $article->authors);
 	}
 
-	// Store page range
-	if ($PageID != 0)
+	// Store page range (only if not updating, otherwise we may loose plates, etc.
+	// that aren't in page range)
+	if (($PageID != 0) && !$update)
+//	if ($PageID != 0) 
 	{
 		$page_range = array();
 		if (isset($article->spage) && isset($article->epage))
