@@ -28,6 +28,12 @@ inner join rdmp_gbif_dataset USING(datasetID)
 group by datasetID 
 order by c DESC';
 
+$sql = 'select count(occurrenceID) as c, datasetID
+from rdmp_reference_specimen_joiner 
+inner join rdmp_specimen using (occurrenceID) 
+group by datasetID 
+order by c DESC';
+
 
 $result = $db->Execute($sql);
 if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
@@ -36,7 +42,8 @@ while (!$result->EOF)
 {	
 	echo '<tr>';
 	
-	echo '<td>' . '<a href="gbif_dataset.php?datasetID=' . $result->fields['datasetID']  . '">' . $result->fields['providerName'] . ':' . $result->fields['dataResourceName']  . '</a>' . '</td>';
+//	echo '<td>' . '<a href="gbif_dataset.php?datasetID=' . $result->fields['datasetID']  . '">' . $result->fields['providerName'] . ':' . $result->fields['dataResourceName']  . '</a>' . '</td>';
+	echo '<td>' . '<a href="gbif_dataset.php?datasetID=' . $result->fields['datasetID']  . '">' . $result->fields['datasetID']  . '</a>' . '</td>';
 
 	echo '<td align="right">' . $result->fields['c']  . '</td>';
 
