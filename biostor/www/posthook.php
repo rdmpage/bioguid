@@ -107,12 +107,17 @@ if (isset($reference->spage))
 
 if (isset($_POST['webhook']))
 {
+	/*
 	$post_data = array();
 	if (isset($_POST['rfe_id']))
 	{
 		$post_data['id'] = $_POST['rfe_id'];
 	}
 	$post_data['data'] = json_encode($reference);
+	*/
+	//echo json_encode($reference);
+	
+	$reference->_id = $_POST['rfe_id'];
 	
 	$ch = curl_init(); 
 	
@@ -125,9 +130,15 @@ if (isset($_POST['webhook']))
 	{
 		curl_setopt ($ch, CURLOPT_PROXY, $config['proxy_name'] . ':' . $config['proxy_port']);
 	}
+
+	curl_setopt ($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
 	curl_setopt ($ch, CURLOPT_POST, TRUE);
-//	curl_setopt ($ch, CURLOPT_POSTFIELDS, $post_data);
-	curl_setopt ($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
+	//curl_setopt ($ch, CURLOPT_POSTFIELDS, $post_data);
+	curl_setopt ($ch, CURLOPT_POSTFIELDS, json_encode($reference));
+	
+	
+	
+//	curl_setopt ($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
 	//curl_setopt ($ch, CURLOPT_POSTFIELDS, 'data=hello');
 	$response = curl_exec($ch);
 	$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
