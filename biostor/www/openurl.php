@@ -192,6 +192,18 @@ function parse_openurl($params, &$referent)
 		$referent->epage = preg_replace('/^\-/', '', $referent->epage);
 	}
 	
+	// Single page
+	if (isset($referent->pages))
+	{
+		if (is_numeric($referent->pages))
+		{
+			$referent->spage = $referent->pages;
+			$referent->epage = $referent->pages;
+			unset($referent->pages);
+		}
+	}
+	
+	
 	// Journal titles with series numbers are split into title,series fields
 	if (preg_match('/(?<title>.*),?\s+series\s+(?<series>[0-9]+)$/i', $referent->secondary_title, $match))
 	{
@@ -209,7 +221,10 @@ function parse_openurl($params, &$referent)
 	// Roman to Arabic volume
 	if (!is_numeric($referent->volume))
 	{
-		$referent->volume = arabic($referent->volume);
+		if (preg_match('/^[ivxicl]+$/', $referent->volume))
+		{
+			$referent->volume = arabic($referent->volume);
+		}
 	}
 	
 	// Author array might not be populated, in which case add author from aulast and aufirst fields
@@ -658,7 +673,10 @@ Event.observe(\'recaptcha_response_field\', \'keypress\', onMyTextKeypress);
 			echo  '};';
 			echo '</script>';
 			echo '<div id="recaptcha_div">';
-			echo '<script type="text/javascript" src="http://api.recaptcha.net/challenge?k=' . $config['recaptcha_publickey'] . '"></script>';
+//			echo '<script type="text/javascript" src="http://api.recaptcha.net/challenge?k=' . $config['recaptcha_publickey'] . '"></script>';
+
+// https://groups.google.com/forum/?fromgroups#!topic/recaptcha/V7qswqBnA1o
+			echo '<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=' . $config['recaptcha_publickey'] . '"></script>';
 			echo '</div>';
 		}		
 		echo '</form>';
@@ -887,6 +905,7 @@ function main()
 	// OK, we're not forcing a match to BHL, so do we have this article?
 	$id = db_find_article($referent);
 	
+	
 	if ($id != 0)
 	{
 		// We have this reference in our database
@@ -957,6 +976,54 @@ function main()
 		print_r($search_hits);
 		echo '</pre>';
 	}
+	
+	if (1)
+	{
+		// Check whether we already have an article that starts on this 
+		foreach ($search_hits as $hit)
+		{
+			$references = bhl_reference_from_pageid($hit->PageID);
+			
+			//print_r($references);
+			
+			if (count($references) != 0)
+			{
+				// We have this reference in our database
+				switch ($format)
+				{
+					case 'json':
+						// Display object
+						$reference = db_retrieve_reference($references[0]);
+						header("Content-type: text/plain; charset=utf-8\n\n");
+						if ($callback != '')
+						{
+							echo $callback . '(';
+						}
+						echo json_format(json_encode($reference));
+						if ($callback != '')
+						{
+							echo ')';
+						}
+						break;
+						
+					case 'html':
+					default:
+						// Redirect to reference display
+						header('Location: reference/' . $references[0] . "\n\n");
+						break;
+				}
+				exit();
+			
+			}
+		}
+		
+		
+		
+		
+	}
+	
+	
+	
 	
 	// Output search results in various formats...
 	switch ($format)
