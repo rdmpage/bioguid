@@ -4,7 +4,6 @@
 
 require_once (dirname(__FILE__) . '/specimens.php');
 
-
 function store_specimen($specimen)
 {
 	global $db;
@@ -61,8 +60,9 @@ function store_specimen($specimen)
 
 $sql = 'SELECT DISTINCT reference_id FROM rdmp_reference_specimen_joiner WHERE code IS NOT NULL';
 
-$sql .= ' AND code LIKE "CAS-SU %"';
-//$sql .= ' AND reference_id >74390';
+//$sql .= ' AND code LIKE "CAS-SU %"';
+
+//$sql .= ' AND reference_id > 101000';
 
 //$sql .= ' ORDER BY reference_id';
 
@@ -94,17 +94,34 @@ while (!$result->EOF)
 //$ids=array(83093);
 //$ids=array(206);
 
+//$ids=array(101954);
 
+/*
+$ids=array(101964);
+$ids=array(102054);
+$ids=array(102056);
+
+$ids=array(78401);
+
+$ids = array(14515);
+*/
+
+$ids = array(105389);
 
 foreach ($ids as $reference_id)
 {
-	$go = false;
-	//$go = true;
 	
 	echo $reference_id . "\n";
+	
 
 	$specimens = specimens_from_db($reference_id);
 	
+	if (count($specimens) == 0)
+	{
+		$specimens = specimens_from_reference($reference_id);
+	}
+	
+	echo "Specimens:\n";
 	print_r($specimens);
 	
 	$nm = bhl_names_in_reference_by_page($reference_id);
@@ -126,6 +143,11 @@ foreach ($ids as $reference_id)
 	// OK, now match...
 	foreach ($specimens as $specimen)
 	{
+		//$go = false;
+		$go = true;
+	
+	
+	
 		$code = $specimen->code;
 		
 		if (preg_match('/^AMNH /', $code))
@@ -207,16 +229,17 @@ foreach ($ids as $reference_id)
 				echo $specimen->code . "\n";
 				print_r($hits->occurrences->{$hit});
 				
-				// Update Database
-				
-				$sql = "UPDATE rdmp_reference_specimen_joiner SET occurrenceID=" . $hits->occurrences->{$hit}->occurrenceID . " WHERE reference_id="
-				. $reference_id . " AND code=" . $db->qstr($specimen->code);
-				
-				echo $sql . "\n";
-	
-				$result = $db->Execute($sql);
-				if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
-				
+				{				
+					// Update Database
+					
+					$sql = "UPDATE rdmp_reference_specimen_joiner SET occurrenceID=" . $hits->occurrences->{$hit}->occurrenceID . " WHERE reference_id="
+					. $reference_id . " AND code=" . $db->qstr($specimen->code);
+					
+					echo $sql . "\n";
+		
+					$result = $db->Execute($sql);
+					if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+				}				
 				
 				
 			}
