@@ -127,6 +127,314 @@ function parse_bhl_date($str, &$info)
 		echo $str . '<br/>';
 	}
 	
+	// Jan-Mai 1882 
+	if (!$matched)
+	{
+		if (preg_match('/[A-Z][a-z]+\-[A-Z][a-z]+\s+(?<year>[0-9]{4})$/Uu',$str,$m))
+		{
+			$info->volume = $m['year'];
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}	
+	
+	
+	// Jahrg. 44 (1891)
+	if (!$matched)
+	{
+		if (preg_match('/Jahrg.\s+(?<volume>\d+)\s+\((?<year>[0-9]{4})\)$/Uu',$str,$m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}	
+	}	
+	
+			
+	// d. 1 1901-05
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^d\.\s+(?<volume>\d+)\s+(?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}	
+	}	
+	
+	// 79th 1958-59
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^\d+(st|th|rd|nd)\s+(?<volume>.*)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$matched = true;
+		}	
+	}	
+	
+	
+	// v. 2-3 (1916-1917)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^v\.?\s+(?<volume_from>\d+)-(?<volume_to>\d+)\s+\((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})\)$/Uu", $str, $m))
+		{
+			$info->volume_from = $m['volume_from'];
+			$info->volume_to = $m['volume_to'];
+			$info->start = $m['yearstart'];
+			$info->end = $m['yearend'];
+			$matched = true;
+		}	
+	}	
+	
+	
+	// v 12-13 (1916-19)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^v\.?\s+(?<volume_from>\d+)-(?<volume_to>\d+)\s+\((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{2})\)$/Uu", $str, $m))
+		{
+			$info->volume_from = $m['volume_from'];
+			$info->volume_to = $m['volume_to'];
+			$info->start = $m['yearstart'];
+			$info->end = substr ($m['yearstart'], 0, 2) . $m['yearend'];
+			$matched = true;
+		}	
+	}	
+	
+	
+	
+	// t.49-50 (1900)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^t\.(?<volume_from>\d+)-(?<volume_to>\d+)\s+\((?<year>[0-9]{4})\)$/i", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume_from = $m['volume_from'];
+			$info->volume_to = $m['volume_to'];
+			$info->start = $m['year'];
+			$matched = true;
+		}
+	}	
+	
+
+
+	// ser.3:t.4 (1905)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^ser\.(?<series>\d+):t\.(Vol\s+)?(?<volume>[0-9]+)\s+\((?<yearstart>[0-9]{4})(-(?<yearend>[0-9]{4}))?\)$/i", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$info->series = $m['series'];
+			$info->start = $m['yearstart'];
+			$info->end = $m['yearend'];
+			$matched = true;
+		}
+	}	
+	
+	
+	// Vol 22 (3rd Series)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(Vol\s+)?(?<volume>[0-9]+)\s+\((?<series>\d+)(nd|st|rd|th) Series\)$/i", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$info->series = $m['series'];
+			$matched = true;
+		}
+	}	
+	
+	
+	// 53 part 2
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/(?<volume>[0-9]+)\s+part\s+\d+$/i", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$matched = true;
+		}
+	}	
+	
+	// 55 number 1 part 2
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/(?<volume>[0-9]+)\s+number\s+(?<issue>\d+)\s+part\s+(\d+)$/i", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$info->issue = $m['issue'];
+			$matched = true;
+		}
+	}	
+	
+	
+	// t.6, 1881
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^t\.\s*(?<volume>[0-9]+)\,\s+(?<year>[0-9]{4})$/i", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$info->start = $m['year'];
+			$matched = true;
+		}
+	}	
+	
+
+	// 13.Bd. (1883-1884)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volume>[0-9]+)\.Bd\.\s+\((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})\)/i", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->volume = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = $m['yearend'];
+			$matched = true;
+		}
+	}	
+	
+	
+	// f.56 (Simenchelys parasiticus)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^f\.(?<volume>\d+)\s+\((.*)\)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];
+			$matched = true;
+		}	
+	}	
+	
+	// Dec.1-5 
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Dec\.(?<volume_from>\d+)-(?<volume_to>\d+)$/Uu", $str, $m))
+		{
+			$info->volume_from = $m['volume_from'];
+			$info->volume_to = $m['volume_to'];
+			$matched = true;
+		}	
+	}	
+	
+	
+	// ser. 2, v. 1 (1881-1883)
+	if (!$matched)
+	{
+		$m = array();
+		
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^ser\.\s+(?<series>\d+),\s*v.\s*(?<volume>[0-9]+)\s+\((?<yearstart>[0-9]{4})\-(?<yearend>[0-9]{4})\)$/i", $str, $m))
+		{
+			if ($debug) { echo "$str
+"; print_r($m); }
+			$info->series = $m['series'];
+			$info->volume = $m['volume'];
+			$info->start = $m['yearstart'];
+			$info->end = $m['yearend'];
+			$matched = true;
+		}
+	}	
+	
+	
+	// an. 1920, 72: T. 83 
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^an.\s*(?<year>[0-9]{4})[:|,](.*)[T|t].\s*(?<volume>\d+)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];		
+			$info->start = $m['year'];		
+			$matched = true;
+		}	
+	}
+	
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^v\.(?<volume>\d+)\s+(?<year>[0-9]{4})$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];		
+			$info->start = $m['year'];		
+			$matched = true;
+		}	
+	}	
+	
+	
+	// Jahrig. 38, bd. 1 (1872)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Jahrig.\s+(?<volume>\d+),\s+bd.\s+(\d+(-\d+)?)\s+\((?<year>[0-9]{4})\)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];		
+			$info->start = $m['year'];		
+			$matched = true;
+		}	
+	}	
+	
+	
+	// Nr.1-50 (1957-1960)
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^Nr.(?<volume_from>\d+)-(?<volume_to>\d+)\s+\((?<year_from>[0-9]{4})-(?<year_to>[0-9]{4})\)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume_from'];		
+			$info->start = $m['year_from'];		
+			$info->end = $m['year_to'];		
+			$matched = true;
+		}	
+	}	
+	
+
+	// 22 Part 9
+	if (!$matched)
+	{
+		if ($debug) echo "Trying " . __LINE__ . "\n";
+		if (preg_match("/^(?<volume>\d+)\s+Part\s+(?<issue>\d+)$/Uu", $str, $m))
+		{
+			$info->volume = $m['volume'];		
+			$info->issue = $m['issue'];
+			$matched = true;
+		}	
+	}	
+	
 	// vol.72(1908)
 	if (!$matched)
 	{
@@ -365,7 +673,7 @@ function parse_bhl_date($str, &$info)
 	if (!$matched)
 	{
 		if ($debug) echo "Trying " . __LINE__ . "\n";
-		if (preg_match("/(?<volume>\d+)\s+\((?<year>[0-9]{4})\)$/Uu", $str, $m))
+		if (preg_match("/^(?<volume>\d+)\s+\((?<year>[0-9]{4})\)$/Uu", $str, $m))
 		{
 			$info->volume = $m['volume'];
 			$info->start = $m['year'];

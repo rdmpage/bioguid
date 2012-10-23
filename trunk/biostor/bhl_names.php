@@ -282,7 +282,7 @@ function bhl_references_with_name($NameBankID)
 
 //--------------------------------------------------------------------------------------------------
 // What reference have this name?
-function bhl_references_with_namestring($namestring)
+function bhl_references_with_namestring($namestring, $limit = 100)
 {
 	global $db;
 
@@ -293,7 +293,7 @@ function bhl_references_with_namestring($namestring)
 	INNER JOIN rdmp_reference USING(reference_id)
 	WHERE bhl_page_name.NameConfirmed=' . $db->qstr($namestring) . '
 	ORDER BY rdmp_reference.year
-	LIMIT 20';
+	LIMIT ' . $limit;
 	
 	//echo $sql;
 	
