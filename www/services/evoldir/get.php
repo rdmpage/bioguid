@@ -1,27 +1,25 @@
 <?php
-// include class
 
 require_once('config.inc.php');
 require_once('db.php');
 
+$id = '5dc57b599c670b192feee9279ec7c5df';
 
-$id = 'aa71e3be9d6f09382256049e46533af2';
 if (isset($_GET['id']))
 {
 	$id = $_GET['id'];
-
-
 }
-if ($id != '')
-
-
 $msg = get_message($id);
 
 if (isset($msg->messageid))
 {
-	//print_r($msg);
-	
+
+
+//print_r($msg);
+
 	$output = $msg->body;
+	
+	
 	
 	// From http://jmrware.com/articles/2010/linkifyurl/linkify.php
 	// via http://stackoverflow.com/questions/5461702/regex-to-find-url-in-a-text/5463604#5463604
@@ -79,11 +77,10 @@ $url_replace = '$1$4$7$10$13<a href="$2$5$8$11$14">$2$5$8$11$14</a>$3$6$9$12';
 	//$output = preg_replace('/<a href="(.*)">/U', '<a href="http://$1">', $output);
 	
 	
-?>
-<html>
+echo '<html>
 <head>
 <link rel="icon" href="favicon.ico">
-<title><?php echo $msg->subject; ?> - EvolDir</title>
+<title>' . $msg->subject . ' - EvolDir</title>
 <style type="text/css">
 body {
 	font-family: Arial, Verdana, sans-serif;
@@ -96,16 +93,27 @@ body {
 9px;-webkit-border-bottom-right-radius: 9px
 9px;-webkit-border-top-left-radius: 9px
 9px;-webkit-border-top-right-radius: 9px 9px;">
-<h1><img src="images/d_bigger.png" align="right"/><?php echo $msg->subject; ?></h1>
+<h1><img src="images/d_bigger.png" align="right"/>' . $msg->subject .'</h1>
 <p>From the Evolution Directory (<a href="http://evol.mcmaster.ca/evoldir.html">EvolDir</a>) via <a href="http://twitter.com/evoldir">Twitter</a>.</p>
-<hr />
-<p><?php echo nl2br($output); ?> </p>
+<hr />';
+
+	if (isset($msg->latlng))
+	{
+		//print_r($msg->latlng);
+		echo '<img src="http://maps.googleapis.com/maps/api/staticmap?center=' 
+		. $msg->latlng->latitude . ',' . $msg->latlng->longitude
+		.'&markers=color:blue|' 
+		. $msg->latlng->latitude . ',' . $msg->latlng->longitude
+		. '&zoom=10&size=200x200&maptype=road&sensor=false" />';
+	}
+
+echo '<p>' . nl2br($output) . '</p>
 <hr />
 <p><a href="http://bioguid.info/services/evoldir/">About</a></p>
 </div>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+document.write(unescape("%3Cscript src=\'" + gaJsHost + "google-analytics.com/ga.js\' type=\'text/javascript\'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
 try {
@@ -114,40 +122,32 @@ pageTracker._trackPageview();
 } catch(err) {}</script>
 
 </body>
-</html>
-<?
+</html>';
 
 }
 else
 {
-?>
-<html>
-<head>
-<link rel="icon" href="favicon.ico">
-<title>Error - EvolDir</title>
-</head>
-<body>
-<h1><?php echo $id; ?></h1>
-<p>No message corresponds to id &quot;<?php echo $id; ?>&quot;</p>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-4542557-2");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-
-</body>
-</html>
-<?	
+	echo 
+	'<html>
+	<head>
+	<link rel="icon" href="favicon.ico">
+	<title>Error - EvolDir</title>
+	</head>
+	<body>
+	<h1>' . $id. '</h1>
+	<p>No message corresponds to id &quot;' . $id . '&quot;</p>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src=\'" + gaJsHost + "google-analytics.com/ga.js\' type=\'text/javascript\'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-4542557-2");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
 	
+	</body>
+	</html>';
 }
-
-
-
-
-
 
 ?>

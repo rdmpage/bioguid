@@ -11,13 +11,25 @@ $db->Connect("localhost",
 $ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
 
 
+//--------------------------------------------------------------------------------------------------
+function store_latlng($id, $latlng)
+{
+	global $db;
+	
+	$sql = 'UPDATE message SET latitude=' . $latlng->lat . ', longitude=' . $latlng->lng . ' WHERE id = ' . $db->qstr($id);
+	
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __LINE__ . "]: " . $sql);
+}
+
+//--------------------------------------------------------------------------------------------------
 function store_message($headers, $body)
 {
 	global $db;
 	
 	$id = '';
 	
-	$message_id = $headers['Message-ID'];
+	$message_id = $headers['Message-Id'];
 	if ($message_id == '')
 	{
 		$message_id = $headers['Message-Id'];
@@ -52,6 +64,7 @@ function store_message($headers, $body)
 	
 }
 
+//--------------------------------------------------------------------------------------------------
 function get_message($id)
 {
 	global $db;
@@ -70,6 +83,14 @@ function get_message($id)
 		$msg->subject = $result->fields['subject'];
 		$msg->from = $result->fields['from'];
 		$msg->body= $result->fields['body'];
+		
+		if ($result->fields['latitude'] != null)
+		{
+			$msg->latlng = new stdclass;
+			$msg->latlng->latitude = $result->fields['latitude'];
+			$msg->latlng->longitude = $result->fields['longitude'];
+		}			
+			
 	}
 	return $msg;
 }
