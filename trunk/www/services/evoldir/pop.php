@@ -1,10 +1,11 @@
 <?php
 // include class
-include("Net/POP3.php");
+require_once(dirname(__FILE__) . '/Net/POP3.php');
 
 require_once('config.inc.php');
 require_once('db.php');
 require_once('lib.php');
+require_once('geocode.php');
 
 // OAuth
 require_once('twitteroauth/twitteroauth.php');
@@ -61,8 +62,10 @@ if ($pop3->numMsg() > 0) {
     
      
         $hdrs = $pop3->getParsedHeaders($x);
-        //print_r($hdrs);
+        print_r($hdrs);
         //echo $hdrs['From'] . "\n" . $hdrs['Subject'] . "\n" . $hdrs['Message-Id'] . "\n\n"; 
+        
+        $count = 0;
         
         // Only process emails from xxx.
 //        if (preg_match('/evoldir\@evol.biology.mcmaster.ca/', $pop3->getBody($x)))
@@ -74,6 +77,14 @@ if ($pop3->numMsg() > 0) {
 			if ($id != '')
 			{
 				// It's a new message
+				
+				// geocode
+				$latlng = geocode($pop3->getBody($x));
+				if ($latlng)
+				{
+					print_r($latlng);
+					store_latlng($id, $latlng);
+				}
 				
 				// generate Tinyurl
 				$url = 'http://tinyurl.com/api-create.php?url=http://bioguid.info/services/evoldir/get.php?id=' . $id;
@@ -98,6 +109,13 @@ if ($pop3->numMsg() > 0) {
 					{
 						echo "error\n";
 					}
+				}
+				
+				$count++;
+				if ($count == 10)
+				{
+					sleep(3);
+					$count = 0;
 				}
 			}
         

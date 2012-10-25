@@ -3,20 +3,49 @@
 <link rel="icon" href="favicon.ico">
 <title>EvolDir via Twitter</title>
 <link type="application/rss+xml" title="RSS 2.0" rel="alternate" href="rss.php" />
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
 <style type="text/css">
 body {
 	font-family: Arial, Verdana, sans-serif;
 	background-color:rgb(128,128,128);
 }
+#map_canvas{
+ width:100%;
+ height: 350px;
 </style>
+<script type="text/javascript">
+function initialize() {
+ var myLatlng = new google.maps.LatLng(49.496675,-102.65625);
+ var myOptions = {
+ zoom: 4,
+ center: myLatlng,
+ mapTypeId: google.maps.MapTypeId.ROADMAP
+ }
+
+ var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+ var georssLayer = new google.maps.KmlLayer('http://bioguid.info/services/evoldir/rss.php');
+ georssLayer.setMap(map);
+}
+</script>
 </head>
-<body>
-<p><a href="../../">Home</a></p>
+<body onload="initialize()">
+<!-- <p><a href="../../">Home</a></p>-->
+
+
+
 
 <div style="background-color:white;border:2px solid black;margin:20px;padding:20px;-webkit-border-bottom-left-radius: 9px
 9px;-webkit-border-bottom-right-radius: 9px
 9px;-webkit-border-top-left-radius: 9px
 9px;-webkit-border-top-right-radius: 9px 9px;">
+
+<div style="float:right;width:300px;">
+<a class="twitter-timeline" data-dnt=true href="https://twitter.com/evoldir" data-widget-id="256662837756297216">Tweets by @evoldir</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+</div>
+<!--
 <div style="float:right;"><script src="http://widgets.twimg.com/j/2/widget.js"></script>
 <script>
 new TWTR.Widget({
@@ -48,13 +77,19 @@ new TWTR.Widget({
   }
 }).render().setUser('evoldir').start();
 </script></div>
+-->
 <!--<div style="float:right;"><img src="images/d_bigger.png" align="right"/></div>-->
 <h1>EvolDir via Twitter</h1>
 <p>The Evolution Directory (<a href="http://evol.mcmaster.ca/evoldir.html">EvolDir</a>) is a mailing list run by Brian Golding and used by evolutionary biologists to post announcements of conferences, jobs, software, and other events or developments of interest to the community.</p>
 <p>Now you can follow EvolDir on <a href="http://twitter.com/evoldir">Twitter</a> to get regular updates. Note that to post to EvolDir you must join the EvolDir mailing list by sending an email to Golding[at]McMaster.CA.</p>
 <p>The EvolDir Twitter service is being run by Rod Page (r.page[at]bio.gla.ac.uk). For details see <a href="http://iphylo.blogspot.com/2009/01/darwin-on-twitter.html">this blog post</a>.</p>
-<div style="height:100px;"></div>
+<h2>Recent posts</h2>
+<p>Map of recent posts. This map is created by looking for an address in the post and using the <a href="https://developers.google.com/maps/documentation/geocoding/">Google Geocoding API</a> to locate the post on a map. Note that some posts may be incorrectly located, and some posts won't appear on the map. The Twitter stream (<a href="http://twitter.com/evoldir">@evoldir</a>) and <a href="rss.php">RSS feed</a> includes all EvolDir posts.</p>
+<div id="map_canvas"></div>
+<!--<div style="height:100px;"></div>-->
+
 </div>
+
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
