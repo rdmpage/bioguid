@@ -797,12 +797,12 @@ function reference_to_bibjson($reference)
 	{
 		$author = new stdclass;
 		
-		if (($a->forename == '') || ($author->lastname == ''))
+		if (($a->forename == '') || ($a->lastname == ''))
 		{
 		}
 		else
 		{		
-			$author->forename = $a->forename;
+			$author->firstname = $a->forename;
 			$author->lastname = $a->lastname;
 		}
 		$author->name = trim($a->forename . ' ' . $a->lastname);
@@ -874,12 +874,14 @@ function reference_to_bibjson($reference)
 	}
 	
 	$link = new stdclass;
+	$link->anchor = 'LINK';
 	$link->url = $config['web_root'] . 'reference/' . $reference->reference_id;
 	$obj->link[] = $link;
 	
 	if (isset($reference->PageID))
 	{
 		$link = new stdclass;
+		$link->anchor = 'LINK';
 		$link->url = 'http://www.biodiversitylibrary.org/page/' . $reference->PageID;
 		$obj->link[] = $link;
 	}
@@ -941,6 +943,17 @@ function reference_to_bibjson($reference)
 		$identifier->type = 'pmid';
 		$identifier->id = (Integer)$reference->pmid; 
 		$obj->identifier[] = $identifier;			
+	}
+	
+	if (0)
+	{
+		// espensive as it hits MySQL bad
+		// names as tags
+		$names = bhl_names_in_reference($reference->reference_id);
+		if (count($names->tags) > 0)
+		{
+			$obj->tag = $names->tags;
+		}
 	}
 	
 	return $obj;

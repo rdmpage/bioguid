@@ -25,7 +25,7 @@ function issn_from_title($title)
 	
 	$issn = '';
 	
-	if (0) // local version
+	if (1) // local version
 	{
 		// local
 		$str = $title;

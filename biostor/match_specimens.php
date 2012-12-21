@@ -57,6 +57,7 @@ function store_specimen($specimen)
 	}
 }
 
+/*
 
 $sql = 'SELECT DISTINCT reference_id FROM rdmp_reference_specimen_joiner WHERE code IS NOT NULL';
 
@@ -78,7 +79,7 @@ while (!$result->EOF)
 
 	$result->MoveNext();		
 }
-
+*/
 
 //$ids=array(95679);
 //$ids=array(65896);
@@ -107,6 +108,8 @@ $ids = array(14515);
 */
 
 $ids = array(105389);
+
+$ids = array(110934);
 
 foreach ($ids as $reference_id)
 {
