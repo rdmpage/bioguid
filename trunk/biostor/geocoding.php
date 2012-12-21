@@ -106,343 +106,436 @@ function points_from_text($text)
 	$points = array();
 	 
 	//echo $text;
-		
-	if (preg_match_all('/(
-		(?<latitude_degrees>([0-9]{1,2}))([°])
-		\s*
-		((?<latitude_minutes>([0-9]+)(\.[0-9]+)?))?
-		[\']?
-		\s*
-		(?<latitude_hemisphere>[N|S])
-		[,]
-		\s*
-		((?<longitude_degrees>([0-9]{1,3}))([°])?)?
-		\s*
-		(?<longitude_minutes>([0-9]+)(\.[0-9]+)?)
-		[\']?
-		\s*
-		(?<longitude_hemisphere>[W|E])
-		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
-	{
 	
-		$num = count($matches[0]);
-		for ($i = 0; $i < $num; $i++)
+	$matched = false;
+	
+	if (!$matched)
+	{		
+		// http://www.biodiversitylibrary.org/page/40824927
+		// 48 30' 33" E, 13 00' 01" S (long first then lat)
+		if (preg_match_all('/(
+			(?<longitude_degrees>([0-9]{1,2}))
+			\s+
+			(?<longitude_minutes>([0-9]+))
+			\'
+			\s+
+			(?<longitude_seconds>\d+)
+			"
+			\s+
+			(?<longitude_hemisphere>[W|E])
+			,
+			\s+
+			(?<latitude_degrees>([0-9]{1,2}))
+			\s+
+			(?<latitude_minutes>([0-9]+))
+			\'
+			\s+
+			(?<latitude_seconds>\d+)
+			"
+			\s+
+			(?<latitude_hemisphere>[N|S])
+			)/xu',  $text, $matches, PREG_PATTERN_ORDER))
 		{
-			$pt = new stdclass;
-		
-			$seconds = 0;
-			$minutes = 0;
-			$degrees = $matches['latitude_degrees'][$i];
-			if (isset($matches['latitude_minutes'][$i]))
+			$num = count($matches[0]);
+			for ($i = 0; $i < $num; $i++)
 			{
-				$minutes = $matches['latitude_minutes'][$i];
-			}
-			if (isset($matches['latitude_seconds'][$i]))
-			{
-				$seconds = $matches['latitude_seconds'][$i];
-			}
-			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
-	
-			$seconds = 0;
-			$minutes = 0;
-			$degrees = $matches['longitude_degrees'][$i];
-			if (isset($matches['longitude_minutes'][$i]))
-			{
-				$minutes = $matches['longitude_minutes'][$i];
-			}
-			if (isset($matches['longitude_seconds'][$i]))
-			{
-				$seconds = $matches['longitude_seconds'][$i];
-			}
-			$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+				$pt = new stdclass;
 			
-			$points[] = $pt;
+				if (isset($matches['latitude_seconds'][$i]))
+				{
+					$seconds = $matches['latitude_seconds'][$i];
+				}
+				$minutes = $matches['latitude_minutes'][$i];
+				$degrees = $matches['latitude_degrees'][$i];
+				$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+		
+		
+				if (isset($matches['longitude_seconds'][$i]))
+				{
+					$seconds = $matches['longitude_seconds'][$i];
+				}
+				$minutes = $matches['longitude_minutes'][$i];
+				$degrees = $matches['longitude_degrees'][$i];
+				$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+				
+				$points[] = $pt;
+			}
+			$matched = true;
+		}	
+	}
+	
+	
+	if (!$matched)
+	{		
+		if (preg_match_all('/(
+			(?<latitude_degrees>([0-9]{1,2}))([°])
+			\s*
+			((?<latitude_minutes>([0-9]+)(\.[0-9]+)?))?
+			[\']?
+			\s*
+			(?<latitude_hemisphere>[N|S])
+			[,]
+			\s*
+			((?<longitude_degrees>([0-9]{1,3}))([°])?)?
+			\s*
+			(?<longitude_minutes>([0-9]+)(\.[0-9]+)?)
+			[\']?
+			\s*
+			(?<longitude_hemisphere>[W|E])
+			)/xu',  $text, $matches, PREG_PATTERN_ORDER))
+		{
+		
+			$num = count($matches[0]);
+			for ($i = 0; $i < $num; $i++)
+			{
+				$pt = new stdclass;
+			
+				$seconds = 0;
+				$minutes = 0;
+				$degrees = $matches['latitude_degrees'][$i];
+				if (isset($matches['latitude_minutes'][$i]))
+				{
+					$minutes = $matches['latitude_minutes'][$i];
+				}
+				if (isset($matches['latitude_seconds'][$i]))
+				{
+					$seconds = $matches['latitude_seconds'][$i];
+				}
+				$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+		
+				$seconds = 0;
+				$minutes = 0;
+				$degrees = $matches['longitude_degrees'][$i];
+				if (isset($matches['longitude_minutes'][$i]))
+				{
+					$minutes = $matches['longitude_minutes'][$i];
+				}
+				if (isset($matches['longitude_seconds'][$i]))
+				{
+					$seconds = $matches['longitude_seconds'][$i];
+				}
+				$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+				
+				$points[] = $pt;
+			}
+			$matched = true;
 		}
 	}
+	
 	
 	// http://www.biodiversitylibrary.org/page/3387645
 	
-	if (preg_match_all('/(
-		(?<latitude_degrees>([0-9]{1,2}))\.(?<latitude_minutes>([0-9]+))
-		(?<latitude_hemisphere>[N|S])
-		[,]\s*
-		(?<longitude_degrees>([0-9]{1,3}))\.(?<longitude_minutes>([0-9]+))
-		(?<longitude_hemisphere>[W|E])
-		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
-	{
-		$num = count($matches[0]);
-		for ($i = 0; $i < $num; $i++)
+	if (!$matched)
+	{		
+		if (preg_match_all('/(
+			(?<latitude_degrees>([0-9]{1,2}))\.(?<latitude_minutes>([0-9]+))
+			(?<latitude_hemisphere>[N|S])
+			[,]\s*
+			(?<longitude_degrees>([0-9]{1,3}))\.(?<longitude_minutes>([0-9]+))
+			(?<longitude_hemisphere>[W|E])
+			)/xu',  $text, $matches, PREG_PATTERN_ORDER))
 		{
-			$pt = new stdclass;
-		
-			$seconds = 0;
-			$minutes = 0;
-			$degrees = $matches['latitude_degrees'][$i];
-			if (isset($matches['latitude_minutes'][$i]))
+			$num = count($matches[0]);
+			for ($i = 0; $i < $num; $i++)
 			{
+				$pt = new stdclass;
+			
+				$seconds = 0;
+				$minutes = 0;
+				$degrees = $matches['latitude_degrees'][$i];
+				if (isset($matches['latitude_minutes'][$i]))
+				{
+					$minutes = $matches['latitude_minutes'][$i];
+				}
+				$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+		
+				$seconds = 0;
+				$minutes = 0;
+				$degrees = $matches['longitude_degrees'][$i];
+				if (isset($matches['longitude_minutes'][$i]))
+				{
+					$minutes = $matches['longitude_minutes'][$i];
+				}
+				$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+				
+				$points[] = $pt;
+			}
+			$matched = true;
+		}		
+	}
+	
+	
+	if (!$matched)
+	{		
+		if (preg_match_all('/(
+			(?<latitude_degrees>([0-9]{1,2}))([°])
+			(?<latitude_hemisphere>[N|S])
+			[,]
+			\s*
+			((?<longitude_degrees>([0-9]{1,3}))([°])?)?
+			(?<longitude_hemisphere>[W|E])
+			)/xu',  $text, $matches, PREG_PATTERN_ORDER))
+		{
+	
+			//print_r($matches);
+	
+			$num = count($matches[0]);
+			for ($i = 0; $i < $num; $i++)
+			{
+				$pt = new stdclass;
+			
+				$seconds = 0;
+				$minutes = 0;
+				$degrees = $matches['latitude_degrees'][$i];
+				$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+		
+				$seconds = 0;
+				$minutes = 0;
+				$degrees = $matches['longitude_degrees'][$i];
+				$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+				
+				$points[] = $pt;
+			}
+			$matched = true;
+		}	
+	}
+	
+	if (!$matched)
+	{		
+	
+		// 54° 20' 80" N.; y9°09'30"E
+		if (preg_match_all('/(
+			(?<latitude_degrees>([0-9]{1,2}))[°|�]
+			\s*
+			(?<latitude_minutes>([0-9]+))\'
+			\s*
+			((?<latitude_seconds>([0-9]+))")?
+			\s*
+			(?<latitude_hemisphere>[N|S])\.?
+			[,|;]\s*
+			(?<longitude_degrees>([0-9]{1,3}))[°|�]
+			\s*
+			(?<longitude_minutes>([0-9]+))\'
+			\s*
+			((?<longitude_seconds>([0-9]+))")?
+			\s*
+			(?<longitude_hemisphere>[W|E])\.?
+			)/xu',  $text, $matches, PREG_PATTERN_ORDER))
+		{
+	
+			$num = count($matches[0]);
+			for ($i = 0; $i < $num; $i++)
+			{
+				$pt = new stdclass;
+			
+				if (isset($matches['latitude_seconds'][$i]))
+				{
+					$seconds = $matches['latitude_seconds'][$i];
+				}
 				$minutes = $matches['latitude_minutes'][$i];
-			}
-			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
-	
-			$seconds = 0;
-			$minutes = 0;
-			$degrees = $matches['longitude_degrees'][$i];
-			if (isset($matches['longitude_minutes'][$i]))
-			{
+				$degrees = $matches['latitude_degrees'][$i];
+				$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+		
+		
+				if (isset($matches['longitude_seconds'][$i]))
+				{
+					$seconds = $matches['longitude_seconds'][$i];
+				}
 				$minutes = $matches['longitude_minutes'][$i];
+				$degrees = $matches['longitude_degrees'][$i];
+				$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+				
+				$points[] = $pt;
 			}
-			$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+			$matched = true;
+		}	
+	}	
+	
+	if (!$matched)
+	{		
+		// 38 18' 30" N, 123 4' W
+		if (preg_match_all('/(
+			(?<latitude_degrees>([0-9]{1,2}))
+			\s+
+			(?<latitude_minutes>([0-9]+))\'
+			\s+
+			((?<latitude_seconds>([0-9]+))")?
+			\s*
+			(?<latitude_hemisphere>[N|S])
+			[,|;]\s*
+			(?<longitude_degrees>([0-9]{1,3}))
+			\s+
+			(?<longitude_minutes>([0-9]+))\'
+			\s+
+			((?<longitude_seconds>([0-9]+))")?
+			\s*
+			(?<longitude_hemisphere>[W|E])
+			)/xu',  $text, $matches, PREG_PATTERN_ORDER))
+		{
+			$num = count($matches[0]);
+			for ($i = 0; $i < $num; $i++)
+			{
+				$pt = new stdclass;
 			
-			$points[] = $pt;
+				if (isset($matches['latitude_seconds'][$i]))
+				{
+					$seconds = $matches['latitude_seconds'][$i];
+				}
+				$minutes = $matches['latitude_minutes'][$i];
+				$degrees = $matches['latitude_degrees'][$i];
+				$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+		
+		
+				if (isset($matches['longitude_seconds'][$i]))
+				{
+					$seconds = $matches['longitude_seconds'][$i];
+				}
+				$minutes = $matches['longitude_minutes'][$i];
+				$degrees = $matches['longitude_degrees'][$i];
+				$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+				
+				$points[] = $pt;
+			}
+			$matched = true;
+		}	
+	}
+	
+	if (!$matched)
+	{		
+		// 0224' N 4259' E
+		if (preg_match_all('/(
+			(?<latitude_degrees>([0-9]{2}))
+			(?<latitude_minutes>([0-9]{2}))\'
+			\s*
+			(?<latitude_hemisphere>[N|S])
+			\s+
+			(?<longitude_degrees>([0-9]{2}))
+			(?<longitude_minutes>([0-9]{2}))\'
+			\s*
+			(?<longitude_hemisphere>[W|E])
+			)/xu',  $text, $matches, PREG_PATTERN_ORDER))
+		{
+			$num = count($matches[0]);
+			for ($i = 0; $i < $num; $i++)
+			{
+				$pt = new stdclass;
+			
+				$seconds = '';
+				if (isset($matches['latitude_seconds'][$i]))
+				{
+					$seconds = $matches['latitude_seconds'][$i];
+				}
+				$minutes = $matches['latitude_minutes'][$i];
+				$degrees = $matches['latitude_degrees'][$i];
+				$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+		
+				$seconds = '';
+				if (isset($matches['longitude_seconds'][$i]))
+				{
+					$seconds = $matches['longitude_seconds'][$i];
+				}
+				$minutes = $matches['longitude_minutes'][$i];
+				$degrees = $matches['longitude_degrees'][$i];
+				$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+				
+				$points[] = $pt;
+			}
+			$matched = true;
 		}
 	}
 	
-	
-	if (preg_match_all('/(
-		(?<latitude_degrees>([0-9]{1,2}))([°])
-		(?<latitude_hemisphere>[N|S])
-		[,]
-		\s*
-		((?<longitude_degrees>([0-9]{1,3}))([°])?)?
-		(?<longitude_hemisphere>[W|E])
-		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
-	{
-
-		//print_r($matches);
-
-		$num = count($matches[0]);
-		for ($i = 0; $i < $num; $i++)
-		{
-			$pt = new stdclass;
+	if (!$matched)
+	{		
 		
-			$seconds = 0;
-			$minutes = 0;
-			$degrees = $matches['latitude_degrees'][$i];
-			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
-	
-			$seconds = 0;
-			$minutes = 0;
-			$degrees = $matches['longitude_degrees'][$i];
-			$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
-			
-			$points[] = $pt;
-		}
-	}	
-	
-	// 54° 20' 80" N.; y9°09'30"E
-	if (preg_match_all('/(
-		(?<latitude_degrees>([0-9]{1,2}))[°|�]
-		\s*
-		(?<latitude_minutes>([0-9]+))\'
-		\s*
-		((?<latitude_seconds>([0-9]+))")?
-		\s*
-		(?<latitude_hemisphere>[N|S])\.?
-		[,|;]\s*
-		(?<longitude_degrees>([0-9]{1,3}))[°|�]
-		\s*
-		(?<longitude_minutes>([0-9]+))\'
-		\s*
-		((?<longitude_seconds>([0-9]+))")?
-		\s*
-		(?<longitude_hemisphere>[W|E])\.?
-		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
-	{
-
-		$num = count($matches[0]);
-		for ($i = 0; $i < $num; $i++)
+		//http://biostor.org/reference/14507
+		// No hemisphere, but for this example it's N and E
+		// 36°58', 127 °57'
+		if (preg_match_all('/(
+			(?<latitude_degrees>([0-9]{1,2}))
+			[°]
+			\s?
+			(?<latitude_minutes>([0-9]+))\'
+			[,]\s
+			(?<longitude_degrees>([0-9]{1,3}))
+			[°]
+			\s?
+			(?<longitude_minutes>([0-9]+))\'
+			)/xu',  $text, $matches, PREG_PATTERN_ORDER))
 		{
-			$pt = new stdclass;
-		
-			if (isset($matches['latitude_seconds'][$i]))
+			$num = count($matches[0]);
+			for ($i = 0; $i < $num; $i++)
 			{
-				$seconds = $matches['latitude_seconds'][$i];
-			}
-			$minutes = $matches['latitude_minutes'][$i];
-			$degrees = $matches['latitude_degrees'][$i];
-			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
-	
-	
-			if (isset($matches['longitude_seconds'][$i]))
-			{
-				$seconds = $matches['longitude_seconds'][$i];
-			}
-			$minutes = $matches['longitude_minutes'][$i];
-			$degrees = $matches['longitude_degrees'][$i];
-			$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+				$pt = new stdclass;
 			
-			$points[] = $pt;
-		}
-	}	
-	
-	
-	// 38 18' 30" N, 123 4' W
-	if (preg_match_all('/(
-		(?<latitude_degrees>([0-9]{1,2}))
-		\s+
-		(?<latitude_minutes>([0-9]+))\'
-		\s+
-		((?<latitude_seconds>([0-9]+))")?
-		\s*
-		(?<latitude_hemisphere>[N|S])
-		[,|;]\s*
-		(?<longitude_degrees>([0-9]{1,3}))
-		\s+
-		(?<longitude_minutes>([0-9]+))\'
-		\s+
-		((?<longitude_seconds>([0-9]+))")?
-		\s*
-		(?<longitude_hemisphere>[W|E])
-		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
-	{
-		$num = count($matches[0]);
-		for ($i = 0; $i < $num; $i++)
-		{
-			$pt = new stdclass;
+				if (isset($matches['latitude_seconds'][$i]))
+				{
+					$seconds = $matches['latitude_seconds'][$i];
+				}
+				$minutes = $matches['latitude_minutes'][$i];
+				$degrees = $matches['latitude_degrees'][$i];
+				$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, 'N');
 		
-			if (isset($matches['latitude_seconds'][$i]))
-			{
-				$seconds = $matches['latitude_seconds'][$i];
-			}
-			$minutes = $matches['latitude_minutes'][$i];
-			$degrees = $matches['latitude_degrees'][$i];
-			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
-	
-	
-			if (isset($matches['longitude_seconds'][$i]))
-			{
-				$seconds = $matches['longitude_seconds'][$i];
-			}
-			$minutes = $matches['longitude_minutes'][$i];
-			$degrees = $matches['longitude_degrees'][$i];
-			$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
-			
-			$points[] = $pt;
-		}
-	}	
-	
-	// 0224' N 4259' E
-	if (preg_match_all('/(
-		(?<latitude_degrees>([0-9]{2}))
-		(?<latitude_minutes>([0-9]{2}))\'
-		\s*
-		(?<latitude_hemisphere>[N|S])
-		\s+
-		(?<longitude_degrees>([0-9]{2}))
-		(?<longitude_minutes>([0-9]{2}))\'
-		\s*
-		(?<longitude_hemisphere>[W|E])
-		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
-	{
-		$num = count($matches[0]);
-		for ($i = 0; $i < $num; $i++)
-		{
-			$pt = new stdclass;
 		
-			$seconds = '';
-			if (isset($matches['latitude_seconds'][$i]))
-			{
-				$seconds = $matches['latitude_seconds'][$i];
+				if (isset($matches['longitude_seconds'][$i]))
+				{
+					$seconds = $matches['longitude_seconds'][$i];
+				}
+				$minutes = $matches['longitude_minutes'][$i];
+				$degrees = $matches['longitude_degrees'][$i];
+				$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, 'E');
+				
+				$points[] = $pt;
 			}
-			$minutes = $matches['latitude_minutes'][$i];
-			$degrees = $matches['latitude_degrees'][$i];
-			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
-	
-			$seconds = '';
-			if (isset($matches['longitude_seconds'][$i]))
-			{
-				$seconds = $matches['longitude_seconds'][$i];
-			}
-			$minutes = $matches['longitude_minutes'][$i];
-			$degrees = $matches['longitude_degrees'][$i];
-			$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
-			
-			$points[] = $pt;
-		}
+			$matched = true;
+		}		
 	}
 	
-	//http://biostor.org/reference/14507
-	// No hemisphere, but for this example it's N and E
-	// 36°58', 127 °57'
-	if (preg_match_all('/(
-		(?<latitude_degrees>([0-9]{1,2}))
-		[°]
-		\s?
-		(?<latitude_minutes>([0-9]+))\'
-		[,]\s
-		(?<longitude_degrees>([0-9]{1,3}))
-		[°]
-		\s?
-		(?<longitude_minutes>([0-9]+))\'
-		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
-	{
-		$num = count($matches[0]);
-		for ($i = 0; $i < $num; $i++)
-		{
-			$pt = new stdclass;
+	
+	if (!$matched)
+	{		
 		
-			if (isset($matches['latitude_seconds'][$i]))
-			{
-				$seconds = $matches['latitude_seconds'][$i];
-			}
-			$minutes = $matches['latitude_minutes'][$i];
-			$degrees = $matches['latitude_degrees'][$i];
-			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, 'N');
-	
-	
-			if (isset($matches['longitude_seconds'][$i]))
-			{
-				$seconds = $matches['longitude_seconds'][$i];
-			}
-			$minutes = $matches['longitude_minutes'][$i];
-			$degrees = $matches['longitude_degrees'][$i];
-			$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, 'E');
-			
-			$points[] = $pt;
-		}
-	}		
-	
-	// http://biostor.org/reference/4047
-	// 34°49'N 24°32'W
-	if (preg_match_all('/(
-		(?<latitude_degrees>([0-9]{1,2}))
-		[°]
-		(?<latitude_minutes>([0-9]+))\'
-		(?<latitude_hemisphere>[N|S])
-		\s+
-		(?<longitude_degrees>([0-9]{1,3}))
-		[°]
-		(?<longitude_minutes>([0-9]+))\'
-		(?<longitude_hemisphere>[W|E])
-		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
-	{
-		$num = count($matches[0]);
-		for ($i = 0; $i < $num; $i++)
+		// http://biostor.org/reference/4047
+		// 34°49'N 24°32'W
+		if (preg_match_all('/(
+			(?<latitude_degrees>([0-9]{1,2}))
+			[°]
+			(?<latitude_minutes>([0-9]+))\'
+			(?<latitude_hemisphere>[N|S])
+			\s+
+			(?<longitude_degrees>([0-9]{1,3}))
+			[°]
+			(?<longitude_minutes>([0-9]+))\'
+			(?<longitude_hemisphere>[W|E])
+			)/xu',  $text, $matches, PREG_PATTERN_ORDER))
 		{
-			$pt = new stdclass;
-
-			$seconds = '';
-			if (isset($matches['latitude_seconds'][$i]))
+			$num = count($matches[0]);
+			for ($i = 0; $i < $num; $i++)
 			{
-				$seconds = $matches['latitude_seconds'][$i];
-			}
-			$minutes = $matches['latitude_minutes'][$i];
-			$degrees = $matches['latitude_degrees'][$i];
-			$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+				$pt = new stdclass;
 	
-			$seconds = '';
-			if (isset($matches['longitude_seconds'][$i]))
-			{
-				$seconds = $matches['longitude_seconds'][$i];
+				$seconds = '';
+				if (isset($matches['latitude_seconds'][$i]))
+				{
+					$seconds = $matches['latitude_seconds'][$i];
+				}
+				$minutes = $matches['latitude_minutes'][$i];
+				$degrees = $matches['latitude_degrees'][$i];
+				$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+		
+				$seconds = '';
+				if (isset($matches['longitude_seconds'][$i]))
+				{
+					$seconds = $matches['longitude_seconds'][$i];
+				}
+				$minutes = $matches['longitude_minutes'][$i];
+				$degrees = $matches['longitude_degrees'][$i];
+				$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+				
+				$points[] = $pt;
 			}
-			$minutes = $matches['longitude_minutes'][$i];
-			$degrees = $matches['longitude_degrees'][$i];
-			$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
-			
-			$points[] = $pt;
+			$matched = true;
 		}
-	}		
-	
+	}	
 	
 	return $points;
 }
@@ -532,6 +625,8 @@ h, 08. VII. 1972, 1:45 mm SL; 109592, R/V Chain 105, RHB2552,
 mm SL; 109671, RA' Delaware 7/63-04, DL63-04:012, 36°57'N 
 24°50'W, 180 m, 1730-1815 h, 12.V.1963, 1:42 mm SL. 
 Loweina rara (Lutken 1892) ";
+
+$text = '48 30\' 33" E, 13 00\' 01" S';
 	 
 	print_r(points_from_text($text));
 	
