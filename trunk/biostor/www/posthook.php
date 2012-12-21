@@ -132,6 +132,17 @@ if (isset($_POST['webhook']))
 	}
 
 	curl_setopt ($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+	
+	// Set HTTP headers
+	$headers = array();
+	$headers[] = 'Content-type: application/json'; // we are sending JSON
+
+	// Override Expect: 100-continue header (may cause problems with HTTP proxies
+	// http://the-stickman.com/web-development/php-and-curl-disabling-100-continue-header/
+	$headers[] = 'Expect:'; 
+	curl_setopt ($ch, CURLOPT_HTTPHEADER, $headers);
+
+	
 	curl_setopt ($ch, CURLOPT_POST, TRUE);
 	//curl_setopt ($ch, CURLOPT_POSTFIELDS, $post_data);
 	curl_setopt ($ch, CURLOPT_POSTFIELDS, json_encode($reference));

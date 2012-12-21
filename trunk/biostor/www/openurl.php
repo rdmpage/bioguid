@@ -99,7 +99,7 @@ function parse_openurl($params, &$referent)
 				break;
 
 			// Identifiers
-			case 'rft.id':
+			case 'rft_id':
 			case 'id':
 				foreach ($value as $v)
 				{		
@@ -148,7 +148,7 @@ function parse_openurl($params, &$referent)
 					$referent->authors[] = $author;					
 				}
 				break;
-						
+
 			default:
 				$k = str_replace("rft.", '', $key);
 				$referent->$k = $value[0];				

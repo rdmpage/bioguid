@@ -345,6 +345,10 @@ echo '
 echo '<h2>Articles</h2>' . "\n";
 */
 
+/*
+
+// Journal summary (only if bioGUID is up
+
 
 echo '<p>Number of articles per journal (<a href="journals.php">more...</a>). Get most recently added articles as a <a href="http://biostor.org/rss.php?format=atom">RSS feed</a>.</p>' . "\n";
 
@@ -400,6 +404,8 @@ while (!$result->EOF)
 }
 echo '</tr>' . "\n";
 echo '</table>' . "\n";
+
+*/
 /*
 echo '<h2>Authors</h2>';
 
