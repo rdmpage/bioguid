@@ -55,6 +55,10 @@ class DisplayJournal extends DisplayObject
 				case 'bib':
 					$this->format = 'bib';
 					break;
+
+				case 'text':
+					$this->format = 'text';
+					break;
 		
 				default:
 					parent::GetFormat();
@@ -80,12 +84,33 @@ class DisplayJournal extends DisplayObject
 			case 'bib':
 				$this->DisplayBibtex();
 				break;
+				
+			case 'text':
+				$this->DisplayText();
+				break;
+				
 
 			default:
 				parent::DisplayFormattedObject();
 				break;
 		}
 	}	
+	
+	//----------------------------------------------------------------------------------------------
+	function DisplayText()
+	{
+		header("Content-type: text/plain; charset=utf-8\n\n");
+	
+		$articles = db_retrieve_articles_from_journal($this->issn, $this->oclc);
+		foreach ($articles as $k => $v)
+		{
+			foreach ($v as $ref)
+			{
+				echo $ref->id . "\n";
+			}
+		}
+	}	
+	
 	
 	//----------------------------------------------------------------------------------------------
 	function DisplayRis()
@@ -173,6 +198,7 @@ class DisplayJournal extends DisplayObject
 			echo '<li class="xml"><a href="' . $config['web_root'] . 'issn/' . $this->issn . '.xml" title="Endnote XML">Endnote XML</a></li>';
 			echo '<li class="ris"><a href="' . $config['web_root'] . 'issn/' . $this->issn . '.ris" title="RIS">Reference manager</a></li>';		
 			echo '<li class="bibtex"><a href="' . $config['web_root'] . 'issn/' . $this->issn . '.bib" title="BibTex">BibTex</a></li>';	
+			echo '<li class="text"><a href="' . $config['web_root'] . 'issn/' . $this->issn . '.text" title="text">Text</a></li>';	
 			echo '</ul>' . "\n";
 		}
 		if ($this->oclc != '')
@@ -187,6 +213,7 @@ class DisplayJournal extends DisplayObject
 			echo '<li class="xml"><a href="' . $config['web_root'] . 'oclc/' . $this->oclc . '.xml" title="Endnote XML">Endnote XML</a></li>';
 			echo '<li class="ris"><a href="' . $config['web_root'] . 'oclc/' . $this->oclc . '.ris" title="RIS">Reference manager</a></li>';		
 			echo '<li class="bibtex"><a href="' . $config['web_root'] . 'oclc/' . $this->oclc . '.bib" title="BibTex">BibTex</a></li>';	
+			echo '<li class="text"><a href="' . $config['web_root'] . 'oclc/' . $this->oclc . '.text" title="text">Text</a></li>';	
 			echo '</ul>' . "\n";
 		}
 
