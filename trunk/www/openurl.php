@@ -41,10 +41,9 @@ define('ERROR_IDENTIFIER_TYPE_UNKNOWN', 		1);
 define('ERROR_FAILED_TO_RESOLVE_IDENTIFIER', 	2);	
 define('ERROR_DOI_NOT_IN_CROSSREF',				3);
 define('ERROR_SICI_NOT_IN_JSTOR',				4);
-define('ERROR_DPMID_NOT_IN_PUBMED',				5);
-define('ERROR_DOI_NOT_IN_CROSSREF',				6);
+define('ERROR_PMID_NOT_IN_PUBMED',				5);
+define('ERROR_NOT_FOUND_IN_CROSSREF',			6);
 define('ERROR_UNSUPPORTED_GENRE',				7);
-define('ERROR_NOT_FOUND_IN_CROSSREF',			8);
 define('ERROR_NOT_ENOUGH_FOR_JSTOR_LOOKUP',		9);
 define('ERROR_NOT_FOUND_FROM_METADATA',			10);
 
@@ -1522,7 +1521,7 @@ function find_article_from_metadata($values, &$item)
 		if ($values['spage'] != '')
 		{
 			$found = find_article_have_spage ($values, $item);
-			if (!found)
+			if (!$found)
 			{
 				$error = ERROR_NOT_FOUND_FROM_METADATA;
 			}
@@ -1660,6 +1659,7 @@ function display_error($display_type)
 	global $error;
 	global $error_msg;
 	global $callback;
+	
 	
 	switch ($display_type)
 	{
@@ -2496,7 +2496,7 @@ try {
 var pageTracker = _gat._getTracker("UA-4542557-2");
 pageTracker._trackPageview();
 } catch(err) {}</script>
-<?	
+<?php	
 	echo '</body>';
 	echo '</html>';
 
@@ -2849,6 +2849,7 @@ function display($item, $display_type)
 			display_html($item);
 			break;
 	}
+	
 }
 
 
@@ -3800,10 +3801,9 @@ define('DISPLAY_JSON', 		1);
 define('DISPLAY_HTML', 		2);	
 define('DISPLAY_RDF', 		3);	
 define('DISPLAY_CITE', 		4);	
-define(DISPLAY_ITAXON,		5);
-define(DISPLAY_RDF, 		6);	
-define(DISPLAY_RIS, 		7);	
-define(DISPLAY_BIBJSON, 	8);	
+define('DISPLAY_ITAXON',	5);
+define('DISPLAY_RIS', 		7);	
+define('DISPLAY_BIBJSON', 	8);	
 
 $display_type = DISPLAY_HTML; // default
 if (isset($_GET['display']))
@@ -4027,6 +4027,28 @@ else
 						echo "</pre>";
 					}
 					
+					/*
+					switch ($display_type)
+					{
+						case DISPLAY_JSON:
+								$item->status = 'ok';
+
+								header("Content-type: text/plain; charset=utf-8\n\n");	
+								$json = json_format(json_encode($item));
+								
+								if ($callback != '')
+								{
+									$json = $callback . '(' . $json . ');';
+								}
+								echo $json;
+								exit(0);
+							break;
+							
+						default:
+							display_html($item);
+							break;
+					}
+					*/
 					display($item, $display_type);
 					
 				}
