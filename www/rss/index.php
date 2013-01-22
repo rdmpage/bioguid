@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL);
+
 $format = 'html';
 $feed_prefix = 'http://bioguid.info/rss/';
 
@@ -17,6 +19,10 @@ if (isset($_GET['format']))
 			$format = 'html';
 	}
 }
+
+//print_r($_GET);
+//exit();
+
 
 // List of feeds I generate, placed in categories
 $feeds = array(
@@ -338,11 +344,134 @@ $feeds = array(
 		)
 		
 	);
+	
+//print_r($feeds);
 
-switch ($format)
+if ($format == 'html')
 {
-	case 'opml':
-		// header
+
+echo '
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<link rel="subscriptions" type="text/x-opml" title="bioGUID RSS feeds"
+ ref="?format=opml" />
+
+  <title>bioGUID RSS feeds</title>
+  
+	<style type="text/css">
+	body 
+	{
+		font-family: Verdana, Arial, sans-serif;
+		font-size: 12px;
+		padding:30px;
+	
+	}
+	
+.blueRect {
+	background-color: rgb(239, 239, 239);
+	border:1px solid rgb(239, 239, 239);
+	background-repeat: repeat-x;
+	color: #000;
+	width: 400px;
+}
+.blueRect .bottom {
+	height: 10px;
+}
+.blueRect .middle {
+	margin: 10px 12px 0px 12px;
+}
+.blueRect .cn {
+	background-image: url(../images/c6.png);
+	background-repeat: no-repeat;
+	height: 10px;
+	line-height: 10px;
+	position: relative;
+	width: 10px;
+}
+.blueRect .tl {
+	background-position: top left;
+	float: left;
+	margin: -2px 0px 0px -2px;
+}
+.blueRect .tr {
+	background-position: top right;
+	float: right;
+	margin: -2px -2px 0px 0px;
+}
+.blueRect .bl {
+	background-position: bottom left;
+	float: left;
+	margin: 2px 0px -2px -2px;
+}
+.blueRect .br {
+	background-position: bottom right;
+	float: right;
+	margin: 2px -2px -2px 0px;
+}		
+	
+	#details
+	{
+		display: none;
+		position:absolute;
+		background-color:white;
+		border: 1px solid rgb(128,128,128);
+	}
+	</style>
+  
+
+</head>
+<body>
+  <p><a href="../">Home</a></p>
+
+  <h1>Feeds</h1>
+  <p>RSS feeds for sites (databases and journals) that don\'t have them (yet).</p>
+  <p><a href="?format=opml"><img src="images/opml-icon-32x32.png" border="0"/></a> <a href="?format=opml">OPML listing of feeds</a></p>
+
+';
+
+foreach ($feeds as $category => $list)
+{
+	echo "<h2>$category</h2>\n";
+	echo "<ul>\n";
+	
+	foreach ($list as $item)
+	{
+		$url_text = '';
+		$title_text = '';
+		foreach ($item as $k => $v)
+		{
+			switch ($k)
+			{
+				case 'title':
+					$title_text = $v;
+					break;
+				case 'url':
+					if (preg_match('/^http:/', $v))
+					{
+						$url_text = '<a href="' . $v . '">';
+					}
+					else
+					{								
+						$url_text = '<a href="' . $feed_prefix . $v . '">';
+					}
+					break;
+				default:
+					break;
+			}
+		}
+		
+		echo '<li>' . $url_text . $title_text . '</a></li>';
+	}
+	echo "</ul>\n";
+	
+}
+echo '</body>';
+echo '</html>';
+}
+
+if ($format == 'opml')
+{
 		$doc = new DomDocument('1.0');
 		$opml = $doc->createElement('opml');
 		$opml->setAttribute('version', '1.0');
@@ -397,134 +526,6 @@ switch ($format)
 		
 		header("Content-type: text/xml");
 		echo $doc->saveXML();
-		
-		break;
-		
-	default:
-	
-?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-	<link rel="subscriptions" type="text/x-opml" title="bioGUID RSS feeds"
- ref="?format=opml" />
-
-  <title>bioGUID RSS feeds</title>
-  
-    <style type="text/css">
-	body 
-	{
-		font-family: Verdana, Arial, sans-serif;
-		font-size: 12px;
-		padding:30px;
-	
-	}
-	
-.blueRect {
-	background-color: rgb(239, 239, 239);
-	border:1px solid rgb(239, 239, 239);
-	background-repeat: repeat-x;
-	color: #000;
-	width: 400px;
-}
-.blueRect .bottom {
-	height: 10px;
-}
-.blueRect .middle {
-	margin: 10px 12px 0px 12px;
-}
-.blueRect .cn {
-	background-image: url(../images/c6.png);
-	background-repeat: no-repeat;
-	height: 10px;
-	line-height: 10px;
-	position: relative;
-	width: 10px;
-}
-.blueRect .tl {
-	background-position: top left;
-	float: left;
-	margin: -2px 0px 0px -2px;
-}
-.blueRect .tr {
-	background-position: top right;
-	float: right;
-	margin: -2px -2px 0px 0px;
-}
-.blueRect .bl {
-	background-position: bottom left;
-	float: left;
-	margin: 2px 0px -2px -2px;
-}
-.blueRect .br {
-	background-position: bottom right;
-	float: right;
-	margin: 2px -2px -2px 0px;
-}		
-    
-	#details
-	{
-		display: none;
-		position:absolute;
-		background-color:white;
-		border: 1px solid rgb(128,128,128);
-	}
-    </style>
-  
-
-</head>
-<body>
-  <p><a href="../">Home</a></p>
-
-  <h1>Feeds</h1>
-  <p>RSS feeds for sites (databases and journals) that don't have them (yet).</p>
-  <p><a href="?format=opml"><img src="images/opml-icon-32x32.png" border="0"/></a> <a href="?format=opml">OPML listing of feeds</a></p>
-
-<?
-	
-		foreach ($feeds as $category => $list)
-		{
-			echo "<h2>$category</h2>\n";
-			echo "<ul>\n";
-			
-			foreach ($list as $item)
-			{
-				$url_text = '';
-				$title_text = '';
-				foreach ($item as $k => $v)
-				{
-					switch ($k)
-					{
-						case 'title':
-							$title_text = $v;
-							break;
-						case 'url':
-							if (preg_match('/^http:/', $v))
-							{
-								$url_text = '<a href="' . $v . '">';
-							}
-							else
-							{								
-								$url_text = '<a href="' . $feed_prefix . $v . '">';
-							}
-							break;
-							break;
-						default:
-							break;
-					}
-				}
-				
-				echo '<li>' . $url_text . $title_text . '</a></li>';
-			}
-			echo "</ul>\n";
-			
 		}
-		echo '</body>';
-		echo '</html>';
-	
-	
-		break;
-}
 
 ?>
