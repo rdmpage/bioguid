@@ -27,7 +27,7 @@ $want=array(102952);
 $TitleID=2804;
 $want=array();
 
-// 10428
+
 
 
 
@@ -601,17 +601,2738 @@ $want=array();
 $Titles = array(5559);
 $want=array();
 
+// Boletin de la Sociedad de Biología de Concepción
+$Titles = array(45409);
+$want=array();
+
+$Titles = array(13816);
+$want=array();
+
+// Gayana Zool 
+$Titles = array(39684);
+$want=array();
+
+// Memoirs of the National Museum of Victoria
+$Titles = array(58640);
+$want=array();
+
+
+$Titles = array(50545);
+$want=array();
+
+// Verhandlungen der Kaiserlich-Königlichen Zoologisch-Botanischen Gesellschaft in Wien.
+$Titles = array(13275);
+$want=array();
+
+// Memoirs of the Carnegie Museum
+$Titles = array(7536);
+$want=array();
+
+// Memoirs of the Carnegie Museum
+$Titles = array(53696);
+$want=array();
+
+//J Royal Micro
+$Titles = array(7413);
+$want=array();
+
+// The Journal of the Quekett Microscopical Club.
+$Titles = array(7003);
+$want=array();
+
+// The Journal of microscopy and natural science
+$Titles = array(3926);
+$want=array();
+
+// The Nautilis
+$Titles = array(6170);
+$want=array();
+
+// J Hamb
+$Titles = array(9594);
+$want=array();
+
+// Monitore zoologico italiano
+$Titles=array(8983);
+$want=array();
+
+// 10428
+//107001
+
+// Bulletin - United States National Museum
+$Titles=array(7548);
+$want=array();
+
+// Denkschriften der Medicinisch-Naturwissenschaftlichen Gesellschaft zu Jena
+$Titles=array(53760);
+$want=array();
+
+
+// Proc USNM
+$Titles=array(7519);
+$want=array(53183);
+
+// Malacologia
+$Titles=array(12920);
+$want=array();
+
+// Opuscula zoologica
+$Titles=array(44805);
+$want=array();
+
+
+// Öfversigt af Finska vetenskaps-societetens förhandlingar
+$Titles=array(14261);
+$want=array();
+
+// Bulletin of the British Museum (Natural History). Geology.
+$Titles=array(2197);
+$want=array();
+
+
+$Titles=array(13766);
+$want=array();
+
+// Zoologische Jahrbücher. Supplementheft.
+$Titles=array(13352);
+$want=array();
+
+// 	 Zeitschrift für die gesammten Naturwissenschaft.
+$Titles=array(44824);
+$want=array();
+
+$Titles=array(3595);
+$want=array();
+
+// Carnegie Institution of Washington publication
+$Titles=array(5800);
+$want=array();
+
+$Titles=array(103380);
+
+$Titles=array(8985);
+$want=array();
+
+// Occasional papers of the Boston Society of Natural History
+$Titles=array(50720);
+$want=array();
+
+// Quarterly journal of microscopical science
+$Titles=array(13831);
+$want=array();
+
+// Proceedings of the Biological Society of Washington. v 90
+$Titles=array(3622);
+$want=array(120622);
+
+// Memoirs of the National Museum of Victoria
+$Titles = array(58640);
+$want=array();
+
+// Australian Zoologist
+$Titles = array(57946);
+$want=array();
+
+// Verhandlungen der Kaiserlich-Königlichen Zoologisch-Botanischen Gesellschaft in Wien
+$Titles = array(13275);
+$want=array();
+
+
+$Titles = array(11322);
+$want=array();
+
+// Comptes rendus des séances de la Société de biologie et de ses filiales.
+$Titles=array(8070);
+$want=array();
+
+// Iberus : revista de la Sociedad Española de Malacología
+$Titles=array(49914);
+$want=array();
+
+// Diptères
+$Titles=array(9859);
+$want=array();
+
+// Stuttgarter Beiträge zur Naturkunde
+$Titles=array(49392);
+$want=array();
+
+// Ent Tid
+$Titles=array(10616);
+$want=array();
+
+// Liangqi baxing dongwu yanjiu = Acta herpetologica Sinica
+$Titles=array(53832);
+$want = array();
+
+// J Bombay
+$Titles=array(7414);
+$want=array();
+
+// Phil J Sci
+$Titles=array(69);
+$want=array();
+
+$Titles=array(50446);
+$want = array();
+
+$Titles=array( 13311);
+$want = array();
+
+$Titles=array(8096);
+$want = array();
+
+$Titles=array(1086);
+$want = array();
+
+$Titles=array(57946);
+$want=array(121701,121700);
+
+$Titles=array(10088);
+$want=array(89700);
+
+$Titles=array(5999);
+$want=array();
+
+
+$Titles=array(14688);
+$want=array();
+
+
+
+$Titles=array(57949);
+$want=array();
+
+$Titles=array(14292);
+$want=array();
+
+$Titles =array(44837);
+$want=array();
+
+$Titles = array(8079);
+$want=array(39670);
+
+$Titles=array(9197);
+$want=array();
+
+$Titles=array(5550);
+$want=array();
+
+$Titles=array(8075);
+$want=array();
+
+$Titles=array(3622);
+$want=array(110033);
+
+// Great Basin naturalist memoirs
+$Titles=array(8018);
+$want=array();
+
+$Titles=array(3622);
+$want=array(107526);
+
+
+$Titles =array(2510);
+$want=array(89742);
+
+$Titles =array(5075);
+$want=array();
+
+
+// Memoirs of the National Museum of Victoria
+$Titles = array(58640);
+$want=array(121120,121121,121136,121937,122131,122129,122130);
+
+$Titles = array(51876);
+$want=array();
+
+// Transactions and proceedings of the Royal Society of South Australia (Incorporated)
+$Titles = array(51127);
+$want=array();
+
+
+// Transactions of the Sapporo Natural History Society
+$Titles = array(5052);
+$want=array();
+
+// Journal of the New York Entomological Society
+$Titles = array(8089);
+$want=array();
+
+// Tijdschrift voor natuurlijke geschiedenis en physiologie
+$Titles = array(13509);
+$want=array();
+
+//Bulletin of the British Museum (Natural History). Historical.
+$Titles = array(5067);
+$want=array();
+
+// Zool Jahr Ab Syst
+$Titles = array(8980);
+$want=array(121145);
+
+$Titles = array(6885);
+$want=array(84743);
+
+// The Anoplura and Mallophaga of North American mammals
+$Titles = array(60046);
+$want=array();
+
+// Fishery bulletin / U.S. Dept. of Commerce, National Oceanic and Atmospheric Administration, National Marine Fisheries Service
+$Titles = array(3598);
+$want=array();
+
+$Titles=array(44718);
+$want=array();
+
+// American journal of conchology
+$Titles=array(15900);
+$want=array();
+
+// Papers and proceedings of the Royal Society of Tasmania
+$Titles=array(9494);
+$want = array();
+
+// Deutsche Südpolar-Expedition, 1901-1903, im Auftrage des Reichsamtes des Innern, hrsg. von Erich von Drygalski.
+$Titles=array(2166);
+$want = array();
+
+// The Journal of the College of Science, Imperial University of Tokyo, Japan = Tokyo Teikoku Daigaku kiyo. Rika.
+$Titles=array(7002);
+$want = array();
+
+$Titles=array(53715);
+$want = array();
+
+
+// Revista chilena de entomología / Universidad de Chile, Sociedad Chilena de Entomología
+$Titles=array(46370);
+$want=array();
+
+
+// Occasional papers of the Museum of Natural History, the University of Kansas
+$Titles=array(4672);
+$want=array();
+
+
+$Titles=array(14647);
+$want=array();
+
+// Memoirs of the Museum of Comparative Zoölogy, at Harvard College, Cambridge, Mass.
+$Titles=array(7537);
+$want=array();
+
+// Archiv für Naturgeschichte. Abteilung A.
+$Titles=array(12938);
+$want=array();
+
+$Titles = array(6885);
+//$want=array(79453);
+$want=array();
+
+$Titles=array(12360);
+$want=array();
+
+// Memoirs of Museum of Victoria
+$Titles=array(59883);
+$want=array();
+
+
+// Iheringia. Série zoologia.
+$Titles=array(50228);
+$want=array();
+
+
+// Revue Zoologique par La Société Cuvierienne
+$Titles=array(2214);
+$want=array();
+
+$Titles=array(45557);
+$want=array();
+
+// Brigham Young University science bulletin. Biological series.
+$Titles=array(7958);
+$want=array();
+
+// Jahres-Bericht der Schlesischen Gesellschaft für Vaterländische Cultur.
+$Titles=array(50438);
+$want=array();
+
+// Bollettino del Laboratorio di zoologia generale e agraria della R. Scuola superiore d'agricoltura in Portici.
+$Titles=array(8269);
+$want=array();
+
+// Deutsche entomologische Zeitschrift Iris / herausgegeben vom Entomologischen Verein Iris zu Dresden.
+$Titles=array(12260);
+$want=array();
+
+$Titles=array(58640);
+$want=array(121937); // volume 39
+
+// Swenska wetenskaps academiens handlingar
+$Titles=array(49868);
+$want=array();
+
+$Titles=array(6525);
+$want=array(111306);
+
+
+$Titles=array(57946);
+$want=array(121400);
+
+
+// Natural history of Victoria. Prodromus of the zoology of Victoria; 
+$Titles=array(4821);
+$want=array();
+
+// Breviora
+$Titles=array(3989);
+$want=array();
+
+// Abhandlungen der Senckenbergischen Naturforschenden Gesellschaft
+$Titles=array(16181);
+$want=array();
+
+// Fieldiana. Zoology memoirs.
+$Titles=array(42257);
+$want=array();
+
+// Entomologische Zeitschrift
+$Titles=array(44720);
+$want=array();
+
+// Bulletin de la Société d'histoire naturelle de Metz.
+$Titles=array(49864);
+$want=array();
+
+// Report on the Pycnogonida, dredged by H.M.S. Challenger during the years 1873-76. By Dr. P.P.C. Hoek.
+$Titles=array(13132);
+$want=array();
+
+// Pycnogonida, by T.V. Hodgson.
+$Titles=array(12871);
+$want=array();
+
+
+// Comptes rendus hebdomadaires des séances de l'Académie des sciences
+$Titles=array(4466);
+$want=array();
+
+// Boletín de la Sociedad Española de Historia Natural.
+$Titles=array(6171);
+$want=array();
+
+// Proceedings of the Biological Society of Washington. v 112
+$Titles=array(3622);
+$want=array(107571);
+
+// 	Stuttgarter Beiträge zur Naturkunde. Serie B. Geologie und Paläontologie
+$Titles=array(43750);
+$want=array();
+
+// Memoirs of the California Academy of Sciences
+$Titles=array(3949);
+$want=array();
+
+// Entomologische Zeitung
+$Titles=array(8641);
+$want=array();
+
+
+// Memoirs of Museum of Victoria
+$Titles=array(59883);
+$want=array(122635,122636,122637,122638,122639);
+
+// Publication (Field Museum of Natural History : 1909). Zoological series.
+$Titles=array(42255);
+$want=array();
+
+
+// Mission scientifique du cap Horn, 1882-1883.
+$Titles=array(2480);
+$want=array();
+
+// Transactions of the Linnean Society of London
+$Titles=array(683);
+$want=array();
+
+// Bulletin of the Essex Institute
+$Titles=array(7933);
+$want=array();
+
+// Revista do Museu Paulista
+//10241
+
+// Bulletin de l'Institut océanographique de Monaco
+$Titles=array(2185);
+$want=array();
+
+// Transactions and proceedings of the New Zealand Institute
+$Titles=array(48984);
+$want=array();
+
+// Annales des sciences naturelles. Zoologie et biologie animale
+$Titles=array(13266);
+$want=array();
+
+
+// Mitteilungen aus dem Naturhistorischen Museum in Hamburg
+$Titles=array(9579);
+$want=array();
+
+// Bulletin biologique de la France et de la Belgique
+$Titles=array(10057);
+$want=array();
+
+$Titles=array(52228,52087);
+$want=array();
+
+$Titles=array(60244);
+$want=array();
+
+// Anzeiger / Kaiserliche Akademie der Wissenschaften in Wien. Mathematisch-Naturwissenschaftliche Klasse.
+$Titles=array(39806);
+$want=array();
+
+$Titles=array(4050);
+$want=array(24617);
+
+// Journal and proceedings of the Asiatic Society of Bengal
+$Titles=array(47024);
+$want=array();
+
+// Mittheilungen aus der Zoologischen Station zu Neapel
+$Titles=array(8813);
+$want=array();
+
+// The echinoderm fauna of Torres Strait: its composition and its origin, by Hubert Lyman Clark
+$Titles=array(14613);
+$want=array();
+
+// Redia
+$Titles=array(15675);
+$want=array();
+
+// Résultats des campagnes scientifiques accomplies sur son yacht par Albert Ier, prince souverain de Monaco
+$Titles=array(2169);
+$want=array();
+
+// Records of the Canterbury Museum
+$Titles=array(42577);
+$want=array();
+
+// Memoirs of the National Museum of Victoria
+$Titles = array(58640);
+$want=array(122435,122667,121119);
+
+// Expédition antarctique française (1903-1905) : commandée par le dr. Jean Charcot. Sciences naturelles : documents scientifiques.
+$Titles=array(7063);
+$want=array();
+
+// Natuurkundig tijdschrift voor Nederlandsch Indië / uitgegeven door de Natuurkundige Vereeniging in Nederlandsch Indië
+$Titles=array(13350);
+$want=array();
+
+// Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe. Abt. 1, Mineralogie, Botanik, Zoologie, Geologie und Paläontologie.
+$Titles=array(6884);
+$want=array();
+
+
+// The natural history of Juan Fernandez and Easter Island / edited by Carl Skottsberg
+$Titles=array(25662);
+$want=array();
+
+$Titles=array(7415);
+$want=array(110342,
+110352,
+110959,
+111018,
+111120);
+
+// Memoirs of Museum of Victoria
+$Titles = array(59883);
+$want=array(122921,122922,122923);
+$want=array(122916, 122917);
+
+// Természetrajzi Füzetek kiadja a Magyar nemzeti Muzeum
+$Titles=array(13503);
+$want=array();
+
+
+
+// Trudy Russkago entomologicheskago obshchestva. Horae Societatis entomologicae rossicae, variis semonibus in Russia usitatis editae
+$Titles=array(12032);
+$want=array();
+
+// Annals of the Missouri Botanical Garden
+$Titles=array(702);
+$want=array(89027);
+
+// The Entomologist.
+$Titles=array(11469);
+$want=array();
+
+
+// Stettiner Entomologische Zeitung.
+$Titles=array(8630);
+$want=array();
+
+// Abhandlungen und Berichte des Königl. Zoologischen und Anthropologisch-Etnographischen Museums zu Dresden
+$Titles = array(49442);
+$want=array();
+
+$Titles = array(9579);
+$want=array(93454);
+
+// Bulletin de la Société entomologique de France
+$Titles=array(8187);
+$want=array();
+
+// Sitzungsberichte. Kaiserliche Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Klasse. Abt. 1, Mineralogie, Krystallographie, Botanik, Physiologie der Pflanzen, Zoologie, Paläontologie, Geologie, physische Geographie und Reisen /
+$Titles=array(7337);
+$want=array();
+
+$Titles=array(10088);
+$want=array(88934);
+
+// to do
+// Annalen des Naturhistorischen Museums in Wien
+$Titles=array(5560);
+$want=array();
+
+// Wissenschaftliche ergebnisse der Schwedischen zoologischen expedition nach dem Kilimandjaro, dem Meru und den umgebenden Massaisteppen Deutsch-Ostafrikas 1905-1906, unter leitung von prof. dr. Yngve Sjöstedt. Hrsg. mit unterstützung von der Königl. schwedischen akademie der wissenschaften 
+$Titles=array(1805);
+$want=array();
+
+// Opinions and declarations rendered by the International Commission on Zoological Nomenclature
+$Titles=array(50753);
+$want=array();
+
+// Memorias de la Real Sociedad Española de Historia Natural
+$Titles=array(11494);
+$want=array();
+
+// Technical series.
+$Titles=array(11812);
+$want=array();
+
+// 	The London and Edinburgh philosophical magazine and journal of science.
+$Titles=array(58332);
+$want=array();
+
+// Entomologische Nachrichten.
+$Titles=array(9698);
+$want=array();
+
+// Transactions and proceedings of the Royal Society of South Australia (Incorporated).
+$Titles=array(51127);
+$want=array();
+
+// Insecta; publication mensuelle de la Station entomologique de la Faculté des sciences de Rennes.
+$Titles=array(12277);
+$want=array();
+
+// 	Anales del Museo Nacional de Buenos Aires
+$Titles=array(5595);
+$want=array();
+
+// Proc USNM
+$Titles=array(7519);
+$want=array(32576);
+
+// Beiträge zur Meeresfauna der Insel Mauritius und der Seychellen 
+$Titles=array(49512);
+$want=array();
+
+// Histoire naturelle des araignées
+$Titles=array(51973);
+$want=array();
+
+// Anales de la Sociedad Científica Argentina
+$Titles=array(44792);
+$want=array();
+
+// Actes de la Société linnéenne de Bordeaux
+$Titles=array(16235);
+$want=array();
+
+// Transactions of the South African Philosophical Society
+$Titles=array(53491);
+$want=array();
+
+// Memoirs of Museum of Victoria
+$Titles = array(59883);
+//$want=array(122921,122922,122923);
+//$want=array(122916, 122917);
+
+$want=array(122979, 122980, 122999, 123000);
+
+// Proceedings of the Linnean Society of New South Wales
+$Titles=array(6525);
+$want=array(30106);
+
+// The reptiles of the Indo-Australian archipelago
+$Titles=array(5069);
+$want=array();
+
+// Annales de la Société royale malacologique de Belgique
+$Titles=array(6205);
+$want=array();
+
+
+// An account of the Crustacea of Norway
+$Titles=array(1164);
+$want=array();
+
+// Report of the Copepoda collected by Professor Herdman, at Ceylon, in 1902,
+$Titles=array(59334);
+$want=array();
+
+$Titles=array(53611);
+$want=array();
+
+
+
+// Swenska wetenskaps academiens handlingar
+$Titles=array(49868);
+$want=array();
+
+// Wissenschaftliche Ergebnisse der Schwedischen Südpolar-Expedition
+$Titles=array(6756);
+$want=array();
+
+
+// Bulletin of the Southern California Academy of Sciences 1996->
+$Titles=array(60457);
+$want=array();
+
+// Entomologische berichten
+$Titles=array(8649);
+$want=array();
+
+
+// Jahrbuch der Hamburgischen Wissenschaftlichen Anstalten
+$Titles=array(9594);
+$want=array();
+
+// Bulletin de la Société zoologique de France
+$Titles=array(51699);
+$want=array();
+
+// Bericht über die Senckenbergische Naturforschende Gesellschaft in Frankfurt am Main
+$Titles=array(8745);
+$want=array();
+
+// Zoologische Jahrbücher. Supplementheft.
+$Titles=array(13352);
+$want=array();
+
+// Proceedings of the Royal Zoological Society of New South Wales
+$Titles=array(58245);
+$want=array();
+
+// Abhandlungen aus dem Gebiete der Naturwissenschaften / hrsg. vom Naturwissenschaftlichen Verein in Hamburg.
+$Titles=array(11442);
+$want=array();
+
+// A monograph of the North American Proctotrypidae by William H. Ashmead.
+$Titles=array(38713);
+$want=array();
+
+
+// Bulletin - United States National Museum
+$Titles=array(7548);
+$want=array();
+
+// Chloropidae. Eine monographische Studie / von Theodor Becker. Tiel I, Palaärktische Region :
+$Titles=array(9555);
+$want=array();
+
+// Jahrbücher der Deutschen Malakozoologischen Gesellschaft
+$Titles=array(15952);
+$want=array();
+
+
+// Revue d'entomologie
+$Titles=array(10428);
+$want=array();
+
+
+$Titles=array(52228);
+$want=array();
+
+$Titles=array(52070);
+$want=array();
+
+// Transactions of the South African Philosophical Society
+$Titles=array(53491);
+$want=array();
+
+
+$Titles=array(60244);
+$want=array(123329,123330,123331,
+123321,123322,123323,
+123316,123317);
+
+// Liangqi baxing dongwu yanjiu = Acta herpetologica Sinica
+$Titles=array(53832);
+$want = array(114383,114384,123346);
+
+// Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften
+$Titles=array(6888);
+$want=array();
+
+
+$Titles=array(10088);
+$want=array(41000);
+
+
+// Abhandlungen herausgegeben vom Naturwissenschaftlichen Verein zu Bremen.
+$Titles=array(4220);
+$want=array();
+
+// Miscellaneous publication - University of Kansas, Museum of Natural History.
+$Titles=array(4050);
+$want=array(25998);
+
+// Entomologische Mitteilungen
+$Titles = array(9479);
+$want=array();
+
+// Bulletin / Illinois Natural History Survey.
+$Titles = array(14605);
+$want=array();
+
+// Memoirs of the American Entomological Society
+$Titles=array(6193);
+$want=array();
+
+// TvE
+$Titles=array(10088);
+$want=array(89662);
+
+$Titles=array(52368);
+$want=array();
+
+// Proceedings of the Biological Society of Washington
+$Titles=array(3622);
+$want=array(107600);
+
+// Archives de parasitologie
+$Titles=array(43753);
+$want=array();
+
+// Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften.
+// Mathematisch-Naturwissenschaftliche Klasse. 
+// Abt. 3, Anatomie und Physiologie des Menschen und der Tiere sowie aus jenem der theoretischen Medizin.
+$Titles=array(8100);
+$want=array();
+
+// Aquila
+$Titles=array(8350);
+$want=array();
+
+// The Journal of entomology : descriptive and geographical.
+$Titles=array(12498);
+$want=array();
+
+// Descriptions of new genera and species of coleoptera / by T. Broun
+$Titles=array(17491);
+$want=array();
+
+// Bullettino della Società entomologica italiana
+$Titles =array(9612);
+$want=array(39682);
+
+$Titles =array(11247);
+$want=array();
+
+$Titles=array(60751,60677,60679,60680,60682,60683,60684,60685,60686,60687,60688,60689,60692);
+$want=array();
+
+
+$Titles=array(10009);
+$want=array();
+
+// Memoirs of the San Diego Society of Natural History
+$Titles=array(3234);
+$want=array();
+
+// Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe.
+$Titles=array(6776);
+$want=array();
+
+// Münchner koleopterologische Zeitschrift
+$Titles=array(51516);
+$want=array();
+
+// Annals of the New York Academy of Sciences
+$Titles=array(51004);
+$want=array();
+
+
+// Brotéria. Série zoológica.
+$Titles=array(7952);
+$want=array();
+
+// The Danish Ingolf-Expedition
+$Titles=array(6547);
+$want=array();
+
+// Herpetological type-specimens in the University of Illinois Museum of Natural History
+$Titles=array(50204);
+$want=array();
+
+// Proceedings of the Linnean Society of New South Wales
+$Titles=array(6525);
+$want=array(111306,
+111086,
+111697,
+121639);
+
+// Annals of the Entomological Society of America
+$Titles=array(9426);
+$want=array();
+
+// Tijdschrift voor entomologie
+$Titles=array(10088);
+$want=array();
+
+// Memoirs of the Queensland Museum
+$Titles=array(60751);
+$want=array();
+
+// Bulletin of the British Ornithologists' Club
+$Titles=array(46639);
+$want=array();
+
+// Archivos do Museu Nacional do Rio de Janeiro
+$Titles = array(6524);
+$want=array();
+
+// Chironomides de Belgique et spécialement de la zone des Flandres
+$Titles = array(52331);
+$want=array();
+
+// Two new species of Ontario spiders
+$Titles = array(60744);
+$want=array();
+
+// Memoirs of the Queensland Museum
+$Titles=array(60751);
+$want=array(123802,123808,123809,123807);
+
+// The Entomologist's monthly magazine.
+$Titles = array(8646);
+$want=array();
+
+// The Natural history of Juan Fernandez and Easter Island / edited by Carl Skottsberg
+$Titles = array(41367);
+$want=array();
+
+// The natural history of Juan Fernandez and Easter Island / edited by Carl Skottsberg.
+$Titles = array(25662);
+$want=array();
+
+// Miscellaneous publication - University of Kansas, Museum of Natural History.
+$Titles=array(4050);
+$want=array(24613);
+
+
+// Bulletin of the British Ornithologists' Club
+$Titles=array(46639);
+$want=array(123804);
+
+// Proceedings Dorset Natural History and Archaeological Society 
+$Titles=array(17361);
+$want=array();
+
+// Memoirs of the Queensland Museum
+$Titles=array(60751);
+$want=array(123914,123907,123908,123910,123913,123909,123906);
+
+// The Ohio journal of science
+$Titles=array(3616);
+$want=array();
+
+$Titles=array(10088);
+$want=array(88930);
+
+// The Journal of parasitology
+$Titles=array(36618);
+$want=array();
+
+// Occasional papers of the Museum of Zoology, University of Michigan
+$Titles=array(14051);
+$want=array();
+
+// Bulletin du Musée royal d'histoire naturelle de Belgique = Mededeelingen van het Korinklijk Natuurhistorisch Museum van België
+$Titles=array(8453);
+$want=array();
+
+// Zoologische Annalen
+$Titles=array(50900);
+$want=array();
+
+// Természetrajzi Füzetek kiadja a Magyar nemzeti Muzeum
+$Titles=array(13503);
+$want=array();
+
+// Memoirs of the Queensland Museum
+$Titles=array(60751);
+$want=array(123990,123998);
+
+// Gayana
+$Titles=array(39988);
+$want=array();
+
+
+
+// Mémoires couronnés et autres mémoires publiés par l'Académie royale des sciences, des lettres et des beaux-arts de Belgique
+$Titles=array(6369);
+$want=array();
+
+// Journal of the East Africa Natural History Society : official publication of the Coryndon Memorial Museum (Museum Trustees of Kenya).
+$Titles=array(53426);
+$want=array();
+
+// Transactions of the Kentucky Academy of Science
+$Titles=array(49170);
+$want=array();
+
+// Transactions of the Maryland Academy of Science and Literature
+$Titles=array(5612);
+$want=array();
+
+$Titles=array(2087);
+$want=array(122833,122834,122838,122839,122840,122841,122842,122843,122844,122845,122846,122855,122857,122865,122866,122867,122961,122962,122983,122997,123007,123008,123019,123020,123021,123022,123025,123026,123027,123028,123165,123166,123167,123168,123269,123316,123317,123321,123322,123323,123329,123330,123331);
+
+
+$Titles=array(7519);
+$want=array(114064);
+
+// Memoirs of the American Entomological Society
+$Titles=array(6193);
+$want=array();
+
+$Titles=array(3622);
+$want=array(109905);
+
+// Zoologische Jahrbücher. Abteilung für Anatomie und Ontogenie der Tiere
+$Titles=array(11437);
+$want=array();
+
+// Memoirs of the Queensland Museum
+$Titles=array(60751);
+$want=array(124162);
+
+// Die Fauna südwest-Australiens. Ergebnisse der Hamburger südwest-australischen Forschungsreise 1905. Hrsg. von prof. dr. W. Michaelsen und dr. R. Hartmeyer...
+$Titles=array(7416);
+$want=array();
+
+$Titles=array(10088);
+$want=array(89680);
+
+$Titles=array(10088);
+$want=array(95697);
+
+// Russkoe entomologicheskoe obozrenie = Revue russe d'entomologie
+$Titles=array(11807);
+$want=array();
+
+$Titles=array(16274);
+$want=array();
+
+// Transactions of the American Entomological Society
+$Titles=array(5795);
+$want=array();
+
+$Titles=array(60751);
+$want=array(124460);
+
+// Bulletin - United States National Museum
+$Titles=array(7548);
+$want=array(32603);
+
+$Titles=array(13352);
+$want=array(47888);
+
+
+
+// Bulletin of the Museum of Comparative Zoology at Harvard College
+$Titles=array(2803);
+$want=array(91660);
+
+// Nova Guinea : résultats de l'expédition scientifique néerlandaise à la Nouvelle-Guinée en 1903[-1920] 
+$Titles=array(61266);
+$want=array();
+
+// Alaska / Harriman Alaska Expedition
+$Titles=array(27846);
+$want=array();
+
+// Zoopathologica
+$Titles=array(60099);
+$want=array();
+
+// Memoirs of the Queensland Museum 46(1)
+$Titles=array(61449);
+$want=array();
+
+
+$Titles=array(6525);
+$want=array(111306);
+
+// Proceedings of the Royal Society of Queensland.
+$Titles=array(14019);
+$want=array();
+
+// The coccid genera Chionaspis and Hemichionaspis / [by] R. A. Cooley
+$Titles=array(32969);
+$want=array();
+
+// Die Cephalopoden, von Carl Chun
+$Titles=array(13499);
+$want=array();
+
+// On aquatic carnivorous Coleoptera or Dytiscid. By David Sharp
+$Titles=array(9530);
+$want=array();
+
+// The Scientific transactions of the Royal Dublin Society
+$Titles=array(14895);
+$want=array();
+
+$Titles=array(6525);
+$want=array(108605);
+
+$Titles=array(16211);
+$want=array();
+
+// The Scientific proceedings of the Royal Dublin Society
+$Titles=array(44062);
+$want=array();
+
+// Annuario del Museo Zoologico della Università di Napoli
+$Titles=array(10903);
+$want=array();
+
+// Memoirs of the Queensland Museum 46(1)
+$Titles=array(61449);
+$want=array(125112,125113,125114,125115,125117,125118);
+
+
+// Proceedings of the California Academy of Sciences. 3d ser., Zoology
+$Titles=array(45400);
+$want=array();
+
+/*
+// Memorie della Reale accademia delle scienze di Torino
+$Titles=array(6366);
+$want=array();
+*/
+
+// Palaeontographia Italica : Memorie di paleontologia
+$Titles=array(48618);
+$want=array();
+
+
+$Titles=array(3622);
+$want=array(111599,111796,120622,123310);
+
+$Titles=array(43423);
+$want=array();
+
+// The transactions of the Entomological Society of New South Wales. v. 1-2, [1863-73]
+$Titles=array(9427);
+$want=array();
+
+// Boletin de la Academia Nacional de Ciencias en Córdoba, República Argentina
+$Titles=array(3645);
+$want=array();
+
+// The Journal of the Linnean Society of London. Zoology
+$Titles=array(45411);
+$want=array();
+
+$Titles=array(61449);
+//$want=array(125112,125113,125114,125115,125117,125118);
+$want=array(125183,125181,125185,125180);
+
+
+$Titles=array(46639);
+$want=array(123798,123799,123804,123885,123887,123890,124973,124974,125287,125289,125290,125291,125292,125298,125299,125300,125301,125305,125306,125307,125339,125340,125341,125354,125355);
+
+// Mémoires.
+// Société royale d'entomologie de Belgique
+$Titles=array(10279);
+$want=array();
+
+// Fauna hawaiiensis
+$Titles=array(4628);
+$want=array();
+
+// The victorian naturalist
+$Titles=array(60605);
+$want=array();
+
+// Abhandlungen der K. K. Zool.-Botan. Gesellschaft in Wien
+$Titles=array(6249);
+$want=array();
+
+// Zoological science
+$Titles=array(61647);
+$want=array();
+
+$Titles=array(2202);
+$want=array(19500,125484);
+
+// Solem
+$Titles=array(2553,2554,3015,3204);
+$want=array();
+
+// Mémoires de la Société zoologique de France
+$Titles=array(9485);
+$want=array();
+
+// ...Scientific results of the cruises of the yachts "Eagle" and "Ara", 1921-1928, William K. Vanderbilt, commanding. Crustacea... By Lee Boone.
+$Titles=array(4467);
+$want=array();
+
+$Titles=array(52566);
+$want=array(113555);
+
+// Wissenschaftliche ergebnisse der Deutschen Zentral-Africa-Expedition, 1907-1908 : unter Führung Adolf Friedrichs, herzogs zu Mecklenburg
+$Titles=array(7048);
+$want=array();
+
+// Oversigt over det Kongelige Danske videnskabernes selskabs forhandlinger = Bulletin de l'Académie royale des sciences et des lettres de Danemark.
+$Titles=array(42570);
+$want=array();
+
+$Titles=array(6525);
+$want=array(109059);
+
+// Wissenschaftliche ergebnisse der zweiten Deutschen Zentral-Africa-Expedition, 1910-1911, unter Führung Adolf Friedrichs.
+$Titles=array(6486);
+$want=array();
+
+
+// Senckenbergiana
+$Titles=array(43789);
+$want=array();
+
+// The fauna and geography of the Maldive and Laccadive archipelagoes : being the account of the work carried on and of the collections made by an expedition during the years 1899 and 1900 / Ed. by J. Stanley Gardiner.
+$Titles=array(10215);
+$want=array();
+
+// New names introduced by H. A. Pilsbry in the Mollusca and Crustacea, by William J. Clench and Ruth D. Turner
+$Titles=array(6489);
+$want=array();
+
+// The Journal of malacology
+$Titles=array(16176);
+$want=array();
+
+// Proc Zool Soc Lond
+$Titles=array(44963);
+$want=array();
+
+// Memoirs : Australian Museum
+$Titles=array(7408);
+$want=array();
+
+$Titles=array(58640);
+$want=array(121122);
+
+
+// Bulletin of the British Museum (Natural History). Zoology
+$Titles=array(2202);
+$want=array(125591, 125642);
+
+$Titles=array(61647);
+$want=array(125561,125560,125557,125554,125539);
+
+$Titles = array(59721);
+$want=array();
+
+// Recherches sur la faune de Madagascar et de ses dépendances / d'après les découvertes de François P.L. Pollen et D.C. van Dam
+$Titles = array(46191);
+$want=array();
+
+// Verslagen en mededeelingen der Koninklijke Akademie van Wetenschappen
+$Titles = array(58722);
+$want=array();
+
+// Timehri : the journal of the Royal Agricultural and Commercial Society of British Guiana.
+$Titles = array(58209);
+$want=array();
+
+
+$Titles=array(43746,61442,60605);
+$want=array();
+
+
+$Titles=array(61449);
+//$want=array(125112,125113,125114,125115,125117,125118);
+//$want=array(125183,125181,125185,125180);
+$want = array(125724,
+125725,
+125727,
+125729,
+125730
+);
+
+// Report of the Australian Association for the advancement of Science
+$Titles=array(14641);
+$want=array();
+
+$Titles=array(10088);
+$want=array(40952);
+
+// Publications in biological oceanography
+$Titles=array(52116);
+$want=array();
+
+// Proceedings of the Royal Zoological Society of New South Wales
+$Titles=array(58245);
+$want=array();
+
+// Zoological results of the fishing experiments carried on by F.I.S. "Endeavour," 1909-14 under H.C. Dannevig, commonwealth director of fisheries. Volume 1-5. Published by direction of the Ministers for Trade and Customs, ... .
+$Titles=array(11387,29284,13854);
+$want=array();
+
+// Dobutsugaku zasshi
+$Titles=array(9498);
+$want=array();
+
+// Report of work of the Experiment Station of the Hawaiian Sugar Planters' Association. Division of Entomology bulletin.
+$Titles=array(15692);
+$want=array();
+
+// Rhynchota ... by W. L. Distant.
+$Titles=array(9193);
+$want=array();
+
+// The fauna of British India, including Ceylon and Burma ... ed. by W.T. Blanford.
+$Titles=array(48423);
+$want=array();
+
+// Annales de biologie lacustre
+$Titles=array(6227);
+$want=array();
+
+// Records of the South Australian Museum 
+$Titles=array(61893);
+$want=array();
+
+// Transactions and proceedings and report of the Royal Society of South Australia (Incorporated).
+$Titles=array(16190);
+$want=array();
+
+// Bulletin of the Illinois State Laboratory of Natural History.
+$Titles=array(8196);
+$want=array();
+
+// Helicinenstudien
+$Titles=array(61796);
+$want=array();
+
+// to do
+// Sitzungsberichte to do
+$Titles = array(59721);
+$want=array(126003);
+
+// 	Bulletin / Peabody Museum of Natural History.
+$Titles = array(10011);
+$want=array();
+
+// The fishes of the Indo-Australian Archipelago
+$Titles = array(28679);
+$want=array();
+
+// The fishes of the Indo-Australian Archipelago ... by Dr. Max Weber ... and Dr. L.F. de Beaufort.
+// vols 1-4
+$Titles = array(12497);
+$want=array();
+
+// Denkschriften der Medicinisch-Naturwissenschaftlichen Gesellschaft zu Jena
+$Titles=array(53760);
+$want=array();
+
+$Titles=array(53716);
+$want=array();
+
+// Veröffentlichungen der Zoologischen Staatssammlung München
+$Titles=array(39971);
+$want=array();
+
+
+$Titles=array(61449);
+$want=array(
+126027,
+126028,
+126031,
+126034,
+126035,
+126057
+);
+
+// Annals of the South African Museum. Annale van die Suid-Afrikaanse Museum
+$Titles=array(6928);
+$want=array();
+
+// The American journal of science
+$Titles=array(60982);
+$want=array();
+
+
+// The Canadian field-naturalist
+$Titles=array(39970);
+$want=array();
+
+$Titles=array(6928);
+$want=array(
+126226,
+126228,
+126229,
+126247,
+126248,
+126249,
+126250,
+126255
+);
+
+// Fam. Empididae / bearbeitet von Professor M. Bezzi.
+$Titles=array(9448);
+$want=array();
+
+$Titles=array(12266);
+$want=array();
+
+// Ann Soc ent Belge
+$Titles=array(11933);
+$want=array(110435,
+110222,
+110100,
+110227,
+110226,
+111455,
+110236);
+
+// Occasional papers of the Natural History Society of Wisconsin
+$Titles=array(45019);
+$want=array();
+
+// Proceedings of the California Academy of Sciences, 4th series.
+$Titles=array(3943);
+$want=array(103002,
+126211,
+126212,
+126213,
+126214,
+126225,
+126227,
+126251,
+126252,
+126256,
+126257,
+126260
+);
+
+$want=array(126261);
+
+// Fieldiana. Zoology.
+$Titles=array(42256);
+$want=array();
+
+// Bulletin of the Liverpool Museums under the City Council.
+$Titles=array(12566);
+$want=array();
+
+// Annals of the South African Museum. Annale van die Suid-Afrikaanse Museum
+$Titles=array(6928);
+$want=array(126362,126363,126364,126365,126378,126379,126383,126384,126385,126386,126387,126388,126389,126390,126391,126392,126393,126394,126395,126396,126397,126398,126399,126400,126401,126403,126404,126406,126408,126426,126427,126438,126439,126440,126441,126442,126443,126444,126445,126446,126447,126448,126449,126450,126451,126452,126453,126454,126455,126456,126457,126458,126459,126460,126462,126463,126464,126465);
+
+$Titles=array(7410);
+$want=array(
+126373,
+126371,
+126374,
+126372,
+126368,
+126376);
+$want = array();
+
+$Titles=array(
+16190,
+16197,
+50715,
+16186);
+$want=array();
+
+// Records of the South Australian Museum
+$Titles=array(61893);
+$want=array();
+
+$Titles=array(6928);
+$want=array(126514,
+126516,
+126518,
+126520,
+126521,
+126526
+);
+
+// Revue suisse de zoologie
+$Titles=array(62174);
+$want=array();
+
+// Revue suisse de zoologie
+$Titles=array(8981);
+$want=array();
+
+// Természetrajzi Füzetek kiadja a Magyar nemzeti Muzeum
+$Titles=array(13503);
+$want=array();
+
+$Titles=array(2087);
+$want=array(123165);
+
+$Titles=array(53542);
+$want=array();
+
+// Occasional papers of the Natural History Museum, the University of Kansas, Lawrence, Kansas
+$Titles=array(5584);
+$want=array();
+
+
+$Titles=array(3622);
+$want=array(107515);
+
+// Ibis
+$Titles=array(8115);
+$want=array();
+
+// Revue suisse de zoologie
+$Titles=array(62174);
+$want=array(126656,
+126657,
+126658,
+126659,
+126660,
+126678,
+126692,
+126693,
+126694,
+126695
+);
+
+// The vertebrate fauna of the Selma Formation of Alabama. Rainer Zangerl.
+$Titles=array(30785);
+$want=array();
+
+// Bullettino della Società entomologica italiana
+$Titles=array(9612);
+$want=array();
+
+// Nachrichtsblatt der Deutschen Malakozoologischen Gesellschaft.
+$Titles=array(14716);
+$want=array();
+
+
+// Beschalte weichthiere Deutsch-Ost-Afrikas.
+$Titles=array(12943);
+$want=array();
+
+// Mitteilungen aus der zoologischen Sammlung des Museums für Naturkunde in Berlin
+$Titles=array(42661);
+$want=array();
+
+// The journal of the Natural History Society of Siam
+$Titles=array(11908);
+$want=array();
+
+// The snakes of the Philippine Islands
+$Titles=array(55346);
+$want=array();
+
+
+$Titles=array(3943);
+$want=array(126405,
+126486,
+126494,
+126495,
+126496,
+126505,
+126513
+);
+
+// Casopis Ceské spolecnosti entomologické = Acta Societatis Entomologicae Bohemiae
+$Titles=array(11932);
+$want=array();
+
+// Transactions
+$Titles=array(37912);
+$want=array();
+
+// Report of the Commissioner for ... / United States Commission of Fish and Fisheries.
+$Titles=array(15220);
+$want=array();
+
+// Archivio zoologico : pubblicato sotto gli auspicii della unione zoologica italiana.
+$Titles=array(46199);
+$want=array();
+
+$Titles=array(62174);
+$want=array(
+126811,
+126812,
+126814,
+126816,
+126837,
+126882
+);
+
+// The Australian zoologist.
+$Titles=array(57946);
+$want=array(123198);
+
+// Bulletin de l'Institut botanique de Buitenzorg
+$Titles=array(4865);
+$want=array();
+
+// Advances in herpetology and evolutionary biology
+$Titles=array(53661);
+$want=array();
+
+// Geological Magazine
+//$Titles=array(44230);
+//$want=array();
+
+$Titles=array(3882);
+$want=array(21973);
+
+// Jahrbücher des Nassauischen Vereins für Naturkunde
+$Titles=array(7007);
+$want=array();
+
+// Jahreshefte des Vereins für vaterländische Naturkunde in Württem
+$Titles=array(7923);
+$want=array();
+
+// Revista argentina de historia natural
+$Titles=array(37903);
+$want=array();
+
+
+// Nyt magazin for naturvidenskaberne / udgives af den Physiographiske forening i Christiania
+$Titles=array(8076);
+$want=array();
+
+// Journal of Hymenoptera research
+$Titles=array(2680);
+$want=array();
+
+$Titles=array(6928);
+$want=array(
+126582,
+126862,
+126964,
+126965,
+126992,
+126993,
+126994,
+126995,
+127012,
+127013,
+127015,
+127016,
+127017,
+127018,
+127019,
+127020,
+127021,
+127022
+);
+
+// Trematodes of the Pacific Northwest, an annotated catalog [by] Ivan Pratt [and] James E. McCauley.
+$Titles=array(7307);
+$want = array();
+
+
+// Ergebnisse der in dem Atlantischen Ocean von Mitte Juli bis Anfang November 1889 ausgeführten Plankton-Expedition der Humboldt-Stiftung. Auf Frund von gemeinschaftlichen Untersuchungen einer Reihe von Fach-Forschern.
+$Titles=array(2167);
+$want = array();
+
+// Iheringia. Série zoologia.
+$Titles=array(50228);
+$want=array(109985);
+
+$Titles=array(7422);
+$want=array(95661);
+
+// Transactions of the American Entomological Society and proceedings of the Entomological Section of the Academy of Natural Sciences
+$Titles=array(7549);
+$want=array();
+
+// Annals of the South African Museum
+$Titles=array(6928);
+$want=array(
+127101,
+127102,
+127104,
+127105,
+127106
+);
+
+// BMNH (Ent)
+$Titles=array(53882);
+$want=array(
+127049,
+127086,
+127088,
+127087,
+127089,
+127090,
+127091,
+127094,
+127092,
+127093,
+127037,
+127096,
+127032,
+127103
+);
+
+
+// BBOC
+$Titles=array(62378);
+$want=array();
+
+
+// Ezhegodnik
+// Annuaire du Musée zoologique 
+$Titles=array(8097);
+$want=array();
+
+
+// Zoologiska bidrag från Uppsala.
+$Titles=array(53537);
+$want=array();
+
+// Ornithologische Monatsberichte
+$Titles=array(46941);
+$want=array();
+
+// Journal für Ornithologie
+$Titles=array(47027);
+$want=array();
+
+// Jahrbücher des Nassauischen Vereins für Naturkunde
+$Titles=array(7007);
+$want=array();
+
+// Journal of entomology and zoology
+$Titles=array(8150);
+$want=array();
+
+// to do
+// Physis
+$Titles=array(51727);
+$want=array();
+
+// Bulletin of the British Museum (Natural History). Entomology. supplement
+$Titles=array(62492);
+$want=array();
+
+
+$Titles=array(6928);
+$want=array(
+127133,
+127145,
+127146,
+127147,
+127148,
+127149,
+127150,
+127151,
+127190,
+127191,
+127193,
+127217,
+127218,
+127219,
+127236,
+127237,
+127242,
+127243,
+127256,
+127257,
+127258
+);
+
+
+$Titles=array(62174);
+$want=array(127132);
+
+
+
+//
+$Titles=array(62174);
+$want=array(127363);
+
+$Titles=array(53882);
+$want=array(127419,
+127420,
+127421,
+127431,
+127432);
+
+$Titles=array(12597);
+$want=array();
+
+$Titles=array(2803);
+$want=array(87759);
+
+$Titles=array(15728);
+$want=array();
+
+$Titles=array(13271);
+$want=array(87990);
+
+$Titles=array(3989);
+$want=array(35595);
+
+$Titles=array(51854);
+$want=array();
+
+$Titles=array(13353);
+$want=array();
+
+$Titles=array(61449);
+$want=array(125543,126533,125724,125730);
+
+$Titles=array(62642);
+$want=array();
+
+// Journal of the Lepidopterists' Society.
+$Titles=array(62643);
+$want=array();
+
+// Bulletin of the British Museum (Natural History). Entomology
+$Titles=array(53882);
+$want=array(
+127336,
+127337,
+127419,
+127420,
+127421,
+127431,
+127432,
+127476,
+127492);
+
+// Fauna exotica; : mitteilungen aus dem gebiete der exotischen insektenwelt
+$Titles=array(60999);
+$want=array();
+
+// Bulletin of the British Museum (Natural History). Entomology
+$Titles=array(53882);
+$want=array(
+127598,
+127597,
+127596
+);
+
+$Titles=array(8074);
+$want=array();
+
+// Anatomischer Anzeiger
+$Titles=array(11400);
+$want=array();
+
+// Jornal de sciências mathemáticas, físicas e naturais /
+$Titles=array(59321);
+$want=array();
+
+$Titles=array(6301);
+$want=array();
+
+
+$Titles=array(53882);
+$want=array(
+127713,
+127714,
+127715,
+127716,
+127738,
+127739,
+127740,
+127741,
+127742,
+127743,
+127744,
+127745,
+127781
+);
+
+$Titles=array(62643);
+$want=array(
+127762,
+127718,
+127736,
+127735,
+127734
+);
+
+// Revue critique de paléozoologie et de paléophytologie
+$Titles=array(49829);
+$want=array();
+
+// Special occasional publication / Department of Mollusks, Museum of Comparative Zoology, Harvard University.
+$Titles=array(5370);
+$want=array();
+
+// Records of the South Australian Museum
+$Titles=array(61893);
+$want=array();
+
+
+// Transactions of the Royal Society of South Australia
+$Titles=array(62638);
+$want=array();
+
+$Titles=array(15793);
+$want=array();
+
+
+$Titles=array(10507);
+$want=array();
+
+// Wissenschaftliche Ergebnisse der Deutschen Tiefsee-Expedition auf dem Dampfer "Valdivia" 1898-1899. Im Auftrage des Reichsamtes des Innern hrsg. von Carl Chun [et al.]
+$Titles=array(2171);
+$want=array();
+
+// Zitteliana
+$Titles=array(39972);
+$want=array();
+
+// Archiv für mikroskopische Anatomie
+$Titles=array(13307);
+$want=array(49533);
+
+// Bulletin of the British Museum (Natural History). Zoology
+$Titles=array(62642);
+$want = array(
+128103,
+128105,
+128102,
+128106,
+128104
+);
+
+// to do:
+
+// Revue suisse de zoologie
+$Titles=array(8981);
+$want=array(128115,128116,128117,128116,127885);
+
+// Johnsonia
+//$Titles=array(62834);
+//$want=array();
+
+/*
+$Titles=array(62643);
+$want=array(
+127884,
+128065,
+128066,
+128067,
+128068,
+128069,
+128070,
+128071,
+128072,
+128073,
+128074,
+128075,
+128076,
+128077,
+128078,
+128079,
+128080,
+128081,
+128118
+);
+*/
+
+/*
+// Transactions of the Royal Society of South Australia, Incorporated.
+$Titles=array(62638);
+$want=array(
+128034,
+128035,
+128033,
+128036,
+128038,
+128037,
+128039,
+128053,
+128096,
+128099
+);
+*/
+
+//Breviora
+//$Titles=array(3989);
+//$want=array(127898,128235,127899,35572,110338,110327,113961);
+
+// Verhandelingen van het Bataviaasch Genootschap der Kunsten en Wetenschappen
+$Titles=array(7371);
+$want=array(128083);
+
+$Titles=array(62815);
+$want=array();
+
+//Breviora
+$Titles=array(3989);
+$want=array(128236);
+
+
+$Titles=array(13192);
+$want=array();
+
+// Revue suisse de zoologie
+$Titles=array(8981);
+$want=array(128299,128300,128309,128310,128314,128315,128347,128348,128349,128350,128351,128352,128353,128354,128355,128356,128357,128358,128359,128360,128361,128485,128486,128487,128489,128490,128491,128492,128493,128494,128495,128496,128497,128498,128500,128501,128502,128574,128586,128598,128625,128633,128634,128635,128636,128637,128642,128643,128644,128645,128646,128650,128668,128670,128671,128672,128673,128674);
+
+
+// Journal of the Lepidopterists' Society.
+$Titles=array(62643);
+$want=array(
+128428,
+128488);
+
+$Titles=array(62815);
+$want=array(128445);
+
+// Transactions of the Royal Society of South Australia, Incorporated
+$Titles=array(62638);
+$want=array(128619,128623,128638);
+
+$Titles=array(50204);
+$want=array();
+
+
+$Titles=array(46639);
+$items=array(
+125530,
+125531,
+125532,
+125588,
+125593,
+125657,
+125660,
+125661,
+125662,
+125663,
+125664,
+125665,
+125666,
+125672,
+125673,
+125674,
+125675,
+125676,
+125677,
+125678
+);
+
+$Titles=array(50720);
+$want=array(
+107444,
+107543,
+107976,
+108005,
+108260,
+108730,
+111648,
+111780
+);
+
+$Titles=array(5551);
+$want=array();
+
+$Titles=array(3622);
+$want=array(107497);
+
+
+$Titles=array(44800);
+$want=array();
+
+// Nachrichtenblatt der Bayerischen Entomologen
+$Titles=array(41410);
+$want=array();
+
+
+$Titles=array(52225);
+$want=array();
+
+$Titles=array(
+62638,
+
+62815, // Annals of the South African Museum. Annale van die Suid-Afrikaanse Museum
+
+8981
+
+);
+$want=array(
+128846,
+128847,
+128848,
+128849,
+128851,
+128852,
+128850,
+128817,
+
+128843,
+
+128827,
+128833,
+128836,
+128837
+);
+
+/*
+
+//Nota lepidopterologica
+$Titles=array(63275);
+$want=array();
+*/
+
+$Titles=array(8981);
+$want=array(
+128789,
+128791,
+128795,
+128796,
+128799
+);
+
+$Titles=array(9277);
+$want=array();
+
+// Acta Societatis Scientiarum Fennicae / Suomen Tiedeseura
+$Titles=array(13498);
+$want=array();
+
+// Boletín del Museo Nacional de Chile
+$Titles=array(45466);
+$want=array();
+
+$Titles=array(2202);
+$want=array(84546);
+
+$Titles=array(62638);
+$want=array(
+128920,
+128921,
+128922,
+128923,
+128924,
+128927
+);
+
+$Titles=array(8981);
+$want=array(
+128869,
+128870,
+128872,
+128873,
+128876,
+128925
+);
+
+$Titles=array(60746);
+$want=array();
+
+
+$Titles=array(7519);
+$want=array(32426);
+
+$Titles=array(2803);
+$want=array(
+127813,
+128180
+);
+
+
+
+$Titles=array(42324);
+$want=array();
+
+
+
+$Titles=array(
+62642,
+63275,
+62638
+);
+
+$want=array(
+128950,
+
+129113,
+129114,
+129151,
+129149,
+129112,
+129153,
+
+
+128949,
+129115,
+129116
+
+);
+
+
+$Titles=array(63352);
+$want=array();
+
+
+$Titles=array(16085);
+$want=array();
+
+// Memoirs and proceedings of the Manchester Literary & Philosophical Society
+$Titles=array(9535);
+$want=array(111987);
+
+
+$Titles=array(7519,9535);
+$want=array(53694,111987);
+
+$Titles=array(7422);
+$want=array();
+
+// Entomologische Nachrichten.
+$Titles=array(9698);
+$want=array();
+
+$Titles=array(51004);
+$want=array(109890);
+
+// Proceedings of the American Philosophical Society held at Philadelphia for promoting useful knowledge
+$Titles=array(7023);
+$want=array();
+
+$Titles=array(7400);
+$want=array();
+
+// Denkschriften der Kaiserlichen Akademie der Wissenschaften / Mathematisch-Naturwissenschaftliche Classe.
+$Titles=array(6733);
+$want=array();
+
+// Records of the South Australian Museum
+$Titles=array(42375);
+$want=array();
+
+
+$Titles=array(50176);
+$want=array();
+
+
+$Titles=array(44302);
+$want=array();
+
+
+$Titles=array(44302);
+$want=array();
+
+
+$Titles=array(6082);
+$want=array();
+
+
+// Revista del Museo de La Plata
+$Titles=array(8796);
+$want=array();
+
+
+
+$Titles=array(8973);
+$want=array();
+
+$Titles=array(61164);
+$want=array();
+
+
+// Yale North India Expedition
+$Titles=array(9586);
+$want=array();
+
+
+$Titles=array(4627);
+$want=array();
+
+// Atoll research bulletin
+$Titles=array(50708);
+$want=array();
+
+
+$Titles=array(59381);
+$want=array();
+
+// Anales del Museo Nacional de Historia Natural de Buenos Aires
+$Titles=array(5597);
+$want=array();
+
+
+$Titles=array(8981,63275);
+$want=array(129385,129387,129386);
+
+$Titles=array(6956);
+$want=array();
+
+// Zoölogical bulletin
+$Titles=array(1792);
+$want=array();
+
+// Occasional papers of the Museum of Natural History, the University of Kansas
+$Titles=array(4672);
+$want=array();
+
+// Copeia and Auk
+$Titles=array(15799,15959);
+$want=array();
+
+
+$Titles=array(16190);
+$want=array();
+
+
+$Titles=array(15056);
+$want=array();
+
+
+$Titles=array(2633);
+$want=array();
+
+
+$Titles=array(58805);
+$want=array();
+
+// Mitteilungen des Naturwissenschaftlichen Vereines für Steiermark
+$Titles=array(42384);
+$want=array();
+
+// Mitteilungen der Bayerischen Staatssammlung für Paläontologie und Histor. Geologie
+$Titles=array(40815);
+$want=array();
+
+//52093
+
+// 
+$Titles=array(11392,52093);
+$want=array();
+
+//
+$Titles=array(6790);
+$want=array();
+
+
+//13352
+
+// Annalen des Naturhistorischen Museums in Wien
+$Titles=array(5560);
+$want=array();
+
+// 16235
+
+
+$Titles=array(8597);
+$want=array();
+
+
+$Titles=array(6522);
+$want=array();
+
+$Titles=array(6557);
+$want=array();
+
+$Titles=array(48691);
+$want=array();
+
+
+$Titles=array(8599,8322,6414);
+$want=array();
+
+// Mittheilungen der Schweizer. entomologischen Gesellschaft
+$Titles=array(9650);
+$want=array();
+
+
+$Titles=array(51711);
+$want=array();
+
+
+// Mémoires du Muséum d'histoire naturelle.
+$Titles=array(50067);
+$want=array();
+
+// Societas entomologica.
+$Titles=array(8647);
+$want=array();
+
+
+// Transactions of the Geological Society
+$Titles=array(52118);
+$want=array();
+
+// The Edinburgh new philosophical journal.
+$Titles=array(33987);
+$want=array();
+
+$Titles=array(49897);
+$want=array();
+
+$Titles=array(63773);
+$want=array();
+
+$Titles=array(3622);
+$want=array(107599);
+
+// Occasional papers of Bernice P. Bishop Museum.
+$Titles=array(6999);
+$want=array();
+
+$Titles=array(61893);
+$want=array(129803);
+
+$Titles=array(60556);
+$want=array();
+
+
+
+$Titles=array(5124);
+$want=array();
+
+
+$Titles=array(7396);
+$want=array();
+
+// Ticks, a monograph of the Ixodoidea
+$Titles=array(24074);
+$want=array();
+
+// Transactions of the American Entomological Society
+$Titles=array(7830);
+$want=array();
+
+// Ergebnisse der Hamburger Magalhaenischen Sammelreise
+$Titles=array(63772);
+$want=array();
+
+// Transactions of the Royal Society of South Australia, Incorporated.
+$Titles=array(63906);
+$want=array();
+
+// Transactions of the Royal Society of South Australia, Incorporated.
+$Titles=array(63905);
+$want=array();
+
+
+$Titles=array(58067);
+$want=array();
+
+$Titles=array(10305);
+//$want=array(110755);
+$want=array(110744);
+
+$Titles=array(46831,45973);
+$want=array();
+
+$Titles=array(33377,58331);
+$want=array();
+
+
+
+$Titles=array(8584);
+$want=array();
+
+// Archives entomologiques, ou, Recueil contenant des illustrations d'insectes nouveaux ou rares
+$Titles=array(11206);
+$want=array();
+
+$Titles=array(10598);
+$want=array();
+
+// Recherches pour servir à l'histoire des insectes fossiles des temps primaires
+$Titles=array(34754);
+$want=array();
+
+// Les Insectes fossiles des terrains primaires
+$Titles=array(36372);
+$want=array();
+
+// University of California publications in zoology
+$Titles=array(42552);
+$want=array();
+
+// Die geographische Verbreitung der Oligochaeten 2026
+// Oligochaeta
+// Oligochaeta
+$Titles=array(2026, 1108, 11605);
+$want=array();
+
+
+$Titles=array(49772,11164);
+$want=array();
+
+// Science
+$Titles=array(44793);
+$want=array();
+
+$Titles=array(51129);
+$want=array();
+
+$Titles=array(10556);
+$want=array();
+
+// Abhandlungen der Königlichen Akademie der Wissenschaften zu Berlin
+$Titles=array(41825);
+$want=array();
+
+// Compte rendu des séances de la Société de physique et d'histoire naturelle de Genève
+$Titles=array(59528);
+$want=array();
+
+$Titles=array(58640);
+$want=array(130017);
+
+// Miscellaneous publication - University of Kansas, Museum of Natural History
+$Titles=array(4050);
+$want=array();
+
+// Boletim da Sociedade Broteriana.
+$Titles=array(5931,7952,7861);
+$want=array();
+
+// Atlas zu der Reise im nördlichen Afrika
+$Titles=array(53779);
+$want=array();
+
+// Occasional papers / Tulane University, Museum of Natural History
+$Titles=array(6365);
+$want=array();
+
+$Titles=array(53882);
+$want=array(130257);
+
+
+
+$Titles=array(52227);
+$want=array();
+
+$Titles=array(46639);
+$want=array(130382); 
+
+$Titles=array(48522);
+$want=array(112817);
+
+$Titles=array(48522);
+$want=array(120607);
+
+// Checklist of Palaearctic and Indian mammals 1758 to 1946 /
+$Titles=array(8595);
+$want=array();
+
+
+$Titles=array(32671,44848);
+$want=array();
+
+
+$Titles=array(2471,50546, 50608,50611,50303,50606);
+$want=array();
+
+$Titles=array(43408);
+$want=array(106450);
+
+$Titles=array(64575,7533,50688);
+$want=array();
+
+// Jordfundne og nulevende gnavere (Rodentia) fra Lagoa Santa, Minas Geraes, Brasilien :
+$Titles=array(14696);
+$want=array();
+
+$Titles=array(14696,52062,12195);
+$want=array();
+
+$Titles=array(39807);
+$want=array();
+
+$Titles=array(46639,5939);
+$want=array(131321,131327,131326,131325,131324,131323,131322,131288,131289);
+
+//$Titles=array(64840);
+//$want=array();
+
+$Titles=array(50688);
+$want=array(
+131280,
+131394,
+131395,
+131396,
+131397,
+131398,
+131399,
+131400,
+131401,
+131402,
+131403,
+131404,
+131405,
+131406,
+131407,
+131408,
+131409,
+131410
+);
+
+$Titles=array(46191);
+$want=array();
+
+
+$Titles=array(9578);
+$want=array();
+
+
+$Titles=array(39672);
+$want=array();
+
+$Titles=array(10305);
+$want=array(110745);
+
+$Titles=array(2461);
+$want=array();
+
+$Titles=array(2001);
+$want=array();
+
+
+
+$Titles=array(7541);
+$want=array();
+
+// to do
+// Smithsonian contributions to the marine sciences
+$Titles=array(64787);
+$want=array(131277);
+
+// Revista chilena de historia natural.
+$Titles=array(14373);
+$want=array();
+
+
+// Verhandlungen der Ornithologischen Gesellschaft in Bayern.
+$Titles=array(8608);
+$want=array();
+
+// Annales de la Société Linnéenne de Lyon.
+$Titles=array(4372);
+$want=array();
+
+// Acta Societatis pro Fauna et Flora Fennica
+$Titles=array(13345);
+$want=array();
+
+// Bulletin de l'Académie impériale des sciences de St.-Pétersbourg
+$Titles=array(49351);
+$want=array();
+
+// University studies of the University of Nebraska
+$Titles=array(42866);
+$want=array();
+
+// Il Naturalista siciliano
+$Titles=array(10663);
+$want=array();
+
+// Bollettino della Società dei naturalisti in Napoli.
+$Titles=array(6440);
+$want=array();
+
+$Titles=array(62638);
+$want=array(129834);
+
+$Titles=array(62638);
+$want=array(129844);
+
+// Anzeiger der Kaiserlichen Akademie der Wissenschaften, Mathematisch-Naturwissenschaftliche Classe
+$Titles=array(6335);
+$want=array();
+
+// Trabajos del Museo de Ciencias Naturales.
+$Titles=array(13508);
+$want=array();
+
+// A monograph of the Membracidæ
+$Titles=array(34753);
+$want=array();
+
+// A monograph of oriental Cicadidæ
+$Titles=array(8536);
+$want=array();
+
+
+$Titles=array(49898,49060);
+$want=array();
+
+$Titles=array(41515);
+$want=array();
+
+// General catalogue of the Hemiptera
+$Titles=array(6822);
+$want=array();
+
+
+// Report on the Cephalopoda collected by H. M. S. Challenger during the years 1873-76 /
+$Titles=array(46542);
+$want=array();
+
+
+$Titles=array(3622);
+$want=array(19534,24060);
+
+// Reise der österreichischen Fregatte Novara
+$Titles=array(1597);
+$want=array();
+
+// Atti della Società italiana di scienze naturali
+$Titles=array(60455);
+$want=array();
+
+// A revision of the catsharks, family Scyliorhinidae 
+$Titles=array(63029);
+$want=array();
+
+$Titles = array(8079);
+$want=array();
+
 
 foreach ($Titles as $TitleID)
 {
  //$want=array();
 
 $use_bhl_au = false;
+//$use_bhl_au = true;
 
 if ($use_bhl_au)
 {
 	// BHL AU
-	//$url = 'http://bhl.ala.org.au/api/rest?op=GetTitleMetadata&titleid=' . $TitleID . '&items=true&apikey=' . $config['bhl_api_key'] . '&format=json';
+	$url = 'http://bhl.ala.org.au/api/rest?op=GetTitleMetadata&titleid=' . $TitleID . '&items=true&apikey=' . $config['bhl_api_key'] . '&format=json';
 }
 else
 {
