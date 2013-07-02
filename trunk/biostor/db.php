@@ -147,6 +147,8 @@ function bhl_page_range ($start_page_id, $num_pages)
 	// Get ItemID and SequenceOrder for this page
 	$sql = 'SELECT ItemID, SequenceOrder FROM page
 		WHERE (PageID=' . $start_page_id . ') LIMIT 1';
+		
+	//echo $sql . "\n";
 				
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
@@ -727,7 +729,7 @@ function bhl_retrieve_item_pages($ItemID)
 	WHERE (bhl_page.ItemID = ' . $ItemID . ')
 	ORDER BY SequenceOrder';
 	
-	echo $sql . "\n";
+	//echo $sql . "\n";
 	
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
@@ -1283,9 +1285,12 @@ function db_find_article($article, $allow_non_bhl = false)
 		|| !(isset($article->secondary_title) || isset($article->issn))
 		)
 	{
-		return $id;
+		// handle case where OpenURL has DOI but not enough other details
+		if (!isset($article->doi))
+		{
+			return $id;
+		}
 	}
-	
 	
 	// Does a reference exist?
 	
@@ -2150,6 +2155,41 @@ function db_retrieve_reference($id)
 			array_push($article->authors, $author);
 			$result->MoveNext();				
 		}
+		
+		
+		// Secondary authors
+		$article->secondary_authors = array();
+		
+		$sql = 'SELECT author_id, lastname, forename, suffix FROM rdmp_author 
+			INNER JOIN rdmp_secondary_author_reference_joiner USING(author_id)
+			WHERE (rdmp_secondary_author_reference_joiner.reference_id = ' . $id . ')
+			ORDER BY rdmp_secondary_author_reference_joiner.author_order';
+			
+		$result = $db->Execute($sql);
+		if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+		
+		while (!$result->EOF) 
+		{
+			$author = new stdClass;
+			$author->id = $result->fields['author_id'];
+			$author->lastname = $result->fields['lastname'];
+			$author->forename = $result->fields['forename'];
+			
+			if ($result->fields['suffix'] != '')
+			{
+				$author->suffix = $result->fields['suffix'];
+			}
+			array_push($article->secondary_authors, $author);
+			$result->MoveNext();				
+		}
+		
+		if (count($article->secondary_authors) == 0)
+		{
+			unset($article->secondary_authors);
+		}
+		
+		
+		
 	}
 
 	return $article;

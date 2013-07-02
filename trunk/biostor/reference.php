@@ -814,6 +814,7 @@ function reference_to_bibjson($reference)
 	{
 		case 'article':
 		case 'book':
+		case 'chapter':
 			$obj->type = $reference->genre;
 			break;
 
@@ -823,6 +824,86 @@ function reference_to_bibjson($reference)
 	}			
 	
 	$obj->title = $reference->title;
+	
+	if ($reference->genre == 'book')
+	{
+		if (isset($reference->publisher))
+		{
+			$obj->publisher = new stdclass;
+			$obj->publisher->name = $reference->publisher;
+			
+			if (isset($reference->publoc))
+			{
+				$obj->publisher->address = $reference->publoc;
+			}
+		}
+
+		if (isset($reference->oclc))
+		{
+			if ($reference->oclc != 0)
+			{
+				$identifier = new stdclass;
+				$identifier->type = 'oclc';
+				$identifier->id = (Integer)$reference->oclc; 
+				$obj->book->identifier[] = $identifier;
+			}
+		}
+	}
+	
+	
+	if ($reference->genre == 'chapter')
+	{
+		$obj->book = new stdclass;
+		$obj->book->title = $reference->secondary_title;
+		
+		if (isset($reference->secondary_authors))
+		{		
+			$obj->book->editor = array();
+			foreach ($reference->secondary_authors as $a)
+			{
+				$author = new stdclass;
+				
+				if (($a->forename == '') || ($a->lastname == ''))
+				{
+				}
+				else
+				{		
+					$author->firstname = $a->forename;
+					$author->lastname = $a->lastname;
+				}
+				$author->name = trim($a->forename . ' ' . $a->lastname);
+				
+				$obj->book->editor[] = $author;
+			}
+		}
+		
+		if (isset($reference->publisher))
+		{
+			$obj->book->publisher = new stdclass;
+			$obj->book->publisher->name = $reference->publisher;
+			
+			if (isset($reference->publoc))
+			{
+				$obj->book->publisher->address = $reference->publoc;
+			}
+		}
+		
+		
+		if (isset($reference->oclc))
+		{
+			if ($reference->oclc != 0)
+			{
+				$identifier = new stdclass;
+				$identifier->type = 'oclc';
+				$identifier->id = (Integer)$reference->oclc; 
+				$obj->book->identifier[] = $identifier;
+			}
+		}
+		
+		
+		
+	}
+	
 
 	if ($reference->genre == 'article')
 	{
@@ -961,17 +1042,31 @@ function reference_to_bibjson($reference)
 
 //--------------------------------------------------------------------------------------------------
 /**
- * @brief Export reference in Wikispecies format
+ * @brief Export reference in Wikipedia format
  *
  * @param reference Reference object to be encoded
  *
- * @return Wikispecies
+ * @return Wikipedia
  */
 function reference_to_wikipedia($reference)
 {
 	global $config;
 	
-	$wikipedia = '{{cite journal ';
+	$wikipedia = '{{cite ';
+	
+	switch ($reference->genre)
+	{
+		case 'article':
+			$wikipedia .= 'journal ';
+			break;
+
+		case 'book':
+			$wikipedia .= 'book ';
+			break;
+			
+		default:
+			break;
+	}
 	
 	/*
 {{cite journal | last = Zhou | first = K. | coauthors = Li, Y., Nishiwaki, M., Kataoka, T. | year = 1982 | title = A brief report on observations of the baiji (''Lipotes vexillifer'') in the lower reaches of the Yangtze River between Nanjing and Guichi | journal = Acta Theriologica Sinica | volume = 2 | pages = 253–254}}
@@ -980,41 +1075,41 @@ function reference_to_wikipedia($reference)
 	$count = 0;
 	$num_authors = count($reference->authors);
 	
-	$wikipedia .= ' | last = ' . $reference->authors[0]->lastname;
-	$wikipedia .= ' | first = ' . $reference->authors[0]->forename;
+	$wikipedia .= "\n" . ' | last = ' . $reference->authors[0]->lastname;
+	$wikipedia .= "\n" . ' | first = ' . $reference->authors[0]->forename;
 	
 	if ($num_authors > 1)
 	{
-		$wikipedia .= ' | coauthors = ';
+		$wikipedia .= "\n" . ' | coauthors = ';
 		for ($i = 1; $i < $num_authors; $i++)
 		{
 			$wikipedia .= $reference->authors[$i]->lastname . ', ' . $reference->authors[$i]->forename . ';';
 		}
 	}
 	$wikipedia .= ' ';
-	$wikipedia .= ' | year = ' . $reference->year;
+	$wikipedia .= "\n" . ' | year = ' . $reference->year;
 	
-	$wikipedia .= ' | title = ' . $reference->title;
-	$wikipedia .= ' | journal = ' . $reference->secondary_title;
-	$wikipedia .= ' | volume = ' . $reference->volume ;
+	$wikipedia .= "\n" . ' | title = ' . $reference->title;
+	$wikipedia .= "\n" . ' | journal = ' . $reference->secondary_title;
+	$wikipedia .= "\n" . ' | volume = ' . $reference->volume ;
 	if (isset($reference->issue))
 	{
-		$wikipedia .= ' | issue = ' . $reference->issue;
+		$wikipedia .= "\n" . ' | issue = ' . $reference->issue;
 	}	
-	$wikipedia .= ' | pages = ' . $reference->spage;
+	$wikipedia .= "\n" . ' | pages = ' . $reference->spage;
 	if (isset($reference->epage))
 	{
 		$wikipedia .= "-" . $reference->epage;
 	}	
 	
-	$wikipedia .= ' | url = ' .  $config['web_root'] . 'reference/' . $reference->reference_id;
+	$wikipedia .= "\n" . ' | url = ' .  $config['web_root'] . 'reference/' . $reference->reference_id;
 	
 	if (isset($reference->doi))
 	{
-		$wikipedia .= ' | doi = ' . $reference->doi;
+		$wikipedia .= "\n" . ' | doi = ' . $reference->doi;
 	}
 	
-	$wikipedia .= '}}';
+	$wikipedia .= "\n" . '}}';
 	
 	return $wikipedia;
 }

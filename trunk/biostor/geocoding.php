@@ -102,12 +102,60 @@ function points_from_text($text)
 {
 	
 	$text = str_replace("\n", " ", $text);
+	$text = str_replace("\\n", " ", $text);
 	
 	$points = array();
 	 
 	//echo $text;
 	
 	$matched = false;
+	
+	if (!$matched)
+	{
+		// lat 13.869°N, long 89.620°W
+		if (preg_match_all('/(
+			lat
+			\s*
+			(?<latitude_degrees>([0-9]{1,2}))
+			(?<latitude_minutes>(\.[0-9]+))
+			°
+			(?<latitude_hemisphere>[N|S])
+			,
+			\s*
+			long
+			\s*
+			(?<longitude_degrees>([0-9]{1,2}))
+			(?<longitude_minutes>(\.[0-9]+))
+			°
+			(?<longitude_hemisphere>[W|E])
+			)/xu',  $text, $matches, PREG_PATTERN_ORDER))
+		{
+			$num = count($matches[0]);
+			for ($i = 0; $i < $num; $i++)
+			{
+				$pt = new stdclass;
+
+				$degrees = $matches['latitude_degrees'][$i] + $matches['latitude_minutes'][$i];
+				$pt->latitude = $degrees;
+				
+				if ($matches['latitude_hemisphere'][$i] == 'S')
+				{
+					$pt->latitude *= -1;
+				}
+				
+				$degrees = $matches['longitude_degrees'][$i] + $matches['longitude_minutes'][$i];
+				$pt->longitude = $degrees;
+				
+				if ($matches['longitude_hemisphere'][$i] == 'W')
+				{
+					$pt->longitude *= -1;
+				}
+				
+				$points[] = $pt;
+			}
+			$matched = true;
+		}	
+	}
 	
 	if (!$matched)
 	{		
@@ -537,6 +585,57 @@ function points_from_text($text)
 		}
 	}	
 	
+	if (!$matched)
+	{			
+		// http://biostor.org/reference/55225
+		// N10°23'31"; W 83°58'04"
+		if (preg_match_all('/(
+			(?<latitude_hemisphere>[N|S])
+			\s*
+			(?<latitude_degrees>([0-9]{1,2}))[°]
+			(?<latitude_minutes>([0-9]+))\'
+			(?<latitude_seconds>([0-9]+))"
+			\s*
+			;
+			\s+
+			(?<longitude_hemisphere>[W|E])
+			\s*
+			(?<longitude_degrees>([0-9]{1,2}))[°]
+			(?<longitude_minutes>([0-9]+))\'
+			(?<longitude_seconds>([0-9]+))"
+		)/xu',  $text, $matches, PREG_PATTERN_ORDER))
+		{
+	
+			$num = count($matches[0]);
+			for ($i = 0; $i < $num; $i++)
+			{
+				$pt = new stdclass;
+			
+				if (isset($matches['latitude_seconds'][$i]))
+				{
+					$seconds = $matches['latitude_seconds'][$i];
+				}
+				$minutes = $matches['latitude_minutes'][$i];
+				$degrees = $matches['latitude_degrees'][$i];
+				$pt->latitude = degrees2decimal($degrees, $minutes, $seconds, $matches['latitude_hemisphere'][$i]);
+		
+		
+				if (isset($matches['longitude_seconds'][$i]))
+				{
+					$seconds = $matches['longitude_seconds'][$i];
+				}
+				$minutes = $matches['longitude_minutes'][$i];
+				$degrees = $matches['longitude_degrees'][$i];
+				$pt->longitude = degrees2decimal($degrees, $minutes, $seconds, $matches['longitude_hemisphere'][$i]);
+				
+				$points[] = $pt;
+			}
+			$matched = true;
+		}	
+	}	
+	
+	
+	
 	return $points;
 }
 
@@ -627,6 +726,22 @@ mm SL; 109671, RA' Delaware 7/63-04, DL63-04:012, 36°57'N
 Loweina rara (Lutken 1892) ";
 
 $text = '48 30\' 33" E, 13 00\' 01" S';
+
+$text = 'lat 13.869°N, long 89.620°W';
+
+$text= 'COSTA RICA: Heredia 
+ Province, unnamed creek at Hwy. 4, ca. 
+3 Km from jet. with Hwy. 32 (N10°15\'10", 
+ W83°55\'ll"; elev. 200 m) 10.vi.2001, DEB 
+ (DB 01-28), 22 larvae (TAMU); La Selva 
+ Biological Station, SW Puerto Viejo, Sura 
+ Creek at Rio Puerto Viejo (N10°25\'49"; 
+ W84°00\'06", elev. 33 m), 09.vi.2001, 8L, 
+ DEB (DB 01-26), 8L (5L TAMU, 3L 
+ FAMU); Rio Isla Grande at Hwy. 4, ca. 
+ 5 Km. W. of Rio Frio (N10°23\'31"; 
+ W 83°58\'04", elev. 65 m), 10.vi.2001, 
+ DEB (DB 01-27), IL (PERC)';
 	 
 	print_r(points_from_text($text));
 	

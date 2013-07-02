@@ -604,6 +604,14 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 	$obj->ItemIDs = array();
 	$obj->hits = array();
 	
+	
+	// hack
+	if ($title == 'Transactions of the Geological Society of London')
+	{
+		$title = 'Transactions of the Geological Society';
+	}
+	
+	
 	// Step one
 	// --------
 	// Map journal title to BHL titles. We try to achieve this by first finding ISSN for title,
@@ -642,6 +650,11 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			$obj->TitleID = 5943;
 			break;
 			
+		// Bulletin of the Natural History Museum. Zoology series
+		case '0968-0470':
+			$obj->TitleID = 62642;
+			break;
+			
 		// Bulletin of the Southern California Academy of Sciences
 		case '0038-3872':
 			$obj->TitleID = 4949;
@@ -655,6 +668,11 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 		// Stuttgarter Beiträge zur Naturkunde
 		case '0341-0145':
 			$obj->TitleID = 49174;
+			break;
+			
+		// Transactions American Microscopical Society 
+		case '0003-0023':
+			$obj->TitleID = 37912;
 			break;
 			
 		// Transactions of the Linnean Society
@@ -731,6 +749,8 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 	
 	/*$obj->ISSN = '0150-9322';
 	$obj->TitleID = 4647;*/
+	
+	
 	
 	// If no ISSN, or no mapping available via ISSN, so try string matching
 	if ($obj->TitleID == 0)
@@ -857,11 +877,19 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(6301,6205,7031);
 				break;
 				
+			
+				
 			// Atti della Società italiana di scienze
 			case 9586:
 			case 16255:
 			case 16213:
 				$title_list = array(9586,16255,16213);
+				break;
+				
+			// Annales de la Société entomologique de Belgique.
+			case 51679:
+			case 11933:
+				$title_list = array(51679, 11933);
 				break;
 				
 			// Annales des Sciences naturelles
@@ -886,10 +914,22 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(44792, 51644, 3630);
 				break;
 				
+			// Anales del Museo Nacional de Historia Natural de Buenos Aires
+			case 5595:
+			case 5597:
+				$title_list = array(5595, 5597);
+				break;
+				
 			// Annals of the New York Academy of Sciences
 			case 4382 :
 			case 51004:
 				$title_list = array(4382, 51004);
+				break;
+			
+			// Annals of the South African Museum
+			case 62815:
+			case 6928:
+				$title_list = array(62815, 6928);
 				break;
 			
 			// 	Annales des sciences naturelles, Zoologie
@@ -908,6 +948,18 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(6638,7051,2371,5923,12937,12938);
 				break;
 				
+			// Archives de zoologie expérimentale et générale
+			case 5559:
+			case 7065:
+				$title_list = array(5559,7065);
+				break;
+
+			// Beiträge zur Kenntnis der Meeresfauna Westafrikas
+			case 11824:
+			case 7400:
+				$title_list = array(11824,7400);
+				break;
+				
 			// Bericht der Senckenbergischen Naturforschenden Gesellschaft in Frankfurt am Main
 			case 14292:
 			case 8745:
@@ -921,10 +973,26 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(8267,46202,46204);
 				break;
 				
+			
+				
 			// Boletin de la Sociedad de Biología de Concepción
 			case 45409:
 			case 51419:
 				$title_list = array(45409,51419);
+				break;
+				
+			// Brotéria
+			case 5931:
+			case 7952:
+			case 7861:
+				$title_list = array(5931,7952,7861);
+				break;
+						
+			// Bulletin de l'Académie impériale des sciences de St.-Pétersbourg
+			case 42575:
+			case 49351:
+			case 10614:
+				$title_list = array(42575,49351,10614);
 				break;
 				
 			// Bollettino dei musei di zoologia ed anatomia comparata della R. Università di Torino
@@ -959,6 +1027,13 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 12908:
 			case 13855:
 				$title_list = array(14109,5943,14964,12908,13855);
+				break;
+				
+			// Bulletin international de l'Académie des sciences de Cracovie
+			case 5605:
+			case 5607:
+			case 13192:
+				$title_list = array(51699,5605,5607);
 				break;
 				
 			// Bulletin of the British Ornithologists' Club.
@@ -1014,6 +1089,12 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 8070:
 				$title_list = array(5068, 8070);
 				break;
+				
+			// Discovery Reports
+			case 6168:
+			case 15981:
+				$title_list = array(6168, 15981);
+				break;
 
 			// Entomological News
 			case 34360:
@@ -1064,7 +1145,8 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			// Kungliga Svenska Vetenskaps-Akademiens handlingar
 			case 2512:
 			case 12549:
-				$title_list=array(2512,12549);
+			case 50688:
+				$title_list=array(2512,12549, 50688);
 				break;
 				
 			// London and Edinburgh Philosophical Magazine and Journal of Science
@@ -1073,6 +1155,13 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 3735:
 				$title_list=array(2440,58332, 3735);
 				break;
+				
+			// Memoirs And Proceedings of The Manchester Literary And Philosophical Society
+			case 50366:
+			case 9535:
+				$title_list=array(50366,9535);
+				break;
+				
 				
 			// Mem. Calif. Acad. Sci.
 			case 3955:
@@ -1108,10 +1197,22 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(11448,42540);
 				break;
 				
+			// Mitteilungen des Naturwissenschaftlichen Vereines für Steiermark
+			case 12305:
+			case 42384:
+				$title_list = array(12305,42384);
+				break;
+				
 			// Meddelanden af Societatis pro Fauna et Flora Fennica
 			case 3613:
 			case 13470:
 				$title_list = array(3613, 13470);
+				break;	
+				
+			// Mémoires du Muséum d'histoire naturelle.
+			case 4501:
+			case 50067:
+				$title_list = array(4501, 50067);
 				break;	
 
 			// Memoirs of the National Museum of Victoria
@@ -1124,10 +1225,22 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(58640, 13041, 57949, 59883);
 				break;	
 				
+			// Monatsberichte der Königlichen Preussische Akademie des Wissenschaften zu Berlin
+			case 48522:
+			case 51443:
+				$title_list = array(48522, 51443);
+				break;	
+				
 			// Natural history report.
 			case 1163:
 			case 42665:
 				$title_list = array(1163, 42665);
+				break;	
+				
+			// Occasional Papers of the Boston Society of Natural History
+			case 7539:
+			case 50720:
+				$title_list = array(7539, 50720);
 				break;	
 				
 			// Occasional papers of the California Academy of Sciences
@@ -1165,6 +1278,14 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 50545:
 				$title_list = array(69, 50545);
 				break;
+				
+			// The Philosophical magazine
+			case 982:
+			case 58331:
+			case 58328:
+				$title_list = array(982, 58331, 58328);
+				break;
+			
 				
 			// Pom
 			case 9567:
@@ -1215,6 +1336,13 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 53477:
 			case 10294:
 				$title_list=array(53477,10294);
+				break;
+				
+			// Records of the South Australian Museum
+			case 14053:
+			case 42375:
+			case 61893:
+				$title_list=array(14053,42375,61893);
 				break;
 				
 			// Report of the Commissioner for ...
@@ -1288,6 +1416,14 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 				$title_list = array(10088, 39564);
 				break;
 				
+			// Transactions and proceedings and report of the Royal Society of South Australia (Incorporated)
+			case 51476:
+			case 16197:
+			case 16190:
+				$title_list = array(51476, 16197,16190);
+				break;
+			
+				
 			// Transactions and proceedings of the New Zealand Institute
 			case 48984:
 			case 4095:
@@ -1328,7 +1464,16 @@ function bhl_find_article($atitle, $title, $volume, $page, $series = '', $date =
 			case 16186:
 			case 51127:
 			case 16190:
-				$title_list=array(16197, 16186,51127, 16190);
+			case 62638:
+			case 63905:
+			case 63906:
+				$title_list=array(16197, 16186,51127, 16190, 62638, 63905, 63906);
+				break;
+				
+			// Transactions of the San Diego Society of Natural History
+			case 51441:
+			case 3144:
+				$title_list = array(51441, 3144);
 				break;
 				
 			// Transactions of the Zoological Society of London
