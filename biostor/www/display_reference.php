@@ -533,6 +533,7 @@ Event.observe(window, \'load\', function() {
 		echo '<li class="ris"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.ris" title="RIS" target="_new" onClick="_gaq.push([\'_trackEvent\', \'Export\', \'RIS\', \'' . $this->id . '\', 0]);">Reference manager</a></li>';		
 		echo '<li class="bibtex"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.bib" title="BibTex" target="_new" onClick="_gaq.push([\'_trackEvent\', \'Export\', \'bibtex\', \'' . $this->id . '\', 0]);">BibTex</a></li>';	
 		echo '<li class="bibjson"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.bibjson" title="BibJSON" target="_new" onClick="_gaq.push([\'_trackEvent\', \'Export\', \'bibjson\', \'' . $this->id . '\', 0]);">BibJSON</a></li>';	
+		echo '<li class="wikipedia"><a href="' . $config['web_root'] . 'reference/' . $this->id . '.wikipedia" title="Wikipedia" target="_new" onClick="_gaq.push([\'_trackEvent\', \'Export\', \'Wikipedia\', \'' . $this->id . '\', 0]);">Wikipedia</a></li>';	
 		
 		if ($this->in_bhl)
 		{

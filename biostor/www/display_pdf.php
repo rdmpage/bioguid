@@ -179,7 +179,7 @@ function pdf_create($reference_id, $pdf_filename)
 	//----------------------------------------------------------------------------------------------
 	// PDF
 	$pdf=new FPDF('P', 'mm', 'A4');
-	$pdf->SetMargins($margin, $margin);
+	//$pdf = PDF_Rotate('P', 'mm', 'A4');
 	
 	//----------------------------------------------------------------------------------------------
 	// Basic metadata (e.g., that displayed by Mac OS X Preview)
@@ -287,24 +287,18 @@ function pdf_create($reference_id, $pdf_filename)
 		$img_height = $image->height;
 		$img_width = $image->width;
 		
-		if ($img_height > $img_width)
-		{
-			$scale =  $page_height/$img_height;
-			$img_height *= $scale;
-			$img_width *= $scale;
-		}
-		else
-		{
-			$scale =  $page_height/$img_width;
-			$img_height *= $scale;
-			$img_width *= $scale;			
-		}
+		$w_scale = $page_width/$img_width;
+		$h_scale = $page_height/$img_height;
 		
+		$scale = min($w_scale, $h_scale);
+		$img_height *= $scale;
+		$img_width *= $scale;
+
+		$pdf->AddPage();
 		$x_offset = ($paper_width - $img_width)/2.0;
 		$y_offset = ($paper_height - $img_height)/2.0;
-		
-		$pdf->AddPage();
 		$pdf->Image($image->file_name, $x_offset, $y_offset, $img_width);
+		
 	}
 	
 	$pdf->Output($pdf_filename, 'F');
