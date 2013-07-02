@@ -14,25 +14,32 @@ function user_is_logged_in()
 {
 	global $config;
 	
-	if ($config['use_mendeley_oauth'])
+	if (0)
 	{
-		$logged_in = false;
-		
-		if (empty($_SESSION['access_token']) 
-			|| empty($_SESSION['access_token']['oauth_token']) 
-			|| empty($_SESSION['access_token']['oauth_token_secret'])) 
-		{
-			$logged_in = false;
-		}
-		else
-		{
-			$logged_in = true;
-		}
-		return $logged_in;
+		return true;
 	}
 	else
 	{
-		return isset($_COOKIE['openid']);
+		if ($config['use_mendeley_oauth'])
+		{
+			$logged_in = false;
+			
+			if (empty($_SESSION['access_token']) 
+				|| empty($_SESSION['access_token']['oauth_token']) 
+				|| empty($_SESSION['access_token']['oauth_token_secret'])) 
+			{
+				$logged_in = false;
+			}
+			else
+			{
+				$logged_in = true;
+			}
+			return $logged_in;
+		}
+		else
+		{
+			return isset($_COOKIE['openid']);
+		}
 	}
 }
 

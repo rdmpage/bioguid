@@ -162,25 +162,26 @@ function extract_specimen_codes($t)
 	// Standard acronyms that have simple [Acronym] [number] specimen codes
 	// (allowing for a prefix before [number]
 	$acronyms = array(
-		'ABTC','ADT-CRBMUV','AMCC','AMNH','ANSP','ANWC','AMS','ANSP','ASIZB','ASU',
-		'BNHS','BPBM',
+		'ABTC','ADT-CRBMUV', 'AM M', 'AMCC','AMNH','ANSP','ANWC','AMS','AMS\. [1|I]\.', 'ANSP','ASIZB','ASU',
+		'BBM', 'BNHS','BPBM',
 		'CAS','CASENT','CAS-SU','CFBH','CM','CMK','CRBMUV','CWM',
 		'DHMECN',
 		'FMNH',
 		'HKU',
 		'IBUNAM-EM','ICN','ICN-MHN-CR','ILPLA','INHS','IRSNB','IZUA',
-		'JAC','JCV',
+		'JAC','JCV', 'JM',
 		'KFBG','KU','KUHE',
 		'LACM','LSUMZ',		
-		'MACN','MACN-Ict','MCP','MCNU', 'MCZ','MFA-ZV-I','MHNCI','MNCN','MHNUC','MNRJ','MPEG','MRAC','MRT','MUJ','MVUP','MVZ','MZUFV','MZUSP',
+		'MACN','MACN-Ict','MCP','MCNU', 'MCSN', 'MCZ','MFA-ZV-I','MHNCI','MNCN','MHNG','MHNUC','MNRJ','MPEG','MRAC','MRT','MUJ','MVUP','MVZ','MZUC','MZUFV','MZUSP',
 		'NHMW', 'NRM','NSV','NT','NTM',
 		'OMNH',
 		'QCAZ','QM','QMJ',
 		'RAN','RMNH','ROM',
 		'SAMA','SIUC',
 		'TNHC','THNHM',
-		'UAZ', 'UCR','UFMG','UMFS','UMMZ','UNT','USNM','USNMENT','USNM\sENT','UTA','UWBM',
+		'UAZ', 'UCR','UFMG','UMFS','UMMZ','UNT','USNM','USNM\.', 'USNMENT','USNM\sENT','UTA','UWBM',
 		'WAM','WHT',
+		'YPM',
 		'ZFMK','ZMA','ZMB','ZMH','ZRC','ZSI F','ZUFRJ');
 
 	$specimens = array();
@@ -352,6 +353,12 @@ function extract_specimen_codes($t)
 		{
 			$z->code = 'USNMENT';
 		}
+
+		if ($z->code == 'USNM.')
+		{
+			$z->code = 'USNM';
+		}
+
 
 		if ($z->end == '')
 		{

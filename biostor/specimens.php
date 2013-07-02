@@ -293,6 +293,8 @@ if (0)
 	
 	$ids = array();
 	
+	$ids=array(124);
+	
 	$result = $db->Execute($sql);
 	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
 	

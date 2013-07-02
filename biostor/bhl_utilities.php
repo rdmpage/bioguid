@@ -11,6 +11,48 @@ require_once(dirname(__FILE__) . '/db.php');
 require_once(dirname(__FILE__) . '/utilities.php');
 
 //--------------------------------------------------------------------------------------------------
+function bhl_item_from_pageid ($PageID)
+{
+	global $db;
+	
+	$ItemID = 0;
+	
+	$sql = 'SELECT ItemID FROM bhl_page WHERE PageID=' . $PageID . ' LIMIT 1';		
+
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	if ($result->NumRows() == 1)
+	{
+		$ItemID =  $result->fields['ItemID'];
+	}
+	
+	return $ItemID;
+}
+
+//--------------------------------------------------------------------------------------------------
+function bhl_item_from_reference_id($reference_id)
+{
+	global $db;
+	
+	$ItemID = 0;
+	
+	$sql = 'SELECT ItemID FROM bhl_page 
+	INNER JOIN rdmp_reference USING(PageID)
+	WHERE (reference_id=' . $reference_id . ') LIMIT 1';
+	$result = $db->Execute($sql);
+	if ($result == false) die("failed [" . __FILE__ . ":" . __LINE__ . "]: " . $sql);
+
+	if ($result->NumRows() == 1)
+	{
+		$ItemID = $result->fields['ItemID'];
+	}
+	
+	return $ItemID;
+}
+
+
+//--------------------------------------------------------------------------------------------------
 function bhl_institutions_with_title($TitleID)
 {
 	global $db;
