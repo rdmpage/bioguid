@@ -4156,7 +4156,7 @@ $items=array(
 '43398' => 'bollettinodeimus1500univ',
 '43058' => 'bollettinodeimus1601univ',
 '43033' => 'bollettinodeimus1702univ',
-'43415' => 'bollettinodeimus1904univ',
+//'43415' => 'bollettinodeimus1904univ',
 '43368' => 'bollettinodeimus2005univ',
 '43046' => 'bollettinodeimus2106univ',
 '43468' => 'bollettinodeimus221907univ',
@@ -4334,7 +4334,7 @@ $items=array(
 );
 
 $items=array(
-'43551' => 'jahrbuchderhambu01hamb',
+/*'43551' => 'jahrbuchderhambu01hamb',
 '33121' => 'jahrbuchderhambu00hamb',
 '32677' => 'jahrbuchderhambu03hamb',
 '33349' => 'jahrbuchderhambu04hamb',
@@ -4357,7 +4357,7 @@ $items=array(
 '39477' => 'jahrbuchderhambu20hamb',
 '39470' => 'jahrbuchderhambu21hamb',
 '39483' => 'jahrbuchderhambu22hamb',
-'92087' => 'jahrbuchderhambu231905hamb',
+'92087' => 'jahrbuchderhambu231905hamb',*/
 '91407' => 'jahrbuchderhambu23241905hamb',
 '39585' => 'jahrbuchderhambu24hamb',
 //'108746' => '002017977_25Jahrg',
@@ -4824,6 +4824,16559 @@ $items=array(
 44490 => 'bulletinofzoolog49inte'
 );
 
+$items=array(
+'98714' => 'boletindelasocie16192732soci',
+'98726' => 'boletindelasocie710193336soci',
+'98707' => 'boletindelasocie1113193739110soci',
+'98706' => 'boletindelasocie1415194041soci',
+'99808' => 'boletindelasocie1618194244soci',
+'98727' => 'boletindelasocie1920194445soci',
+'99390' => 'boletindelasocie211946soci',
+'98746' => 'boletindelasocie231948soci',
+'98518' => 'boletindelasocie2425194950soci',
+'99810' => 'boletindelasocie2627195152soci',
+'98558' => 'boletindelasocie2829195354soci',
+'98721' => 'boletindelasocie3031195556soci',
+'98508' => 'boletindelasocie3233195758soci',
+'98590' => 'boletindelasocie341959soci',
+'98592' => 'boletindelasocie3536196061soci',
+'98591' => 'boletindelasocie371962soci',
+'99385' => 'boletindelasocie3941196467soci',
+'98663' => 'boletindelasocie4243196970soci',
+'98537' => 'boletindelasocie44451972soci',
+'98529' => 'boletindelasocie4647197374soci',
+'98535' => 'boletindelasocie481974soci',
+'98712' => 'boletindelasocie4950197576soci',
+'98748' => 'boletindelasocie51197781soci',
+'98504' => 'boletindelasocie5253198182soci',
+'99384' => 'boletindelasocie5456198385soci',
+'98715' => 'boletindelasocie5759198688soci',
+'98720' => 'boletindelasocie6062198991soci',
+'98747' => 'boletindelasocie6365199294soci',
+'98689' => 'boletindelasocie661995soci',
+'98711' => 'boletindelasocie671996soci',
+'98665' => 'boletindelasocie681997soci',
+'98510' => 'boletindelasocie691998soci',
+'98723' => 'boletindelasocie701999soci',
+'98705' => 'boletindelasocie712000soci',
+'98581' => 'boletindelasocie722001soci',
+'98507' => 'boletindelasocie732002soci',
+'98511' => 'boletindelasocie742003soci'
+);
+
+$items=array(
+'48647' => 'antarcticfisheso00rega'
+);
+
+$items=array(
+/*
+'91510' => 'gayana116196169univ',
+'89805' => 'gayana1718197071univ',
+'89360' => 'gayana1924197173univ',
+'89196' => 'gayana2533197375univ',
+'93370' => 'gayana3438197576univ',
+'89803' => 'gayana3940197778univ',
+'89194' => 'gayana4143197980univ',
+'89249' => 'gayana441981univ',
+'89114' => 'gayana451983univ',
+'89116' => 'gayana461983univ',
+'89069' => 'gayana471983univ',
+'90466' => 'gayana48121984univ',
+'89435' => 'gayana48341984univ',
+'89118' => 'gayana49121985univ',
+'89362' => 'gayana5052198688univ',
+'91714' => 'gayana5354198990univ',
+'89079' => 'gayana5556199192univ',
+'92577' => 'gayana5711993univ',
+'88244' => 'gayana__5721993univ',
+'97528' => 'gayana581univ',
+'92578' => 'gayana5821994univ',*/
+'97327' => 'gayana591univ',
+'89068' => 'gayana5921995univ',
+'89804' => 'gayana6062199698univ'
+);
+
+
+$items=array(
+'120129' => 'MemoirsNational14Memo',
+'120131' => 'MemoirsNational15Memo',
+'120132' => 'MemoirsNational16Nati',
+'120262' => 'MemoirsNational17Nati',
+'120098' => 'MemoirsNational18Memo',
+'120263' => 'MemoirsNational19Nati',
+'120264' => 'MemoirsNational20Nati',
+'120265' => 'MemoirsNational21Nati',
+'120267' => 'MemoirsNational23Nati',
+'120198' => 'MemoirsNational24Nati',
+'120188' => 'MemoirsNational25Nati',
+'120260' => 'MemoirsNational22NatiH',
+'120261' => 'MemoirsNational22NatiA',
+'120266' => 'MemoirsNational22Nati',
+'120199' => 'MemoirsNational22NatiC',
+'120202' => 'MemoirsNational22NatiE',
+'120257' => 'MemoirsNational22NatiF',
+'120258' => 'MemoirsNational22NatiI',
+'120201' => 'MemoirsNational22NatiB',
+'120259' => 'MemoirsNational22NatiG',
+'120200' => 'MemoirsNational22NatiD'
+);
+
+$items=array(
+'108177' => 'philippinejourna21907phi',
+'108191' => 'philippinejourna21907phil',
+'109841' => 'philippinejourna31908phil',
+'111121' => 'philippinejour31908phil',
+'108477' => 'philippinejourna41909phi',
+'107010' => 'philippinejourna41909phil',
+//'107001' => 'philippinejourna51910phil',
+'107499' => 'philippinejourna51910phi',
+'108170' => 'philippinejourn51910phil',
+'107005' => 'philippinejourna61911ph',
+'107528' => 'philippinejourna61911phi',
+'107538' => 'philippinejourna61911phil',
+'107004' => 'philippinejourna71912ph',
+'107014' => 'philippinejourna71912phi',
+'108186' => 'philippinejourna71912phil',
+'108774' => 'philippinejourna81913ph',
+'107649' => 'philippinejourna81913phil',
+'108167' => 'philippinejourna81913phi',
+'111325' => 'philippinejourna91914phil',
+'111453' => 'philippinejou91914phil',
+'111865' => 'philippinejo91914phil',
+'111444' => 'philippinejo101915phil',
+'111471' => 'philippinejour101915phil',
+'111658' => 'philippinejourn101915phil',
+'111442' => 'philippinejo111916phil',
+'111191' => 'philippinejou111916phil',
+'110844' => 'philippinejour111916phil',
+//'111194' => 'philippinejo121917phil',
+'111441' => 'philippinejour121917phil',
+'111443' => 'philippinejourn131918phil',
+'111193' => 'philippinejour131918phil',
+'110948' => 'philippinejou131918phil',
+'111290' => 'philippinej110190615phil'
+);
+
+$items=array(
+'107001' => 'philippinejourna51910phil'
+);
+
+$items=array(
+/*'86009' => 'verhandlungender858zool',
+'55238' => 'verhandlungender959zool',
+'86010' => 'verhandlungender1060zool',
+'55295' => 'verhandlungender1161zool',*/
+'86027' => 'verhandlungender1363zool',
+'55310' => 'verhandlungender1464zool',
+'55293' => 'verhandlungender1565zool',
+'86028' => 'verhandlungender1666zool',
+'86029' => 'verhandlungender1767zool',
+'81414' => 'verhandlungender1868zool',
+'55339' => 'verhandlungender2070zool',
+'55340' => 'verhandlungender2171zool',
+'55318' => 'verhandlungender2272zool',
+'55316' => 'verhandlungender2373zool',
+'55331' => 'verhandlungender2575zool',
+'55313' => 'verhandlungender2676zool',
+'86002' => 'verhandlungender2777zool',
+'55292' => 'verhandlungender2878zool',
+'55299' => 'verhandlungender2979zool',
+'55284' => 'verhandlungender3080zool',
+'48128' => 'verhandlungender31zool',
+'49918' => 'verhandlungender32zool',
+'49945' => 'verhandlungender33zool',
+'49913' => 'verhandlungender34zool',
+'49510' => 'verhandlungender35zool',
+'47596' => 'verhandlungender36zool',
+'49497' => 'verhandlungender37zool',
+'47683' => 'verhandlungender38zool',
+'47787' => 'verhandlungender39zool',
+'47786' => 'verhandlungender40zool',
+'49919' => 'verhandlungender41zool',
+'48404' => 'verhandlungender42zool',
+'48406' => 'verhandlungender43zool',
+'48087' => 'verhandlungender44zool',
+//'48405' => 'verhandlungender45zool',
+//'48422' => 'verhandlungender46zool',
+'50549' => 'verhandlungender47zool',
+'47597' => 'verhandlungender48zool',
+'47681' => 'verhandlungender49zool',
+'47592' => 'verhandlungender50zool',
+'49946' => 'verhandlungender51zool',
+'47781' => 'verhandlungender52zool',
+'48810' => 'verhandlungender53zool',
+'47890' => 'verhandlungender54zool',
+'47889' => 'verhandlungender55zool',
+'47595' => 'verhandlungender56zool',
+'47780' => 'verhandlungender57zool',
+'47593' => 'verhandlungender58zool',
+'47594' => 'verhandlungender59zool',
+'48812' => 'verhandlungender60zool',
+'47782' => 'verhandlungender61zool',
+'47784' => 'verhandlungender62zool',
+'49912' => 'verhandlungender63zool',
+'48813' => 'verhandlungender64zool',
+'47891' => 'verhandlungender65zool',
+'47783' => 'verhandlungender66zool'
+);
+
+/*
+$items=array(
+'48422' => 'verhandlungender46zool'
+);
+*/
+
+$items=array(
+'114042' => 'memoirsofcarnegi11901carn',
+'114015' => 'memoirsofcarnegi31907carn',
+'108748' => 'mobot001390279_v4',
+'32845' => 'memoirsofcarnegi05carn',
+'32846' => 'memoirsofcarnegi06carn',
+'31813' => 'memoirsofcarnegi07carn'
+);
+
+$items=array(
+/*'37139' => 'journalofroyalmi02roya',
+'37174' => 'journalofroyalmi22roya',
+'37125' => 'journalofroyalmi03roya',
+'37130' => 'journalofroyalmi32roya',
+'97706' => 'journalofroyalmi211roya',
+'97707' => 'journalofroyalmi212roya',
+'97679' => 'journalofroyalmi221roya',
+'97687' => 'journalofroyalmi222roya',
+'98139' => 'journalofroyalmi231roya',
+'98137' => 'journalofroyalmi232roya',
+'98106' => 'journalofroyalmi241roya',
+'97684' => 'journalofroyalmi242roya',
+'98614' => 'journalofroyalmi251roya',
+'97689' => 'journalofroyalmi252roya',
+'97683' => 'journalofroyalmi261roya',
+'97690' => 'journalofroyalmi262roya',
+'98140' => 'journalofroyalmi188713roya',
+'98138' => 'journalofroyalmi188746roya',
+'97692' => 'journalofroyalmi188813roya',
+'97691' => 'journalofroyalmi188846roya',
+'97695' => 'journalofroyalmi188913roya',
+'98135' => 'journalofroyalmi188946roya',
+'18973' => 'journalofroyalmi1900roya',
+'18847' => 'journalofroyalmi1901roya',
+'18897' => 'journalofroyalmi1902roya',
+'18467' => 'journalofroyalmi1903roya',
+'18840' => 'journalofroyalmi1904roya',
+'18833' => 'journalofroyalmi1905roya',
+'53994' => 'journalofroyalmi06roya',
+'28007' => 'journalofroyalmic1907roya',
+'18907' => 'journalofroyalmi1908roya',
+'18831' => 'journalofroyalmi1909roya',
+'18891' => 'journalofroyalmi1910roya',*/
+'18914' => 'journalofroyalmi1911roya',
+'28020' => 'journalofroyalmic1912roya',
+'31498' => 'journalofroyalmi1913roya',
+'18839' => 'journalofroyalmi1914roya',
+'18835' => 'journalofroyalmi1915roya',
+'28010' => 'journalofroyalmic1916roya',
+'18461' => 'journalofroyalmi1917roya',
+'18824' => 'journalofroyalmi1918roya',
+'18832' => 'journalofroyalmi1919roya',
+'31490' => 'journalofroyalmi1920roya',
+'28118' => 'journalofroyalmic1921roya'
+);
+
+/*
+
+$items=array(
+'15549' => 'journalofquekett0212quek',
+'18828' => 'journalofquekett01quek',
+'18892' => 'journalofquekett02quek',
+'31683' => 'journalofquekett031874quek',
+'18874' => 'journalofquekett04quek',
+'18484' => 'journalofquekett05quek',
+'18893' => 'journalofquekett0201quek',
+'18945' => 'journalofquekett0202quek',
+'18445' => 'journalofquekett0203quek',
+'30334' => 'journalofquekett0205quek',
+'31688' => 'journalofquekett0206quek',
+'31684' => 'journalofquekett0207quek',
+'28040' => 'journalofquekett208quek',
+'18894' => 'journalofquekett0209quek',
+'18838' => 'journalofquekett0210quek',
+'15550' => 'journalofquekett0211quek',
+'28111' => 'journalofquekett213quek',
+'87921' => 'journalofquekett1922quek',
+'31693' => 'journalofquekett060106quek'
+);
+
+$items=array(
+'21996' => 'journalofmicrosc03post',
+'22010' => 'journalofmicrosc04post',
+'22008' => 'journalofmicrosc05post',
+'21998' => 'journalofmicrosc06post',
+'22004' => 'journalofmicrosc07post',
+'35709' => 'journalofmicrosc00post',
+'22007' => 'journalofmicrosc09post',
+'22024' => 'journalofmicrosc12post',
+'33998' => 'journalofmicrosc14post',
+'24059' => 'journalofmicrosc15post',
+'35274' => 'journalofmicrosc1897post'
+);
+
+*/
+
+$items=array(
+'43551' => 'jahrbuchderhambu01hamb',
+'33121' => 'jahrbuchderhambu00hamb',
+'32677' => 'jahrbuchderhambu03hamb',
+'33349' => 'jahrbuchderhambu04hamb',
+'33307' => 'jahrbuchderhambu05hamb',
+'32675' => 'jahrbuchderhambu06hamb',
+/*'33308' => 'jahrbuchderhambu07hamb', */
+'81300' => 'jahrbuchderhambu81890hamb',
+'33047' => 'jahrbuchderhambu09hamb',
+'43473' => 'jahrbuchderhambu010hamb',
+'43536' => 'jahrbuchderhambu11hamb',
+'101782' => 'jahrbuchderhambu1218hamb',
+'91301' => 'jahrbuchderhambu131895hamb',
+'91302' => 'jahrbuchderhambu131895hamburg',
+'92099' => 'jahrbuchderhambu141896hamb',
+'91322' => 'jahrbuchderhambu14231896hamb',
+'92506' => 'jahrbuchderhambu15231897hamb',
+'92565' => 'jahrbuchderhambu16241898hamb',
+'39465' => 'jahrbuchderhambu10hamb',
+'39569' => 'jahrbuchderhambu19hamb',
+'39477' => 'jahrbuchderhambu20hamb',
+'39470' => 'jahrbuchderhambu21hamb',
+'39483' => 'jahrbuchderhambu22hamb',
+'92087' => 'jahrbuchderhambu231905hamb',
+'91407' => 'jahrbuchderhambu23241905hamb',
+'39585' => 'jahrbuchderhambu24hamb',
+'108746' => 'mobot002017977_25Jahrg',
+'92657' => 'jahrbuchderhambu26231908hamb',
+'92483' => 'jahrbuchderhambu271909hamb',
+'92022' => 'jahrbuchderhambu272351909hamb',
+'92507' => 'jahrbuchderhambu2821910hamb',
+'92654' => 'jahrbuchderhambu2835671910hamb',
+'92092' => 'jahrbuchderhambu291911hamb',
+'92490' => 'jahrbuchderhambu2911911hamb',
+'92486' => 'jahrbuchderhambu2951911hamb',
+'92516' => 'jahrbuchderhambu2981911hamb',
+'92094' => 'jahrbuchderhambu30231912hamb',
+'92532' => 'jahrbuchderhambu3041912hamb',
+'92000' => 'jahrbuchderhambu305689111912hamb',
+'91807' => 'jahrbuchderhambu30101912hamb',
+'92001' => 'jahrbuchderhambu311913hamb',
+'92005' => 'jahrbuchderhambu3123561913hamb',
+'92009' => 'jahrbuchderhambu31789101913hamb',
+'91975' => 'jahrbuchderhambu3211914hamb',
+'92514' => 'jahrbuchderhambu3221914hamb',
+'92724' => 'jahrbuchderhambu3321915hamb',
+'92712' => 'jahrbuchderhambu3331915hamb',
+'91809' => 'jahrbuchderhambu3351915hamb',
+'92715' => 'jahrbuchderhambu341916hamb',
+'92489' => 'jahrbuchderhambu3411916hamb',
+'92668' => 'jahrbuchderhambu3421916hamb',
+'92531' => 'jahrbuchderhambu3431916hamb',
+'92530' => 'jahrbuchderhambu3441916hamb',
+'92701' => 'jahrbuchderhambu3451916hamb',
+'92704' => 'jahrbuchderhambu3511917hamb',
+'92703' => 'jahrbuchderhambu3531917hamb',
+'92515' => 'jahrbuchderhambu3541917hamb',
+'92029' => 'jahrbuchderhambu3551917hamb',
+'91810' => 'jahrbuchderhambu3561917hamb',
+'92518' => 'jahrbuchderhambu3571917hamb',
+'91808' => 'jahrbuchderhambu3581817hamb',
+'92495' => 'jahrbuchderhambu3611918hamb',
+'92028' => 'jahrbuchderhambu3621918hamb',
+'92670' => 'jahrbuchderhambu3631918hamb',
+'92491' => 'jahrbuchderhambu3641918hamb',
+'92509' => 'jahrbuchderhambu3651918hamb',
+'92699' => 'jahrbuchderhambu3661918hamb',
+'92512' => 'jahrbuchderhambu3681918hamb',
+'92702' => 'jahrbuchderhambu3721919hamb',
+'92493' => 'jahrbuchderhambu3821920hamb'
+);
+
+
+/*
+$items=array(
+'33308' => 'jahrbuchderhambu07hamb'
+);
+*/
+
+
+$items=array(
+/*'39396' => 'monitorezoologic01runi',
+'39406' => 'monitorezoologic02runi',
+'39383' => 'monitorezoologic03runi',
+'39397' => 'monitorezoologic04runi',
+'38785' => 'monitorezoologic05runi',
+'38788' => 'monitorezoologic06runi',
+'38389' => 'monitorezoologic07runi',
+'39539' => 'monitorezoologic08runi',
+'39409' => 'monitorezoologic09runi',*/
+'39352' => 'monitorezoologic10runi',
+'39283' => 'monitorezoologic11runi',
+'39398' => 'monitorezoologic12runi',
+'38803' => 'monitorezoologic1314runi',
+'38801' => 'monitorezoologic14runi',
+'38399' => 'monitorezoologic15runi',
+'38294' => 'monitorezoologic16runi',
+'38790' => 'monitorezoologic17runi',
+'39395' => 'monitorezoologic18runi',
+'38851' => 'monitorezoologic19runi',
+'39405' => 'monitorezoologic20runi',
+/*'38381' => 'monitorezoologic21runi',*/
+'38401' => 'monitorezoologic22runi',
+'39253' => 'monitorezoologic24runi',
+'38385' => 'monitorezoologic25runi',
+'39404' => 'monitorezoologic26runi',
+'38137' => 'monitorezoologic27runi',
+'37627' => 'monitorezoologic28runi',
+'37008' => 'monitorezoologic29runi',
+'38115' => 'monitorezoologic30runi',
+'37626' => 'monitorezoologic31runi',
+'37003' => 'monitorezoologic32runi',
+'37625' => 'monitorezoologic33runi'
+);
+
+/*
+$items=array(
+'38381' => 'monitorezoologic21runi'
+);
+*/
+
+$items=array(
+'114159' => 'denkschriftender13medi',
+'114238' => 'denkschriftender14medi',
+'114210' => 'denkschriftender15medi',
+'114237' => 'denkschriftender16medi'
+);
+
+$items=array(
+'53183' => 'proceedingsofuni371910unit'
+);
+
+$items=array(
+'47314' => 'malacologia16264inst',
+'47249' => 'malacologia26465inst',
+'47007' => 'malacologia36566inst',
+'47354' => 'malacologia41966inst',
+'47215' => 'malacologia56667inst',
+'47351' => 'malacologia66768inst',
+'47291' => 'malacologia76869inst',
+'47216' => 'malacologia81969inst',
+'47353' => 'malacologia91969inst',
+'47355' => 'malacologia101970inst',
+'47214' => 'malacologia111971inst',
+'47250' => 'malacologia121973inst',
+'47251' => 'malacologia131973inst',
+'47219' => 'malacologia141973inst',
+'47292' => 'malacologia157576inst',
+'47323' => 'malacologia161977inst',
+'47212' => 'malacologia171978inst',
+'47217' => 'malacologia181979inst',
+'46992' => 'malacologia197980inst',
+'47357' => 'malacologia208081inst',
+'47253' => 'malacologia211981inst',
+'47326' => 'malacologia221982inst',
+'47256' => 'malacologia238283inst',
+'47247' => 'malacologia241983inst',
+'47350' => 'malacologia251984inst',
+'47334' => 'malacologia261985inst',
+'47359' => 'malacologia271986inst',
+'47000' => 'malacologia281988inst',
+'81297' => 'malacologia291988insti',
+'47004' => 'malacologia301989inst',
+'47356' => 'malacologia311990inst',
+'47352' => 'malacologia329091inst',
+'47260' => 'malacologia331991inst',
+'47317' => 'malacologia341992inst',
+'47358' => 'malacologia351993inst',
+'47248' => 'malacologia361995inst',
+'47259' => 'malacologia379596inst',
+'47262' => 'malacologia381996inst',
+'47237' => 'malacologia391998inst',
+'47255' => 'malacologia401998inst',
+'47254' => 'malacologia411999inst',
+'46688' => 'malacologia422000inst',
+'47346' => 'malacologia432001inst',
+'47347' => 'malacologia442002inst',
+'81074' => 'malacologia45200304inst',
+'89329' => 'malacologia2004inst',
+'81069' => 'malacologia47122005inst',
+'47264' => 'malacologia482006inst'
+);
+
+$items=array(
+'97361' => 'opusculazoologic150zool',
+'98738' => 'opusculazoologic511zool',
+'97321' => 'opusculazoologic101zool'
+);
+
+$items=array(
+'50263' => 'fversigtaffins118381853suom',
+'50257' => 'fversigtaffins218531855suom',
+'50264' => 'fversigtaffins318551856suom',
+'50261' => 'fversigtaffins418561857suom',
+'49784' => 'fversigtaffins518571863suom',
+'49787' => 'fversigtaffins618631864suom',
+'49786' => 'fversigtaffins718641865suom',
+'50484' => 'fversigtaffins818651866suom',
+'50485' => 'fversigtaffins918661867suom',
+'50488' => 'fversigtaffins1018671868suom',
+'50489' => 'fversigtaffins116869suom',
+'50490' => 'fversigtaffins126970suom',
+'52370' => 'fversigtaffins137071suom',
+'52116' => 'fversigtaffins147172suom',
+'52118' => 'fversigtaffins157273suom',
+'50479' => 'fversigtaffins167374suom',
+'50481' => 'fversigtaffins177475suom',
+'52176' => 'fversigtaffins187576suom',
+'50487' => 'fversigtaffins197677suom',
+'50483' => 'fversigtaffins207778suom',
+'50486' => 'fversigtaffins217879suom',
+'52117' => 'fversigtaffins227980suom',
+'50480' => 'fversigtaffins238081suom',
+'51165' => 'fversigtaffins24suom',
+'51170' => 'fversigtaffins25suom',
+'52789' => 'fversigtaffins26suom',
+'50967' => 'fversigtaffins27suom',
+'51162' => 'fversigtaffins28suom',
+'51169' => 'fversigtaffins29suom',
+'50965' => 'fversigtaffins30suom',
+'51152' => 'fversigtaffins31suom',
+'51151' => 'fversigtaffins32suom',
+'51080' => 'fversigtaffins33suom',
+'52790' => 'fversigtaffins34suom',
+'51280' => 'fversigtaffins35suom',
+'52371' => 'fversigtaffins36suom',
+'51286' => 'fversigtaffins37suom',
+'51084' => 'fversigtaffins38suom',
+'51077' => 'fversigtaffins39suom',
+'52752' => 'fversigtaffins40suom',
+'52765' => 'fversigtaffins41suom',
+'51082' => 'fversigtaffins42suom',
+'51284' => 'fversigtaffins43suom',
+'51283' => 'fversigtaffins44suom',
+'52618' => 'fversigtaffins45suom',
+'51078' => 'fversigtaffins46suom',
+'51087' => 'fversigtaffins47suom',
+'50722' => 'fversigtaffins48suom',
+'50721' => 'fversigtaffins49suom',
+'50719' => 'fversigtaffins50suom',
+'52750' => 'fversigtaffins51suom',
+'52732' => 'fversigtaffins52suom',
+'52747' => 'fversigtaffins53suom',
+'52754' => 'fversigtaffins54suom',
+'50780' => 'fversigtaffins55suom',
+'50782' => 'fversigtaffins552suom',
+'52746' => 'fversigtaffins56suom',
+'50732' => 'fversigtaffins57suom',
+'52755' => 'fversigtaffins58suom',
+'51273' => 'fversigtaffins59suom',
+'51272' => 'fversigtaffins60suom',
+'51075' => 'fversigtaffins61suom',
+'50779' => 'fversigtaffins62suom',
+'51278' => 'fversigtaffins63suom',
+'51277' => 'fversigtaffins64suom'
+);
+
+$items=array(
+'51170' => 'fversigtaffins25suom'
+);
+
+$items=array(
+'29783' => 'proceedingsoflin0208linn'
+);
+
+$items=array(
+/*'112075' => 'bulletinofbritis01brit',
+'19469' => 'bulletinofbritis02geollond',
+'19493' => 'bulletinofbritis03geollond',
+'112051' => 'bulletinofbritis04geol',
+'112076' => 'bulletinofbritis05geol',
+'19567' => 'bulletinofbritis06geollond',
+'19531' => 'bulletinofbritis07geollond',
+'112081' => 'bulletinofbritis08geol',
+'112080' => 'bulletinofbritis09brit',
+'112052' => 'bulletinofbritis10brit',*/
+'112920' => 'bulletinofbritis11brit',
+'112903' => 'bulletinofbritis12brit',
+'19481' => 'bulletinofbritis13geollond',
+'112077' => 'bulletinofbritis14brit',
+'112466' => 'bulletinofbritis15brit',
+'19441' => 'bulletinofbritis16geollond',
+'19528' => 'bulletinofbritis17geollond',
+'112467' => 'bulletinofbritis18brit',
+'113714' => 'bulletinofbritis19geol',
+'113715' => 'bulletinofbritis20geol',
+'113716' => 'bulletinofbritis21geol',
+'113711' => 'bulletinofbritis22geol',
+'113709' => 'bulletinofbritis23geol',
+'19382' => 'bulletinofbritis24geollond',
+'19375' => 'bulletinofbritis25geollond',
+'112468' => 'bulletinofbritis26brit',
+'111683' => 'bulletinofbritis27brit',
+'19406' => 'bulletinofbritis28geollond',
+'112788' => 'bulletinofbritis29brit',
+'113702' => 'bulletinofbritis30geol',
+'112469' => 'bulletinofbritis31brit',
+'19461' => 'bulletinofbritis32geollond',
+'112050' => 'bulletinofbritis33brit',
+'19657' => 'bulletinofbritis34geollond',
+'112079' => 'bulletinofbritis03brit',
+'104358' => 'bulletinofbritis35brit',
+'19650' => 'bulletinofbritis36geollond',
+'19638' => 'bulletinofbritis37geollond',
+'19451' => 'bulletinofbritis38geollond',
+'112470' => 'bulletinofbritis39brit',
+'19568' => 'bulletinofbritis40geollond',
+'113707' => 'bulletinofbritis41geol',
+'113705' => 'bulletinofbritis42geol',
+'113706' => 'bulletinofbritis43geol',
+'113718' => 'bulletinofbritis44geol',
+'113725' => 'bulletinofbritis44natu',
+'113721' => 'bulletinofbritis443geol',
+'113722' => 'bulletinofbritis444geol',
+'112848' => 'bulletinofbritis45brit',
+/*'112791' => 'bulletinofbritis47brit',*/
+'112790' => 'bulletinofbritis50brit'
+);
+
+/*
+$items=array(
+'112791' => 'bulletinofbritis47brit'
+);
+*/
+
+
+$items=array(
+'48570' => 'reportonfishesta00anna'
+);
+
+$items=array(
+/*'47888' => 'zoologischejahrb0286jena',
+'49948' => 'zoologischejahrb386jena',
+'47801' => 'zoologischejahrb498jena',
+'49920' => 'zoologischejahrb51902jena',
+'49890' => 'zoologischejahrb0605jena',
+'49928' => 'zoologischejahrb0704jena',
+'49921' => 'zoologischejahrb0805jena',
+'49947' => 'zoologischejahrb0907jena',
+'49925' => 'zoologischejahrb1009jena',
+'49886' => 'zoologischejahrb1116jena',*/
+'49887' => 'zoologischejahrb1210jena',
+'49897' => 'zoologischejahrb1313jena',
+'49906' => 'zoologischejahrb1413jena',
+'49914' => 'zoologischejahrb151jena',
+'49888' => 'zoologischejahrb152jena',
+'49917' => 'zoologischejahrb153jena'
+);
+
+$items=array(
+'103100' => 'zeitschriftfrd01natu',
+'98033' => 'zeitschriftfrd02natu',
+'98464' => 'zeitschriftfrd03natu',
+'103074' => 'zeitschriftfrd04natu',
+'103057' => 'zeitschriftfrd05natu',
+'97367' => 'zeitschriftfrd06natu',
+'98685' => 'zeitschriftfrd07natu',
+'103075' => 'zeitschriftfrd08natu',
+'98196' => 'zeitschriftfrd09natu',
+'97829' => 'zeitschriftfrd10natu',
+'97788' => 'zeitschriftfrd11natu',
+'103098' => 'zeitschriftfrd12natu',
+'103054' => 'zeitschriftfrd13natu',
+'97791' => 'zeitschriftfrd14natu',
+'103051' => 'zeitschriftfrd15natu',
+'97828' => 'zeitschriftfrd16natu',
+'97786' => 'zeitschriftfrd17natu',
+'97831' => 'zeitschriftfrd18natu',
+'98082' => 'zeitschriftfrd19natu',
+'98084' => 'zeitschriftfrd20natu',
+'103060' => 'zeitschriftfrd21natu',
+'103056' => 'zeitschriftfrd22natu',
+'103005' => 'zeitschriftfrd231864natu',
+'97821' => 'zeitschriftfrd24natu',
+'97789' => 'zeitschriftfrd25natu',
+'103172' => 'zeitschriftfrd26natu',
+'97790' => 'zeitschriftfrd27natu',
+'97645' => 'zeitschriftfrd28natu',
+'103174' => 'zeitschriftfrd29natu',
+'102864' => 'zeitschriftfrd301867natu',
+'97783' => 'zeitschriftfrd31natu',
+'103099' => 'zeitschriftfrd32natu',
+'108758' => 'mobot000155426_Bd33',
+'97784' => 'zeitschriftfrd34natu',
+'98211' => 'zeitschriftfrd36natu',
+'97823' => 'zeitschriftfrd37natu',
+'97822' => 'zeitschriftfrd38natu',
+'97824' => 'zeitschriftfrd39natu',
+'97355' => 'zeitschriftfrd40natu',
+'108757' => 'mobot000155426_Bd43',
+'108756' => 'mobot000155426_Bd44',
+'103076' => 'zeitschriftfrd0910natu',
+'103937' => 'zeitschriftfrd1112natu',
+'103323' => 'zeitschriftfrd1314natu',
+'103077' => 'zeitschriftfrd0306natu'
+);
+
+$items=array(
+'97790' => 'zeitschriftfrd27natu'
+);
+
+$items=array(
+'25647' => 'proceedingsofsan01sand',
+'25699' => 'proceedingsofsan02sand',
+'25702' => 'proceedingsofsan03sand',
+'25673' => 'proceedingsofsan04sand',
+'25682' => 'proceedingsofsan05sand',
+'25659' => 'proceedingsofsan06sand',
+'25697' => 'proceedingsofsan07sand',
+'25649' => 'proceedingsofsan08sand',
+//'25680' => 'proceedingsofsan0927sand',
+'25698' => 'proceedingsofsan28sand',
+'21705' => 'proceedingsofsan29sand',
+'21706' => 'proceedingsofsan30sand',
+'21707' => 'proceedingsofsan31sand',
+'21708' => 'proceedingsofsan32sand',
+'25705' => 'proceedingsofsan33sand',
+'89071' => 'proceedingsofsan1998sand',
+'89206' => 'proceedingsofsan1999sand',
+'89208' => 'proceedingsofsan2000sand',
+'89201' => 'proceedingsofsan37sand',
+'104351' => 'mobot31753003648570'
+);
+
+/*
+$items=array(
+'25680' => 'proceedingsofsan0927sand'
+);
+*/
+
+$items=array(
+'113930' => 'carnegieinstitut186carn',
+'17449' => 'carnegieinstitut1919carn',
+'14086' => 'mobot31753002274303',
+'14096' => 'mobot31753002274311',
+'14106' => 'mobot31753002274329',
+'14110' => 'mobot31753002274337',
+'18021' => 'carnegieinstitut04carn',
+'17575' => 'carnegieinstitut07carn',
+'17987' => 'carnegieinstitut08carn',
+'17528' => 'carnegieinstitut11carn',
+'17537' => 'carnegieinstitut12carn',
+'17541' => 'carnegieinstitut15carn',
+'17545' => 'carnegieinstitut16carn',
+'17579' => 'carnegieinstitut18carn',
+'28991' => 'carnegieinstitut19carn',
+'18003' => 'carnegieinstitut20carn',
+'17607' => 'carnegieinstitut23carn',
+'17599' => 'carnegieinstitut24carn',
+'17460' => 'carnegieinstitut25carn',
+'17597' => 'carnegieinstitut28carn',
+'17586' => 'carnegieinstitut29carn',
+'17517' => 'carnegieinstitut30carn',
+'17614' => 'carnegieinstitut31carn',
+'27769' => 'carnegieinstitut321906carn',
+'28611' => 'carnegieinstitut35carn',
+'17991' => 'carnegieinstitut37carn',
+'17531' => 'carnegieinstitut39carn',
+'17495' => 'carnegieinstitut40carn',
+'17508' => 'carnegieinstitut42carn',
+'27889' => 'carnegieinstitut44carn',
+'18009' => 'carnegieinstitut48carn',
+'17513' => 'carnegieinstitut49carn',
+'17608' => 'carnegieinstitut50carn',
+'17461' => 'carnegieinstitut51carn',
+'17580' => 'carnegieinstitut52carn',
+'17462' => 'carnegieinstitut54carn',
+'30726' => 'carnegieinstitut55carn',
+'17598' => 'carnegieinstitut56carn',
+'27886' => 'carnegieinstitut58carn',
+'17526' => 'carnegieinstitut60carn',
+'17587' => 'carnegieinstitut61carn',
+'17875' => 'carnegieinstitut62carn',
+'17611' => 'carnegieinstitut63carn',
+'17535' => 'carnegieinstitut64carn',
+'17567' => 'carnegieinstitut67carn',
+'17509' => 'carnegieinstitut68carn',
+'17555' => 'carnegieinstitut69carn',
+'17617' => 'carnegieinstitut70carn',
+'17556' => 'carnegieinstitut71carn',
+'17475' => 'carnegieinstitut75carn',
+'17615' => 'carnegieinstitut76carn',
+'17590' => 'carnegieinstitut77carn',
+'18014' => 'carnegieinstitut80carn',
+'17542' => 'carnegieinstitut81carn',
+'28608' => 'carnegieinstitut82carn',
+'17612' => 'carnegieinstitut84carn',
+'17600' => 'carnegieinstitut88carn',
+'17506' => 'carnegieinstitut94carn',
+'17463' => 'carnegieinstitut95carn',
+'17551' => 'carnegieinstitut96carn',
+'18005' => 'carnegieinstitut97carn',
+'17591' => 'carnegieinstitut98carn',
+'17880' => 'carnegieinstitut101carn',
+'17559' => 'carnegieinstitut104carn',
+'17486' => 'carnegieinstitut106carn',
+'28599' => 'carnegieinstitut107carn',
+'17530' => 'carnegieinstitut110carn',
+'28065' => 'carnegieinstitut1909111carn',
+'17523' => 'carnegieinstitut112carn',
+'17524' => 'carnegieinstitut114carn',
+'17472' => 'carnegieinstitut116carn',
+'17561' => 'carnegieinstitut117carn',
+'17500' => 'carnegieinstitut118carn',
+'17525' => 'carnegieinstitut121carn',
+'17507' => 'carnegieinstitut122carn',
+'17584' => 'carnegieinstitut123carn',
+'17999' => 'carnegieinstitut126carn',
+'17876' => 'carnegieinstitut129carn',
+'17585' => 'carnegieinstitut130carn',
+'27753' => 'carnegieinstitut134carn',
+'23626' => 'carnegieinstitut1910135carn',
+'17529' => 'carnegieinstitut139carn',
+'23635' => 'carnegieinstitut1911140carn',
+'17573' => 'carnegieinstitut142carn',
+'23570' => 'carnegieinstitut1911143carn',
+'17582' => 'carnegieinstitut144carn',
+'27767' => 'carnegieinstitut145carn',
+'27773' => 'carnegieinstitut146carn',
+'17566' => 'carnegieinstitut152carn',
+'17480' => 'carnegieinstitut153carn',
+'17498' => 'carnegieinstitut155carn',
+'17454' => 'carnegieinstitut156carn',
+'17554' => 'carnegieinstitut160carn',
+'17532' => 'carnegieinstitut164carn',
+'17481' => 'carnegieinstitut166carn',
+'17616' => 'carnegieinstitut167carn',
+'17568' => 'carnegieinstitut170carn',
+'17514' => 'carnegieinstitut174carn',
+'17543' => 'carnegieinstitut176carn',
+'17592' => 'carnegieinstitut177carn',
+'27882' => 'carnegieinstitut178carn',
+'17536' => 'carnegieinstitut179carn',
+'18023' => 'carnegieinstitut180carn',
+'17576' => 'carnegieinstitut181carn',
+'24867' => 'carnegieinstitut1913186carn',
+'17560' => 'carnegieinstitut188carn',
+'18022' => 'carnegieinstitut190carn',
+'17504' => 'carnegieinstitut191carn',
+'27878' => 'carnegieinstitut192carn',
+'27774' => 'carnegieinstitut1931914carn',
+'17456' => 'carnegieinstitut194carn',
+'18083' => 'carnegieinstitut195carn',
+'18153' => 'carnegieinstitut196carn',
+'17774' => 'carnegieinstitut197carn',
+'23577' => 'carnegieinstitut1914198carn',
+'18161' => 'carnegieinstitut199carn',
+'27881' => 'carnegieinstitut200carn',
+'27877' => 'carnegieinstitut201carn',
+'18122' => 'carnegieinstitut204carn',
+'27763' => 'carnegieinstitut205carn',
+'27883' => 'carnegieinstitut207carn',
+'17915' => 'carnegieinstitut209carn',
+'18096' => 'carnegieinstitut210carn',
+'18134' => 'carnegieinstitut211carn',
+'18100' => 'carnegieinstitut212carn',
+'27891' => 'carnegieinstitut213carn',
+'18171' => 'carnegieinstitut216carn',
+'18222' => 'carnegieinstitut217carn',
+'18129' => 'carnegieinstitut218carn',
+'18185' => 'carnegieinstitut221carn',
+'27777' => 'carnegieinstitut222carn',
+'18186' => 'carnegieinstitut223carn',
+'23628' => 'carnegieinstitut1916224carn',
+'18237' => 'carnegieinstitut225carn',
+'18156' => 'carnegieinstitut226carn',
+'17924' => 'carnegieinstitut227carn',
+'17788' => 'carnegieinstitut229carn',
+'18163' => 'carnegieinstitut230carn',
+'18125' => 'carnegieinstitut231carn',
+'18114' => 'carnegieinstitut232carn',
+'18187' => 'carnegieinstitut233carn',
+'18116' => 'carnegieinstitut235carn',
+'18104' => 'carnegieinstitut236carn',
+'18097' => 'carnegieinstitut237carn',
+'18238' => 'carnegieinstitut238carn',
+'18101' => 'carnegieinstitut241carn',
+'18216' => 'carnegieinstitut243carn',
+'18233' => 'carnegieinstitut245carn',
+'18087' => 'carnegieinstitut249carn',
+'18086' => 'carnegieinstitut251carn',
+'17777' => 'carnegieinstitut252carn',
+'18075' => 'carnegieinstitut259carn',
+'18105' => 'carnegieinstitut260carn',
+'18130' => 'carnegieinstitut261carn',
+'28613' => 'carnegieinstitut263carn',
+'18145' => 'carnegieinstitut264carn',
+'27761' => 'carnegieinstitut265carn',
+'28597' => 'carnegieinstitut266carn',
+'18084' => 'carnegieinstitut267carn',
+'26524' => 'carnegieinstitut1918269carn',
+'17538' => 'carnegieinstitut2701carn',
+'28449' => 'carnegieinstitut2711918carn',
+'18010' => 'carnegieinstitut2702carn',
+'18131' => 'carnegieinstitut272carn',
+'17477' => 'carnegieinstitut2703carn',
+'23629' => 'carnegieinstitut1921273carn',
+'27772' => 'carnegieinstitut2741920carn',
+'17902' => 'carnegieinstitut275carn',
+'18141' => 'carnegieinstitut276carn',
+'18188' => 'carnegieinstitut277carn',
+'17897' => 'carnegieinstitut279carn',
+'27776' => 'carnegieinstitut280carn',
+'28955' => 'carnegieinstitut283carn',
+'28954' => 'carnegieinstitut284carn',
+'18166' => 'carnegieinstitut285carn',
+'27896' => 'carnegieinstitut286carn',
+'18132' => 'carnegieinstitut287carn',
+'18127' => 'carnegieinstitut288carn',
+'17808' => 'carnegieinstitut289carn',
+'28990' => 'carnegieinstitut290carn',
+'18234' => 'carnegieinstitut291carn',
+'28612' => 'carnegieinstitut292carn',
+'18236' => 'carnegieinstitut293carn',
+'18217' => 'carnegieinstitut294carn',
+'18109' => 'carnegieinstitut295carn',
+'27887' => 'carnegieinstitut296carn',
+'17972' => 'carnegieinstitut297carn',
+'18110' => 'carnegieinstitut298carn',
+'18074' => 'carnegieinstitut302carn',
+'18088' => 'carnegieinstitut303carn',
+'18177' => 'carnegieinstitut305carn',
+'17895' => 'carnegieinstitut306carn',
+'18189' => 'carnegieinstitut307carn',
+'17908' => 'carnegieinstitut308carn',
+'18178' => 'carnegieinstitut309carn',
+'18142' => 'carnegieinstitut310carn',
+'26811' => 'carnegieinstitut311carn',
+'27935' => 'carnegieinstitut312carn',
+'17916' => 'carnegieinstitut313carn',
+'18230' => 'carnegieinstitut314carn',
+'18133' => 'carnegieinstitut315carn',
+'28988' => 'carnegieinstitut316carn',
+'18235' => 'carnegieinstitut317carn',
+'27888' => 'carnegieinstitut319carn',
+'18212' => 'carnegieinstitut320carn',
+'18077' => 'carnegieinstitut321carn',
+'17557' => 'carnegieinstitut9602carn',
+'17604' => 'carnegieinstitut10201carn',
+'17594' => 'carnegieinstitut10302carn',
+'17618' => 'carnegieinstitut13203carn',
+'27885' => 'carnegieinstitut13304carn',
+'26523' => 'carnegieinstitut191215901carn',
+'17553' => 'carnegieinstitut15902carn',
+'17593' => 'carnegieinstitut15903carn',
+'18004' => 'carnegieinstitut15904carn',
+'17485' => 'carnegieinstitut17301carn',
+'17511' => 'carnegieinstitut17302carn',
+'17471' => 'carnegieinstitut17501carn',
+'18019' => 'carnegieinstitut17502carn',
+'27779' => 'carnegieinstitut17503carn',
+'18020' => 'carnegieinstitut17504carn',
+'27884' => 'carnegieinstitut18205carn',
+'17595' => 'carnegieinstitut18306carn',
+'18196' => 'carnegieinstitut24801carn',
+'18170' => 'carnegieinstitut24802carn',
+'17896' => 'carnegieinstitut24803carn',
+'17552' => 'carnegieinstitut24902carn',
+'17919' => 'carnegieinstitut24903carn',
+'18205' => 'carnegieinstitut24904carn',
+'17778' => 'carnegieinstitut25602carn',
+'17918' => 'carnegieinstitut27001carn',
+'18081' => 'carnegieinstitut27002carn',
+'17515' => 'carnegieinstitut650304carn'
+);
+
+$items=array(
+'18100' => 'carnegieinstitut212carn'
+);
+
+$items=array(
+/*'38113' => 'annalsofcarnegie01carn',
+'38117' => 'annalsofcarnegie02carn',
+'38747' => 'annalsofcarnegie03carn',*/
+'38132' => 'annalsofcarnegie05carn',
+'38116' => 'annalsofcarnegie07carn',
+'37006' => 'annalsofcarnegie08carn',
+//'37656' => 'annalsofcarnegie09carn',
+'38133' => 'annalsofcarnegie10carn',
+'37005' => 'annalsofcarnegie11carn',
+'37007' => 'annalsofcarnegie12carn',
+'38118' => 'annalsofcarnegie13carn',
+'38134' => 'annalsofcarnegie14carn'
+);
+
+/*
+$items=array(
+'37656' => 'annalsofcarnegie09carn'
+);
+*/
+
+/*
+$items=array(
+'32850' => 'occasionalpapers01bost',
+'32852' => 'occasionalpapers02bost',
+'107444' => 'occasionalpapers03bost',
+'32510' => 'occasionalpapers04bost',
+'108730' => 'mobot000134709_v4v1pt1',
+'107543' => 'occasionalpapers05bost',
+'31824' => 'occasionalpapers06bost',
+'108260' => 'occasionalpapers0701bost',
+'107976' => 'occasionalpaper070201bost',
+'108005' => 'occasionalpaper070202bost',
+'108258' => 'occasionalpapers08bost'
+);
+*/
+/*
+$items=array(
+'108258' => 'occasionalpapers08bost'
+);
+*/
+
+$items=array(
+'44469' => 'bulletinofzoolog27inte'
+);
+
+$items=array(
+/*'49090' => 'quarterlyjournal128lond',
+'88278' => 'quarterlyjournal01comp',
+'88280' => 'quarterlyjournal02comp',
+'48912' => 'quarterlyjournal31855lond',
+'48919' => 'quarterlyjournal41856lond',
+'48910' => 'quarterlyjournal51857lond',
+'48900' => 'quarterlyjournal61858lond',
+'48904' => 'quarterlyjournal71859lond',
+'48915' => 'quarterlyjournal81860lond',*/
+'49157' => 'quarterlyjournal01lond',
+'48892' => 'quarterlyjournal21862lond',
+'51052' => 'quarterlyjournal31863lond',
+'48921' => 'quarterlyjournal41864lond',
+'49036' => 'quarterlyjournal51865lond',
+'48901' => 'quarterlyjournal61866lond',
+'48924' => 'quarterlyjournal71867lond',
+'48907' => 'quarterlyjournal81868lond',
+'48723' => 'quarterlyjournal101870lond',
+'51034' => 'quarterlyjournal111871lond',
+'49041' => 'quarterlyjournal121872lond',
+'88286' => 'nsquarterlyjourn13comp',
+'51035' => 'quarterlyjournal141874lond',
+'51037' => 'quarterlyjournal151875lond',
+'51033' => 'quarterlyjournal161876lond',
+'49033' => 'quarterlyjournal171877lond',
+'51022' => 'quarterlyjournal181878lond',
+'51038' => 'quarterlyjournal191879lond',
+'49034' => 'quarterlyjournal211881lond',
+'51036' => 'quarterlyjournalplates2181lond',
+'51041' => 'quarterlyjournal221882lond',
+'49064' => 'quarterlyjournal231883lond',
+'49062' => 'quarterlyjournal241884lond',
+'51030' => 'quarterlyjournalplates2484lond',
+'51059' => 'quarterlyjournal251885lond',
+'49101' => 'quarterlyjournal268586lond',
+'51050' => 'quarterlyjournalplates268586lond',
+'49065' => 'quarterlyjournal278687lond',
+'49069' => 'quarterlyjournal271887lond',
+'49102' => 'quarterlyjournal288788lond',
+'49100' => 'quarterlyjournalplates288788lond',
+'49115' => 'quarterlyjournal291889lond',
+'49106' => 'quarterlyjournal308990lond',
+'51027' => 'quarterlyjournalplates308990lond',
+'49066' => 'quarterlyjournal311890lond',
+'51031' => 'quarterlyjournalplates311890lond',
+'49116' => 'quarterlyjournal321891lond',
+'49344' => 'quarterlyjournalplates321891lond',
+'49104' => 'quarterlyjournal339192lond',
+'49107' => 'quarterlyjournalplates339192lond',
+'49113' => 'quarterlyjournal349293lond',
+'49112' => 'quarterlyjournalplates349293lond',
+'49114' => 'quarterlyjournal359394lond',
+'51026' => 'quarterlyjournalplates359394lond',
+'49076' => 'quarterlyjournal361894lond',
+'51029' => 'quarterlyjournalplates361894lond',
+'48800' => 'quarterlyjournal379495lond',
+'51051' => 'quarterlyjournalplates379495lond',
+'49117' => 'quarterlyjournal389596lond',
+'49071' => 'quarterlyjournalplates389596lond',
+'49108' => 'quarterlyjournal399697lond',
+'51028' => 'quarterlyjournalplates399697lond',
+'49103' => 'quarterlyjournal409798lond',
+'49073' => 'quarterlyjournalplates409798lond',
+'48928' => 'quarterlyjournal419899lond',
+'51058' => 'quarterlyjournalplates419899lond',
+'48897' => 'quarterlyjournal421899lond',
+'51048' => 'quarterlyjournalplates421899lond',
+'49039' => 'quarterlyjournal431900lond',
+'51042' => 'quarterlyjournalplates431900lond',
+'49111' => 'quarterlyjournal440001lond',
+'51040' => 'quarterlyjournalplates440001lond',
+'51054' => 'quarterlyjournal450102lond',
+'51039' => 'quarterlyjournal460203lond',
+'51060' => 'quarterlyjournal470304lond',
+'49110' => 'quarterlyjournal480405lond',
+'49061' => 'quarterlyjournal490506lond',
+'50253' => 'quarterlyjournal501906lond',
+'52766' => 'quarterlyjournal511907lond',
+'52504' => 'quarterlyjournal521908lond',
+'49278' => 'quarterlyjournal53lond',
+'49303' => 'quarterlyjournal55lond',
+'49171' => 'quarterlyjournal56lond',
+'49169' => 'quarterlyjournal65lond',
+'49321' => 'quarterlyjournal66lond',
+'49277' => 'quarterlyjournal67lond'
+);
+
+/*
+$items=array(
+'49303' => 'quarterlyjournal55lond'
+);
+*/
+
+$items=array(
+'120622' => 'proceedingsofbi901977biol'
+);
+
+$items=array(
+'120445' => 'MemoirsNational26Nati',
+'120610' => 'MemoirsNational27Nati',
+'120446' => 'MemoirsNational28Nati',
+'120452' => 'MemoirsNational29Nati',
+'120624' => 'MemoirsNational30Nati',
+'120609' => 'MemoirsNational33Nati',
+'120625' => 'MemoirsNational34Nati',
+'120608' => 'MemoirsNational35Nati'
+);
+
+$items=array(
+/*'119055' => 'australianzoolog11914roya',
+'119458' => 'australianzoolog16119roya',
+'119459' => 'australianzoolog16219roya',
+'119460' => 'australianzoolog17219roya',
+'119054' => 'australianzoolog21921roya',
+'119358' => 'australianzoolog31922roya',
+'119325' => 'australianzoolog41925roya',*/
+/*'119323' => 'australianzoolog51927roya',
+'119326' => 'australianzoolog61929roya',
+'119322' => 'australianzoolog7193roya',
+'119324' => 'australianzoolog8193roya',
+'120124' => 'australianzoolog91937roya',
+'120627' => 'australianzool1119455roya',
+'120089' => 'australianzoolog12195roya',
+'119448' => 'australianzoolog13196roya',
+'119449' => 'australianzoolog14196roya',
+'120250' => 'australianzoolog18191roya',*/
+'120553' => 'australianz2021197885roya'
+);
+
+/*
+$items=array(
+'81414' => 'verhandlungender1868zool'
+);
+*/
+
+$items=array(
+'43155' => 'reportonscientif11berg',
+'120116' => 'reportonscientif31berg',
+'120117' => 'reportonscientif32berg'
+);
+
+$items=array(
+'100658' => 'comptesrendusdes1902soci2',
+'100723' => 'comptesrendusdes50soci2',
+'33982' => 'comptesrendusdes01soci',
+'33737' => 'comptesrendusdes02soci',
+'33983' => 'comptesrendusdes03soci',
+'33709' => 'comptesrendusdes04soci',
+'33735' => 'comptesrendusdes05soci',
+'33993' => 'comptesrendusdes621soci',
+'33994' => 'comptesrendusdes722soci',
+'33951' => 'comptesrendusdes823soci',
+'33995' => 'comptesrendusdes924soci',
+'33984' => 'comptesrendusdes1025soci',
+'33985' => 'comptesrendusdes1131soci',
+'33986' => 'comptesrendusdes1232soci',
+'33987' => 'comptesrendusdes1434soci',
+'33988' => 'comptesrendusdes1535soci',
+'33989' => 'comptesrendusdes1641soci',
+'33990' => 'comptesrendusdes1742soci',
+'35704' => 'comptesrendusdes1843soci',
+'33991' => 'comptesrendusdes1944soci',
+'33992' => 'comptesrendusdes2045soci',
+'33727' => 'comptesrendusdes2151soci',
+'33710' => 'comptesrendusdes2252soci',
+'107050' => 'comptesrendusdes1900soci',
+'100652' => 'comptesrendusdes1901soci',
+'100655' => 'comptesrendusdes1902soci',
+'100724' => 'comptesrendusdes1903soci',
+'108968' => 'comptesrendusdes84soci',
+'109278' => 'comptesrendusdes86soci',
+'100714' => 'comptesrendusdes1904soci',
+'100653' => 'comptesrendusdes1904soci2',
+'100718' => 'comptesrendusdes1905soci',
+'100663' => 'comptesrendusdes1905soci2',
+'100662' => 'comptesrendusdes1906soci2',
+'100705' => 'comptesrendusdes1849soci',
+'100669' => 'comptesrendusdes1871soci',
+'100732' => 'comptesrendusdes1872soci',
+'101502' => 'comptesrendusdes1873soci',
+'100717' => 'comptesrendusdes1875soci',
+'100661' => 'comptesrendusdes1876soci',
+'100670' => 'comptesrendusdes1877soci',
+'100701' => 'comptesrendusdes1878soci',
+'100702' => 'comptesrendusdes1879soci',
+'100703' => 'comptesrendusdes1880soci',
+'100849' => 'comptesrendusdes1881soci',
+'100851' => 'comptesrendusdes1882soci',
+'100704' => 'comptesrendusdes1883soci',
+'103919' => 'comptesrendusdes1884soci',
+'103920' => 'comptesrendusdes1885soci',
+'100616' => 'comptesrendusdes1886soci',
+'100645' => 'comptesrendusdes1887soci',
+'100644' => 'comptesrendusdes1888soci',
+'100648' => 'comptesrendusdes1889soci',
+'100855' => 'comptesrendusdes1890soci',
+'100650' => 'comptesrendusdes1891soci',
+'100719' => 'comptesrendusdes1892soci',
+'100654' => 'comptesrendusdes1893soci',
+'109352' => 'comptesrendusdes78soci',
+'109290' => 'comptesrendusdes79soci',
+'109281' => 'comptesrendusdes80soci',
+'109288' => 'comptesrendusdes81soci',
+'109282' => 'comptesrendusdes82soci',
+'109289' => 'comptesrendusdes83soci',
+'100649' => 'comptesrendusdes1894soci',
+'100730' => 'comptesrendusdes18954soci',
+'100656' => 'comptesrendusdes1896soci',
+'100709' => 'comptesrendusdes1897soci',
+'100632' => 'comptesrendusdes1898soci',
+'103921' => 'comptesrendusdes1899soci',
+'108559' => 'comptesrendusdes62soci',
+'108557' => 'comptesrendusdes63soci',
+'109065' => 'comptesrendusdes64soci',
+'108558' => 'comptesrendusdes65soci',
+'108622' => 'comptesrendusdes66soci',
+'109061' => 'comptesrendusdes67soci',
+'109064' => 'comptesrendusdes68soci',
+'108589' => 'comptesrendusdes69soci',
+'108611' => 'comptesrendusdes70soci',
+'108610' => 'comptesrendusdes71soci',
+'108588' => 'comptesrendusdes72soci',
+'108612' => 'comptesrendusdes73soci',
+'109204' => 'comptesrendusdes74soci',
+'109279' => 'comptesrendusdes75soci',
+'109471' => 'comptesrendusdes76soci',
+'109328' => 'comptesrendusdes77soci',
+'109623' => 'comptesrendusdes85soci',
+'109622' => 'comptesrendusdes87soci'
+);
+
+$items=array(
+'109289' => 'comptesrendusdes83soci'
+);
+
+$items=array(
+'102268' => 'iberusrevista14198184soci',
+'102990' => 'iberusrevista57198587soci',
+'101811' => 'iberusrevistadel81988soci',
+'101520' => 'iberusrevistadel91990soci',
+'101684' => 'iberusre1011112199193soci',
+'101509' => 'iberusrevis1213199495soci',
+'109625' => 'iberusrevistadel14soci',
+'109472' => 'iberusrevistadel15soci',
+'101516' => 'iberusrevistade198197soci',
+'101510' => 'iberusrevis1617199899soci',
+'101689' => 'iberusrevis1819200001soci',
+'105278' => 'iberusrevistadel202soci',
+'106875' => 'iberusrevistadel212soci',
+'107048' => 'iberusrevistadel221soci'
+);
+
+$items=array(
+'44481' => 'bulletinofzoolog39inte'
+);
+
+$items=array(
+'44482' => 'bulletinofzoolog40inte'
+);
+
+$items=array(
+'40069' => 'diptres00bigo'
+);
+
+$items=array(
+'110335' => 'stuttgarterbeitr130staa',
+'106177' => 'stuttgarte3160196061staa',
+'104391' => 'stuttgarterbe61791961staa',
+'104640' => 'stuttgarte80124196263staa',
+'104930' => 'stuttgart125144196465staa',
+'114022' => 'stuttgarterbeitr14219staa',
+'104558' => 'stuttgarterbei1451965staa',
+'104610' => 'stuttgarter1461701966staa',
+'104637' => 'stuttgarterbei1711967staa',
+'104636' => 'stuttgarterbei1721967staa',
+'110329' => 'stuttgarterbeitr173staa',
+'110340' => 'stuttgarterbeitr174staa',
+'110388' => 'stuttgarterbeitr175staa',
+'110395' => 'stuttgarterbeitr176staa',
+'110330' => 'stuttgarterbeitr177staa',
+'110399' => 'stuttgarterbeitr178staa',
+'110394' => 'stuttgarterbeitr179staa',
+'110400' => 'stuttgarterbeitr180staa',
+'104634' => 'stuttgart171180196768staa',
+'106312' => 'stuttgart181200196869staa',
+'114023' => 'stuttgarterbeitr18519staa',
+'104643' => 'stuttgart201223196970staa',
+'114024' => 'stuttgarterbeitr21519staa',
+'105236' => 'stuttgart224253197172staa'
+);
+
+$items=array(
+/*'42360' => 'entomologisktids231902ento',
+'42374' => 'entomologisktids241903ento',
+'42383' => 'entomologisktids331912ento',
+'42378' => 'entomologisktids341913ento',
+'42355' => 'entomologisktids351914ento',
+'43031' => 'entomologisktids361915ento',
+'42953' => 'entomologisktids371916ento',
+'42375' => 'entomologisktids381917ento',
+'42361' => 'entomologisktids391918ento',
+'42352' => 'entomologisktids431922ento',
+'43643' => 'entomologisktids12188081ento',
+'111168' => 'entomologiskt34188283ento',
+'45012' => 'entomologisktids56188485ento',
+'43646' => 'entomologisktids78188687ento',
+'44567' => 'entomologisktids910188889ento',
+'43650' => 'entomologisktids1112189091ento',
+'44235' => 'entomologisktids1314189293ento',
+'88742' => 'entomologisktids13ento',
+'88740' => 'entomologisktids01ento',
+'43651' => 'entomologisktids1516189495ento',
+'44566' => 'entomologisktids1718189697ento',
+'43633' => 'entomologisktids1920189899ento',
+'42373' => 'entomologisktids2122190001ento',*/
+'44576' => 'entomologisktids2526190405ento',
+'43030' => 'entomologisktids2728190607ento',
+'41629' => 'entomologisktids2930190809ento',
+'42929' => 'entomologisktids3132191011ento',
+'42369' => 'entomologisktids4042191921ento',
+'88741' => 'entomologisktids05ento',
+'89712' => 'entomologisktids09ento',
+'41625' => 'entomologisktids113018901909ento',
+'88743' => 'entomologisktids15ento',
+'89782' => 'entomologisktids18ento',
+'88570' => 'entomologisktids22ento',
+'88679' => 'entomologisktids25ento',
+'88744' => 'entomologisktids30ento',
+'88745' => 'entomologisktids34ento',
+'88746' => 'entomologisktids37ento',
+'88747' => 'entomologisktids41ento'
+);
+
+/*
+$items=array(
+'114383' => 'liangqibaxingdonnew03chen',
+'114384' => 'liangqibaxingdonnew04chen',
+);
+*/
+
+/*
+$items=array(
+'1110' => 'mobot31753002572797',
+'1111' => 'mobot31753002572680',
+'1112' => 'mobot31753002572805',
+'1113' => 'mobot31753002572698',
+'1114' => 'mobot31753002572789',
+'1106' => 'mobot31753002374012',
+'1115' => 'mobot31753002572706',
+'1116' => 'mobot31753002972336',
+'1117' => 'mobot31753002572722',
+'1118' => 'mobot31753002572730',
+'1119' => 'mobot31753002572748',
+'1120' => 'mobot31753002572755',
+'1121' => 'mobot31753002572771',
+'1122' => 'mobot31753002572763',
+'1123' => 'mobot31753002580642',
+'1124' => 'mobot31753002580584',
+'1125' => 'mobot31753002580626',
+'1126' => 'mobot31753002580618',
+'1127' => 'mobot31753002580600',
+'1128' => 'mobot31753002580592',
+'1129' => 'mobot31753002580634',
+'1130' => 'mobot31753002580576',
+'1131' => 'mobot31753002580568',
+'89402' => 'mobot31753002580550',
+'88959' => 'mobot31753002580543'
+);
+*/
+
+/*
+$items=array(
+'1126' => 'mobot31753002580618'
+);
+*/
+
+/*
+$items=array(
+'44475' => 'bulletinofzoolog33inte'
+);
+*/
+
+$items=array(
+'106891' => 'bulletin7073sout',
+'106678' => 'bulletin7477sout',
+'106676' => 'bulletin7880sout',
+'107117' => 'bulletin8182sout',
+'106575' => 'bulletin8301sout',
+'106553' => 'bulletin8302sout',
+'106535' => 'bulletin8303sout',
+'106620' => 'bulletin8401sout',
+'106677' => 'bulletin8402sout',
+'106598' => 'bulletin8403sout',
+'106554' => 'bulletin8501sout',
+'106518' => 'bulletin8502sout',
+'106527' => 'bulletin8503sout',
+'106621' => 'bulletin8601sout',
+'106516' => 'bulletin8602sout',
+'106547' => 'bulletin8603sout',
+'106686' => 'bulletin8701sout',
+'106524' => 'bulletin8702sout',
+'106537' => 'bulletin8703sout',
+'106536' => 'bulletin8801sout',
+'106526' => 'bulletin8802sout',
+'106608' => 'bulletin8803sout',
+'106513' => 'bulletin8901sout',
+'106520' => 'bulletin8902sout',
+'106523' => 'bulletin8903sout',
+'106538' => 'bulletin9001sout',
+'106587' => 'bulletin9002sout',
+'106671' => 'bulletin9003sout',
+'106563' => 'bulletin9101sout',
+'106555' => 'bulletin9102sout',
+'106618' => 'bulletin9103sout',
+'106531' => 'bulletin9201sout',
+'106551' => 'bulletin9202sout',
+'106514' => 'bulletin9203sout',
+'106668' => 'bulletin9301sout',
+'106622' => 'bulletin9302sout',
+'106623' => 'bulletin9303sout',
+'106519' => 'bulletin9401sout',
+'106521' => 'bulletin9402sout',
+'106502' => 'bulletin9403sout'
+);
+
+$items=array(
+'106676' => 'bulletin7880sout'
+);
+
+$items=array(
+/*'41625' => 'entomologisktids113018901909ento',
+'88743' => 'entomologisktids15ento',
+'89782' => 'entomologisktids18ento',
+'88570' => 'entomologisktids22ento',
+'88679' => 'entomologisktids25ento',
+'88744' => 'entomologisktids30ento',
+'88745' => 'entomologisktids34ento',
+'88746' => 'entomologisktids37ento',*/
+'88747' => 'entomologisktids41ento'
+);
+
+$items=array(
+'23084' => 'novitateszoologi36lond'
+);
+
+$items=array(
+'47687' => 'manualofnewzeala00domi'
+);
+
+$items=array(
+'111063' => 'boletndelmuseona81915muse',
+'111054' => 'boletndelmuseona91916muse',
+'100439' => 'boletndelmuseo101917muse',
+'111065' => 'boletndelmuseona181911mu',
+'121195' => 'boletndelmuseon211910muse',
+'98626' => 'boletndelmuseo321911muse'
+);
+
+$items=array(
+'109114' => 'proceedingsoflin49linn'
+);
+
+
+$items=array(
+'106678' => 'bulletin7477sout'
+);
+
+$items=array(
+'106891' => 'bulletin7073sout',
+/*'106678' => 'bulletin7477sout',*/
+'106676' => 'bulletin7880sout',
+'107117' => 'bulletin8182sout',
+'106575' => 'bulletin8301sout',
+'106553' => 'bulletin8302sout',
+'106535' => 'bulletin8303sout',
+'106620' => 'bulletin8401sout',
+'106677' => 'bulletin8402sout',
+'106598' => 'bulletin8403sout',
+'106554' => 'bulletin8501sout',
+'106518' => 'bulletin8502sout',
+'106527' => 'bulletin8503sout',
+'106621' => 'bulletin8601sout',
+'106516' => 'bulletin8602sout',
+'106547' => 'bulletin8603sout',
+'106686' => 'bulletin8701sout',
+'106524' => 'bulletin8702sout',
+'106537' => 'bulletin8703sout',
+'106536' => 'bulletin8801sout',
+'106526' => 'bulletin8802sout',
+'106608' => 'bulletin8803sout',
+'106513' => 'bulletin8901sout',
+'106520' => 'bulletin8902sout',
+'106523' => 'bulletin8903sout',
+'106538' => 'bulletin9001sout',
+'106587' => 'bulletin9002sout',
+'106671' => 'bulletin9003sout',
+'106563' => 'bulletin9101sout',
+'106555' => 'bulletin9102sout',
+'106618' => 'bulletin9103sout',
+'106531' => 'bulletin9201sout',
+'106551' => 'bulletin9202sout',
+/*'106514' => 'bulletin9203sout',*/
+'106668' => 'bulletin9301sout',
+'106622' => 'bulletin9302sout',
+'106623' => 'bulletin9303sout',
+'106519' => 'bulletin9401sout',
+'106521' => 'bulletin9402sout',
+'106502' => 'bulletin9403sout'
+);
+
+$items=array(
+/*'34243' => 'proceedingsofroy89roya',
+'34248' => 'proceedingsofroy90roya',
+'34242' => 'proceedingsofroy91roya',
+'34240' => 'proceedingsofroy04roya',
+'34434' => 'proceedingsofroy05roya',
+'34235' => 'proceedingsofroy06roya',
+'35264' => 'proceedingsofroy07roya',
+'35265' => 'proceedingsofroy08roya',
+'34449' => 'proceedingsofroy09roya',
+'34448' => 'proceedingsofroy10roya',
+'34237' => 'proceedingsofroy11roya',
+'34441' => 'proceedingsofroy12roya',
+'35553' => 'proceedingsofroy13roya',
+'35544' => 'proceedingsofroy14roya',
+'34781' => 'proceedingsofroy15roya',
+'34693' => 'proceedingsofroy16roya',
+'34812' => 'proceedingsofroy17roya',
+'34811' => 'proceedingsofroy18roya',
+'34209' => 'proceedingsofroy19roya',
+'33795' => 'proceedingsofroy20roya',*/
+'34797' => 'proceedingsofroy21roya',
+'34822' => 'proceedingsofroy22roya',
+'34777' => 'proceedingsofroy23roya',
+'33805' => 'proceedingsofroy24roya',
+'34824' => 'proceedingsofroy25roya',
+'34826' => 'proceedingsofroy26roya',
+'34799' => 'proceedingsofroy27roya',
+'34795' => 'proceedingsofroy28roya',
+'36380' => 'proceedingsofroy29roya',
+'36381' => 'proceedingsofroy30roya',
+'110233' => 'proceedingsofroy31unse',
+'34831' => 'proceedingsofroy32roya',
+//'110117' => 'proceedingsofroy33unse',
+'110103' => 'proceedingsofroy34unse',
+'110101' => 'proceedingsofroy35unse'
+);
+
+/*
+$items=array(
+'110117' => 'proceedingsofroy33unse'
+);
+*/
+
+/*
+$items=array(
+'119448' => 'australianzoolog13196roya'
+);
+*/
+
+$items=array(
+'41901' => 'recordsofindianm22indi'
+);
+
+$items=array('121701' => 'australianzool1021943roya',
+'121700' => 'australianzool1031944roya');
+
+//$items=array('120553' => 'australianz2021197885roya');
+
+$items=array('89700' => 'tijdschriftvoore1992nede');
+
+$items=array('28430' => 'archivesdezoolog430503cent');
+
+$items=array('50884' => 'sarawakmuseumjou03sara');
+
+$items=array(
+'119063' => 'Memoirsnational1Nati',
+'119062' => 'MemoirsNational2Nati',
+'119061' => 'MemoirsNational00Nati',
+'119060' => 'MemoirsNational4Nati',
+'119064' => 'MemoirsNational5NatiA',
+'119068' => 'MemoirsNational6Nati',
+'119076' => 'MemoirsNational7Nati',
+'119464' => 'MemoirsNational8Nati',
+'119480' => 'MemoirsNational00NatiA',
+//'120023' => 'MemoirsNational10Nati',
+'120024' => 'MemoirsNational11Nati',
+//'120027' => 'MemoirsNational12Nati',
+'120032' => '13Nati',
+'120130' => 'MemoirsNational14Nati'
+);
+
+/*
+$items=array(
+'120023' => 'MemoirsNational10Nati',
+'120027' => 'MemoirsNational12Nati'
+);
+*/
+
+$items=array(
+'36138' => 'naturundmuseum1897senc',
+'34675' => 'naturundmuseum1898senc',
+'35972' => 'naturundmuseum1899senc',
+'36149' => 'naturundmuseum1900senc',
+'34674' => 'naturundmuseum1902senc',
+'33703' => 'naturundmuseum1903senc',
+'34680' => 'naturundmuseum1904senc',
+'49987' => 'berichtdersencke3536senc',
+'36154' => 'naturundmuseum1905senc',
+'34818' => 'naturundmuseum1906senc',
+'50098' => 'berichtdersencke3738senc',
+'35681' => 'naturundmuseum1907senc',
+'35677' => 'naturundmuseum00senc',
+'33729' => 'naturundmuseum1908senc',
+'50039' => 'berichtdersencke3940senc',
+'35680' => 'naturundmuseum40senc',
+'35987' => 'naturundmuseum41senc',
+'49998' => 'berichtdersencke4142senc',
+'35968' => 'naturundmuseum42senc',
+'36176' => 'naturundmuseum43senc',
+'50157' => 'berichtdersencke4344senc',
+'35684' => 'naturundmuseum44senc',
+'35683' => 'naturundmuseum45senc',
+'35682' => 'naturundmuseum46senc',
+'50004' => 'berichtdersencke4547senc',
+'35961' => 'naturundmuseum47senc',
+'36152' => 'naturundmuseum48senc',
+'50112' => 'berichtdersencke4849senc',
+'36184' => 'naturundmuseum49senc',
+'35962' => 'naturundmuseum50senc',
+'35963' => 'naturundmuseum51senc'
+);
+
+$items=array(
+'50004' => 'berichtdersencke4547senc'
+);
+
+$items=array(
+'97526' => 'historianaturali01bulg',
+'97639' => 'historianaturali02bulg',
+'97469' => 'historianaturali03bulg',
+'97399' => 'historianaturali04bulg',
+'97400' => 'historianaturali05bulg',
+'97470' => 'historianaturali06bulg',
+'97396' => 'historianaturali07bulg',
+'97521' => 'historianaturali08bulg',
+'97522' => 'historianaturali09bulg',
+'97397' => 'historianaturali10bulg',
+'97530' => 'historianaturali11bulg',
+'97398' => 'historianaturali12bulg',
+'97640' => 'historianaturali13bulg',
+'97465' => 'historianaturali14bulg',
+'97527' => 'historianaturali15bulg'
+);
+
+$items=array('39670' => 'zoologica18stut');
+
+
+$items=array(
+/*'49155' => 'zeitschriftfrw01zool',
+'53493' => 'zeitschriftfrw02zool',
+'50073' => 'zeitschriftfrw03zeit',
+'50076' => 'zeitschriftfrw04zeit',
+'50086' => 'zeitschriftfrw05zeit',
+'49183' => 'zeitschriftfrw06zool',
+'49189' => 'zeitschriftfrw07zool',
+'19778' => 'zeitschriftfrw00berl',
+'49190' => 'zeitschriftfrw08zool',
+'49188' => 'zeitschriftfrw09zool',
+'50074' => 'zeitschriftfrw10zeit',
+'38150' => 'zeitschriftfrw89seib',
+'38745' => 'zeitschriftfrw90seib',
+'37658' => 'zeitschriftfrw91seib',
+'38775' => 'zeitschriftfrw92seib',
+'37652' => 'zeitschriftfrw93seib',
+'38151' => 'zeitschriftfrw94seib',
+'38152' => 'zeitschriftfrw95seib',
+'38763' => 'zeitschriftfrw96seib',
+'37601' => 'zeitschriftfrw97seib',
+'37609' => 'zeitschriftfrw99seib',
+'38148' => 'zeitschriftfrw100seib',
+'37641' => 'zeitschriftfrw101seib',
+'37603' => 'zeitschriftfrw102seib',
+'37619' => 'zeitschriftfrw103seib',
+'37613' => 'zeitschriftfrw104seib',
+'37610' => 'zeitschriftfrw105seib',
+'37607' => 'zeitschriftfrw106seib',
+'37604' => 'zeitschriftfrw107seib',
+'38780' => 'zeitschriftfrw108seib',
+'37654' => 'zeitschriftfrw109seib',
+'37606' => 'zeitschriftfrw110seib',
+'37633' => 'zeitschriftfrw111seib',*/
+'38149' => 'zeitschriftfrw112seib',
+'38488' => 'zeitschriftfrw113seib',
+'37639' => 'zeitschriftfrw114seib',
+'37605' => 'zeitschriftfrw115seib',
+'37616' => 'zeitschriftfrw116seib',
+'37602' => 'zeitschriftfrw117seib',
+'37608' => 'zeitschriftfrw118seib',
+'37630' => 'zeitschriftfrw119seib'
+);
+
+$items=array(
+'20569' => 'bulletindelacad01acad',
+'21688' => 'bulletindelacad02acad',
+'53654' => 'bulletindelacad03acad',
+'53798' => 'bulletindelacad04acad',
+'54302' => 'bulletindelacad05acad',
+'53668' => 'bulletindelacad08acad',
+'53674' => 'bulletindelacad09acad',
+'53670' => 'bulletindelacad14acad',
+'113693' => 'bulletinsdelaca21185acad',
+'90260' => 'bulletinsdelacad21acad',
+'90414' => 'bulletinsdelacad22acad',
+'107942' => 'mobot31753002105846',
+'114006' => 'bulletinsdelacad24185acad',
+'113620' => 'bulletinsdelacad25185acad',
+'113690' => 'bulletinsdelacad26185acad',
+'113698' => 'bulletinsdelacad27185acad',
+'110930' => 'mobot31753002105895',
+'113653' => 'bulletinsdelacad29186acad',
+'111246' => 'mobot31753002105903',
+'111255' => 'mobot31753002103940',
+'110793' => 'mobot31753002103957',
+'111467' => 'mobot31753002103965',
+'90110' => 'bulletinsdelacad1882acad',
+'111256' => 'mobot31753002103981',
+'110000' => 'mobot31753002103999',
+'110084' => 'mobot31753002104005',
+'110087' => 'mobot31753002104013',
+'28477' => 'bulletinsdelacad391885acad',
+'53797' => 'bulletindelacad06acad',
+'53799' => 'bulletindelacad06roya',
+'53788' => 'bulletindelacad07acad',
+'53802' => 'bulletindelacad07roya',
+'53660' => 'bulletindelacad10roya',
+'20649' => 'bulletindelacad10acad',
+'53657' => 'bulletindelacad11acad',
+'53655' => 'bulletindelacad11roya',
+'20694' => 'bulletindelacad12acad',
+'20695' => 'bulletindelacad99acad',
+'21689' => 'bulletindelacad13acad',
+'21681' => 'bulletindelacad32acad',
+'21690' => 'bulletindelacad15acad',
+'20726' => 'bulletindelacad52acad',
+'53666' => 'bulletindelacad16roya',
+'20704' => 'bulletindelacad16acad',
+'53672' => 'bulletindelacad17roya',
+'20701' => 'bulletindelacad17acad',
+'21693' => 'bulletindelacad18acad',
+'20618' => 'bulletindelacad82acad',
+'112002' => 'mobot31753002103569',
+'53665' => 'bulletindelacad19roya',
+'21694' => 'bulletindelacad19acad',
+'53664' => 'bulletindelacad19belg',
+'27928' => 'bulletinsdelacad2011853acad',
+'53936' => 'bulletindelacad20bull',
+'26807' => 'bulletinsdelacad2021853acad',
+'20713' => 'bulletindelacad20acad',
+'53659' => 'bulletindelacad20belg',
+'113624' => 'bulletinsdelacad210186aca',
+'53658' => 'bulletindelacad21roya',
+'113685' => 'bulletinsdelacad211186aca',
+'111109' => 'mobot31753002105937',
+'113652' => 'bulletinsdelacad21318acad',
+'111102' => 'mobot31753002103551',
+'115345' => 'bulletinsdelacad21618acad',
+'113701' => 'bulletinsdelacad21718acad',
+'110775' => 'mobot31753002103593',
+'27929' => 'bulletinsdelacad2191865acad',
+'111115' => 'mobot31753002103619',
+'53663' => 'bulletindelacad22roya',
+'109764' => 'mobot31753002103635',
+'53667' => 'bulletindelacad22belg',
+'111247' => 'mobot31753002103643',
+'28359' => 'bulletinsdelacad2231867acad',
+'28090' => 'bulletinsdelacad2241867acad',
+'90109' => 'bulletinsdelacad1868acad',
+'27796' => 'bulletinsdelacad2261868acad',
+'28490' => 'bulletinsdelacad2271869acad',
+'28480' => 'bulletinsdelacad2281869acad',
+'110186' => 'bulletinsdelac2291870acad',
+'111108' => 'mobot31753002103718',
+'28494' => 'bulletinsdelacad2301870acad',
+'53680' => 'bulletindelacad23roya',
+'28089' => 'bulletinsdelacad2311871acad',
+'21674' => 'bulletindelacad23acad',
+'28485' => 'bulletinsdelacad2321871acad',
+'111103' => 'mobot31753002103759',
+'28489' => 'bulletinsdelacad2341872acad',
+'28085' => 'bulletinsdelacad2351873acad',
+'28482' => 'bulletinsdelacad2361873acad',
+'107301' => 'mobot31753002103791',
+'28481' => 'bulletinsdelacad2381874acad',
+'111249' => 'mobot31753002103817',
+'28486' => 'bulletinsdelacad2401875acad',
+'28491' => 'bulletinsdelacad2411876acad',
+'107938' => 'mobot31753002103841',
+'28501' => 'bulletinsdelacad2431877acad',
+'28492' => 'bulletinsdelacad2441877acad',
+'28479' => 'bulletinsdelacad2451878acad',
+'27746' => 'bulletinsdelacad2461878acad',
+'111107' => 'mobot31753002103890',
+'111111' => 'mobot31753002103908',
+'111248' => 'mobot31753002103916',
+'28101' => 'bulletinsdelacad2501880acad',
+'111459' => 'mobot31753002104039',
+'28071' => 'bulletinsdelacad3111886acad',
+'110088' => 'mobot31753002104054',
+'110091' => 'mobot31753002104062',
+'111837' => 'mobot31753002104070',
+'28484' => 'bulletinsdelacad3151888acad',
+'109996' => 'mobot31753002104096',
+'110685' => 'mobot31753002104104',
+'111114' => 'mobot31753002104112',
+'26832' => 'bulletinsdelacad3191890acad',
+'28478' => 'bulletinsdelacad3201890acad',
+'110934' => 'mobot31753002104146',
+'110933' => 'mobot31753002104153',
+'28483' => 'bulletinsdelacad3231892acad',
+'110935' => 'mobot31753002104179',
+'111250' => 'mobot31753002104187',
+'26855' => 'bulletinsdelacad3261893acad',
+'110794' => 'mobot31753002104203',
+'26849' => 'bulletinsdelacad3281894acad',
+'28358' => 'bulletinsdelacad3291895acad',
+'28340' => 'bulletinsdelacad3301895acad',
+'110789' => 'mobot31753002136445',
+'111254' => 'mobot31753002136452',
+'25928' => 'bulletinsdelacad3331897acad',
+'110931' => 'mobot31753002136478',
+'28341' => 'bulletinsdelacad3351898acad',
+'28352' => 'bulletinsdelacad3361898acad',
+'20696' => 'bulletindelacad00acad',
+'109878' => 'mobot31753002103627',
+'25950' => 'bulletinsdelacad313018811895acad',
+'110677' => 'mobot31753002103932',
+'110673' => 'mobot31753002136502',
+'28084' => 'bulletinsdelacad3313618961898acad'
+);
+
+
+$items=array(
+'53666' => 'bulletindelacad16roya'
+);
+
+$items=array(
+/*'31217' => 'recordsofaustral01aust',
+'31634' => 'recordsofaustral02aust',
+'31166' => 'recordsofaustral03aust',
+'31165' => 'recordsofaustral04aust',
+'31431' => 'recordsofaustral06aust',*/
+'33721' => 'recordsofaustral07aust',
+'33722' => 'recordsofaustral08aust',
+'34004' => 'recordsofaustral09aust',
+'36171' => 'recordsofaustral10aust',
+'33723' => 'recordsofaustral11aust',
+'36172' => 'recordsofaustral12aust',
+'36173' => 'recordsofaustral13aust'
+);
+
+//$items=array('36173' => 'recordsofaustral13aust');
+
+$items=array(
+'120622' => 'proceedingsofbi901977biol'
+);
+
+$items=array(
+'110033' => 'proceedingsofbi921979biol'
+);
+
+$items=array('119448' => 'australianzoolog13196roya');
+
+$items=array(
+/*'35782' => 'greatbasinnatura01brig',
+'35780' => 'greatbasinnaturam02brig',
+'35767' => 'greatbasinnaturam03brig',
+'35792' => 'greatbasinnaturam04brig',
+'35789' => 'greatbasinnaturam05brig',
+'33485' => 'greatbasinnaturam06brig',
+'35564' => 'greatbasinnaturam07brig',
+'35621' => 'greatbasinnaturam08brig',
+'33434' => 'greatbasinnaturam09brig',*/
+'105895' => 'greatbasinnatur10brig',
+'105679' => 'greatbasinnatur11brig',
+'33368' => 'greatbasinnaturam12brig',
+'33456' => 'greatbasinnaturam13abrig',
+'35794' => 'greatbasinnaturam13bbrig',
+'110033' => 'proceedingsofbi921979biol'	
+);
+
+/*
+$items=array(
+'110033' => 'proceedingsofbi921979biol'
+);
+*/
+
+$items=array(
+'51167' => 'bollettinodeimus3435univ'
+);
+
+$items=array(
+//'113503' => 'nouvellesarchiv211878musu',
+'113476' => 'nouvellesarchiv221879musu',
+'113515' => 'nouvellesarchiv311889musu',
+'113504' => 'nouvellesarchiv321890musu',
+'113475' => 'nouvellesarchiv331891musu',
+'113509' => 'nouvellesarchiv361894musu',
+'111884' => 'nouvellesarchive43190musu',
+'112392' => 'nouvellesarchive44190musu',
+'111920' => 'nouvellesarchive45190musu',
+//'111906' => 'nouvellesarchive46190musu',
+'112422' => 'nouvellesarchive47190musu',
+'111282' => 'nouvellesarchiv481906musu',
+'111272' => 'nouvellesarchiv491907musu',
+'111275' => 'nouvellesarchiv511909musu',
+'111269' => 'nouvellesarchiv521910musu',
+'111271' => 'nouvellesarchiv541912musu',
+'111277' => 'nouvellesarchiv551913musu',
+'111279' => 'nouvellesarchiv561914musu',
+'113507' => 'nouvellesarchi3101898musu',
+'111281' => 'nouvellesarchi4101908musu',
+'111280' => 'nouvellesarch53191112musu'
+);
+
+//$items=array('111906' => 'nouvellesarchive46190musu');
+
+$items=array(
+/*'91509' => 'allanhancockpaci11943allan',
+'24876' => 'allanhancockpaci02alla',
+'89273' => 'allanhancockpaci3193644alla',
+'26529' => 'allanhancockpaci04alla',
+'26530' => 'allanhancockpaci05alla',
+'89276' => 'allanhancockpaci6193950alla',
+'88616' => 'allanhancockpaci7193940alla',
+'27597' => 'allanhancockpaci08alla',
+'28119' => 'allanhancockpaci194008alla',
+'27569' => 'allanhancockpaci09alla',
+'26531' => 'allanhancockpaci10alla',
+'27570' => 'allanhancockpaci11alla',
+'26534' => 'allanhancockpaci12alla',
+'34423' => 'allanhancockpacix13alla',*/
+'41904' => 'allanhancockpaci14alla',
+'24858' => 'allanhancockpaci15alla',
+'26525' => 'allanhancockpaci16alla',
+'26527' => 'allanhancockpaci17alla',
+'24862' => 'allanhancockpaci18alla',
+'88798' => 'allanhancockpaci19195566alla',
+'88802' => 'allanhancockpaci201955alla',
+'26526' => 'allanhancockpaci21alla',
+'26532' => 'allanhancockpaci22alla',
+'26528' => 'allanhancockpaci23alla',
+'88964' => 'allanhancockpaci241960alla',
+'27567' => 'allanhancockpaci25alla',
+'27568' => 'allanhancockpaci26alla',
+'26533' => 'allanhancockpaci27alla'
+);
+
+$items=array('32570' => 'proceedingsofuni891942unit');
+
+$items=array('121120' => 'MemoirsNational36Nati',
+'121121' => 'MemoirsNational37Nati',
+'121136' => 'MemoirsNational38Nati',
+'121937' => 'MemoirsNational39Nati',
+'122131' => 'MemoirsNational40Nati',
+'122129' => 'MemoirsNational41Nati',
+'122130' => 'MemoirsNational42Nati'
+);
+
+$items=array(
+'110834' => 'entomological13191517niho'
+);
+
+$items=array(
+//'120123' => 'transactionspro361912roya',
+'111907' => 'transactionsproc371913roy',
+'113401' => 'transactionspro381914roya',
+'109513' => 'transactionspro391915roya',
+'109654' => 'transactionspro401916roya',
+'109628' => 'transactionspro411917roya',
+'113409' => 'transactionspro421918roya',
+'114230' => 'transactionsproc43191roya',
+'111685' => 'transactionsproc44192roya',
+'114267' => 'transactionsproc45192roya',
+'109617' => 'transactionspro461922roya',
+'108497' => 'transactionspr471923roya',
+'111300' => 'transactionsproc25441roya'
+);
+
+$items=array(
+'79307' => 'fversigtafkong07kung'
+);
+
+$items=array(
+'24691' => 'transactionsofsa57sapp',
+'52390' => 'transactionsofsa14sapp',
+'52345' => 'transactionsof57sapp',
+'52326' => 'transactionsofsa810sapp'
+);
+
+$items=array(
+'104430' => 'journalofnewyork12189394newy',
+'33774' => 'journalofnewyork31895newy',
+'36362' => 'journalofnewyork41896newy',
+'36363' => 'journalofnewyork51897newy',
+'95773' => 'journalofnewyork61898newy',
+'36372' => 'journalofnewyork71899newy',
+'36364' => 'journalofnewyork81900newy',
+'34039' => 'journalofnewyork91901newy',
+'104432' => 'journalofnewyork101902newy',
+'36374' => 'journalofnewyork111903newy',
+'34038' => 'journalofnewyork121904newy',
+'33775' => 'journalofnewyork131905newy',
+'34022' => 'journalofnewyork141906newy',
+'34055' => 'journalofnewyork151907newy',
+'104433' => 'journalofnewyork161908newy',
+'34035' => 'journalofnewyork171909newy',
+'34023' => 'journalofnewyork181910newy',
+'34070' => 'journalofnewyork191911newy',
+'34032' => 'journalofnewyork201912newy',
+'36246' => 'journalofnewyork211913newy',
+'34021' => 'journalofnewyork221914newy',
+'34040' => 'journalofnewyork231915newy',
+'34012' => 'journalofnewyork241916newy',
+'36515' => 'journalofnewyork251917newy',
+'36509' => 'journalofnewyork261918newy',
+'34024' => 'journalofnewyork271919newy',
+'34025' => 'journalofnewyork281920newy',
+'34020' => 'journalofnewyork291921newy',
+'36375' => 'journalofnewyork301922newy'
+);
+
+/*
+$items=array(
+'34024' => 'journalofnewyork271919newy'
+);
+*/
+
+
+$items=array(
+'41574' => 'berichtberdiez56berl',
+'41577' => 'berichtberdiez57berl',
+'41578' => 'berichtberdiez58berl',
+'41575' => 'berichtberdiez59berl',
+'111868' => 'monatsberichtede1860knig',
+'112407' => 'monatsberichtede1862knig',
+'109317' => 'monatsberichtede1864kn',
+'109287' => 'monatsberichtede1865kn',
+'112419' => 'monatsberichtede1867knig',
+'111036' => 'monatsberichtede1868knig',
+'111869' => 'monatsberichtede1869knig',
+'112818' => 'monatsberichtede1871knig',
+'110470' => 'monatsberichtede1872knig',
+//'111022' => 'monatsberichtede1873knig',
+'112817' => 'monatsberichtede1874knig',
+'111351' => 'monatsberichtede1875knig',
+'109636' => 'monatsberichtede1876kn',
+'110478' => 'monatsberichtede1877knig',
+'111278' => 'monatsberichtede1878knig',
+'112024' => 'monatsberichtede1879knig',
+'111870' => 'monatsberichtede1880knig',
+'111883' => 'monatsberichtede18611knig'
+);
+
+$items=array(
+'111022' => 'monatsberichtede1873knig'
+);
+
+$items=array(
+'48897' => 'quarterlyjournal421899lond'
+);
+
+$items=array(
+'51048' => 'quarterlyjournalplates421899lond'
+);
+
+$items=array(
+'48142' => 'tijdschriftvoorn01amst',
+'48141' => 'tijdschriftvoorn03amst',
+'48129' => 'tijdschriftvoorn04amst',
+//'48145' => 'tijdschriftvoorn05amst',
+'48146' => 'tijdschriftvoorn06amst',
+'48147' => 'tijdschriftvoorn07amst',
+'48148' => 'tijdschriftvoorn08amst',
+'48144' => 'tijdschriftvoorn09amst',
+'48149' => 'tijdschriftvoorn10amst',
+'50698' => 'tijdschriftvoorn11amst',
+'48151' => 'tijdschriftvoorn12amst'
+);
+
+/*
+$items=array(
+'48145' => 'tijdschriftvoorn05amst'
+);
+*/
+
+$items=array(
+/*'19372' => 'bulletinofbritis01histlond',
+'19505' => 'bulletinofbritis02histlond',
+'19458' => 'bulletinofbritis03histlond',
+'24794' => 'bulletinofbritis04brit',
+'24843' => 'bulletinofbritis05brit',
+'19549' => 'bulletinofbritis06histlond',
+'27659' => 'bulletinofbritis07brit',*/
+'19630' => 'bulletinofbritis10histlond',
+'20346' => 'bulletinofbritis13histlond',
+'19488' => 'bulletinofbritis15histlond',
+//'24795' => 'bulletinofbritis17brit',
+'24793' => 'bulletinofbritis19brit'
+);
+
+/*
+$items=array(
+'121145' => 'zoologischejah7189394jena'
+);
+*/
+
+/*
+$items=array(
+'24795' => 'bulletinofbritis17brit'
+);
+*/
+
+$items=array(
+'84743' => 'proceedingsofaca10acaduoft'
+);
+
+$items=array(
+'122412' => 'anopluramallopha00kell'
+);
+
+$items=array(
+'22300' => 'fisherybulletin69unit',
+'22443' => 'fisherybulletin70unit',
+'22298' => 'fisherybulletin71unit',
+'22412' => 'fisherybulletin72unit',
+'22313' => 'fisherybulletin73unit',
+'22287' => 'fisherybulletin74unit',
+'22569' => 'fisherybulletin75unit',
+'22589' => 'fisherybulletin76unit',
+'22621' => 'fisherybulletin77unit',
+'22587' => 'fisherybulletin78unit',
+'22595' => 'fisherybulletin79unit',
+'22605' => 'fisherybulletin80unit',
+'21711' => 'fisherybulletin81unit',
+'22590' => 'fisherybulletin82unit',
+'22620' => 'fisherybulletin83unit',
+'22627' => 'fisherybulletin840104unit',
+'22566' => 'fisherybulletin850104unit',
+'22576' => 'fisherybulletin860104unit',
+'22583' => 'fisherybulletin870104unit',
+'22571' => 'fisherybulletin880104unit',
+'22584' => 'fisherybulletin890104unit',
+'28928' => 'fisherybulletin900104unit',
+'21714' => 'fisherybulletin910104unit',
+'22624' => 'fisherybulletin920104unit',
+'22562' => 'fisherybulletin930104unit',
+'22634' => 'fisherybulletin940104unit',
+'22577' => 'fisherybulletin970104unit',
+'22567' => 'fisherybulletin98unit',
+'22581' => 'fisherybulletin1000104unit',
+'22546' => 'fisherybulletin1010104unit',
+'22635' => 'fisherybulletin1020104unit',
+'22603' => 'fisherybulletin1030104unit',
+'22611' => 'fisherybulletin1040104unit',
+'22574' => 'fisherybulletin1050104unit'
+);
+
+$items=array(
+'22298' => 'fisherybulletin71unit'
+);
+
+$items=array(
+'99181' => 'bulletindesscien13181416plas',
+'98539' => 'bulletindesscien46plass',
+'99191' => 'bulletindesscien79plas',
+'97127' => 'bulletindesscien1011182324plas',
+'24785' => 'bulletindesscien14soci',
+'25917' => 'bulletin1814soci',
+'26553' => 'bulletin1815soci',
+'24846' => 'bulletindesscien16soci',
+'25916' => 'bulletin1816soci',
+'25915' => 'bulletin1817soci',
+'24834' => 'bulletindesscien18soci',
+'26554' => 'bulletin1818soci',
+'25912' => 'bulletin1819soci',
+'24855' => 'bulletindesscien20soci',
+'28105' => 'bulletin1821soci',
+'24835' => 'bulletindesscien22soci',
+'27927' => 'bulletin1822soci'
+);
+
+$items=array(
+/*'54552' => 'americanjournalo11865tryo',
+'53815' => 'americanjournalo21866tryo',
+'30582' => 'americanjournalo02amer',*/
+'30579' => 'americanjournalo03amer',
+'54513' => 'americanjournalo4186869tryo',
+'31261' => 'americanjournalo05amer',
+'54223' => 'americanjournalo5186970tryo',
+'31241' => 'americanjournalo06amer',
+'53850' => 'americanjournalo6187071tryo',
+'54065' => 'americanjournalo7187172tryo'
+);
+
+$items=array(
+'100040' => 'papersproceeding1887roya',
+'81365' => 'papersproceeding1882roya',
+'81366' => 'papersproceeding1881roya',
+'84607' => 'papersproceeding1867roya',
+'84608' => 'papersproceeding1873roya',
+'84609' => 'papersproceeding1874roya',
+'84610' => 'papersproceeding1878roya',
+'84611' => 'papersproceeding1883roya',
+'84612' => 'papersproceeding1884roya',
+'84613' => 'papersproceeding1892roya',
+'84614' => 'papersproceeding93roya',
+'98676' => 'papersproceeding191819roya',
+'99016' => 'papersproceeding18981901roya',
+'99082' => 'papersproceeding1885roya',
+'99192' => 'papersproceeding1889roya',
+'99298' => 'papersproceeding190809roya',
+'99835' => 'mobot31753003650667',
+'99836' => 'mobot31753003650675',
+'99838' => 'mobot31753003650683',
+'99839' => 'mobot31753003650691'
+);
+
+$items=array(
+'84610' => 'papersproceeding1878roya'
+);
+
+$items=array(
+'41409' => 'deutschesdpola02deut',
+'29202' => 'deutschesdpola09deut',
+'29067' => 'deutschesdpola10deut',
+'30760' => 'deutschesdpola11deut',
+'41929' => 'deutschesdpola1911deut',
+'41931' => 'deutschesdpola1210deut',
+'31195' => 'deutschesdpola12deut',
+'18731' => 'deutschesdpola13deut',
+'41930' => 'deutschesdpola1311deut',
+'41846' => 'deutschesdpola81deut',
+'41847' => 'deutschesdpola82deut',
+'41897' => 'deutschesdpola83deut',
+'29849' => 'deutschesdpola1401deut',
+'18639' => 'deutschesdpola15deut',
+'18599' => 'deutschesdpola16deut'
+);
+
+$items=array(
+'18599' => 'deutschesdpola16deut'
+);
+
+
+$items=array(
+'33087' => 'journalofcollege02toky',
+'31719' => 'journalofcollege03toky',
+'31715' => 'journalofcollege04toky',
+'30370' => 'journalofcollege05toky',
+'31155' => 'journalofcollege06toky',
+'31153' => 'journalofcollege07toky',
+'31343' => 'journalofcollege08toky',
+'31201' => 'journalofcollege14toky',
+'31407' => 'journalofcollege15toky',
+'31691' => 'journalofcollege17toky',
+'31485' => 'journalofcollege22toky',
+'31339' => 'journalofcollege24toky',
+'31386' => 'journalofcollege25toky',
+'32718' => 'journalofcollege26toky',
+'31143' => 'journalofcollege31toky',
+'31484' => 'journalofcollege33toky',
+'30339' => 'journalofcollegei0125toky',
+'31553' => 'journalofcollege2902toky',
+'109922' => 'journalofcol118861887toky',
+'30333' => 'journalofcollege09toky',
+'31183' => 'journalofcollege10toky',
+'31408' => 'journalofcollege11toky',
+'31156' => 'journalofcollege12toky',
+'30336' => 'journalofcollege13toky',
+'31353' => 'journalofcollege16toky',
+'31390' => 'journalofcollege18toky',
+'31356' => 'journalofcollege19toky',
+'31205' => 'journalofcollege20toky',
+'31393' => 'journalofcollege21toky',
+'31383' => 'journalofcollege23toky',
+'31196' => 'journalofcollege27toky',
+'110621' => 'journalofco2819101911toky',
+'121156' => 'journalofco3019111912toky',
+'31554' => 'journalofcollege32toky',
+'31503' => 'journalofcollege34toky',
+'120854' => 'journalofco3519131915toky',
+'106474' => 'journalofcoll36191315toky',
+'31185' => 'journalofcollege37toky',
+'31493' => 'journalofcollege38toky',
+'31184' => 'journalofcollege39toky',
+'31404' => 'journalofcollege40toky',
+'31486' => 'journalofcollege41toky',
+'31488' => 'journalofcollege42toky',
+'31482' => 'journalofcollege43toky',
+'30335' => 'journalofcollege44toky',
+'31362' => 'journalofcollege2901toky'
+);
+
+$items=array(
+'31343' => 'journalofcollege08toky'
+);
+
+$items=array(
+'114067' => 'beitrgezurkenntn00buch'
+);
+
+$items=array(
+'100308' => 'revistachilen13195153soci',
+'100434' => 'revistachilenade41955soci',
+'100437' => 'revistachilenade51957soci',
+'101335' => 'revistachilen67196873soci',
+'100326' => 'revistachilen89197475soci',
+'100310' => 'revistachil1011198081soci',
+//'100320' => 'revistachil1213198586soci',
+'100309' => 'revistachil1415198687soci',
+'103363' => 'revistachilenade16soci',
+'103365' => 'revistachilenade17soci',
+'103322' => 'revistachilenade18soci',
+'103339' => 'revistachilenade19soci',
+'103527' => 'revistachilenade20soci',
+'103351' => 'revistachilenade21soci',
+'103354' => 'revistachilenade22soci',
+'103352' => 'revistachilenade23soci',
+'103931' => 'revistachilenade24soci',
+'103346' => 'revistachilenade25soci',
+'103347' => 'revistachilenade26soci',
+'103355' => 'revistachilenade27soci',
+'103364' => 'revistachilenade28soci'
+);
+
+//$items=array('100320' => 'revistachil1213198586soci');
+
+$items=array(
+'25824' => 'occasionalpapers01univ',
+'25818' => 'occasionalpapers02univ',
+'25822' => 'occasionalpapers03univ',
+'25820' => 'occasionalpapers04univ',
+'24701' => 'occasionalpapers05univ',
+'25821' => 'occasionalpapers06univ',
+'25825' => 'occasionalpapers07univ',
+'25829' => 'occasionalpapers08univ',
+'25832' => 'occasionalpapers09univ',
+'24522' => 'occasionalpapers10univ',
+'24680' => 'occasionalpapers11univ',
+'24713' => 'occasionalpapers12univ',
+'24653' => 'occasionalpapers13univ',
+'24627' => 'occasionalpapers14univ',
+'24543' => 'occasionalpapers15univ',
+'25797' => 'occasionalpapers16univ',
+'111795' => 'occasionalpapers17univ',
+'25789' => 'occasionalpapers18univ',
+'25794' => 'occasionalpapers19univ',
+'25785' => 'occasionalpapers20univ',
+'25798' => 'occasionalpapers21univ',
+'25795' => 'occasionalpapers22univ',
+'25793' => 'occasionalpapers23univ',
+'25808' => 'occasionalpapers24univ',
+'25802' => 'occasionalpapers25univ',
+'25792' => 'occasionalpapers26univ',
+'25801' => 'occasionalpapers27univ',
+'25816' => 'occasionalpapers28univ',
+'25812' => 'occasionalpapers29univ',
+'25805' => 'occasionalpapers30univ',
+'26021' => 'occasionalpapers31univ',
+'26027' => 'occasionalpapers32univ',
+'26025' => 'occasionalpapers33univ',
+'26022' => 'occasionalpapers34univ',
+'26050' => 'occasionalpapers35univ',
+'26035' => 'occasionalpapers36univ',
+'26039' => 'occasionalpapers37univ',
+'26047' => 'occasionalpapers38univ',
+'26130' => 'occasionalpapers39univ',
+'26123' => 'occasionalpapers40univ',
+'26063' => 'occasionalpapers41univ',
+'26061' => 'occasionalpapers42univ',
+'26110' => 'occasionalpapers43univ',
+'26067' => 'occasionalpapers44univ',
+'26132' => 'occasionalpapers45univ',
+'26113' => 'occasionalpapers46univ',
+'26111' => 'occasionalpapers47univ',
+'26134' => 'occasionalpapers48univ',
+'26126' => 'occasionalpapers49univ',
+'26049' => 'occasionalpapers50univ',
+'26013' => 'occasionalpapers51univ',
+'26014' => 'occasionalpapers52univ',
+'26016' => 'occasionalpapers53univ',
+'26018' => 'occasionalpapers54univ',
+'26029' => 'occasionalpapers55univ',
+'26019' => 'occasionalpapers56univ',
+'26137' => 'occasionalpapers57univ',
+'26024' => 'occasionalpapers58univ',
+'26036' => 'occasionalpapers59univ',
+'26032' => 'occasionalpapers60univ',
+'26062' => 'occasionalpapers61univ',
+'26041' => 'occasionalpapers62univ',
+'26105' => 'occasionalpapers63univ',
+'23665' => 'occasionalpapers64univ',
+'26066' => 'occasionalpapers65univ',
+'26124' => 'occasionalpapers66univ',
+'26109' => 'occasionalpapers67univ',
+'26117' => 'occasionalpapers68univ',
+'26121' => 'occasionalpapers69univ',
+'26058' => 'occasionalpapers70univ',
+'24819' => 'occasionalpapers7195univ',
+'26043' => 'occasionalpapers96univ',
+'26037' => 'occasionalpapers97univ',
+'26042' => 'occasionalpapers98univ',
+'26031' => 'occasionalpapers99univ',
+'26040' => 'occasionalpapers100univ',
+'26038' => 'occasionalpapers101univ',
+'26023' => 'occasionalpapers102univ',
+'26033' => 'occasionalpapers103univ',
+'26065' => 'occasionalpapers104univ',
+'26048' => 'occasionalpapers105univ',
+'26129' => 'occasionalpapers106univ',
+'26108' => 'occasionalpapers107univ',
+'26106' => 'occasionalpapers108univ',
+'26116' => 'occasionalpapers109univ',
+'26104' => 'occasionalpapers110univ',
+'26115' => 'occasionalpapers111univ',
+'26131' => 'occasionalpapers112univ',
+'26125' => 'occasionalpapers113univ',
+'26114' => 'occasionalpapers114univ',
+'26051' => 'occasionalpapers115univ',
+'26122' => 'occasionalpapers116univ',
+'26046' => 'occasionalpapers117univ',
+'26044' => 'occasionalpapers118univ',
+'26136' => 'occasionalpapers119univ',
+'29803' => 'occasionalpapers1201986univ',
+'29722' => 'occasionalpapers1211986univ',
+'29801' => 'occasionalpapers1221987univ',
+'29804' => 'occasionalpapers1231988univ',
+'29802' => 'occasionalpapers1241988univ',
+'28956' => 'occasionalpapers1251989univ',
+'29699' => 'occasionalpapers1261989univ',
+'29805' => 'occasionalpapers1271989univ',
+'29806' => 'occasionalpapers1281989univ',
+'29721' => 'occasionalpapers1291989univ',
+'29697' => 'occasionalpapers1301989univ',
+'29720' => 'occasionalpapers1311989univ',
+'30246' => 'occasionalpapers1321989univ',
+'29702' => 'occasionalpapers1331989univ',
+'28552' => 'occasionalpapers1341990univ',
+'28528' => 'occasionalpapers1351990univ',
+'28533' => 'occasionalpapers1361990univ',
+'28527' => 'occasionalpapers1371990univ',
+'28551' => 'occasionalpapers1381990univ',
+'28532' => 'occasionalpapers1391990univ',
+'28536' => 'occasionalpapers1401991univ',
+'28535' => 'occasionalpapers1411991univ',
+'28553' => 'occasionalpapers1421991univ',
+'28550' => 'occasionalpapers1431991univ',
+'28546' => 'occasionalpapers1441991univ',
+'28540' => 'occasionalpapers1451991univ',
+'26015' => 'occasionalpapers146univ',
+'26017' => 'occasionalpapers147univ',
+'26020' => 'occasionalpapers148univ',
+'26026' => 'occasionalpapers149univ',
+'26028' => 'occasionalpapers150univ',
+'26030' => 'occasionalpapers151univ',
+'26034' => 'occasionalpapers152univ',
+'26045' => 'occasionalpapers153univ',
+'26107' => 'occasionalpapers154univ',
+'26060' => 'occasionalpapers155univ',
+'26064' => 'occasionalpapers156univ',
+'26056' => 'occasionalpapers157univ',
+'26112' => 'occasionalpapers158univ',
+'26119' => 'occasionalpapers159univ',
+'26135' => 'occasionalpapers160univ',
+'26118' => 'occasionalpapers161univ',
+'26059' => 'occasionalpapers162univ',
+'26120' => 'occasionalpapers163univ',
+'26133' => 'occasionalpapers164univ',
+'26057' => 'occasionalpapers165univ',
+'26127' => 'occasionalpapers166univ',
+'26052' => 'occasionalpapers167univ',
+'26138' => 'occasionalpapers168univ'
+);
+
+$items=array('25794' => 'occasionalpapers19univ');
+
+$items=array(
+'52757' => 'scientificinvest11909grea',
+'51160' => 'scientificinvest11910grea',
+'51172' => 'scientificinvest11911grea',
+'50968' => 'scientificinvest11912grea',
+'51153' => 'scientificinvest11913grea',
+'51156' => 'scientificinvest11914grea',
+'51168' => 'scientificinvest11916grea',
+'51164' => 'scientificinvest11917grea',
+'50970' => 'scientificinvest11919grea',
+'50781' => 'scientificinvest20grea',
+'52735' => 'scientificinvest21grea',
+'51155' => 'scientificinvest22grea',
+'52751' => 'scientificinvest23grea',
+'51086' => 'scientificinvest24grea',
+'51157' => 'scientificinvest25grea',
+'51161' => 'scientificinvest26grea',
+'51173' => 'scientificinvest27grea',
+'51171' => 'scientificinvest28grea'
+);
+
+$items=array(
+'51155' => 'scientificinvest22grea'
+);
+
+$items=array(
+/*
+'96600' => 'memoirs11harv',
+'96601' => 'memoirs12harv',
+'25356' => 'memoirsofmuseumo12harv',
+'25484' => 'memoirsofmuseumo13harv',
+'96658' => 'memoirs13harv',
+'96641' => 'memoirs15harv',*/
+'91662' => 'mobot31753003646095',
+'96493' => 'memoirs18harv',
+'96341' => 'memoirshar20harv',
+'121488' => 'memoirsofmuseumo21harv',
+'25480' => 'memoirsofmuseumo22aharv',
+'25315' => 'memoirsofmuseumo22harv',
+'96346' => 'memoirs24harv',
+'91664' => 'mobot31753003646186',
+'45685' => 'memoirsofmuseumo241899harv',
+'32751' => 'memoirsofmuseumo28harv',
+'98443' => 'memoirs28harv',
+'43555' => 'memoirsofmuseumo291876harv',
+'96343' => 'memoirs29harv',
+'25358' => 'memoirsofmuseumo29harv',
+'25650' => 'memoirsofmuseumo31harv',
+'96351' => 'memoirs31harv',
+'91621' => 'mobot31753003646145',
+'91622' => 'mobot31753003646152',
+'32537' => 'memoirsofmuseumo33harv',
+'98442' => 'memoirs33harv',
+'96503' => 'memoirs36harv',
+//'25684' => 'memoirsofmuseumo3602harv',
+//'25646' => 'memoirsofmuseumo3601harv',
+'30084' => 'memoirsofmuseumo37harv',
+'96563' => 'memoirs37harv',
+'96336' => 'memoirs41harv',
+'25674' => 'memoirsofmuseumo42harv',
+'96339' => 'memoirs42harv',
+'25672' => 'memoirsofmuseumo4801harv',
+'95994' => 'memoirs48harv',
+'21704' => 'memoirsofmuseumo4802harv',
+'25656' => 'memoirsofmuseumo49harv',
+'25404' => 'memoirsofmuseumo0501harv',
+'25654' => 'memoirsofmuseumo511928harv',
+'25425' => 'memoirsofmuseumo0502harv',
+'54446' => 'mobot31753003566020',
+'25645' => 'memoirsofmuseumo53harv',
+'25703' => 'memoirsofmuseumo55harv',
+'91613' => 'mobot31753003646129',
+'25418' => 'memoirsofmuseumo0602harv',
+'25031' => 'memoirsofmuseumo0701harv',
+'25405' => 'memoirsofmuseumo0702harv',
+'25338' => 'memoirsofmuseumo0801harv',
+'24976' => 'memoirsofmuseumo0802harv',
+'25438' => 'memoirsofmuseumo0803harv',
+'25482' => 'memoirsofmuseumo0901harv',
+'25321' => 'memoirsofmuseumo0902harv',
+'25383' => 'memoirsofmuseumo0903harv',
+'25398' => 'memoirsofmuseumo1001harv',
+'25481' => 'memoirsofmuseumo1002harv',
+'25439' => 'memoirsofmuseumo1003harv',
+'25451' => 'memoirsofmuseumo1004harv',
+'25385' => 'memoirsofmuseumo1101harv',
+'25517' => 'memoirsofmuseumo1402harv',
+'25408' => 'memoirsofmuseumo1403harv',
+'91661' => 'mobot31753003646210',
+'25038' => 'memoirsofmuseumo1702harv',
+'25502' => 'memoirsofmuseumo1703harv',
+'45675' => 'memoirsofmuseumo191harv',
+'25319' => 'memoirsofmuseumo1902harv',
+'54040' => 'memoirsofmuseumo2397harv',
+'91663' => 'mobot31753003646103',
+'91713' => 'mobot31753003646228',
+'25349' => 'memoirsofmuseumo2501harv',
+'25350' => 'memoirsofmuseumo2502harv',
+'25406' => 'memoirsofmuseumo2503harv',
+'101186' => 'memoirsofmuseumo254harv',
+'91665' => 'mobot31753003646236',
+'25376' => 'memoirsofmuseumo2602harv',
+'30073' => 'memoirsofmuseumo2603harv',
+'30074' => 'memoirsofmuseumo2604harv',
+'31814' => 'memoirsofmuseumo2605harv',
+'25431' => 'memoirsofmuseumo2606harv',
+'25459' => 'memoirsofmuseumo2607harv',
+'25426' => 'memoirsofmuseumo2701harv',
+'25415' => 'memoirsofmuseumo2702harv',
+'25343' => 'memoirsofmuseumo2703harv',
+'25503' => 'memoirsofmuseumo2704harv',
+'32464' => 'memoirsofmuseumo2801harv',
+'25357' => 'memoirsofmuseumo2802harv',
+'91611' => 'mobot31753003646244',
+'91612' => 'mobot31753003646194',
+'91614' => 'mobot31753003646111',
+'25469' => 'memoirsofmuseumo3003harv',
+'25701' => 'memoirsofmuseumo3004harv',
+'25671' => 'memoirsofmuseumo3401harv',
+'25683' => 'memoirsofmuseumo3402harv',
+'25686' => 'memoirsofmuseumo3403harv',
+'16792' => 'hawaiianotherpac00clar',
+'25687' => 'memoirsofmuseumo3501harv',
+'25648' => 'memoirsofmuseumo3502harv',
+'25652' => 'memoirsofmuseumo3503harv',
+'25669' => 'memoirsofmuseumo3504harv',
+'25658' => 'memoirsofmuseumo3505harv',
+'54803' => 'memoirsofmuseumo381harv',
+'91623' => 'mobot31753003646160',
+'32451' => 'memoirsofmuseumo3802harv',
+'25688' => 'memoirsofmuseumo3901harv',
+'25668' => 'memoirsofmuseumo3903harv',
+'25690' => 'memoirsofmuseumo3904harv',
+'25664' => 'memoirsofmuseumo4001harv',
+'25666' => 'memoirsofmuseumo4002harv',
+'25665' => 'memoirsofmuseumo4003harv',
+'25691' => 'memoirsofmuseumo4005harv',
+'25657' => 'memoirsofmuseumo4006harv',
+'25670' => 'memoirsofmuseumo4007harv',
+'25704' => 'memoirsofmuseumo4008harv',
+'25655' => 'memoirsofmuseumo4009harv',
+'54443' => 'mobot31753003566012',
+'32337' => 'memoirsofmuseumo4401harv',
+'32806' => 'memoirsofmuseumo4402harv',
+'25653' => 'memoirsofmuseumo4501harv',
+'25681' => 'memoirsofmuseumo4502harv',
+'25696' => 'memoirsofmuseumo4601harv',
+'91628' => 'mobot31753003646202',
+'25644' => 'memoirsofmuseumo4702harv',
+'25661' => 'memoirsofmuseumo4703harv',
+'25667' => 'memoirsofmuseumo4704harv',
+'25695' => 'memoirsofmuseumo4705harv',
+'25676' => 'memoirsofmuseumo5001harv',
+'25675' => 'memoirsofmuseumo5002harv',
+'21703' => 'memoirsofmuseumo5003harv',
+'122013' => 'memoirsofmuseumo504harv',
+'25663' => 'memoirsofmuseumo5401harv',
+'25685' => 'memoirsofmuseumo5402harv',
+'25660' => 'memoirsofmuseumo5403harv',
+'25651' => 'memoirsofmuseumo5404harv',
+'89202' => 'memoirsofmuseumo1940harv',
+'25700' => 'memoirsofmuseumo5406harv',
+'95814' => 'memoirs09harv',
+'96602' => 'memoirs10harv',
+'25365' => 'memoirsofmuseumo160102harv',
+'96491' => 'memoirs16harv',
+'96639' => 'memoirs19harv',
+'96337' => 'memoirs20harv',
+'21411' => 'memoirsofmuseumo2021harv',
+'96492' => 'memoirs26harv',
+'96342' => 'memoirs27harv',
+'97046' => 'memoirs30harv',
+'95790' => 'memoirs35harv',
+'96495' => 'memoirs39harv',
+'96494' => 'memoirs40harv',
+'96496' => 'memoirs45harv',
+'96603' => 'memoirs14harv',
+'96656' => 'memoirs17harv',
+'96344' => 'memoirs34harv',
+'91624' => 'mobot31753003646178',
+'25689' => 'memoirsofmuseumo43harv',
+'96355' => 'memoirs46harv'
+);
+
+/*
+$items=array(
+'25684' => 'memoirsofmuseumo3602harv',
+'25646' => 'memoirsofmuseumo3601harv'
+);
+*/
+
+$items=array(
+'47510' => 'archivfurgeschic78berl',
+'47529' => 'archivfurgeschic7858berl',
+'47751' => 'archivfurgeschic7812berl',
+'47763' => 'archivfurgeschic7914berl',
+'47755' => 'archivfurgeschic7912berl',
+'47607' => 'archivfurgeschic8014berl',
+'47749' => 'archivfurgeschic8058berl',
+'46731' => 'archivfurgeschic8012berl',
+'47533' => 'archivfurgeschic8114berl',
+'47527' => 'archivfurgeschic8158berl',
+'47746' => 'archivfurgeschic8214berl',
+'47768' => 'archivfurgeschic8258berl',
+'47516' => 'archivfurgeschic8212berl',
+'47767' => 'archivfurgeschic8314berl',
+'47753' => 'archivfurgeschic8358berl',
+'47750' => 'archivfurgeschic8312berl',
+'47757' => 'archivfurgeschic8412berl',
+'47865' => 'archivfurgeschic8514berl',
+'47756' => 'archivfurgeschic8558berl',
+'47752' => 'archivfurgeschic8615berl',
+'47748' => 'archivfurgeschic8668berl',
+'47747' => 'archivfurgeschic8612berl',
+'47758' => 'archivfurgeschic8711berl',
+'47507' => 'archivfurgeschic8756berl',
+'46729' => 'archivfurgeschic8778berl',
+'47504' => 'archivfurgeschic8710berl',
+'47606' => 'archivfurgeschic8813berl',
+'47503' => 'archivfurgeschic8812berl',
+'114214' => 'archivfrnaturges891berl',
+'113949' => 'archivfrnaturges892berl',
+'113943' => 'archivfrnaturges893berl',
+'113951' => 'archivfrnaturges894berl',
+'47618' => 'archivfurgeschic8958berl',
+'47520' => 'archivfurgeschic8912berl'
+);
+
+$items=array(
+'113949' => 'archivfrnaturges892berl'
+);
+
+$items=array(
+'84736' => 'proceedingsofaca01acaduoft',
+'17886' => 'proceedingsofaca01acad',
+'84725' => 'proceedingsofaca02acaduoft',
+'30491' => 'proceedingsofaca02acad',
+'84755' => 'proceedingsofaca03acaduoft',
+'17669' => 'proceedingsofaca03acad',
+'84785' => 'proceedingsofaca04acaduoft',
+'28006' => 'proceedingsofacad04acad',
+'84765' => 'proceedingsofaca05acaduoft',
+'17633' => 'proceedingsofaca05acad',
+'17888' => 'proceedingsofaca06acad',
+'84761' => 'proceedingsofac07acaduoft',
+'17735' => 'proceedingsofaca07acad',
+'84770' => 'proceedingsofaca08acaduoft',
+'18246' => 'proceedingsofaca08acad',
+'84745' => 'proceedingsofaca09acaduoft',
+'30013' => 'proceedingsofaca09acad',
+'84743' => 'proceedingsofaca10acaduoft',
+'84784' => 'proceedingsofaca11acaduoft',
+'17656' => 'proceedingsofaca11acad',
+'84757' => 'proceedingsofac12acaduoft',
+'17942' => 'proceedingsofaca12acad',
+'84787' => 'proceedingsofaca13acaduoft',
+'17713' => 'proceedingsofaca13acad',
+'84865' => 'proceedingsofaca24acaduoft',
+'18281' => 'proceedingsofaca14acad',
+'84759' => 'proceedingsofaca15acaduoft',
+'18294' => 'proceedingsofaca15acad',
+'84864' => 'proceedingsofaca16acaduoft',
+'18264' => 'proceedingsofaca16acad',
+'84739' => 'proceedingsofaca17acaduoft',
+'17711' => 'proceedingsofaca17acad',
+'84896' => 'proceedingsofaca18acaduoft',
+'18061' => 'proceedingsofaca18acad',
+'84741' => 'proceedingsofaca19acaduoft',
+'17695' => 'proceedingsofaca19acad',
+'84776' => 'proceedingsofaca20acaduoft',
+'37631' => 'proceedingsofaca6820acad',
+'30466' => 'proceedingsofaca21acad',
+'84763' => 'actaamazonica22brazuoft',
+'18247' => 'proceedingsofaca22acad',
+'28117' => 'proceedingsofacad23acad',
+'84756' => 'proceedingsofaca14acaduoft',
+'17733' => 'proceedingsofaca24acad',
+'84729' => 'proceedingsofaca25acaduoft',
+'18312' => 'proceedingsofaca25acad',
+'84867' => 'proceedingsofaca26acaduoft',
+'17720' => 'proceedingsofaca26acad',
+'84775' => 'proceedingsofaca27acaduoft',
+'17701' => 'proceedingsofaca27acad',
+'84760' => 'proceedingsofaca28acaduoft',
+'18295' => 'proceedingsofaca28acad',
+'84777' => 'proceedingsofaca29acaduoft',
+'18262' => 'proceedingsofaca29acad',
+'84781' => 'proceedingsofaca30acaduoft',
+'18270' => 'proceedingsofaca30acad',
+'84742' => 'proceedingsofaca31acaduoft',
+'17663' => 'proceedingsofaca31acad',
+'84758' => 'proceedingsofaca32acaduoft',
+'28115' => 'proceedingsofacad32acad',
+'84857' => 'proceedingsofaca33acaduoft',
+'30732' => 'proceedingsofaca33acad',
+'84886' => 'proceedingsofaca34acaduoft',
+'17635' => 'proceedingsofaca34acad',
+'84724' => 'proceedingsofaca35acaduoft',
+'30122' => 'proceedingsofaca35acad',
+'84723' => 'proceedingsofaca36acaduoft',
+'30124' => 'proceedingsofaca36acad',
+'84768' => 'proceedingsofaca37acaduoft',
+'30490' => 'proceedingsofaca37acad',
+'84754' => 'proceedingsofaca38acaduoft',
+'17721' => 'proceedingsofaca38acad',
+'84767' => 'proceedingsofaca39acaduoft',
+'17717' => 'proceedingsofaca39acad',
+'84737' => 'proceedingsofaca40acaduoft',
+'18307' => 'proceedingsofaca40acad',
+'18039' => 'proceedingsofaca41acad',
+'84858' => 'proceedingsofaca42acaduoft',
+'30128' => 'proceedingsofaca42acad',
+'84859' => 'proceedingsofaca43acaduoft',
+'84884' => 'proceedingsofaca44acaduoft',
+'17664' => 'proceedingsofaca44acad',
+'84874' => 'proceedingsofaca45acaduoft',
+'17606' => 'proceedingsofaca45acad',
+'84746' => 'proceedingsofaca46acaduoft',
+'18073' => 'proceedingsofaca46acad',
+'84804' => 'proceedingsofaca47acaduoft',
+'18330' => 'proceedingsofaca47acad',
+'84880' => 'proceedingsofaca48acaduoft',
+'17698' => 'proceedingsofaca48acad',
+'84733' => 'proceedingsofaca49acaduoft',
+'18049' => 'proceedingsofaca49acad',
+'84881' => 'proceedingsofaca50acaduoft',
+'17645' => 'proceedingsofaca50acad',
+'84762' => 'proceedingsofaca51acaduoft',
+'30127' => 'proceedingsofaca51acad',
+'79452' => 'proceedingsofaca52acaduoft',
+'84744' => 'proceedingsofaca53acaduoft',
+'38485' => 'proceedingsofaca0153acad',
+'79429' => 'proceedingsofaca54acaduoft',
+'39540' => 'proceedingsofaca54acad',
+'84790' => 'proceedingsofaca55acaduoft',
+'30485' => 'proceedingsofaca55acad',
+'84792' => 'proceedingsofaca56acaduoft',
+'30096' => 'proceedingsofaca56acad',
+'84750' => 'proceedingsofaca57acaduoft',
+'30015' => 'proceedingsofaca57acad',
+'79482' => 'proceedingsofaca58acaduoft',
+'30129' => 'proceedingsofaca58acad',
+'79427' => 'proceedingsofaca59acaduoft',
+'38138' => 'proceedingsofaca59acad',
+'79152' => 'proceedingsofaca60acaduoft',
+'30138' => 'proceedingsofaca60acad',
+'84740' => 'proceedingsofaca61acaduoft',
+'17974' => 'proceedingsofaca61acad',
+'84751' => 'proceedingsofaca62acaduoft',
+'28143' => 'proceedingsofacad62acad',
+'84732' => 'proceedingsofaca63acaduoft',
+'17738' => 'proceedingsofaca63acad',
+'17736' => 'proceedingsofaca64acad',
+'17936' => 'proceedingsofaca1912acad',
+'17672' => 'proceedingsofaca1812acad',
+'84778' => 'proceedingsofaca65acaduoft',
+'30014' => 'proceedingsofaca65acad',
+'79430' => 'proceedingsofaca66acaduoft',
+'18052' => 'proceedingsofaca66acad',
+'79162' => 'proceedingsofaca67acaduoft',
+'17758' => 'proceedingsofaca67acad',
+'79453' => 'proceedingsofaca68acaduoft',
+'18053' => 'proceedingsofaca68acad',
+'79423' => 'proceedingsofaca69acaduoft',
+'28002' => 'proceedingsofacad69acad',
+'84895' => 'proceedingsofaca70acaduoft',
+'18308' => 'proceedingsofaca70acad',
+'84735' => 'proceedingsofaca71acaduoft',
+'18320' => 'proceedingsofaca71acad',
+'84782' => 'proceedingsofaca72acaduoft',
+'24044' => 'proceedingsofaca72acad',
+'84718' => 'proceedingsofaca73acaduoft',
+'17650' => 'proceedingsofaca73acad',
+'17718' => 'proceedingsofaca74acad'
+);
+
+$items=array('79453' => 'proceedingsofaca68acaduoft');
+
+$items=array('20863' => 'newgenusofbatfli3119dyba');
+
+$items=array(
+'47850' => 'zeitschriftfrs12190102tesc',
+'48816' => 'zeitschriftfrs34190304tesc',
+'105314' => 'zeitschriftf56190506tes',
+'45537' => 'zeitschriftfrs78190708tesc'
+);
+
+$items=array(
+'122166' => 'MemoirsMuseumVi46Muse',
+'122167' => 'MemoirsMuseumVi47Muse',
+'122414' => 'MemoirsMuseumVi48NuMuse',
+'122417' => 'MemoirsMuseumVi48Muse',
+'122418' => 'MemoirsMuseumVi49NuMuse',
+'122419' => 'MemoirsMuseumVi49Muse'
+);
+
+$items=array(
+'107738' => 'iheringia111195759muse',
+'106577' => 'iheringia1227196062muse',
+'106911' => 'iheringia2837196369muse',
+'108335' => 'iheringia3841197072fund',
+'106286' => 'iheringia4245197374fund',
+'106278' => 'iheringia4650197577fund',
+'107517' => 'iheringia5156197880fund',
+'105973' => 'iheringia5761198182fund',
+'105970' => 'iheringia6264198384fund',
+'106479' => 'iheringia6569198589fund',
+//'106994' => 'iheringia7074199093fund',
+'107308' => 'iheringia7579199395fund',
+'106579' => 'iheringia8084199698fund',
+'109985' => 'iheringia1998fund',
+'107266' => 'iheringia861999fund',
+'106571' => 'iheringia871999fund',
+'107267' => 'iheringia882000fund',
+'108012' => 'iheringia892000fund'
+);
+
+//$items=array('106994' => 'iheringia7074199093fund');
+
+$items=array(
+'19574' => 'revuezoologiquep38soci',
+'19515' => 'revuezoologiquep39soci',
+'80474' => 'revuezoologique39soci',
+'48713' => 'revuezoologiquep03soci',
+'19646' => 'revuezoologiquep41soci',
+'51063' => 'revuezoologiquep05soci',
+'19446' => 'revuezoologiquep43soci',
+'19478' => 'revuezoologiquep44soci',
+'19572' => 'revuezoologiquep45soci',
+'19647' => 'revuezoologiquep46soci',
+'19447' => 'revuezoologiquep47soci',
+'19656' => 'revuezoologiquep48soci'
+);
+
+
+$items=array(
+'19515' => 'revuezoologiquep39soci'
+);
+
+$items=array('98824' => 'onsomeparasiticl428delf');
+
+$items=array('20997' => 'tropilaelapsnewg447delf');
+
+$items=array(
+'33497' => 'brighamyounguniv00brig',
+'33530' => 'brighamyounguniv04brig',
+'33899' => 'brighamyounguniv05brig',
+'33905' => 'brighamyounguniv06brig',
+'33907' => 'brighamyounguniv07brig',
+'35600' => 'brighamyounguniv08brig',
+'35562' => 'brighamyounguniv09brig',
+'35615' => 'brighamyounguniv10brig',
+'33469' => 'brighamyounguniv13brig',
+'33458' => 'brighamyounguniv14brig',
+'33474' => 'brighamyounguniv15brig',
+'33048' => 'brighamyounguniv16brig',
+//'33442' => 'brighamyounguniv17brig',
+'33451' => 'brighamyounguniv18brig',
+'33503' => 'brighamyounguniv19brig',
+'33078' => 'brighamyounguniv20brig',
+'35763' => 'brighamyounguniv20xbrig'
+);
+
+//$items=array('33442' => 'brighamyounguniv17brig');
+
+$items=array('47683' => 'verhandlungender38zool');
+$items=array('49945' => 'verhandlungender33zool');
+
+$items=array(
+'121011' => 'jahresberichtder1826schl',
+'121010' => 'jahresberichtder1827schl',
+'121014' => 'jahresberichtder1828schl',
+'121013' => 'jahresberichtder1829schl',
+'121015' => 'jahresberichtder1830schl',
+'121016' => 'jahresberichtder1831schl',
+'121017' => 'jahresberichtder1832schl',
+'121492' => 'jahresberichtder1833schl',
+'121494' => 'jahresberichtder1834schl',
+'121393' => 'jahresberichtder1835schl',
+'120997' => 'jahresberichtder1836schl',
+'121027' => 'jahresberichtder1837schl',
+'120995' => 'jahresberichtder1838schl',
+'120979' => 'jahresberichtder1839schl',
+'120972' => 'jahresberichtder1840schl',
+'120978' => 'jahresberichtder1841schl',
+'120981' => 'jahresberichtder1842schl',
+'120726' => 'jahresberichtder1843schl',
+'120725' => 'jahresberichtder1844schl',
+'120739' => 'jahresberichtder1845schl',
+'120990' => 'jahresberichtder1846schl',
+'120989' => 'jahresberichtder1847schl',
+'120737' => 'jahresberichtder1848schl',
+'120736' => 'jahresberichtder1849schl',
+'114389' => 'jahresberichtder28schl',
+'118501' => 'jahresberichtder29schl',
+'118506' => 'jahresberichtder30schl',
+'118503' => 'jahresberichtder31schl',
+'118502' => 'jahresberichtder32schl',
+'118504' => 'jahresberichtder33schl',
+'114191' => 'jahresberichtder38schl',
+'120733' => 'jahresberichtder1870schl',
+'114443' => 'jahresberichtder49schl',
+'118505' => 'jahresberichtder50schl',
+'118508' => 'jahresberichtder51schl',
+'118507' => 'jahresberichtder52schl',
+'114216' => 'jahresberichtder53schl',
+'114215' => 'jahresberichtder54schl',
+'114449' => 'jahresberichtder55schl',
+'114445' => 'jahresberichtder56schl',
+'114275' => 'jahresberichtder63schl',
+'114208' => 'jahresberichtder64schl',
+'114195' => 'jahresberichtder65schl',
+'114189' => 'jahresberichtder66schl',
+'114295' => 'jahresberichtder67schl',
+'114217' => 'jahresberichtder68schl',
+'114274' => 'jahresberichtder69schl',
+'114220' => 'jahresberichtder70schl',
+'114273' => 'jahresberichtder71schl',
+'114294' => 'jahresberichtder72schl',
+'114444' => 'jahresberichtder73schl',
+'114190' => 'jahresberichtder74schl',
+'114194' => 'jahresberichtder76schl',
+'114272' => 'jahresberichtder77schl',
+'114162' => 'jahresberichtder78schl',
+'114198' => 'jahresberichtder79schl',
+'114212' => 'jahresberichtder80schl',
+'114299' => 'jahresberichtder81schl',
+'114211' => 'jahresberichtder083schl',
+'106617' => 'jahresberichtder83schl',
+'106613' => 'jahresberichtder84schl',
+'106664' => 'jahresberichtder85schl',
+'106652' => 'jahresberichtder86schl',
+'106604' => 'jahresberichtder87schl',
+'106466' => 'jahresberichtder88schl',
+'106689' => 'jahresberichtder89schl',
+'106603' => 'jahresberichtder90schl',
+'106655' => 'jahresberichtder91schl',
+'106693' => 'jahresberichtder92schl',
+'113958' => 'jahresberichtder6476schl',
+'106659' => 'jahresberichtder9394schl',
+'107028' => 'jahresberichtder9596schl',
+'106605' => 'jahresberichtder9799schl'
+);
+
+$items=array('121014' => 'jahresberichtder1828schl');
+
+$items=array(
+'49236' => 'bollettinodellab11907rscufo',
+'34387' => 'bollettinodellab21908rscu',
+'49550' => 'bollettinodellab31909rscufo',
+'48991' => 'bollettinodellab51911rscufo',
+'49549' => 'bollettinodellab61912rscufo',
+'49477' => 'bollettinodellab71913rscufo',
+'34388' => 'bollettinodellab81914rscu',
+//'34390' => 'bollettinodellab111916rscu',
+'35201' => 'bollettinodellab131919rscu',
+'48854' => 'bollettinodellab141920rscufo',
+//'35192' => 'bollettinodellab151921rscu',
+'49312' => 'bollettinodellab161922rscufo',
+'34389' => 'bollettinodellab4190910rscu',
+'49564' => 'bollettinodellab9191415rscufo',
+'51822' => 'bollettinodellab10191516rscufo',
+//'107093' => 'bollettinodellab12191718rscu'
+);
+
+$items=array('107093' => 'bollettinodellab12191718rscu');
+$items=array('35192' => 'bollettinodellab151921rscu');
+$items=array('34390' => 'bollettinodellab111916rscu');
+
+$items=array(
+'45878' => 'deutscheentomolo151902ento',
+'45203' => 'deutscheentomolo161903ento',
+'45641' => 'deutscheentomolo171904ento',
+'47907' => 'deutscheentomolo181905ento',
+'45635' => 'deutscheentomolo191906ento',
+'45541' => 'deutscheentomolo201907ento',
+'45579' => 'deutscheentomolo211908ento',
+'46045' => 'deutscheentomolo221909ento',
+'47916' => 'deutscheentomolo231909ento',
+'45670' => 'deutscheentomolo241910ento',
+'45256' => 'deutscheentomolo251911ento',
+'45639' => 'deutscheentomolo261912ento',
+'45766' => 'deutscheentomolo27141913ento',
+'45765' => 'deutscheentomolo28141914ento',
+'45744' => 'deutscheentomolo29141915ento',
+'45763' => 'deutscheentomolo31141917ento',
+'45785' => 'deutscheentomolo33141919ento',
+'45759' => 'deutscheentomolo34141920ento',
+'45743' => 'deutscheentomolo35141921ento',
+'45761' => 'deutscheentomolo36341922ento'
+);
+
+$items=array('45635' => 'deutscheentomolo191906ento');
+
+
+$items=array('121937' => 'MemoirsNational39Nati');
+
+$items=array('20272' => 'kungligasvenskav01kung',
+'20199' => 'kungligasvenskav03kung',
+'114206' => 'swenskawetenskap04kung',
+'105466' => 'svenskavetenskap05kung',
+'114193' => 'swenskawetenskap06kung',
+'105960' => 'svenskavetenskap07kung',
+'105468' => 'svenskavetenskap08kung',
+'105453' => 'svenskavetenskap09kung',
+'105458' => 'svenskavetenskap92kung',
+'105456' => 'svenskavetenskap11kung',
+'105464' => 'svenskavetenskap11atlas',
+'105462' => 'svenskavetenskap14kung',
+'105428' => 'svenskavetenskap15kung2',
+'105165' => 'svenskavetenskap15kung',
+'105425' => 'svenskavetenskap16kung',
+'106861' => 'svenskavetenskap17kung',
+'106854' => 'svenskavetenskap18kung',
+'106855' => 'svenskavetenskap19kung',
+'106853' => 'svenskavetenskap19kung2',
+'106851' => 'svenskavetenskap20kung',
+'106862' => 'svenskavetenskap20kung2',
+'106852' => 'svenskavetenskap21kung',
+'106868' => 'svenskavetenskap21kung2',
+'106924' => 'svenskavetenskap22kung',
+'118934' => 'swenskawetenskap22kung',
+'106745' => 'svenskavetenskap23kung',
+'106923' => 'svenskavetenskap24kung',
+'106925' => 'svenskavetenskap24kung2',
+'106741' => 'svenskavetenskap25kung',
+'106857' => 'svenskavetenskap26kung',
+'106743' => 'svenskavetenskap27kung',
+'114448' => 'swenskawetenskap28kung',
+'114201' => 'swenskawetenskap29kung',
+'107113' => 'svenskavetenskap31kung',
+'106740' => 'svenskavetenskap32kung',
+'107159' => 'svenskavetenskap35kung',
+'107051' => 'svenskavetenskap36kung',
+'106747' => 'svenskavetenskap37kung',
+'107047' => 'svenskavetenskap38kung',
+'114204' => 'swenskawetenskap39kung',
+'114447' => 'swenskawetenskap40kung',
+'106744' => 'svenskavetenskap41kung',
+'106737' => 'svenskavetenskap42kung',
+'46807' => 'mollusca00odhn'
+);
+
+$items=array('105960' => 'svenskavetenskap07kung');
+
+$items=array('110727' => 'proceed12712920062008linn');
+
+$items=array('121400' => 'australianzoolog15196roya');
+
+$items=array('100619' => 'fversigtafkong231866kung');
+
+$items=array(
+'27591' => 'naturalhistoryof15mcco',
+'27160' => 'naturalhistoryof610mcco',
+'24070' => 'naturalhistoryof1115mcco',
+'27587' => 'naturalhistoryof1620mcco'
+);
+
+$items=array(
+'22497' => 'breviora0166harv',
+'22498' => 'breviora67120harv',
+'22517' => 'breviora121178harv',
+'25428' => 'breviora179230harv',
+'25307' => 'breviora231264harv',
+'25367' => 'breviora265295harv',
+'25368' => 'breviora296325harv',
+'25366' => 'breviora326350harv',
+'25413' => 'breviora351379harv',
+'23673' => 'breviora380409harv',
+'30469' => 'breviora410436harv',
+'22496' => 'breviora437463harv',
+'25352' => 'breviora464487harv',
+'25429' => 'breviora488508harv',
+'35597' => 'breviora00harv',
+'35595' => 'breviora510harv',
+'35575' => 'breviora511harv',
+'35572' => 'breviora512harv',
+'43782' => 'breviora513harv',
+'43736' => 'breviora514harv',
+'45787' => 'breviora515harv',
+'106779' => 'breviora516harv',
+'106777' => 'breviora517harv',
+'106781' => 'breviora518harv',
+'106778' => 'breviora519harv',
+'106784' => 'breviora520harv',
+'106780' => 'breviora521harv',
+'110326' => 'breviora522harv',
+'110386' => 'breviora523harv',
+'110338' => 'breviora524harv',
+'110327' => 'breviora525harv',
+'113961' => 'breviora526harv'
+);
+
+$items=array('106779' => 'breviora516harv',
+'106777' => 'breviora517harv',
+'106781' => 'breviora518harv',
+'106778' => 'breviora519harv',
+'106784' => 'breviora520harv',
+'106780' => 'breviora521harv',
+'110326' => 'breviora522harv',
+'110386' => 'breviora523harv',
+'110338' => 'breviora524harv',
+'110327' => 'breviora525harv',
+'113961' => 'breviora526harv'
+);
+
+
+$items=array('1125' => 'mobot31753002580626');
+
+$items=array('84508' => 'abhandlungenders872senc',
+'84504' => 'abhandlungenders22senc',
+'54683' => 'abhandlungenders2296senc',
+'54636' => 'abhandlungenders28senc',
+'84499' => 'abhandlungenders155senc',
+'84506' => 'abhandlungenders565senc',
+'84507' => 'abhandlungenders667senc',
+'54685' => 'abhandlungenders76970senc',
+'54845' => 'abhandlungenders770senc',
+'99443' => 'mobot31753003649065',
+'54615' => 'abhandlungenders1179senc',
+'84496' => 'abhandlungenders1281senc',
+//'84497' => 'abhandlungenders1384senc',
+'84498' => 'abhandlungenders1488senc',
+'84500' => 'abhandlungenders1588senc',
+'54936' => 'abhandlungenders1791senc',
+'84501' => 'abhandlungenders1895senc',
+'84502' => 'abhandlungenders1996senc',
+'84503' => 'abhandlungenders20senc',
+'85045' => 'abhandlungenders21senc',
+'54678' => 'abhandlungenders23senc',
+'54935' => 'abhandlungenders24senc',
+'81364' => 'abhandlungenders25senc',
+'54647' => 'abhandlungenders26senc',
+'84505' => 'abhandlungenders27senc',
+'114199' => 'abhandlungenders29senc',
+'114390' => 'abhandlungenders30senc',
+'114161' => 'abhandlungenders31senc',
+'114160' => 'abhandlungenders33senc',
+'114221' => 'abhandlungenders34senc',
+'121995' => 'abhandlungender372021senc'
+);
+
+$items=array('84497' => 'abhandlungenders1384senc');
+
+$items=array('21043' => 'siphonapterafrom01trau',
+'20944' => 'amphibiansofwest02liuc',
+'25058' => 'giantpandamorpho03davi'
+);
+
+$items=array('98700' => 'entomologischeze1188788inte',
+'99179' => 'entomologischeze2188889inte',
+'98520' => 'entomologischeze3188990inte',
+'98521' => 'entomologischeze4189091inte',
+'98469' => 'entomologischeze5189192inte',
+'97600' => 'entomologischeze61892inte',
+'98499' => 'entomologischeze7189394inte',
+'99183' => 'entomologischeze8189495inte',
+'99174' => 'entomologischeze9189596inte',
+'99176' => 'entomologischeze10189697inte',
+'99175' => 'entomologischeze11189798inte',
+'99177' => 'entomologischeze12189899inte',
+'99178' => 'entomologischeze1318991900inte',
+'99379' => 'entomologischeze14190001inte',
+'97517' => 'entomologischeze15190102inte',
+'97153' => 'entomologischeze16190203inte',
+'97154' => 'entomologischeze17190304inte',
+'98491' => 'entomologischeze18190405inte',
+'99380' => 'entomologischeze19190506inte',
+'97495' => 'entomologischeze20190607inte',
+'98534' => 'entomologischeze21190708inte',
+'98671' => 'entomologischeze22190809inte',
+'97131' => 'entomologischeze23190910inte',
+'99644' => 'entomologischeze24191011inte',
+'98677' => 'entomologischeze25191112inte',
+'97520' => 'entomologischeze26191213inte',
+'99806' => 'entomologischeze27191314inte',
+'97488' => 'entomologischeze28191415inte',
+'98476' => 'entomologischeze29191516inte',
+'103192' => 'entomologisch30191617inte',
+'103190' => 'entomologisch31191718inte',
+'99182' => 'entomologischeze32191819inte',
+'98472' => 'entomologischeze33191920inte',
+'98514' => 'entomologischeze34192021inte',
+'99188' => 'entomologischeze35192122inte',
+'98455' => 'entomologischeze36192223inte',
+'98561' => 'entomologischeze37192324inte'
+);
+
+$items=array('98534' => 'entomologischeze21190708inte');
+
+$items=array('105357' => 'bulletindelasoci1876soci2',
+'105201' => 'bulletindelasoci1878soci2',
+'105282' => 'bulletindelasoci1887soci',
+'105461' => 'bulletindelasoci1893soci',
+'105409' => 'bulletindelasoci1895soci',
+'105157' => 'bulletindelasoci1898soci2',
+'105323' => 'bulletindelasoci1901soci2',
+'105303' => 'bulletindelasoci1902soci2',
+'105163' => 'bulletindelasoci1904soci2',
+'105299' => 'bulletindelasoci1905soci2',
+'105202' => 'bulletindelasoci1908soci2',
+'104924' => 'bulletinde31419081921soci'
+);
+
+$items=array('104924' => 'bulletinde31419081921soci');
+
+$items=array('47135' => 'reportonpycnogon00hoek');
+
+$items=array('46595' => 'pycnogonida00hodg');
+
+$items=array('20717' => 'comptesrendusheb01acad',
+'20601' => 'comptesrendusheb02acad',
+'20600' => 'comptesrendusheb03acad',
+'112006' => 'mobot31753002066352',
+'107167' => 'comptesrendusheb04scie',
+'111958' => 'mobot31753002066360',
+'87988' => 'comptesrendusheb06acad',
+'81350' => 'comptesrendusheb07acad',
+'81359' => 'comptesrendusheb08acad',
+'20576' => 'comptesrendusheb09acad',
+'112146' => 'mobot31753002066428',
+'107126' => 'comptesrendusheb10scie',
+'20657' => 'comptesrendusheb11acad',
+'81357' => 'comptesrendusheb12acad',
+'111956' => 'mobot31753002066451',
+'107128' => 'comptesrendusheb13sean',
+'21677' => 'comptesrendusheb14acad',
+'20656' => 'comptesrendusheb15acad',
+'20591' => 'comptesrendusheb16acad',
+'20582' => 'comptesrendusheb17acad',
+'21168' => 'comptesrendusheb18acad',
+'81358' => 'comptesrendusheb19acad',
+'21171' => 'comptesrendusheb20acad',
+'20758' => 'comptesrendusheb92acad',
+'21138' => 'comptesrendusheb21acad',
+'21152' => 'comptesrendusheb22acad',
+'21154' => 'comptesrendusheb23acad',
+'21169' => 'comptesrendusheb24acad',
+'21132' => 'comptesrendusheb25acad',
+'21163' => 'comptesrendusheb26acad',
+'21153' => 'comptesrendusheb27acad',
+'20776' => 'comptesrendusheb28acad',
+'16574' => 'comptesrendusheb29acad',
+'26392' => 'comptesrendusheb30acad',
+'16573' => 'comptesrendusheb31acad',
+'16572' => 'comptesrendusheb00acad',
+'16567' => 'comptesrendusheb32acad',
+'111848' => 'mobot31753002067368',
+'106907' => 'comptesrendusheb33sean',
+'16566' => 'comptesrendusheb34acad',
+'16571' => 'comptesrendusheb35acad',
+'16565' => 'comptesrendusheb36acad',
+'16564' => 'comptesrendusheb37acad',
+'16563' => 'comptesrendusheb38acad',
+'21179' => 'comptesrendusheb39acad',
+'26391' => 'comptesrendusheb40acad',
+'16555' => 'comptesrendusheb41acad',
+'16554' => 'comptesrendusheb42acad',
+'16553' => 'comptesrendusheb43acad',
+'113388' => 'mobot31753002067475',
+'107165' => 'comptesrendusheb44sean',
+'16552' => 'comptesrendusheb45acad',
+'16551' => 'comptesrendusheb46acad',
+'25087' => 'comptesrendusheb47acad',
+'16550' => 'comptesrendusheb48acad',
+'17147' => 'comptesrendusheb49acad',
+'16549' => 'comptesrendusheb50acad',
+'25086' => 'comptesrendusheb51acad',
+'23683' => 'comptesrendusheb52acad',
+'23712' => 'comptesrendusheb53acad',
+'23743' => 'comptesrendusheb54acad',
+'23649' => 'comptesrendusheb55acad',
+'23690' => 'comptesrendusheb56acad',
+'23667' => 'comptesrendusheb57acad',
+'23663' => 'comptesrendusheb58acad',
+'23724' => 'comptesrendusheb59acad',
+'23750' => 'comptesrendusheb60acad',
+'24660' => 'comptesrendusheb61acad',
+'23749' => 'comptesrendusheb3261acad',
+'23761' => 'comptesrendusheb62acad',
+'23701' => 'comptesrendusheb63acad',
+'112153' => 'mobot31753002067681',
+'24896' => 'comptesrendusheb65acad',
+'23670' => 'comptesrendusheb66acad',
+'23678' => 'comptesrendusheb67acad',
+'111842' => 'mobot31753002067723',
+'23684' => 'comptesrendusheb69acad',
+'23734' => 'comptesrendusheb70acad',
+'28128' => 'comptesrendusheb71acad',
+'24455' => 'comptesrendusheb72acad',
+'23729' => 'comptesrendusheb73acad',
+'24326' => 'comptesrendusheb74acad',
+'23686' => 'comptesrendusheb75acad',
+'23516' => 'comptesrendusheb76acad',
+'23679' => 'comptesrendusheb77acad',
+'24558' => 'comptesrendusheb78acad',
+'111946' => 'mobot31753002064464',
+'24525' => 'comptesrendusheb80acad',
+'24528' => 'comptesrendusheb81acad',
+'24897' => 'comptesrendusheb82acad',
+'23737' => 'comptesrendusheb83acad',
+'23739' => 'comptesrendusheb84acad',
+'24548' => 'comptesrendusheb85acad',
+'24702' => 'comptesrendusheb86acad',
+'24818' => 'comptesrendusheb87acad',
+'23757' => 'comptesrendusheb88acad',
+'23681' => 'comptesrendusheb89acad',
+'23752' => 'comptesrendusheb90acad',
+'23753' => 'comptesrendusheb91acad',
+'23682' => 'comptesrendusheb188192acad',
+'112000' => 'mobot31753002064605',
+'113470' => 'mobot31753002064613',
+'112005' => 'mobot31753002064621',
+'28062' => 'comptesrendusheb961883acad',
+'26763' => 'comptesrendusheb971883acad',
+'23482' => 'comptesrendusheb981884acad',
+'26776' => 'comptesrendusheb991884acad',
+'23767' => 'comptesrendusheb1001885acad',
+'23718' => 'comptesrendusheb1011885acad',
+'23384' => 'comptesrendusheb1021886acad',
+'23483' => 'comptesrendusheb1031886acad',
+'111954' => 'mobot31753002064712',
+'26775' => 'comptesrendusheb1051887acad',
+'26793' => 'comptesrendusheb1061888acad',
+'26777' => 'comptesrendusheb1071888acad',
+'23755' => 'comptesrendusheb1081889acad',
+'23727' => 'comptesrendusheb1091889acad',
+'23703' => 'comptesrendusheb1101890acad',
+'26798' => 'comptesrendusheb1111890acad',
+'23694' => 'comptesrendusheb1121891acad',
+'26778' => 'comptesrendusheb1131891acad',
+'23484' => 'comptesrendusheb1141131892acad',
+'23771' => 'comptesrendusheb11414261892acad',
+'111843' => 'mobot31753002064829',
+'24230' => 'comptesrendusheb11519261892acad',
+'23775' => 'comptesrendusheb1161151893acad',
+'23725' => 'comptesrendusheb11616261893acad',
+'26766' => 'comptesrendusheb1171171893acad',
+'26765' => 'comptesrendusheb11718261893acad',
+'23772' => 'comptesrendusheb1181131894acad',
+'23481' => 'comptesrendusheb11814261894acad',
+'23765' => 'comptesrendusheb1191171894acad',
+'24410' => 'comptesrendusheb11918271894acad',
+'23704' => 'comptesrendusheb1201131895acad',
+'27787' => 'comptesrendusheb12014251895acad',
+'111836' => 'mobot31753002064894',
+'23680' => 'comptesrendusheb12119271895acad',
+'23716' => 'comptesrendusheb1221141896acad',
+'23758' => 'comptesrendusheb12215261896acad',
+'23773' => 'comptesrendusheb1231181896acad',
+'23774' => 'comptesrendusheb12319261896acad',
+'26794' => 'comptesrendusheb1241131897acad',
+'24409' => 'comptesrendusheb12414261897acad',
+'23768' => 'comptesrendusheb1251171897acad',
+'26779' => 'comptesrendusheb12518261897acad',
+'23756' => 'comptesrendusheb1261131898acad',
+'111847' => 'mobot31753002064944',
+'26771' => 'comptesrendusheb1271131898acad',
+'23770' => 'comptesrendusheb12714261898acad',
+'23769' => 'comptesrendusheb1281131899acad',
+'26762' => 'comptesrendusheb12814261899acad',
+'26760' => 'comptesrendusheb1291899acad',
+'23515' => 'comptesrendusheb1301900acad',
+'26772' => 'comptesrendusheb1311900acad',
+'23424' => 'comptesrendusheb1321901acad',
+'28067' => 'comptesrendusheb1331901acad',
+'28502' => 'comptesrendusheb1341902acad',
+'31403' => 'comptesrendusheb134acad',
+'28070' => 'comptesrendusheb1351902acad',
+'31359' => 'comptesrendusheb135acad',
+'31410' => 'comptesrendusheb136acad',
+'28493' => 'comptesrendusheb1371903acad',
+'31206' => 'comptesrendusheb137acad',
+'28476' => 'comptesrendusheb1381904acad',
+'31540' => 'comptesrendusheb138acad',
+'28104' => 'comptesrendusheb1391904acad',
+'31360' => 'comptesrendusheb139acad',
+'28475' => 'comptesrendusheb1401905acad',
+'31541' => 'comptesrendusheb140acad',
+'28086' => 'comptesrendusheb1411905acad',
+'31363' => 'comptesrendusheb144acad',
+'28072' => 'comptesrendusheb1421906acad',
+'31478' => 'comptesrendusheb142acad',
+'31398' => 'comptesrendusheb143acad',
+'31394' => 'comptesrendusheb141acad',
+'28081' => 'comptesrendusheb1451907acad',
+'31491' => 'comptesrendusheb145acad',
+'28088' => 'comptesrendusheb1461908acad',
+'31405' => 'comptesrendusheb146acad',
+'28500' => 'comptesrendusheb1471908acad',
+'31492' => 'comptesrendusheb147acad',
+'31542' => 'comptesrendusheb148acad',
+'31487' => 'comptesrendusheb149acad',
+'31543' => 'comptesrendusheb150acad',
+'31489' => 'comptesrendusheb151acad',
+'31203' => 'comptesrendusheb122151acad',
+'31511' => 'comptesrendusheb152acad',
+'31544' => 'comptesrendusheb153acad',
+'31526' => 'comptesrendusheb154acad',
+'31508' => 'comptesrendusheb155acad',
+'31588' => 'comptesrendusheb156acad',
+'31545' => 'comptesrendusheb157acad',
+'31512' => 'comptesrendusheb158acad',
+'31546' => 'comptesrendusheb159acad',
+'31202' => 'comptesrendusheb160acad',
+'31204' => 'comptesrendusheb161acad',
+'30710' => 'comptesrendusheb162acad',
+'111838' => 'mobot31753002103098',
+'31525' => 'comptesrendusheb164acad',
+'31787' => 'comptesrendusheb165acad',
+'31547' => 'comptesrendusheb166acad',
+'111466' => 'mobot31753002103130',
+'31692' => 'comptesrendusheb168acad',
+'30348' => 'comptesrendusheb169acad',
+'111456' => 'mobot31753002103163',
+'111462' => 'mobot31753002103171',
+'31194' => 'comptesrendusheb172acad',
+'31144' => 'comptesrendusheb173acad',
+'31193' => 'comptesrendusheb174acad',
+'31146' => 'comptesrendusheb175acad'
+);
+
+$items=array('31489' => 'comptesrendusheb151acad');
+
+$items=array(
+'17820' => 'boletndelasoci01soci',
+'17811' => 'boletndelasoci02soci',
+'28616' => 'boletndelasoci03soci',
+'28617' => 'boletndelasoci04soci',
+'17794' => 'boletndelasoci05soci',
+'27124' => 'boletndelarealso56real',
+'17792' => 'boletndelasoci06soci',
+'17863' => 'boletndelasoci07soci',
+'18007' => 'boletndelasoci08soci',
+'17844' => 'boletndelasoci09soci',
+'27775' => 'boletndelasoci10soci',
+'27937' => 'boletndelasoci11soci',
+'27778' => 'boletndelasoci12soci',
+'54483' => 'boletndelasoci131913soci',
+'17843' => 'boletndelasoci14soci',
+'27765' => 'boletndelasoci15soci',
+'27854' => 'boletndelarealso15real',
+'17826' => 'boletndelasoci16soci',
+'27831' => 'boletndelarealso16real',
+'27858' => 'boletndelarealso18real',
+'17977' => 'boletndelasoci18soci',
+'27842' => 'boletndelarealso19real',
+'27766' => 'boletndelasoci191919soci',
+//'17874' => 'boletndelasoci20soci',
+//'27865' => 'boletndelarealso20real',
+'17812' => 'boletndelasoci21soci',
+'17979' => 'boletndelasoci22soci');
+
+//$items=array('27865' => 'boletndelarealso20real');
+
+//$items=array('17874' => 'boletndelasoci20soci');
+
+$items=array('107571' => 'proceedingsofb1121999biol');
+
+$items=array(
+'95321' => 'stuttgarterbeitr114197274staa',
+'106131' => 'stuttgarterbeitr15staa',
+'103367' => 'stuttgarterbeitr16staa',
+'103341' => 'stuttgarterbeitr17staa',
+'103342' => 'stuttgarterbeitr18staa',
+'103353' => 'stuttgarterbeitr19staa',
+'103356' => 'stuttgarterbeitr20staa',
+'103368' => 'stuttgarterbeitr21staa',
+'103273' => 'stuttgarterbeitr22staa',
+'103284' => 'stuttgarterbeitr23staa',
+'103286' => 'stuttgarterbeitr24staa',
+'103558' => 'stuttgarterbeitr25staa',
+'103271' => 'stuttgarterbeitr26staa',
+'95548' => 'stuttgarterbeitr2747197779staa',
+'95540' => 'stuttgarterbeitr48661980staa',
+'103285' => 'stuttgarterbeitr67staa',
+'95131' => 'stuttgarterbeitr6889198182staa',
+'95120' => 'stuttgarterbeitr90109198384staa',
+'95136' => 'stuttgarterbeitr110126198586staa',
+'94930' => 'stuttgarterbeitr127146198788staa',
+'95117' => 'stuttgarterbeitr1471989staa',
+'95113' => 'stuttgarterbeitr1481989staa',
+'95149' => 'stuttgarterbeitr1491989staa',
+'103658' => 'stuttgarterbeitr150staa',
+'95112' => 'stuttgarterbeitr1511989staa',
+'95111' => 'stuttgarterbeitr1521989staa',
+'95148' => 'stuttgarterbeitr1531989staa',
+'95114' => 'stuttgarterbeitr1541989staa',
+'95115' => 'stuttgarterbeitr1551989staa',
+'95116' => 'stuttgarterbeitr1561989staa',
+'95091' => 'stuttgarterbeitr157167198990staa',
+'95139' => 'stuttgarterbeitr168182199192staa',
+'94989' => 'stuttgarterbeitr1831901992staa',
+'95086' => 'stuttgarterbeitr191200199394staa',
+'95128' => 'stuttgarterbeitr2012191994staa',
+'95090' => 'stuttgarterbeitr220244199596staa',
+'95129' => 'stuttgarterbeitr2452581997staa',
+'94940' => 'stuttgarterbeitr2592701998staa',
+'95542' => 'stuttgarterbeitr2711999staa',
+'95137' => 'stuttgarterbeitr2722801999staa'
+);
+
+$items=array('95542' => 'stuttgarterbeitr2711999staa');
+
+$items=array(
+'22321' => 'memoirspresented01cali',
+'86391' => 'memoirscaliforni01cali',
+'34001' => 'memoirsofcalifor00cali',
+'22311' => 'memoirsofcalifor03cali',
+'86393' => 'memoirscaliforni03cali',
+'22365' => 'memoirsofcalifor04cali',
+'22370' => 'memoirsofcalifor0501cali',
+'22363' => 'memoirsofcalifor06cali',
+'53408' => 'memoirsofcalifor710197488cali',
+'53414' => 'memoirsofcalifor111986cali',
+'53583' => 'memoirsofcalifor121988cali',
+'53409' => 'memoirsofcalifor131988cali',
+'53394' => 'memoirsofcalifor141989cali',
+//'53413' => 'memoirsofcalifor151991cali',
+'53412' => 'memoirsofcalifor161992cali',
+'53400' => 'memoirsofcalifor171990cali',
+'53411' => 'memoirsofcalifor181995cali',
+'53570' => 'memoirsofcalifor191996cali',
+'53410' => 'memoirsofcalifor201996cali',
+'53569' => 'memoirsofcalifor211996cali',
+'53402' => 'memoirsofcalifor221997cali',
+'53407' => 'memoirsofcalifor231997cali',
+'95165' => 'memoirsofcalifor241998cali',
+'53581' => 'memoirsofcalifor252000cali',
+'53567' => 'memoirsofcalifor262001cali',
+'99491' => 'memoirsofcalifor272002cali',
+//'99512' => 'memoirsofcalifor282004cali'
+);
+
+//$items=array('99512' => 'memoirsofcalifor282004cali');
+
+$items=array('108010' => 'entomologisc12184041ento',
+'107901' => 'entomologische34184243en',
+'105311' => 'stettinerentomol41843ento',
+'105470' => 'stettinerentomol51844ento',
+'111853' => 'entomologisch67184546ento',
+'105178' => 'stettinerentomol81847ento',
+'105146' => 'stettinerentomol91848ento',
+'107446' => 'entomologischeze0810ento',
+'107393' => 'entomologischeze1113ento',
+'105429' => 'stettinerentomol12ento',
+'105426' => 'stettinerentomol13ento',
+'107900' => 'entomologisch141853ento',
+'105162' => 'stettinerentomol15ento',
+'82069' => 'entomologischeze19ento',
+'82070' => 'entomologischeze20ento',
+'36496' => 'entomologischeze161855ento',
+'35930' => 'entomologischeze171856ento',
+'35931' => 'entomologischeze181857ento',
+'35932' => 'entomologischeze191858ento',
+'82404' => 'entomologischeze21ento',
+'35933' => 'entomologischeze201859ento',
+'105433' => 'stettinerentomol21ento',
+'106288' => 'entomologischez211860ento',
+'35934' => 'entomologischeze221861ento',
+'82071' => 'entomologischeze22ento',
+'35847' => 'entomologischeze231862ento',
+'110946' => 'entomologische241863ento',
+'82072' => 'entomologischeze23ento',
+//'35935' => 'entomologischeze251864ento',
+'35852' => 'entomologischeze261865ento',
+'105449' => 'stettinerentomol27ento',
+'105479' => 'stettinerentomol28ento',
+'105297' => 'stettinerentomol29ento',
+'36446' => 'entomologischeze301869ento',
+'82075' => 'entomologischeze24ento',
+'35851' => 'entomologischeze311870ento',
+'35860' => 'entomologischeze321871ento',
+'35936' => 'entomologischeze331872ento',
+'35937' => 'entomologischeze341873ento',
+'36448' => 'entomologischeze351874ento',
+'105459' => 'stettinerentomol36ento',
+'35938' => 'entomologischeze371876ento',
+'106807' => 'stettinerentomol38ento',
+'35939' => 'entomologischeze391878ento',
+'35940' => 'entomologischeze401879entom',
+'36353' => 'entomologischeze401879ento',
+'35941' => 'entomologischeze411880ento',
+'35945' => 'entomologischeze421881ento',
+'107046' => 'stettinerentomol43ento',
+'35960' => 'entomologischeze441883ento',
+'35974' => 'entomologischeze451884ento',
+'35988' => 'entomologischeze461885ento',
+'36002' => 'entomologischeze471886ento',
+'35864' => 'entomologischeze481887ento',
+'36011' => 'entomologischeze491888ento',
+'36487' => 'entomologischeze501889ento',
+'35894' => 'entomologischeze511890ento',
+'36012' => 'entomologischeze521891ento',
+'36484' => 'entomologischeze531892ento',
+'35849' => 'entomologischeze541893ento',
+'104195' => 'entomologischeze551894ento',
+'35870' => 'entomologischeze561895ento',
+'36013' => 'entomologischeze571896ento',
+'36014' => 'entomologischeze581897ento',
+'35872' => 'entomologischeze591898ento',
+'36015' => 'entomologischeze601899ento',
+'101768' => 'entomologischez611900ento',
+'35850' => 'entomologischeze621901ento',
+'104196' => 'entomologischeze631902ento',
+'36016' => 'entomologischeze641903ento',
+'36017' => 'entomologischeze651904ento',
+'36018' => 'entomologischeze661905ento',
+'82409' => 'entomologischeze25ento',
+'82405' => 'entomologischeze026ento',
+'36019' => 'entomologischeze671906ento',
+'36020' => 'entomologischeze681907ento',
+'82406' => 'entomologischeze27ento',
+'36021' => 'entomologischeze691908ento',
+'82403' => 'entomologischeze28ento',
+'36022' => 'entomologischeze701909ento',
+'82054' => 'entomologischeze70ento',
+'82056' => 'entomologischeze71ento',
+//'36023' => 'entomologischeze711910ento',
+'36024' => 'entomologischeze721911ento'
+);
+
+$items=array('35935' => 'entomologischeze251864ento');
+$items=array('36023' => 'entomologischeze711910ento');
+
+$items=array(
+'122637' => 'MemoirsMuseumVi51Muse',
+'122635' => 'MemoirsMuseumVi50Muse',
+'122636' => 'MemoirsMuseumVi50MuseA',
+'122638' => 'MemoirsMuseumVi52Muse',
+'122639' => 'MemoirsMuseumVi53Muse');
+
+$items=array(
+'20408' => 'descriptionoftwo78dall',
+'48527' => 'synopticlistoffi00meek',
+'20420' => 'notesonsomecleri710wolc',
+'20356' => 'batrachiansrepti711meek',
+'20381' => 'notesonbatrachia712meek',
+'20396' => 'contentsindextov713fiel',
+'20366' => 'birdsofillinoisw91cory',
+'88143' => 'fieldiana09fiel',
+'20355' => 'peculiarbearfrom101osgo',
+'25970' => 'diagnosesofnewea102osgo',
+'25967' => 'furthernewmammal103osgo',
+'20422' => 'mammalsfromcoast104osgo',
+'20475' => 'mammalsfromweste105osgo',
+'25997' => 'newspeciesoffish107meek',
+'25987' => 'newspeciesoffish108meek',
+'25988' => 'newperuvianmamma109osgo',
+'25990' => 'annotatedlistoff1010meek',
+'25989' => 'fournewmammalsfr1011osgo',
+'20423' => 'mammalsofexpedit1012osgo',
+'20379' => 'newmammalsfrombr1013osgo',
+'20460' => 'mammalsofcollins1014osgo',
+'20401' => 'fishesoffreshwat1015meek',
+'25966' => 'contentsindextov1016fiel',
+'88146' => 'fieldiana10fiel',
+'20410' => 'mammalsofillinoi111cory',
+'88142' => 'fieldiana11fiel',
+'21294' => 'notesonlittlekno121cory',
+'21051' => 'notesonfishesfro122hubb',
+'25994' => 'gamebirdsfromnor123osgo',
+'25991' => 'newbirdsfromcent124zimm',
+'25993' => 'newbirdsfromchil125hell',
+'21239' => 'notesoncentralam126schm',
+'20784' => 'newsalamandersof127dunn',
+'20390' => 'twonewbirdsfromp128zimm',
+'20559' => 'longclawedsoutha129osgo',
+'20746' => 'newcoralsnakesfr1210schm',
+'21266' => 'reviewoffishesof1211weed',
+'20733' => 'amphibiansreptil1212schm',
+'20556' => 'amphibiansreptil1213schm',
+'20978' => 'newcrocodilefrom1214schm',
+'21245' => 'newgenusofaquati1215osgo',
+'21025' => 'reptilescollecte1216schm',
+'30772' => 'notesonsouthamer1217schm',
+'30791' => 'contributiontoor1218hell',
+'20368' => 'contentsindextov1219fiel',
+'25983' => 'catalogueofbirds1311fiel',
+'20759' => 'catalogueofbirds1312hell',
+'20854' => 'catalogueofbirds1313hell',
+'20806' => 'catalogueofbirds1314hell',
+'15559' => 'catalogueofbirds1321hell',
+'88149' => 'p2n1fieldiana13fiel',
+'15560' => 'catalogueofbirds1322cory',
+'88153' => 'p2n2fieldiana13fiel',
+'20769' => 'catalogueofbirds133cory',
+'20942' => 'catalogueofbirdso134cory',
+'21258' => 'catalogueofbirdso135cory',
+'20765' => 'catalogueofbirds136hell',
+'20926' => 'catalogueofbirds137hell',
+'20952' => 'catalogueofbirds138hell',
+'21244' => 'catalogueofbirds139hell',
+'20557' => 'catalogueofbirds1310hell',
+'20831' => 'catalogueofbirdso1311hell',
+'20562' => 'monographicstudy141osgo',
+'20921' => 'reviewoflivingca142osgo',
+'20947' => 'brainsofsouthame143oben',
+'20850' => 'marinefishesofpa151meek',
+'88141' => 'p1fieldiana15fiel',
+'26383' => 'marinefishesofpa152meek',
+'20786' => 'marinefishesofpa153meek',
+'21064' => 'birdsofneotropic171zimm',
+'20999' => 'newrodentfromgal172osgo',
+'21260' => 'birdsofjamessimp173hell',
+'21301' => 'landmammalsofuru174sanb',
+'21010' => 'studyoftoothbill175zimm',
+'20927' => 'reptilesofmarsha176schm',
+'20932' => 'birdsofmarshallf177zimm',
+'20787' => 'descriptionsoffi181bang',
+'20764' => 'batsfrompolynesi182sanb',
+'21053' => 'birdsofkelleyroo183bang',
+'21061' => 'paintedturtlesof184bish',
+'21241' => 'twonewrodentsfro185osgo',
+'21005' => 'notesondinomys186sanb',
+'20941' => 'reptilesamphibia187schm',
+'20849' => 'notesonnewguinea188schm',
+'21210' => 'reptilesamphibia189schm',
+'20750' => 'mammalsofkelleyr1810osgo',
+'21236' => 'birdsofwesternch1811bang',
+'20974' => 'newfishesobtaine1812herr',
+'20866' => 'birdsofchile191hell',
+'21017' => 'southamericanmic201osgo',
+'21264' => 'newsnakefromarab202schm',
+'21079' => 'twonewrodentsfro203osgo',
+'20878' => 'newreptilesamphi204schm',
+'21296' => 'batsofgeneraanou205sanb',
+'21084' => 'preliminaryaccou206schm',
+'20980' => 'notesonfishesoff207weed',
+'20889' => 'newcrocodilefrom208schm',
+'20740' => 'notesonbreedingb209schm',
+'21035' => 'newskinkfrommexi2010tayl',
+'20960' => 'newmammalsfromgu2011sanb',
+'21118' => 'newgenericfamily2012davi',
+'20940' => 'recordsmeasureme2013sanb',
+'21261' => 'descriptionsreco2014sanb',
+'21071' => 'distributionofbi2015davi',
+'20874' => 'notesonbahamanre2016schm',
+'20968' => 'guatemalansalama2017schm',
+'21276' => 'notesonsnakesfro2018schm',
+'21278' => 'preliminaryaccou2019schm',
+'20872' => 'notesoncentralam2020schm',
+'21029' => 'newimperfectlykn2021osgo',
+'20832' => 'courtshipmatingb2022davi',
+'20981' => 'notesonseabasses2023weed',
+'21281' => 'americanbatsofsu2024sanb',
+'21277' => 'notesonsnakesfro2025andr',
+'21297' => 'historyofelapsco2026schm',
+'20934' => 'variabledentitio2027osgo',
+'21012' => 'snakesofgenustan2028blan',
+'20761' => 'geographicvariat2029schm',
+'21030' => 'notesonanatomyof2030davi',
+'20995' => 'foodhabitsofsome2031cott',
+'20955' => 'hemipterafromira2032chin',
+'20742' => 'orthopterafromir2033uvar',
+'20929' => 'birdsofcranepaci2034mayr',
+'20975' => 'newwoodratfromme2035osgo',
+'20912' => 'newpigeonfromcol2036cono',
+'21083' => 'newwoodowlfromch2037whee',
+'20563' => 'fishesofcranepac211herr',
+'21047' => 'africanreptilesan22love',
+'21240' => 'secondarysexchar222liuc',
+'20561' => 'generalfunctiono223gorh',
+'20936' => 'newcatalogueoffr224hild',
+'21308' => 'notesonanatomyof225davi',
+'21090' => 'studiesofanatomy226thom',
+'20979' => 'newlittleknownne227wenz',
+'20930' => 'amphibiansreptil228schm',
+'20741' => 'notesoncollectio229blak',
+'21046' => 'birdsofelsalvado231dick',
+'20877' => 'newcentralameric241schm',
+'21289' => 'newlizardfrommex242schm',
+'21049' => 'newaustralianliz243smit',
+'20976' => 'notesonmexicanre244smit',
+'20729' => 'eightnewbatsofge245sanb',
+'20977' => 'newcoralsnakefro246schm',
+'21299' => 'reptilesamphibia247schm',
+'20972' => 'malacologicalnot248haas',
+'21305' => 'carcinologicalno249neme',
+'21028' => 'threenewbirdsofg2410deig',
+'20963' => 'tentativeclassif2411haas',
+'21309' => 'notesontexansnak2412schm',
+'21298' => 'newtoadfromweste2413schm',
+'20894' => 'newvenezuelanhon2414blak',
+'21098' => 'newsavannahsparr2415camr',
+'20731' => 'reptilesamphibia2416schm',
+'21286' => 'malacologicalnot2417haas',
+'20838' => 'newtermitophilou2418seev',
+'20959' => 'birdsfromyucatan2419tray',
+'20951' => 'twonewbirdsfromb2420blak',
+'20987' => 'herpetologicalfa2421schm',
+'20867' => 'copulatoryadjust2422pope',
+'20766' => 'newsubspeciesofs2423smit',
+'20982' => 'recordsoflargefr2424haas',
+'20855' => 'externalcharacte2425sanb',
+'21119' => 'peruviansnakesfr2426schm',
+'21044' => 'snakesofperuvian2427schm',
+'20879' => 'threenewsnakesfr2428schm',
+'21284' => 'amphibiansreptil2429schm',
+'21093' => 'whitesandsearles2430smit',
+'21121' => 'studyoftorrentdu2431cono',
+'21031' => 'odonataofchile2432need',
+'20821' => 'birdlicefromtina2433clay',
+'21699' => 'bibliographyofbir251stro',
+'21701' => 'bibliographyofbir252stro',
+'21700' => 'bibliographyofbi253stro',
+'21702' => 'bibliographyofbi254stro',
+'20857' => 'mexicancentralam261smit',
+'20961' => 'papersonmammalog271fiel',
+'20891' => 'carotidcirculati28davi',
+'21015' => 'onclassification194410493wenz',
+'20844' => 'newsubfamilyofbe2410seev',
+'21081' => 'chilopodsincolle284cham',
+'21048' => 'malacologicalnot291haas',
+'21036' => 'notesoncoralsnak292schm',
+'20825' => 'auditoryregionof293sega',
+'20935' => 'masticatoryappar294sich',
+'20922' => 'amphibiansreptil295schm',
+'20890' => 'amphibiansreptil296schm',
+'20818' => 'newmordellidbeet297raye',
+'20953' => 'snakesofhoogstra298smit',
+'20836' => 'newfrogsfrommisi299schm',
+'20861' => 'masticatoryappar2910sich',
+'21166' => 'northpacificalli2911cono',
+'20791' => 'ornithologicalno2912bish',
+'21050' => 'ninenewsouthamer2913osgo',
+'20859' => 'newharvestmousef2914hans',
+'21270' => 'newnorthamerican2915trau',
+'21027' => 'mammalsofchile301osgo'
+);
+
+$items=array('20356' => 'batrachiansrepti711meek');
+
+$items=array('106179' => 'missionscienti3121886miss',
+'106320' => 'missionscientifi41887miss',
+'108173' => 'missionscientifi51889miss',
+'16135' => 'missionscientifi06miss',
+'111048' => 'missionscientif62151891mi',
+'20051' => 'missionscientifi00miss',
+'104858' => 'missionscienti6271891miss',
+'105001' => 'missionscienti6281889miss',
+'103437' => 'missionscientifi628miss',
+'107647' => 'missionscientif631891miss',
+'27571' => 'missionscientifi1888miss');
+
+$items=array('105001' => 'missionscienti6281889miss');
+
+$items=array('13711' => 'mobot31753002433479',
+'13712' => 'mobot31753002433487',
+'13713' => 'mobot31753002433495',
+'13714' => 'mobot31753002433503',
+'13715' => 'mobot31753002433511',
+'13716' => 'mobot31753002433529',
+'13717' => 'mobot31753002433537',
+'13718' => 'mobot31753002433545',
+'13719' => 'mobot31753002433552',
+'98905' => 'transactionsofli09linn',
+'13720' => 'mobot31753002433560',
+'13721' => 'mobot31753002433578',
+'13691' => 'mobot31753002433586',
+'13692' => 'mobot31753002433594',
+'13693' => 'mobot31753002433602',
+'13694' => 'mobot31753002433610',
+'13695' => 'mobot31753002433628',
+'19440' => 'transactionsofli02linn',
+'13696' => 'mobot31753002433636',
+'48968' => 'transactionsofli17lond',
+'13697' => 'mobot31753002433644',
+'102948' => 'transactionsofli03linn',
+'88044' => 'transactionsofli18183841linn',
+'13698' => 'mobot31753002433651',
+'19473' => 'transactionsofli04linn',
+'13699' => 'mobot31753002433669',
+'19393' => 'transactionsofli05linn',
+'13700' => 'mobot31753002433677',
+'19614' => 'transactionsofli06linn',
+'13701' => 'mobot31753002433685',
+'46591' => 'transactionsofli22linn',
+'86346' => 'mobot31753002433693',
+'98761' => 'transactionsofli23linn',
+'88071' => 'mobot31753002433701',
+'87719' => 'mobot31753002432315',
+'87381' => 'mobot31753002432323',
+'87717' => 'mobot31753002432331',
+'88067' => 'mobot31753002271572',
+'13709' => 'mobot31753002432356',
+'88072' => 'mobot31753002432349'
+);
+
+$items=array('87719' => 'mobot31753002432315');
+
+$items=array('20802' => 'titisnewworldmon55hers');
+
+$items=array(
+'32816' => 'bulletinofessexi01esse',
+'32742' => 'bulletinofessexi02esse',
+'32745' => 'bulletinofessexi03esse',
+'35570' => 'bulletinofessexi00esse',
+'35566' => 'bulletinofessexi05esse',
+'35568' => 'bulletinofessexi06esse',
+'32741' => 'bulletinofessexi07esse',
+'32747' => 'bulletinofessexi08esse',
+'32817' => 'bulletinofessexi09esse',
+'33394' => 'bulletinofessexi10esse',
+'33381' => 'bulletinofessexi11esse',
+'33375' => 'bulletinofessexi12esse',
+'33387' => 'bulletinofessexi13esse',
+'33382' => 'bulletinofessexi14esse',
+'110130' => 'bulletinofess151883unse',
+'110132' => 'bulletinofess161884unse',
+'33908' => 'bulletinofessexi17esse',
+'110136' => 'bulletinofess181886unse',
+'33876' => 'bulletinofessexi19esse',
+'33878' => 'bulletinofessexi20esse',
+'110133' => 'bulletinofess211889unse',
+'33886' => 'bulletinofessexi22esse',
+'33895' => 'bulletinofessexi23esse',
+'33877' => 'bulletinofessexi24esse',
+'110131' => 'bulletinofess251893unse',
+'110205' => 'bulletinofess261894unse',
+'63349' => 'bulletinofessexi2728esse',
+'33374' => 'bulletinofessexi29esse',
+'82384' => 'bulletinofessexi2930esse',
+'33389' => 'bulletinofessexi30esse'
+);
+
+$items=array('33876' => 'bulletinofessexi19esse');
+
+$items=array(
+'18798' => 'bulletindelinsti301313inst',
+'18799' => 'bulletindelinsti324336inst',
+'69348' => 'bulletindelinsti324362instuoft',
+'18801' => 'bulletindelinsti337349inst',
+'18809' => 'bulletindelinsti350362inst'
+);
+
+$items=array('104330' => 'mobot31753002618145',
+'107536' => 'transactionsproc11868newz',
+'107149' => 'transactionsproc21869newz',
+'104341' => 'mobot31753002618160',
+'107521' => 'transactionsproc31870newz',
+'108017' => 'transactionsproc41871newz',
+'107125' => 'transactionsproc51872newz',
+'104840' => 'mobot31753002618152',
+'108479' => 'transactionsproc61873newz',
+'106589' => 'transactionsproc71874newz',
+'104846' => 'mobot31753002618178',
+'104588' => 'mobot31753002618186',
+'104345' => 'mobot31753002618194',
+'103996' => 'mobot31753002623079',
+'107562' => 'transactionspr101877newz',
+'108166' => 'transactionspr111878newz',
+'104132' => 'mobot31753002618012',
+'104354' => 'mobot31753002618020',
+'107568' => 'transactionspr121879newz',
+'107151' => 'transactionspr131880newz',
+'107794' => 'transactionspr141881newz',
+'104841' => 'mobot31753002618038',
+'103995' => 'mobot31753002618046',
+'105955' => 'transactionspro151882newz',
+'103797' => 'mobot31753002618053',
+'105242' => 'transactionspro161883newz',
+'105833' => 'transactionspro171884newz',
+'104582' => 'mobot31753002618061',
+'22765' => 'transactionsproc18newz',
+'22769' => 'transactionsproc19newz',
+'23813' => 'transactionsproc20newz',
+'22740' => 'transactionsproc21newz',
+'22737' => 'transactionsproc22newz',
+'37651' => 'transactionsproc23newz',
+'22726' => 'transactionsproc24newz',
+'22728' => 'transactionsproc25newz',
+'37655' => 'transactionsproc26newz',
+'22767' => 'transactionsproc27newz',
+'22752' => 'transactionsproc28newz',
+'38145' => 'transactionsproc29newz',
+'82060' => 'transactionspro30newz',
+'22849' => 'transactionsproc31newz',
+'22720' => 'transactionsproc32newz',
+'22772' => 'transactionsproc33newz',
+'22778' => 'transactionsproc34newz',
+'22753' => 'transactionsproc35newz',
+'22758' => 'transactionsproc36newz',
+'23802' => 'transactionsproc37newz',
+'22779' => 'transactionsproc38newz',
+'38146' => 'transactionsproc39newz',
+'22770' => 'transactionsproc40newz',
+'22795' => 'transactionsproc41newz',
+'22868' => 'transactionsproc42newz',
+'37657' => 'transactionsproc43newz',
+'22773' => 'transactionsproc44newz',
+'38147' => 'transactionsproc45newz',
+'22756' => 'transactionsproc46newz',
+'22894' => 'transactionsproc47newz',
+'22771' => 'transactionsproc48newz',
+'22797' => 'transactionsproc49newz',
+'22744' => 'transactionsproc50newz',
+'22763' => 'transactionsproc51newz',
+'22745' => 'transactionsproc52newz',
+'22784' => 'transactionsproc53newz',
+'104842' => 'mobot31753002548532',
+'105104' => 'mobot31753002548540',
+'82041' => 'transactionsproc00newz',
+'39591' => 'transactionsproc0140newz',
+'22716' => 'transactionsproc4151newz');
+
+$items=array('105242' => 'transactionspro161883newz');
+
+$items=array('19445' => 'annalesdesscienc01pari',
+'47934' => 'annalesdesscienc02zool',
+'111230' => 'annalesdesscien231835miln',
+'47932' => 'annalesdesscienc04zool',
+'47938' => 'annalesdesscienc05zool',
+'19415' => 'annalesdesscienc06pari',
+'19412' => 'annalesdesscienc07pari',
+'47933' => 'annalesdesscienc08zool',
+'47936' => 'annalesdesscienc09zool',
+'47935' => 'annalesdesscienc10zool',
+'47931' => 'annalesdesscienc11zool',
+'47937' => 'annalesdesscienc14zool',
+'47976' => 'annalesdesscienc13zool',
+'47974' => 'annalesdesscienc12zool',
+'47975' => 'annalesdesscienc15zool',
+'110495' => 'annalesdesscie2161841miln',
+'47977' => 'annalesdesscienc17zool',
+'47978' => 'annalesdesscienc18zool',
+'47973' => 'annalesdesscienc19zool',
+'47979' => 'annalesdesscienc20zool',
+'47984' => 'annalesdesscienc01hist',
+'19450' => 'annalesdesscienc32pari',
+'47987' => 'annalesdesscienc03hist',
+'47985' => 'annalesdesscienc04hist',
+'47988' => 'annalesdesscienc05hist',
+'47986' => 'annalesdesscienc06hist',
+'47980' => 'annalesdesscienc07hist',
+'50610' => 'annalesdesscienc08hist',
+'23613' => 'annalesdesscienc47pari',
+'50612' => 'annalesdesscienc09hist',
+'49250' => 'annalesdesscienc10seri',
+'48057' => 'annalesdesscienc11seri',
+'48069' => 'annalesdesscienc12seri',
+'48056' => 'annalesdesscienc13seri',
+'48053' => 'annalesdesscienc14seri',
+'48051' => 'annalesdesscienc15seri',
+'48045' => 'annalesdesscienc16seri',
+'48059' => 'annalesdesscienc17seri',
+'48135' => 'annalesdesscienc18seri',
+'48131' => 'annalesdesscienc19seri',
+'109924' => 'annalesdessc319201853miln',
+'48136' => 'annalesdesscienc01anna',
+'111021' => 'annalesdesscie4121854miln',
+'48354' => 'annalesdesscienc03anna',
+'48138' => 'annalesdesscienc04anna',
+'48133' => 'annalesdesscienc05anna',
+'103801' => 'annalesdesscienc46miln',
+'48137' => 'annalesdesscienc07anna',
+'48139' => 'annalesdesscienc08anna',
+'48132' => 'annalesdesscienc09anna',
+'48134' => 'annalesdesscienc10anna',
+'48592' => 'annalesdesscienc11anna',
+'48143' => 'annalesdesscienc12anna',
+'49253' => 'annalesdesscienc13anna',
+'92050' => 'annalesdesscienc13natu',
+'92581' => 'annalesdesscienc14natu',
+'92582' => 'annalesdesscienc15natu',
+'92580' => 'annalesdesscienc16natu',
+'92504' => 'annalesdesscienc17natu',
+'92583' => 'annalesdesscienc18natu',
+'92545' => 'annalesdesscienc19natu',
+'92547' => 'annalesdesscienc20natu',
+'92546' => 'annalesdesscienc02vict',
+'92548' => 'annalesdesscienc01vict',
+'92544' => 'annalesdesscienc03vict',
+'92549' => 'annalesdesscienc04vict',
+'92550' => 'annalesdesscienc05vict',
+'92542' => 'annalesdesscienc06vict',
+'92543' => 'annalesdesscienc07vict',
+'92541' => 'annalesdesscienc08vict',
+'92539' => 'annalesdesscienc09vict',
+'92537' => 'annalesdesscienc10vict',
+'103318' => 'annalesdesscienc511miln',
+'103923' => 'annalesdesscienc512miln',
+'114207' => 'annalesdesscienc513miln',
+'103313' => 'annalesdesscienc514miln',
+'103211' => 'annalesdesscienc515miln',
+'103287' => 'annalesdesscienc516miln',
+'103293' => 'annalesdesscienc517miln',
+'103289' => 'annalesdesscienc518miln',
+'103321' => 'annalesdesscienc519miln',
+'103288' => 'annalesdesscienc520miln',
+'103247' => 'annalesdesscienc61miln',
+'103526' => 'annalesdesscienc62miln',
+'103224' => 'annalesdesscienc63miln',
+'103272' => 'annalesdesscienc64miln',
+'103945' => 'annalesdesscienc65miln',
+'103222' => 'annalesdesscienc66miln',
+'103227' => 'annalesdesscienc67miln',
+'103290' => 'annalesdesscienc68miln',
+'109928' => 'annalesdess918791880miln',
+'106572' => 'annalesdes61018791880miln',
+'109930' => 'annalesdessci6111881miln',
+'106685' => 'annalesdesscie6121881miln',
+'111964' => 'annalesdesscienc613miln',
+'112107' => 'annalesdesscienc614miln',
+'112921' => 'annalesdesscienc615miln',
+'112111' => 'annalesdesscienc616miln',
+'112108' => 'annalesdesscienc617miln',
+'112109' => 'annalesdesscienc618miln',
+'112110' => 'annalesdesscienc619miln',
+'112117' => 'annalesdesscienc620miln',
+'103274' => 'annalesdesscienc71miln',
+'103684' => 'annalesdesscienc72miln',
+'103248' => 'annalesdesscienc73miln',
+'103556' => 'annalesdesscienc74miln',
+'103291' => 'annalesdesscienc75miln',
+'103930' => 'annalesdesscienc76miln',
+'111189' => 'annalesdesscien771889miln',
+'110313' => 'annalesdesscie781889miln',
+'106919' => 'annalesdessci791890miln',
+'110311' => 'annalesdesscie7101890miln',
+'111267' => 'annalesdesscie7111891miln',
+'113672' => 'annalesdesscie7121891miln',
+'110758' => 'annalesdesscie7131892miln',
+'111043' => 'annalesdesscie7141893miln',
+'111186' => 'annalesdesscie7151893miln',
+'110739' => 'annalesdesscie7161894miln',
+'110316' => 'annalesdesscie7171894miln',
+'110269' => 'annalesdesscie7181895miln',
+'110477' => 'annalesdesscie7191895miln',
+'110312' => 'annalesdesscie7201895miln',
+'111177' => 'annalesdesscien811896miln',
+'111187' => 'annalesdesscien821896miln',
+'110315' => 'annalesdessci831896miln',
+'110317' => 'annalesdesscien841897miln',
+'110314' => 'annalesdesscien851898miln',
+'111175' => 'annalesdesscie861898miln',
+'110909' => 'annalesdesscien871898miln',
+'110318' => 'annalesdesscien881898miln',
+'112166' => 'annalesdesscien891899miln',
+'111176' => 'annalesdesscie8101899miln',
+'111172' => 'annalesdesscie8111900miln',
+'109927' => 'annalesdesscie8121901miln',
+'110052' => 'annalesdesscie8131901miln',
+'109926' => 'annalesdesscie8141902miln',
+'109919' => 'annalesdesscie8151902miln',
+'106476' => 'annalesdesscie8161902miln',
+'108171' => 'annalesdesscie8171903miln',
+'107708' => 'annalesdesscie8181903miln',
+'109929' => 'annalesdesscie8191904miln',
+'109925' => 'annalesdesscie8201904miln',
+'106580' => 'annalesdesscien911905miln',
+'106477' => 'annalesdesscien921905miln',
+'107529' => 'annalesdesscien931906miln',
+'106557' => 'annalesdesscien941906miln',
+'108549' => 'annalesdesscien951907miln',
+'107307' => 'annalesdesscien961907miln',
+'47543' => 'annalesdesscienc97miln',
+'49516' => 'annalesdesscienc98miln',
+'47665' => 'annalesdesscienc99miln',
+'47672' => 'annalesdesscienc910miln',
+'47539' => 'annalesdesscienc911miln',
+'47669' => 'annalesdesscienc912miln',
+'47664' => 'annalesdesscienc913miln',
+'106573' => 'annalesdesscie9141911miln',
+'47653' => 'annalesdesscienc915miln',
+'47654' => 'annalesdesscienc916miln',
+'47537' => 'annalesdesscienc917miln',
+'47652' => 'annalesdesscienc918miln',
+'106588' => 'annalesdesscie9191914miln',
+'47673' => 'annalesdesscienc920miln',
+'47535' => 'annalesdesscienc101miln',
+'47663' => 'annalesdesscienc102miln',
+'47544' => 'annalesdesscienc103miln',
+'47548' => 'annalesdesscienc104miln',
+'47547' => 'annalesdesscienc105miln');
+
+$items=array('111230' => 'annalesdesscien231835miln');
+
+$items=array('22756' => 'transactionsproc46newz',
+'22894' => 'transactionsproc47newz');
+
+$items=array(
+/*'43489' => 'mitteilungenausd02natu',
+'43713' => 'mitteilungenausd56natu',
+'95512' => 'mitteilungenausd67188889hamb',
+'33417' => 'mitteilungenausd00natu',*/
+'93228' => 'mitteilungenausd91891hamb',
+'43700' => 'mitteilungenausd10natu',
+'108200' => 'mitteilungenau101892hamb',
+'33346' => 'mitteilungenausd11natu',
+'93402' => 'mitteilungenausd1112189394hamb',
+'33303' => 'mitteilungenausd12natu',
+'33323' => 'mitteilungenausd13natu',
+'93401' => 'mitteilungenausd1314189596hamb',
+'33404' => 'mitteilungenausd14natu',
+'33268' => 'mitteilungenausd15natu',
+'93395' => 'mitteilungenausd1516189798hamb',
+'33330' => 'mitteilungenausd16natu',
+//'39472' => 'mitteilungenausd17natu',
+//'93110' => 'mitteilungenausd171818991900hamb',
+'35626' => 'mitteilungenausd19natu',
+'93454' => 'mitteilungenausd1920190102hamb',
+'35601' => 'mitteilungenausd20natu',
+'39441' => 'mitteilungenausd21natu',
+'93399' => 'mitteilungenausd2122190304hamb',
+'40859' => 'mitteilungenausd22natu',
+'39582' => 'mitteilungenausd23natu',
+'39458' => 'mitteilungenausd24natu',
+'93227' => 'mitteilungenausd2325190507hamb',
+'33507' => 'mitteilungenausd25natu',
+'43466' => 'mitteilungenausd26natu',
+'94430' => 'mitteilungenausd261908hamb',
+'92618' => 'mitteilungenausd2728190910hamb',
+'93418' => 'mitteilungenausd2930191112hamb',
+'93457' => 'mitteilungenausd311913hamb',
+'40861' => 'mitteilungenausd31natu',
+'39451' => 'mitteilungenausd32natu',
+'39479' => 'mitteilungenausd33natu',
+'39454' => 'mitteilungenausdnm34natu',
+'39484' => 'mitteilungenausd35natu',
+'39448' => 'mitteilungenausd36natu',
+'93447' => 'mitteilungenausd3436191618hamb',
+'39475' => 'mitteilungenausd37natu',
+'39433' => 'mitteilungenausd38natu'
+);
+
+/*
+$items=array(
+'39472' => 'mitteilungenausd17natu',
+'93110' => 'mitteilungenausd171818991900hamb'
+);
+*/
+
+//$items=array('43370' => 'bollettinodeimus1297univ');
+
+$items=array(
+'40687' => 'bulletinbiologiq19univ',
+'40348' => 'bulletinbiologiq20univ',
+'40671' => 'bulletinbiologiq21univ',
+'40683' => 'bulletinbiologiq22univ',
+'40676' => 'bulletinbiologiq23univ',
+'40686' => 'bulletinbiologiq24univ',
+'40673' => 'bulletinbiologiq25univ',
+'40722' => 'bulletinbiologiq26univ',
+'40350' => 'bulletinbiologiq2795univ',
+'40690' => 'bulletinbiologiq28univ',
+'40694' => 'bulletinbiologiq29univ',
+'40685' => 'bulletinbiologiq3097univ',
+'40662' => 'bulletinbiologiq31univ',
+'40660' => 'bulletinbiologiq3299univ',
+'40666' => 'bulletinbiologiq33univ',
+'40659' => 'bulletinbiologiq34univ',
+'40664' => 'bulletinbiologiq35univ',
+'40645' => 'bulletinbiologiq36univ',
+'40640' => 'bulletinbiologiq3703univ',
+'40638' => 'bulletinbiologiq3804univ',
+'40401' => 'bulletinbiologiq3905univ',
+'40700' => 'bulletinbiologiq40univ',
+'40693' => 'bulletinbiologiq4107univ',
+'40349' => 'bulletinbiologiq42univ',
+'40689' => 'bulletinbiologiq43univ',
+'40375' => 'bulletinbiologiq44univ',
+'40681' => 'bulletinbiologiq45univ',
+'40925' => 'bulletinbiologiq46univ',
+'40682' => 'bulletinbiologiq47univ',
+'40697' => 'bulletinbiologiq48univ',
+'41690' => 'bulletinbiologiq49univ',
+'40670' => 'bulletinbiologiq51univ',
+'40678' => 'bulletinbiologiq52univ',
+'40377' => 'bulletinbiologiq54univ',
+'40691' => 'bulletinbiologiq55univ',
+'40414' => 'bulletinbiologiq56univ'
+);
+
+/*
+$items=array(
+'40687' => 'bulletinbiologiq19univ');
+*/
+
+$items=array(
+'111807' => 'reviewofflathead00pete',
+'111426' => 'systematicstatus00pete'
+);
+
+$items=array(
+'122711' => 'journalofwashin141924wash',
+'122705' => 'journalofwashin191929wash',
+'122710' => 'journalofwashin271937wash',
+'122685' => 'journalofwashin281938wash',
+'122706' => 'journalofwashin291939wash',
+'122707' => 'journalofwashin301940wash',
+'122688' => 'journalofwashin311941wash',
+'122709' => 'journalofwashin321942wash',
+'122683' => 'journalofwashin331943wash',
+'122682' => 'journalofwashin341944wash',
+'122708' => 'journalofwashin351945wash',
+'122712' => 'journalofwashin381948wash',
+'122834' => 'journalofwashin431953wash',
+'122693' => 'journalofwashin461956wash',
+'122833' => 'journalofwashin481958wash',
+'122694' => 'journalofwashin491959wash',
+'122704' => 'journalofwashi3637194wash',
+'122713' => 'journalofwashin394019wash',
+'122703' => 'journalofwashin414219wash'
+);
+
+$items=array(
+'24617' => 'miscellaneouspub51univ'
+);
+
+$items=array(
+'105324' => 'journalproceedin11905asia',
+'100278' => 'mobot31753003649453',
+'98371' => 'mobot31753003193114',
+'98768' => 'mobot31753002183785',
+'99245' => 'mobot31753002183793',
+'98646' => 'mobot31753002183801',
+'99256' => 'mobot31753002183819',
+'99248' => 'mobot31753002183827',
+'99254' => 'mobot31753002183835',
+'98645' => 'mobot31753002183843',
+'98942' => 'mobot31753002183850',
+'98644' => 'mobot31753002183868',
+'99242' => 'mobot31753002183876',
+'99449' => 'mobot31753002183884',
+'99244' => 'mobot31753002183892',
+'97552' => 'mobot31753002183900',
+'97553' => 'mobot31753002183918',
+'97555' => 'mobot31753002183926',
+'99255' => 'mobot31753002183934',
+'99247' => 'mobot31753002183942'
+);
+
+$items=array('98371' => 'mobot31753003193114');
+
+$items=array(
+'37435' => 'mittheilungenaus01staz',
+'37442' => 'mittheilungenaus02staz',
+'37448' => 'mittheilungenaus03staz',
+'37461' => 'mittheilungenaus04staz',
+'36688' => 'mittheilungenaus05staz',
+'37481' => 'mittheilungenaus06staz',
+'37441' => 'mittheilungenaus08staz',
+'37476' => 'mittheilungenaus09staz',
+'37295' => 'mittheilungenaus10staz',
+'37460' => 'mittheilungenausp10staz',
+'38656' => 'mittheilungenausp11staz',
+'38067' => 'mittheilungenaus11staz',
+'37437' => 'mittheilungenaus13staz',
+'37372' => 'mittheilungenaus14staz',
+'36685' => 'mittheilungenaus15staz',
+'37412' => 'mittheilungenaus16staz',
+'37405' => 'mittheilungenaus17staz',
+'37443' => 'mittheilungenaus18staz');
+
+$items=array(
+'37412' => 'mittheilungenaus16staz'
+);
+
+$items=array('50672' => 'echinodermfaunao00clarfo');
+
+$items=array(
+/*'53200' => 'redia11903isti',
+'53049' => 'redia21904isti',
+'53050' => 'redia31905isti',
+'53065' => 'redia41907isti',
+'53500' => 'redia51908isti',
+'53448' => 'redia71911isti',
+'53125' => 'redia81912isti',
+'53052' => 'redia91913isti',*/
+'53025' => 'redia111915isti',
+//'53605' => 'redia121917isti',
+'53051' => 'redia6190910isti',
+'53204' => 'redia101914110isti',
+'53048' => 'redia1314191821isti'
+);
+
+//$items=array('53605' => 'redia121917isti');
+
+$items=array(
+'18730' => 'rsultatsdescam01albe',
+'23851' => 'rsultatsdescam02albe',
+'18761' => 'rsultatsdescam03albe',
+'18692' => 'rsultatsdescam04albe',
+'18771' => 'rsultatsdescam05albe',
+'18724' => 'rsultatsdescam06albe',
+'31107' => 'rsultatsdescam07albe',
+'31163' => 'rsultatsdescam08albe',
+'31695' => 'rsultatsdescam09albe',
+'31696' => 'rsultatsdescam10albe',
+'31932' => 'rsultatsdescam11albe',
+'18768' => 'rsultatsdescam12albe',
+'18645' => 'rsultatsdescam13albe',
+'18769' => 'rsultatsdescam14albe',
+'18660' => 'rsultatsdescam15albe',
+'18740' => 'rsultatsdescam16albe',
+'31832' => 'rsultatsdescam17albe',
+'31160' => 'rsultatsdescam19albe',
+'31162' => 'rsultatsdescam20albe',
+'31568' => 'rsultatsdescam21albe',
+'18680' => 'rsultatsdescam22albe',
+'18770' => 'rsultatsdescam23albe',
+'18643' => 'rsultatsdescam24albe',
+'18772' => 'rsultatsdescam25albe',
+'23102' => 'rsultatsdescam26albe',
+'18619' => 'rsultatsdescam27albe',
+'18613' => 'rsultatsdescam28albe',
+'23100' => 'rsultatsdescam29albe',
+'18685' => 'rsultatsdescam31albe',
+'18739' => 'rsultatsdescam30albe',
+'31337' => 'rsultatsdescam32albe',
+'31139' => 'rsultatsdescam33albe',
+'18623' => 'rsultatsdescam34albe',
+'31563' => 'rsultatsdescam35albe',
+'31336' => 'rsultatsdescam36albe',
+'18693' => 'rsultatsdescam37albe',
+'31164' => 'rsultatsdescam38albe',
+'31564' => 'rsultatsdescam39albe',
+'31565' => 'rsultatsdescam42albe',
+'18738' => 'rsultatsdescam43albe',
+'18620' => 'rsultatsdescam44albe',
+'18625' => 'rsultatsdescam45albe',
+'18640' => 'rsultatsdescam46albe',
+'18612' => 'rsultatsdescam47albe',
+'31697' => 'rsultatsdescam56albe',
+'30548' => 'rsultatsdescam57albe',
+'30735' => 'rsultatsdescam58albe',
+'31136' => 'rsultatsdescam59albe',
+'18762' => 'rsultatsdescam61albe'
+);
+
+$items=array('18623' => 'rsultatsdescam34albe');
+
+$items=array('114160' => 'abhandlungenders33senc');
+
+$items=array('84508' => 'abhandlungenders872senc',
+'84504' => 'abhandlungenders22senc',
+'54683' => 'abhandlungenders2296senc',
+'54636' => 'abhandlungenders28senc',
+'84499' => 'abhandlungenders155senc',
+'84506' => 'abhandlungenders565senc',
+'84507' => 'abhandlungenders667senc',
+'54685' => 'abhandlungenders76970senc',
+'54845' => 'abhandlungenders770senc',
+'99443' => 'mobot31753003649065',
+'54615' => 'abhandlungenders1179senc',
+'84496' => 'abhandlungenders1281senc',
+//'84497' => 'abhandlungenders1384senc',
+'84498' => 'abhandlungenders1488senc',
+'84500' => 'abhandlungenders1588senc',
+'54936' => 'abhandlungenders1791senc',
+'84501' => 'abhandlungenders1895senc',
+'84502' => 'abhandlungenders1996senc',
+'84503' => 'abhandlungenders20senc',
+'85045' => 'abhandlungenders21senc',
+'54678' => 'abhandlungenders23senc',
+'54935' => 'abhandlungenders24senc',
+'81364' => 'abhandlungenders25senc',
+'54647' => 'abhandlungenders26senc',
+'84505' => 'abhandlungenders27senc',
+'114199' => 'abhandlungenders29senc',
+'114390' => 'abhandlungenders30senc',
+'114161' => 'abhandlungenders31senc',
+//'114160' => 'abhandlungenders33senc',
+'114221' => 'abhandlungenders34senc',
+'121995' => 'abhandlungender372021senc'
+);
+
+$items=array('93234' => 'recordsofcanterb1190712cant');
+
+$items=array(
+'121119' => 'MemoirsNational31Nati',
+'122435' => 'MemoirsNational45Nati',
+'122667' => 'MemoirsNational43NoNati'
+);
+
+$items=array(
+'15611' => 'expditionantar1909afran',
+'15898' => 'expditionantar1908bfran',
+'15903' => 'expditionantar1907cfran',
+'15904' => 'expditionantar1906dfran',
+'15910' => 'expditionantar1907bfran',
+'15911' => 'expditionantar1907afran',
+'15912' => 'expditionantar1907fran',
+'15947' => 'expditionantar1906cfran',
+'15948' => 'expditionantar1906efran',
+'15950' => 'expditionantar1908cfran',
+'15956' => 'expditionantar1908fran',
+'16991' => 'expditionantar1908afran',
+'17036' => 'expditionantar1906xfran',
+'17037' => 'expditionantar1906yfran',
+'17038' => 'expditionantar1906bfran',
+'30550' => 'expditionantarfm1908fran',
+'31538' => 'expditionantarsc1908fran',
+'102812' => 'expditionantar1924char'
+);
+
+$items=array('31538' => 'expditionantarsc1908fran');
+
+$items=array(
+/*'110110' => 'natuurkundigtijd47unse',
+'110300' => 'natuurkundigtijd1850koni',
+'110298' => 'natuurkundigtijd1851koni',
+'48161' => 'natuurkundigtijd04koni',
+'48459' => 'natuurkundigtijd05koni',
+'48356' => 'natuurkundigtijd06koni',
+'48467' => 'natuurkundigtijd07koni',
+//'48501' => 'natuurkundigtijd08koni',
+'121455' => 'natuurkundigtijd09koni',
+'48455' => 'natuurkundigtijd10koni',
+'48507' => 'natuurkundigtijd11koni',
+'48462' => 'natuurkundigtijd12koni',
+'48618' => 'natuurkundigtijd13koni',
+'48367' => 'natuurkundigtijd14koni',
+'48374' => 'natuurkundigtijd15koni',
+'48279' => 'natuurkundigtijd18koni',
+'118914' => 'mobot31753002486865',
+'121750' => 'mobot31753002486881',
+'122401' => 'mobot31753002489729',
+'122303' => 'mobot31753002489745',
+'122295' => 'mobot31753002489752',
+'122294' => 'mobot31753002489760',
+'121747' => 'mobot31753002489778',
+'113935' => 'mobot31753002489786',
+'122300' => 'mobot31753002489794',
+'121749' => 'mobot31753002489802',
+'121746' => 'mobot31753002489810',
+'113932' => 'mobot31753002489836',
+'113852' => 'mobot31753002489877',
+'114151' => 'mobot31753002489885',
+'113933' => 'mobot31753002489893',
+'48280' => 'natuurkundigtijd19koni',
+'47995' => 'natuurkundigtijd21koni',
+'48386' => 'natuurkundigtijd22koni',
+'121457' => 'natuurkundigtijd23koni',
+'120983' => 'natuurkundigtijd24koni',
+'122331' => 'natuurkundigtijd25koni',
+'121458' => 'natuurkundig301868koni',
+'121461' => 'natuurkundig311870koni',
+'121459' => 'natuurkundig321873koni',
+'48391' => 'natuurkundigtijd33koni',
+'48395' => 'natuurkundigtijd35koni',
+'48385' => 'natuurkundigtijd36koni',
+'48054' => 'natuurkundigtijd37koni',
+'47990' => 'natuurkundigtijd38koni',
+'48159' => 'natuurkundigtijd39koni',
+'47779' => 'natuurkundigtijd41koni',
+'48448' => 'natuurkundigtijd42koni',
+'48707' => 'natuurkundigtijd43koni',
+'48055' => 'natuurkundigtijd61koni',
+'47989' => 'natuurkundigtijd62koni',
+'48708' => 'natuurkundigtijd63koni',
+'113863' => 'mobot31753002489737',
+'48063' => 'natuurkundigtijd16koni',
+'47999' => 'natuurkundigtijd17koni',
+'48028' => 'natuurkundigtijd20koni',*/
+'48499' => 'natuurkundigtijd2627koni',
+'48369' => 'natuurkundigtijd2829koni'
+);
+
+//$items=array('48501' => 'natuurkundigtijd08koni');
+
+//$items=array('105348' => 'revueetmagasinde32pari');
+
+//$items=array('48374' => 'natuurkundigtijd15koni');
+
+$items=array('31230' => 'sitzungsberichte8190kais',
+'31223' => 'sitzungsberichte9196kais',
+'34882' => 'sitzungsberichte65kais',
+'34262' => 'sitzungsberichte66kais',
+'29975' => 'sitzungsberichte67kais',
+'34265' => 'sitzungsberichte68kais',
+'35268' => 'sitzungsberichte69kais',
+'35269' => 'sitzungsberichte70kais',
+'35551' => 'sitzungsberichte71kais',
+'35547' => 'sitzungsberichte72kais',
+'35550' => 'sitzungsberichte73kais',
+'35546' => 'sitzungsberichte74kais',
+'35390' => 'sitzungsberichte75kais',
+'35385' => 'sitzungsberichte76kais',
+'34452' => 'sitzungsberichte77kais',
+'35250' => 'sitzungsberichte78kais',
+'35245' => 'sitzungsberichte79kais',
+'35249' => 'sitzungsberichte80kais',
+'30044' => 'sitzungsberichte82kais',
+'30052' => 'sitzungsberichte83kais',
+'30048' => 'sitzungsberichte84kais',
+'31080' => 'sitzungsberichte85kais',
+'31592' => 'sitzungsberichte86kais',
+'31237' => 'sitzungsberichte87kais',
+'119067' => 'mobot32044093284016',
+'109564' => 'sitzungsbericht891884kais',
+'31594' => 'sitzungsberichte90kais',
+'110106' => 'sitzungsberichte91unse',
+'30572' => 'sitzungsberichte92kais',
+'31593' => 'sitzungsberichte93kais',
+'31229' => 'sitzungsberichte94kais',
+'107331' => 'sitzungsbericht951887kais',
+'31614' => 'sitzungsberichte96kais'
+);
+
+$items=array('30052' => 'sitzungsberichte83kais');
+
+$items=array(
+//'67415' => 'naturalhistoryof03skotuoft',
+'67414' => 'naturalhistoryof01skotuoft'
+);
+
+$items=array('110342' => 'bulletindelasoci11876soci',
+'110959' => 'bulletindelasoci41879soci',
+'110352' => 'bulletindelasoci91884soci',
+'111120' => 'bulletindelasoc121887soci',
+'111018' => 'bulletindel4344191819soci');
+
+$items=array(
+'122922' => 'MemoirsMuseumVi54MuseA',
+'122923' => 'MemoirsMuseumVi55Muse',
+'122921' => 'MemoirsMuseumVi55MuseA'
+);
+
+$items=array(
+'122916' => 'MemoirsNational53Muse',
+'122917' => 'MemoirsMuseumVi54Muse'
+);
+
+$items=array(
+'96702' => 'termszetrajzif12187778magy',
+'97484' => 'termszetrajzif34187880magy',
+'96887' => 'termszetrajzif57188183magy',
+'96699' => 'termszetrajzif89188485magy',
+'97426' => 'termszetrajzif1012188689magy',
+'96704' => 'termszetrajzif1315189092magy',
+//'96855' => 'termszetrajzif1617189394magy',
+'96856' => 'termszetrajzif1819189596magy',
+'96706' => 'termszetrajzif211898magy',
+'48101' => 'termszetrajzif22magy',
+'48099' => 'termszetrajzif23magy',
+'48100' => 'termszetrajzif24magy',
+'48115' => 'termszetrajzif25magy'
+);
+
+/*
+$items=array(
+'96855' => 'termszetrajzif1617189394magy');
+*/
+
+$items=array(
+/*'45919' => 'trudyrusskagoent11861russ',
+'44807' => 'trudyrusskagoent71870russ',
+'45918' => 'trudyrusskagoent1011187376russ',
+'46108' => 'trudyrusskagoent12187677russ',
+'46109' => 'trudyrusskagoent131877russ',
+'81384' => 'trudyrusskagoent141878russ',
+'44806' => 'trudyrusskagoent161881russ',
+'45307' => 'trudyrusskagoent1719188285russ',
+'48194' => 'trudyrusskagoent201886russ',*/
+'44821' => 'trudyrusskagoent2122188788russ',
+'45834' => 'trudyrusskagoent231889russ',
+'88009' => 'trudyrusskagoent24188990russ',
+'46110' => 'trudyrusskagoent2526189092russ',
+'81150' => 'trudyrusskagoent2728189294russ',
+'45835' => 'trudyrusskagoent2930189496russ',
+'47479' => 'trudyrusskagoent31189697russm',
+'45831' => 'trudyrusskagoent321898russ',
+'45824' => 'trudyrusskagoent33190001russ',
+'46209' => 'trudyrusskagoent341900russ',
+'45845' => 'trudyrusskagoent35190102russ',
+'84669' => 'trudyrusskagoent361903russ',
+'44902' => 'trudyrusskagoent38190708russ',
+'84670' => 'trudyrusskagoent39190910russ'
+//'44906' => 'trudyrusskagoent40191113russ'
+);
+
+//$items=array('44906' => 'trudyrusskagoent40191113russ');
+
+$items=array('89027' => 'mobot31753003566533');
+
+$items=array(
+'43668' => 'entomologist118401842lond',
+/*'43656' => 'entomologist218641865lond',
+'43662' => 'entomologist318661867lond',
+'43625' => 'entomologist418681869lond'*/
+);
+
+$items=array(
+'35650' => 'stettinerentomol731912ento',
+'35651' => 'stettinerentomol741913ento',
+'35652' => 'stettinerentomol751914ento',
+'35653' => 'stettinerentomol7677191516ento',
+'36495' => 'stettinerentomol7879191718ento',
+'35897' => 'stettinerentomol8081191920ento'
+//'35898' => 'stettinerentomol8284192123ento'
+);
+
+//$items=array('35898' => 'stettinerentomol8284192123ento');
+
+$items=array(
+'104465' => 'mobot31753003648620',
+'104466' => 'mobot31753003648638',
+'104467' => 'mobot31753003648646',
+'104468' => 'mobot31753003648653',
+'104469' => 'mobot31753003648661',
+'104470' => 'mobot31753003648679',
+'104471' => 'mobot31753003648687',
+'104472' => 'mobot31753003648695',
+'104579' => 'mobot31753003648745',
+'104580' => 'mobot31753003648752',
+'104581' => 'mobot31753003648760');
+
+//$items=array('104465' => 'mobot31753003648620');
+
+$items=array('35601' => 'mitteilungenausd20natu');
+
+
+$items=array('93454' => 'mitteilungenausd1920190102hamb');
+
+$items=array('94930' => 'stuttgarterbeitr127146198788staa');
+
+$items=array('35631' => 'smithsonianmisce451903smit');
+
+$items=array('35633' => 'smithsonianmisce471905smit');
+
+$items=array(
+'36397' => 'bulletindelasoci1896soci',
+'36398' => 'bulletindelasoci1897socie',
+'38046' => 'bulletindelasoci1898societ',
+'34171' => 'bulletindelasoci1899socie',
+'36399' => 'bulletindelasoci1900socie',
+'36400' => 'bulletindelasoci1901soci',
+'36512' => 'bulletindelasoci1902soci',
+'104431' => 'bulletindelasoci1903soci',
+'34124' => 'bulletindelasoci1904soci',
+'34157' => 'bulletindelasoci1905socie',
+'37019' => 'bulletindelasoci1906soci',
+'38671' => 'bulletindelasoci1907soci',
+'37020' => 'bulletindelasoci1908socie',
+'36401' => 'bulletindelasoci1909soci',
+'38239' => 'bulletindelasoci1910socie',
+'34144' => 'bulletindelasoci1911soci',
+'36402' => 'bulletindelasoci1912soci',
+'36377' => 'bulletindelasoci1913socie',
+'34151' => 'bulletindelasoci1914soci',
+'36403' => 'bulletindelasoci1915soci',
+'37021' => 'bulletindelasoci1916soci',
+'34147' => 'bulletindelasoci1917soci',
+'35447' => 'bulletindelasoci1918socie',
+'37022' => 'bulletindelasoci1919soci',
+'34136' => 'bulletindelasoci1920soci',
+'38460' => 'bulletindelasoci192122soci'
+);
+
+$items=array(
+'31596' => 'sitzungsberichte97kais',
+'110528' => 'sitzungsbericht981889kais',
+'109481' => 'sitzungsbericht991890kais',
+'111266' => 'sitzungsberich1001891kais',
+'110046' => 'sitzungsberich1011892kais',
+'110171' => 'sitzungsberi1021893kais',
+'110602' => 'sitzungsberich1031894kais',
+'120550' => 'sitzungsberich1041895kais',
+'110210' => 'sitzungsberic1051896kais',
+'31595' => 'sitzungsberichte106kais',
+'31090' => 'sitzungsberichte107kais',
+'31093' => 'sitzungsberichte108kais',
+'108478' => 'sitzungsberich1091900kais',
+'31089' => 'sitzungsberichte110kais',
+'110031' => 'sitzungsberich1111902kais',
+'112027' => 'sitzungsberich1121903kais',
+'31081' => 'sitzungsberichte113kais',
+'31082' => 'sitzungsberichte114kais',
+'110873' => 'sitzungsberich1151906kais',
+'110704' => 'sitzungsberi1171908kais',
+'110591' => 'sitzungsberich1181909kais',
+'109498' => 'sitzungsberich1191910kais',
+'111232' => 'sitzungsberic1201911kais',
+'111179' => 'sitzungsberich1211912kais',
+'111185' => 'sitzungsberich1221913kais',
+'120253' => 'sitzungsberic1231914kais',
+'100821' => 'sitzungsberichte1241915kais',
+'111180' => 'sitzungsberich1251916kais',
+'111233' => 'sitzungsberich1261917kais',
+'111181' => 'sitzungsberich1271918kais',
+'111174' => 'sitzungsberich1281919kais',
+'110270' => 'sitzungsberich1291920kais',
+'109489' => 'sitzungsberich1301921kais',
+'109977' => 'sitzungsberich1311922kais',
+'109540' => 'sitzungsberich1321923kais',
+'31621' => 'sitzungsberichte1160105kais',
+'31227' => 'sitzungsberichte97100kais',
+'31226' => 'sitzungsberichte101105kais'
+);
+
+$items=array('110528' => 'sitzungsbericht981889kais');
+
+$items=array('88934' => 'tijdschriftvoore56nede');
+
+
+$items = array(
+/*'19604' => 'revueetmagasinde01soci',
+'19598' => 'revueetmagasinde02soci',
+'19559' => 'revueetmagasinde03soci',
+'19555' => 'revueetmagasinde04soci',
+'48709' => 'revueetmagasinde05revu',
+'48620' => 'revueetmagasinde06revu',
+'19471' => 'revueetmagasinde07soci',
+'19522' => 'revueetmagasinde08soci',
+'48710' => 'revueetmagasinde09revu',
+'19550' => 'revueetmagasinde10soci',
+'48711' => 'revueetmagasinde11revu',
+'19433' => 'revueetmagasinde12soci',
+'48712' => 'revueetmagasinde13revu',
+'20623' => 'revueetmagasinde13pari',
+'20651' => 'revueetmagasinde14pari',
+'20587' => 'revueetmagasinde00pari',
+'105343' => 'revueetmagasinde215pari',
+'20684' => 'revueetmagasinde16pari',
+'20666' => 'revueetmagasinde17pari',
+'20664' => 'revueetmagasinde18pari',
+'20645' => 'revueetmagasinde19pari',
+'20627' => 'revueetmagasinde20pari',
+'105279' => 'revueetmagasinde221pari',
+'105308' => 'revueetmagasinde222pari',
+'109976' => 'revueetmagasinde23guer',
+'105200' => 'revueetmagasinde31pari',
+'105348' => 'revueetmagasinde32pari',*/
+'103201' => 'revueetmagasin331875rile',
+'105307' => 'revueetmagasinde34pari',
+'105350' => 'revueetmagasinde35pari',
+'105941' => 'revueetmagasinde0306pari',
+'109790' => 'revueetmagasinde37soci'
+);
+/*
+$items=array(
+//'16912' => 'wissenschaftlich01sj',
+'17061' => 'wissenschaftlich02sj',
+'16983' => 'wissenschaftlich03sj'
+);
+
+$items=array(
+'107610' => 'opinionsdeclarat11958int',
+'107614' => 'opinionsdeclarat11958inte',
+'107760' => 'opinionsdeclarat41954inte',
+'107762' => 'opinionsdeclarat51954inte',
+'107703' => 'opinionsdeclarat71954inte',
+'107765' => 'opinionsdeclara151957inte',
+'107766' => 'opinionsdeclara161958inte',
+'108773' => 'opinionsdeclara181958inte',
+'107763' => 'opinionsdeclara201959inte',
+'107809' => 'opinionsdeclar1194355inte',
+'107757' => 'opinionsdeclar1195556inte',
+'107615' => 'opinionsdeclar1195657inte',
+'107611' => 'opinionsdeclar1195758inte',
+'107808' => 'opinionsdeclar2193945inte',
+'107759' => 'opinionsdeclar3194454inte',
+'107613' => 'opinionsdeclar6195455inte',
+'107761' => 'opinionsdeclar8195455inte',
+'107608' => 'opinionsdeclar9195455inte',
+'107607' => 'opinionsdecla10195556inte',
+'107752' => 'opinionsdecla11195556inte',
+'107764' => 'opinionsdecla12195657inte',
+'107609' => 'opinionsdecla13195657inte',
+'107810' => 'opinionsdecla14195657inte',
+'107755' => 'opinionsdecla17195758inte',
+'107616' => 'opinionsdecla19195859inte'
+);
+*/
+
+$items=array(
+/*'44407' => 'memoriasdelare01real',
+'43694' => 'memoriasdelareal02real',
+'44583' => 'memoriasdelareal03real',
+'44274' => 'memoriasdelare04real',
+'44408' => 'memoriasdelareal05real',
+'44280' => 'memoriasdelare06real',*/
+'44405' => 'memoriasdelareal07real',
+'44277' => 'memoriasdelare08real',
+'44410' => 'memoriasdelare10real'
+);
+
+$items=array(
+'44424' => 'technicalseries16189597unit',
+'44373' => 'technicalseries711189706unit',
+'44426' => 'technicalseries1215190609unit',
+'106469' => 'technicals1617190821unit',
+'44787' => 'technicalseries1820191013unit',
+'45077' => 'technicalseries2127191115unit'
+);
+
+$items=array(
+'49236' => 'bollettinodellab11907rscufo',
+'34387' => 'bollettinodellab21908rscu',
+'49550' => 'bollettinodellab31909rscufo',
+'48991' => 'bollettinodellab51911rscufo',
+'49549' => 'bollettinodellab61912rscufo',
+'49477' => 'bollettinodellab71913rscufo',
+'34388' => 'bollettinodellab81914rscu',
+//'34390' => 'bollettinodellab111916rscu',
+'35201' => 'bollettinodellab131919rscu',
+'48854' => 'bollettinodellab141920rscufo',
+//'35192' => 'bollettinodellab151921rscu',
+'49312' => 'bollettinodellab161922rscufo',
+'34389' => 'bollettinodellab4190910rscu',
+'49564' => 'bollettinodellab9191415rscufo',
+'51822' => 'bollettinodellab10191516rscufo',
+//'107093' => 'bollettinodellab12191718rscu'
+);
+
+$items=array(
+/*'53496' => 'londonedinburghp01dubl',
+'20126' => 'londonedinburghp02lond',
+'20053' => 'londonedinburghp03lond',
+'53497' => 'londonedinburghp04dubl',
+'19968' => 'londonedinburghp05lond',*/
+'20163' => 'londonedinburghp06lond',
+'20069' => 'londonedinburghp07lond',
+'53484' => 'londonedinburghp08dubl',
+'53467' => 'londonedinburghp09lond',
+'24330' => 'londonedinburghp10lond',
+'20000' => 'londonedinburghp11lond',
+'20153' => 'londonedinburghp12lond',
+'20159' => 'londonedinburghp13lond',
+'53521' => 'londonedinburghp143lond',
+'20147' => 'londonedinburghp15lond',
+'20031' => 'londonedinburghp17lond'
+);
+
+$items=array(
+//'35650' => 'stettinerentomol731912ento',
+//'35651' => 'stettinerentomol741913ento',
+'35652' => 'stettinerentomol751914ento',
+'35653' => 'stettinerentomol7677191516ento',
+'36495' => 'stettinerentomol7879191718ento',
+'35897' => 'stettinerentomol8081191920ento'
+//'35898' => 'stettinerentomol8284192123ento'
+);
+
+//$items=array('25435' => 'bulletinofmuseum132harv');
+
+$items=array(
+'48712' => 'revueetmagasinde13revu',
+'20623' => 'revueetmagasinde13pari',
+'20651' => 'revueetmagasinde14pari',
+'20587' => 'revueetmagasinde00pari',
+'105343' => 'revueetmagasinde215pari',
+'20684' => 'revueetmagasinde16pari',
+'20666' => 'revueetmagasinde17pari',
+'20664' => 'revueetmagasinde18pari',
+'20645' => 'revueetmagasinde19pari',
+'20627' => 'revueetmagasinde20pari',
+'105279' => 'revueetmagasinde221pari',
+'105308' => 'revueetmagasinde222pari',
+'109976' => 'revueetmagasinde23guer',
+'105200' => 'revueetmagasinde31pari',
+'105348' => 'revueetmagasinde32pari'
+);
+
+$items=array('120123' => 'transactionspro361912roya',
+'111907' => 'transactionsproc371913roy',
+'113401' => 'transactionspro381914roya',
+'109513' => 'transactionspro391915roya',
+'109654' => 'transactionspro401916roya',
+'109628' => 'transactionspro411917roya',
+'113409' => 'transactionspro421918roya',
+'114230' => 'transactionsproc43191roya',
+'111685' => 'transactionsproc44192roya',
+'114267' => 'transactionsproc45192roya',
+'109617' => 'transactionspro461922roya',
+'108497' => 'transactionspr471923roya',
+'111300' => 'transactionsproc25441roya'
+);
+
+$items=array('120123' => 'transactionspro361912roya');
+
+$items=array('47914' => 'insectapublicati11911facu',
+'50569' => 'insectapublicati21912facufo',
+'47915' => 'insectapublicati31913facu',
+'45530' => 'insectapublicati41914facu',
+'105207' => 'insectapublica56191516fac',
+'45634' => 'insectapublicati78191718facu',
+'46278' => 'insectapublicati911191921facu'
+);
+
+$items=array('47915' => 'insectapublicati31913facu');
+
+$items=array('50839' => 'analesdelmuseona212muse',
+'50837' => 'analesdelmuseona23muse',
+'50840' => 'analesdelmuseona24muse',
+'50863' => 'analesdelmuseona31muse',
+'26156' => 'analesdelmuseona32muse',
+'26153' => 'analesdelmuseona33muse',
+'26151' => 'analesdelmuseona34muse',
+'50861' => 'analesdelmuseona35muse',
+'50878' => 'analesdelmuseona36muse',
+'50857' => 'analesdelmuseona37muse',
+'50880' => 'analesdelmuseona38muse',
+'50823' => 'analesdelmuseona39muse',
+'50845' => 'analesdelmuseona310muse',
+'26169' => 'analesdelmuseona10muse',
+'50825' => 'analesdelmuseona311muse',
+'26158' => 'analesdelmuseona12muse',
+'26159' => 'analesdelmuseona13muse'
+);
+
+$items=array('50839' => 'analesdelmuseona212muse');
+
+$items=array('32576' => 'proceedingsofuni381911unit');
+
+$items=array('104850' => 'beitrgezurmeer139178mb',
+'104599' => 'beitrgezurmeer181352mb');
+
+$items=array(
+/*'48712' => 'revueetmagasinde13revu',
+'20623' => 'revueetmagasinde13pari',
+'20651' => 'revueetmagasinde14pari',
+'20587' => 'revueetmagasinde00pari',
+'105343' => 'revueetmagasinde215pari',
+'20684' => 'revueetmagasinde16pari',
+'20666' => 'revueetmagasinde17pari',*/
+'20664' => 'revueetmagasinde18pari',
+'20645' => 'revueetmagasinde19pari',
+'20627' => 'revueetmagasinde20pari',
+'105279' => 'revueetmagasinde221pari',
+'105308' => 'revueetmagasinde222pari',
+'109976' => 'revueetmagasinde23guer',
+'105200' => 'revueetmagasinde31pari',
+'105348' => 'revueetmagasinde32pari'
+);
+
+$items=array('26525' => 'allanhancockpaci16alla');
+
+$items=array(
+'98005' => 'analesdelasocied8918791880soci',
+'26177' => 'analesdelasocied08soci'
+);
+
+
+$items=array('98480' => 'analesdelasocied121876soci',
+'26209' => 'analesdelasocied02soci',
+'21765' => 'analesdelasocied03soci',
+'21763' => 'analesdelasocied04soci',
+'121811' => 'analesdelasocie05soci',
+'121826' => 'analesdelasocie06soci',
+'98435' => 'analesdelasocied71879soci',
+'26177' => 'analesdelasocied08soci',
+'98005' => 'analesdelasocied8918791880soci',
+'100695' => 'analesdelasocied101880soci',
+'23026' => 'analesdelasocied11soci',
+'98057' => 'analesdelasocied121881soci',
+'21766' => 'analesdelasocied13soci',
+'26183' => 'analesdelasocied14soci',
+'26191' => 'analesdelasocied15soci',
+'97434' => 'analesdelasocied161883soci',
+'110005' => 'analesdelasocied1884soci',
+'110296' => 'analesdelasocied1884soci2',
+'98481' => 'analesdelasocied19201885soci',
+'97987' => 'analesdelasocied211886soci',
+'26187' => 'analesdelasocied22soci',
+'23029' => 'analesdelasocied23soci',
+'21767' => 'analesdelasocied25soci',
+'26181' => 'analesdelasocied26soci',
+'26193' => 'analesdelasocied27soci',
+'110293' => 'analesdelasocied2889soci',
+'26150' => 'analesdelasocied29soci',
+'98482' => 'analesdelasocied29301890soci',
+'97297' => 'analesdelasocied311891soci',
+'108771' => 'analesdelasoci321891soci',
+'97299' => 'analesdelasocied331892soci',
+'97744' => 'analesdelasocied343518921893soci',
+'98624' => 'analesdelasocied361893soci',
+'98434' => 'analesdelasocied371894soci',
+'97745' => 'analesdelasocied381894soci',
+'100363' => 'analesdelasocied39401895soci',
+'97300' => 'analesdelasocied140soci',
+'99807' => 'analesdelasocied41421896soci',
+'97746' => 'analesdelasocied43441897soci',
+'98456' => 'analesdelasocied45461898soci',
+'108766' => 'analesdelasocied471899so',
+'97333' => 'analesdelasocied481899soci',
+'97798' => 'analesdelasocied49501900soci',
+'97747' => 'analesdelasocied51521901soci',
+'21764' => 'analesdelasocied54soci',
+'97748' => 'analesdelasocied55561903soci',
+'98463' => 'analesdelasocied571904soci',
+'97832' => 'analesdelasocied585919041905soci',
+'26163' => 'analesdelasocied60soci',
+'98730' => 'analesdelasocied601905soci',
+'97811' => 'analesdelasocied611906soci',
+'98431' => 'analesdelasocied626319061907soci',
+'99232' => 'analesdelasocied646519071908soci',
+'97988' => 'analesdelasocied666719081909soci',
+'97298' => 'analesdelasocied686919091910soci',
+'97812' => 'analesdelasocied707119101911soci',
+'26168' => 'analesdelasocied72soci',
+'26208' => 'analesdelasocied74soci',
+'26194' => 'analesdelasocied76soci',
+'26199' => 'analesdelasocied78soci',
+'26212' => 'analesdelasocied80soci',
+'99376' => 'analesdelasocied811916soci',
+'114406' => 'analesdelasocie821916soci',
+'108778' => 'analesdelasocied821916s',
+'26203' => 'analesdelasocied84soci',
+'97813' => 'analesdelasocied851918soci',
+'98432' => 'analesdelasocied861918soci',
+'26206' => 'analesdelasocied88soci',
+'97404' => 'analesdelasocied891920soci',
+'108776' => 'analesdelasoci901920soci',
+'97814' => 'analesdelasocied91921921soci',
+'26211' => 'analesdelasocied94soci');
+
+$items=array('23026' => 'analesdelasocied11soci');
+
+$items=array(
+/*'110487' => 'actesdelasocitli01soci',
+'110491' => 'actesdelasocitli02soci',
+'103036' => 'mobot31753002145834',
+'102890' => 'mobot31753002145842',
+'103037' => 'mobot31753002145859',
+'103041' => 'mobot31753002145867',
+'102889' => 'mobot31753002145875',
+'102751' => 'mobot31753002145883',
+'101658' => 'mobot31753002145891',
+'108944' => 'mobot31753002145909',
+'101660' => 'mobot31753002145917',
+'102845' => 'mobot31753002145925',
+'101837' => 'mobot31753002145933',
+'102891' => 'mobot31753002145941',
+'102735' => 'mobot31753002145958',
+'102846' => 'mobot31753002145966',
+'102736' => 'mobot31753002145974',
+'22905' => 'actesdelasocit09soci',
+'22908' => 'actesdelasocit01soci',
+'106122' => 'actesdelasocit22soci',
+'22925' => 'actesdelasocit03soci',
+'106381' => 'actesdelasocit24soci',
+'106370' => 'actesdelasocit250305soci',
+'106384' => 'actesdelasocit28soci',*/
+'106375' => 'actesdelasocit29soci',
+'106216' => 'actesdelasocit30soci',
+'102733' => 'mobot31753002145750',
+'105920' => 'actesdelasocit33soci',
+'102734' => 'mobot31753002145776',
+'102750' => 'mobot31753002145784',
+'84509' => 'actesdelasocilin3783soci',
+'84510' => 'actesdelasocilin3884soci',
+'85074' => 'actesdelasocilin3985soci',
+'98672' => 'actesdelasocit410188640soci',
+'54850' => 'actesdelasocilin42soci',
+'99438' => 'actesdelasocit53188943soci',
+'87652' => 'actesdelasocilin4490soci',
+'87657' => 'actesdelasocilin4693soci',
+'87786' => 'actesdelasocilin4794soci',
+'87618' => 'actesdelasocilin4895soci',
+'54921' => 'actesdelasocilin4995soci',
+'87647' => 'actesdelasocilin5096soci',
+'87822' => 'actesdelasocilin5197soci',
+'88059' => 'actesdelasocilin5297soci',
+'99809' => 'actesdelasocit63189853soci',
+'87843' => 'actesdelasocilin5499soci',
+'87606' => 'actesdelasocilin5500soci',
+'87645' => 'actesdelasocilin5601soci',
+'108315' => 'mobot000140297_t57',
+'99852' => 'actesdelasocit68190358soci',
+'87770' => 'actesdelasocilin5904soci',
+'98722' => 'actesdelasocit610190560soci',
+'87831' => 'actesdelasocilin6106soci',
+'98737' => 'actesdelasocit72190762soci',
+'99087' => 'actesdelasocit631909soci',
+'100054' => 'actesdelasocit641910soci',
+'99209' => 'actesdelasocit651911soci',
+'100364' => 'actesdelasocit661912soci',
+'98668' => 'actesdelasocit671913soci',
+'99200' => 'actesdelasocit681914soci',
+'98509' => 'actesdelasocit711919soci',
+'98717' => 'actesdelasocit721920soci',
+'98736' => 'actesdelasocit731921soci',
+'98593' => 'actesdelasocit741922soci',
+'100433' => 'actesdelasocit751923soci',
+'101835' => 'mobot31753002146006',
+'101836' => 'mobot31753002145990',
+'106454' => 'actesdelasocit260306soci',
+'102749' => 'mobot31753002145743',
+'121733' => 'actesdelasoci46188236soci',
+'121158' => 'actesdelasoci51188741soci',
+'110538' => 'actesdelasocitli27soci',
+'104325' => 'mobot31753003648596',
+'98728' => 'actesdelasocit69191516soci',
+'103369' => 'actesdelaso70191718soci'
+);
+/*
+$items=array('54850' => 'actesdelasocilin42soci');
+
+$items=array('113572' => 'transactionsofso41roya',
+'113534' => 'transactionsofso52roya',
+'113571' => 'transactionsofso06roya',
+'113563' => 'transactionsofso07roya',
+'113786' => 'transactionsofso08roya',
+'113784' => 'transactionsofso09roya',
+'113578' => 'transactionsofso10roya',
+'113791' => 'transactionsofso11roya',
+'113562' => 'transactionsofso121roya',
+'113532' => 'transactionsofso122roya',
+'113573' => 'transactionsofso13roya',
+'113790' => 'transactionsofso14roya',
+//'113792' => 'transactionsofso15roya',
+'113609' => 'transactionsofso16roya',
+'113531' => 'transactionsofso17roya',
+'113583' => 'transactionsofso18roya');
+*/
+//$items=array('113792' => 'transactionsofso15roya');
+
+$items=array(
+'122979' => 'MemoirsMuseumVi56Muse',
+'122980' => 'MemoirsMuseumVi56MuseA',
+'122999' => 'MemoirsMuseumVi57Muse',
+'123000' => 'MemoirsMuseumVi00Muse'
+);
+
+$items=array('123081' => 'proceedingsoflin7602linn');
+
+$items=array('30106' => 'proceedingsoflin30linn');
+
+$items=array(
+'26195' => 'reptilesofindoau01rooi',
+'24811' => 'reptilesofindoau02rooi',
+'25800' => 'reptilesofindoau0102rooi'
+);
+
+$items=array(
+'28382' => 'annalesdelasoci16soci',
+'28378' => 'annalesdelasoci17soci',
+'28370' => 'annalesdelasoci18soci',
+'28320' => 'annalesdelasoci20soci',
+'28387' => 'annalesdelasoci21soci',
+'28336' => 'annalesdelasoci23soci',
+'28100' => 'annalesdelasoci24soci',
+'28093' => 'annalesdelasoci25soci',
+'28293' => 'annalesdelasoci26soci',
+'27938' => 'annalesdelasoci27soci',
+'28318' => 'annalesdelasoci28soci',
+'28383' => 'annalesdelasoci29soci',
+'28321' => 'annalesdelasoci30soci',
+'28329' => 'annalesdelasoci31soci',
+'28472' => 'annalesdelasoci32soci',
+'28327' => 'annalesdelasoci34soci',
+'28319' => 'annalesdelasoci35soci',
+'28323' => 'annalesdelasoci36soci',
+'28330' => 'annalesdelasoci37soci'
+);
+
+$items=array('28387' => 'annalesdelasoci21soci');
+
+$items=array(
+//'16628' => 'accountofcrustac01sars',
+'41170' => 'accountofcrustac11sars',
+'73591' => 'crustaceanorway01sarsrich',
+'111057' => 'accountofcrusta01sars',
+'100338' => 'accountofcrustac02sarsgo',
+'16629' => 'accountofcrustac02sars',
+'16630' => 'accountofcrustac03sars',
+'41270' => 'accountofcrustac13sars',
+'16632' => 'accountofcrustac04sars',
+'67569' => 'accountofcrustac04sarsrich',
+'67637' => 'accountofcrustac05sarsrich',
+'15960' => 'accountofcrustac05sars',
+'16631' => 'accountofcrustac06sars',
+'16726' => 'accountofcrustac07sars',
+//'16728' => 'accountofcrustac08sars',
+'67639' => 'accountofcrustac67sarsrich',
+'67640' => 'accountofcrustac89sarsrich');
+
+//$items=array('16728' => 'accountofcrustac08sars');
+
+$items=array('121166' => 'reportofcopepoda00thom');
+
+$items=array('44465' => 'bulletinofzoolog23inte');
+
+$items=array('113870' => 'marinefishesinve00scot');
+
+$items=array('114447' => 'swenskawetenskap40kung');
+
+$items=array(
+'29949' => 'wissenschaftlich05sven',
+'29751' => 'wissenschaftlich06sven',
+'29732' => 'wissenschaftlich04011908sven',
+'29953' => 'wissenschaftlich0402sven'
+);
+
+$items=array('29949' => 'wissenschaftlich05sven');
+
+$items=array(
+//'123044' => 'bulletin7813sout',
+'123216' => 'bulletin7912sout',
+'123218' => 'bulletin8011sout',
+'123199' => 'bulletin8110sout',
+'123200' => 'bulletin8219sout',
+'123212' => 'bulletin8321sout',
+'123213' => 'bulletin8420sout',
+'123071' => 'bulletin8529sout',
+'123045' => 'bulletin8628sout',
+'123065' => 'bulletin8739sout',
+'123217' => 'bulletin8838sout',
+'123214' => 'bulletin8937sout',
+'123069' => 'bulletin9036sout'
+);
+
+$items=array(
+'35926' => 'entomologischebe1190105nede',
+'35927' => 'entomologischebe2190509nede',
+'82385' => 'entomologischebe00nede',
+'35928' => 'entomologischebe3190913nede',
+'35929' => 'entomologischebe4191317nede'
+);
+
+$items=array(
+'52295' => 'proceedingsofmal1141893295mala',
+'52043' => 'proceedingsofmal1241896297mala',
+'100098' => 'proceedingsofmal3189899malac',
+'53747' => 'proceedingsofmal144190011mala',
+'52297' => 'proceedingsofmal154190213mala',
+'52315' => 'proceedingsofmal164190415mala',
+'53746' => 'proceedingsofmal174190617mala',
+'100060' => 'proceedingsofmal8190809malac',
+'96830' => 'proceedingsofmal9191011mala',
+'52423' => 'proceedingsofmal21041912213mala',
+'53528' => 'proceedingsofmal11191415mala',
+'53698' => 'proceedingsofmal1213191619mala',
+'95719' => 'proceedingsofmal1415192023mala'
+);
+
+$items=array(
+'43551' => 'jahrbuchderhambu01hamb',
+'33121' => 'jahrbuchderhambu00hamb',
+'32677' => 'jahrbuchderhambu03hamb',
+'33349' => 'jahrbuchderhambu04hamb',
+'33307' => 'jahrbuchderhambu05hamb',
+'32675' => 'jahrbuchderhambu06hamb',
+'33308' => 'jahrbuchderhambu07hamb',
+'81300' => 'jahrbuchderhambu81890hamb',
+'33047' => 'jahrbuchderhambu09hamb',
+'43473' => 'jahrbuchderhambu010hamb',
+'43536' => 'jahrbuchderhambu11hamb',
+'101782' => 'jahrbuchderhambu1218hamb',
+'91301' => 'jahrbuchderhambu131895hamb',
+'91302' => 'jahrbuchderhambu131895hamburg',
+'92099' => 'jahrbuchderhambu141896hamb',
+'91322' => 'jahrbuchderhambu14231896hamb',
+'92506' => 'jahrbuchderhambu15231897hamb',
+'92565' => 'jahrbuchderhambu16241898hamb',
+'39465' => 'jahrbuchderhambu10hamb',
+'39569' => 'jahrbuchderhambu19hamb',
+'39477' => 'jahrbuchderhambu20hamb',
+'39470' => 'jahrbuchderhambu21hamb',
+'39483' => 'jahrbuchderhambu22hamb',
+'92087' => 'jahrbuchderhambu231905hamb',
+'91407' => 'jahrbuchderhambu23241905hamb',
+'39585' => 'jahrbuchderhambu24hamb',
+'108746' => 'mobot002017977_25Jahrg',
+'92657' => 'jahrbuchderhambu26231908hamb',
+'92483' => 'jahrbuchderhambu271909hamb',
+'92022' => 'jahrbuchderhambu272351909hamb',
+'92507' => 'jahrbuchderhambu2821910hamb',
+'92654' => 'jahrbuchderhambu2835671910hamb',
+'92092' => 'jahrbuchderhambu291911hamb',
+'92490' => 'jahrbuchderhambu2911911hamb',
+'92486' => 'jahrbuchderhambu2951911hamb',
+'92516' => 'jahrbuchderhambu2981911hamb',
+'92094' => 'jahrbuchderhambu30231912hamb',
+'92532' => 'jahrbuchderhambu3041912hamb',
+'92000' => 'jahrbuchderhambu305689111912hamb',
+'91807' => 'jahrbuchderhambu30101912hamb',
+'92001' => 'jahrbuchderhambu311913hamb',
+//'92005' => 'jahrbuchderhambu3123561913hamb',
+'92009' => 'jahrbuchderhambu31789101913hamb',
+'91975' => 'jahrbuchderhambu3211914hamb',
+'92514' => 'jahrbuchderhambu3221914hamb',
+'92724' => 'jahrbuchderhambu3321915hamb',
+'92712' => 'jahrbuchderhambu3331915hamb',
+'91809' => 'jahrbuchderhambu3351915hamb',
+'92715' => 'jahrbuchderhambu341916hamb',
+'92489' => 'jahrbuchderhambu3411916hamb',
+'92668' => 'jahrbuchderhambu3421916hamb',
+'92531' => 'jahrbuchderhambu3431916hamb',
+'92530' => 'jahrbuchderhambu3441916hamb',
+'92701' => 'jahrbuchderhambu3451916hamb',
+'92704' => 'jahrbuchderhambu3511917hamb',
+'92703' => 'jahrbuchderhambu3531917hamb',
+'92515' => 'jahrbuchderhambu3541917hamb',
+'92029' => 'jahrbuchderhambu3551917hamb',
+'91810' => 'jahrbuchderhambu3561917hamb',
+'92518' => 'jahrbuchderhambu3571917hamb',
+'91808' => 'jahrbuchderhambu3581817hamb',
+'92495' => 'jahrbuchderhambu3611918hamb',
+'92028' => 'jahrbuchderhambu3621918hamb',
+'92670' => 'jahrbuchderhambu3631918hamb',
+'92491' => 'jahrbuchderhambu3641918hamb',
+'92509' => 'jahrbuchderhambu3651918hamb',
+'92699' => 'jahrbuchderhambu3661918hamb',
+'92512' => 'jahrbuchderhambu3681918hamb',
+'92702' => 'jahrbuchderhambu3721919hamb',
+'92493' => 'jahrbuchderhambu3821920hamb'
+);
+
+//$items=array('92005' => 'jahrbuchderhambu3123561913hamb');
+
+$items=array(
+'47888' => 'zoologischejahrb0286jena',
+'49948' => 'zoologischejahrb386jena',
+'47801' => 'zoologischejahrb498jena',
+'49920' => 'zoologischejahrb51902jena',
+'49890' => 'zoologischejahrb0605jena',
+'49928' => 'zoologischejahrb0704jena',
+'49921' => 'zoologischejahrb0805jena',
+'49947' => 'zoologischejahrb0907jena',
+'49925' => 'zoologischejahrb1009jena',
+'49886' => 'zoologischejahrb1116jena',
+'49887' => 'zoologischejahrb1210jena',
+'49897' => 'zoologischejahrb1313jena',
+'49906' => 'zoologischejahrb1413jena',
+'49914' => 'zoologischejahrb151jena',
+'49888' => 'zoologischejahrb152jena',
+'49917' => 'zoologischejahrb153jena'
+);
+
+$items=array('47801' => 'zoologischejahrb498jena');
+
+
+$items=array(
+'119522' => 'proceedingsofroy54193roya',
+'119526' => 'proceedingsofroy55193roya',
+'119482' => 'proceedingsofroy56193roya',
+'121765' => 'proceedingsof57193637roya',
+'119549' => 'proceedingsofroy58193roya',
+'119481' => 'proceedingsofroy59193roya',
+'119548' => 'proceedingsofroy60193roya',
+'119547' => 'proceedingsofroy61194roya',
+'119524' => 'proceedingsofroy62194roya',
+'119523' => 'proceedingsofroy63194roya',
+'119540' => 'proceedingsofroy64194roya',
+'119465' => 'proceedingsofroy6519roya',
+'119439' => 'proceedingsofroy6619roya',
+'119525' => 'proceedingsofroy67194roya',
+'119527' => 'proceedingsofroy6819roya',
+'119466' => 'proceedingsofroy6919roya',
+'119440' => 'proceedingsofroy7019roya',
+'119544' => 'proceedingsofroy7119roya',
+'119483' => 'proceedingsofroy7219roya',
+'119479' => 'proceedingsofroy7319roya',
+'119654' => 'proceedingsofroy7419roya',
+'119467' => 'proceedingsofroy7519roya',
+'119461' => 'proceedingsofroy7619roya',
+'119462' => 'proceedingsofroy7719roya',
+'119463' => 'proceedingsofroy7819oya',
+'122965' => 'proceedingsofro791958roya',
+'119438' => 'proceedingsofroy8019roya',
+'119545' => 'proceedingsofroy8519roya',
+'119528' => 'proceedingsofroy8619roya',
+'119543' => 'proceedingsofroy8719roya',
+'119541' => 'proceedingsofroy8819roya',
+'119542' => 'proceedingsofroy8919roya'
+);
+
+$items=array(
+'105114' => 'abhandlungenausd01natu',
+//'105285' => 'abhandlungenausd02natu',
+'104989' => 'abhandlungenausd03natu',
+'99446' => 'mobot31753003649107',
+'43469' => 'abhandlungenausd56673natu',
+'43699' => 'abhandlungenausd67376natu',
+'43696' => 'abhandlungenausd78083natu',
+'109579' => 'mobot31753002497987'
+);
+
+//$items=array('105285' => 'abhandlungenausd02natu');
+
+$items=array('86075' => 'cihm_00965');
+
+$items=array('32396' => 'bulletinunitedst451893unit');
+
+$items=array(
+'18505' => 'journalofbombayn01bomb',
+'53945' => 'journalofbombayn21887soci',
+'112235' => 'mobot32044114231186',
+'18525' => 'journalofbombayn04bomb',
+'18553' => 'journalofbombayn05bomb',
+'18535' => 'journalofbombayn06bomb',
+'95456' => 'journalofbombayn71892bomb',
+'95824' => 'journalofbombayn81893bomb',
+'96941' => 'journalofbombayn9189495bomb',
+'95532' => 'journalofbombayn1015189597bomb',
+'95309' => 'journalofbombayn11189798bomb',
+'31495' => 'journalofbombayn121900bomb',
+'95330' => 'journalofbombayn13190001bomb',
+'95311' => 'journalofbombayn14190203bomb',
+'18581' => 'journalofbombayn15bomb',
+'28579' => 'journalofbombayn16abomb',
+'95250' => 'journalofbombayn17190607bomb',
+'18938' => 'journalofbombayn18bomb',
+'28012' => 'journalofbombayn19abomb',
+'95328' => 'journalofbombayn20191011bomb',
+'95301' => 'journalofbombayn21121912bomb',
+'95460' => 'journalofbombayn21351912bomb',
+'95307' => 'journalofbombayn221913bomb',
+'95912' => 'journalofbombayn231914bomb',
+'95302' => 'journalofbombayn24191517bomb',
+'28019' => 'journalofbombayn25abomb',
+'18480' => 'journalofbombayn26bomb',
+'95740' => 'journalofbombayn27192022bomb',
+'95242' => 'journalofbombayn2812192122bomb',
+'95721' => 'journalofbombayn28341922bomb'
+);
+
+$items=array('38688' => 'chloropidaeeinem00beck');
+
+$items=array(
+//'55056' => 'jahrbcherderde11874deut',
+//'86730' => 'jahrbcherderde21875deut',
+//'55058' => 'jahrbcherderde31876deut',
+'55059' => 'jahrbcherderde41877deut',
+'81336' => 'jahrbcherderde51878deut',
+'55057' => 'jahrbcherderde61879deut',
+'55060' => 'jahrbcherderde71880deut',
+'55035' => 'jahrbcherderde81881deut',
+'55206' => 'jahrbcherderde91882deut',
+'86735' => 'jahrbcherderde101883deut',
+'55039' => 'jahrbcherderde111884deut',
+'55209' => 'jahrbcherderde121885deut',
+'55191' => 'jahrbcherderde131886deut',
+'53960' => 'jahrbcherderde141887deut'
+);
+
+$items=array(
+'82048' => 'revuedentomologi01soci',
+'41299' => 'revuedentomologi12188283soci',
+'82049' => 'revuedentomologi02soci',
+'82047' => 'revuedentomologi03soci',
+'41743' => 'revuedentomologi34188485soci',
+'82050' => 'revuedentomologi04soci',
+'82052' => 'revuedentomologi05soci',
+'41744' => 'revuedentomologi56188687soci',
+'82053' => 'revuedentomologi06soci',
+'82051' => 'revuedentomologi07soci',
+//'41745' => 'revuedentomologi78188889soci',
+'82065' => 'revuedentomologi08soci',
+//'82066' => 'revuedentomologi09soci',
+'41301' => 'revuedentomologi910189091soci',
+'82067' => 'revuedentomologi10soci',
+'41351' => 'revuedentomologi1112189293soci',
+'41307' => 'revuedentomologi1314189495soci',
+'50597' => 'revuedentomologi151896soci',
+'50693' => 'revuedentomologi16soci',
+'41304' => 'revuedentomologi1718189899soci',
+'41350' => 'revuedentomologi1920190001soci',
+'41306' => 'revuedentomologi2122190203soci',
+'44048' => 'revuedentomologi2324190405soci',
+'81044' => 'revuedentomologi251906soci',
+'81042' => 'revuedentomologi261907soci',
+'81023' => 'revuedentomologi271908soci',
+'81024' => 'revuedentomologi281910soci'
+);
+
+$items=array('41745' => 'revuedentomologi78188889soci');
+
+$items=array(
+'46156' => 'annalesdelasoci89186465soci',
+'48192' => 'annalesdelasoci101866soci',
+'45311' => 'annalesdelasoci11186768soci',
+'44872' => 'annalesdelasoci1213186870soci',
+'44639' => 'annalesdelasoci1415187072soci',
+'44647' => 'annalesdelasoci161873soci',
+'45797' => 'annalesdelasoci171874soci',
+'45753' => 'annalesdelasoci181875soci',
+'45830' => 'annalesdelasoci1920187677soci',
+'46150' => 'annalesdelasoci211878soci',
+'44876' => 'annalesdelasoci221879soci',
+'44686' => 'annalesdelasoci2325188081soci',
+'81196' => 'annalesdelasoci2627188283soci',
+'45820' => 'annalesdelasoci281884soci',
+'45823' => 'annalesdelasoci291885soci',
+'44636' => 'annalesdelasoci3031188687soci',
+'45827' => 'annalesdelasoci3233188889soci',
+'44716' => 'annalesdelasoci351891soci',
+'46152' => 'annalesdelasoci361892soci',
+'49378' => 'annalesdelasoci371893soci',
+'46161' => 'annalesdelasoci381894soci',
+'45774' => 'annalesdelasoci39189596soci',
+'46174' => 'annalesdelasoci40189697soci',
+'44877' => 'annalesdelasoci471903soci',
+'46160' => 'annalesdelasoci481904soci',
+'44643' => 'annalesdelasoci491905soci',
+'46136' => 'annalesdelasoci501906soci',
+'44645' => 'annalesdelasoci511907soci',
+'47476' => 'annalesdelasoci521908socis',
+'46155' => 'annalesdelasoci531909soci',
+'44635' => 'annalesdelasoci541910soci',
+'44648' => 'annalesdelasoci551911soci',
+'46151' => 'annalesdelasoci561912soci',
+'47475' => 'annalesdelasoci571913socis',
+'51528' => 'annalesdelasoci581914soci',
+'44640' => 'annalesdelasoci5961191922soci',
+'44701' => 'annalesdelasoci13018571886soci'
+);
+
+$items=array('45774' => 'annalesdelasoci39189596soci');
+
+$items=array('53394' => 'memoirsofcalifor141989cali');
+
+$items=array('111807' => 'reviewofflathead00pete');
+$items=array('111409' => 'morphologyofbasi00vald');
+
+$items=array(
+'113572' => 'transactionsofso41roya',
+'113534' => 'transactionsofso52roya',
+'113571' => 'transactionsofso06roya',
+'113563' => 'transactionsofso07roya',
+'113786' => 'transactionsofso08roya',
+'113784' => 'transactionsofso09roya',
+'113578' => 'transactionsofso10roya',
+'113791' => 'transactionsofso11roya',
+'113562' => 'transactionsofso121roya',
+'113532' => 'transactionsofso122roya',
+'113573' => 'transactionsofso13roya',
+'113790' => 'transactionsofso14roya',
+'113792' => 'transactionsofso15roya',
+'113609' => 'transactionsofso16roya',
+'113531' => 'transactionsofso17roya',
+'113583' => 'transactionsofso18roya'
+);
+
+$items=array('113531' => 'transactionsofso17roya');
+
+$items=array(
+//'123331' => 'journalofwashin161926wash',
+//'123316' => 'journalofwashin171927wash',
+//'123329' => 'journalofwashin181928wash',
+'123330' => 'journalofwashin201930wash',
+'123317' => 'journalofwashin211931wash',
+'123322' => 'journalofwashin221932wash',
+'123321' => 'journalofwashin231933wash',
+'123323' => 'journalofwashin241934wash'
+);
+
+$items=array('53529' => 'proceedingsofuni211899unit');
+
+$items=array('100624' => 'fversigtafkong561899kung');
+
+$items=array(
+//'114383' => 'liangqibaxingdonnew03chen',
+'114384' => 'liangqibaxingdonnew04chen',
+'123346' => 'liangqibaxingdonnew05chen'
+);
+
+$items=array(
+'30223' => 'sitzungsberichte43kais',
+'107563' => 'sitzungsberichte441861kai',
+'30219' => 'sitzungsberichte45kais',
+'30211' => 'sitzungsberichte46kais',
+'30210' => 'sitzungsberichte47kais',
+//'30213' => 'sitzungsberichte48kais',
+'30222' => 'sitzungsberichte49kais',
+'30214' => 'sitzungsberichte50kais',
+'30215' => 'sitzungsberichte51kais',
+'30217' => 'sitzungsberichte52kais',
+'30224' => 'sitzungsberichte53kais',
+'30216' => 'sitzungsberichte54kais',
+'121558' => 'sitzungsbericht551867kais',
+'30267' => 'sitzungsberichte56kais',
+'30220' => 'sitzungsberichte57kais',
+'30218' => 'sitzungsberichte58kais',
+'30068' => 'sitzungsberichte59kais',
+'108174' => 'sitzungsberich601869kais',
+'110043' => 'sitzungsbericht611870kais',
+'30728' => 'sitzungsberichte62kais',
+'111973' => 'sitzungsbericht631871kais',
+'107333' => 'sitzungsbericht641871kais',
+'30021' => 'sitzungsberichte0164ikais'
+);
+
+//$items=array('30213' => 'sitzungsberichte48kais');
+
+$items=array('112817' => 'monatsberichtede1874knig');
+
+$items=array(
+'41574' => 'berichtberdiez56berl',
+'41577' => 'berichtberdiez57berl',
+'41578' => 'berichtberdiez58berl',
+'41575' => 'berichtberdiez59berl',
+'111868' => 'monatsberichtede1860knig',
+'112407' => 'monatsberichtede1862knig',
+'109317' => 'monatsberichtede1864kn',
+'109287' => 'monatsberichtede1865kn',
+'112419' => 'monatsberichtede1867knig',
+'111036' => 'monatsberichtede1868knig',
+'111869' => 'monatsberichtede1869knig',
+'112818' => 'monatsberichtede1871knig',
+'110470' => 'monatsberichtede1872knig',
+//'111022' => 'monatsberichtede1873knig',
+//'112817' => 'monatsberichtede1874knig',
+'111351' => 'monatsberichtede1875knig',
+'109636' => 'monatsberichtede1876kn',
+'110478' => 'monatsberichtede1877knig',
+'111278' => 'monatsberichtede1878knig',
+'112024' => 'monatsberichtede1879knig',
+'111870' => 'monatsberichtede1880knig',
+'111883' => 'monatsberichtede18611knig'
+);
+
+$items=array('41000' => 'tijdschriftvoore34189091nede');
+
+$items=array('51012' => 'transactionsofen1915roya');
+
+$items=array(
+'104990' => 'abhandlungenhera01natu',
+'104665' => 'abhandlungenhera02natu',
+'106127' => 'abhandlungenhera03natu',
+'105184' => 'abhandlungenhera04natu',
+'104684' => 'abhandlungenhera05natu',
+'104543' => 'abhandlungenhera06natu',
+'105780' => 'abhandlungenhera07natu',
+'22952' => 'abhandlungenhera08natu',
+'22950' => 'abhandlungenhera09natu',
+'105185' => 'abhandlungenhera10natu',
+'104690' => 'abhandlungenhera11natu',
+//'105154' => 'abhandlungenhera13natu',
+'22953' => 'abhandlungenhera14natu',
+'104735' => 'abhandlungenhera15natu',
+'22991' => 'abhandlungenhera16natu',
+'23001' => 'abhandlungenhera17natu',
+'22972' => 'abhandlungenhera18natu',
+'23003' => 'abhandlungenhera19natu',
+'114148' => 'abhandlungen9188487natu',
+'105196' => 'abhandlungenhera12natu',
+'110070' => 'abhandlungen24191920natu',
+'104686' => 'abhandlungenhera2021natu',
+'23007' => 'abhandlungenhera2223natu'
+);
+
+$items=array('105154' => 'abhandlungenhera13natu');
+
+
+$items=array('25998' => 'miscellaneouspub50univ');
+
+$items=array(
+//'39809' => 'entomologischemi11912deut',
+/*'38257' => 'entomologischemi21913deut',
+'38258' => 'entomologischemi31914deut',
+'38259' => 'entomologischemi41915deut',
+'38722' => 'entomologischemi56191617deut',*/
+'40402' => 'entomologischemi79191820deut',
+'39843' => 'entomologischemi1011192122deuts'
+);
+
+//$items=array('39809' => 'entomologischemi11912deut');
+
+$items=array(
+/*'53062' => 'bulletin1319181921illi',
+'53060' => 'bulletin1419211923illi',
+'53071' => 'bulletin1519241925illi',*/
+'53067' => 'bulletin1619261927illi',
+'51254' => 'bulletin1719271928illi',
+'51232' => 'bulletin1819291930illi',
+'51114' => 'bulletin1919301932illi',
+'51189' => 'bulletin2019321935illi',
+//'53310' => 'bulletin2119361941illi',
+'51228' => 'bulletin2219411943illi',
+'50956' => 'bulletin2319441945illi',
+'51091' => 'bulletin242519471952illi',
+'51090' => 'bulletin2619531955illi',
+'51269' => 'bulletin2719571961illi',
+'51215' => 'bulletin2819611963illi',
+'53269' => 'bulletin2919651969illi',
+'51125' => 'bulletin3019691972illi',
+'51111' => 'bulletin3119731977illi',
+'51264' => 'bulletin3219791981illi',
+'51186' => 'bulletin3319831985illi'
+);
+
+//$items=array('53310' => 'bulletin2119361941illi');
+
+$items=array('44466' => 'bulletinofzoolog24inte');
+
+$items=array('47597' => 'verhandlungender48zool');
+
+$items=array('41000' => 'tijdschriftvoore34189091nede');
+
+$items=array('107600' => 'proceedingsofbi811968biol');
+
+// 98213
+
+$items=array(
+'94942' => 'archivesdeparasi11898pari',
+'95051' => 'archivesdeparasi21899pari',
+'95238' => 'archivesdeparasi319001901pari',
+'95239' => 'archivesdeparasi41901pari',
+//'98213' => 'archivesdeparasi05pari',
+'98214' => 'archivesdeparasi06pari',
+'101317' => 'archivesdeparasi71903pari',
+'98215' => 'archivesdeparasi08pari',
+'98216' => 'archivesdeparasi09pari',
+'98610' => 'archivesdeparasi10pari',
+'98218' => 'archivesdeparasi11pari'
+);
+
+//$items=array('98213' => 'archivesdeparasi05pari');
+
+$items=array(
+'35251' => 'sitzungsberichte117kais',
+'35266' => 'sitzungsberichte118kais',
+'35549' => 'sitzungsberichte120kais',
+//'34439' => 'sitzungsberichte121kais',
+'34454' => 'sitzungsberichte122kais',
+'35554' => 'sitzungsberichte123kais',
+'33809' => 'sitzungsberichte124kais',
+'34896' => 'sitzungsberichte125kais',
+'35552' => 'sitzungsberichte126kais',
+'34455' => 'sitzungsberichte127kais',
+'34249' => 'sitzungsberichte128kais',
+'34247' => 'sitzungsberichte129kais',
+'35267' => 'sitzungsberichte130kais',
+'34263' => 'sitzungsberichte131kais'
+);
+
+$items=array('34439' => 'sitzungsberichte121kais');
+
+$items=array(
+'35942' => 'aquila01magy',
+'34566' => 'aquila02magy',
+'35161' => 'aquila03magy',
+'35126' => 'aquila04magy',
+'81349' => 'aquila51898magy',
+'36303' => 'aquila06magy',
+'88005' => 'aquila71900magy',
+'35755' => 'aquila08magy',
+'81149' => 'aquila91902magy',
+'34915' => 'aquila10magy',
+'87516' => 'aquila111904magy',
+'87336' => 'aquila121905magy',
+'35197' => 'aquila13magy',
+'35235' => 'aquila14magy',
+'34880' => 'aquila15magy',
+'34755' => 'aquila16magy',
+'81097' => 'aquila171910magy',
+'35246' => 'aquila18magy',
+'35157' => 'aquila19magy',
+'81130' => 'aquila201913magy',
+'34567' => 'aquila21magy',
+'35238' => 'aquila22magy',
+'35611' => 'aquila23magy',
+'35125' => 'aquila24magy',
+'35234' => 'aquila25magy',
+'36300' => 'aquila26magy',
+'35180' => 'aquila27magy',
+'36304' => 'aquila28magy',
+'37671' => 'aquil29magy',
+'91375' => 'aquila3033192326magy',
+'91292' => 'aquila3437192730magy',
+'91401' => 'aquila3841193134magy',
+'100131' => 'aquila__4245193538magy',
+'96556' => 'aquila424519351938magy',
+'91306' => 'aquila501943magy',
+'91378' => 'aquila5158194451magy',
+'91374' => 'aquila5962195255magy',
+'91277' => 'aquila6364195657magy',
+'91403' => 'aquila651958magy',
+'91272' => 'aquila661959magy',
+'95045' => 'aquila676819601961magy',
+'94488' => 'aquila697019621963magy',
+'94487' => 'aquila717219641965magy',
+'95036' => 'aquila737419661967magy',
+'91298' => 'aquila7577196870magy',
+'91305' => 'aquila7880197174magy',
+'95078' => 'aquila821975magy',
+'91304' => 'aquila831976magy',
+'91376' => 'aquila8486197779magy',
+'91397' => 'aquila8789198082magy',
+'91205' => 'aquila_901983magy',
+'91373' => 'aquila911984magy',
+'91377' => 'aquila921985magy',
+'91405' => 'aquila9394198687magy',
+'95044' => 'aquila951988magy',
+'91380' => 'aquila9697198990magy',
+'91381' => 'aquila981991magy',
+'91379' => 'aquila991992magy',
+'91274' => 'aquila10001199394magy',
+'91291' => 'aquila10210619952000magy'
+);
+
+$items=array('100131' => 'aquila__4245193538magy',
+'91376' => 'aquila8486197779magy',
+'91397' => 'aquila8789198082magy',
+'91381' => 'aquila981991magy'
+);
+
+$items=array(
+'45898' => 'journalofentomol01lond',
+'81941' => 'journalofentomol01metc',
+'47912' => 'journalofentomol02lond'
+);
+
+$items=array('56823' => 'descriptionsofne05brouuoft',
+'56824' => 'descriptionsofne06brouuoft',
+'56825' => 'descriptionsofne07brouuoft');
+
+
+$items=array(
+//'35251' => 'sitzungsberichte117kais',
+//'35266' => 'sitzungsberichte118kais',
+//'35549' => 'sitzungsberichte120kais',
+//'34439' => 'sitzungsberichte121kais',
+'34454' => 'sitzungsberichte122kais',
+'35554' => 'sitzungsberichte123kais',
+'33809' => 'sitzungsberichte124kais',
+'34896' => 'sitzungsberichte125kais',
+'35552' => 'sitzungsberichte126kais',
+'34455' => 'sitzungsberichte127kais',
+'34249' => 'sitzungsberichte128kais',
+'34247' => 'sitzungsberichte129kais',
+'35267' => 'sitzungsberichte130kais',
+'34263' => 'sitzungsberichte131kais'
+);
+
+$items=array('39682' => 'bollettinodellas4849191617soci');
+
+$items=array('51822' => 'bollettinodellab10191516rscufo');
+
+$items=array('48854' => 'bollettinodellab141920rscufo');
+
+$items=array('35201' => 'bollettinodellab131919rscu');
+
+$items=array('42968' => 'comunicacionesde9801muse');
+
+$items=array(
+'123567' => 'MemoirsQueensla35paQuee',
+'123644' => 'MemoirsQueensla35Quee',
+'123463' => 'monographoflorie00miva',
+'123465' => 'systematicillust00artz',
+'123466' => 'systematicstudyo00sche',
+'123468' => 'karyotypesofsixs00nago',
+'123469' => 'larvapupaofcaddi00merr',
+'123470' => 'neogondolellifor00vonb',
+'123471' => 'newgenusspecieso00flem',
+'123472' => 'newspeciesofglau00pete',
+'123473' => 'newspeciesofbato00pete',
+'123474' => 'newsubspeciesofb00eger',
+'123475' => 'newsubspeciesofr00hall',
+'123484' => 'threenewspecieso00cruz'
+);
+
+$items=array(
+//'40256' => 'postilla150peab',
+'44881' => 'postilla511961peab',
+'43781' => 'postilla521961peab',
+'43743' => 'postilla531961peab',
+'43733' => 'postilla541961peab',
+'43746' => 'postilla551961peab',
+'43802' => 'postilla561961peab',
+'43805' => 'postilla581962peab',
+'43800' => 'postilla591962peab',
+'43740' => 'postilla601962peab',
+'43737' => 'postilla611962peab',
+'44212' => 'postilla621962peab',
+'43734' => 'postilla631962peab',
+'43731' => 'postilla641962peab',
+'43784' => 'postilla651962peab',
+'43744' => 'postilla661962peab',
+'43745' => 'postilla671962peab',
+'44217' => 'postilla681962peab',
+'43732' => 'postilla691962peab',
+'43747' => 'postilla701962peab',
+'43751' => 'postilla711962peab',
+'43738' => 'postilla721962peab',
+'44213' => 'postilla731962peab',
+'43739' => 'postilla741963peab',
+'43764' => 'postilla751963peab',
+'43786' => 'postilla761963peab',
+'43742' => 'postilla771963peab',
+'43735' => 'postilla781964peab',
+'43730' => 'postilla791964peab',
+'43923' => 'postilla801964peab',
+'88816' => 'postilla5180196164peab',
+'43911' => 'postilla811964peab',
+'43917' => 'postilla821964peab',
+'44064' => 'postilla831964peab',
+'44066' => 'postilla841964peab',
+'43916' => 'postilla851964peab',
+'43904' => 'postilla861964peab',
+'43912' => 'postilla871964peab',
+'43913' => 'postilla881964peab',
+'43921' => 'postilla891965peab',
+'43918' => 'postilla911965peab',
+'43922' => 'postilla931965peab',
+'43910' => 'postilla941965peab',
+'44063' => 'postilla951966peab',
+'44061' => 'postilla961966peab',
+'43750' => 'postilla991966peab',
+'43758' => 'postilla1001966peab',
+'89272' => 'postilla8110019646651100peab',
+'44214' => 'postilla51100peab',
+'40594' => 'postilla101peab',
+'40522' => 'postilla102peab',
+'40497' => 'postilla103peab',
+'40547' => 'postilla104peab',
+'40507' => 'postilla105peab',
+'40506' => 'postilla106peab',
+'40512' => 'postilla107peab',
+'40540' => 'postilla108peab',
+'40510' => 'postilla109peab',
+'40538' => 'postilla110peab',
+'40548' => 'postilla111peab',
+'40517' => 'postilla112peab',
+'40568' => 'postilla113peab',
+'40576' => 'postilla114peab',
+'40575' => 'postilla115peab',
+'40593' => 'postilla116peab',
+'40583' => 'postilla117peab',
+'40595' => 'postilla118peab',
+'40287' => 'postilla119peab',
+'40516' => 'postilla120peab',
+'40559' => 'postilla121peab',
+'40509' => 'postilla122peab',
+'40521' => 'postilla123peab',
+'40505' => 'postilla124peab',
+'40496' => 'postilla125peab',
+'40551' => 'postilla126peab',
+'40333' => 'postilla127peab',
+'40527' => 'postilla128peab',
+'40632' => 'postilla129peab',
+'40532' => 'postilla130peab',
+'40528' => 'postilla131peab',
+'40606' => 'postilla132peab',
+'40530' => 'postilla133peab',
+'40552' => 'postilla134peab',
+'40301' => 'postilla135peab',
+'40302' => 'postilla136peab',
+'40303' => 'postilla137peab',
+'40637' => 'postilla138peab',
+'40633' => 'postilla139peab',
+'40304' => 'postilla140peab',
+'40309' => 'postilla141peab',
+'40308' => 'postilla142peab',
+'40307' => 'postilla143peab',
+'40306' => 'postilla144peab',
+'40305' => 'postilla145peab',
+'40577' => 'postilla146peab',
+'40581' => 'postilla148peab',
+'40598' => 'postilla149peab',
+'40613' => 'postilla15071peab',
+'89818' => 'postilla12815019691971101150peab',
+'40591' => 'postilla101150peab',
+'44062' => 'postilla1511971peab',
+'43903' => 'postilla1521971peab',
+'44346' => 'postilla1531971peab',
+'44344' => 'postilla1541971peab',
+'44349' => 'postilla1551972peab',
+'44347' => 'postilla1561972peab',
+'44351' => 'postilla1571972peab',
+'44348' => 'postilla1581972peab',
+'44350' => 'postilla1591973peab',
+'44611' => 'postilla1601973peab',
+'44613' => 'postilla1611973peab',
+'44615' => 'postilla1621973peab',
+'44610' => 'postilla1631973peab',
+'44608' => 'postilla1641974peab',
+'44614' => 'postilla1651974peab',
+'44612' => 'postilla1661974peab',
+'44609' => 'postilla1671975peab',
+'91647' => 'mobot31753003646400',
+'91700' => 'mobot31753003646418',
+'91586' => 'mobot31753003645824',
+'91703' => 'mobot31753003645816',
+'91587' => 'mobot31753003645808',
+'91705' => 'mobot31753003645790',
+'91707' => 'mobot31753003645782',
+'91595' => 'mobot31753003645774',
+'91596' => 'mobot31753003645766',
+'91601' => 'mobot31753003645659',
+'91712' => 'mobot31753003645667',
+'91711' => 'mobot31753003645675',
+'91604' => 'mobot31753003645683',
+'91710' => 'mobot31753003645691',
+'91605' => 'mobot31753003645709',
+'91708' => 'mobot31753003645717',
+'91597' => 'mobot31753003645725',
+'91598' => 'mobot31753003645733',
+'91599' => 'mobot31753003645741',
+'91602' => 'mobot31753003645758',
+'91603' => 'mobot31753003645642',
+'91615' => 'mobot31753003645634',
+'89130' => 'postilla1901983peab',
+'88839' => 'postilla1911983peab',
+'88845' => 'postilla1921984peab',
+'88840' => 'postilla1931984peab',
+'88842' => 'postilla1961985peab',
+'88841' => 'postilla1971986peab',
+'89132' => 'postilla1981986peab',
+'89129' => 'postilla1991987peab',
+'89147' => 'postilla1987peab',
+'43540' => 'postilla151200peab',
+'89292' => 'postilla201peab',
+'89294' => 'postilla1988peab',
+'89291' => 'postilla203peab',
+'89297' => 'postilla204peab',
+'89323' => 'postilla205peab',
+'89258' => 'postilla206peab',
+'89099' => 'postilla207peab',
+'89298' => 'postilla208peab',
+'89290' => 'postilla209peab',
+'89315' => 'postilla2101996peab',
+'89311' => 'postilla2111996peab',
+'89112' => 'postilla2121996peab',
+'89107' => 'postilla2131997peab',
+'89148' => 'postilla214peab',
+'89259' => 'postilla215peab',
+'89131' => 'postilla2161998peab',
+'89133' => 'postilla2171999peab',
+'88800' => 'postilla2181999peab',
+'89274' => 'postilla2191999peab',
+'89134' => 'postilla2201999peab',
+'106143' => 'postilla221peab',
+'88799' => 'postilla2222000peab',
+'88797' => 'postilla2232000peab',
+'88813' => 'postilla2242000peab',
+'88844' => 'postilla2252001peab',
+'88810' => 'postilla2262002peab',
+'88801' => 'postilla2272003peab',
+'88995' => 'postilla2282003peab',
+'88843' => 'postilla2292004peab',
+'88796' => 'postilla2302004peab',
+'88811' => 'postilla2312004peab',
+'88812' => 'postilla2322004peab'
+);
+
+/*
+$items=array(
+'40256' => 'postilla150peab'
+);
+*/
+
+$items=array(
+'21292' => 'memoirsofsandieg01sand',
+'29725' => 'memoirsofsandieg219441972sand',
+'29692' => 'memoirsofsandieg31968sand',
+'29799' => 'memoirsofsandieg41970sand',
+'29800' => 'memoirsofsandieg51973sand',
+'29723' => 'memoirsofsandieg61974sand',
+'25316' => 'memoirsofsandieg07sand',
+'25369' => 'memoirsofsandieg08sand',
+'25475' => 'memoirsofsandieg09sand',
+'25394' => 'memoirsofsandieg10sand',
+'25318' => 'memoirsofsandieg11sand',
+'25336' => 'memoirsofsandieg12sand',
+'26714' => 'memoirsofsandieg131984sand',
+'25448' => 'memoirsofsandieg14sand',
+'25388' => 'memoirsofsandieg15sand',
+'25442' => 'memoirsofsandieg16sand'
+);
+
+$items=array('25448' => 'memoirsofsandieg14sand');
+
+$items=array(
+'25394' => 'memoirsofsandieg10sand',
+'25388' => 'memoirsofsandieg15sand'
+);
+
+$items=array('25318' => 'memoirsofsandieg11sand');
+
+$items=array('23673' => 'breviora380409harv');
+
+
+$items=array(
+/*'112136' => 'mobot32044093282846',
+'30277' => 'sitzungsberichte09kais',
+'30089' => 'sitzungsberichte10kais',
+'30075' => 'sitzungsberichte11kais',
+'30195' => 'sitzungsberichte12kais',
+'30082' => 'sitzungsberichte13kais',
+'30080' => 'sitzungsberichte14kais',*/
+//'112135' => 'mobot32044093283463',
+//'111133' => 'sitzungsbericht161855kais',
+//'107747' => 'sitzungsbericht171855kais',
+//'30208' => 'sitzungsberichte18kais',
+//'112118' => 'sitzungsbericht191856kais',
+'108785' => 'sitzungsbericht201856kais',
+'112134' => 'mobot32044093283521',
+'30090' => 'sitzungsberichte22kais',
+'112133' => 'mobot32044093283547',
+'31064' => 'sitzungsberichte24kais',
+'30203' => 'sitzungsberichte25kais',
+'30201' => 'sitzungsberichte26kais',
+'110878' => 'sitzungsbericht271857kais',
+'30197' => 'sitzungsberichte28kais',
+'30202' => 'sitzungsberichte29kais',
+'30198' => 'sitzungsberichte30kais',
+'30227' => 'sitzungsberichte31kais',
+'30471' => 'sitzungsberichte32kais',
+'30274' => 'sitzungsberichte33kais',
+'30199' => 'sitzungsberichte34kais',
+'30212' => 'sitzungsberichte35kais',
+'30205' => 'sitzungsberichte36kais',
+'30207' => 'sitzungsberichte37kais',
+'30206' => 'sitzungsberichte38kais',
+'108198' => 'sitzungsbericht391860kais',
+'30209' => 'sitzungsberichte40kais',
+'30221' => 'sitzungsberichte41kais',
+'30204' => 'sitzungsberichte42kais'
+);
+
+//$items=array('30208' => 'sitzungsberichte18kais');
+
+$items=array(
+'109626' => 'mnchnerkoleopt01mn',
+'110009' => 'mnchnerkoleopt0406mn',
+'110012' => 'mnchnerkoleopt0608mn'
+);
+
+$items=array(
+'109884' => 'annalsofnewyor1187780newy',
+'109505' => 'annalsofnewyor2188083newy',
+'109494' => 'annalsofnewyor3188385newy',
+'109860' => 'annalsofnewyor4188789newy',
+'26487' => 'annalsofnewyorka21newy',
+'109845' => 'annalsofnewyor6189192newy',
+'109890' => 'annalsofnewyor7189294newy',
+'24737' => 'annalsofnewyorka05newy',
+'109497' => 'annalsofnewyor9189697newy',
+'109463' => 'annalsofnewyo10189798newy',
+'109565' => 'annalsofnewyork111898newy',
+'108257' => 'annalsofnew1218991900newy',
+'109793' => 'annalsofnewyo13190001newy',
+'109569' => 'annalsofnewyo14190103newy',
+'26485' => 'annalsofnewyorka08newy',
+'109506' => 'annalsofnewyo16190506newy',
+'109464' => 'annalsofnewyo7190607newy',
+'23281' => 'annalsofnewyorka18newy',
+'108237' => 'annalsofnewyor191909newy',
+'26492' => 'annalsofnewyorka20newy',
+'26482' => 'annalsofnewyorkas21newy',
+'109488' => 'annalsofnewyo22191213newy',
+'109465' => 'annalsofnewy23191314newy',
+'24306' => 'annalsofnewyorka24newy',
+'24736' => 'annalsofnewyorka25newy',
+'110214' => 'annalsofnewyo26191516newy',
+'109850' => 'annalsofnewy27191617newy',
+'111986' => 'annalsofnewyo28191820newy'
+);
+
+$items=array('109845' => 'annalsofnewyor6189192newy');
+
+$items=array('32834' => 'brotria07lisb');
+
+$items=array(
+'29186' => 'danishingolfexpe0201ingo',
+'18478' => 'danishingolfexpe0202ingo',
+'18830' => 'danishingolfexpe0203ingo',
+'18905' => 'danishingolfexpe0204ingo',
+'18479' => 'danishingolfexpe0205ingo',
+'18887' => 'danishingolfexpe0301ingo',
+//'18964' => 'danishingolfexpe0302ingo',
+'18463' => 'danishingolfexpe0303ingo',
+'29041' => 'danishingolfexpe19150304ingo',
+'18483' => 'danishingolfexpe0306ingo',
+'18465' => 'danishingolfexpe0401ingo',
+'18836' => 'danishingolfexpe0402ingo',
+'18956' => 'danishingolfexpe0403ingo',
+'18951' => 'danishingolfexpe0404ingo',
+'18817' => 'danishingolfexpe0501ingo',
+'43270' => 'danishingolfexpe1512dani',
+'18843' => 'danishingolfexpe0504ingo',
+'18846' => 'danishingolfexpe0505ingo',
+'44324' => 'danishingolfexpe56dani',
+'18849' => 'danishingolfexpe0506ingo',
+'18884' => 'danishingolfexpe0507ingo',
+'43266' => 'danishingolfexpe1517dani',
+'18466' => 'danishingolfexpe0508ingo',
+'18885' => 'danishingolfexpe0509ingo',
+'18906' => 'danishingolfexpe0601ingo',
+'18837' => 'danishingolfexpe0602ingo',
+'18823' => 'danishingolfexpe0603ingo'
+);
+
+$items=array('18964' => 'danishingolfexpe0302ingo');
+
+$items=array('37653' => 'tijdschriftderne29nede');
+
+$items=array('29781' => 'archivfrnaturg5401berl');
+
+$items=array(
+'43006' => 'bollettinodeimus11886univ',
+'43007' => 'bollettinodeimus21887univ',
+'43008' => 'bollettinodeimus31888univ',
+'42975' => 'bollettinodeimus41889univ',
+'43009' => 'bollettinodeimus51890univ',
+'43029' => 'bollettinodeimus61891univ',
+'43010' => 'bollettinodeimus71892univ',
+'42761' => 'bollettinodeimus81893univ',
+'41990' => 'bollettinodeimus91894univ',
+'43005' => 'bollettinodeimus111896univ',
+'43370' => 'bollettinodeimus1297univ',
+'42045' => 'bollettinodeimus1398univ',
+'43047' => 'bollettinodeimus1499univ',
+'43398' => 'bollettinodeimus1500univ',
+'43058' => 'bollettinodeimus1601univ',
+'43033' => 'bollettinodeimus1702univ',
+//'43415' => 'bollettinodeimus1904univ',
+'43368' => 'bollettinodeimus2005univ',
+'43046' => 'bollettinodeimus2106univ',
+//'43468' => 'bollettinodeimus221907univ',
+'43024' => 'bollettinodeimus2308univ',
+'51281' => 'bollettinodeimus231908univ',
+'51282' => 'bollettinodeimus241909univ',
+'50963' => 'bollettinodeimus251910univ',
+'51166' => 'bollettinodeimus261911univ',
+'50964' => 'bollettinodeimus281913univ',
+'51175' => 'bollettinodeimus291914univ',
+'50976' => 'bollettinodeimus301915univ',
+'51275' => 'bollettinodeimus311916univ',
+'51276' => 'bollettinodeimus3233univ',
+'51167' => 'bollettinodeimus3435univ',
+'52759' => 'bollettinodeimus3637univ'
+);
+
+//$items=array('43468' => 'bollettinodeimus221907univ');
+
+$items=array(
+'29186' => 'danishingolfexpe0201ingo',
+'18478' => 'danishingolfexpe0202ingo',
+'18830' => 'danishingolfexpe0203ingo',
+'18905' => 'danishingolfexpe0204ingo',
+'18479' => 'danishingolfexpe0205ingo',
+'18887' => 'danishingolfexpe0301ingo',
+//'18964' => 'danishingolfexpe0302ingo',
+'18463' => 'danishingolfexpe0303ingo',
+'29041' => 'danishingolfexpe19150304ingo',
+'18483' => 'danishingolfexpe0306ingo',
+'18465' => 'danishingolfexpe0401ingo',
+'18836' => 'danishingolfexpe0402ingo',
+'18956' => 'danishingolfexpe0403ingo',
+'18951' => 'danishingolfexpe0404ingo',
+'18817' => 'danishingolfexpe0501ingo',
+'43270' => 'danishingolfexpe1512dani',
+'18843' => 'danishingolfexpe0504ingo',
+'18846' => 'danishingolfexpe0505ingo',
+'44324' => 'danishingolfexpe56dani',
+'18849' => 'danishingolfexpe0506ingo',
+'18884' => 'danishingolfexpe0507ingo',
+'43266' => 'danishingolfexpe1517dani',
+'18466' => 'danishingolfexpe0508ingo',
+'18885' => 'danishingolfexpe0509ingo',
+'18906' => 'danishingolfexpe0601ingo',
+'18837' => 'danishingolfexpe0602ingo',
+'18823' => 'danishingolfexpe0603ingo'
+);
+
+$items=array('21270' => 'newnorthamerican2915trau');
+
+$items=array('84669' => 'trudyrusskagoent361903russ');
+$items=array('81150' => 'trudyrusskagoent2728189294russ');
+
+$items=array('105907' => 'herpetologicalty32smit');
+
+$items=array('49039' => 'quarterlyjournal431900lond');
+
+$items=array(
+'121639' => 'proceedingsofli311906linn',
+'111086' => 'proceedings231213121888l',
+'111697' => 'proceeding233413341888lin',
+'111306' => 'procee12412620032005linn'
+);
+
+$items=array(
+'106496' => 'bulletindumusu20mus',
+'106546' => 'bulletindumusu28mus'
+);
+
+
+$items=array(
+//'38100' => 'annalsofentomolo11908ento',
+//'38095' => 'annalsofentomolo21909ento',
+//'38713' => 'annalsofentomolo31910ento',
+//'54996' => 'annalsofentomolo41911entomol',
+//'43634' => 'annalsofentomolo51912ento',
+//'42403' => 'annalsofentomolo61913ento',
+//'42040' => 'annalsofentomolo71914ento',
+//'43631' => 'annalsofentomolo81915ento',
+//'43630' => 'annalsofentomolo91916ento',
+//'43648' => 'annalsofentomolo101917ento',
+//'44520' => 'annalsofentomolo111918ento',
+'43720' => 'annalsofentomolo121919ento',
+'43848' => 'annalsofentomolo131920ento',
+'43628' => 'annalsofentomolo141921ento',
+'44557' => 'annalsofentomolo151922ento'
+);
+
+//$items=array('42403' => 'annalsofentomolo61913ento');
+
+$items = array(
+//'40981' => 'tijdschriftvoore501907nede',
+//'40992' => 'tijdschriftvoore551912nede'
+
+//'40948' => 'tijdschriftvoore481905nede'
+
+'40967' => 'tijdschriftvoore511908nede'
+);
+
+$items=array(
+'123732' => 'MemoirsQueensla36Quee',
+'123740' => 'MemoirsQueensla36QueeA'
+);
+
+$items=array(
+'34372' => 'bulletinofbritis22brit',
+'100941' => 'bulletinofbritis261910bri',
+'34382' => 'bulletinofbritis32brit',
+'35185' => 'bulletinofbritis34brit',
+'123704' => 'bulletinofbrit1191999brit',
+//'123705' => 'bulletinofbrit1202000brit',
+'101092' => 'bulletinofbritis19189299b',
+'101309' => 'bulletinofbritis27281911b',
+'100931' => 'bulletinofbri29301912brit',
+'100946' => 'bulletinofb1620190507brit',
+'100926' => 'bulletinofb2123190709brit',
+'120095' => 'bulletinofb2425190910brit',
+'108252' => 'bulletinof3132191213brit',
+'101093' => 'bulletinofb3334191314brit',
+'100962' => 'bulletinofb3537191417brit',
+'100942' => 'bulletinofb3840191720brit',
+'100930' => 'bulletinofb4143192023brit',
+'114181' => 'bulletino101518991905brit',
+'123708' => 'bulletino109110198990brit',
+'123709' => 'bulletino111112199192brit',
+'123710' => 'bulletino113114199394brit',
+'123711' => 'bulletino115116199596brit',
+'100919' => 'bulletino163919061919brit'
+);
+
+//$items=array('123705' => 'bulletinofbrit1202000brit');
+
+$items=array('33078' => 'brighamyounguniv20brig');
+
+$items=array(
+'27310' => 'archivosdomuseun12muse',
+'27317' => 'archivosdomuseun34muse',
+'27094' => 'archivosdomuseun05muse',
+'27061' => 'archivosdomuseun06muse',
+'87049' => 'arquivosbraz06braz',
+'109992' => 'mobot31753002175344',
+'29014' => 'archivosdomuseun08muse',
+'29086' => 'archivosdomuseun09muse',
+'87058' => 'arquivosbraz09braz',
+'87432' => 'arquivos14braz',
+'87044' => 'arquivosbraz15braz',
+'108519' => 'mobot31753002175419',
+'29089' => 'archivosdomuseun17muse',
+'109221' => 'mobot31753002175435',
+'109456' => 'mobot31753002175443',
+'87059' => 'arquivosbraz21braz',
+'109876' => 'mobot31753002175468'
+);
+
+$items=array(
+'109876' => 'mobot31753002175468'
+);
+
+$items=array('112032' => 'chironomidesdebe00goet');
+
+$items=array('123559' => 'twonewspeciesofo00kura');
+
+$items=array(
+'43628' => 'annalsofentomolo141921ento',
+'44557' => 'annalsofentomolo151922ento'
+);
+
+$items=array(
+'123802' => 'MemoirsQueensla37Quee',
+'123808' => 'MemoirsQueensla38Quee',
+'123809' => 'MemoirsQueensla38QueeA',
+'123807' => 'MemoirsQueensla39Quee'
+);
+
+$items=array('36349' => 'entomologistsmon12186466oxfo',
+'38236' => 'entomologistsmon34186668oxfo',
+'106953' => 'entomologistsmon06oxfo',
+'102841' => 'entomologist78187072oxfo',
+'36494' => 'entomologistsmon910187274oxfo',
+'36483' => 'entomologistsmon1112187476oxfo',
+'35879' => 'entomologistsmon1314187678oxfo',
+'36482' => 'entomologistsmon1516187880oxfo',
+'36506' => 'entomologistsmon1718188082oxfo',
+'36486' => 'entomologistsmon1920188284oxfo',
+'36504' => 'entomologistsmon2122188486oxfo',
+'36485' => 'entomologistsmon2324188688oxfo',
+'106468' => 'entomologistsm24188788oxf',
+'95674' => 'entomologistsmon25188889oxfo',
+'104194' => 'entomologistsmon261890oxfo',
+'36025' => 'entomologistsmon271891oxfo',
+'36488' => 'entomologistsmon281892oxfo',
+'95741' => 'entomologistsmon291893oxfo',
+'100959' => 'entomologistsmon3018oxfo',
+'36505' => 'entomologistsmon311895oxfo',
+'36476' => 'entomologistsmon321896oxfo',
+'36026' => 'entomologistsmon331897oxfo',
+'100960' => 'entomologistsmon3418oxfo',
+'36027' => 'entomologistsmon351899oxfo',
+'36028' => 'entomologistsmon361900oxfo',
+'36029' => 'entomologistsmon371901oxfo',
+'36477' => 'entomologistsmon381902oxfo',
+'36030' => 'entomologistsmon391903oxfo',
+'35889' => 'entomologistsmon401904oxfo',
+'36031' => 'entomologistsmon411905oxfo',
+'36502' => 'entomologistsmon421906oxfo',
+'35882' => 'entomologistsmon431907oxfo',
+'36489' => 'entomologistsmon441908oxfo',
+'36032' => 'entomologistsmon451909oxfo',
+'36493' => 'entomologistsmon462211910oxfo',
+'36033' => 'entomologistsmon472221911oxfo',
+'35893' => 'entomologistsmon482231912oxfo',
+'35900' => 'entomologistsmon492241913oxfo',
+'36480' => 'entomologistsmon502251914oxfo',
+'36490' => 'entomologistsmon51311915oxfo',
+'35890' => 'entomologistsmon52321916oxfo',
+'36348' => 'entomologistsmon531917oxfo',
+'106586' => 'entomologists54341918oxfo',
+'36479' => 'entomologistsmon551919oxfo',
+'36034' => 'entomologistsmon56361920oxfo',
+'36035' => 'entomologistsmon571921oxfo',
+'36036' => 'entomologistsmon581922oxfo'
+);
+
+$items=array('36493' => 'entomologistsmon462211910oxfo');
+
+$items=array(
+//'91199' => 'naturalhistoryof01skot',
+'91181' => 'naturalhistoryof213skot',
+'91197' => 'naturalhistoryof02skot',
+'91170' => 'naturalhistoryof03skot'
+);
+
+/*
+$items=array(
+'67414' => 'naturalhistoryof01skotuoft',
+'67415' => 'naturalhistoryof03skotuoft');
+*/
+
+$items=array('24613' => 'miscellaneouspub60univ');
+
+$items=array('123804' => 'bulletinofbriti117118brit');
+
+$items=array(
+'69361' => 'proceedings01dorsuoft',
+'69362' => 'proceedings02dorsuoft',
+'69363' => 'proceedings03dorsuoft',
+'69364' => 'proceedings04dorsuoft',
+'69404' => 'proceedings06dorsuoft',
+'63641' => 'proceedings08dorsuoft',
+'69405' => 'proceedings09dorsuoft',
+'69406' => 'proceedings10dorsuoft',
+'69407' => 'proceedings11dorsuoft',
+'69408' => 'proceedings12dorsuoft',
+'69410' => 'proceedings13dorsuoft',
+'63642' => 'proceedings17dorsuoft',
+'69409' => 'proceedings18dorsuoft',
+'69411' => 'proceedings20dorsuoft',
+'56647' => 'proceedings21dorsuoft',
+'56648' => 'proceedings22dorsuoft',
+'56649' => 'proceedings25dorsuoft',
+'56650' => 'proceedings26dorsuoft',
+'56651' => 'proceedings27dorsuoft',
+'56652' => 'proceedings28dorsuoft',
+'63643' => 'proceedings29dorsuoft',
+'56653' => 'proceedings30dorsuoft',
+'56654' => 'proceedings31dorsuoft',
+'56749' => 'proceedings32dorsuoft',
+'56750' => 'proceedings33dorsuoft',
+'56751' => 'proceedings34dorsuoft',
+'56752' => 'proceedings35dorsuoft',
+'56753' => 'proceedings36dorsuoft',
+'63644' => 'proceedings37dorsuoft',
+'56754' => 'proceedings38dorsuoft',
+'56755' => 'proceedings39dorsuoft',
+'56756' => 'proceedings41dorsuoft',
+'56852' => 'proceedings42dorsuoft'
+);
+
+$items=array('63643' => 'proceedings29dorsuoft');
+
+$items=array(
+'56652' => 'proceedings28dorsuoft',
+'56654' => 'proceedings31dorsuoft',
+'56749' => 'proceedings32dorsuoft',
+'56750' => 'proceedings33dorsuoft',
+'56751' => 'proceedings34dorsuoft'
+);
+
+$items=array(
+'14596' => 'mobotbca_07_00_00'
+);
+
+$items=array('55293' => 'verhandlungender1565zool');
+
+$items=array('109636' => 'monatsberichtede1876kn');
+
+$items=array(
+'123914' => 'MemoirsQueensla40Quee',
+'123906' => 'MemoirsQueensla39QueeB',
+'123909' => 'MemoirsQueensla39QueeA',
+'123907' => 'MemoirsQueensla41QueeA',
+'123908' => 'MemoirsQueensla41Quee',
+'123910' => 'MemoirsQueensla41QueeB',
+'123913' => 'MemoirsQueensla42Quee'
+);
+
+$items=array('26159' => 'analesdelmuseona13muse');
+
+$items=array(
+'22893' => 'ohiojournalofsci0103ohio',
+'22897' => 'ohiojournalofsci0406ohio',
+'21733' => 'ohiojournalofsci0709ohio',
+'21734' => 'ohiojournalofsci1012ohio',
+'21736' => 'ohiojournalofsci1315ohio',
+'21732' => 'ohiojournalofsci16ohio',
+'21747' => 'ohiojournalofsci17ohio',
+'24001' => 'ohiojournalofsci18ohio',
+'23994' => 'ohiojournalofsci19ohio',
+'23779' => 'ohiojournalofsci20ohio',
+'23816' => 'ohiojournalofsci21ohio',
+'28778' => 'ohiojournalofsci22ohio'
+);
+
+$items=array('88930' => 'tijdschriftvoore1906nede');
+
+$items=array(
+'87019' => 'journalofparasit01ameruoft',
+'82559' => 'journalofparasit02ameruoft',
+'82580' => 'journalofparasit04ameruoft',
+'82561' => 'journalofparasit06ameruoft'
+);
+
+$items=array(
+'49270' => 'occasionalpapers128univ',
+'49292' => 'occasionalpapers135univ',
+'49289' => 'occasionalpapers3661univ',
+'49373' => 'occasionalpapers6290univ',
+'49269' => 'occasionalpapers91univ',
+'49304' => 'occasionalpapers129univ'
+);
+
+$items=array(
+'121207' => 'bulletindumusero21883inst',
+'120879' => 'bulletindumusero31884inst',
+'120880' => 'bulletindumusero41886inst',
+'34998' => 'bulletindumuse04mus',
+'34999' => 'bulletindumuse05mus'
+);
+
+$items=array('121207' => 'bulletindumusero21883inst');
+
+$items=array('108059' => 'zoologischeannal05wr',
+'109135' => 'zoologischeannal06wr',
+'108021' => 'zoologischeannal01wr',
+'109156' => 'zoologischeannal02wr',
+'109155' => 'zoologischeannal03wr',
+'109137' => 'zoologischeannal04wr',
+'109069' => 'zoologischeannal07wr'
+);
+
+$items=array('47595' => 'verhandlungender56zool');
+
+$items=array(
+'47780' => 'verhandlungender57zool',
+'47593' => 'verhandlungender58zool',
+'47594' => 'verhandlungender59zool',
+'48812' => 'verhandlungender60zool',
+'47782' => 'verhandlungender61zool',
+'47784' => 'verhandlungender62zool',
+'49912' => 'verhandlungender63zool',
+'48813' => 'verhandlungender64zool',
+'47891' => 'verhandlungender65zool',
+'47783' => 'verhandlungender66zool'
+);
+
+$items=array('96702' => 'termszetrajzif12187778magy',
+'97484' => 'termszetrajzif34187880magy',
+'96887' => 'termszetrajzif57188183magy',
+'96699' => 'termszetrajzif89188485magy',
+'97426' => 'termszetrajzif1012188689magy',
+'96704' => 'termszetrajzif1315189092magy',
+'96855' => 'termszetrajzif1617189394magy',
+'96856' => 'termszetrajzif1819189596magy',
+'96706' => 'termszetrajzif211898magy',
+'48101' => 'termszetrajzif22magy',
+'48099' => 'termszetrajzif23magy',
+'48100' => 'termszetrajzif24magy',
+'48115' => 'termszetrajzif25magy'
+);
+
+
+$items=array('96706' => 'termszetrajzif211898magy');
+
+$items=array(
+'1110' => 'mobot31753002572797',
+'1111' => 'mobot31753002572680',
+'1112' => 'mobot31753002572805',
+'1113' => 'mobot31753002572698',
+'1114' => 'mobot31753002572789',
+'1106' => 'mobot31753002374012',
+'1115' => 'mobot31753002572706',
+'1116' => 'mobot31753002972336',
+'1117' => 'mobot31753002572722',
+'1118' => 'mobot31753002572730',
+'1119' => 'mobot31753002572748',
+'1120' => 'mobot31753002572755',
+'1121' => 'mobot31753002572771',
+'1122' => 'mobot31753002572763',
+'1123' => 'mobot31753002580642',
+'1124' => 'mobot31753002580584',
+'1125' => 'mobot31753002580626',
+//'1126' => 'mobot31753002580618',
+'1127' => 'mobot31753002580600',
+'1128' => 'mobot31753002580592',
+//'1129' => 'mobot31753002580634',
+'1130' => 'mobot31753002580576',
+'1131' => 'mobot31753002580568',
+'89402' => 'mobot31753002580550',
+'88959' => 'mobot31753002580543'
+);
+
+//$items=array('1129' => 'mobot31753002580634');
+
+$items=array('123998' => 'MemoirsQueensla37QueeA',
+'123990' => 'MemoirsQueensla43Quee');
+
+
+$items=array(
+'89115' => 'gayana6311999univ',
+'89191' => 'gayana6321999univ',
+'89117' => 'gayana6412000univ',
+'89252' => 'gayana6422000univ',
+'89563' => 'gayana6512001univ',
+'89192' => 'gayana6522001univ'
+);
+
+$items=array(
+'28997' => 'mmoirescouronn71858acad',
+'28740' => 'mmoirescouronn101860acad',
+'28745' => 'mmoirescouronn151863acad',
+'28733' => 'mmoirescouronn171865acad',
+'28755' => 'mmoirescouronn211870acad',
+'28737' => 'mmoirescouronn221872acad',
+'28738' => 'mmoirescouronn251875acad',
+'29047' => 'mmoirescouronn271877acad',
+'29093' => 'mmoirescouronn301880acad',
+'29808' => 'mmoirescouronn311881acad',
+'28998' => 'mmoirescouronn321881acad',
+'29095' => 'mmoirescouronn331882acad',
+'30412' => 'mmoirescouronn341883acad',
+'29049' => 'mmoirescouronn351883acad',
+'28744' => 'mmoirescouronn381886acad',
+'29032' => 'mmoirescouronn391886acad',
+'30424' => 'mmoirescouronn421889acad',
+'29191' => 'mmoirescouronn431889acad',
+'28947' => 'mmoirescouronn441891acad',
+'112129' => 'mobot32044093292324',
+'29810' => 'mmoirescouronn511895acad',
+'29004' => 'mmoirescouronn521895acad',
+'29809' => 'mmoirescouronn541896acad',
+'30426' => 'mmoirescouronn581899acad',
+'29094' => 'mmoirescouronn651904acad',
+'30423' => 'mmoirescouronn661904acad',
+'29097' => 'mmoirescouronn5018951896acad',
+'28966' => 'mmoirescouronn5918991900acad',
+'28949' => 'mmoirescouronn6019001901acad'
+);
+
+$items=array('28733' => 'mmoirescouronn171865acad');
+
+$items = array('113422' => 'journalofeastafr18198east');
+
+$items=array(
+/*'105969' => 'transaction13191428kent',
+'106167' => 'transactionso47192937kent',
+'105934' => 'transactions811193844kent',
+'106293' => 'transaction1213194552kent',
+'106161' => 'transaction1415195354kent',
+'106470' => 'transaction1617195556kent',
+'105948' => 'transaction1820195759kent',
+'106142' => 'journalofkentuck1923kent',
+'105947' => 'transaction2122196061kent',
+'106166' => 'transactionso23121962kent',
+'104641' => 'transactionso24121963kent',
+'104642' => 'transactionso24341963kent',
+'106323' => 'transaction2529196468kent',
+'104207' => 'transaction3034196973kent',*/
+//'107531' => 'transaction3539197478kent',
+//'104559' => 'transaction4043197982kent',
+//'104595' => 'transaction4446198385kent',
+//'104928' => 'transaction4749198688kent',
+'104927' => 'transaction5052198991kent',
+'104390' => 'transaction5355199294kent',
+'105847' => 'transaction5657199596kent',
+'104093' => 'transactionsofk581997kent'
+);
+
+//$items=array('107531' => 'transaction3539197478kent');
+
+//$items=array('26278' => 'transactionsofma01mary');
+
+$items=array('45868' => 'bulletinofzoolog43inte');
+$items=array('44486' => 'bulletinofzoolog45inte');
+
+$items=array(
+/*'123269' => 'journalofwashin151925wash',
+'123331' => 'journalofwashin161926wash',
+'123316' => 'journalofwashin171927wash',
+'123329' => 'journalofwashin181928wash',
+'123330' => 'journalofwashin201930wash',
+'123317' => 'journalofwashin211931wash',
+'123322' => 'journalofwashin221932wash',
+'123321' => 'journalofwashin231933wash',
+'123323' => 'journalofwashin241934wash',
+'123165' => 'journalofwashin251935wash',
+'123166' => 'journalofwashin261936wash',*/
+'122834' => 'journalofwashin431953wash',
+'122838' => 'journalofwashin441954wash',
+'122839' => 'journalofwashin451955wash',
+'122855' => 'journalofwashin471957wash',
+'122833' => 'journalofwashin481958wash',
+'123020' => 'journalofwashing54551wash',
+'123022' => 'journalofwashing56571wash',
+'122983' => 'journalofwashing58591wash',
+'122961' => 'journalofwashing60611wash',
+'123027' => 'journalofwashing62631wash',
+'123168' => 'journalofwashing64651wash',
+'123028' => 'journalofwashi6667197wash',
+//'123025' => 'journalofwashin686919wash',
+'123021' => 'journalofwashi7071198wash',
+'123167' => 'journalofwashin727319wash',
+'123007' => 'journalofwashi7475198wash',
+'123008' => 'journalofwashin761986wash',
+'122841' => 'journalofwashing7711wash',
+'122842' => 'journalofwashing7721wash',
+'122843' => 'journalofwashing7731wash',
+'122866' => 'journalofwashing781wash',
+'122844' => 'journalofwashing7821wash',
+'122865' => 'journalofwashing7841wash',
+'122845' => 'journalofwashing791wash',
+'122846' => 'journalofwashing7931wash',
+'122857' => 'journalofwashing7941wash',
+'123019' => 'journalofwashin801990wash',
+'122997' => 'journalofwashin811991wash',
+'122962' => 'journalofwashin821992wash',
+'122840' => 'journalofwashin831993wash',
+'122867' => 'journalofwashin841996wash',
+'123026' => 'journalofwashin851998wash'
+);
+
+$items=array('123025' => 'journalofwashin686919wash');
+
+$items=array('114064' => 'proceedingsofuni10719unit');
+
+$items=array(
+'30355' => 'memoirsofamerica11916amer',
+'27822' => 'memoirsofamerica21917amer',
+'30353' => 'memoirsofamerica31919amer',
+'30354' => 'memoirsofamerica41919amer',
+'118935' => 'memoirsofamerica51928amer',
+'119035' => 'memoirsofamerica61929amer',
+'118946' => 'memoirsofamerica71930amer',
+'118936' => 'memoirsofamerica81934amer',
+'118236' => 'memoirsofamerica91937amer',
+'120081' => 'memoirsofameric101941amer',
+'118981' => 'memoirsofam1112194445amer',
+'119050' => 'memoirsofameric121946amer',
+'118950' => 'memoirsofameric131948amer',
+'120602' => 'memoirsofameri141951amer',
+'119187' => 'memoirsofameric151956amer',
+'118978' => 'memoirsofameric161959amer',
+'120082' => 'memoirsofameric171960amer',
+'118941' => 'memoirsofameric181963amer',
+'119520' => 'memoirsofameri191965amer',
+'119188' => 'memoirsofameric201966amer',
+'120113' => 'memoirsofameric211966amer',
+'118238' => 'memoirsofameric221967amer',
+'118937' => 'memoirsofameric231967amer',
+'118975' => 'memoirsofameric241968amer',
+'115352' => 'memoirsofameric251969amer',
+'118986' => 'memoirsofameric261970amer',
+'118938' => 'memoirsofameric271971amer',
+'118945' => 'memoirsofameric281972amer',
+'118974' => 'memoirsofameric291973amer',
+'118985' => 'memoirsofam3031197677amer',
+'118920' => 'memoirsofam3233197981amer',
+'118921' => 'memoirsofam3435198386amer',
+'119506' => 'memoirsofam3637198889amer',
+'120083' => 'memoirsofam3841199193amer',
+'118949' => 'memoirsofameric421994amer',
+'118237' => 'memoirsofameric432002amer',
+'118919' => 'memoirsofameric442004amer',
+'119046' => 'memoirsofameric452004amer',
+'118239' => 'memoirsofameric462005amer',
+'119047' => 'memoirsofameric472008amer',
+'118948' => 'memoirsofameric482008amer'
+);
+
+$items=array('118236' => 'memoirsofamerica91937amer');
+
+
+$items=array('109905' => 'proceedingsofb1101997biol');
+
+$items=array(
+'41843' => 'zoologischejahrb0389jena',
+'41840' => 'zoologischejahrb0491jena',
+'41916' => 'zoologischejahrb592jena',
+'41922' => 'zoologischejahrb693jena',
+'41842' => 'zoologischejahrb794jena',
+'42709' => 'zoologischejahrb0895jena',
+'41841' => 'zoologischejahrb996jena',
+'41831' => 'zoologischejahrb1097jena',
+'42711' => 'zoologischejahrb1198jena',
+'42713' => 'zoologischejahrb1299jena',
+'42715' => 'zoologischejahrb1300jena',
+'42717' => 'zoologischejahrb1401jena',
+'42712' => 'zoologischejahrb1502jena',
+'42708' => 'zoologischejahrb1602jena',
+'42716' => 'zoologischejahrb1703jena',
+'42706' => 'zoologischejahrb1803jena',
+'42710' => 'zoologischejahrb1904jena',
+'42707' => 'zoologischejahrb2004jena',
+'43606' => 'zoologischejahrb0521jena',
+'43587' => 'zoologischejahrb0622jena',
+'40448' => 'zoologischejahrb190723jena',
+'43589' => 'zoologischejahrb0724jena',
+'43571' => 'zoologischejahrb0825jena',
+'43945' => 'zoologischejahrb0826jena',
+'43567' => 'zoologischejahrb0927jena',
+'42838' => 'zoologischejahrb928jena',
+'42847' => 'zoologischejahrb1029jena',
+'42846' => 'zoologischejahrb1030jena',
+'42848' => 'zoologischejahrb1131jena',
+'43084' => 'zoologischejahrb1232jena',
+'43098' => 'zoologischejahrb1333jena',
+'43581' => 'zoologischejahrb1234jena',
+'106997' => 'zoologischeja35191213jena',
+'43586' => 'zoologischejahrb1336jena',
+'43337' => 'zoologischejahrb1437jena',
+'43316' => 'zoologischejahrb1438jena',
+'43582' => 'zoologischejahrb1639jena',
+'43073' => 'zoologischejahrb1840jena',
+'43580' => 'zoologischejahrb2041jena',
+'43080' => 'zoologischejahrb2142jena',
+'42849' => 'zoologischejahrb2243jena'
+);
+
+$items=array('41843' => 'zoologischejahrb0389jena');
+
+$items=array('124162' => 'MemoirsQueensla43QueeA');
+
+$items=array(
+//'117838' => 'diefaunasdwest02hamb',
+'16290' => 'diefaunasdwest0101mich',
+'23631' => 'diefaunasdwest12mich',
+'16710' => 'diefaunasdwest010305mich',
+'16702' => 'diefaunasdwest010607mich',
+'31510' => 'diefaunasdwest020104mich',
+'31569' => 'diefaunasdwest030105mich',
+'31504' => 'diefaunasdwest040104mich',
+'31515' => 'diefaunasdwest040506mich',
+'31551' => 'diefaunasdwest040709mich',
+'16292' => 'diefaunasdwest010813mich',
+'16291' => 'diefaunasdwest020913mich',
+'16709' => 'diefaunasdwest030610mich',
+'99714' => 'diefaunasdwest04hamb',
+'16703' => 'diefaunasdwest022425mich',
+'16704' => 'diefaunasdwest031113mich',
+'31499' => 'diefaunasdwest041012mich'
+);
+
+$items=array('117838' => 'diefaunasdwest02hamb');
+
+$items=array('89680' => 'tijdschriftvoore1930nede');
+
+$items=array(
+/*'123269' => 'journalofwashin151925wash',
+'123331' => 'journalofwashin161926wash',
+'123316' => 'journalofwashin171927wash',
+'123329' => 'journalofwashin181928wash',
+'123330' => 'journalofwashin201930wash',
+'123317' => 'journalofwashin211931wash',
+'123322' => 'journalofwashin221932wash',
+'123321' => 'journalofwashin231933wash',
+'123323' => 'journalofwashin241934wash',
+'123165' => 'journalofwashin251935wash',
+'123166' => 'journalofwashin261936wash',*/
+/*'122834' => 'journalofwashin431953wash',
+'122838' => 'journalofwashin441954wash',
+'122839' => 'journalofwashin451955wash',
+'122855' => 'journalofwashin471957wash',
+'122833' => 'journalofwashin481958wash',
+'123020' => 'journalofwashing54551wash',
+'123022' => 'journalofwashing56571wash',
+'122983' => 'journalofwashing58591wash',
+'122961' => 'journalofwashing60611wash',
+'123027' => 'journalofwashing62631wash',*/
+//'123168' => 'journalofwashing64651wash',
+//'123028' => 'journalofwashi6667197wash',
+//'123025' => 'journalofwashin686919wash',
+/*'123021' => 'journalofwashi7071198wash',
+'123167' => 'journalofwashin727319wash',
+'123007' => 'journalofwashi7475198wash',*/
+'123008' => 'journalofwashin761986wash',
+'122841' => 'journalofwashing7711wash',
+'122842' => 'journalofwashing7721wash',
+'122843' => 'journalofwashing7731wash',
+'122866' => 'journalofwashing781wash',
+'122844' => 'journalofwashing7821wash',
+'122865' => 'journalofwashing7841wash',
+'122845' => 'journalofwashing791wash',
+'122846' => 'journalofwashing7931wash',
+'122857' => 'journalofwashing7941wash',
+'123019' => 'journalofwashin801990wash',
+'122997' => 'journalofwashin811991wash',
+'122962' => 'journalofwashin821992wash',
+'122840' => 'journalofwashin831993wash',
+'122867' => 'journalofwashin841996wash',
+'123026' => 'journalofwashin851998wash'
+);
+
+
+$items=array('95697' => 'tijdschriftvoore1231980nede');
+
+$items =array('44477' => 'bulletinofzoolog35inte');
+
+$items=array('55002' => 'diejapanischekno00fran');
+
+$items=array('29640' => 'proceedingsoflin43linn');
+
+$items=array('44461' => 'bulletinofzoolog19inte');
+
+$items=array('51084' => 'fversigtaffins38suom');	
+
+$items=array('44552' => 'bulletinofzoolog51inte');
+
+$items=array(
+/*'32322' => 'transactionsofam171890amer',
+'32385' => 'transactionsofam181891amer',
+'33093' => 'transactionsofam191892amer',
+'32354' => 'transactionsofam201893amer',
+'32358' => 'transactionsofam211894amer',
+'32378' => 'transactionsofam221895amer',
+'32356' => 'transactionsofam231896amer',
+'54601' => 'transactionsofam2497amer',
+'32379' => 'transactionsofam25189899amer',
+'32380' => 'transactionsofam2618991900amer',
+'32315' => 'transactionsofam27190001amer',
+'32387' => 'transactionsofam281902amer',
+'39866' => 'transactionsofam29190203amer',
+'39871' => 'transactionsofam301904amer',
+'39864' => 'transactionsofam311905amer',
+'39869' => 'transactionsofam321906amer',
+'32414' => 'transactionsofam331907amer',
+'27744' => 'transactionsofam341908amer',
+'39870' => 'transactionsofam351909amer',
+'39865' => 'transactionsofam361910amer',
+'39867' => 'transactionsofam371911amer',
+'54602' => 'transactionsofam3813amer',
+'27823' => 'transactionsofam391913amer',
+'30248' => 'transactionsofam40191415amer',
+'27747' => 'transactionsofam411915amer',
+'30352' => 'transactionsofam421916amer',
+'32415' => 'transactionsofam431917amer',*/
+'39889' => 'transactionsofam441918amer',
+'31722' => 'transactionsofam451919amer',
+/*'26808' => 'transactionsofam461920amer',
+'26800' => 'transactionsofam471921amer',
+'30891' => 'transactionsofam481922amer'*/
+);
+
+/*
+$items=array(
+'26808' => 'transactionsofam461920amer',
+'26800' => 'transactionsofam471921amer',
+'30891' => 'transactionsofam481922amer'
+);
+*/
+
+$items=array('33507' => 'mitteilungenausd25natu');
+$items=array('124460' => 'MemoirsQueensla44Quee');
+
+$items=array('93418' => 'mitteilungenausd2930191112hamb');
+
+$items=array('32603' => 'bulletinunitedst10011928unit');
+
+$items=array(
+//'117838' => 'diefaunasdwest02hamb',
+'16290' => 'diefaunasdwest0101mich',
+'23631' => 'diefaunasdwest12mich',
+'16710' => 'diefaunasdwest010305mich',
+'16702' => 'diefaunasdwest010607mich',
+'31510' => 'diefaunasdwest020104mich',
+'31569' => 'diefaunasdwest030105mich',
+'31504' => 'diefaunasdwest040104mich',
+'31515' => 'diefaunasdwest040506mich',
+'31551' => 'diefaunasdwest040709mich',
+'16292' => 'diefaunasdwest010813mich',
+'16291' => 'diefaunasdwest020913mich',
+'16709' => 'diefaunasdwest030610mich',
+'99714' => 'diefaunasdwest04hamb',
+'16703' => 'diefaunasdwest022425mich',
+'16704' => 'diefaunasdwest031113mich',
+'31499' => 'diefaunasdwest041012mich'
+);
+
+$items=array('91660' => 'mobot31753003645980');
+
+$items=array(
+'124602' => 'novaguinearsulta61913nede',
+'124705' => 'novaguinears519061917nede',
+'124820' => 'novaguinears919091914nede',
+'124679' => 'novaguinear1319151922nede'
+);
+
+$items=array('100715' => 'fversigtafkong221865kung');
+$items=array('100619' => 'fversigtafkong231866kung');
+
+$items=array(
+'70386' => 'alaskaexp02harruoft',
+'70387' => 'alaskaexp03harruoft',
+'70388' => 'alaskaexp05harruoft',
+'70389' => 'alaskaexp08harruoft',
+'70390' => 'alaskaexp09harruoft',
+'70391' => 'alaskaexp10harruoft',
+'70520' => 'alaskaexp11harruoft',
+'70521' => 'alaskaexp12harruoft',
+'70522' => 'alaskaexp13harruoft',
+'75981' => 'pt2alaska14harruoft'
+);
+
+$items=array('70521' => 'alaskaexp12harruoft');
+
+$items=array('122472' => 'zoopathologica12newyuoft');
+
+$items=array('124942' => 'MemoirsQueensla46PaQuee');
+
+$items=array('36392' => 'annalesdelasoci861917soci');
+
+$items=array('111306' => 'procee12412620032005linn');
+
+$items=array('38762' => 'revuesuissedezoo04schw');
+
+$items=array('46721' => 'notesfromleydenm31rijk');
+
+$items=array(
+'49308' => 'proceedingsofroy0487roya',
+'49286' => 'proceedingsofroy1914roya',
+'49287' => 'proceedingsofroy1915roya',
+'49281' => 'proceedingsofroy1916roya',
+'49279' => 'proceedingsofroy1917roya',
+'49266' => 'proceedingsofroy1918roya',
+'49178' => 'proceedingsofroy1919roya',
+'49288' => 'proceedingsofroy1920roya',
+'49268' => 'proceedingsofroy3321roya',
+'49272' => 'proceedingsofroy1922roya',
+'49280' => 'proceedingsofroy1923roya',
+'49179' => 'proceedingsofroy1887roya',
+'49317' => 'proceedingsofroy79roya',
+'49205' => 'proceedingsofroy1014roya',
+'49305' => 'proceedingsofroy1518roya',
+'49181' => 'proceedingsofroy1921roya',
+'49366' => 'proceedingsofroy2225roya'
+);
+
+$items=array(
+'107335' => 'annalidelmuseoc541930muse',
+'108572' => 'annalidelmuseoc841984muse',
+'104240' => 'annalidelmuse51192325muse',
+'104241' => 'annalidelmuse52192528muse',
+'107682' => 'annalidelmuse53192830muse',
+'107330' => 'annalidelmuse55193032muse',
+'107143' => 'annalidelmuse58193539muse',
+'109248' => 'annalidelmuse59193537muse',
+'108551' => 'annalidelmuse82197879muse',
+'107799' => 'annalidelmuse83198081muse',
+'108858' => 'annalidelmuse84198283muse',
+'105968' => 'annalidelmuse85198485muse',
+'106570' => 'annalidelmuse86198687muse',
+'105932' => 'annalidelmuse87198889muse',
+'106450' => 'annalidelmuse88199091muse',
+'105972' => 'annalidelmuse89199293muse',
+'106471' => 'annalidelmuse90199496muse',
+'109309' => 'annalidelmu4175190465muse',
+'94442' => 'annalidelmuseoci4737191517muse',
+'39496' => 'annalidelmuseo38muse',
+'94443' => 'annalidelmuseoci4939192022muse',
+'107144' => 'annalidelmu5657193235muse',
+'109255' => 'annalidelmu6061193843muse',
+'107569' => 'annalidelmu6263194549muse',
+'109842' => 'annalidelmu6465194952muse',
+'108587' => 'annalidelmu6667195255muse',
+'108552' => 'annalidelmu6869195457muse',
+'109618' => 'annalidelmu7071195860muse',
+'108585' => 'annalidelmu7273196163muse',
+'110168' => 'annalidelmu7475196365muse',
+'118943' => 'annalidelmu7677196669muse',
+'109252' => 'annalidelmu7879197073muse',
+'108586' => 'annalidelmu8081197477muse',
+'106290' => 'annalidelm50310192126muse'
+);
+
+$items=array('108586' => 'annalidelmu8081197477muse');
+
+$items=array('31205' => 'journalofcollege20toky');
+
+$items=array('77364' => 'coccidgenerachio00coolrich');
+
+$items=array('18731' => 'deutschesdpola13deut');
+
+$items=array('48088' => 'diecephalopoden1810chun',
+'48427' => 'diecephalopoden181chun',
+'48426' => 'diecephalopoden182chun');
+
+$items=array('38596' => 'onaquaticcarnivo00shar');
+
+$items=array('21753' => 'proceedingsoflin23linn');
+
+// to do
+$items = array(
+'52784' => 'scientifictransa23roya',
+'51748' => 'scientifictransa26roya',
+'51467' => 'scientifictransa27roya',
+'51466' => 'scientifictransa246roya',
+'51468' => 'scientifictransa259roya');
+
+$items=array('108605' => 'proceedingsoflin82linn');
+
+$items=array('82066' => 'revuedentomologi09soci');
+
+
+
+$items=array('97309' => 'bulletinofbrookl14187882broo',
+'95742' => 'bulletinofbrookl57188284broo',
+'95676' => 'bulletinofbrookl810191215broo',
+'95652' => 'bulletinofbrookl1112191617broo',
+'95656' => 'bulletinofbrookl1314191819broo',
+'95653' => 'bulletinofbrookl1516192021broo',
+'97308' => 'bulletinofbrookl1718192223broo'
+);
+
+$items=array('35761' => 'greatbasinnatura32brig');
+
+$items=array(
+'96012' => 'scientificprocee2187880roya',
+'95768' => 'scientificprocee3188183roya',
+'95751' => 'scientificprocee4188385roya',
+'95828' => 'scientificprocee5188687roya',
+'95855' => 'scientificprocee6188890roya',
+'96137' => 'scientificprocee7189192roya',
+'95844' => 'scientificprocee8189398roya',
+'96101' => 'scientificprocee918991903roya',
+'95849' => 'scientificprocee10190305roya',
+'95839' => 'scientificprocee11190509roya',
+'95843' => 'scientificprocee12190910roya',
+'96062' => 'scientificprocee13191113roya',
+'95856' => 'scientificprocee14191315roya',
+'95845' => 'scientificprocee15191620roya',
+'95838' => 'scientificprocee16192022roya',
+'96035' => 'scientificprocee17192224roya'
+);
+
+$items=array('96137' => 'scientificprocee7189192roya');
+
+//$items = array('20681' => 'entomologicalnew96amer');
+
+$items=array(
+'43419' => 'annuariodelmuseo11862univ',
+'43418' => 'annuariodelmuseo21862univ',
+'42206' => 'annuariodelmuseo31863univ',
+'43420' => 'annuariodelmuseo41864univ',
+'43417' => 'annuariodelmuseo51865univ',
+'42985' => 'annuariodelmuseo61866univ',
+'43410' => 'annuariodelmuseo10105univ',
+'42329' => 'annuariodelmuseo20508univ'
+);
+
+$items=array('43410' => 'annuariodelmuseo10105univ');
+
+$items=array(
+'82048' => 'revuedentomologi01soci',
+'41299' => 'revuedentomologi12188283soci',
+'82049' => 'revuedentomologi02soci',
+'82047' => 'revuedentomologi03soci',
+'41743' => 'revuedentomologi34188485soci',
+'82050' => 'revuedentomologi04soci',
+'82052' => 'revuedentomologi05soci',
+'41744' => 'revuedentomologi56188687soci',
+'82053' => 'revuedentomologi06soci',
+'82051' => 'revuedentomologi07soci',
+//'41745' => 'revuedentomologi78188889soci',
+'82065' => 'revuedentomologi08soci',
+//'82066' => 'revuedentomologi09soci',
+'41301' => 'revuedentomologi910189091soci',
+'82067' => 'revuedentomologi10soci',
+'41351' => 'revuedentomologi1112189293soci',
+'41307' => 'revuedentomologi1314189495soci',
+'50597' => 'revuedentomologi151896soci',
+'50693' => 'revuedentomologi16soci',
+'41304' => 'revuedentomologi1718189899soci',
+'41350' => 'revuedentomologi1920190001soci',
+'41306' => 'revuedentomologi2122190203soci',
+'44048' => 'revuedentomologi2324190405soci',
+'81044' => 'revuedentomologi251906soci',
+'81042' => 'revuedentomologi261907soci',
+'81023' => 'revuedentomologi271908soci',
+'81024' => 'revuedentomologi281910soci'
+);
+
+$items=array(
+'125114' => 'MemoirsQueensla34Quee',
+'125117' => 'MemoirsQueensla45QueeA',
+'125118' => 'MemoirsQueensla46Quee',
+'125113' => 'MemoirsQueensla47Quee',
+'125115' => 'MemoirsQueensla47QueeA',
+'125112' => 'MemoirsQueensla48Quee'
+);
+
+$items=array('47784' => 'verhandlungender62zool');
+
+$items=array(
+//'120123' => 'transactionspro361912roya',
+'111907' => 'transactionsproc371913roy',
+'113401' => 'transactionspro381914roya',
+'109513' => 'transactionspro391915roya',
+'109654' => 'transactionspro401916roya',
+'109628' => 'transactionspro411917roya',
+'113409' => 'transactionspro421918roya',
+'114230' => 'transactionsproc43191roya',
+'111685' => 'transactionsproc44192roya',
+'114267' => 'transactionsproc45192roya',
+'109617' => 'transactionspro461922roya',
+'108497' => 'transactionspr471923roya',
+'111300' => 'transactionsproc25441roya'
+);
+
+$items=array('47890' => 'verhandlungender54zool');
+
+$items=array('32567' => 'proceedingsofuni821934unit');
+
+$items=array('39433' => 'mitteilungenausd38natu');
+$items=array('93227' => 'mitteilungenausd2325190507hamb');
+$items=array('39458' => 'mitteilungenausd24natu');
+
+$items=array('33268' => 'mitteilungenausd15natu',
+'93395' => 'mitteilungenausd1516189798hamb');
+
+$items=array('32623' => 'memoriedellaacca23real',
+'32409' => 'memoriedellaacca24real',
+'32649' => 'memoriedellaacca25real',
+'32650' => 'memoriedellaacca26real',
+'32621' => 'memoriedellaacca27real',
+'32652' => 'memoriedellaacca28real',
+'32651' => 'memoriedellaacca29real',
+'32653' => 'memoriedellaacca30real',
+'32708' => 'memoriedellaacca31real',
+'32552' => 'memoriedellaacca32real',
+'33063' => 'memoriedellaacca33turi',
+'35590' => 'memoriedellaacca33tori',
+'32656' => 'memoriedellaacca34real',
+'32655' => 'memoriedellaacca35real',
+'32654' => 'memoriedellaacca37real',
+'32658' => 'memoriedellaacca38real',
+'32657' => 'memoriedellaacca40real',
+'32622' => 'memoriedellaacca12real',
+'32612' => 'memoriedellaacca22real',
+'32584' => 'memoriedellaacca32turi',
+'32680' => 'memoriedellaacca42real',
+'32709' => 'memoriedellaacca52real',
+'32661' => 'memoriedellaacca62real',
+'32585' => 'memoriedellaacca72real',
+'32662' => 'memoriedellaacca82real',
+'32664' => 'memoriedellaacca92real',
+'32663' => 'memoriedellaacca102real',
+'32672' => 'memoriedellaacca112real',
+'32671' => 'memoriedellaacca122real',
+'32668' => 'memoriedellaacca132real',
+'32669' => 'memoriedellaacca142real',
+'32616' => 'memoriedellaacca162real',
+'32678' => 'memoriedellaacca17real',
+'32679' => 'memoriedellaacca18real',
+'44265' => 'memoria19real',
+'112132' => 'mobot32044093290419',
+'113054' => 'memoriedellareal222real',
+'97653' => 'memoriedellareal2231real',
+'112923' => 'memoriedellareal223real',
+'113413' => 'memoriedellareal224real',
+'112131' => 'mobot32044093290583',
+'113056' => 'memoriedellareal226real',
+'44260' => 'memoria27real',
+'44278' => 'memoria28real',
+'28681' => 'memoriedellareal2291878real',
+'28680' => 'memoriedellareal230187818651878real',
+'112872' => 'memoriedellareal231real',
+'44272' => 'memoria32real',
+'44412' => 'memoria33real',
+'28686' => 'memoriedellareal2341883real',
+'110925' => 'memoriedellareal235real',
+'112218' => 'memoriedellareal236real',
+'112116' => 'memoriedellareal237real',
+'28703' => 'memoriedellareal2381888real',
+'112053' => 'memoriedellareal239real',
+'28685' => 'memoriedellareal2401890real',
+'112875' => 'memoriedellareal241real',
+'112034' => 'memoriedellareal243real',
+'112924' => 'memoriedellareal244real',
+'113061' => 'memoriedellareal245real',
+'112130' => 'mobot32044093290666',
+'113060' => 'memoriedellareal247real',
+'28683' => 'memoriedellareal2481899real',
+'113062' => 'memoriedellareal249real',
+'113064' => 'memoriedellareal250real',
+'113063' => 'memoriedellareal251real',
+'112137' => 'mobot32044093260313',
+'28682' => 'memoriedellareal2531903real',
+'113065' => 'memoriedellareal254real',
+'112224' => 'memoriedellareal255real',
+'113057' => 'memoriedellareal256real',
+'112852' => 'memoriedellareal257real',
+'29726' => 'memoriedellareal2581908real',
+'112873' => 'memoriedellareal260real',
+'112853' => 'memoriedellareal261real',
+'112868' => 'memoriedellareal262real',
+'113058' => 'memoriedellareal264real',
+'113059' => 'memoriedellareal265real'
+);
+
+$items=array('113061' => 'memoriedellareal245real');
+
+$items=array('120248' => 'proceedingsofc1189799cali',
+'98467' => 'proceedingsofcal3190104cali',
+'98468' => 'proceedingsofcal218971901cali',
+'22318' => 'proceedingsofcal0304cali');
+
+$items=array('106850' => 'palaeontographia01pisa',
+'106842' => 'palaeontographia02pisa',
+'106874' => 'palaeontographia03pisa',
+'106839' => 'palaeontographia04pisa',
+'106869' => 'palaeontographia05pisa',
+'106860' => 'palaeontographia06pisa',
+'105880' => 'palaeontographia07pisa',
+'106873' => 'palaeontographia08pisa',
+'106841' => 'palaeontographia09pisa',
+'106871' => 'palaeontographia10pisa',
+'106870' => 'palaeontographia11pisa',
+'106993' => 'palaeontographia12pisa',
+'106843' => 'palaeontographia13pisa',
+'106840' => 'palaeontographia14pisa',
+'103669' => 'palaeontographi151909cana',
+'103319' => 'palaeontographi161910cana',
+'103681' => 'palaeontographi171911cana',
+'103371' => 'palaeontographi181912cana',
+'103675' => 'palaeontographi191913cana',
+'104144' => 'palaeontographi201914cana',
+'104143' => 'palaeontographi211915cana',
+'103304' => 'palaeontographi221916cana',
+'103680' => 'palaeontographi231917cana',
+'103223' => 'palaeontographi241918cana',
+'103546' => 'palaeontographi251919cana',
+'103221' => 'palaeontographi261920cana',
+'103547' => 'palaeontographi271921cana',
+'103215' => 'palaeontographi281922cana');
+
+$items=array('105880' => 'palaeontographia07pisa',
+'106841' => 'palaeontographia09pisa');
+
+
+$items=array('123310' => 'proceedingsofbio7503biol',
+'111599' => 'proceedingsofbio66biol',
+'111796' => 'proceedingsofbio67biol',
+'120622' => 'proceedingsofbi901977biol');
+
+$items=array(
+'110723' => 'treubi31923slan',
+'87073' => 'treubiabogo04bogo',
+'94471' => 'treubia1191921slan',
+'95716' => 'treubia2192122slan'
+);
+
+$items=array('106994' => 'iheringia7074199093fund');
+
+$items=array('118985' => 'memoirsofam3031197677amer');
+
+$items=array('38097' => 'transactionsofen01ento',
+'54870' => 'transactionsofen02ento'
+);
+
+$items=array('21794' => 'boletindelaacade01acad',
+'103796' => 'mobot31753002718887',
+'23721' => 'boletindelaacade0204acad',
+'21809' => 'boletindelaacade04acad',
+'34545' => 'plantaediaph00hier',
+'84848' => 'boletin06acaduoft',
+'21808' => 'boletindelaacade07acad',
+'84694' => 'boletin07acaduoft',
+'21796' => 'boletindelaacade08acad',
+'84701' => 'boletn08acaduoft',
+'24925' => 'boletindelaacade09acad',
+'84712' => 'boletn09acaduoft',
+'84872' => 'boletin10acaduoft',
+'21799' => 'boletindelaacade11acad',
+'84703' => 'boletn11acaduoft',
+'98775' => 'mobot31753002101365',
+'97906' => 'sboletin12acad',
+'87787' => 'boletindelaacade1323acad',
+'97905' => 'sboletin13acad',
+'21812' => 'boletindelaacade14acad',
+'98776' => 'mobot31753002101399',
+'84854' => 'boletin14acaduoft',
+//'107653' => 'mobot31753002101407',
+//'84849' => 'boletin16acaduoft',
+'107556' => 'mobot31753002063672',
+'84885' => 'boletin17acaduoft',
+'107780' => 'mobot31753002063680',
+'84847' => 'boletn18acaduoft',
+//'107656' => 'mobot31753002063698',
+//'27145' => 'boletindelaacade20acad',
+'84860' => 'boletn19acaduoft',
+'27141' => 'boletindelaacade21acad',
+'27863' => 'boletindelaacade22acad',
+'84873' => 'boletn21acaduoft',
+'84846' => 'boletn23acaduoft',
+'27137' => 'boletindelaacade24acad',
+'84887' => 'boletn24acaduoft',
+'84852' => 'boletn25acaduoft',
+'79356' => 'boletin26acaduoft');
+
+$items=array(
+'107653' => 'mobot31753002101407',
+'84849' => 'boletin16acaduoft',
+'107656' => 'mobot31753002063698',
+'27145' => 'boletindelaacade20acad');
+
+$items=array('98595' => 'journaloflinnean81865linn',
+'99085' => 'journaloflinnean91868linn',
+'98556' => 'journaloflinnean101870linn',
+'100042' => 'journaloflinnean111873linn',
+'99813' => 'journaloflinnean121876linn',
+'98585' => 'journaloflinnean131878linn',
+'99383' => 'journaloflinnean14187779linn',
+'114103' => 'journaloflinnean15linn',
+'99814' => 'journaloflinnean16188183linn',
+'98664' => 'journaloflinnean17188384linn',
+'98724' => 'journaloflinnean18188485linn',
+'99211' => 'journaloflinnean191886linn',
+'108769' => 'journaloflinn20188690linn',
+'98725' => 'journaloflinnean21188689linn',
+'98559' => 'journaloflinnean22188788linn',
+'98582' => 'journaloflinnean23188991linn',
+//'98716' => 'journaloflinnean24189194linn',
+'99851' => 'journaloflinnean25189496linn',
+'99469' => 'journaloflinnean26189798linn',
+'98709' => 'journaloflinnean2718991900linn',
+'99466' => 'journaloflinnean28190003linn',
+//'98586' => 'journaloflinnean29190306linn',
+'98506' => 'journaloflinnean30190710linn',
+'98662' => 'journaloflinnean31190715linn',
+'100259' => 'journaloflinnean32191116linn',
+'98583' => 'journaloflinnean33191619linn',
+'108772' => 'journaloflinn34191822lin',
+'99101' => 'journaloflinnean35192224linn',
+'98560' => 'journaloflinnean120183890linn',
+'118965' => 'journaloflinn15188081linn'
+);
+
+$items=array('98716' => 'journaloflinnean24189194linn');
+
+$items=array('101306' => 'berlinerentomolo3618berl');
+
+$items=array(
+/*'21794' => 'boletindelaacade01acad',
+'103796' => 'mobot31753002718887',
+'23721' => 'boletindelaacade0204acad',
+'21809' => 'boletindelaacade04acad',
+'34545' => 'plantaediaph00hier',
+'84848' => 'boletin06acaduoft',
+'21808' => 'boletindelaacade07acad',
+'84694' => 'boletin07acaduoft',
+'21796' => 'boletindelaacade08acad',
+'84701' => 'boletn08acaduoft',
+'24925' => 'boletindelaacade09acad',
+'84712' => 'boletn09acaduoft',
+'84872' => 'boletin10acaduoft',
+'21799' => 'boletindelaacade11acad',
+'84703' => 'boletn11acaduoft',
+'98775' => 'mobot31753002101365',
+'97906' => 'sboletin12acad',
+'87787' => 'boletindelaacade1323acad',
+'97905' => 'sboletin13acad',
+'21812' => 'boletindelaacade14acad',
+'98776' => 'mobot31753002101399',
+'84854' => 'boletin14acaduoft',
+//'107653' => 'mobot31753002101407',
+//'84849' => 'boletin16acaduoft',
+'107556' => 'mobot31753002063672',
+'84885' => 'boletin17acaduoft',*/
+'107780' => 'mobot31753002063680',
+'84847' => 'boletn18acaduoft',
+//'107656' => 'mobot31753002063698',
+//'27145' => 'boletindelaacade20acad',
+'84860' => 'boletn19acaduoft',
+'27141' => 'boletindelaacade21acad',
+'27863' => 'boletindelaacade22acad',
+'84873' => 'boletn21acaduoft',
+'84846' => 'boletn23acaduoft',
+'27137' => 'boletindelaacade24acad',
+'84887' => 'boletn24acaduoft',
+'84852' => 'boletn25acaduoft',
+'79356' => 'boletin26acaduoft');
+
+$items=array('125183' => 'MemoirsQueensla32Quee',
+'125181' => 'MemoirsQueensla32QueeA',
+'125185' => 'MemoirsQueensla33QueeA',
+'125180' => 'MemoirsQueensla33Quee'
+);
+
+$items=array('21706' => 'proceedingsofsan30sand');
+
+//$items=array('107000' => 'bulletinofzoolog632006int');
+
+$items=array(
+/*'125301' => 'bulletinofbritis44tayl',
+'125299' => 'bulletinofbritis45tayl',
+'125298' => 'bulletinofbritis46tayl',
+'125300' => 'bulletinofbritis47tayl',
+'125306' => 'bulletinofbritis48tayl',
+'125305' => 'bulletinofbritis49tayl',
+'125292' => 'bulletinofbritis50tayl',
+'125341' => 'bulletinofbritis51tayl',
+'125307' => 'bulletinofbritis52tayl',
+'125340' => 'bulletinofbritis53tayl',
+'125287' => 'bulletinofbritis54tayl',
+'125291' => 'bulletinofbritis55tayl',
+'125289' => 'bulletinofbritis56tayl',
+'125290' => 'bulletinofbritis57tayl',
+'125354' => 'bulletinofbritis58tayl',
+'125355' => 'bulletinofbritis59tayl',*/
+'125339' => 'bulletinofbritis60tayl',
+'124974' => 'bulletinofbritis122brit',
+'124973' => 'bulletinofbritis123brit',
+'123890' => 'bulletinofbritis12120brit',
+'123798' => 'bulletinofbritis10319brit',
+'123887' => 'bulletinofbritis10410brit',
+'123885' => 'bulletinofbritis10710brit',
+'123804' => 'bulletinofbriti117118brit',
+'123799' => 'bulletinofbriti124125brit'
+);
+
+/*
+$items=array(
+'41742' => 'mmoires81901soci',
+'41296' => 'mmoires91902soci',
+'41736' => 'mmoires101903soci',
+'41300' => 'mmoires111903soci',
+'41737' => 'mmoires121906soci',
+'41740' => 'mmoires151908soci',
+'40991' => 'mmoires161908soci',
+'40985' => 'mmoires171909soci',
+'40989' => 'mmoires181911soci',
+'40997' => 'mmoires191912soci',
+'41349' => 'mmoires13141906soci',
+'43068' => 'mmoires13189295soci',
+'40999' => 'mmoires20211912soci',
+'40998' => 'mmoires22191314soci',
+'44507' => 'mmoires45189596soci',
+'41317' => 'mmoires6718971900soci'
+);
+
+$items=array('40991' => 'mmoires161908soci');
+*/
+
+$items=array(
+'24820' => 'faunahawaiiensis02shar',
+'39891' => 'faunahawaiiensis03shar',
+'23568' => 'faunahawaiiensis12shar',
+'23569' => 'faunahawaiiensis33shar',
+'23567' => 'faunahawaiiensis11shar',
+'46802' => 'faunahawaiiensis24shar'
+);
+
+$items=array('124621' => 'VictorianNatura38Fiel',
+/*'124622' => 'VictorianNatura39Fiel',
+'124623' => 'VictorianNatura40Fiel',
+'124624' => 'VictorianNatura41Fiel',
+'124682' => 'VictorianNatura42Fiel',
+'124680' => 'VictorianNaturaXLIIFiel',
+'124681' => 'VictorianNaturaVol4Fiel',
+'123894' => 'VictorianNatura89Fiel',
+'123290' => 'VictorianNatura93Fiel',
+'123291' => 'VictorianNatura94Fiel', */
+'123295' => 'VictorianNatura95Fiel',
+//'123296' => 'VictorianNatura96Fiel',
+'123292' => 'VictorianNatura97Fiel',
+'123293' => 'VictorianNatura98Fiel',
+'123452' => 'VictorianNatura99Fiel',
+'123451' => 'VictorianNatura100Fiel',
+'123453' => 'VictorianNatura101Fiel',
+'123342' => 'VictorianNatura102Fiel',
+'123450' => 'VictorianNatura103Fiel',
+'123454' => 'VictorianNatura104Fiel',
+'123640' => 'VictorianNatura105Fiel',
+'123642' => 'VictorianNatura106Fiel',
+'123641' => 'VictorianNatura107Fiel',
+'123651' => 'VictorianNatura108Fiel',
+'123643' => 'VictorianNatura109Fiel',
+'123653' => 'VictorianNatura110Fiel',
+'123692' => 'VictorianNatura111Fiel',
+'123655' => 'VictorianNatura112Fiel',
+'123707' => 'VictorianNatura113Fiel',
+'123721' => 'VictorianNatura114Fiel',
+'123989' => 'VictorianNatura116Fiel',
+'124536' => 'VictorianNatura117Fiel',
+'124069' => 'VictorianNatura118Fiel',
+'124537' => 'VictorianNatura119Fiel'
+);
+
+//$items=array('123296' => 'VictorianNatura96Fiel');
+
+$items=array(
+'28239' => 'abhandlungenderk70103kais',
+'28240' => 'abhandlungenderk80102kais',
+'28200' => 'abhandlungenderk09kais',
+'28175' => 'abhandlungenderk10kais'
+);
+
+$items=array(
+'98005' => 'analesdelasocied8918791880soci',
+'26177' => 'analesdelasocied08soci'
+);
+
+$items=array(
+/*'125316' => 'zoologicalscien51988niho',
+'125369' => 'zoologicalscienc51988niho',
+'125322' => 'zoologicalscienc61989niho',
+'125321' => 'zoologicalscien71990niho',
+'125169' => 'zoologicalscien81991niho',
+'125311' => 'zoologicalscienc81991niho',
+'125364' => 'zoologicalscienc91992niho',*/
+'125372' => 'zoologicalscien91992niho',
+'125168' => 'zoologicalscienc1019niho',
+'125363' => 'zoologicalscien101993niho',
+'125367' => 'zoologicalscien111994niho',
+'125368' => 'zoologicalscien11199niho'
+);
+
+
+$items=array(
+'19500' => 'bulletinofbritis54zoollond',
+'125484' => 'bulletinofbritis5556farn'
+);
+
+$items=array(
+'20375' => 'endodontoidlands02sole',
+'20377' => 'endodontoidlands01sole',
+'20983' => 'systematicsoflan431sole',
+'21248' => 'zoogeographyofla432sole'
+);
+
+$items=array(
+'38343' => 'miresdelasocizoo01soci',
+'38344' => 'miresdelasocizoo02soci',
+'38536' => 'miresdelasocizoo03soci',
+'38546' => 'miresdelasocizoo04soci',
+'38531' => 'miresdelasocizoo05soci',
+'38553' => 'miresdelasocizoo06soci',
+'112023' => 'mmoiresdelasocit71894soci',
+'38566' => 'miresdelasocizoo08soci',
+'38554' => 'miresdelasocizoo09soci',
+'38527' => 'miresdelasocizoo10soci',
+'38534' => 'miresdelasocizoo11soci',
+'38539' => 'miresdelasocizoo12soci',
+'38549' => 'miresdelasocizoo13soci',
+//'38512' => 'miresdelasocizoo14soci',
+'38297' => 'miresdelasocizoo15soci',
+'112022' => 'mmoiresdelasocit16190soci',
+'38520' => 'miresdelasocizoo17soci',
+'38500' => 'miresdelasocizoo18soci',
+'38510' => 'miresdelasocizoo19soci',
+'38586' => 'miresdelasocizoo20soci',
+'38281' => 'miresdelasocizoo21soci',
+'38502' => 'miresdelasocizoo22soci',
+'38578' => 'miresdelasocizoo23soci',
+'38499' => 'miresdelasocizoo24soci',
+'38519' => 'miresdelasocizoo25soci',
+'38341' => 'miresdelasocizoo26soci',
+'38508' => 'miresdelasocizoo27soci'
+);
+
+/*
+$items=array(
+'38512' => 'miresdelasocizoo14soci'
+);
+*/
+
+$items=array(
+/*'23400' => 'scientificresult00boon',
+'26982' => 'scientificresult02boon',
+'26985' => 'scientificresult03boon',
+'26994' => 'scientificresult04boon',
+'26981' => 'scientificresult05boon',
+'23385' => 'scientificresult06boon',*/
+'23391' => 'scientificresult07boon'
+);
+
+$items=array('113555' => 'memoirsofindia7191822indi');
+
+$items=array(
+'30433' => 'wissenschaftlich02adol',
+'30428' => 'wissenschaftlich03adol',
+'15953' => 'wissenschaftlich04adol',
+'15955' => 'wissenschaftlich05adol',
+'102815' => 'wissenschaftlich1924adol',
+'15951' => 'wissenschaftlich07adol',
+'102814' => 'wissenschaftlich1927adol'
+);
+
+$items=array('30428' => 'wissenschaftlich03adol');
+
+$items=array('28434' => 'archivesdezoolog450505cent');
+
+$items=array(
+'20091' => 'oversigtoverdetk14kong',
+'20079' => 'oversigtoverdetk00kong',
+'20092' => 'oversigtoverdetk37kong',
+'20071' => 'oversigtoverdetk42kong',
+'20003' => 'oversigtoverdetk46kong',
+'20123' => 'oversigtoverdetk51kong',
+'81215' => 'oversigtoverdetk51over',
+'54171' => 'oversigtoverdetk54over',
+'54204' => 'oversigtoverdetk58over',
+'93694' => 'oversigtoverdetk1859kong',
+'94123' => 'oversigtoverdetk1862kong',
+'94908' => 'oversigtoverdetk1866kong',
+'93468' => 'oversigtoverdetk1869kong',
+'94122' => 'oversigtoverdetk1872kong',
+'93248' => 'oversigtoverdetk1875kong',
+//'93229' => 'oversigtoverdetk1878kong',
+'93252' => 'oversigtoverdetk1881kong',
+'93467' => 'oversigtoverdetk1884kong',
+'93166' => 'oversigtoverdetk1888kong',
+'94112' => 'oversigtoverdetk1891kong',
+'93464' => 'oversigtoverdetk1894kong',
+'93179' => 'oversigtoverdetk1896kong',
+'93189' => 'oversigtoverdetk1897kong',
+'93188' => 'oversigtoverdetk1898kong',
+'93183' => 'oversigtoverdetk1899kong',
+'93478' => 'oversigtoverdetk1900kong',
+'93199' => 'oversigtoverdetk1901kong',
+'93259' => 'oversigtoverdetk1903kong'
+);
+
+$items=array('93229' => 'oversigtoverdetk1878kong');
+
+$items=array('109059' => 'proceedingsoflin73linn');
+
+$items=array('104330' => 'mobot31753002618145',
+'107536' => 'transactionsproc11868newz',
+'107149' => 'transactionsproc21869newz',
+'104341' => 'mobot31753002618160',
+'107521' => 'transactionsproc31870newz',
+'108017' => 'transactionsproc41871newz',
+'107125' => 'transactionsproc51872newz',
+'104840' => 'mobot31753002618152',
+'108479' => 'transactionsproc61873newz',
+'106589' => 'transactionsproc71874newz',
+'104846' => 'mobot31753002618178',
+'104588' => 'mobot31753002618186',
+'104345' => 'mobot31753002618194',
+'103996' => 'mobot31753002623079',
+'107562' => 'transactionspr101877newz',
+'108166' => 'transactionspr111878newz',
+'104132' => 'mobot31753002618012',
+'104354' => 'mobot31753002618020',
+'107568' => 'transactionspr121879newz',
+'107151' => 'transactionspr131880newz',
+'107794' => 'transactionspr141881newz',
+'104841' => 'mobot31753002618038',
+'103995' => 'mobot31753002618046',
+'105955' => 'transactionspro151882newz',
+'103797' => 'mobot31753002618053',
+'105242' => 'transactionspro161883newz',
+'105833' => 'transactionspro171884newz',
+'104582' => 'mobot31753002618061',
+'22765' => 'transactionsproc18newz',
+'22769' => 'transactionsproc19newz',
+'23813' => 'transactionsproc20newz',
+'22740' => 'transactionsproc21newz',
+'22737' => 'transactionsproc22newz',
+'37651' => 'transactionsproc23newz',
+'22726' => 'transactionsproc24newz',
+'22728' => 'transactionsproc25newz',
+'37655' => 'transactionsproc26newz',
+'22767' => 'transactionsproc27newz',
+'22752' => 'transactionsproc28newz',
+'38145' => 'transactionsproc29newz',
+'82060' => 'transactionspro30newz',
+'22849' => 'transactionsproc31newz',
+'22720' => 'transactionsproc32newz',
+'22772' => 'transactionsproc33newz',
+'22778' => 'transactionsproc34newz',
+'22753' => 'transactionsproc35newz',
+'22758' => 'transactionsproc36newz',
+'23802' => 'transactionsproc37newz',
+'22779' => 'transactionsproc38newz',
+'38146' => 'transactionsproc39newz',
+'22770' => 'transactionsproc40newz',
+'22795' => 'transactionsproc41newz',
+'22868' => 'transactionsproc42newz',
+'37657' => 'transactionsproc43newz',
+'22773' => 'transactionsproc44newz',
+'38147' => 'transactionsproc45newz',
+'22756' => 'transactionsproc46newz',
+'22894' => 'transactionsproc47newz',
+'22771' => 'transactionsproc48newz',
+'22797' => 'transactionsproc49newz',
+'22744' => 'transactionsproc50newz',
+'22763' => 'transactionsproc51newz',
+'22745' => 'transactionsproc52newz',
+'22784' => 'transactionsproc53newz',
+'104842' => 'mobot31753002548532',
+'105104' => 'mobot31753002548540',
+'82041' => 'transactionsproc00newz',
+'39591' => 'transactionsproc0140newz',
+'22716' => 'transactionsproc4151newz');
+
+$items=array('15952' => 'wissenschaftlich02deut',
+'28920' => 'wissenschaftlich0101deut');
+
+$items=array('95236' => 'senckenbergiana12191819senc',
+'95135' => 'senckenbergiana34192021senc');
+
+$items=array('41866' => 'faunageographyof11gard',
+'41044' => 'faunageographyof12gard',
+'41855' => 'faunageographyof13gard',
+'40798' => 'faunageographyof14gard',
+'41818' => 'faunageographyof21gard',
+'40800' => 'faunageographyof22gard',
+'40788' => 'faunageographyof23gard',
+'40794' => 'faunageographyof24gard');
+
+$items=array('106571' => 'iheringia871999fund');
+
+$items=array('28923' => 'newnamesintroduc00clen');
+
+// to do:
+$items=array(
+'84736' => 'proceedingsofaca01acaduoft',
+'17886' => 'proceedingsofaca01acad',
+'84725' => 'proceedingsofaca02acaduoft',
+'30491' => 'proceedingsofaca02acad',
+'84755' => 'proceedingsofaca03acaduoft',
+'17669' => 'proceedingsofaca03acad',
+'84785' => 'proceedingsofaca04acaduoft',
+'28006' => 'proceedingsofacad04acad',
+'84765' => 'proceedingsofaca05acaduoft',
+'17633' => 'proceedingsofaca05acad',
+'17888' => 'proceedingsofaca06acad',
+'84761' => 'proceedingsofac07acaduoft',
+'17735' => 'proceedingsofaca07acad',
+'84770' => 'proceedingsofaca08acaduoft',
+'18246' => 'proceedingsofaca08acad',
+'84745' => 'proceedingsofaca09acaduoft',
+'30013' => 'proceedingsofaca09acad',
+'84743' => 'proceedingsofaca10acaduoft',
+'84784' => 'proceedingsofaca11acaduoft',
+'17656' => 'proceedingsofaca11acad',
+'84757' => 'proceedingsofac12acaduoft',
+'17942' => 'proceedingsofaca12acad',
+'84787' => 'proceedingsofaca13acaduoft',
+'17713' => 'proceedingsofaca13acad',
+'84865' => 'proceedingsofaca24acaduoft',
+'18281' => 'proceedingsofaca14acad',
+'84759' => 'proceedingsofaca15acaduoft',
+'18294' => 'proceedingsofaca15acad',
+'84864' => 'proceedingsofaca16acaduoft',
+'18264' => 'proceedingsofaca16acad',
+'84739' => 'proceedingsofaca17acaduoft',
+'17711' => 'proceedingsofaca17acad',
+'84896' => 'proceedingsofaca18acaduoft',
+'18061' => 'proceedingsofaca18acad',
+'84741' => 'proceedingsofaca19acaduoft',
+'17695' => 'proceedingsofaca19acad',
+'84776' => 'proceedingsofaca20acaduoft',
+'37631' => 'proceedingsofaca6820acad',
+'30466' => 'proceedingsofaca21acad',
+'84763' => 'actaamazonica22brazuoft',
+'18247' => 'proceedingsofaca22acad',
+'28117' => 'proceedingsofacad23acad',
+'84756' => 'proceedingsofaca14acaduoft',
+'17733' => 'proceedingsofaca24acad',
+'84729' => 'proceedingsofaca25acaduoft',
+'18312' => 'proceedingsofaca25acad',
+'84867' => 'proceedingsofaca26acaduoft',
+'17720' => 'proceedingsofaca26acad',
+'84775' => 'proceedingsofaca27acaduoft',
+'17701' => 'proceedingsofaca27acad',
+'84760' => 'proceedingsofaca28acaduoft',
+'18295' => 'proceedingsofaca28acad',
+'84777' => 'proceedingsofaca29acaduoft',
+'18262' => 'proceedingsofaca29acad',
+'84781' => 'proceedingsofaca30acaduoft',
+'18270' => 'proceedingsofaca30acad',
+'84742' => 'proceedingsofaca31acaduoft',
+'17663' => 'proceedingsofaca31acad',
+'84758' => 'proceedingsofaca32acaduoft',
+'28115' => 'proceedingsofacad32acad',
+'84857' => 'proceedingsofaca33acaduoft',
+'30732' => 'proceedingsofaca33acad',
+'84886' => 'proceedingsofaca34acaduoft',
+'17635' => 'proceedingsofaca34acad',
+'84724' => 'proceedingsofaca35acaduoft',
+'30122' => 'proceedingsofaca35acad',
+'84723' => 'proceedingsofaca36acaduoft',
+'30124' => 'proceedingsofaca36acad',
+'84768' => 'proceedingsofaca37acaduoft',
+'30490' => 'proceedingsofaca37acad',
+'84754' => 'proceedingsofaca38acaduoft',
+'17721' => 'proceedingsofaca38acad',
+'84767' => 'proceedingsofaca39acaduoft',
+'17717' => 'proceedingsofaca39acad',
+'84737' => 'proceedingsofaca40acaduoft',
+'18307' => 'proceedingsofaca40acad',
+'18039' => 'proceedingsofaca41acad',
+'84858' => 'proceedingsofaca42acaduoft',
+'30128' => 'proceedingsofaca42acad',
+'84859' => 'proceedingsofaca43acaduoft',
+'84884' => 'proceedingsofaca44acaduoft',
+'17664' => 'proceedingsofaca44acad',
+'84874' => 'proceedingsofaca45acaduoft',
+'17606' => 'proceedingsofaca45acad',
+'84746' => 'proceedingsofaca46acaduoft',
+'18073' => 'proceedingsofaca46acad',
+'84804' => 'proceedingsofaca47acaduoft',
+'18330' => 'proceedingsofaca47acad',
+'84880' => 'proceedingsofaca48acaduoft',
+'17698' => 'proceedingsofaca48acad',
+'84733' => 'proceedingsofaca49acaduoft',
+'18049' => 'proceedingsofaca49acad',
+'84881' => 'proceedingsofaca50acaduoft',
+'17645' => 'proceedingsofaca50acad',
+'84762' => 'proceedingsofaca51acaduoft',
+'30127' => 'proceedingsofaca51acad',
+'79452' => 'proceedingsofaca52acaduoft',
+'84744' => 'proceedingsofaca53acaduoft',
+'38485' => 'proceedingsofaca0153acad',
+'79429' => 'proceedingsofaca54acaduoft',
+'39540' => 'proceedingsofaca54acad',
+'84790' => 'proceedingsofaca55acaduoft',
+'30485' => 'proceedingsofaca55acad',
+'84792' => 'proceedingsofaca56acaduoft',
+'30096' => 'proceedingsofaca56acad',
+'84750' => 'proceedingsofaca57acaduoft',
+'30015' => 'proceedingsofaca57acad',
+'79482' => 'proceedingsofaca58acaduoft',
+'30129' => 'proceedingsofaca58acad',
+'79427' => 'proceedingsofaca59acaduoft',
+'38138' => 'proceedingsofaca59acad',
+'79152' => 'proceedingsofaca60acaduoft',
+'30138' => 'proceedingsofaca60acad',
+'84740' => 'proceedingsofaca61acaduoft',
+'17974' => 'proceedingsofaca61acad',
+'84751' => 'proceedingsofaca62acaduoft',
+'28143' => 'proceedingsofacad62acad',
+'84732' => 'proceedingsofaca63acaduoft',
+'17738' => 'proceedingsofaca63acad',
+'17736' => 'proceedingsofaca64acad',
+'17936' => 'proceedingsofaca1912acad',
+'17672' => 'proceedingsofaca1812acad',
+'84778' => 'proceedingsofaca65acaduoft',
+'30014' => 'proceedingsofaca65acad',
+'79430' => 'proceedingsofaca66acaduoft',
+'18052' => 'proceedingsofaca66acad',
+'79162' => 'proceedingsofaca67acaduoft',
+'17758' => 'proceedingsofaca67acad',
+'79453' => 'proceedingsofaca68acaduoft',
+'18053' => 'proceedingsofaca68acad',
+'79423' => 'proceedingsofaca69acaduoft',
+'28002' => 'proceedingsofacad69acad',
+'84895' => 'proceedingsofaca70acaduoft',
+'18308' => 'proceedingsofaca70acad',
+'84735' => 'proceedingsofaca71acaduoft',
+'18320' => 'proceedingsofaca71acad',
+'84782' => 'proceedingsofaca72acaduoft',
+'24044' => 'proceedingsofaca72acad',
+'84718' => 'proceedingsofaca73acaduoft',
+'17650' => 'proceedingsofaca73acad',
+'17718' => 'proceedingsofaca74acad'
+);
+
+$items=array('84750' => 'proceedingsofaca57acaduoft');
+
+$items=array('55229' => 'journalofmalacol31894lond',
+'54598' => 'journalofmalacol4718951900lond',
+'89648' => 'journalofmalacol18194190112lond',
+'54597' => 'journalofmalacol1011190304lond',
+'88555' => 'journalofmalacol21241905lond');
+
+$items=array(
+/*'113945' => 'proceedingsofzoo001zool',
+'114100' => 'proceedingsofzoo002zool',
+'113942' => 'proceedingsofzoo003zool',
+'111451' => 'proceedingsofz4184860zool',
+'110768' => 'proceedingsofz5184860zool',
+'46213' => 'lietuvostsrmoksl33liet',
+'96158' => 'proceedingsofgen34zool',
+'96163' => 'proceedingsofgen36zool',
+'96442' => 'proceedingsofgen41zool',
+'46217' => 'lietuvostsrmoksl44liet',
+'46216' => 'lietuvostsrmoksl48liet',
+'96165' => 'proceedingsofgen48zool',
+'46212' => 'lietuvostsrmoksl50liet',
+'96443' => 'proceedingsofgen51zool',
+'96679' => 'proceedingsofgen21zool',
+'46214' => 'lietuvostsrmoksl56liet',
+'100996' => 'proceedingsofzoo1857zool',
+'100585' => 'proceedingsofzoo1858zool',
+'100589' => 'proceedingsofzoo1859zool',
+'46225' => 'lietuvostsrmoksl60liet',
+'91152' => 'proceedingsofgen61zool',
+'90953' => 'proceedingsofgen62zool',
+'98527' => 'proceedingsofzoo1862zool',
+'96445' => 'proceedingsofgen63busi',
+'90417' => 'proceedingsofgen64zool',
+'90412' => 'proceedingsofgen65zool',
+'90954' => 'proceedingsofgen66zool',
+'90421' => 'proceedingsofgen67zool',
+'93424' => 'proceedingsofzoo1867zool',
+'91104' => 'proceedingsofgen68zool',
+'91102' => 'proceedingsofgen69zool',
+'90543' => 'proceedingsofgen70zool',
+'90542' => 'proceedingsofgen71zool',
+'90880' => 'proceedingsofgen72zool',
+'90422' => 'proceedingsofgen73zool',
+'90419' => 'proceedingsofgen74zool',
+'90418' => 'proceedingsofgen75zool',
+'90509' => 'proceedingsofgen76zool',
+'92484' => 'proceedingsofzoo1876zool',
+'90436' => 'proceedingsofgen77zool',
+'90449' => 'proceedingsofgen772zool',
+'90451' => 'proceedingsofgen782zool',
+'90438' => 'proceedingsofgen78zool',
+'90453' => 'proceedingsofgen79zool',
+'90455' => 'proceedingsofgen792zool',
+'90456' => 'proceedingsofgen80zool',
+'96698' => 'proceedingsofgen81zool',
+'96831' => 'proceedingsofgen82busi',
+'91167' => 'proceedingsofgen82zool',
+'91169' => 'proceedingsofgen83zool',
+'96834' => 'proceedingsofgen83busi',
+'96832' => 'proceedingsofgen84busi',
+'91191' => 'proceedingsofgen84zool',
+'91206' => 'proceedingsofgen85zool',
+'97225' => 'proceedingsofgen85busi',
+'96836' => 'proceedingsofgen86busi',
+'92048' => 'proceedingsofgen86zool',
+'91212' => 'proceedingsofgen87zool',
+'99199' => 'proceedingsofgen87proc',*/
+'99299' => 'proceedingsofgen88proc',
+'91192' => 'proceedingsofgen88zool',
+'91210' => 'proceedingsofgen89zool',
+'96894' => 'proceedingsofgen89scie',
+'97224' => 'proceedingsofgen90scie',
+'91455' => 'proceedingsofgen90zool',
+'97151' => 'proceedingsofgen91scie',
+'99645' => 'proceedingsofzoo1891zool',
+'99351' => 'proceedingsofzoo1892zool',
+'97152' => 'proceedingsofgen92scie',
+'97156' => 'proceedingsofgen93scie',
+'111041' => 'proceedingsofzoo1893zool',
+'111037' => 'proceedingsofzoo1894zool',
+'97157' => 'proceedingsofgen94scie',
+'97158' => 'proceedingsofgen95scie',
+'97658' => 'proceedingsofzoo1896zool',
+'97256' => 'proceedingsofgen96scie',
+'97165' => 'proceedingsofgen97scie',
+'97095' => 'proceedingsofgen98scie',
+'97094' => 'proceedingsofgen99scie',
+'98517' => 'proceedingsofzoo1899zool',
+'111045' => 'proceedingsofzoo1900zool',
+'97409' => 'proceedingsofgen00scie',
+'98562' => 'proceedingsofzoo19011zool',
+'99488' => 'proceedingsofzoo19012zool',
+'111034' => 'proceedingsofzoo19012zo',
+'98524' => 'proceedingsofzoo19021zool',
+'98459' => 'proceedingsofzoo19022zool',
+'98587' => 'proceedingsofzoo19031zool',
+'98617' => 'proceedingsofzoo19032zool',
+'99486' => 'proceedingsofzoo19041zool',
+'97667' => 'proceedingsofzoo19042zool',
+'99378' => 'proceedingsofzoo19051zool',
+'99487' => 'proceedingsofzoo19052zoo',
+'97668' => 'proceedingsofzoo19052zool',
+'98471' => 'proceedingsofzoo19061462zool',
+'100045' => 'proceedingsofzoo1906zool',
+'97669' => 'proceedingsofzoo19064631052zool',
+'97670' => 'proceedingsofzoo19071446zool',
+'98530' => 'proceedingsofzoo19074471121zool',
+'97671' => 'proceedingsofzoo19081430zool',
+'99643' => 'proceedingsofzoo1908431983zool',
+'98528' => 'proceedingsofzoo19091544zool',
+'97672' => 'proceedingsofzoo1909545952zool',
+'98497' => 'proceedingsofzoo19101588zool',
+'98493' => 'proceedingsofzoo19105891033zool',
+'97764' => 'proceedingsofzoo19111555zool',
+'98513' => 'proceedingsofzoo19115571213zool',
+'99375' => 'proceedingsofzoo19121504zool',
+'98477' => 'proceedingsofzoo1912505913zool',
+'100198' => 'proceedingsofzoo19122zool',
+'99850' => 'proceedingsofzoo19131337zool',
+'99805' => 'proceedingsofzoo19133391104zool',
+'98658' => 'proceedingsofzoo19141490zool',
+'99377' => 'proceedingsofzoo19144911077zool',
+'99080' => 'proceedingsofzoo19151298zool',
+'98466' => 'proceedingsofzoo1915299712zool',
+'98584' => 'proceedingsofzoo19161448zool',
+'98501' => 'proceedingsofzoo1916449756zool',
+'98531' => 'proceedingsofzoo19171338zool',
+'98503' => 'proceedingsofzoo19181310zool',
+'97765' => 'proceedingsofzoo19191499zool',
+'97660' => 'proceedingsofzoo19201656zool',
+'99485' => 'proceedingsofzo192112zool',
+'98474' => 'proceedingsofzoo19211446zool',
+'97766' => 'proceedingsofzoo1921447887zool',
+'100598' => 'proceedingsofzoo19221zool',
+'100613' => 'proceedingsofzoo19224831276zool',
+'98473' => 'proceedingsofzoo1923121481zool',
+'97650' => 'proceedingsofzoo1923344831097zool',
+'46219' => 'lietuvostsrmoksl30inde',
+'96871' => 'proceedingsofgen30scie',
+'90541' => 'proceedingsofgen70inde',
+'90454' => 'proceedingsofgen80inde',
+'91359' => 'proceedingsofgen90inde',
+'98525' => 'proceedingsofzoo18911900zool',
+'98540' => 'proceedingsofzoo190110zool'
+);
+
+
+$items=array(
+/*'108177' => 'philippinejourna21907phi',
+'108191' => 'philippinejourna21907phil',
+'109841' => 'philippinejourna31908phil',
+'111121' => 'philippinejour31908phil',
+'108477' => 'philippinejourna41909phi',
+'107010' => 'philippinejourna41909phil',
+//'107001' => 'philippinejourna51910phil',
+'107499' => 'philippinejourna51910phi',
+'108170' => 'philippinejourn51910phil',
+'107005' => 'philippinejourna61911ph',
+'107528' => 'philippinejourna61911phi',*/
+'107538' => 'philippinejourna61911phil',
+'107004' => 'philippinejourna71912ph',
+'107014' => 'philippinejourna71912phi',
+'108186' => 'philippinejourna71912phil',
+'108774' => 'philippinejourna81913ph',
+'107649' => 'philippinejourna81913phil',
+'108167' => 'philippinejourna81913phi',
+'111325' => 'philippinejourna91914phil',
+'111453' => 'philippinejou91914phil',
+'111865' => 'philippinejo91914phil',
+'111444' => 'philippinejo101915phil',
+'111471' => 'philippinejour101915phil',
+'111658' => 'philippinejourn101915phil',
+'111442' => 'philippinejo111916phil',
+'111191' => 'philippinejou111916phil',
+'110844' => 'philippinejour111916phil',
+'111194' => 'philippinejo121917phil',
+'111441' => 'philippinejour121917phil',
+'111443' => 'philippinejourn131918phil',
+'111193' => 'philippinejour131918phil',
+'110948' => 'philippinejou131918phil',
+'111290' => 'philippinej110190615phil'
+);
+
+
+//$items=array('107004' => 'philippinejourna71912ph');
+
+$items=array('98540' => 'proceedingsofzoo190110zool');
+
+$items=array('84670' => 'trudyrusskagoent39190910russ');
+
+// to do:
+$items=array('97764' => 'proceedingsofzoo19111555zool');
+
+
+$items = array(
+/*'31457' => 'memoirsaustralia01aust',
+'114388' => 'memoirsaustralia02aust',
+'111947' => 'mobot32044072190838',*/
+//'104834' => 'atolloffunafutie00austiala',
+'110376' => 'memoirsaustralia4181aust'
+//'110073' => 'memoirsaustralia4916aust'
+);
+
+$items=array('121122' => 'MemoirsNational32Nati');
+
+$items=array('125591' => 'bulletinofbritis14farn',
+'125642' => 'bulletinofbritis5758farn');
+
+$items=array('125554' => 'zoologicalscienc11984niho',
+'125560' => 'zoologicalscienc21985niho',
+'125561' => 'zoologicalscienc31986niho',
+'125557' => 'zoologicalscienc41987niho',
+'125539' => 'zoologicalscienc71990niho');
+
+/*
+$items=array('121834' => 'mobot31753002089032',
+'124996' => 'mobot31753002089321',
+'125575' => 'mobot31753002089370',
+'125223' => 'mobot31753002089438',
+'125574' => 'mobot31753002089495',
+'125616' => 'mobot31753002089636');*/
+
+$items=array('125557' => 'zoologicalscienc41987niho');
+
+$items = array('112022' => 'mmoiresdelasocit16190soci');
+
+$items = array('38502' => 'miresdelasocizoo22soci');
+
+$items=array('38520' => 'miresdelasocizoo17soci');
+
+$items=array('100051' => 'recherchessurlaf01poll',
+'99946' => 'recherchessurlaf02poll',
+'99945' => 'recherchessurlaf04poll',
+'99944' => 'recherchessurlaf05poll');
+
+
+$items=array(
+'120232' => 'verslagenenmeded39koni',
+//'120857' => 'verslagenenmeded22koni',
+'120937' => 'verslagenenmeded24koni',
+'120932' => 'verslagenenmeded26koni',
+'120911' => 'verslagenenmeded28koni',
+'120938' => 'verslagenenmeded31koni',
+'120912' => 'verslagenenmeded33koni',
+'120913' => 'verslagenenmeded35koni',
+'120914' => 'verslagenenmeded37koni',
+'120859' => 'verslagenenmeded1011koni',
+'120858' => 'verslagenenmeded12koni',
+'120930' => 'verslagenenmeded14koni',
+'120933' => 'verslagenenmeded16koni',
+'120908' => 'verslagenenmeded21018koni',
+'120909' => 'verslagenenmeded212koni',
+'120910' => 'verslagenenmeded214koni',
+'120860' => 'verslagenenmeded219koni'
+);
+
+
+//$items=array('120857' => 'verslagenenmeded22koni');
+
+$items=array('38128' => 'tijdschriftderne05nede');
+
+$items=array('95086' => 'stuttgarterbeitr191200199394staa');
+
+$items=array('119468' => 'timehrijournalo311911roya',
+'122403' => 'timehrijournalo321912roya',
+'119345' => 'timehrijournalo351918roya',
+'121399' => 'timehrijournalo361919roya',
+'119454' => 'timehrijournalo371921roya',
+'120140' => 'timehrijournalof32191roya'
+);
+
+$items=array(
+/*'94916' => 'victoriannatural118841885fiel',
+'95143' => 'victoriannatural218851886fiel',
+'94973' => 'victoriannatural318861887fiel',
+'94972' => 'victoriannatural418871888fiel',
+'95017' => 'victoriannatural518881889fiel',
+'95004' => 'victoriannatural618891890fiel',
+'95005' => 'victoriannatural718901891fiel',
+'95019' => 'victoriannatural818911892fiel',
+'36916' => 'victoriannatural09fiel',
+'94957' => 'victoriannatural1018931894fiel',
+'36921' => 'victoriannatural11fiel',
+'36917' => 'victoriannatural12fiel',
+'36924' => 'victoriannatural13fiel',
+'36920' => 'victoriannatural14fiel',
+'37550' => 'victoriannatural15fiel',
+'94958' => 'victoriannatural1618991900fiela',
+'95020' => 'victoriannatural1719001901fiel',
+'37552' => 'victoriannatural18fiel',
+'37546' => 'victoriannatural19fiel',
+'36918' => 'victoriannatural20fiel',
+'37551' => 'victoriannatural21fiel',
+'37547' => 'victoriannatural22fiel',
+'95003' => 'victoriannatural2319061907fiel',
+'37545' => 'victoriannatural24fiel',
+'37556' => 'victoriannatural25fiel',
+'37553' => 'victoriannatural26fiel',
+'37970' => 'victoriannatural27fiel',
+'36965' => 'victoriannatural28fiel',
+'38346' => 'victoriannatural29fiel',
+'38532' => 'victoriannatural30fiel',
+'38353' => 'victoriannatural31fiel',
+'38540' => 'victoriannatural32fiel',
+'38348' => 'victoriannatural33fiel',
+'38351' => 'victoriannatural34fiel',
+'24667' => 'victoriannatural3334fiel',
+'38345' => 'victoriannatural35fiel',
+'38555' => 'victoriannatural36fiel',
+'24603' => 'victoriannatural3536fiel',
+'38541' => 'victoriannatural37fiel',
+'124931' => 'VictorianNatura45Fiel',
+'125179' => 'VictorianNatura46Fiel',
+'125178' => 'VictorianNatura47Fiel',
+'125544' => 'VictorianNatura48Fiel',
+'125545' => 'VictorianNatura49Fiel',
+'125184' => 'VictorianNatura50Fiel',
+'124621' => 'VictorianNatura38Fiel',
+'124622' => 'VictorianNatura39Fiel',
+'124623' => 'VictorianNatura40Fiel',
+'124624' => 'VictorianNatura41Fiel',
+'124682' => 'VictorianNatura42Fiel',
+'124680' => 'VictorianNaturaXLIIFiel',
+'124681' => 'VictorianNaturaVol4Fiel',
+'123894' => 'VictorianNatura89Fiel',
+'123290' => 'VictorianNatura93Fiel',
+'123291' => 'VictorianNatura94Fiel',
+'123295' => 'VictorianNatura95Fiel',
+'123296' => 'VictorianNatura96Fiel',
+'123292' => 'VictorianNatura97Fiel',
+'123293' => 'VictorianNatura98Fiel',
+'123452' => 'VictorianNatura99Fiel',
+'123451' => 'VictorianNatura100Fiel',
+'123453' => 'VictorianNatura101Fiel',
+'123342' => 'VictorianNatura102Fiel',
+'123450' => 'VictorianNatura103Fiel',
+'123454' => 'VictorianNatura104Fiel',
+'123640' => 'VictorianNatura105Fiel',
+'123642' => 'VictorianNatura106Fiel',
+'123641' => 'VictorianNatura107Fiel',
+'123651' => 'VictorianNatura108Fiel',
+'123643' => 'VictorianNatura109Fiel',
+'123653' => 'VictorianNatura110Fiel',
+'123692' => 'VictorianNatura111Fiel',
+'123655' => 'VictorianNatura112Fiel',
+'123707' => 'VictorianNatura113Fiel',
+'123721' => 'VictorianNatura114Fiel',
+'123989' => 'VictorianNatura116Fiel',
+'124536' => 'VictorianNatura117Fiel',*/
+'124069' => 'VictorianNatura118Fiel',
+'124537' => 'VictorianNatura119Fiel'
+);
+
+$items=array(
+'125724' => 'MemoirsQueensla22Quee',
+'125730' => 'MemoirsQueensla22QueeA',
+'125725' => 'MemoirsQueensla27Quee',
+'125729' => 'MemoirsQueensla29Quee',
+'125727' => 'MemoirsQueensla30Quee'
+);
+
+$items=array(
+/*'53771' => 'reportofmeeting188anza',
+'50774' => 'reportofmeeting21890anza',
+'52744' => 'reportofmeeting31891anza',
+'53197' => 'reportofmeeting41892anza',
+'52737' => 'reportofmeeting51893anza',
+'52763' => 'reportofmeeting71898anza',
+'50723' => 'reportofmeeting81900anza',
+'52617' => 'reportofmeeting91902anza',*/
+'50730' => 'reportofmeeting111907anza',
+'52764' => 'reportofmeeting121909anza',
+'52791' => 'reportofmeeting131911anza',
+'52745' => 'reportofmeeting141913anza',
+'50724' => 'reportofmeeting151921anza'
+);
+
+$items=array('120124' => 'australianzoolog91937roya');
+
+$items=array('40952' => 'tijdschriftvoore28188485nede');
+
+$items=array('111573' => 'publicationsinbi11nati',
+'111564' => 'publicationsinbi21nati',
+'111582' => 'publicationsinbi31nati',
+'111580' => 'publicationsinbi41nati',
+'111565' => 'publicationsinbi51nati',
+'111562' => 'publicationsinbi61nati',
+'111584' => 'publicationsinbi71nati',
+'111571' => 'publicationsinbi81nati',
+'111568' => 'publicationsinbi91nati',
+'111583' => 'publicationsinbi10nati',
+'111581' => 'publicationsinbi110nati');
+
+$items=array('119522' => 'proceedingsofroy54193roya',
+'119526' => 'proceedingsofroy55193roya',
+'119482' => 'proceedingsofroy56193roya',
+'121765' => 'proceedingsof57193637roya',
+'119549' => 'proceedingsofroy58193roya',
+'119481' => 'proceedingsofroy59193roya',
+'119548' => 'proceedingsofroy60193roya',
+'119547' => 'proceedingsofroy61194roya',
+'119524' => 'proceedingsofroy62194roya',
+'119523' => 'proceedingsofroy63194roya',
+'119540' => 'proceedingsofroy64194roya',
+'119465' => 'proceedingsofroy6519roya',
+'119439' => 'proceedingsofroy6619roya',
+'119525' => 'proceedingsofroy67194roya',
+'119527' => 'proceedingsofroy6819roya',
+'119466' => 'proceedingsofroy6919roya',
+'119440' => 'proceedingsofroy7019roya',
+'119544' => 'proceedingsofroy7119roya',
+'119483' => 'proceedingsofroy7219roya',
+'119479' => 'proceedingsofroy7319roya',
+'119654' => 'proceedingsofroy7419roya',
+'119467' => 'proceedingsofroy7519roya',
+'119461' => 'proceedingsofroy7619roya',
+'119462' => 'proceedingsofroy7719roya',
+'119463' => 'proceedingsofroy7819oya',
+'122965' => 'proceedingsofro791958roya',
+'119438' => 'proceedingsofroy8019roya',
+'119545' => 'proceedingsofroy8519roya',
+'119528' => 'proceedingsofroy8619roya',
+'119543' => 'proceedingsofroy8719roya',
+'119541' => 'proceedingsofroy8819roya',
+'119542' => 'proceedingsofroy8919roya'
+);
+
+$items=array(
+'43967' => 'zoologicalresult12ende',
+'43284' => 'zoologicalresult13ende',
+'48579' => 'zoologicalresult114ende',
+'72476' => 'fisheriesnoteson00dannrich',
+'48791' => 'reportonsealilie00clar'
+);
+
+$items=array(
+'42726' => 'dbutsugakuzasshi01niho',
+'42122' => 'dbutsugakuzasshi02niho',
+'42269' => 'dbutsugakuzasshi03niho',
+'42242' => 'dbutsugakuzasshi04niho',
+'42270' => 'dbutsugakuzasshi05niho',
+'42081' => 'dbutsugakuzasshi06niho',
+'42222' => 'dbutsugakuzasshi07niho',
+'42731' => 'dbutsugakuzasshi09niho',
+'41995' => 'dbutsugakuzasshi10niho',
+'42619' => 'dbutsugakuzasshi11niho',
+'42698' => 'dbutsugakuzasshi12niho',
+'42696' => 'dbutsugakuzasshi13niho',
+'42697' => 'dbutsugakuzasshi14niho',
+'42699' => 'dbutsugakuzasshi15niho',
+'39399' => 'dobutsugakuzassh16niho',
+'38886' => 'dobutsugakuzassh17niho',
+'39400' => 'dobutsugakuzassh18niho',
+'38484' => 'dobutsugakuzassh20niho',
+'38486' => 'dobutsugakuzassh22niho',
+'38814' => 'dobutsugakuzassh23niho',
+//'38905' => 'dobutsugakuzassh24niho',
+'39234' => 'dobutsugakuzassh25niho',
+'39596' => 'dobutsugakuzassh26niho',
+//'38819' => 'dobutsugakuzassh27niho',
+'38781' => 'dobutsugakuzassh30niho',
+'38379' => 'dobutsugakuzassh31niho',
+'38779' => 'dobutsugakuzassh32niho',
+'38858' => 'dobutsugakuzassh34niho'
+);
+
+$items=array('38819' => 'dobutsugakuzassh27niho');
+
+$items=array('44636' => 'annalesdelasoci3031188687soci');
+
+$items=array('53053' => 'reportofworkofex11905hawa',
+'53054' => 'reportofworkofex25190607hawa',
+'53055' => 'reportofworkofex612190913hawa');
+
+$items=array('45718' => 'rhynchota01dist',
+'45713' => 'rhynchota02dist',
+'45714' => 'rhynchota03dist',
+'37594' => 'rhynchota412216556203267dist',
+'37747' => 'rhynchota5277871dist',
+'37770' => 'rhynchota06dist',
+'37743' => 'rhynchota07dist'
+);
+
+$items=array(
+/*'34615' => 'faunaofbritishin02oate',
+'36287' => 'faunaofbritishin03oate',
+'49595' => 'birds___01bake',
+'59238' => 'butterflies02bingiala',
+'38196' => 'coleopteravolilo01gaha',
+'60424' => 'coleopterachryso00jacoiala',
+'36758' => 'coleopteralamell01arro',
+'59258' => 'coleopteralamell02arroiala',
+'37284' => 'coleopteralamell02arro',
+'37337' => 'coleopteralamell04arro',
+'37702' => 'coleopterarhynch00mars',
+'36948' => 'dipterabrachycer01brune',
+'36990' => 'dipterabrachycer02brun',
+'36404' => 'dipteranematocer00brun',
+'49567' => 'dipteranematocer00bru',
+'15702' => 'freshwatersponge00anna',
+'89654' => 'mammalia00blan',
+'47068' => 'molluscatestacel00blan',
+'46617' => 'molluscaiitrocho00gude',*/
+'46616' => 'molluscaiiilando00gude',
+'47051' => 'molluscafreshwat00pres',
+'34386' => 'orthopteraacridi00kirb',
+'15735' => 'reptiliabatrachi00boul',
+'45718' => 'rhynchota01dist',
+'45713' => 'rhynchota02dist',
+'45714' => 'rhynchota03dist',
+'80040' => 'rhynchota04dist',
+'37594' => 'rhynchota412216556203267dist',
+'37747' => 'rhynchota5277871dist',
+'37770' => 'rhynchota06dist',
+'37743' => 'rhynchota07dist'
+);
+
+/*
+$items=array(
+'28096' => 'annalesdebiologi01stat',
+'28097' => 'annalesdebiologi02stat',
+'28453' => 'annalesdebiologi03stat',
+'28601' => 'annalesdebiologi04stat',
+'28287' => 'annalesdebiologi05stat',
+'28094' => 'annalesdebiologi06stat',
+'28396' => 'annalesdebiologi09stat',
+'28296' => 'annalesdebiologi10stat',
+'28284' => 'annalesdebiologi11stat',
+'28263' => 'annalesdebiologi0110stat'
+);
+
+$items=array('28396' => 'annalesdebiologi09stat');
+*/
+
+$items=array('125955' => 'RecordsSouthAus36Sout');
+
+$items=array('54687' => 'transactionsofro27roya',
+/*'108744' => 'mobot31753002607858',
+'54649' => 'transactionsproc29roya',
+'54643' => 'transactionsproc30roya',
+'54644' => 'transactionsproc31roya',
+'84665' => 'transactionsproc32roya',*/
+'113614' => 'mobot31753002607940',
+'113934' => 'mobot31753002607825'
+);
+
+$items=array(
+'50655' => 'bulletin118761883illi',
+'35002' => 'bulletinofillino02illi',
+'50659' => 'bulletin218841888illi',
+//'35003' => 'bulletinofillino03illi',
+'50751' => 'bulletin318871895illi',
+'34956' => 'bulletinofillino04illi',
+'50656' => 'bulletin418921897illi',
+'35004' => 'bulletinofillino0597illi',
+'26070' => 'bulletinofillino05illi',
+'50658' => 'bulletin518971901illi',
+'93423' => 'bulletinofillino6190103illi',
+'53068' => 'bulletin619011903illi',
+'34918' => 'bulletinofillino0704illi',
+'24643' => 'bulletinofillino07illi',
+'50653' => 'bulletin719041909illi',
+'93425' => 'bulletinofillino8190810illi',
+'53064' => 'bulletin819081910illi',
+'35136' => 'bulletinofillino09illi',
+'53063' => 'bulletin919101913illi',
+'34962' => 'bulletinofillino10illi',
+'51425' => 'bulletin1019131915illi',
+'26072' => 'bulletinofillino11illi',
+'34177' => 'bulletinofillino1115illi',
+'50654' => 'bulletin1119151918illi',
+'34280' => 'bulletinofillino1215illi',
+'50657' => 'bulletin1219151917illi',
+'26248' => 'bulletinofillino12illi'
+);
+
+//$items=array('35003' => 'bulletinofillino03illi');
+
+$items=array('79429' => 'proceedingsofaca54acaduoft',
+'39540' => 'proceedingsofaca54acad');
+
+$items=array('125551' => 'helicinenstudie121905wagn');
+
+$items=array('46807' => 'mollusca00odhn');
+
+$items=array('40461' => 'bulletin01peab',
+'40459' => 'bulletin02peab',
+'40465' => 'bulletin03peab',
+'40284' => 'bulletin04peab',
+'40586' => 'bulletin05peab',
+'40533' => 'bulletin06peab',
+'40261' => 'bulletin07peab',
+'40466' => 'bulletin08peab',
+'40612' => 'bulletin09peab',
+'40447' => 'bulletin10peab',
+'88807' => 'bulletin111957peab',
+'40315' => 'bulletin12peab',
+'40550' => 'bulletin13peab',
+'40316' => 'bulletin14peab',
+'40274' => 'bulletin15peab',
+'40600' => 'bulletin16peab',
+'40275' => 'bulletin17peab',
+'40626' => 'bulletin18peab',
+'40604' => 'bulletin19peab',
+'40531' => 'bulletin20peab',
+'40317' => 'bulletin21peab',
+'40624' => 'bulletin22peab',
+'88808' => 'bulletin231967peabody',
+'43754' => 'bulletin241967peab',
+'40523' => 'bulletin25peab',
+'40318' => 'bulletin26peab',
+'40537' => 'bulletin27peab',
+'40276' => 'bulletin28peab',
+'40277' => 'bulletin29peab',
+'40468' => 'bulletin30peab',
+'40470' => 'bulletin31peab',
+'40469' => 'bulletin32peab',
+'40482' => 'bulletin33peab',
+'40285' => 'bulletin34peab',
+'92480' => 'mobot31753003646368',
+'92605' => 'bulletin34351970peab',
+'92600' => 'mobot31753003646376',
+'40265' => 'bulletin37peab',
+'40258' => 'bulletin38peab',
+'95733' => 'bulletin36381971peab',
+'40286' => 'bulletin39peab',
+'40463' => 'bulletin40peab',
+'40464' => 'bulletin41peab',
+'40518' => 'bulletin42peab',
+'40500' => 'bulletin43peab',
+'40288' => 'bulletin44peab',
+'43850' => 'bulletin451999peab',
+'43845' => 'bulletin462001peab'
+);
+
+
+
+
+$items=array('88808' => 'bulletin231967peabody');
+
+$items=array('20414' => 'catalogueoffishe72bean');
+
+$items=array('71534' => 'fishesofindoaust02weberich',
+'71535' => 'fishesofindoaust03weberich',
+'71641' => 'fishesofindoaust04weberich');
+
+$items=array('46027' => 'fishesofindoaust01webe',
+'45902' => 'fishesofindoaust02webe',
+'45897' => 'fishesofindoaust03webe',
+'47186' => 'fishesofindoaust04webe'
+);
+
+
+$items=array(
+'120731' => 'denkschriftender1179medi',
+'121450' => 'denkschriftender11medi',
+'120728' => 'denkschriftender12medi',
+'121431' => 'denkschriftender02medi',
+'121485' => 'denkschriftender03medi',
+'121984' => 'denkschriftender38993medi',
+'120881' => 'denkschriftender413medi',
+'121392' => 'denkschriftender446medi',
+'120741' => 'denkschriftender47medi',
+'121454' => 'denkschriftender05medi',
+'121473' => 'denkschriftender0597medi',
+'121397' => 'denkschriftender6101medi',
+'121432' => 'denkschriftender61medi',
+'121465' => 'denkschriftender62medi',
+'121484' => 'denkschriftender6208medi',
+'120740' => 'denkschriftender714medi',
+'121493' => 'denkschriftender75medi',
+'121460' => 'denkschriftender08medi',
+'121452' => 'denkschriftender0803medi',
+'121475' => 'denkschriftender09medi',
+'121479' => 'denkschriftender10medi',
+'121476' => 'denkschriftender1104medi',
+'121448' => 'denkschriftender112medi',
+'121491' => 'denkschriftender1204medi',
+'114159' => 'denkschriftender13medi',
+'114238' => 'denkschriftender14medi',
+'114210' => 'denkschriftender15medi',
+'114237' => 'denkschriftender16medi'
+);
+
+$items=array(
+'121460' => 'denkschriftender08medi',
+'121452' => 'denkschriftender0803medi'
+);
+
+$items=array('20187' => 'entomologicalnew27acad');
+
+$items=array('21285' => 'catalogueoftypes324chic');
+
+$items = array('114068' => 'congoexpeditiono00osbo');
+
+$items=array(
+/*'89044' => 'verfentlichungen1950zool',
+'90259' => 'verfentlichungen5152zool',
+'89255' => 'verfentlichungen5356zool',
+'90258' => 'verfentlichungen5657zool',
+'89210' => 'verfentlichungen5759zool',
+'89086' => 'verfentlichungen5961zool',
+'89209' => 'verfentlichungen6263zool',
+'89207' => 'verfentlichungen1964zool',
+'89205' => 'verfentlichungen1965zool',
+'89702' => 'verfentlichungen1966zool',
+'89189' => 'verfentlichungen6668zool',
+'95104' => 'verfentlichungen121968zool',
+'109329' => 'verffentlichun131969zool',
+'95047' => 'verfentlichungen141970zool',*/
+'95098' => 'verfentlichungen151971zool',
+'95093' => 'verfentlichungen1619721973zool',
+'95123' => 'verfentlichungen171974zool',
+'95097' => 'verfentlichungen1819751976zool'
+);
+
+$items=array(
+'126028' => 'MemoirsQueensla23Quee',
+'126031' => 'MemoirsQueensla25Quee',
+'126057' => 'MemoirsQueensla27QueeA',
+'126027' => 'MemoirsQueensla28Quee',
+'126035' => 'MemoirsQueensla28QueeA',
+'126034' => 'MemoirsQueensla29QueeA'
+);
+
+$items=array(
+/*'30489' => 'annalsofsouthafr051910sout',
+'30236' => 'annalsofsouthafr081911sout',
+'17333' => 'annalsofsouthafr18sout',
+'126016' => 'annalsofsouthaf261928sout',
+'126192' => 'annalsofsouthaf751978sout',
+'126155' => 'annalsofsouthaf771979sout',
+'126194' => 'annalsofsouthaf781979sout',
+'126195' => 'annalsofsouthaf801980sout',
+'126056' => 'annalsofsouthaf841981sout',
+'126187' => 'annalsofsouthaf871982sout',
+'126062' => 'annalsofsoutha881982sout',
+'126186' => 'annalsofsouthaf911983sout',
+'126181' => 'annalsofsouthaf951985sout',
+'126054' => 'annalsofsoutha961985sout',
+'126185' => 'annalsofsoutha991990sout',
+'126053' => 'annalsofsoutha2111925sout',
+'95039' => 'annalsofsouthafr2190002sout',
+'126156' => 'annalsofsoutha7721978sout',
+'126060' => 'annalsofsoutha7731978sout',
+'126168' => 'annalsofsoutha7741978sout',
+'126167' => 'annalsofsoutha7751978sout',
+'126171' => 'annalsofsoutha7761979sout',
+'126165' => 'annalsofsoutha7771979sout',
+'126169' => 'annalsofsoutha7781979sout',
+'126158' => 'annalsofsoutha8921982sout',
+'126170' => 'annalsofsoutha8931982sout',
+'126159' => 'annalsofsoutha8941982sout',
+'126157' => 'annalsofsoutha8951982sout',
+'126180' => 'annalsofsouth10311993sout',
+'126166' => 'annalsofsouth10321993sout',
+'126162' => 'annalsofsouth10331993sout',
+'126058' => 'annalsofsouth10341993sout',
+'126173' => 'annalsofsouth10351993sout',
+'126178' => 'annalsofsouth10371994sout',
+'126163' => 'annalsofsouth10411994sout',
+'126160' => 'annalsofsouth10421994sout',
+'126164' => 'annalsofsouth10431994sout',
+'126161' => 'annalsofsouth10441994sout',
+'126172' => 'annalsofsouth10451994sout',
+'126177' => 'annalsofsouth10471995sout',
+'126196' => 'annalsofsouth10481995sout',
+'126026' => 'annalsofsouth10491995sout',
+'126190' => 'annalsofsoutha107120sout',
+'120552' => 'annalsofsouth14191524sout',
+'126150' => 'annalsofsouth19192325sout',
+'126022' => 'annalsofsouth20192426sout',
+'126184' => 'annalsofsouth22192528sout',
+'126191' => 'annalsofsouth24192938sout',
+'126046' => 'annalsofsou25192729sout',
+'126174' => 'annalsofsouth77101979sout',
+'126189' => 'annalsofsouthafr92198sout',
+'126179' => 'annalsofsouthafr94198sout',
+'126197' => 'annalsofsouthafr97198sout',
+'126040' => 'annalsofsout104101996sout',
+'126061' => 'annalsofsout104111996sout',
+'126038' => 'annalsofsout104121996sout',
+'126015' => 'annalsofsouthafr10519sout',
+'17257' => 'annalsofsouthafr01sout',
+'17221' => 'annalsofsouthafr03sout',
+'30235' => 'annalsofsouthafr041908sout',
+'17222' => 'annalsofsouthafr06sout',
+'17374' => 'annalsofsouthafr07sout',
+'30178' => 'annalsofsouthafr09sout',
+'17383' => 'annalsofsouthafr10sout',
+'17263' => 'annalsofsouthafr11sout',
+'17243' => 'annalsofsouthafr12sout',
+'17335' => 'annalsofsouthafr13sout',
+'17375' => 'annalsofsouthafr15sout',
+'17158' => 'annalsofsouthafr16sout',
+'17258' => 'annalsofsouthafr17sout',*/
+'126049' => 'annalsofsouthafr96198sout',
+'126014' => 'annalsofsouthaf981987sout',
+'126183' => 'annalsofsouthafr10119sout'
+);
+
+
+/*
+$items = array('124847' => 'americanjournalo44150newh',
+'124697' => 'americanjournal411896newh',
+'124735' => 'americanjournal421896newh',
+'124754' => 'americanjournal431897newh',
+'124736' => 'americanjournal441897newh',
+'124698' => 'americanjournal451898newh',
+'124686' => 'americanjournal461898newh',
+'124441' => 'americanjournal471899newh',
+'124424' => 'americanjournal481899newh',
+'124446' => 'americanjournal491900newh',
+'124845' => 'americanjourna511921newh',
+'124854' => 'americanjourna521921newh',
+'125066' => 'americanjournal531922newh',
+'125065' => 'americanjournal541922newh',
+'124436' => 'americanjourna3301885newh',
+'124426' => 'americanjourna3311886newh',
+'124169' => 'americanjourna3321886newh',
+'124427' => 'americanjourna3341887newh',
+'124438' => 'americanjourna3351888newh',
+'124084' => 'americanjourna3361888newh',
+'124428' => 'americanjourna3371889newh',
+'124429' => 'americanjourna3381889newh',
+'124784' => 'americanjourna3391890newh',
+'124439' => 'americanjourna3401890newh',
+'124082' => 'americanjourna3411891newh',
+'124699' => 'americanjourna3421891newh',
+'124431' => 'americanjourna3431892newh',
+'124364' => 'americanjourna3441892newh',
+'124430' => 'americanjourna3451893newh',
+'124105' => 'americanjourn3461893newh',
+'124374' => 'americanjourna3471894newh',
+'124437' => 'americanjourna3481894newh',
+'124163' => 'americanjourna3491895newh',
+'124106' => 'americanjourna3501895newh',
+'124440' => 'americanjourna4111901newh',
+'124415' => 'americanjourna4121901newh',
+'124416' => 'americanjourna4131902newh',
+'126199' => 'americanjourna4141902newh',
+'125389' => 'americanjourna4151903newh',
+'126198' => 'americanjourna4161903newh',
+'124461' => 'americanjourna4171904newh',
+'124453' => 'americanjourna4181904newh',
+'124425' => 'americanjourna4191905newh',
+'124417' => 'americanjourna4201905newh',
+'124363' => 'americanjourna4211906newh',
+'124447' => 'americanjourna4221906newh',
+'124365' => 'americanjourna4231907newh',
+'124432' => 'americanjourna4241907newh',
+'124366' => 'americanjourna4251908newh',
+'124418' => 'americanjourna4261908newh',
+'124422' => 'americanjourna4271909newh',
+'124423' => 'americanjourna4281909newh',
+'124454' => 'americanjourna4291910newh',
+'124843' => 'americanjourna4301910newh',
+'124855' => 'americanjourna4311911newh',
+'124844' => 'americanjourna4321911newh',
+'124900' => 'americanjourna4331912newh',
+'124851' => 'americanjourna4341912newh',
+'124903' => 'americanjourna4351913newh',
+'124899' => 'americanjourna4361913newh',
+'124433' => 'americanjourna4371914newh',
+'124846' => 'americanjourna4381914newh',
+'124986' => 'americanjourna4391915newh',
+'124850' => 'americanjourna4401915newh',
+'124434' => 'americanjourna4411916newh',
+'124987' => 'americanjourna4421916newh',
+'124902' => 'americanjourna4431917newh',
+'124901' => 'americanjourna4441917newh',
+'124852' => 'americanjourna4451918newh',
+'124887' => 'americanjourna4461918newh',
+'124849' => 'americanjourna4471919newh',
+'124853' => 'americanjourna4481919newh',
+'124907' => 'americanjourna4491920newh',
+'124848' => 'americanjourna4501920newh',
+'125361' => 'americanjourna31401916new',
+'124362' => 'americanjou4101900110newh'
+);
+*/
+
+//$items=array('124784' => 'americanjourna3391890newh');
+
+/*
+$items = array(
+'17583' => 'canadianfieldnat33otta',
+'95449' => 'canadianfieldnat33v36otta',
+'17534' => 'canadianfieldnat34otta',
+'17469' => 'canadianfieldnat35otta',
+'17564' => 'canadianfieldnat36otta',
+'89324' => 'canadianfieldnat1923otta',
+'89061' => 'canadianfieldnat1924otta',
+'89256' => 'canadianfieldnat1925otta',
+'89074' => 'canadianfieldnat1926otta',
+'89260' => 'canadianfieldnat1927otta',
+'89279' => 'canadianfieldnat1928otta',
+'89088' => 'canadianfieldnat1929otta',
+'89659' => 'canadianfieldnat1930otta',
+'89041' => 'canadianfieldnat451931otta',
+'89295' => 'canadianfieldnat1932otta',
+'89103' => 'canadianfieldnat1933otta',
+'89299' => 'canadianfieldnat1934otta',
+'89293' => 'canadianfieldnat1935otta',
+'89296' => 'canadianfieldnat1936otta',
+'89331' => 'canadianfieldnat1937otta',
+'89087' => 'canadianfieldnat1938otta',
+'89322' => 'canadianfieldnat1939otta',
+'89073' => 'canadianfieldnat1940otta',
+'89100' => 'canadianfieldnat1941otta',
+'89066' => 'canadianfieldnat1942otta',
+'89043' => 'canadianfieldnat4344otta',
+'89104' => 'canadianfieldnat4445otta',
+'89174' => 'canadianfieldnat4546otta',
+'90257' => 'canadianfieldnat4647otta',
+'89250' => 'canadianfieldnat4748otta',
+'89251' => 'canadianfieldnat1948otta',
+'89254' => 'canadianfieldnat1949otta',
+'89246' => 'canadianfieldnat1950otta',
+'90126' => 'canadianfieldnat1951otta',
+'89102' => 'canadianfieldnat1952otta',
+'89327' => 'canadianfieldnat1953otta',
+'89325' => 'canadianfieldnat1954otta',
+'89330' => 'canadianfieldnat1955otta',
+'90128' => 'canadianfieldnat1956otta',
+'89178' => 'canadianfieldnat1957otta',
+'89097' => 'canadianfieldnat1958otta',
+'89326' => 'canadianfieldnat1959otta',
+'89257' => 'canadianfieldnat1960otta',
+'89075' => 'canadianfieldnat1961otta',
+'89328' => 'canadianfieldnat1962otta',
+'89278' => 'canadianfieldnat1963otta',
+'89058' => 'canadianfieldnat1964otta',
+'89098' => 'canadianfieldnat1965otta',
+'89101' => 'canadianfieldnat1966otta',
+'90098' => 'canadianfieldnat1967otta',
+'89177' => 'canadianfieldnat1968otta',
+'89179' => 'canadianfieldnat1969otta',
+'93459' => 'canadianfieldnat841970otta',
+'89145' => 'canadianfieldnat1971otta',
+'89146' => 'canadianfieldnat1972otta',
+'89175' => 'canadianfieldnat1973otta',
+'89181' => 'canadianfieldnat1974otta',
+'89096' => 'canadianfieldnat1975otta',
+'89149' => 'canadianfieldnat1976otta',
+'89182' => 'canadianfieldnat1977otta',
+'89184' => 'canadianfieldnat1978otta',
+'89186' => 'canadianfieldnat1979otta',
+'89247' => 'canadianfieldnat1980otta',
+'89183' => 'canadianfieldnat1981otta',
+'89040' => 'canadianfieldnat1982otta',
+'89042' => 'canadianfieldnat1983otta',
+'89187' => 'canadianfieldnat1984otta',
+'89190' => 'canadianfieldnat1985otta',
+'89211' => 'canadianfieldnat1986otta',
+'89248' => 'canadianfieldnat1987otta',
+'89713' => 'canadianfieldnat1988otta',
+'106991' => 'canadianfieldnat103otta',
+'106989' => 'canadianfieldnat104otta',
+'106992' => 'canadianfieldnat105otta',
+'106990' => 'canadianfieldnat106otta',
+'108204' => 'canadianfieldnat107otta',
+'106813' => 'canadianfieldnat108otta',
+'109902' => 'canadianfieldn1091995otta',
+'106979' => 'canadianfieldnat110otta',
+'100892' => 'mobot31753003471858',
+'109954' => 'canadianfieldn1111997otta',
+'110182' => 'canadianfieldn1111997ott',
+'106776' => 'canadianfieldnat112otta',
+'106748' => 'canadianfieldnat113otta',
+'106750' => 'canadianfieldnat114otta',
+'108793' => 'canadianfield1152001otta',
+'108859' => 'canadianfieldn1152001otta',
+'109250' => 'canadianfieldn1162002otta',
+'109475' => 'canadianfieldn1172003otta',
+'107188' => 'canadianfieldnat118otta',
+'109674' => 'canadianfieldnat119otta',
+'109734' => 'canadianfieldnat120otta'
+);
+*/
+//$items=array('89103' => 'canadianfieldnat1933otta');
+
+$items=array('126250' => 'annalsofsouthaf761978sout',
+'126228' => 'annalsofsouthaf931984sout',
+'126247' => 'annalsofsoutha8911982sout',
+'126249' => 'annalsofsouth10361993sout',
+'126248' => 'annalsofsouth10461994sout',
+'126255' => 'annalsofsouth79197980sout',
+'126226' => 'annalsofsouthaf851981sout',
+'126229' => 'annalsofsouth100199sout');
+
+$items=array('38192' => 'famempididae00bezz');
+
+$items=array('45422' => 'novaactaacademia361873kais',
+'45351' => 'novaactaacademia371874kais',
+'45423' => 'novaactaacademia381876kais',
+'45896' => 'novaactaacademia391877kais',
+'45350' => 'novaactaacademia401878kais',
+'45424' => 'novaactaacademia411kais',
+'45213' => 'novaactaacademia412kais',
+'99251' => 'mobot31753003649040',
+'45363' => 'novaactaacademia431882kais',
+'45261' => 'novaactaacademia441883kais',
+'99250' => 'mobot31753003649032',
+'45361' => 'novaactaacademia461884kais',
+'47846' => 'novaactaacademia471885kais',
+'46043' => 'novaactaacademia481886kais',
+'122581' => 'novaactaacademi491887kais',
+'99252' => 'mobot31753003649057',
+'46048' => 'novaactaacademia511887kais',
+'46067' => 'novaactaacademia521888kais',
+'45425' => 'novaactaacademia531889kais',
+'45426' => 'novaactaacademia541890kais',
+'99240' => 'mobot31753003648992',
+'45449' => 'novaactaacademia561891kais',
+'46051' => 'novaactaacademia571892kais',
+'46047' => 'novaactaacademia581893kais',
+'46042' => 'novaactaacademia591893kais',
+'46040' => 'novaactaacademia601894kais',
+'99249' => 'mobot31753003649024',
+'45359' => 'novaactaacademia621894kais',
+'46061' => 'novaactaacademia631895kais',
+'45358' => 'novaactaacademia641895kais',
+'45456' => 'novaactaacademia651896kais',
+'45450' => 'novaactaacademia661896kais',
+'45228' => 'novaactaacademia671896kais',
+'45222' => 'novaactaacademia681897kais',
+'45223' => 'novaactaacademia691898kais',
+'45263' => 'novaactaacademia701898kais',
+'45265' => 'novaactaacademia711898kais',
+'45227' => 'novaactaacademia721899kais',
+'45219' => 'novaactaacademia731907kais',
+'45220' => 'novaactaacademia741899kais',
+'45212' => 'novaactaacademia751899kais',
+'45260' => 'novaactaacademia761900kais',
+'45230' => 'novaactaacademia771901kais',
+'46054' => 'novaactaacademia781901kais',
+'45221' => 'novaactaacademia791901kais',
+'45232' => 'novaactaacademia801903kais',
+'45546' => 'novaactaacademia811903kais',
+'45231' => 'novaactaacademia821904kais',
+'45217' => 'novaactaacademia831905kais',
+'99246' => 'mobot31753003649016',
+'45210' => 'novaactaacademia851906kais',
+'45224' => 'novaactaacademia861906kais',
+'99241' => 'mobot31753003649008',
+'45233' => 'novaactaacademia881908kais',
+'45229' => 'novaactaacademia891908kais',
+'122582' => 'novaactaacademi901909kais',
+'122583' => 'novaactaacademi911909kais'
+);
+
+$items=array(
+'45233' => 'novaactaacademia881908kais'
+);
+
+$items=array(
+/*'110435' => 'annalesdelasoci1890unse',*/
+'110222' => 'annalesdelasoci1897unse',
+'110100' => 'annalesdelasoci1898unse',
+'110227' => 'annalesdelasoci1899unse',
+'110226' => 'annalesdelasoci1900unse',
+'111455' => 'annalesdelasoci1901unse',
+'110236' => 'annalesdelasoci1902unse'
+);
+$items = array(
+'97795' => 'occasionalpapers01milw',
+'98058' => 'occasionalpapers13milw',
+'98203' => 'occasionalpapers02milw',
+'97792' => 'occasionalpapers22milw',
+'98170' => 'occasionalpapers23milw',
+'98166' => 'occasionalpapers03milw'
+);
+
+$items=array(
+'126256' => 'proceedingsofca542003cali',
+'126257' => 'proceedingsofca542004cali',
+'126251' => 'proceedingsofca552004cali',
+'126252' => 'proceedingsofc552004cali',
+'126213' => 'proceedingsofca562005cali',
+'126214' => 'proceedingsofc572006cali',
+'126225' => 'proceedingsofca572006cali',
+'126260' => 'proceedingso549212003cali',
+'126212' => 'proceedingso571112006cali',
+'126211' => 'proceedings5513252004cali',
+'126227' => 'proceedings5618262005cali',
+'103002' => 'pro4126951320192324cali'
+);
+
+$items=array('126261' => 'proceedingso551122004cali');
+
+$items=array('17812' => 'boletndelasoci21soci');
+
+$items=array('53413' => 'memoirsofcalifor151991cali');
+
+$items=array(
+'22321' => 'memoirspresented01cali',
+'86391' => 'memoirscaliforni01cali',
+'34001' => 'memoirsofcalifor00cali',
+'22311' => 'memoirsofcalifor03cali',
+'86393' => 'memoirscaliforni03cali',
+'22365' => 'memoirsofcalifor04cali',
+'22370' => 'memoirsofcalifor0501cali',
+'22363' => 'memoirsofcalifor06cali',
+'53408' => 'memoirsofcalifor710197488cali',
+'53414' => 'memoirsofcalifor111986cali',
+'53583' => 'memoirsofcalifor121988cali',
+'53409' => 'memoirsofcalifor131988cali',
+'53394' => 'memoirsofcalifor141989cali',
+//'53413' => 'memoirsofcalifor151991cali',
+'53412' => 'memoirsofcalifor161992cali',
+'53400' => 'memoirsofcalifor171990cali',
+'53411' => 'memoirsofcalifor181995cali',
+'53570' => 'memoirsofcalifor191996cali',
+'53410' => 'memoirsofcalifor201996cali',
+'53569' => 'memoirsofcalifor211996cali',
+'53402' => 'memoirsofcalifor221997cali',
+'53407' => 'memoirsofcalifor231997cali',
+'95165' => 'memoirsofcalifor241998cali',
+'53581' => 'memoirsofcalifor252000cali',
+'53567' => 'memoirsofcalifor262001cali',
+'99491' => 'memoirsofcalifor272002cali',
+//'99512' => 'memoirsofcalifor282004cali'
+);
+
+$items=array('45992' => 'bulletinofliverp01forb');
+
+$items=array('126403' => 'annalsofsouthaf511968sout',
+'126406' => 'annalsofsouthaf541969sout',
+'126463' => 'annalsofsouthaf691976sout',
+'126444' => 'annalsofsoutha4811964sout',
+'126379' => 'annalsofsoutha4821964sout',
+'126385' => 'annalsofsoutha4841964sout',
+'126426' => 'annalsofsoutha4851964sout',
+'126383' => 'annalsofsoutha4861964sout',
+'126384' => 'annalsofsoutha4871965sout',
+'126390' => 'annalsofsoutha4881965sout',
+'126464' => 'annalsofsoutha5311968sout',
+'126404' => 'annalsofsoutha5321968sout',
+'126392' => 'annalsofsoutha5611969sout',
+'126391' => 'annalsofsoutha5621970sout',
+'126443' => 'annalsofsoutha5631970sout',
+'126446' => 'annalsofsoutha5641970sout',
+'126453' => 'annalsofsoutha5651971sout',
+'126449' => 'annalsofsoutha5661971sout',
+'126441' => 'annalsofsoutha6911975sout',
+'126365' => 'annalsofsoutha6921975sout',
+'126363' => 'annalsofsoutha6931975sout',
+'126408' => 'annalsofsoutha6941975sout',
+'126362' => 'annalsofsoutha6961976sout',
+'126364' => 'annalsofsoutha6971976sout',
+'126454' => 'annalsofsoutha6981976sout',
+'126458' => 'annalsofsoutha6991976sout',
+'126452' => 'annalsofsoutha7011976sout',
+'126456' => 'annalsofsoutha7021976sout',
+'126450' => 'annalsofsoutha7031981sout',
+'126447' => 'annalsofsoutha7041989sout',
+'126448' => 'annalsofsoutha7211976sout',
+'126455' => 'annalsofsoutha7221976sout',
+'126459' => 'annalsofsoutha7231976sout',
+'126465' => 'annalsofsoutha7241976sout',
+'126457' => 'annalsofsoutha7251977sout',
+'126394' => 'annalsofsoutha7261977sout',
+'126395' => 'annalsofsoutha7271977sout',
+'126393' => 'annalsofsoutha7281977sout',
+'126399' => 'annalsofsoutha7291977sout',
+'126438' => 'annalsofsouth48101965sout',
+'126387' => 'annalsofsouth48111965sout',
+'126378' => 'annalsofsouth48121965sout',
+'126442' => 'annalsofsouth48131965sout',
+'126440' => 'annalsofsouth48141965sout',
+'126439' => 'annalsofsouth48151965sout',
+'126445' => 'annalsofsouth48171965sout',
+'126451' => 'annalsofsouth48181966sout',
+'126388' => 'annalsofsouth48191966sout',
+'126389' => 'annalsofsouth48201966sout',
+'126386' => 'annalsofsouth48211967sout',
+'126427' => 'annalsofsouth48221967sout',
+'126460' => 'annalsofsouth69101976sout',
+'126462' => 'annalsofsouth69111976sout',
+'126397' => 'annalsofsouth72101977sout',
+'126400' => 'annalsofsouth72111977sout',
+'126398' => 'annalsofsouth72121977sout',
+'126401' => 'annalsofsouth72131977sout',
+'126396' => 'annalsofsouth72197677sout'
+);
+
+$items=array(
+'126373' => 'occasionalpape1492000cali',
+'126371' => 'occasionalpape1502001cali',
+'126374' => 'occasionalpape1512001cali',
+'126372' => 'occasionalpape1522001cali',
+'126368' => 'occasionalpape1532003cali',
+'126376' => 'occasionalpape1542003cali'
+);
+
+$items=array(
+'54216' => 'occasionalpapers11890cali',
+'18816' => 'occasionalpapers02cali',
+'31560' => 'occasionalpapers03cali',
+'22301' => 'occasionalpapers04cali',
+'22358' => 'occasionalpapers05cali',
+'31475' => 'occasionalpapers06cali',
+'31476' => 'occasionalpapers071900cali',
+'24037' => 'occasionalpapers08cali',
+'22305' => 'occasionalpapers09cali',
+'22337' => 'occasionalpapers11cali',
+'22284' => 'occasionalpapers12cali',
+'22334' => 'occasionalpapers13cali',
+'22333' => 'occasionalpapers14cali',
+'22326' => 'occasionalpapers15cali',
+'22342' => 'occasionalpapers16cali',
+'35716' => 'occasionalpapers00cali',
+'35726' => 'occasionalpapers18cali',
+'22347' => 'occasionalpapers24cali',
+'22307' => 'occasionalpapers25cali',
+'26370' => 'occasionalpapers26cali',
+'26371' => 'occasionalpapers27cali',
+'22384' => 'occasionalpapers28cali',
+'22385' => 'occasionalpapers29cali',
+'22386' => 'occasionalpapers30cali',
+'24090' => 'occasionalpapers31cali',
+'22387' => 'occasionalpapers32cali',
+'23950' => 'occasionalpapers33cali',
+'23801' => 'occasionalpapers34cali',
+'22416' => 'occasionalpapers35cali',
+'22388' => 'occasionalpapers36cali',
+'22389' => 'occasionalpapers37cali',
+'22390' => 'occasionalpapers38cali',
+'22391' => 'occasionalpapers39cali',
+'22392' => 'occasionalpapers40cali',
+'22393' => 'occasionalpapers41cali',
+'22394' => 'occasionalpapers42cali',
+'22417' => 'occasionalpapers43cali',
+'22418' => 'occasionalpapers44cali',
+'22395' => 'occasionalpapers45cali',
+'22396' => 'occasionalpapers46cali',
+'22419' => 'occasionalpapers47cali',
+'22420' => 'occasionalpapers48cali',
+'22397' => 'occasionalpapers49cali',
+'22421' => 'occasionalpapers50cali',
+'22422' => 'occasionalpapers51cali',
+'23865' => 'occasionalpapers52cali',
+'22398' => 'occasionalpapers53cali',
+'22399' => 'occasionalpapers54cali',
+'22423' => 'occasionalpapers55cali',
+'22400' => 'occasionalpapers56cali',
+'22424' => 'occasionalpapers57cali',
+'22401' => 'occasionalpapers58cali',
+'22425' => 'occasionalpapers59cali',
+'22476' => 'occasionalpapers60cali',
+'22452' => 'occasionalpapers61cali',
+'23784' => 'occasionalpapers62cali',
+'22402' => 'occasionalpapers63cali',
+'23858' => 'occasionalpapers64cali',
+'22453' => 'occasionalpapers65cali',
+'22454' => 'occasionalpapers66cali',
+'22455' => 'occasionalpapers67cali',
+'22463' => 'occasionalpapers68cali',
+'22456' => 'occasionalpapers69cali',
+'22459' => 'occasionalpapers70cali',
+'22457' => 'occasionalpapers71cali',
+'22461' => 'occasionalpapers72cali',
+'22458' => 'occasionalpapers73cali',
+'22460' => 'occasionalpapers74cali',
+'22462' => 'occasionalpapers75cali',
+'22464' => 'occasionalpapers76cali',
+'22465' => 'occasionalpapers77cali',
+'22474' => 'occasionalpapers78cali',
+'22472' => 'occasionalpapers79cali',
+'22317' => 'occasionalpapers80cali',
+'22343' => 'occasionalpapers81cali',
+'22403' => 'occasionalpapers82cali',
+'22291' => 'occasionalpapers83cali',
+'22348' => 'occasionalpapers84cali',
+'54182' => 'occasionalpapers851970cali',
+'22404' => 'occasionalpapers86cali',
+'22405' => 'occasionalpapers87cali',
+'22406' => 'occasionalpapers88cali',
+'22407' => 'occasionalpapers89cali',
+'22292' => 'occasionalpapers90cali',
+'54183' => 'occasionalpapers911972cali',
+'98659' => 'occasionalpapers921972cali',
+'22357' => 'occasionalpapers93cali',
+'22302' => 'occasionalpapers94cali',
+'22294' => 'occasionalpapers95cali',
+'22354' => 'occasionalpapers96cali',
+'22331' => 'occasionalpapers97cali',
+'22355' => 'occasionalpapers98cali',
+'23781' => 'occasionalpapers99cali',
+'22293' => 'occasionalpapers100cali',
+'53405' => 'occasionalpapers1011922cali',
+'22283' => 'occasionalpapers101cali',
+'53406' => 'occasionalpapers1021922cali',
+'22366' => 'occasionalpapers102cali',
+'24056' => 'occasionalpapers103cali',
+'23889' => 'occasionalpapers104cali',
+'81233' => 'occasionalpapers1051973cali',
+'24107' => 'occasionalpapers106cali',
+'23795' => 'occasionalpapers107cali',
+'23887' => 'occasionalpapers108cali',
+'24118' => 'occasionalpapers109cali',
+'23796' => 'occasionalpapers110cali',
+'24442' => 'occasionalpapers111cali',
+'24026' => 'occasionalpapers112cali',
+'23828' => 'occasionalpapers113cali',
+'22378' => 'occasionalpapers114cali',
+'22306' => 'occasionalpapers115cali',
+'22367' => 'occasionalpapers116cali',
+'22352' => 'occasionalpapers117cali',
+'22328' => 'occasionalpapers118cali',
+'22373' => 'occasionalpapers119cali',
+'22327' => 'occasionalpapers120cali',
+'22376' => 'occasionalpapers121cali',
+'22329' => 'occasionalpapers122cali',
+'35717' => 'occasionalpapers123cali',
+'35718' => 'occasionalpapers124cali',
+'35719' => 'occasionalpapers125cali',
+'33713' => 'occasionalpapers126cali',
+'35842' => 'occasionalpapers127cali',
+'35669' => 'occasionalpapers128cali',
+'35720' => 'occasionalpapers129cali',
+'35721' => 'occasionalpapers130cali',
+'35722' => 'occasionalpapers131cali',
+'35724' => 'occasionalpapers132cali',
+'35725' => 'occasionalpapers133cali',
+'54166' => 'occasionalpapers1341979cali',
+'22427' => 'occasionalpapers135cali',
+'22415' => 'occasionalpapers136cali',
+'81236' => 'occasionalpapers1371983cali',
+'54162' => 'occasionalpapers1381984cali',
+'23926' => 'occasionalpapers139cali',
+'22470' => 'occasionalpapers140cali',
+'22473' => 'occasionalpapers141cali',
+'22471' => 'occasionalpapers142cali',
+'22475' => 'occasionalpapers143cali',
+'22468' => 'occasionalpapers144cali',
+'22469' => 'occasionalpapers145cali',
+'22310' => 'occasionalpapers146cali',
+'22338' => 'occasionalpapers147cali',
+'22374' => 'occasionalpapers148cali',
+/*'126373' => 'occasionalpape1492000cali',
+'126371' => 'occasionalpape1502001cali',
+'126374' => 'occasionalpape1512001cali',
+'126372' => 'occasionalpape1522001cali',
+'126368' => 'occasionalpape1532003cali',
+'126376' => 'occasionalpape1542003cali',*/
+'54215' => 'occasionalpapers23195661cali',
+'53397' => 'occasionalpapers1920194043cali',
+'53399' => 'occasionalpapers2122194553cali'
+);
+
+$items=array(
+/*'54687' => 'transactionsofro27roya',
+'108744' => 'mobot31753002607858',
+'54649' => 'transactionsproc29roya',
+'54643' => 'transactionsproc30roya',
+'54644' => 'transactionsproc31roya',
+'84665' => 'transactionsproc32roya',
+'113614' => 'mobot31753002607940',
+'113934' => 'mobot31753002607825',
+'81367' => 'transactionsproc4roya',
+'54843' => 'transactionsproc5roya',
+'54842' => 'transactionsproc6roya',
+'85284' => 'transactionsproc7roya',
+'84666' => 'transactionsproc8roya',
+'84667' => 'transactionsproc9roya',
+'54676' => 'transactionsproc10roya',
+'84663' => 'transactionsproc11roya',
+'84664' => 'transactionsproc12roya',
+'107428' => 'transactionsofro03roya',
+'84659' => 'transactionsofro1390roya',*/
+'84660' => 'transactionsofro1491roya',
+'54689' => 'transactionsofro1592roya',
+'110683' => 'mobot31753002607312',
+'54642' => 'transactionsofro17roya',
+'54686' => 'transactionsofro1894roya',
+'54671' => 'transactionsofro19roya',
+'84661' => 'transactionsofro20roya',
+'54680' => 'transactionsofro21roya',
+'54670' => 'transactionsofro22roya',
+'54633' => 'transactionsofro23roya',
+'54682' => 'transactionsofro25roya',
+'84662' => 'transactionsofro26roya'
+);
+
+
+$items=array(
+'104990' => 'abhandlungenhera01natu',
+'104665' => 'abhandlungenhera02natu',
+'106127' => 'abhandlungenhera03natu',
+'105184' => 'abhandlungenhera04natu',
+'104684' => 'abhandlungenhera05natu',
+'104543' => 'abhandlungenhera06natu',
+'105780' => 'abhandlungenhera07natu',
+'22952' => 'abhandlungenhera08natu',
+'22950' => 'abhandlungenhera09natu',
+'105185' => 'abhandlungenhera10natu',
+'104690' => 'abhandlungenhera11natu',
+//'105154' => 'abhandlungenhera13natu',
+'22953' => 'abhandlungenhera14natu',
+'104735' => 'abhandlungenhera15natu',
+'22991' => 'abhandlungenhera16natu',
+'23001' => 'abhandlungenhera17natu',
+'22972' => 'abhandlungenhera18natu',
+'23003' => 'abhandlungenhera19natu',
+'114148' => 'abhandlungen9188487natu',
+'105196' => 'abhandlungenhera12natu',
+'110070' => 'abhandlungen24191920natu',
+'104686' => 'abhandlungenhera2021natu',
+'23007' => 'abhandlungenhera2223natu'
+);
+
+$items=array(
+'126520' => 'annalsofsouthaf811980sout',
+'126521' => 'annalsofsouthaf821980sout',
+'126516' => 'annalsofsouth48161965sout',
+'126526' => 'annalsofsoutha8319808sout',
+'126514' => 'annalsofsouthafr99199sout',
+'126518' => 'annalsofsoutha102199sout'
+);
+
+$items = array(
+'126490' => 'revuesuissedezo661959schw',
+'126485' => 'revuesuissedezo671960schw',
+'126506' => 'revuesuissedezo701963schw',
+'126507' => 'revuesuissedezo731966schw',
+'126484' => 'revuesuissedez6611959schw',
+'126491' => 'revuesuissedez6621959schw',
+'126517' => 'revuesuissedez6631959schw',
+'126500' => 'revuesuissedez6711960schw',
+'126512' => 'revuesuissedez6721960schw',
+'126488' => 'revuesuissedez6741960schw',
+'126525' => 'revuesuissedez6831961schw',
+'126492' => 'revuesuissedez6841961schw',
+'126511' => 'revuesuissedez7021963schw',
+'126515' => 'revuesuissedez7031963schw',
+'126487' => 'revuesuissedez7041963schw'
+);
+
+
+$items=array(
+/*'38483' => 'revuesuissedezoo01schw',
+'38139' => 'revuesuissedezoo02schw',
+'38140' => 'revuesuissedezoo03schw',
+'38762' => 'revuesuissedezoo04schw',
+'110849' => 'revuesuissedezoo9798schw',
+'39595' => 'revuesuissedezoo06schw',
+'39592' => 'revuesuissedezoo07schw',
+'38141' => 'revuesuissedezoo08schw',
+'37618' => 'revuesuissedezoo09schw',*/
+'37000' => 'revuesuissedezoo10schw',
+'37620' => 'revuesuissedezoo11schw',
+'39005' => 'revuesuissedezoo12112schw',
+'38487' => 'revuesuissedezoo13schw',
+'38142' => 'revuesuissedezoo1406schw',
+'38729' => 'revuesuissedezoo15schw',
+'38143' => 'revuesuissedezoo16schw',
+'40663' => 'revuesuissedezoo17schw',
+'40667' => 'revuesuissedezoo18schw',
+'40644' => 'revuesuissedezoo19schw',
+'40643' => 'revuesuissedezoo20schw',
+'40668' => 'revuesuissedezoo21schw',
+'40639' => 'revuesuissedezoo22schw',
+'40642' => 'revuesuissedezoo23schw',
+'40346' => 'revuesuissedezoo24schw',
+'40665' => 'revuesuissedezoo25schw',
+'40641' => 'revuesuissedezoo26schw',
+'40449' => 'revuesuissedezoo2618schw',
+'40669' => 'revuesuissedezoo27schw',
+'40661' => 'revuesuissedezoo28schw',
+'40347' => 'revuesuissedezoo29schw'
+);
+
+/*
+$items=array(
+'96702' => 'termszetrajzif12187778magy',
+'97484' => 'termszetrajzif34187880magy',
+'96887' => 'termszetrajzif57188183magy',
+'96699' => 'termszetrajzif89188485magy',
+'97426' => 'termszetrajzif1012188689magy',
+'96704' => 'termszetrajzif1315189092magy',
+'96855' => 'termszetrajzif1617189394magy',
+'96856' => 'termszetrajzif1819189596magy',
+'96706' => 'termszetrajzif211898magy',
+'48101' => 'termszetrajzif22magy',
+'48099' => 'termszetrajzif23magy',
+//'48100' => 'termszetrajzif24magy',
+'48115' => 'termszetrajzif25magy'
+);
+
+//$items=array('48100' => 'termszetrajzif24magy');
+
+*/
+
+$items=array('123165' => 'journalofwashin251935wash');
+
+$items=array('113713' => 'bulletinofnatura58natu',
+'113724' => 'bulletinofnatura541natu',
+'113719' => 'bulletinofnatura542natu',
+'113717' => 'bulletinofnatura551natu',
+'113723' => 'bulletinofnatura552natu',
+'125472' => 'bulletinofnatura561natu',
+'125474' => 'bulletinofnatura562natu',
+'113720' => 'bulletinofnatura571natu',
+'113712' => 'bulletinofnatura572natu',
+'113710' => 'bulletinofnatura52natu');
+
+$items=array('113710' => 'bulletinofnatura52natu');
+
+$items=array(
+'26012' => 'occasionalpapers169univ',
+'26007' => 'occasionalpapers170univ',
+'26003' => 'occasionalpapers171univ',
+'26006' => 'occasionalpapers172univ',
+'26002' => 'occasionalpapers173univ',
+'26004' => 'occasionalpapers174univ',
+'26011' => 'occasionalpapers175univ',
+'26010' => 'occasionalpapers176univ',
+'28662' => 'occasionalpapers1771996univ',
+'26005' => 'occasionalpapers178univ',
+'26009' => 'occasionalpapers179univ',
+//'26008' => 'occasionalpapers180univ'
+);
+
+//$items=array('26008' => 'occasionalpapers180univ');
+
+$items=array('107515' => 'proceedingsofbi461933biol');
+
+$items=array(
+'35129' => 'ibis11brit',
+'35081' => 'ibis21brit',
+'35144' => 'ibis03brit',
+'34369' => 'ibis04brit',
+'35130' => 'ibis05brit',
+'33870' => 'ibis06brit',
+'97523' => 'ibis11865brit',
+'34617' => 'ibis02brit',
+'34616' => 'ibisns03brit',
+'55161' => 'ibis41868brit',
+'35145' => 'ibisns05brit',
+'54796' => 'ibis61870brit',
+'35065' => 'ibis13brit',
+'35143' => 'ibis23brit',
+'55640' => 'ibis331873brit',
+'35141' => 'ibis43brit',
+'35133' => 'ibis53brit',
+'35122' => 'ibis63brit',
+'35613' => 'ibis14brit',
+'34861' => 'ibis24brit',
+'35127' => 'ibis34brit',
+'97642' => 'ibis441880brit',
+'54947' => 'ibis451881brit',
+'35128' => 'ibis36brit',
+'54933' => 'ibis511883brit',
+'34897' => 'ibis25brit',
+'35137' => 'ibis35brit',
+'34990' => 'ibis45brit',
+'34878' => 'ibis55brit',
+'55018' => 'ibis561888188388brit',
+'55019' => 'ibis611889brit',
+'55016' => 'ibis621890brit',
+'55012' => 'ibis631891brit',
+'54799' => 'ibis641892brit',
+'85192' => 'ibis651893brit',
+'55022' => 'ibis661894188994brit',
+'35387' => 'ibis17brit',
+'55020' => 'ibis721896brit',
+'54800' => 'ibis731897brit',
+'35515' => 'ibis47brit',
+'36067' => 'ibis57brit',
+'35162' => 'ibis67brit',
+'35405' => 'ibis18brit',
+'110610' => 'ibis821902brit',
+'35406' => 'ibis28brit',
+'54774' => 'ibis831903brit',
+'81301' => 'ibis841904brit',
+'35519' => 'ibis58brit',
+'85253' => 'ibis861906brit',
+'86740' => 'ibis9119078190106brit',
+'35543' => 'ibisi29brit',
+'35485' => 'ibis29brit',
+'35490' => 'ibis39brit',
+'35508' => 'ibis49brit',
+'84579' => 'ibis951911brit',
+'85124' => 'ibis961912190712brit',
+'85342' => 'ibis1011913brit',
+'100092' => 'ibis_21914brit',
+'100945' => 'ibis1021915brit',
+'35484' => 'ibis310brit',
+'54801' => 'ibis1041916brit',
+'35521' => 'ibis510brit',
+'55021' => 'ibis1061918191318brit',
+'55162' => 'ibis1111919brit',
+'85249' => 'ibis1121920brit',
+'35511' => 'ibis311brit',
+'55203' => 'ibis1141922brit',
+'35053' => 'ibis18591brit',
+'34989' => 'ibis1859brit',
+'34756' => 'ibis1877brit'
+);
+
+$items=array('54800' => 'ibis731897brit');
+
+$items=array(
+//'50839' => 'analesdelmuseona212muse',
+/*'50837' => 'analesdelmuseona23muse',
+'50840' => 'analesdelmuseona24muse',
+'50863' => 'analesdelmuseona31muse',
+'26156' => 'analesdelmuseona32muse',
+'26153' => 'analesdelmuseona33muse',*/
+'26151' => 'analesdelmuseona34muse',
+'50861' => 'analesdelmuseona35muse',
+'50878' => 'analesdelmuseona36muse',
+'50857' => 'analesdelmuseona37muse',
+'50880' => 'analesdelmuseona38muse',
+'50823' => 'analesdelmuseona39muse',
+'50845' => 'analesdelmuseona310muse',
+'26169' => 'analesdelmuseona10muse',
+'50825' => 'analesdelmuseona311muse',
+'26158' => 'analesdelmuseona12muse',
+'26159' => 'analesdelmuseona13muse'
+);
+
+$items=array(
+//'126693' => 'revuesuiss591952schw',
+//'126660' => 'revuesuisse11954schw',
+/*'126659' => 'revuesuiss621955schw',
+'126658' => 'revuesuisse631956schw',
+'126656' => 'revuesuiss641957schw',
+'126657' => 'revuesuiss651958schw',
+'126694' => 'revuesuisse691962schw',
+'126695' => 'revuesuisse711964schw',*/
+'126692' => 'revuesuisse721965schw',
+//'126678' => 'revuesuiss6019535160schw'
+);
+
+$items=array('105202' => 'bulletindelasoci1908soci2');
+
+$items=array('110210' => 'sitzungsberic1051896kais');
+
+$items=array(
+/*'39854' => 'bollettinodellas151883soci',
+'39678' => 'bollettinodellas161884soci',
+'55177' => 'bollettinodellas171885soci',
+'87992' => 'bollettinodellas181886soci',
+'111042' => 'bollettinodella201888soci',
+'41138' => 'bollettinodellas211889soci',
+'54564' => 'bollettinodellas221890soci',
+'55175' => 'bollettinodellas231891soci',
+'55005' => 'bollettinodellas241892soci',
+'39868' => 'bollettinodellas251893soci',
+'39660' => 'bollettinodellas261894soci',
+'41141' => 'bollettinodellas271895soci',
+'55004' => 'bollettinodellas281896soci',
+'39849' => 'bollettinodellas291897soci',
+'39850' => 'bollettinodellas301898soci',
+'55102' => 'bollettinodellas311899soci',
+'39855' => 'bollettinodellas321900soci',
+'39876' => 'bollettinodellas331901soci',
+'88003' => 'bollettinodellas341902soci',
+'39851' => 'bollettinodellas371905soci',
+'39694' => 'bollettinodellas411909soci',
+'39692' => 'bollettinodellas421910soci',
+'39693' => 'bollettinodellas431911soci',
+'41140' => 'bollettinodellas441912soci',
+'80974' => 'bollettinodellas451913soci',
+'39875' => 'bollettinodellas461914soci',
+'39680' => 'bollettinodellas471915soci',
+'39667' => 'bollettinodellas34187172soci',
+'39662' => 'bollettinodellas56187374soci',*/
+/*'81159' => 'bollettinodellas78187576soci',
+'104161' => 'bollettinodellas910187778soci',
+//'39661' => 'bollettinodellas1112187980soci',
+'39663' => 'bollettinodellas1218691870soci',
+'39672' => 'bollettinodellas1314188182soci',
+'81230' => 'bollettinodellas3536190304soci',*/
+'39675' => 'bollettinodellas3940190708soci',
+'39682' => 'bollettinodellas4849191617soci'
+);
+
+//$items=array('39661' => 'bollettinodellas1112187980soci');
+
+$items=array(
+'53286' => 'nachrichtsblattd11869deut',
+'51097' => 'nachrichtsblattd21870deut',
+'53271' => 'nachrichtsblattd35187173deut',
+'97106' => 'nachrichtsblattd61874deut',
+'97255' => 'nachrichtsblattd71875deut',
+'97390' => 'nachrichtsblattd81876deut',
+'97149' => 'nachrichtsblattd91877deut',
+'98620' => 'nachrichtsblattd101878deut',
+'97143' => 'nachrichtsblattd111879deut',
+'97144' => 'nachrichtsblattd121880deut',
+'97406' => 'nachrichtsblattd141882deut',
+'97459' => 'nachrichtsblattd151883deut',
+'97105' => 'nachrichtsblattd161884deut',
+'98302' => 'nachrichtsblattd171885deut',
+'97393' => 'nachrichtsblattd181886deut',
+'53278' => 'nachrichtsblattd2024188892deut',
+'53280' => 'nachrichtsblattd2528189396deut',
+'89671' => 'nachrichtsblattd22923141897deut',
+'53275' => 'nachrichtsblattd3234190012deut',
+'53294' => 'nachrichtsblattd3536190314deut',
+'53276' => 'nachrichtsblattd3738190516deut',
+'52190' => 'nachrichtsblattd2392404190718deut',
+'53254' => 'nachrichtsblattd4142190910deut',
+'52191' => 'nachrichtsblattd4344191112deut',
+'52192' => 'nachrichtsblattd4546191314deut',
+'52187' => 'nachrichtsblattd4647191415deut',
+'110238' => 'nachrichtsblattd4648unse',
+'110223' => 'nachrichtsblattd49unse',
+'110221' => 'nachrichtsblattd50unse',
+'110094' => 'nachrichtsblattd51unse'
+);
+
+$items=array('53294' => 'nachrichtsblattd3536190314deut');
+
+$items=array('46743' => 'beschalteweichth00mart');
+
+$items=array('93381' => 'mitteilungenausd118981900muse');
+
+$items=array(
+'28491' => 'bulletinsdelacad2411876acad',
+'107938' => 'mobot31753002103841'
+);
+
+
+$items=array('94899' => 'journalofnatural1191415natur',
+'44847' => 'journalofnatural11natu',
+'44586' => 'journalofnatural02natu',
+'45078' => 'journalofnatural03natu',
+'96506' => 'journalofnatural5192124natu',
+'45111' => 'journalofnatural05natu',
+'96521' => 'journalofnatural4192022natu'
+);
+
+$items=array('116013' => 'cu31924001803299');
+
+$items=array('21268' => 'newgekkonidlizar4413king');
+
+$items=array('126405' => 'proceedingsof54182003cali',
+'126513' => 'proceedingso561172005cali',
+'126494' => 'proceedings5422272003cali',
+'126486' => 'proceedings5526352004cali',
+'126495' => 'proceedings5627372005cali',
+'126496' => 'proceedings5712242006cali',
+'126505' => 'proceedings5725382006cali');
+
+$items=array('111194' => 'philippinejo121917phil');
+
+$items=array(
+/*'108177' => 'philippinejourna21907phi',
+'108191' => 'philippinejourna21907phil',
+'109841' => 'philippinejourna31908phil',
+'111121' => 'philippinejour31908phil',
+'108477' => 'philippinejourna41909phi',
+'107010' => 'philippinejourna41909phil',
+//'107001' => 'philippinejourna51910phil',
+'107499' => 'philippinejourna51910phi',
+'108170' => 'philippinejourn51910phil',*/
+'107005' => 'philippinejourna61911ph',
+'107528' => 'philippinejourna61911phi',
+'107538' => 'philippinejourna61911phil',
+'107004' => 'philippinejourna71912ph',
+'107014' => 'philippinejourna71912phi',
+'108186' => 'philippinejourna71912phil',
+'108774' => 'philippinejourna81913ph',
+'107649' => 'philippinejourna81913phil',
+'108167' => 'philippinejourna81913phi',
+'111325' => 'philippinejourna91914phil',
+'111453' => 'philippinejou91914phil',
+'111865' => 'philippinejo91914phil',
+'111444' => 'philippinejo101915phil',
+'111471' => 'philippinejour101915phil',
+'111658' => 'philippinejourn101915phil',
+'111442' => 'philippinejo111916phil',
+'111191' => 'philippinejou111916phil',
+'110844' => 'philippinejour111916phil',
+//'111194' => 'philippinejo121917phil',
+'111441' => 'philippinejour121917phil',
+'111443' => 'philippinejourn131918phil',
+'111193' => 'philippinejour131918phil',
+'110948' => 'philippinejou131918phil',
+'111290' => 'philippinej110190615phil'
+);
+
+$items=array(
+/*'45825' => 'casopisceskspo12190405cesk',
+'44871' => 'casopisceskspo34190607cesk',
+'45826' => 'casopisceskspo56190809cesk',
+'45806' => 'casopisceskspo78191011cesk',
+'44717' => 'casopisceskspo910191213cesk',*/
+//'51919' => 'casopisceskspo1113191416cesk',
+'44634' => 'casopisceskspo1417191720cesk'
+);
+
+//$items=array('51919' => 'casopisceskspo1113191416cesk');
+
+$items=array('82056' => 'entomologischeze71ento');
+
+$items=array(
+'86837' => 'transactionsmic17ameruoft',
+'84910' => 'transactionsmic32ameruoft',
+'86817' => 'transactionsmic35ameruoft',
+'86816' => 'transactionsmic37ameruoft',
+'84904' => 'transactionsmic38ameruoft',
+'84906' => 'transactionsmic18ameruoft',
+'86839' => 'transactionsmic20ameruoft',
+'86807' => 'transactionsmic22ameruoft',
+'86806' => 'transactionsmic28ameruoft',
+'86973' => 'transactionsmic30ameruoft',
+//'86974' => 'transactionsmic39ameruoft',
+'86836' => 'transactionsmic24ameruoft'
+);
+
+
+//$items=array('86974' => 'transactionsmic39ameruoft');
+/*
+$items=array('121992' => 'reportofcommissi17172unit',
+'53676' => 'reportofcommissi187273unit',
+'30175' => 'reportofcommissi021873unit',
+'18336' => 'reportofcommissi03unit',
+'53736' => 'reportofcommissi187576unit',
+'41891' => 'reportofcommissi51877unit',
+'53724' => 'reportofcommissi1877unit',
+'53735' => 'reportofcommissi1878uniteds',
+'52026' => 'reportofcommissi1879uniteds',
+'41900' => 'reportofcommissi81880unit',
+'53810' => 'reportofcommissi1880unit',
+'41902' => 'reportofcommissi91881unit',
+'41903' => 'reportofcommissi991881unit',
+'53697' => 'reportofcommissi1881unit',
+'53720' => 'reportofcommissi1882unit',
+'41894' => 'reportofcommissi101882unit',
+'96878' => 'reportofcommissi1883unit',
+'53809' => 'reportofcommissi1884unit',
+'41879' => 'reportofcommissi121884unit',
+'41886' => 'reportofcommissi131885unit',
+'53813' => 'reportofcommissi1885uniteds',
+'53819' => 'reportofcommissi1886uniteds',
+'41872' => 'reportofcommissi141886unit',
+'118509' => 'reportofcommissi015unit',
+'111926' => 'reportofcommissi1888unit',
+'41883' => 'reportofcommissi178991unit',
+'88641' => 'reportofcommissi188991unit',
+'41034' => 'reportofcommissi181892unit',
+'53732' => 'reportofcommissi1892unit',
+'53749' => 'reportofcommissi1893unit',
+'41877' => 'reportofcommissi191893unit',
+'53721' => 'reportofcommissi1894unit',
+'52296' => 'reportofcommissi1895unit',
+'40841' => 'reportofcommissi211895unit',
+'53806' => 'reportofcommissi1896unit',
+'53714' => 'reportofcommissi1897unit',
+'40702' => 'reportofcommissi231897unit',
+'40378' => 'reportofcommissi241898unit',
+'83430' => 'reportofcommissi1898unit',
+'54594' => 'reportofcommissi1899unit',
+'112226' => 'reportofcommissi26unit',
+'85125' => 'reportofcommissi1901unit',
+'40710' => 'reportofcommissi271901unit',
+'40371' => 'reportofcommissi281902unit',
+'53726' => 'reportofcommissi1902unit',
+'53648' => 'reportofcommissi1903unit'
+);
+
+$items=array('111926' => 'reportofcommissi1888unit');
+$items=array('118509' => 'reportofcommissi015unit');
+
+$items=array('28614' => 'archiviozoologic01unio',
+'29663' => 'archiviozoologic02unio',
+'103086' => 'archiviozoo3190609unio',
+'28615' => 'archiviozoologic04unio');
+
+$items=array(
+'126837' => 'revuesuissed581951schw',
+'126811' => 'revuesuissedez731966schw',
+'126882' => 'revuesuissede741967schw',
+'126814' => 'revuesuissedez771970schw',
+'126816' => 'revuesuissedez801973schw',
+'126812' => 'revuesuissedezo811974schw'
+);
+
+$items=array('123198' => 'australianzool7701roya');
+
+$items=array(
+//'27172' => 'bulletindelinsti02kebu',
+//'24207' => 'bulletindelinsti12kebu',
+'27207' => 'bulletindelinsti13kebu',
+'27224' => 'bulletindelinsti15kebu',
+'27542' => 'bulletindelinsti17kebu',
+'27173' => 'bulletindelinsti20kebu',
+'27166' => 'bulletindelinsti32kebu',
+'27195' => 'bulletindelinsti34kebu',
+'27171' => 'bulletindelinsti35kebu'
+);
+
+//$items=array('24207' => 'bulletindelinsti12kebu');
+
+$items=array(
+'97056' => 'geologicalmagazi11864wood',
+'96107' => 'geologicalmagazi21865wood',
+'96123' => 'geologicalmagazi31866wood',
+'101219' => 'geologicalmagazi1418wood',
+'101220' => 'geologicalmagazi1618wood',
+'101386' => 'geologicalmagazi1718wood',
+'101380' => 'geologicalmagazi1818wood',
+'101382' => 'geologicalmagazi1918wood',
+'101253' => 'geologicalmagazi11018wood',
+'101248' => 'geologicalmagazi2118wood',
+'101198' => 'geologicalmagazi2218wood',
+'101223' => 'geologicalmagazi2318wood',
+'101381' => 'geologicalmagazi2418wood',
+'101784' => 'geologicalmagazi2518wood',
+'101247' => 'geologicalmagazi2618wood',
+'96695' => 'geologicalmagazi271880wood',
+'101237' => 'geologicalmagazi2818wood',
+'101239' => 'geologicalmagazi29wood',
+'101222' => 'geologicalmagazi210wood',
+'101238' => 'geologicalmagazi3118wood',
+'101458' => 'geologicalmagazi3218wood',
+'101195' => 'geologicalmagazi3318wood',
+'96684' => 'geologicalmagazi341887wood',
+'96096' => 'geologicalmagazi351888wood',
+'96884' => 'geologicalmagazi361889wood',
+'96076' => 'geologicalmagazi371890wood',
+'96114' => 'geologicalmagazi381891wood',
+'96882' => 'geologicalmagazi391892wood',
+'96125' => 'geologicalmagazi3101893wood',
+'96681' => 'geologicalmagazi411894wood',
+'96127' => 'geologicalmagazi421895wood',
+'96075' => 'geologicalmagazi431896wood',
+'96862' => 'geologicalmagazi441897wood',
+'96677' => 'geologicalmagazi451898wood',
+//'101216' => 'geologicalmagazi4618wood',
+'96701' => 'geologicalmagazi471900wood',
+'96685' => 'geologicalmagazi481901wood',
+'96113' => 'geologicalmagazi491902wood',
+'96083' => 'geologicalmagazi4101903wood',
+'96110' => 'geologicalmagazi511904wood',
+'96108' => 'geologicalmagazi521905wood',
+'96885' => 'geologicalmagazi531906wood',
+'96879' => 'geologicalmagazi541907wood',
+'96686' => 'geologicalmagazi551908wood',
+'96883' => 'geologicalmagazi561909wood',
+'96094' => 'geologicalmagazi571910wood',
+'96093' => 'geologicalmagazi581911wood',
+'96105' => 'geologicalmagazi591912wood',
+'97057' => 'geologicalmagazi5101913wood',
+'96164' => 'geologicalmagazi611914wood',
+'96122' => 'geologicalmagazi621915wood',
+'96116' => 'geologicalmagazi631916wood',
+'96078' => 'geologicalmagazi641917wood',
+'96092' => 'geologicalmagazi651918wood',
+'96097' => 'geologicalmagazi661919wood',
+'96118' => 'geologicalmagazi571920wood',
+'97054' => 'geologicalmagazi581921wood',
+'97055' => 'geologicalmagazi591922wood',
+'96074' => 'geologicalmagazi18641903wood'
+);
+
+$items=array('101216' => 'geologicalmagazi4618wood');
+
+$items=array('113947' => 'advancesinherpet00will');
+*/
+
+$items=array(
+'43924' => 'bulletinofzoolog01inte',
+'43930' => 'bulletinofzoolog02inte',
+'43929' => 'bulletinofzoolog03inte',
+'43830' => 'bulletinofzoolog04inte',
+'44284' => 'bulletinofzoolog05inte',
+'44304' => 'bulletinofzoolog06inte',
+'44281' => 'bulletinofzoolog07inte',
+'44286' => 'bulletinofzoolog08inte',
+'44291' => 'bulletinofzoolog09inte',
+'44294' => 'bulletinofzoolog10inte',
+'44292' => 'bulletinofzoolog11inte',
+'44290' => 'bulletinofzoolog12inte',
+'44293' => 'bulletinofzoolog13inte',
+'44295' => 'bulletinofzoolog14inte',
+'44457' => 'bulletinofzoolog15inte',
+'44458' => 'bulletinofzoolog15nome',
+'44303' => 'bulletinofzoolog16inte',
+'44459' => 'bulletinofzoolog17inte',
+'44460' => 'bulletinofzoolog18inte',
+'44461' => 'bulletinofzoolog19inte',
+'44462' => 'bulletinofzoolog20inte',
+'44463' => 'bulletinofzoolog21inte',
+'44464' => 'bulletinofzoolog22inte',
+'44465' => 'bulletinofzoolog23inte',
+'44466' => 'bulletinofzoolog24inte',
+'44467' => 'bulletinofzoolog25inte',
+'44468' => 'bulletinofzoolog26inte',
+'44469' => 'bulletinofzoolog27inte',
+'44470' => 'bulletinofzoolog28inte',
+'44471' => 'bulletinofzoolog29inte',
+'44472' => 'bulletinofzoolog30inte',
+'44473' => 'bulletinofzoolog31inte',
+'44474' => 'bulletinofzoolog32inte',
+'44475' => 'bulletinofzoolog33inte',
+'44476' => 'bulletinofzoolog34inte',
+'44477' => 'bulletinofzoolog35inte',
+'44478' => 'bulletinofzoolog36inte',
+'44479' => 'bulletinofzoolog37inte',
+'44480' => 'bulletinofzoolog38inte',
+'44481' => 'bulletinofzoolog39inte',
+'44482' => 'bulletinofzoolog40inte',
+'44483' => 'bulletinofzoolog41inte',
+'44484' => 'bulletinofzoolog42inte',
+'45868' => 'bulletinofzoolog43inte',
+'44485' => 'bulletinofzoolog44inte',
+'44486' => 'bulletinofzoolog45inte',
+'44487' => 'bulletinofzoolog46inte',
+'44488' => 'bulletinofzoolog47inte',
+'44489' => 'bulletinofzoolog48inte',
+'44490' => 'bulletinofzoolog49inte',
+'44546' => 'bulletinofzoolog50inte',
+'44552' => 'bulletinofzoolog51inte',
+'44798' => 'bulletinofzoolog52inte',
+'44548' => 'bulletinofzoolog53inte',
+'45039' => 'bulletinofzoolog54inte',
+'45027' => 'bulletinofzoolog55inte',
+'45032' => 'bulletinofzoolog56inte',
+'45022' => 'bulletinofzoolog57inte',
+'105441' => 'bulletinofzoolog58inte',
+'107013' => 'bulletinofzoolog592002int',
+'107012' => 'bulletinofzoolog602003int',
+'107002' => 'bulletinofzoolo612004inte',
+'107011' => 'bulletinofzoolog622005int',
+'107000' => 'bulletinofzoolog632006int',
+'107007' => 'bulletinofzoolo642007inte'
+);
+
+$items=array('21973' => 'novitateszoologi14lond');
+
+$items=array('87652' => 'actesdelasocilin4490soci');
+
+$items=array(
+'18790' => 'jahrbcherdesna2526nass',
+'22067' => 'jahrbcherdesna2728nass',
+'23124' => 'jahrbcherdesna2930nass',
+'22049' => 'jahrbcherdesna3132nass',
+'22074' => 'jahrbcherdesna37nass',
+'22070' => 'jahrbcherdesna38nass',
+'22046' => 'jahrbcherdesna39nass',
+'22078' => 'jahrbcherdesna40nass',
+'31712' => 'jahrbcherdesna41nass',
+'31509' => 'jahrbcherdesna42nass',
+'31406' => 'jahrbcherdesna43nass',
+'31716' => 'jahrbcherdesna44nass',
+'31714' => 'jahrbcherdesna45nass',
+'32716' => 'jahrbcherdesna46nass',
+'22079' => 'jahrbcherdesna47nass',
+'22077' => 'jahrbcherdesna48nass',
+'22066' => 'jahrbcherdesna50nass',
+'31707' => 'jahrbcherdesna51nass',
+'31474' => 'jahrbcherdesna52nass',
+'22062' => 'jahrbcherdesna53nass',
+'28114' => 'jahrbcherdesna54anass',
+'22030' => 'jahrbcherdesna55nass',
+'28029' => 'jahrbcherdesna56anass',
+'22075' => 'jahrbcherdesna57nass',
+'24101' => 'jahrbcherdesna58nass',
+'28004' => 'jahrbcherdesna59anass',
+'28009' => 'jahrbcherdesna60anass',
+'28017' => 'jahrbcherdesna61anass',
+'28043' => 'jahrbcherdesna62anass',
+'31709' => 'jahrbcherdesna63nass',
+'31711' => 'jahrbcherdesna64nass',
+'22041' => 'jahrbcherdesna65nass',
+'22048' => 'jahrbcherdesna66nass',
+'31477' => 'jahrbcherdesna67nass',
+'31705' => 'jahrbcherdesna68nass',
+'30341' => 'jahrbcherdesna69nass'
+);
+
+$items=array('31705' => 'jahrbcherdesna68nass');
+
+$items=array(
+'33052' => 'jahresheftedesve00vere',
+'33511' => 'jahresheftedesve08vere',
+'33508' => 'jahresheftedesve09vere',
+'33514' => 'jahresheftedesve10vere',
+'33540' => 'jahresheftedesve11vere',
+'33518' => 'jahresheftedesve12vere',
+'33410' => 'jahresheftedesve13vere',
+'33510' => 'jahresheftedesve14vere',
+'33461' => 'jahresheftedesve15vere',
+'33441' => 'jahresheftedesve16vere',
+'35797' => 'jahresheftedesve17vere',
+'35610' => 'jahresheftedesve18vere',
+'35758' => 'jahresheftedesve20vere',
+'33053' => 'jahresheftedesve21vere',
+'33471' => 'jahresheftedesve22vere',
+'35604' => 'jahresheftedesve23vere',
+'35770' => 'jahresheftedesve24vere',
+'42733' => 'jahresheftedesve25staa',
+'98101' => 'jahresheftedesve26vere',
+'43843' => 'jahresheftedesve27vere',
+'42582' => 'jahresheftedesve27staa',
+'43467' => 'jahresheftedesve28vere',
+'35812' => 'jahresheftedesve29vere',
+'35627' => 'jahresheftedesve30vere',
+'35791' => 'jahresheftedesve31vere',
+'42226' => 'jahresheftedesve32staa',
+'35581' => 'jahresheftedesve33vere',
+'35765' => 'jahresheftedesve34vere',
+'33500' => 'jahresheftedesve36vere',
+'42166' => 'jahresheftedesve38staa',
+'43698' => 'jahresheftedesve38vere',
+'33486' => 'jahresheftedesve39vere',
+'35802' => 'jahresheftedesve40vere',
+'33069' => 'jahresheftedesve41vere',
+'35768' => 'jahresheftedesve42vere',
+'35796' => 'jahresheftedesve43vere',
+'35766' => 'jahresheftedesve44vere',
+'35779' => 'jahresheftedesve45vere',
+'42623' => 'jahresheftedesve46staa',
+'43715' => 'jahresheftedesve46vere',
+'42487' => 'jahresheftedesve47staa',
+'43475' => 'jahresheftedesve47vere',
+'33353' => 'jahresheftedesve48vere',
+'33498' => 'jahresheftedesve49vere',
+'42646' => 'jahresheftedesve50staa',
+'33355' => 'jahresheftedesve51vere',
+'33414' => 'jahresheftedesve52vere',
+'33438' => 'jahresheftedesve53vere',
+'33443' => 'jahresheftedesve54vere',
+'32660' => 'jahresheftedesve55vere',
+'33076' => 'jahresheftedesve56vere',
+'42524' => 'jahresheftedesve57staa',
+'42683' => 'jahresheftedesve58staa',
+'36060' => 'jahresheftedesve59vere',
+'35822' => 'jahresheftedesve60vere',
+'35828' => 'jahresheftedesve61vere',
+'33679' => 'jahresheftedesve62vere',
+'33517' => 'jahresheftedesve63vere',
+'33516' => 'jahresheftedesve64vere',
+'114392' => 'jahresheftedesve65vere',
+'114391' => 'jahresheftedesve66vere',
+'114202' => 'jahresheftedesve67vere',
+'114213' => 'jahresheftedesve68vere',
+'114050' => 'jahresheftedesve69vere',
+'114096' => 'jahresheftedesve70vere',
+'114094' => 'jahresheftedesve71vere',
+'114080' => 'jahresheftedesve72vere',
+'114074' => 'jahresheftedesve73vere',
+'114218' => 'jahresheftedesve74vere',
+'114197' => 'jahresheftedesve75vere',
+'114082' => 'jahresheftedesve76vere',
+'114083' => 'jahresheftedesve77vere',
+'114079' => 'jahresheftedesve78vere',
+'113954' => 'jahresheftedesve8414vere'
+);
+
+$items=array('33679' => 'jahresheftedesve62vere');
+
+$items=array(
+'48692' => 'archivfrnaturg01berl',
+'27085' => 'archivfrnaturges21berl',
+'48150' => 'archivfrnaturg03berl',
+'27083' => 'archivfrnaturges32berl',
+'19870' => 'archivfrnaturg04berl',
+'48596' => 'archivfrnaturg05berl',
+'80120' => 'archivfrnaturg01tipp',
+'80241' => 'archivfrnaturg02tipp',
+'31587' => 'archivfrnaturg0601berl',
+'31519' => 'archivfrnaturg0602berl',
+'19888' => 'archivfrnaturg07berl',
+'37514' => 'archivfrnaturg71berl',
+'37519' => 'archivfrnaturg72berl',
+'48597' => 'archivfrnaturg08arch',
+'30709' => 'archivfrnaturg0801berl',
+'31497' => 'archivfrnaturg0802berl',
+'48693' => 'archivfrnaturg43berl',
+'48694' => 'archivfrnaturg44berl',
+'31399' => 'archivfrnaturg1001berl',
+'37486' => 'archivfrnaturg101berl',
+'37516' => 'archivfrnaturg102berl',
+'51219' => 'archivfrnaturg45berl',
+'30279' => 'archivfrnaturg1101berl',
+'42061' => 'archivfrnaturg1102berl',
+'48695' => 'archivfrnaturg46berl',
+'51238' => 'archivfrnaturg47berl',
+'31687' => 'archivfrnaturg1301berl',
+'31686' => 'archivfrnaturg1302berl',
+'48687' => 'archivfrnaturg48berl',
+'31110' => 'archivfrnaturg1401berl',
+'31111' => 'archivfrnaturg1402berl',
+'48696' => 'archivfrnaturg49berl',
+'51061' => 'archivfrnaturg50berl',
+'31180' => 'archivfrnaturg1601berl',
+'31186' => 'archivfrnaturg1602berl',
+'48697' => 'archivfrnaturg51berl',
+'31176' => 'archivfrnaturg1702berl',
+'48698' => 'archivfrnaturg52berl',
+'31352' => 'archivfrnaturg1801berl',
+'31191' => 'archivfrnaturg1802berl',
+'19835' => 'archivfrnaturg19berl',
+'31364' => 'archivfrnaturg1901berl',
+'31366' => 'archivfrnaturg1902berl',
+'31374' => 'archivfrnaturg2001berl',
+'31368' => 'archivfrnaturg2002berl',
+'30559' => 'archivfrnaturg2101berl',
+'31197' => 'archivfrnaturg2102berl',
+'48690' => 'archivfrnaturg56berl',
+'31392' => 'archivfrnaturg2201berl',
+'31380' => 'archivfrnaturg2202berl',
+'19883' => 'archivfrnaturg23berl',
+'31530' => 'archivfrnaturg2301berl',
+'31502' => 'archivfrnaturg2302berl',
+'48716' => 'archivfrnaturg58berl',
+'32254' => 'archivfrnaturg2401berl',
+'31358' => 'archivfrnaturg2402berl',
+'48717' => 'archivfrnaturg59berl',
+'30598' => 'archivfrnaturg2501berl',
+'31350' => 'archivfrnaturg2502berl',
+'48718' => 'archivfrnaturg60berl',
+'31507' => 'archivfrnaturg2601berl',
+'30708' => 'archivfrnaturg2602berl',
+'31340' => 'archivfrnaturg2701berl',
+'31344' => 'archivfrnaturg2702berl',
+'31514' => 'archivfrnaturg2801berl',
+'31518' => 'archivfrnaturg2802berl',
+'31367' => 'archivfrnaturg2901berl',
+'31357' => 'archivfrnaturg2902berl',
+'30597' => 'archivfrnaturg3001berl',
+'31345' => 'archivfrnaturg3002berl',
+'31586' => 'archivfrnaturg3101berl',
+'30844' => 'archivfrnaturg3102berl',
+'31351' => 'archivfrnaturg3201berl',
+'31349' => 'archivfrnaturg3202berl',
+'31347' => 'archivfrnaturg3301berl',
+'31355' => 'archivfrnaturg3302berl',
+'30599' => 'archivfrnaturg3401berl',
+'31361' => 'archivfrnaturg3402berl',
+'31346' => 'archivfrnaturg3501berl',
+'31348' => 'archivfrnaturg3502berl',
+'31389' => 'archivfrnaturg3601berl',
+'31354' => 'archivfrnaturg3602berl',
+'30468' => 'archivfrnaturg3701berl',
+'29417' => 'archivfrnaturg3702berl',
+'30104' => 'archivfrnaturg3801berl',
+'29674' => 'archivfrnaturg3802berl',
+'30120' => 'archivfrnaturg3901berl',
+'29989' => 'archivfrnaturg3902berl',
+'29638' => 'archivfrnaturg4001berl',
+'29754' => 'archivfrnaturg4002berl',
+'30163' => 'archivfrnaturg4101berl',
+'30125' => 'archivfrnaturg4102berl',
+'29782' => 'archivfrnaturg4202berl',
+'30123' => 'archivfrnaturg4301berl',
+'30002' => 'archivfrnaturg4302berl',
+'30132' => 'archivfrnaturg4401berl',
+'29997' => 'archivfrnaturg4402berl',
+'30156' => 'archivfrnaturg4501berl',
+'30283' => 'archivfrnaturg4502berl',
+'30001' => 'archivfrnaturg4601berl',
+'30008' => 'archivfrnaturg4602berl',
+'30109' => 'archivfrnaturg4701berl',
+'30003' => 'archivfrnaturg4702berl',
+'30278' => 'archivfrnaturg4801berl',
+'30000' => 'archivfrnaturg4802berl',
+'30229' => 'archivfrnaturg4901berl',
+'30006' => 'archivfrnaturg4902berl',
+'30238' => 'archivfrnaturg5001berl',
+'30241' => 'archivfrnaturg5002berl',
+'29987' => 'archivfrnaturg5101berl',
+'29778' => 'archivfrnaturg5102berl',
+'30105' => 'archivfrnaturg5201berl',
+'29777' => 'archivfrnaturg5202berl',
+'30111' => 'archivfrnaturg5301berl',
+'30099' => 'archivfrnaturg5302berl',
+'29781' => 'archivfrnaturg5401berl',
+'30488' => 'archivfrnaturg5402berl',
+'29775' => 'archivfrnaturg5501berl',
+'30098' => 'archivfrnaturg5502berl',
+'30140' => 'archivfrnaturg5601berl',
+'30112' => 'archivfrnaturg5602berl',
+'30145' => 'archivfrnaturg5701berl',
+'30108' => 'archivfrnaturg5702berl',
+'30121' => 'archivfrnaturg5801berl',
+'30102' => 'archivfrnaturg5802berl',
+'30165' => 'archivfrnaturg5901berl',
+'30152' => 'archivfrnaturg5902berl',
+'30167' => 'archivfrnaturg6001berl',
+'30148' => 'archivfrnaturg6002berl',
+'47791' => 'archivfrnaturg1895berl',
+'47785' => 'archivfrnaturg61223berl',
+'49909' => 'archivfrnaturg1896berl',
+'47788' => 'archivfrnaturg62223berl',
+'49911' => 'archivfrnaturg1897berl',
+'47790' => 'archivfrnaturg97berl',
+'49922' => 'archivfrnaturg98berl',
+'47789' => 'archivfrnaturg89berl',
+'52204' => 'archivfrnaturg0165berl',
+'49761' => 'archivfrnaturg0265berl',
+'49760' => 'archivfrnaturg0166berl',
+'49771' => 'archivfrnaturg0266berl',
+'49768' => 'archivfrnaturg0167berl',
+'49775' => 'archivfrnaturg0267berl',
+'49751' => 'archivfrnaturg0367berl',
+'52099' => 'archivfrnaturg6801berl',
+'49797' => 'archivfrnaturg6803berl',
+'51975' => 'archivfrnaturg02berl',
+'49767' => 'archivfrnaturg6802berl',
+'52102' => 'archivfrnaturg6901berl',
+'49780' => 'archivfrnaturg6902berl',
+'49773' => 'archivfrnaturg6903berl',
+'52092' => 'archivfrnaturg7001berl',
+'49769' => 'archivfrnaturg7002berl',
+'49772' => 'archivfrnaturg7003berl',
+'52112' => 'archivfrnaturg7101berl',
+'49782' => 'archivfrnaturg7102berl',
+'49774' => 'archivfrnaturg7103berl',
+'52113' => 'archivfrnaturg7201berl',
+'49764' => 'archivfrnaturg7202berl',
+'49798' => 'archivfrnaturg7203berl',
+'52203' => 'archivfrnaturg7301berl',
+'49788' => 'archivfrnaturg7302berl',
+'52184' => 'archivfrnaturg7401berl',
+'50304' => 'archivfrnaturg7402berl',
+'50493' => 'archivfrnaturg7403berl',
+'52202' => 'archivfrnaturg7501berl',
+'50503' => 'archivfrnaturg7502berl',
+'50496' => 'archivfrnaturg7503berl',
+'50500' => 'archivfrnaturg7601berl',
+'50495' => 'archivfrnaturg7623berl',
+'50497' => 'archivfrnaturg7604berl',
+'50504' => 'archivfrnaturg7605berl',
+'52219' => 'archivfrnaturg7701berl',
+'50492' => 'archivfrnaturg7703berl',
+'50494' => 'archivfrnaturg7702berl',
+'19858' => 'archivfrnaturg00berl',
+'29779' => 'archivfrnaturg2960berl'
+);
+
+$items=array('52219' => 'archivfrnaturg7701berl');
+
+$items=array('84829' => 'revistaargentina01ameguoft');
+
+$items=array('29067' => 'deutschesdpola10deut');
+
+$items=array(
+//'33730' => 'nytmagazinfornat02phys',
+//'34007' => 'nytmagazinfornat03phys',
+'35678' => 'nytmagazinfornat04phys',
+'36498' => 'nytmagazinfornat05phys',
+'33948' => 'nytmagazinfornat06phys',
+'33947' => 'nytmagazinfornat07phys',
+'36518' => 'nytmagazinfornat10phys',
+'33726' => 'nytmagazinfornat12phys',
+'33725' => 'nytmagazinfornat13phys',
+'35714' => 'nytmagazinfornat14phys',
+'33724' => 'nytmagazinfornat15phys',
+'35676' => 'nytmagazinfornat16phys',
+'35715' => 'nytmagazinfornat17phys',
+'33945' => 'nytmagazinfornat18phys',
+'111224' => 'nytmagazinforna191873phys',
+'33946' => 'nytmagazinfornat20phys',
+'111321' => 'nytmagazinforna211876phys',
+'37037' => 'nytmagazinfornat22phys',
+'111294' => 'nytmagazinforna231877phys',
+'37034' => 'nytmagazinfornat24phys',
+'109635' => 'nytmagazinfornat26phys',
+'109438' => 'nytmagazinfornat27phys',
+'109437' => 'nytmagazinfornat28phys',
+'109433' => 'nytmagazinfornat29phys',
+'109440' => 'nytmagazinfornat30phys',
+'109432' => 'nytmagazinfornat31phys',
+'109298' => 'nytmagazinfornat32phys',
+'109222' => 'nytmagazinfornat33phys',
+'111235' => 'nytmagazinfor35189394phys',
+'109300' => 'nytmagazinfornat36phys',
+'109302' => 'nytmagazinfornat37phys',
+'109434' => 'nytmagazinfornat38phys',
+'109435' => 'nytmagazinfornat39phys',
+'109237' => 'nytmagazinfornat40phys',
+'109223' => 'nytmagazinfornat41phys',
+'109224' => 'nytmagazinfornat42phys',
+'109299' => 'nytmagazinfornat43phys',
+'109306' => 'nytmagazinfornat44phys',
+'109304' => 'nytmagazinfornat45phys',
+'109225' => 'nytmagazinfornat46phys',
+'109305' => 'nytmagazinfornat47phys',
+//'109308' => 'nytmagazinfornat48phys',
+'109303' => 'nytmagazinfornat49phys',
+'109238' => 'nytmagazinfornat50phys',
+'109439' => 'nytmagazinfornat51phys',
+'109436' => 'nytmagazinfornat52phys',
+'109226' => 'nytmagazinfornat53phys',
+'109301' => 'nytmagazinfornat54phys',
+'109239' => 'nytmagazinfornat56phys',
+'109297' => 'nytmagazinfornat57phys',
+'109293' => 'nytmagazinfornat58phys',
+'109292' => 'nytmagazinfornat59phys',
+'109307' => 'nytmagazinfornat60phys'
+);
+
+//$items=array('109308' => 'nytmagazinfornat48phys');
+
+$items=array(
+/*'21624' => 'journalofhymenoptera03inte',
+'22978' => 'journalofhymenopinte',
+'21556' => 'journalofhymenop09inte',
+'21558' => 'journalofhymenop12n1inte',
+'21356' => 'journalofhymenop12n2inte',
+'21412' => 'journalofhymenop13n1inte',
+'20827' => 'journalofhymenop13n2inte',
+'21201' => 'journalofhymenopt14',
+'21200' => 'journalofhymen14',
+'20828' => 'journalofhymenop00inte',
+'20511' => 'journalofhymenop15',
+'21358' => 'journalofhymenop16n1inte',
+'20513' => 'journalofhymen16n2inte',*/
+'109365' => 'journalofhymen1712008inte',
+'109442' => 'journalofhymen1722008inte',
+'109446' => 'journalofhymen1812009inte',
+'109510' => 'journalofhymen1822009inte',
+'109570' => 'journalofhymen1912010inte',
+'109445' => 'journalofhymen1922010inte',
+'26140' => 'journalofhymenop12199293inte',
+'26143' => 'journalofhymenop56199697inte'/*,
+'26141' => 'journalofhymenop78199899inte',
+'21557' => 'journalofhymenop10'*/
+);
+
+$items=array(
+'127022' => 'annalsofsouthafr27192sout',
+'127019' => 'annalsofsoutha331939sout',
+'126965' => 'annalsofsoutha341938sout',
+'126964' => 'annalsofsoutha351956sout',
+'126992' => 'annalsofsoutha381950sout',
+'127018' => 'annalsofsoutha391952sout',
+'126862' => 'annalsofsouthafr28192sout',
+'126995' => 'annalsofsouthafr30193sout',
+'127013' => 'annalsofsouthafr37194sout',
+'127016' => 'annalsofsouthafr4019sout',
+'127017' => 'annalsofsouthafr41195sout',
+'127015' => 'annalsofsouthafr4319sout',
+'127012' => 'annalsofsouthafr44195sout',
+'127020' => 'annalsofsouthafr4519sout',
+'127021' => 'annalsofsouthafr4619sout',
+'126993' => 'annalsofsoutha4719637sout',
+'126994' => 'annalsofsouthaf861981sout',
+'126582' => 'annalsofsouthafr90198sout'
+);
+
+$items=array('17701' => 'proceedingsofaca27acad');
+
+$items=array('31033' => 'trematodesofpaci00prat');
+
+$items = array('31480' => 'ergebnissederind01bhens',
+'18752' => 'ergebnissederind01hens',
+'18652' => 'ergebnissederind021893hens',
+'18632' => 'ergebnissederind021894hens',
+'18677' => 'ergebnissederind021895hens',
+'23598' => 'ergebnissederind191202hens',
+'18705' => 'ergebnissederind02ahens',
+'18732' => 'ergebnissederind02fchens',
+'18714' => 'ergebnissederind02fdhens',
+'18699' => 'ergebnissederind02fehens',
+'18616' => 'ergebnissederind021897hens',
+'18716' => 'ergebnissederind02bhens',
+'18719' => 'ergebnissederind02dhens',
+'18654' => 'ergebnissederind02gchens',
+'18754' => 'ergebnissederind021899hens',
+'18609' => 'ergebnissederind02gehens',
+'18715' => 'ergebnissederind02gghens',
+'18694' => 'ergebnissederind02hbhens',
+'18696' => 'ergebnissederind02hchens',
+'18688' => 'ergebnissederind02hdhens',
+'18717' => 'ergebnissederind021911hens',
+'18753' => 'ergebnissederind021896hens',
+'18723' => 'ergebnissederind02chens',
+'18713' => 'ergebnissederind02ehens',
+'18604' => 'ergebnissederind02kbhens',
+'18661' => 'ergebnissederind02fhens',
+'18735' => 'ergebnissederind021898hens',
+'23868' => 'ergebnissederind03ahens',
+'18706' => 'ergebnissederind031909hens',
+'18672' => 'ergebnissederind031913hens',
+'18653' => 'ergebnissederind03bhens',
+'18666' => 'ergebnissederind031906hens',
+'18600' => 'ergebnissederind03lhhens',
+'18603' => 'ergebnissederind03hens',
+'18728' => 'ergebnissederind031922hens',
+'18682' => 'ergebnissederind03lh3hens',
+'18697' => 'ergebnissederind03lh4hens',
+'18651' => 'ergebnissederind03lh5hens',
+'18763' => 'ergebnissederind03lh6hens',
+'18663' => 'ergebnissederind03lh7hens',
+'18671' => 'ergebnissederind03lh8hens',
+'18624' => 'ergebnissederind03chens',
+'18665' => 'ergebnissederind031910hens',
+'18698' => 'ergebnissederind03lh11hens',
+'18708' => 'ergebnissederind03lh12hens',
+'18766' => 'ergebnissederind04maahens',
+'18764' => 'ergebnissederind04mchens',
+'18718' => 'ergebnissederind04hens',
+'18605' => 'ergebnissederind04nhens'
+);
+
+$items=array('18716' => 'ergebnissederind02bhens');
+
+$items=array('109985' => 'iheringia1998fund');
+
+$items = array('95661' => 'canadianentomolo1186869ento');
+
+$items=array('32790' => 'transactionsofam7187879amer',
+'32436' => 'transactionsofam81880amer',
+'32798' => 'transactionsofam9188182amer',
+'32792' => 'transactionsofam10188283amer',
+'31939' => 'transactionsofam111884amer',
+'32307' => 'transactionsofam121885amer',
+'32291' => 'transactionsofam131886amer',
+'32293' => 'transactionsofam141887amer',
+'32382' => 'transactionsofam151888amer',
+'32308' => 'transactionsofam161888amer');
+
+$items=array(
+'127106' => 'annalsofsoutha291929sout',
+'127104' => 'annalsofsoutha311934sout',
+'127105' => 'annalsofsouthafr32193sout',
+'127101' => 'annalsofsouthafr36194sout',
+'127102' => 'annalsofsouthafr4219sout'
+);
+
+$items=array(
+'127049' => 'bulletinofnatura651natu',
+'127086' => 'bulletinofnatura652natu',
+'127088' => 'bulletinofnatura661natu',
+'127087' => 'bulletinofnatura662natu',
+'127089' => 'bulletinofnatura671natu',
+'127090' => 'bulletinofnatura672natu',
+'127091' => 'bulletinofnatura681natu',
+'127094' => 'bulletinofnatura682natu',
+'127092' => 'bulletinofnatura691natu',
+'127093' => 'bulletinofnatura692natu',
+'127037' => 'bulletinofnatura701natu',
+'127096' => 'bulletinofnatura702natu',
+'127032' => 'bulletinofnatura711natu',
+'127103' => 'bulletinofnatura712natu'
+);
+
+$items=array(
+/*'126872' => 'bulletinofbritis81brit',*/
+'126998' => 'bulletinofbritis82brit',
+'126838' => 'bulletinofbritis83brit',
+'126839' => 'bulletinofbritis84brit',
+'126842' => 'bulletinofbritis85brit',
+'126843' => 'bulletinofbritis86brit',
+'126875' => 'bulletinofbritis100brit',
+'127064' => 'bulletinofbritis1261brit',
+'127046' => 'bulletinofbritis1262brit',
+'127082' => 'bulletinofbritis1263brit',
+'127047' => 'bulletinofbritis1264brit',
+'127045' => 'bulletinofbritis1271brit',
+'127044' => 'bulletinofbritis1272brit',
+'127048' => 'bulletinofbritis1273brit',
+'127065' => 'bulletinofbritis1274brit',
+'126845' => 'bulletinofbritis8788brit',
+'126847' => 'bulletinofbritis8990brit',
+'126873' => 'bulletinofbritis9192brit',
+'126880' => 'bulletinofbritis9395brit',
+'126874' => 'bulletinofbritis9697brit',
+'126876' => 'bulletinofbritis9899brit',
+'126877' => 'bulletinofbritis101102bri'
+);
+
+$items=array(
+'36003' => 'ezhegodnik01zool',
+'35244' => 'ezhegodnik02zool',
+'120817' => 'ezhegodnikzoolog18972impe',
+'120818' => 'ezhegodnikzoolog18973impe',
+'35243' => 'ezhegodnik03zool',
+'122172' => 'ezhegodnikzoolog11898impe',
+'120819' => 'ezhegodnikzoolog18982impe',
+'121133' => 'ezhegodnikzoolo189834impe',
+'34426' => 'ezhegodnik04zool',
+'120820' => 'ezhegodnikzoolog18991impe',
+'120836' => 'ezhegodnikzoolog18992impe',
+'120835' => 'ezhegodnikzoolog18994impe',
+'35242' => 'ezhegodnik05zool',
+'121137' => 'ezhegodnikzool1900512impe',
+'120816' => 'ezhegodnikzoolo190053impe',
+'122312' => 'ezhegodnikzoolo190054impe',
+'36237' => 'ezhegodnik06zool',
+'121132' => 'ezhegodnikzoolo641901impe',
+'35273' => 'ezhegodnik07zool',
+'121129' => 'ezhegodnikzool7121902impe',
+'34427' => 'ezhegodnik08zool',
+'121134' => 'ezhegodnikzool8341903impe',
+'37023' => 'ezhegodnik09zool',
+'120810' => 'ezhegodnikzoolo931904impe',
+'35257' => 'ezhegodnik10zool',
+'120844' => 'ezhegodnikzoo10121905impe',
+'121130' => 'ezhegodnikzoo10341905impe',
+'35241' => 'ezhegodnik11zool',
+'120815' => 'ezhegodnikzoolo111906impe',
+'121131' => 'ezhegodnikzoolog1906impe',
+'36241' => 'ezhegodnik12zool',
+'121138' => 'ezhegodnikzool1211907impe',
+'120814' => 'ezhegodnikzool1221907impe',
+'120813' => 'ezhegodnikzool1231907impe',
+'37010' => 'ezhegodnik13zool',
+'36240' => 'ezhegodnik14zool',
+'33796' => 'ezhegodnik15zool',
+'34698' => 'ezhegodnik16zool',
+'34810' => 'ezhegodnik17zool',
+'34819' => 'ezhegodnik18zool',
+'121128' => 'ezhegodnikzoolog1913impe',
+'105349' => 'ezhegodnik191914zool',
+'111673' => 'ezhegodnikzool201916impe',
+'34699' => 'ezhegodnik21zool',
+'34689' => 'ezhegodnik22zool',
+'34691' => 'ezhegodnik23zool'
+);
+
+$items=array('36241' => 'ezhegodnik12zool');
+
+$items=array('49101' => 'quarterlyjournal268586lond',
+'51050' => 'quarterlyjournalplates268586lond');
+
+$items=array(/*'113677' => 'zoologiskabidrag21913upps',
+'120026' => 'zoologiskabidrag51917upps',
+'113700' => 'zoologiskabidrag61918upps',*/
+'113699' => 'zoologiskabidrag71921upps',
+'121926' => 'zoologiskabidr1191112upps',
+'113675' => 'zoologiskabidrag3419upps');
+
+
+$items=array(
+/*'84736' => 'proceedingsofaca01acaduoft',
+'17886' => 'proceedingsofaca01acad',
+'84725' => 'proceedingsofaca02acaduoft',
+'30491' => 'proceedingsofaca02acad',
+'84755' => 'proceedingsofaca03acaduoft',
+'17669' => 'proceedingsofaca03acad',
+'84785' => 'proceedingsofaca04acaduoft',
+'28006' => 'proceedingsofacad04acad',
+'84765' => 'proceedingsofaca05acaduoft',
+'17633' => 'proceedingsofaca05acad',
+'17888' => 'proceedingsofaca06acad',
+'84761' => 'proceedingsofac07acaduoft',
+'17735' => 'proceedingsofaca07acad',
+'84770' => 'proceedingsofaca08acaduoft',
+'18246' => 'proceedingsofaca08acad',
+'84745' => 'proceedingsofaca09acaduoft',
+'30013' => 'proceedingsofaca09acad',
+'84743' => 'proceedingsofaca10acaduoft',
+'84784' => 'proceedingsofaca11acaduoft',*/
+'17656' => 'proceedingsofaca11acad',
+'84757' => 'proceedingsofac12acaduoft',
+'17942' => 'proceedingsofaca12acad',
+'84787' => 'proceedingsofaca13acaduoft',
+'17713' => 'proceedingsofaca13acad',
+'84865' => 'proceedingsofaca24acaduoft',
+'18281' => 'proceedingsofaca14acad',
+'84759' => 'proceedingsofaca15acaduoft',
+'18294' => 'proceedingsofaca15acad',
+'84864' => 'proceedingsofaca16acaduoft',
+'18264' => 'proceedingsofaca16acad',
+'84739' => 'proceedingsofaca17acaduoft',
+'17711' => 'proceedingsofaca17acad',
+'84896' => 'proceedingsofaca18acaduoft',
+'18061' => 'proceedingsofaca18acad',
+'84741' => 'proceedingsofaca19acaduoft',
+'17695' => 'proceedingsofaca19acad',
+'84776' => 'proceedingsofaca20acaduoft',
+'37631' => 'proceedingsofaca6820acad',
+'30466' => 'proceedingsofaca21acad',
+'84763' => 'actaamazonica22brazuoft',
+'18247' => 'proceedingsofaca22acad',
+'28117' => 'proceedingsofacad23acad',
+'84756' => 'proceedingsofaca14acaduoft',
+'17733' => 'proceedingsofaca24acad',
+'84729' => 'proceedingsofaca25acaduoft',
+'18312' => 'proceedingsofaca25acad',
+'84867' => 'proceedingsofaca26acaduoft',
+'17720' => 'proceedingsofaca26acad',
+'84775' => 'proceedingsofaca27acaduoft',
+'17701' => 'proceedingsofaca27acad',
+'84760' => 'proceedingsofaca28acaduoft',
+'18295' => 'proceedingsofaca28acad',
+'84777' => 'proceedingsofaca29acaduoft',
+'18262' => 'proceedingsofaca29acad',
+'84781' => 'proceedingsofaca30acaduoft',
+'18270' => 'proceedingsofaca30acad',
+'84742' => 'proceedingsofaca31acaduoft',
+'17663' => 'proceedingsofaca31acad',
+'84758' => 'proceedingsofaca32acaduoft',
+'28115' => 'proceedingsofacad32acad',
+'84857' => 'proceedingsofaca33acaduoft',
+'30732' => 'proceedingsofaca33acad',
+'84886' => 'proceedingsofaca34acaduoft',
+'17635' => 'proceedingsofaca34acad',
+'84724' => 'proceedingsofaca35acaduoft',
+'30122' => 'proceedingsofaca35acad',
+'84723' => 'proceedingsofaca36acaduoft',
+'30124' => 'proceedingsofaca36acad',
+'84768' => 'proceedingsofaca37acaduoft',
+'30490' => 'proceedingsofaca37acad',
+'84754' => 'proceedingsofaca38acaduoft',
+'17721' => 'proceedingsofaca38acad',
+'84767' => 'proceedingsofaca39acaduoft',
+'17717' => 'proceedingsofaca39acad',
+'84737' => 'proceedingsofaca40acaduoft',
+'18307' => 'proceedingsofaca40acad',
+'18039' => 'proceedingsofaca41acad',
+'84858' => 'proceedingsofaca42acaduoft',
+'30128' => 'proceedingsofaca42acad',
+'84859' => 'proceedingsofaca43acaduoft',
+'84884' => 'proceedingsofaca44acaduoft',
+'17664' => 'proceedingsofaca44acad',
+'84874' => 'proceedingsofaca45acaduoft',
+'17606' => 'proceedingsofaca45acad',
+'84746' => 'proceedingsofaca46acaduoft',
+'18073' => 'proceedingsofaca46acad',
+'84804' => 'proceedingsofaca47acaduoft',
+'18330' => 'proceedingsofaca47acad',
+'84880' => 'proceedingsofaca48acaduoft',
+'17698' => 'proceedingsofaca48acad',
+'84733' => 'proceedingsofaca49acaduoft',
+'18049' => 'proceedingsofaca49acad',
+'84881' => 'proceedingsofaca50acaduoft',
+'17645' => 'proceedingsofaca50acad',
+'84762' => 'proceedingsofaca51acaduoft',
+'30127' => 'proceedingsofaca51acad',
+'79452' => 'proceedingsofaca52acaduoft',
+'84744' => 'proceedingsofaca53acaduoft',
+'38485' => 'proceedingsofaca0153acad',
+'79429' => 'proceedingsofaca54acaduoft',
+'39540' => 'proceedingsofaca54acad',
+'84790' => 'proceedingsofaca55acaduoft',
+'30485' => 'proceedingsofaca55acad',
+'84792' => 'proceedingsofaca56acaduoft',
+'30096' => 'proceedingsofaca56acad',
+'84750' => 'proceedingsofaca57acaduoft',
+'30015' => 'proceedingsofaca57acad',
+'79482' => 'proceedingsofaca58acaduoft',
+'30129' => 'proceedingsofaca58acad',
+'79427' => 'proceedingsofaca59acaduoft',
+'38138' => 'proceedingsofaca59acad',
+'79152' => 'proceedingsofaca60acaduoft',
+'30138' => 'proceedingsofaca60acad',
+'84740' => 'proceedingsofaca61acaduoft',
+'17974' => 'proceedingsofaca61acad',
+'84751' => 'proceedingsofaca62acaduoft',
+'28143' => 'proceedingsofacad62acad',
+'84732' => 'proceedingsofaca63acaduoft',
+'17738' => 'proceedingsofaca63acad',
+'17736' => 'proceedingsofaca64acad',
+'17936' => 'proceedingsofaca1912acad',
+'17672' => 'proceedingsofaca1812acad',
+'84778' => 'proceedingsofaca65acaduoft',
+'30014' => 'proceedingsofaca65acad',
+'79430' => 'proceedingsofaca66acaduoft',
+'18052' => 'proceedingsofaca66acad',
+'79162' => 'proceedingsofaca67acaduoft',
+'17758' => 'proceedingsofaca67acad',
+'79453' => 'proceedingsofaca68acaduoft',
+'18053' => 'proceedingsofaca68acad',
+'79423' => 'proceedingsofaca69acaduoft',
+'28002' => 'proceedingsofacad69acad',
+'84895' => 'proceedingsofaca70acaduoft',
+'18308' => 'proceedingsofaca70acad',
+'84735' => 'proceedingsofaca71acaduoft',
+'18320' => 'proceedingsofaca71acad',
+'84782' => 'proceedingsofaca72acaduoft',
+'24044' => 'proceedingsofaca72acad',
+'84718' => 'proceedingsofaca73acaduoft',
+'17650' => 'proceedingsofaca73acad',
+'17718' => 'proceedingsofaca74acad'
+);
+
+
+$items=array(
+/*'101392' => 'ornithologischem11893berl',
+'35476' => 'ornithologischem02berl',
+'35473' => 'ornithologischem03berl',
+'35539' => 'ornithologischem04berl',
+'35483' => 'ornithologischem05berl',
+'101396' => 'ornithologischem61898berl',
+'101400' => 'ornithologischem71899berl',
+'101398' => 'ornithologischem81900berl',
+'101676' => 'ornithologischem91901berl',
+//'101397' => 'ornithologisch101902berl',
+'101406' => 'ornithologisch111903berl',
+'101402' => 'ornithologisch121904berl',
+'101391' => 'ornithologisc131905berl',
+'35529' => 'ornithologischem14berl',
+'101411' => 'ornithologisc151907berl',
+'101591' => 'ornithologisch161908berl',
+'101393' => 'ornithologisch171909berl',
+'101403' => 'ornithologisch181910berl',
+'102991' => 'ornithologisc191911berl',*/
+'101399' => 'ornithologisc201912berl',
+'35514' => 'ornithologischem21berl',
+'35433' => 'ornithologischem22berl',
+'35522' => 'ornithologischem23berl',
+'35516' => 'ornithologischem24berl',
+'35501' => 'ornithologischem25berl',
+'35506' => 'ornithologischem26berl',
+'35494' => 'ornithologischem27berl',
+'101390' => 'ornithologisc281920berl',
+'101436' => 'ornithologisch291921berl',
+'101438' => 'ornithologisch301922berl',
+'101437' => 'ornithologisch311923berl'
+);
+
+//$items=array('101397' => 'ornithologisch101902berl');
+
+/*
+$items=array(
+'49195' => 'journalfrornit53deut',
+'49380' => 'journalfrornit55deut',
+'49379' => 'journalfrornit57orni',
+'50195' => 'journalfrornit59orni',
+'101709' => 'journalfrornit81860deut',
+'102838' => 'journalfrornit91861deut',
+'101707' => 'journalfrornit101862deut',
+'103973' => 'journalfrornit111863deut',
+'101741' => 'journalfrornit121864deut',
+'109917' => 'journalfrornit131865deut',
+'103185' => 'journalfrornit141866deut',
+'101730' => 'journalfrornit151867deut',
+'103094' => 'journalfrornit161868deut',
+'102837' => 'journalfrornit171869deut',
+'103205' => 'journalfrornit181870deut',
+'111231' => 'journalfrornith191871deut',
+'102848' => 'journalfrornit201872deut',
+'101685' => 'journalfrornit211873deut',
+'101706' => 'journalfrornit221874deut',
+'101688' => 'journalfrornit231875deut',
+'101769' => 'journalfrornit241876deut',
+'102780' => 'journalfrornit251877deut',
+'102855' => 'journalfrornit261878deut',
+'102856' => 'journalfrornit271879deut',
+'101708' => 'journalfrornit281880deut',
+'102782' => 'journalfrornit291881deut',
+'102781' => 'journalfrornit301882deut',
+'101690' => 'journalfrornit311883deut',
+'101693' => 'journalfrornit321884deut',
+'101743' => 'journalfrornit331885deut',
+'101744' => 'journalfrornit341886deut',
+'101740' => 'journalfrornit351887deut',
+'101705' => 'journalfrornit361888deut',
+'102840' => 'journalfrornit371889deut',
+'102239' => 'journalfrornit381890deut',
+'101710' => 'journalfrornit391891deut',
+'102240' => 'journalfrornit401892deut',
+'101687' => 'journalfrornit421894deut',
+'101820' => 'journalfrornit431895deut',
+'101723' => 'journalfrornit441896deut',
+'103562' => 'journalfrornit451897deut',
+'104359' => 'journalfrornit461898deut',
+'101577' => 'journalfrornit471899deut',
+'104736' => 'journalfrornit491901deut',
+'104733' => 'journalfrornit501902deut',
+'104726' => 'journalfrornit511903deut',
+'101586' => 'journalfrornit521904deut',
+'107488' => 'journalfrornit531905deut',
+'104732' => 'journalfrornit541906deut',
+'104724' => 'journalfrornit551907deut',
+'43348' => 'journalfrornit56deut',
+'43500' => 'journalfrornit57deut',
+'43496' => 'journalfrornit58deut',
+'43503' => 'journalfrornit59deut',
+'43502' => 'journalfrornit60deut',
+'43303' => 'journalfrornit61deut',
+'43524' => 'journalfrornit62deut',
+'43484' => 'journalfrornit63deut',
+'43088' => 'journalfrornit64deut',
+'43317' => 'journalfrornit65deut',
+'43359' => 'journalfrornit66deut',
+'43517' => 'journalfrornit67deut',
+'43506' => 'journalfrornit68deut',
+'43096' => 'journalfrornit69deut',
+'101745' => 'journalfro115185367deut',
+'101724' => 'journal411893186893deut'
+);*/
+
+//$items=array('102856' => 'journalfrornit271879deut');
+//$items=array('102240' => 'journalfrornit401892deut');
+$items=array('107488' => 'journalfrornit531905deut');
+
+$items=array(
+/*'18790' => 'jahrbcherdesna2526nass',
+'22067' => 'jahrbcherdesna2728nass',
+'23124' => 'jahrbcherdesna2930nass',
+'22049' => 'jahrbcherdesna3132nass',
+'22074' => 'jahrbcherdesna37nass',
+'22070' => 'jahrbcherdesna38nass',
+'22046' => 'jahrbcherdesna39nass',
+'22078' => 'jahrbcherdesna40nass',
+'31712' => 'jahrbcherdesna41nass',
+'31509' => 'jahrbcherdesna42nass',
+'31406' => 'jahrbcherdesna43nass',
+'31716' => 'jahrbcherdesna44nass',
+'31714' => 'jahrbcherdesna45nass',
+'32716' => 'jahrbcherdesna46nass',
+'22079' => 'jahrbcherdesna47nass',
+'22077' => 'jahrbcherdesna48nass',
+'22066' => 'jahrbcherdesna50nass',
+'31707' => 'jahrbcherdesna51nass',
+'31474' => 'jahrbcherdesna52nass',
+'22062' => 'jahrbcherdesna53nass',
+'28114' => 'jahrbcherdesna54anass',
+'22030' => 'jahrbcherdesna55nass',
+'28029' => 'jahrbcherdesna56anass',
+'22075' => 'jahrbcherdesna57nass',
+'24101' => 'jahrbcherdesna58nass',*/
+//'28004' => 'jahrbcherdesna59anass',
+'28009' => 'jahrbcherdesna60anass',
+'28017' => 'jahrbcherdesna61anass',
+'28043' => 'jahrbcherdesna62anass',
+'31709' => 'jahrbcherdesna63nass',
+'31711' => 'jahrbcherdesna64nass',
+'22041' => 'jahrbcherdesna65nass',
+'22048' => 'jahrbcherdesna66nass',
+'31477' => 'jahrbcherdesna67nass',
+'31705' => 'jahrbcherdesna68nass',
+'30341' => 'jahrbcherdesna69nass'
+);
+
+//$items=array('106923' => 'svenskavetenskap24kung');
+
+$items=array('111442' => 'philippinejo111916phil',
+'111191' => 'philippinejou111916phil',
+'110844' => 'philippinejour111916phil');
+
+$items=array('34071' => 'journalofentomol51913pomo',
+'44753' => 'journalofentomol05pomo',
+'44739' => 'journalofentomol06pomo',
+'49162' => 'journalofentomol07pomo',
+'34056' => 'journalofentomol71915pomo',
+'44596' => 'journalofentomol08pomo',
+'34048' => 'journalofentomol81916pomo',
+'45114' => 'journalofentomol09pomo',
+'34068' => 'journalofentomol91917pomo',
+'45309' => 'journalofentomol10pomo',
+'44584' => 'journalofentomol11pomo',
+'45097' => 'journalofentomol12pomo',
+'34066' => 'journalofentomol1215192023pomo',
+'44592' => 'journalofentomol13pomo',
+'44771' => 'journalofentomol14pomo',
+'44749' => 'journalofentomol15pomo');
+
+$items=array('51272' => 'fversigtaffins60suom');
+
+
+$items=array(
+/*'50263' => 'fversigtaffins118381853suom',
+'50257' => 'fversigtaffins218531855suom',
+'50264' => 'fversigtaffins318551856suom',
+'50261' => 'fversigtaffins418561857suom',
+'49784' => 'fversigtaffins518571863suom',*/
+'49787' => 'fversigtaffins618631864suom',
+'49786' => 'fversigtaffins718641865suom',
+'50484' => 'fversigtaffins818651866suom',
+'50485' => 'fversigtaffins918661867suom',
+'50488' => 'fversigtaffins1018671868suom',
+'50489' => 'fversigtaffins116869suom',
+'50490' => 'fversigtaffins126970suom',
+'52370' => 'fversigtaffins137071suom',
+'52116' => 'fversigtaffins147172suom',
+'52118' => 'fversigtaffins157273suom',
+'50479' => 'fversigtaffins167374suom',
+'50481' => 'fversigtaffins177475suom',
+'52176' => 'fversigtaffins187576suom',
+'50487' => 'fversigtaffins197677suom',
+'50483' => 'fversigtaffins207778suom',
+'50486' => 'fversigtaffins217879suom',
+'52117' => 'fversigtaffins227980suom',
+'50480' => 'fversigtaffins238081suom',
+'51165' => 'fversigtaffins24suom',
+//'51170' => 'fversigtaffins25suom',
+'52789' => 'fversigtaffins26suom',
+'50967' => 'fversigtaffins27suom',
+'51162' => 'fversigtaffins28suom',
+'51169' => 'fversigtaffins29suom',
+'50965' => 'fversigtaffins30suom',
+'51152' => 'fversigtaffins31suom',
+'51151' => 'fversigtaffins32suom',
+'51080' => 'fversigtaffins33suom',
+'52790' => 'fversigtaffins34suom',
+'51280' => 'fversigtaffins35suom',
+'52371' => 'fversigtaffins36suom',
+'51286' => 'fversigtaffins37suom',
+'51084' => 'fversigtaffins38suom',
+'51077' => 'fversigtaffins39suom',
+'52752' => 'fversigtaffins40suom',
+'52765' => 'fversigtaffins41suom',
+'51082' => 'fversigtaffins42suom',
+'51284' => 'fversigtaffins43suom',
+'51283' => 'fversigtaffins44suom',
+'52618' => 'fversigtaffins45suom',
+'51078' => 'fversigtaffins46suom',
+'51087' => 'fversigtaffins47suom',
+'50722' => 'fversigtaffins48suom',
+'50721' => 'fversigtaffins49suom',
+'50719' => 'fversigtaffins50suom',
+'52750' => 'fversigtaffins51suom',
+'52732' => 'fversigtaffins52suom',
+'52747' => 'fversigtaffins53suom',
+'52754' => 'fversigtaffins54suom',
+'50780' => 'fversigtaffins55suom',
+'50782' => 'fversigtaffins552suom',
+'52746' => 'fversigtaffins56suom',
+'50732' => 'fversigtaffins57suom',
+'52755' => 'fversigtaffins58suom',
+'51273' => 'fversigtaffins59suom',
+//'51272' => 'fversigtaffins60suom',
+'51075' => 'fversigtaffins61suom',
+'50779' => 'fversigtaffins62suom',
+'51278' => 'fversigtaffins63suom',
+'51277' => 'fversigtaffins64suom'
+);
+
+$items=array(
+//'108018' => 'entomologiscl13190507natu',
+'105877' => 'entomologischebl0305berl',
+'105882' => 'entomologischebl06berl',
+'108168' => 'entomologischebl71911natu',
+'105917' => 'entomologischebl0809berl',
+'105881' => 'entomologischebl1011berl',
+'105904' => 'entomologischebl12berl',
+'105899' => 'entomologischebl13berl',
+'105874' => 'entomologischebl14berl',
+'105533' => 'entomologischebl15berl',
+'106184' => 'entomologischebl16berl',
+'105962' => 'entomologischebl17berl',
+'105876' => 'entomologischebl18berl',
+'105896' => 'entomologischebl19berl'
+);
+
+$items=array(
+'110337' => 'physis1516soci',
+'110531' => 'physis1617soci',
+'110402' => 'physis1819soci',
+'110336' => 'physis2122soci'
+);
+
+$items=array('127039' => 'bulletinofbritis09bri',
+'127034' => 'bulletinofbritis13brit',
+'127043' => 'bulletinofbritis16briti',
+'127041' => 'bulletinofbritis21brit',
+'127315' => 'bulletinofbritis22briti',
+'127035' => 'bulletinofbritis46brit',
+'127036' => 'bulletinofbritis78brit',
+'127038' => 'bulletinofbritis1011brit',
+'127107' => 'bulletinofbritis1213brit',
+'127040' => 'bulletinofbritis1415brit',
+'127042' => 'bulletinofbritis1718brit',
+'127097' => 'bulletinofbritis1920brit',
+'127316' => 'bulletinofbritis2324brit',
+'127317' => 'bulletinofbritis2526brit');
+
+$items = array('48597' => 'archivfrnaturg08arch');
+
+$items=array(
+/*'127151' => 'annalsofsouthaf581988sout',
+'127237' => 'annalsofsouthaf631974sout',
+'127150' => 'annalsofsouthaf641974sout',
+'127217' => 'annalsofsouthaf651974sout',
+'127193' => 'annalsofsouthaf671975sout',
+'127191' => 'annalsofsouthaf681975sout',
+'127218' => 'annalsofsouthaf711976sout',
+'127190' => 'annalsofsouthaf731977sout',
+'127236' => 'annalsofsoutha2121927sout',
+'127146' => 'annalsofsouth50196668sout',
+'127258' => 'annalsofsouth52196869sout',*/
+'127148' => 'annalsofsouth55196970sout',
+'127149' => 'annalsofsouth57197071sout',
+'127243' => 'annalsofsouth59197172sout',
+'127256' => 'annalsofsouth60197273sout',
+'127147' => 'annalsofsouth66197475sout',
+'127242' => 'annalsofsout919671968sout',
+'127257' => 'annalsofsou5819721981sout',
+'127145' => 'annalsofsou6162197374sout',
+'127133' => 'annalso10810920012003sout',
+'127219' => 'annalso11011220032004sout'
+);
+
+$items=array('127132' => 'bulletinofnatura62natu');
+
+$items=array('27766' => 'boletndelasoci191919soci');
+
+$items=array('53298' => 'proceedingsofuni1101960unit');
+
+$items=array('20237' => 'entomologicalnew24acad');
+
+$items=array('127363' => 'revuesuissedez821975schw');
+
+$items=array('127432' => 'bulletinofbritis32briti',
+'127419' => 'bulletinofnatura631natu',
+'127420' => 'bulletinofnatura632natu',
+'127421' => 'bulletinofnatura641natu',
+'127431' => 'bulletinofnatura642natu');
+
+$items=array('46035' => 'reportonpelagich00whit');
+
+$items=array('87759' => 'bulletinofmuseum5253harv');
+
+$items=array('95853' => 'smithsonianherpe130196875smithso',
+'53465' => 'smithsonianherpe3146197679smit',
+'53169' => 'smithsonianherpe4756198082smit',
+'53173' => 'smithsonianherpe5766198385smit',
+'53172' => 'smithsonianherpe6776198688smit',
+'53182' => 'smithsonianherpe7784198990smit',
+'53181' => 'smithsonianherpe8593199192smit',
+'53170' => 'smithsonianherpe94100199394smit',
+'53171' => 'smithsonianherpe101111199496smit',
+'53174' => 'smithsonianherpe112119199798smit',
+'53168' => 'smithsonianherpe12012719992000smit',
+'100691' => 'smithsonianherpe1292001smit',
+'100680' => 'smithsonianherpe1302001smit',
+'100690' => 'smithsonianherpe1312001smit');
+
+$items=array('53174' => 'smithsonianherpe112119199798smit');
+
+$items=array('87990' => 'isisvonoken1822oken');
+
+$items=array('35595' => 'breviora510harv');
+
+$items=array('15953' => 'wissenschaftlich04adol');
+
+$items=array('106744' => 'svenskavetenskap41kung');
+
+$items=array('62878' => 'journaloffederat02fedeuoft',
+'62879' => 'journaloffederat04fedeuoft',
+'62880' => 'journaloffederat05fedeuoft',
+'62945' => 'journaloffederat06fedeuoft',
+'62946' => 'journaloffederat07fedeuoft',
+//'62947' => 'journaloffederat10fedeuoft',
+'110725' => 'journaloffed411191124sela');
+
+//$items=array('62947' => 'journaloffederat10fedeuoft');
+
+$items=array(
+'49831' => 'bihangtillkongls01kung',
+'49927' => 'bihangtillkongls02kung',
+'49924' => 'bihangtillkongls03kung',
+'49926' => 'bihangtillkongls04kung',
+'49816' => 'bihangtillkongls05kung',
+'49812' => 'bihangtillkongls06kung',
+'49896' => 'bihangtillkongls07kung',
+'101141' => 'mobot31753002394416',
+'49907' => 'bihangtillkongls09kung',
+'49535' => 'bihangtillkongls10kung',
+'49895' => 'bihangtillkongls11kung',
+'49826' => 'bihangtillkongls123kung',
+'48767' => 'bihangtillkongls124kung',
+'49825' => 'bihangtillkongls133kung',
+'49799' => 'bihangtillkongls134kung',
+'48685' => 'bihangtillkongls144kung',
+'49891' => 'bihangtillkongls153kung',
+'49931' => 'bihangtillkongls154kung',
+'49894' => 'bihangtillkongls163kung',
+'49933' => 'bihangtillkongls173kung',
+'49811' => 'bihangtillkongls174kung',
+'48418' => 'bihangtillkongls183kung',
+'48086' => 'bihangtillkongls184kung',
+'49941' => 'bihangtillkongls193kung',
+'48096' => 'bihangtillkongls194kung',
+'49935' => 'bihangtillkongls203kung',
+'49978' => 'bihangtillkongls204kung',
+'49830' => 'bihangtillkongls213kung',
+'48108' => 'bihangtillkongls214kung',
+'86738' => 'bihangtillkongls22397kung',
+'47819' => 'bihangtillkongls233kung',
+'47815' => 'bihangtillkongls243kung',
+'48741' => 'bihangtillkongls244kung',
+'49829' => 'bihangtillkongls253kung',
+'48623' => 'bihangtillkongls254kung',
+'47802' => 'bihangtillkongls263kung',
+'48736' => 'bihangtillkongls264kung',
+'49807' => 'bihangtillkongls273kung',
+'48743' => 'bihangtillkongls274kung',
+'49814' => 'bihangtillkongls283kung',
+'49932' => 'bihangtillkongls284kung'
+);
+
+$items=array('49924' => 'bihangtillkongls03kung');
+
+$items=array('125543' => 'MemoirsQueensla21Quee',
+'126533' => 'MemoirsQueensla21QueeA',
+'125724' => 'MemoirsQueensla22Quee',
+'125730' => 'MemoirsQueensla22QueeA');
+
+$items=array('49515' => 'annalesdelasoci11832socifo');
+
+$items=array(
+'127493' => 'bulletinofnatura611natu',
+'127494' => 'bulletinofnatura612natu',
+'127496' => 'bulletinofnatura621vol6',
+'127475' => 'bulletinofnatura622natu',
+'127497' => 'bulletinofnatura631nat',
+'127498' => 'bulletinofnatura632natur',
+'127499' => 'bulletinofnatura641natur',
+'127502' => 'bulletinofnatura642natur',
+'127504' => 'bulletinofnatura651natur',
+'127500' => 'bulletinofnatura652natur',
+'127505' => 'bulletinofnatura661natur',
+'127478' => 'bulletinofnatura662natur',
+'127501' => 'bulletinofnatura671natur',
+'127495' => 'bulletinofnatura681natur',
+'127503' => 'bulletinofnatura682natur'
+);
+
+
+$items=array(
+'127337' => 'bulletinofbritis27briti',
+'127336' => 'bulletinofbritis29briti',
+'127432' => 'bulletinofbritis32briti',
+'127492' => 'bulletinofbritis33briti',
+'127476' => 'bulletinofbritis34briti',
+'127419' => 'bulletinofnatura631natu',
+'127420' => 'bulletinofnatura632natu',
+'127421' => 'bulletinofnatura641natu',
+'127431' => 'bulletinofnatura642natu'
+);
+
+
+
+$items=array(
+'127509' => 'journaloflepid4411990lepi',
+'127481' => 'journaloflepid5812004lepi',
+'127480' => 'journaloflepid5822004lepi',
+'127479' => 'journaloflepid5832004lepi',
+'127554' => 'journaloflepid5842004lepi',
+'127482' => 'journaloflepid5912005lepi',
+'127555' => 'journaloflepid5922005lepi',
+'127487' => 'journaloflepid5932005lepi',
+'127558' => 'journaloflepid5942005lepi',
+'127556' => 'journaloflepid6012006lepi',
+'127483' => 'journaloflepid6022006lepi',
+'127484' => 'journaloflepid6032006lepi',
+'127557' => 'journaloflepid6042006lepi',
+'127486' => 'journaloflepid6112007lepi',
+'127489' => 'journaloflepid6122007lepi',
+'127488' => 'journaloflepid6142007lepi'
+);
+
+$items=array('124126' => 'faunaexoticamitt01inte',
+'124127' => 'faunaexoticamitt02inte',
+'124125' => 'faunaexoticamitt31inte');
+
+$items=array('111351' => 'monatsberichtede1875knig');
+
+$items=array('127598' => 'bulletinofbritis541brit',
+'127597' => 'bulletinofbritis542brit',
+'127596' => 'bulletinofbritis543brit'
+);
+
+$items=array(
+'51082' => 'fversigtaffins42suom',
+'51284' => 'fversigtaffins43suom'
+);
+
+$items=array(
+'35744' => 'proceedingsofwas01wash',
+'35745' => 'proceedingsofwas02wash',
+//'35746' => 'proceedingsofwas03wash',
+'81277' => 'proceedingsofwas00wash',
+'35272' => 'proceedingsofwas04wash',
+'33718' => 'proceedingsofwas05wash',
+'35747' => 'proceedingsofwas06wash',
+'35748' => 'proceedingsofwas07wash',
+'35749' => 'proceedingsofwas08wash',
+'33719' => 'proceedingsofwas09wash',
+'33720' => 'proceedingsofwas10wash',
+'35750' => 'proceedingsofwas11wash',
+'35751' => 'proceedingsofwas12wash',
+'35752' => 'proceedingsofwas13wash'
+);
+
+//$items=array('35746' => 'proceedingsofwas03wash');
+
+$items=array(
+'43320' => 'anatomischeranze01anat',
+'43321' => 'anatomischeranze02anat',
+'43335' => 'anatomischeranze03anat',
+'43329' => 'anatomischeranze04anat',
+'43322' => 'anatomischeranze05anat',
+'43323' => 'anatomischeranze06anat',
+'43325' => 'anatomischeranze07anat',
+'43333' => 'anatomischeranze08anat',
+'43343' => 'anatomischeranze10anat',
+'43570' => 'anatomischeranze11anat',
+'43344' => 'anatomischeranze13anat',
+'43449' => 'anatomischeranze14anat',
+'43350' => 'anatomischeranze15anat',
+'43351' => 'anatomischeranze16anat',
+'43526' => 'anatomischeranze17anat',
+'43349' => 'anatomischeranze18anat',
+'43605' => 'anatomischeranze19anat',
+'43450' => 'anatomischeranze20anat',
+'43575' => 'anatomischeranze21anat',
+'43339' => 'anatomischeranze22anat',
+'43354' => 'anatomischeranze24anat',
+'43574' => 'anatomischeranze25anat',
+'43346' => 'anatomischeranze26anat',
+'43578' => 'anatomischeranze27anat',
+'43347' => 'anatomischeranze28anat',
+'43352' => 'anatomischeranze29anat',
+'43569' => 'anatomischeranze30anat',
+'43576' => 'anatomischeranze31anat',
+'43577' => 'anatomischeranze32anat',
+'43583' => 'anatomischeranze33anat',
+'43584' => 'anatomischeranze34anat',
+'43585' => 'anatomischeranze35anat',
+'43341' => 'anatomischeranze36anat',
+'43572' => 'anatomischeranze37anat',
+'43356' => 'anatomischeranze38anat',
+'43579' => 'anatomischeranze39anat',
+'43568' => 'anatomischeranze40anat',
+'43691' => 'anatomischeranze140anat',
+'43573' => 'anatomischeranze41anat',
+'44581' => 'anatomischeranze42anat',
+'43342' => 'anatomischeranze43anat',
+'43338' => 'anatomischeranze44anat',
+'43340' => 'anatomischeranze45anat',
+'47666' => 'anatomischeranze46anat',
+'48809' => 'anatomischeranze47anat',
+'49506' => 'anatomischeranze48anat',
+'47658' => 'anatomischeranze49anat',
+'47887' => 'anatomischeranze50anat',
+'47541' => 'anatomischeranze51anat',
+'47542' => 'anatomischeranze52anat',
+'47546' => 'anatomischeranze53anat',
+'47655' => 'anatomischeranze54anat',
+'47540' => 'anatomischeranze55anat'
+);
+
+$items=array('49506' => 'anatomischeranze48anat');
+
+$items=array('41766' => 'recordsofindianm17indi');
+
+$items=array('41759' => 'recordsofindianm16indi');
+
+$items=array(
+'121117' => 'jornaldescinci6187779acad',
+'121555' => 'jornaldescinc22189092acad',
+'125075' => 'jornald25323436187984acad'
+);
+
+$items=array('62444' => 'danishingolfex2apt1a5daniuoft');
+
+$items=array('28310' => 'annalesdelasoci41soci',
+'28377' => 'annalesdelasoci42soci',
+'28294' => 'annalesdelasoci44soci',
+'28309' => 'annalesdelasoci45soci',
+'28292' => 'annalesdelasoci46soci',
+'28598' => 'annalesdelasoci47soci',
+'28338' => 'annalesdelasoci49soci',
+'28326' => 'annalesdelasoci50soci',
+'28324' => 'annalesdelasoci51soci',
+'28322' => 'annalesdelasoci52soci');
+
+$items=array(
+'127713' => 'bulletinofbritis582brit',
+'127714' => 'bulletinofbritis591brit',
+'127715' => 'bulletinofbritis602brit',
+'127716' => 'bulletinofbritis601brit',
+'127738' => 'bulletinofbritis551brit',
+'127739' => 'bulletinofbritis572brit',
+'127740' => 'bulletinofbritis552brit',
+'127741' => 'bulletinofbritis581brit',
+'127742' => 'bulletinofbritis592brit',
+'127743' => 'bulletinofbritis611brit',
+'127744' => 'bulletinofbritis612brit',
+'127745' => 'bulletinofbritis573brit',
+'127781' => 'bulletinofbritis571brit'
+);
+
+$items=array(
+'127762' => 'journaloflepidop16181lepi',
+'127718' => 'journaloflepidop22231lepi',
+'127736' => 'journaloflepido242519lepi',
+'127735' => 'journaloflepidop2627lepi',
+'127734' => 'journaloflepid282919lepi'
+);
+
+$items=array(
+'104672' => 'revuecritiq2425192021coss',
+'103620' => 'revuecritiq2627192223coss'
+);
+
+$items=array('98736' => 'actesdelasocit731921soci');
+
+$items=array('22496' => 'breviora437463harv');
+
+$items=array(
+'25355' => 'specialoccasiona01harv',
+'25456' => 'specialoccasiona02harv',
+'25521' => 'specialoccasiona03harv',
+'25312' => 'specialoccasiona04harv',
+'25463' => 'specialoccasiona05harv',
+'26647' => 'specialoccasiona061985harv',
+'25417' => 'specialoccasiona07harv',
+'25377' => 'specialoccasiona08harv',
+'25500' => 'specialoccasiona09harv',
+'25391' => 'specialoccasiona10harv',
+'25513' => 'specialoccasiona11harv'
+);
+
+$items=array('32337' => 'memoirsofmuseumo4401harv');
+
+$items=array('110470' => 'monatsberichtede1872knig');
+
+$items=array(
+'127560' => 'RecordsSouthAus3Sout',
+'127562' => 'RecordsSouthAus4Sout',
+'127416' => 'RecordsSouthAus5Sout',
+'127561' => 'RecordsSouthAus6Sout',
+'127369' => 'RecordsSouthAus7Sout',
+'127414' => 'RecordsSouthAus8Sout',
+'127415' => 'RecordsSouthAus9Sout',
+'127058' => 'RecordsSouthAus10Sout',
+'127056' => 'RecordsSouthAus11Sout',
+'126147' => 'RecordsSouthAus12Sout',
+'127008' => 'RecordsSouthAus13Sout',
+'127007' => 'RecordsSouthAus14Sout',
+'127009' => 'RecordsSouthAus16Sout',
+'127057' => 'RecordsSouthAus17Sout',
+'127010' => 'RecordsSouthAus18Sout',
+'126851' => 'RecordsSouthAus19Sout',
+'126684' => 'RecordsSouthAus20Sout',
+'126685' => 'RecordsSouthAus21Sout',
+'126850' => 'RecordsSouthAus22Sout',
+'126849' => 'RecordsSouthAus24Sout',
+'126407' => 'RecordsSouthAus25Sout',
+'126366' => 'RecordsSouthAus26Sout',
+'126360' => 'RecordsSouthAus27Sout',
+'126382' => 'RecordsSouthAus28Sout',
+'126381' => 'RecordsSouthAus29Sout',
+'126428' => 'RecordsSouthAus30Sout',
+'126052' => 'RecordsSouthAus31Sout',
+'126146' => 'RecordsSouthAus32Sout',
+'126145' => 'RecordsSouthAus33Sout',
+'126201' => 'RecordsSouthAus34Sout',
+'125986' => 'RecordsSouthAus35Sout',
+'125955' => 'RecordsSouthAus36Sout'
+);
+
+$items=array(
+/*'127465' => 'TransactionsRoy1957Roya',
+'127466' => 'TransactionsRoy81Roya',
+'127470' => 'TransactionsRoy82Roya',
+'127468' => 'TransactionsRoy83Roya',
+'127469' => 'TransactionsRoy84Roya',
+'127586' => 'TransactionsRoy85Roya',
+'127585' => 'TransactionsRoy86Roya',
+'127608' => 'TransactionsRoy87Roya',
+'127587' => 'TransactionsRoy88Roya',
+'127591' => 'TransactionsRoy89Roya',
+'127589' => 'TransactionsRoy90Roya',
+'127592' => 'TransactionsRoy91Roya',
+'127590' => 'TransactionsRoy1968Roya',
+'127593' => 'TransactionsRoy93Roya',
+'127752' => 'TransactionsRoy94Roya',
+'127776' => 'TransactionsRoy95Roya',
+'127753' => 'TransactionsRoy96Roya',
+'127780' => 'TransactionsRoy97Roya',
+'127779' => 'TransactionsRoy98Roya',
+'127751' => 'TransactionsRoy99Roya',
+'127774' => 'TransactionsRoy100Roya',
+'127754' => 'TransactionsRoy101Roya',
+'127777' => 'TransactionsRoy102Roya',
+'127775' => 'TransactionsRoy103Roya',
+'127778' => 'TransactionsRoy104Roya',
+'127755' => 'TransactionsRoy105Roya',*/
+'127756' => 'TransactionsRoy106Roya'
+);
+
+$items=array('19382' => 'bulletinofbritis24geollond');
+
+$items=array('22287' => 'fisherybulletin74unit');
+
+$items=array('51264' => 'bulletin3219791981illi');
+
+$items=array(
+'70556' => 'californiafishga1_1915cali',
+'53391' => 'californiafishga131915cali',
+'70694' => 'californiafishga2_1916cali',
+'63626' => 'californiafishga3_1917cali',
+'53574' => 'californiafishga321917cali',
+'61457' => 'californiafishga4_1918cali',
+'53392' => 'californiafishga411918cali',
+'53565' => 'californiafishga421918cali',
+'53558' => 'californiafishga431918cali',
+'61679' => 'californiafishga5_19191cali',
+'53563' => 'californiafishga511919cali',
+'53559' => 'californiafishga541919cali',
+'63724' => 'californiafishga6_1920cali',
+'53566' => 'californiafishga631920cali',
+'53575' => 'californiafishga641920cali',
+'72466' => 'californiafishga7_1921cali',
+'90464' => 'californiafishga821922cali',
+'87446' => 'californiafishga03cali',
+'87442' => 'californiafishga06cali',
+'72612' => 'californiafishga9_1923cali',
+'70557' => 'californiafishga12_1926cali',
+'70558' => 'californiafishga13_1927cali',
+'70559' => 'californiafishga14_1928cali',
+'70560' => 'californiafishga15_1929cali',
+'70561' => 'californiafishga16_2cali',
+'70562' => 'californiafishga16_3cali',
+'70563' => 'californiafishga16_4cali',
+'70691' => 'californiafishga17_1931cali',
+'70692' => 'californiafishga18_1932cali',
+'73906' => 'californiafishga201934cali',
+'70693' => 'californiafishga21_3cali',
+'70695' => 'californiafishga24_1938cali',
+'70696' => 'californiafishga27_2cali',
+'70697' => 'californiafishga27_3cali',
+'70698' => 'californiafishga27_4cali',
+'70699' => 'californiafishga28_1cali',
+'70700' => 'californiafishga28_2cali',
+'70701' => 'californiafishga28_3cali',
+'70702' => 'californiafishga28_4cali',
+'73907' => 'californiafishga291cali',
+'70703' => 'californiafishga29_2cali',
+'70826' => 'californiafishga29_4cali',
+'70827' => 'californiafishga30_1944cali',
+'70828' => 'californiafishga31_1cali',
+'70829' => 'californiafishga31_2cali',
+'70830' => 'californiafishga31_3cali',
+'70831' => 'californiafishga31_4cali',
+'70832' => 'californiafishga32_2cali',
+'70833' => 'californiafishga32_3cali',
+'63627' => 'californiafishga32_4cali',
+'70834' => 'californiafishga33_1cali',
+'70835' => 'californiafishga33_2cali',
+'70836' => 'californiafishga33_3cali',
+'63628' => 'californiafishga33_4cali',
+'70838' => 'californiafishga34_1cali',
+'61372' => 'californiafishga34_2cali',
+'63630' => 'californiafishga34_3cali',
+'70837' => 'californiafishga34_4cali',
+'61373' => 'californiafishga35_1cali',
+'61374' => 'californiafishga35_3cali',
+'61375' => 'californiafishga35_4cali',
+'61376' => 'californiafishga36_3cali',
+'61377' => 'californiafishga36_4cali',
+'61378' => 'californiafishga37_1cali',
+'85024' => 'californiafishga37_2cali',
+'61379' => 'californiafishga37_3cali',
+'61380' => 'californiafishga37_4cali',
+'61381' => 'californiafishga38_1cali',
+'61382' => 'californiafishga38_2cali',
+'61383' => 'californiafishga38_3cali',
+'61384' => 'californiafishga38_4cali',
+'61448' => 'californiafishga39_1cali',
+'61449' => 'californiafishga39_2cali',
+'61450' => 'californiafishga39_4cali',
+'61451' => 'californiafishga40_1cali',
+'61452' => 'californiafishga40_2cali',
+'61453' => 'californiafishga40_3cali',
+'61454' => 'californiafishga40_4cali',
+'61455' => 'californiafishga41_1cali',
+'61456' => 'californiafishga41_2cali',
+'63629' => 'californiafishga41_4cali',
+'61458' => 'californiafishga42_1cali',
+'61459' => 'californiafishga42_2cali',
+'61460' => 'californiafishga42_3cali',
+'61525' => 'californiafishga42_4cali',
+'61526' => 'californiafishga43_1cali',
+'63631' => 'californiafishga43_2cali',
+'61527' => 'californiafishga43_3cali',
+'61528' => 'californiafishga43_4cali',
+'61529' => 'californiafishga44_1cali',
+'61530' => 'californiafishga44_2cali',
+'61531' => 'californiafishga44_3cali',
+'61532' => 'californiafishga44_4cali',
+'61533' => 'californiafishga45_1cali',
+'63632' => 'californiafishga45_2cali',
+'61534' => 'californiafishga45_3cali',
+'63633' => 'californiafishga45_4cali',
+'61535' => 'californiafishga46_2cali',
+'61536' => 'californiafishga46_3cali',
+'61537' => 'californiafishga46_4cali',
+'61607' => 'californiafishga47_1cali',
+'63634' => 'californiafishga47_2cali',
+'61608' => 'californiafishga47_3cali',
+'61609' => 'californiafishga47_4cali',
+'61610' => 'californiafishga48_1cali',
+'63635' => 'californiafishga48_2cali',
+'63636' => 'californiafishga48_3cali',
+'63637' => 'californiafishga48_4cali',
+'61611' => 'californiafishga49_1cali',
+'61612' => 'californiafishga49_2cali',
+'61613' => 'californiafishga49_3cali',
+'61614' => 'californiafishga49_4cali',
+'61615' => 'californiafishga50_1cali',
+'61616' => 'californiafishga50_2cali',
+'61617' => 'californiafishga50_4cali',
+'61618' => 'californiafishga51_1cali',
+'61619' => 'californiafishga51_2cali',
+'61678' => 'californiafishga51_4cali',
+'61680' => 'californiafishga52_1cali',
+'63638' => 'californiafishga52_2cali',
+'61681' => 'californiafishga52_3cali',
+'61682' => 'californiafishga52_4cali',
+'61683' => 'californiafishga53_1cali',
+'61684' => 'californiafishga53_2cali',
+'61685' => 'californiafishga53_3cali',
+'61686' => 'californiafishga53_4cali',
+'61687' => 'californiafishga54_1cali',
+'61688' => 'californiafishga54_2cali',
+'61689' => 'californiafishga54_3cali',
+'61690' => 'californiafishga54_4cali',
+'61750' => 'californiafishga55_1cali',
+'61751' => 'californiafishga55_2cali',
+'61752' => 'californiafishga55_4cali',
+'61753' => 'californiafishga56_1cali',
+'61754' => 'californiafishga56_3cali',
+'61755' => 'californiafishga56_4cali',
+'61756' => 'californiafishga57_1cali',
+'63720' => 'californiafishga57_2cali',
+'61757' => 'californiafishga57_3cali',
+'61758' => 'californiafishga57_4cali',
+'61759' => 'californiafishga58_1cali',
+'63722' => 'californiafishga58_2cali',
+'61760' => 'californiafishga58_3cali',
+'61761' => 'californiafishga58_4cali',
+'61762' => 'californiafishga59_2cali',
+'61820' => 'californiafishga59_3cali',
+'63721' => 'californiafishga59_4cali',
+'61821' => 'californiafishga60_1cali',
+'61822' => 'californiafishga60_2cali',
+'61823' => 'californiafishga60_3cali',
+'61824' => 'californiafishga60_4cali',
+'61825' => 'californiafishga61_1cali',
+'61826' => 'californiafishga61_2cali',
+'61827' => 'californiafishga61_3cali',
+'61828' => 'californiafishga61_4cali',
+'61829' => 'californiafishga62_1cali',
+'61830' => 'californiafishga62_2cali',
+'61831' => 'californiafishga62_3cali',
+'61832' => 'californiafishga62_4cali',
+'61887' => 'californiafishga63_1cali',
+'61888' => 'californiafishga63_2cali',
+'61889' => 'californiafishga63_3cali',
+'61890' => 'californiafishga63_4cali',
+'61891' => 'californiafishga64_2cali',
+'61892' => 'californiafishga64_3cali',
+'61893' => 'californiafishga64_4cali',
+'61894' => 'californiafishga65_1cali',
+'61895' => 'californiafishga65_2cali',
+'61896' => 'californiafishga65_3cali',
+'61897' => 'californiafishga65_4cali',
+'63723' => 'californiafishga66_1cali',
+'61898' => 'californiafishga66_2cali',
+'61899' => 'californiafishga66_3cali',
+'72398' => 'californiafishga66_4cali',
+'72399' => 'californiafishga67_1cali',
+'72400' => 'californiafishga67_2cali',
+'72401' => 'californiafishga67_3cali',
+'63727' => 'californiafishga67_4cali',
+'72402' => 'californiafishga68_1cali',
+'72403' => 'californiafishga68_2cali',
+'63725' => 'californiafishga68_3cali',
+'63726' => 'californiafishga68_4cali',
+'72404' => 'californiafishga69_1cali',
+'72405' => 'californiafishga69_2cali',
+'72406' => 'californiafishga69_3cali',
+'63728' => 'californiafishga69_4cali',
+'72407' => 'californiafishga70_1cali',
+'72408' => 'californiafishga70_2cali',
+'72409' => 'californiafishga70_3cali',
+'72410' => 'californiafishga70_4cali',
+'72462' => 'californiafishga71_2cali',
+'63729' => 'californiafishga71_3cali',
+'72463' => 'californiafishga71_4cali',
+'72464' => 'californiafishga72_1cali',
+'72465' => 'californiafishga72_2cali',
+'72467' => 'californiafishga72_3cali',
+'63731' => 'californiafishga72_4cali',
+'72468' => 'californiafishga73_1cali',
+'72469' => 'californiafishga73_2cali',
+'72470' => 'californiafishga73_3cali',
+'72471' => 'californiafishga73_4cali',
+'72472' => 'californiafishga74_1cali',
+'72473' => 'californiafishga74_2cali',
+'72474' => 'californiafishga74_3cali',
+'72527' => 'californiafishga74_4cali',
+'72528' => 'californiafishga75_1cali',
+'72529' => 'californiafishga75_2cali',
+'72530' => 'californiafishga75_3cali',
+'72531' => 'californiafishga75_4cali',
+'72532' => 'californiafishga76_1cali',
+'72533' => 'californiafishga76_2cali',
+'72534' => 'californiafishga76_3cali',
+'72535' => 'californiafishga77_1cali',
+'72536' => 'californiafishga77_3cali',
+'72537' => 'californiafishga77_4cali',
+'72538' => 'californiafishga78_1cali',
+'72539' => 'californiafishga78_2cali',
+'72603' => 'californiafishga78_3cali',
+'72604' => 'californiafishga79_1cali',
+'72605' => 'californiafishga79_2cali',
+'72606' => 'californiafishga79_3cali',
+'72607' => 'californiafishga79_4cali',
+'72608' => 'californiafishga80_1cali',
+'72609' => 'californiafishga80_2cali',
+'72610' => 'californiafishga80_3cali',
+'72611' => 'californiafishga80_4cali',
+'62340' => 'californiafishgabien18301832cali',
+'73908' => 'californiafishgabien18381840cali',
+'73909' => 'californiafishgabien18481850cali',
+'73910' => 'californiafishgabien18481950cali',
+'73911' => 'californiafishgabien18701873cali',
+'73849' => 'califngbien1870187618861992cali',
+'73912' => 'californiafishgabien1880cali',
+'73913' => 'californiafishgabien18831884cali',
+'73914' => 'californiafishgabien18861888cali',
+'73915' => 'californiafishgabien18881890cali',
+'73916' => 'californiafishgabien18951896cali',
+'73917' => 'californiafishgabien19031094cali',
+'73974' => 'californiafishgabien19051906cali',
+'73975' => 'californiafishgabien19101912cali',
+'73976' => 'californiafishgabien19101912cali2',
+'73977' => 'californiafishgabien19141916cali3',
+'73978' => 'californiafishgabien1920cali3',
+'62339' => 'californiafishgabien1920cali',
+'62336' => 'californiafishgabien1922cali',
+'62337' => 'californiafishgabien1922cali2',
+'73979' => 'californiafishgabien19221924cali',
+'73982' => 'californiafishgabien1924cali',
+'73980' => 'californiafishgabien19241926cali',
+'73981' => 'californiafishgabien192426cali',
+'73983' => 'californiafishgabien19261928cali2',
+'62335' => 'californiafishgabien19281930cali',
+'62338' => 'californiafishgabien19281930cali2',
+'73984' => 'californiafishgabien19301932cali',
+'62341' => 'californiafishgabien19341936cali',
+'73985' => 'californiafishgabien19361938cali2',
+'74041' => 'californiafishgabien19381940cali',
+'74042' => 'californiafishgabien19401942cali2',
+'62334' => 'californiafishgabien19401942cali',
+'74043' => 'californiafishgabien19421944cali',
+'74044' => 'californiafishgabien19421944cali2',
+'74045' => 'californiafishgabien19441946cali2',
+'62342' => 'californiafishgabien19441946cali',
+'74046' => 'californiafishgabien19461948cali2',
+'74047' => 'californiafishgabien19461948cali3',
+'74048' => 'californiafishgabien19481950cali',
+'74049' => 'californiafishgabien19501952cali2',
+'74050' => 'californiafishgabien19521954cali',
+'74051' => 'californiafishgabien19541956cali',
+'74052' => 'californiafishgabien19561958cali'
+);
+
+$items=array('61455' => 'californiafishga41_1cali');
+
+$items=array('41412' => 'dieamphipodender11voss');
+
+$items=array('18662' => 'wissenschaftlich01chun',
+'29852' => 'wissenschaftlich0201chun',
+'41816' => 'wissenschaftlich22chun',
+'18720' => 'wissenschaftlich0203chun',
+'18659' => 'wissenschaftlich03chun',
+'23105' => 'wissenschaftlich04chun',
+'18683' => 'wissenschaftlich05chun',
+'101517' => 'dieechinoidender00dd',
+'29928' => 'wissenschaftlich190406chun',
+'29960' => 'wissenschaftlich061904chun',
+'29961' => 'wissenschaftlich07chun',
+'29943' => 'wissenschaftlich08chun',
+'18646' => 'wissenschaftlich09chun',
+'18684' => 'wissenschaftlich09achun',
+'29027' => 'wissenschaftlich0901chun',
+'29942' => 'wissenschaftlich1101chun',
+'18679' => 'wissenschaftlich1102chun',
+'30110' => 'wissenschaftlich12chun',
+'18681' => 'wissenschaftlich1301chun',
+'29733' => 'wissenschaftlich130201chun',
+'18727' => 'wissenschaftlich1302chun',
+'18618' => 'wissenschaftlich1401chun',
+'23112' => 'wissenschaftlich14l1chun',
+'29737' => 'wissenschaftlich14chun',
+'23106' => 'wissenschaftlich1402chun',
+//'29156' => 'wissenschaftlich1501chun',
+'29035' => 'wissenschaftlich1502chun',
+'29936' => 'wissenschaftlich1603chun',
+'18687' => 'wissenschaftlich1601chun',
+'18726' => 'wissenschaftlich1602chun'
+);
+
+//$items=array('29156' => 'wissenschaftlich1501chun');
+
+$items=array('89801' => 'zitteliana13196974baye',
+'89799' => 'zitteliana46197881baye',
+'91105' => 'zitteliana79198182baye',
+'89067' => 'zitteliana101983baye',
+'89166' => 'zitteliana1113198486baye',
+'93267' => 'zitteliana1415198687baye',
+'89800' => 'zitteliana161987baye',
+'89802' => 'zitteliana171990baye',
+'89807' => 'zitteliana1820199193baye',
+'89682' => 'zitteliana212319972002baye'
+);
+
+$items=array('39484' => 'mitteilungenausd35natu');
+
+$items=array('49533' => 'archivfrmikros53berl');
+
+$items=array('128104' => 'bulletinofnatura611nat',
+'128106' => 'bulletinofnatura612nat',
+'128103' => 'bulletinofnatura621',
+'128105' => 'bulletinofnatura622nat',
+'128102' => 'bulletinofnatura5960nat');
+
+$items=array('35572' => 'breviora512harv',
+'110338' => 'breviora524harv',
+'110327' => 'breviora525harv',
+'113961' => 'breviora526harv',
+'127898' => 'breviora5272011harv',
+'128235' => 'breviora5282011harv',
+'127899' => 'breviora5292012harv');
+
+$items=array(
+'128034' => 'TransactionsRoy107Roya',
+'128035' => 'TransactionsRoy108Roya',
+'128033' => 'TransactionsRoy109Roya',
+'128036' => 'TransactionsRoy110Roya',
+'128038' => 'TransactionsRoy111Roya',
+'128037' => 'TransactionsRoy112Roya',
+'128039' => 'TransactionsRoy113Roya',
+'128053' => 'TransactionsRoy114Roya',
+'128096' => 'TransactionsRoy115Roya',
+'128099' => 'TransactionsRoy116Roya'
+);
+
+$items=array(
+//'128069' => 'journaloflepidop4619lepi',
+//'128075' => 'journaloflepidop47199lepi',
+//'128074' => 'journaloflepidop48199lepi',
+//'128081' => 'journaloflepid491995lepi',
+//'128072' => 'journaloflepidop501lepi',
+//'128078' => 'journaloflepidop51199lepi',
+//'128067' => 'journaloflepidop5219lepi',
+
+// to do
+//'128079' => 'journaloflepidop56200lepi',
+//'127884' => 'journaloflepidop5720lepi',
+//'128073' => 'journaloflepido1315195lep',
+//'128076' => 'journaloflepidop19211lepi',
+'128068' => 'journaloflepido303119lepi',
+'128080' => 'journaloflepido363719lepi',
+'128065' => 'journaloflepid383919lepi',
+'128066' => 'journaloflepidop4041lepi',
+'128070' => 'journaloflepid424319lepi',
+'128071' => 'journaloflepidop44451lepi',
+'128077' => 'journaloflepidop5319lepi',
+'128118' => 'journaloflepido54552lepi'
+);
+
+/*
+$items=array(
+'127885' => 'revuesuissede11612009schw',
+'128117' => 'revuesuissede11622009schw',
+'128116' => 'revuesuiss93341986schw',
+'128115' => 'revuesuis94341987schw'
+);
+*/
+
+$items=array('128083' => 'verhandelingenv531904bata');
+
+$items=array(
+'127867' => 'annalsofsouthafr87sout',
+'127837' => 'annalsofsouthafr69sout',
+'127883' => 'annalsofsouthafr100sout');
+
+$items=array('128236' => 'breviora5312012harv');
+
+$items=array(
+'99823' => 'mobot31753003650527',
+'47296' => 'bulletininternat1902pols',
+'47339' => 'bulletininternat1903pols',
+'47295' => 'bulletininternat1904pols',
+'47338' => 'bulletininternat1905pols',
+'51056' => 'bulletininternat1906pols',
+'26235' => 'bulletininternat09akad'
+);
+
+$items=array(
+/*'128310' => 'revuesuissedez1092002schw',
+'128495' => 'revuesuissedez1122005schw',
+'128500' => 'revuesuissede10912002schw',
+'128502' => 'revuesuissede10922002schw',
+'128501' => 'revuesuissede10932002schw',
+'128299' => 'revuesuissede10942002schw',
+'128314' => 'revuesuissede11012003schw',
+'128315' => 'revuesuissede11022003schw',
+'128300' => 'revuesuissede11032003schw',
+'128309' => 'revuesuissede11042003schw',
+'128357' => 'revuesuissede11112004schw',
+'128359' => 'revuesuissede11122004schw',
+'128358' => 'revuesuissede11132004schw',*/
+'128496' => 'revuesuissede11142004schw',
+'128360' => 'revuesuissede11212005schw',
+'128361' => 'revuesuissede11222005schw',
+'128490' => 'revuesuissede11232005schw',
+'128491' => 'revuesuissede11242005schw',
+'128492' => 'revuesuissede11312006schw',
+'128494' => 'revuesuissede11322006schw',
+'128497' => 'revuesuissede11332006schw',
+'128493' => 'revuesuissede11342006schw',
+'128674' => 'revuesuissede11412007schw',
+'128673' => 'revuesuissede11422007schw',
+'128351' => 'revuesuissede11432007schw',
+'128354' => 'revuesuissede11442007schw',
+'128355' => 'revuesuissede11512008schw',
+'128347' => 'revuesuissede11522008schw',
+'128348' => 'revuesuissede11532008schw',
+'128350' => 'revuesuissede11542008schw',
+'128668' => 'revuesuissed93121986schw',
+'128650' => 'revuesuiss94121987schw',
+'128498' => 'revuesuissede95121988schw',
+'128487' => 'revuesuissede97121990schw',
+'128349' => 'revuesuissede97341990schw',
+'128574' => 'revuesuissede98121991schw',
+'128643' => 'revuesuissede98341991schw',
+'128586' => 'revuesuissede99121992schw',
+'128644' => 'revuesuissede99341992schw',
+'128486' => 'revuesuissed100121993schw',
+'128485' => 'revuesuissed100341993schw',
+'128642' => 'revuesuissed101121994schw',
+'128598' => 'revuesuissed101341994schw',
+'128645' => 'revuesuissed102121995schw',
+'128625' => 'revuesuissed102341995schw',
+'128637' => 'revuesuissed103121996schw',
+'128633' => 'revuesuissed103341996schw',
+'128646' => 'revuesuissed104121997schw',
+'128489' => 'revuesuissed104341997schw',
+'128634' => 'revuesuissed105121998schw',
+'128635' => 'revuesuissed105341998schw',
+'128636' => 'revuesuissed106121999schw',
+'128670' => 'revuesuissed106341999schw',
+'128671' => 'revuesuissed107122000schw',
+'128672' => 'revuesuissed107342000schw',
+'128356' => 'revuesuissed108122001schw',
+'128352' => 'revuesuissed108342001schw',
+'128353' => 'revuesuissed116342009schw'
+);
+
+
+$items=array(
+'128428' => 'journaloflepid323319lepi',
+'128488' => 'journaloflepidop34351lepi',
+'128445' => 'annalsofsouthafr74sout'
+);
+
+$items=array('41758' => 'recordsofindianm12indi');
+
+$items=array(
+'128619' => 'TransactionsRoy117Roya',
+'128623' => 'TransactionsRoy118Roya',
+'128638' => 'TransactionsRoy119Roya'
+);
+
+
+$items=array('111795' => 'occasionalpapers17univ');
+
+$items=array('105907' => 'herpetologicalty32smit');
+
+$items=array('101092' => 'bulletinofbritis19189299b',
+'114181' => 'bulletino101518991905brit',
+'100919' => 'bulletino163919061919brit',
+'100946' => 'bulletinofb1620190507brit',
+'100926' => 'bulletinofb2123190709brit',
+'34372' => 'bulletinofbritis22brit',
+'120095' => 'bulletinofb2425190910brit',
+'100941' => 'bulletinofbritis261910bri',
+'101309' => 'bulletinofbritis27281911b',
+'100931' => 'bulletinofbri29301912brit',
+'108252' => 'bulletinof3132191213brit',
+'34382' => 'bulletinofbritis32brit',
+'101093' => 'bulletinofb3334191314brit',
+'35185' => 'bulletinofbritis34brit',
+'100962' => 'bulletinofb3537191417brit',
+'100942' => 'bulletinofb3840191720brit',
+'100930' => 'bulletinofb4143192023brit',
+'125301' => 'bulletinofbritis44tayl',
+'125299' => 'bulletinofbritis45tayl',
+'125298' => 'bulletinofbritis46tayl',
+'125300' => 'bulletinofbritis47tayl',
+'125306' => 'bulletinofbritis48tayl',
+'125305' => 'bulletinofbritis49tayl',
+'125292' => 'bulletinofbritis50tayl',
+'125341' => 'bulletinofbritis51tayl',
+'125307' => 'bulletinofbritis52tayl',
+'125340' => 'bulletinofbritis53tayl',
+'125287' => 'bulletinofbritis54tayl',
+'125291' => 'bulletinofbritis55tayl',
+'125289' => 'bulletinofbritis56tayl',
+'125290' => 'bulletinofbritis57tayl',
+'125354' => 'bulletinofbritis58tayl',
+'125355' => 'bulletinofbritis59tayl',
+'125339' => 'bulletinofbritis60tayl',
+'125593' => 'bulletinofbrit61tayl',
+'125588' => 'bulletinofbrit62tayl',
+'125660' => 'bulletinofbritis63tayl',
+'125661' => 'bulletinofbritis64tayl',
+'125662' => 'bulletinofbritis65tayl',
+'125657' => 'bulletinofbritis66tayl',
+'125663' => 'bulletinofbritis67tayl',
+'125664' => 'bulletinofbritis68tayl',
+//'125666' => 'bulletinofbritis69tayl',
+'125676' => 'bulletinofbritis7079tayl',
+'125665' => 'bulletinofbritis7071tayl',
+'125675' => 'bulletinofbritis72tayl',
+'125674' => 'bulletinofbritis73tayl',
+'125678' => 'bulletinofbritis74tayl',
+'125673' => 'bulletinofbritis75tayl',
+'125531' => 'bulletinofbritis76tayl',
+'125677' => 'bulletinofbritis77tayl',
+'125530' => 'bulletinofbritis78tayl',
+'125532' => 'bulletinofbritis79tayl',
+'125672' => 'bulletinofbritis80tayl',
+'126872' => 'bulletinofbritis81brit',
+'126998' => 'bulletinofbritis82brit',
+'126838' => 'bulletinofbritis83brit',
+'126839' => 'bulletinofbritis84brit',
+'126842' => 'bulletinofbritis85brit',
+'126843' => 'bulletinofbritis86brit',
+'126845' => 'bulletinofbritis8788brit',
+'126847' => 'bulletinofbritis8990brit',
+'126873' => 'bulletinofbritis9192brit',
+'126880' => 'bulletinofbritis9395brit',
+'126874' => 'bulletinofbritis9697brit',
+'126876' => 'bulletinofbritis9899brit',
+'126875' => 'bulletinofbritis100brit',
+'126877' => 'bulletinofbritis101102bri',
+'123798' => 'bulletinofbritis10319brit',
+'123887' => 'bulletinofbritis10410brit',
+'123885' => 'bulletinofbritis10710brit',
+'123708' => 'bulletino109110198990brit',
+'123709' => 'bulletino111112199192brit',
+'123710' => 'bulletino113114199394brit',
+'123711' => 'bulletino115116199596brit',
+'123804' => 'bulletinofbriti117118brit',
+'123704' => 'bulletinofbrit1191999brit',
+'123705' => 'bulletinofbrit1202000brit',
+'123890' => 'bulletinofbritis12120brit',
+'124974' => 'bulletinofbritis122brit',
+'124973' => 'bulletinofbritis123brit',
+'123799' => 'bulletinofbriti124125brit',
+'127064' => 'bulletinofbritis1261brit',
+'127046' => 'bulletinofbritis1262brit',
+'127082' => 'bulletinofbritis1263brit',
+'127047' => 'bulletinofbritis1264brit',
+'127045' => 'bulletinofbritis1271brit',
+'127044' => 'bulletinofbritis1272brit',
+'127048' => 'bulletinofbritis1273brit',
+'127065' => 'bulletinofbritis1274brit');
+
+//$items=array('125666' => 'bulletinofbritis69tayl');
+
+$items=array('109540' => 'sitzungsberich1321923kais');
+
+$items=array(
+'107444' => 'occasionalpapers03bost',
+'111648' => 'occasionalpapers31880bost',
+'108730' => 'mobot000134709_v4v1pt1',
+'107543' => 'occasionalpapers05bost',
+'111780' => 'occasionalpap5192131bost',
+'108260' => 'occasionalpapers0701bost',
+'107976' => 'occasionalpaper070201bost',
+'108005' => 'occasionalpaper070202bost'
+);
+
+$items=array('49250' => 'annalesdesscienc10seri');
+
+$items=array(
+'101265' => 'mmoiresdelacad111777acad',
+'101463' => 'mmoiresdelacad1217acad',
+'101264' => 'mmoiresdelacad11820acad',
+'101263' => 'mmoiresdelacad21822acad',
+'101783' => 'mmoiresdelacad31826acad',
+'101376' => 'mmoiresdelacad41783acad',
+'101464' => 'mmoiresdelacad41827acad',
+'101453' => 'mmoiresdelacad51829acad',
+'101469' => 'mmoiresdelacad71832acad',
+'101388' => 'mmoiresdelacad101837acad',
+'20625' => 'mmoiresdelacad20acad',
+'20663' => 'mmoiresdelacad21acad',
+'21698' => 'mmoiresdelacad22acad',
+'20647' => 'mmoiresdelacad23acad',
+'20728' => 'mmoiresdelacad24acad',
+'20566' => 'mmoiresdelacad25acad',
+'20682' => 'mmoiresdelacad26acad',
+'20724' => 'mmoiresdelacad27acad',
+'54828' => 'mmoiresdelacad28brux',
+'54831' => 'mmoiresdelacad29brux',
+'54833' => 'mmoiresdelacad30brux',
+'54834' => 'mmoiresdelacad31brux',
+'25951' => 'mmoiresdelacad331861acad',
+'28342' => 'mmoiresdelacad341864acad',
+'25937' => 'mmoiresdelacad361867acad',
+'28356' => 'mmoiresdelacad371869acad',
+'28353' => 'mmoiresdelacad381871acad',
+'28069' => 'mmoiresdelacad391872acad',
+'25943' => 'mmoiresdelacad401873acad',
+'28068' => 'mmoiresdelacad4118751876acad',
+'25940' => 'mmoiresdelacad421878acad',
+'28355' => 'mmoiresdelacad4318801882acad',
+'112128' => 'mobot32044093293280',
+'28091' => 'mmoiresdelacad461886acad',
+'25932' => 'mmoiresdelacad471889acad',
+'25935' => 'mmoiresdelacad481892acad',
+'28706' => 'mmoiresdelacad5018911893acad',
+'28669' => 'mmoiresdelacad5218931894acad',
+'28710' => 'mmoiresdelacad5318951898acad',
+'28670' => 'mmoiresdelacad5419001904acad',
+'28707' => 'mmoiresdelacad1772189764acad',
+'28709' => 'mmoiresdelacad17721897acad',
+'25929' => 'mmoiresdelacad18581878acad',
+'28667' => 'mmoiresdelacad18981914acad',
+'28637' => 'mmoiresdelacad18981963acad'
+);
+
+$items=array('20566' => 'mmoiresdelacad25acad');
+
+$items=array('107497' => 'proceedingsofbi491936biol');
+
+$items=array(
+'97310' => 'verhandlungender681918zool',
+'95707' => 'mobot31753002653480',
+'95710' => 'mobot31753002654009',
+'97062' => 'mobot31753002653993'
+);
+
+$items=array(
+'94130' => 'nachrichtenblatt13195254mn',
+'93531' => 'nachrichtenblatt46195557mn',
+'92677' => 'nachrichtenblatt79195860mn',
+'92416' => 'nachrichtenblatt1012196163mn',
+'92088' => 'nachrichtenblatt1315196466mn',
+'92097' => 'nachrichtenblatt1618196770mn',
+'92089' => 'nachrichtenblatt1921197072mn',
+'92002' => 'nachrichtenblatt2224197375mn',
+'91323' => 'nachrichtenblatt2527197678mn',
+'92072' => 'nachrichtenblatt2830197981mn',
+'91320' => 'nachrichtenblatt3133198284mn',
+'92803' => 'nachrichtenblatt3435198586mn',
+'91303' => 'nachrichtenblatt3637198788mn',
+'91300' => 'nachrichtenblatt3839198990mn',
+'91321' => 'nachrichtenblatt4045199196mn',
+'91981' => 'nachrichtenblatt46121997mn',
+'94904' => 'nachrichtenblatt46341997mchn',
+'95077' => 'nachrichtenblatt47121998mchn',
+'91982' => 'nachrichtenblatt47341998mn',
+'92007' => 'nachrichtenblatt48121999mn',
+'92519' => 'nachrichtenblatt48341999mn',
+'92132' => 'nachrichtenblatt4951200002mn',
+'91978' => 'nachrichtenblatt52122003mn',
+'94492' => 'nachrichtenblatt52342003mchn',
+'91980' => 'nachrichtenblatt53122004mn',
+'92004' => 'nachrichtenblatt53342004mn'
+);
+
+$items=array('111804' => 'shallowwaterhydr00cald');
+
+$items=array(
+
+
+'128826' => 'notalepidopterol71984soci',
+'128825' => 'notalepidopterol81985soci',
+'128788' => 'notalepidoptero101987soci',
+'128798' => 'notalepidoptero111988soci',
+'128800' => 'notalepidoptero201997soci',
+'128794' => 'notalepidopte15199234soci',
+
+'128846' => 'TransactionsRoy120Roya',
+'128847' => 'TransactionsRoy121Roya',
+'128848' => 'TransactionsRoy122Roya',
+'128849' => 'TransactionsRoy123Roya',
+'128851' => 'TransactionsRoy124Roya',
+'128852' => 'TransactionsRoy125Roya',
+'128850' => 'TransactionsRoy126Roya',
+'128817' => 'TransactionsRoy127Roya',
+
+'128843' => 'annalsofsouthafr77sout',
+
+'128827' => 'revuesuissede90341983schw',
+'128837' => 'revuesuissede91341984schw',
+'128836' => 'revuesuissede92121985schw',
+'128833' => 'revuesuissede95341988schw'
+
+
+);
+
+$items=array(
+//'128789' => 'revuesuissede90121983schw',
+'128791' => 'revuesuissede91121984schw',
+'128796' => 'revuesuissede92341985schw',
+'128795' => 'revuesuissede96121989schw',
+'128799' => 'revuesuissede96341989schw'
+);
+
+$items=array(
+'49378' => 'annalesdelasoci371893soci'
+);
+
+$items=array(
+'37802' => 'gyptischedipte21903beck'
+);
+
+$items=array(
+'48691' => 'actasocietatissc01suom',
+'50551' => 'actasocietatissc02suom',
+'48160' => 'actasocietatissc03suom',
+'48084' => 'actasocietatissc05suom',
+'48433' => 'actasocietatissc06suom',
+'48429' => 'actasocietatissc07suom',
+'48435' => 'actasocietatissc81suom',
+'50709' => 'actasocietatissc821867suom',
+'52091' => 'actasocietatissc91871suom',
+'52073' => 'actasocietatissc101875suom',
+'50283' => 'actasocietatissc111880suom',
+'49744' => 'actasocietatissc121883suom',
+'52291' => 'actasocietatissc131884suom',
+'52206' => 'actasocietatissc141885suom',
+'52183' => 'actasocietatissc151888suom',
+'52093' => 'actasocietatissc161888suom',
+'52205' => 'actasocietatissc171891suom',
+'52218' => 'actasocietatissc181891suom',
+'52290' => 'actasocietatissc191893suom',
+'52222' => 'actasocietatissc201895suom',
+'52217' => 'actasocietatissc211896suom',
+'52216' => 'actasocietatissc221897suom',
+'88185' => 'actasocietatissc231897suom',
+'52220' => 'actasocietatissc24suom',
+'49770' => 'actasocietatissc25suom',
+'52221' => 'actasocietatissc26suom',
+'49752' => 'actasocietatissc27suom',
+'52223' => 'actasocietatissc28suom',
+'52210' => 'actasocietatissc29suom',
+'52209' => 'actasocietatissc30suom',
+'52208' => 'actasocietatissc31suom',
+'52215' => 'actasocietatissc32suom',
+'52214' => 'actasocietatissc33suom',
+'52211' => 'actasocietatissc34suom',
+'49762' => 'actasocietatissc35suom',
+'49763' => 'actasocietatissc36suom',
+'52224' => 'actasocietatissc37suom',
+'50764' => 'actasocietatissc38suom',
+'50763' => 'actasocietatissc39suom',
+'50482' => 'actasocietatissc40suom',
+'52212' => 'actasocietatissc41suom',
+'50274' => 'actasocietatissc42suom',
+'50502' => 'actasocietatissc43suom',
+'52213' => 'actasocietatissc44suom',
+'50604' => 'actasocietatissc45suom',
+'52762' => 'actasocietatissc46suom',
+'50275' => 'actasocietatissc47suom',
+'52207' => 'actasocietatissc48suom',
+'50278' => 'actasocietatissc49suom',
+'53070' => 'actasocietatissc50suom'
+);
+
+$items=array('50482' => 'actasocietatissc40suom');
+
+$items=array('95091' => 'stuttgarterbeitr157167198990staa');
+
+$items=array('110478' => 'monatsberichtede1877knig');
+
+$items=array(
+'46156' => 'annalesdelasoci89186465soci',
+'48192' => 'annalesdelasoci101866soci',
+'45311' => 'annalesdelasoci11186768soci',
+'44872' => 'annalesdelasoci1213186870soci',
+'44639' => 'annalesdelasoci1415187072soci',
+'44647' => 'annalesdelasoci161873soci',
+'45797' => 'annalesdelasoci171874soci',
+'45753' => 'annalesdelasoci181875soci',
+'45830' => 'annalesdelasoci1920187677soci',
+'46150' => 'annalesdelasoci211878soci',
+'44876' => 'annalesdelasoci221879soci',
+'44686' => 'annalesdelasoci2325188081soci',
+'81196' => 'annalesdelasoci2627188283soci',
+'45820' => 'annalesdelasoci281884soci',
+'45823' => 'annalesdelasoci291885soci',
+'44636' => 'annalesdelasoci3031188687soci',
+'45827' => 'annalesdelasoci3233188889soci',
+'44716' => 'annalesdelasoci351891soci',
+'46152' => 'annalesdelasoci361892soci',
+'49378' => 'annalesdelasoci371893soci',
+'46161' => 'annalesdelasoci381894soci',
+'45774' => 'annalesdelasoci39189596soci',
+'46174' => 'annalesdelasoci40189697soci',
+'44877' => 'annalesdelasoci471903soci',
+'46160' => 'annalesdelasoci481904soci',
+'44643' => 'annalesdelasoci491905soci',
+'46136' => 'annalesdelasoci501906soci',
+'44645' => 'annalesdelasoci511907soci',
+'47476' => 'annalesdelasoci521908socis',
+'46155' => 'annalesdelasoci531909soci',
+'44635' => 'annalesdelasoci541910soci',
+'44648' => 'annalesdelasoci551911soci',
+'46151' => 'annalesdelasoci561912soci',
+'47475' => 'annalesdelasoci571913socis',
+'51528' => 'annalesdelasoci581914soci',
+'44640' => 'annalesdelasoci5961191922soci',
+'44701' => 'annalesdelasoci13018571886soci'
+);
+
+$items=array('29988' => 'archivesdezoolog60cent');
+
+$items=array(
+'121911' => 'boletndelmuseona41912muse',
+'111063' => 'boletndelmuseona81915muse',
+'111054' => 'boletndelmuseona91916muse',
+'100439' => 'boletndelmuseo101917muse',
+'121912' => 'boletndelmuseon111920muse',
+'111065' => 'boletndelmuseona181911mu',
+'121195' => 'boletndelmuseon211910muse',
+'98626' => 'boletndelmuseo321911muse'
+);
+
+$items=array('105970' => 'iheringia6264198384fund');
+
+$items=array(
+/*'84546' => 'bulletinofbritis02brit',
+'128927' => 'TransactionsRoy74Roya',
+'128924' => 'TransactionsRoy75Roya',
+'128923' => 'TransactionsRoy76Roya',
+'128922' => 'TransactionsRoy77Roya',
+'128921' => 'TransactionsRoy78Roya',
+'128920' => 'TransactionsRoy79Roya',
+'128873' => 'revuesuissedez851978schw',
+'128876' => 'revuesuissedez861979schw',
+'128869' => 'revuesuissed88121981schw',
+'128925' => 'revuesuissed88341981schw',
+'128870' => 'revuesuissede89121982schw',*/
+'128872' => 'revuesuissed89341982schw'
+
+);
+
+$items=array('98586' => 'journaloflinnean29190306linn');
+
+
+$items=array('98595' => 'journaloflinnean81865linn',
+'99085' => 'journaloflinnean91868linn',
+'98556' => 'journaloflinnean101870linn',
+'100042' => 'journaloflinnean111873linn',
+'99813' => 'journaloflinnean121876linn',
+'98585' => 'journaloflinnean131878linn',
+'99383' => 'journaloflinnean14187779linn',
+'114103' => 'journaloflinnean15linn',
+'99814' => 'journaloflinnean16188183linn',
+'98664' => 'journaloflinnean17188384linn',
+'98724' => 'journaloflinnean18188485linn',
+'99211' => 'journaloflinnean191886linn',
+'108769' => 'journaloflinn20188690linn',
+'98725' => 'journaloflinnean21188689linn',
+'98559' => 'journaloflinnean22188788linn',
+'98582' => 'journaloflinnean23188991linn',
+//'98716' => 'journaloflinnean24189194linn',
+'99851' => 'journaloflinnean25189496linn',
+'99469' => 'journaloflinnean26189798linn',
+'98709' => 'journaloflinnean2718991900linn',
+'99466' => 'journaloflinnean28190003linn',
+//'98586' => 'journaloflinnean29190306linn',
+'98506' => 'journaloflinnean30190710linn',
+'98662' => 'journaloflinnean31190715linn',
+'100259' => 'journaloflinnean32191116linn',
+'98583' => 'journaloflinnean33191619linn',
+'108772' => 'journaloflinn34191822lin',
+'99101' => 'journaloflinnean35192224linn',
+'98560' => 'journaloflinnean120183890linn',
+'118965' => 'journaloflinn15188081linn'
+);
+
+$items=array('123561' => 'variationinbatso00pete');
+
+$items=array('48405' => 'verhandlungender45zool');
+
+$items=array(
+/*'86009' => 'verhandlungender858zool',
+'55238' => 'verhandlungender959zool',
+'86010' => 'verhandlungender1060zool',
+'55295' => 'verhandlungender1161zool',*/
+'86027' => 'verhandlungender1363zool',
+'55310' => 'verhandlungender1464zool',
+'55293' => 'verhandlungender1565zool',
+'86028' => 'verhandlungender1666zool',
+'86029' => 'verhandlungender1767zool',
+'81414' => 'verhandlungender1868zool',
+'55339' => 'verhandlungender2070zool',
+'55340' => 'verhandlungender2171zool',
+'55318' => 'verhandlungender2272zool',
+'55316' => 'verhandlungender2373zool',
+'55331' => 'verhandlungender2575zool',
+'55313' => 'verhandlungender2676zool',
+'86002' => 'verhandlungender2777zool',
+'55292' => 'verhandlungender2878zool',
+'55299' => 'verhandlungender2979zool',
+'55284' => 'verhandlungender3080zool',
+'48128' => 'verhandlungender31zool',
+'49918' => 'verhandlungender32zool',
+'49945' => 'verhandlungender33zool',
+'49913' => 'verhandlungender34zool',
+'49510' => 'verhandlungender35zool',
+'47596' => 'verhandlungender36zool',
+'49497' => 'verhandlungender37zool',
+'47683' => 'verhandlungender38zool',
+'47787' => 'verhandlungender39zool',
+'47786' => 'verhandlungender40zool',
+'49919' => 'verhandlungender41zool',
+'48404' => 'verhandlungender42zool',
+'48406' => 'verhandlungender43zool',
+'48087' => 'verhandlungender44zool',
+//'48405' => 'verhandlungender45zool',
+//'48422' => 'verhandlungender46zool',
+'50549' => 'verhandlungender47zool',
+'47597' => 'verhandlungender48zool',
+'47681' => 'verhandlungender49zool',
+'47592' => 'verhandlungender50zool',
+'49946' => 'verhandlungender51zool',
+'47781' => 'verhandlungender52zool',
+'48810' => 'verhandlungender53zool',
+'47890' => 'verhandlungender54zool',
+'47889' => 'verhandlungender55zool',
+'47595' => 'verhandlungender56zool',
+'47780' => 'verhandlungender57zool',
+'47593' => 'verhandlungender58zool',
+'47594' => 'verhandlungender59zool',
+'48812' => 'verhandlungender60zool',
+'47782' => 'verhandlungender61zool',
+'47784' => 'verhandlungender62zool',
+'49912' => 'verhandlungender63zool',
+'48813' => 'verhandlungender64zool',
+'47891' => 'verhandlungender65zool',
+'47783' => 'verhandlungender66zool'
+);
+
+$items = array('38905' => 'dobutsugakuzassh24niho');
+
+$items=array('32426' => 'proceedingsofuni141891unit');
+
+$items=array(
+'81096' => 'journaldeconchyl11850pari',
+'53852' => 'journaldeconchyl21851pari',
+'53856' => 'journaldeconchyl31852pari',
+'53861' => 'journaldeconchyl41853pari',
+'53871' => 'journaldeconchyl51856pari',
+'53872' => 'journaldeconchyl61857pari',
+'53873' => 'journaldeconchyl71858pari',
+'53874' => 'journaldeconchyl81860pari',
+'53295' => 'journaldeconchyl91861pari',
+'52231' => 'journaldeconchyl101862pari',
+'52674' => 'journaldeconchyl111863pari',
+'54459' => 'journaldeconchyl121864pari',
+'52229' => 'journaldeconchyl131865pari',
+'53440' => 'journaldeconchyl141866pari',
+'52768' => 'journaldeconchyl151867pari',
+'52232' => 'journaldeconchyl161968pari',
+'53431' => 'journaldeconchyl171869pari',
+'52282' => 'journaldeconchyl181870pari',
+'52234' => 'journaldeconchyl191871pari',
+'53466' => 'journaldeconchyl201872pari',
+'52258' => 'journaldeconchyl211873pari',
+'53430' => 'journaldeconchyl221874pari',
+'53453' => 'journaldeconchyl231875pari',
+'54517' => 'journaldeconchyl241876pari',
+'54878' => 'journaldeconchyl251877pari',
+'54320' => 'journaldeconchyl261878pari',
+'54087' => 'journaldeconchyl271879pari',
+'54068' => 'journaldeconchyl281880pari',
+'53855' => 'journaldeconchyl291881pari',
+'54877' => 'journaldeconchyl301882pari',
+'53857' => 'journaldeconchyl311883pari',
+'54518' => 'journaldeconchyl321884pari',
+'54224' => 'journaldeconchyl331885pari',
+'54516' => 'journaldeconchyl341886pari',
+'54073' => 'journaldeconchyl351887pari',
+'54226' => 'journaldeconchyl361888pari',
+'54319' => 'journaldeconchyl371889pari',
+//'54088' => 'journaldeconchyl381890pari',
+'54086' => 'journaldeconchyl391891pari',
+'81370' => 'journaldeconchyl401892pari',
+'53870' => 'journaldeconchyl411893pari',
+'54089' => 'journaldeconchyl421894pari',
+'54075' => 'journaldeconchyl431895pari',
+'81049' => 'journaldeconchyl441896pari',
+'54070' => 'journaldeconchyl451897pari',
+'54071' => 'journaldeconchyl461898pari',
+'54227' => 'journaldeconchyl471899pari',
+'81155' => 'journaldeconchyl481900pari',
+'53864' => 'journaldeconchyl491901pari',
+'55103' => 'journaldeconchyl501902pari',
+'55084' => 'journaldeconchyl511903pari',
+'55042' => 'journaldeconchyl521904pari',
+'87673' => 'journaldeconchyl571909pari',
+'55051' => 'journaldeconchyl5319056pari',
+'55062' => 'journaldeconchyl5419067pari',
+'55052' => 'journaldeconchyl5519078pari',
+'55061' => 'journaldeconchyl5619089pari',
+'55040' => 'journaldeconchyl58191011pari',
+'55064' => 'journaldeconchyl59191112pari',
+'55204' => 'journaldeconchyl60191213pari',
+'55054' => 'journaldeconchyl61191314pari',
+'55085' => 'journaldeconchyl62191417pari',
+'54317' => 'journaldeconchyl63191718pari',
+'54072' => 'journaldeconchyl64191920pari',
+'54318' => 'journaldeconchyl65192021pari',
+'54228' => 'journaldeconchyl66192122pari',
+'51524' => 'journaldeconchyl120185072pari',
+'54506' => 'journaldeconchyl2140187392pari'
+);
+
+$items=array('54088' => 'journaldeconchyl381890pari');
+
+$items=array(
+/*'43489' => 'mitteilungenausd02natu',
+'43713' => 'mitteilungenausd56natu',
+'95512' => 'mitteilungenausd67188889hamb',
+'33417' => 'mitteilungenausd00natu',*/
+'93228' => 'mitteilungenausd91891hamb',
+'43700' => 'mitteilungenausd10natu',
+'108200' => 'mitteilungenau101892hamb',
+'33346' => 'mitteilungenausd11natu',
+'93402' => 'mitteilungenausd1112189394hamb',
+'33303' => 'mitteilungenausd12natu',
+'33323' => 'mitteilungenausd13natu',
+'93401' => 'mitteilungenausd1314189596hamb',
+'33404' => 'mitteilungenausd14natu',
+'33268' => 'mitteilungenausd15natu',
+'93395' => 'mitteilungenausd1516189798hamb',
+'33330' => 'mitteilungenausd16natu',
+//'39472' => 'mitteilungenausd17natu',
+//'93110' => 'mitteilungenausd171818991900hamb',
+'35626' => 'mitteilungenausd19natu',
+'93454' => 'mitteilungenausd1920190102hamb',
+'35601' => 'mitteilungenausd20natu',
+'39441' => 'mitteilungenausd21natu',
+'93399' => 'mitteilungenausd2122190304hamb',
+'40859' => 'mitteilungenausd22natu',
+'39582' => 'mitteilungenausd23natu',
+'39458' => 'mitteilungenausd24natu',
+'93227' => 'mitteilungenausd2325190507hamb',
+'33507' => 'mitteilungenausd25natu',
+'43466' => 'mitteilungenausd26natu',
+'94430' => 'mitteilungenausd261908hamb',
+'92618' => 'mitteilungenausd2728190910hamb',
+'93418' => 'mitteilungenausd2930191112hamb',
+'93457' => 'mitteilungenausd311913hamb',
+'40861' => 'mitteilungenausd31natu',
+'39451' => 'mitteilungenausd32natu',
+'39479' => 'mitteilungenausd33natu',
+'39454' => 'mitteilungenausdnm34natu',
+'39484' => 'mitteilungenausd35natu',
+//'39448' => 'mitteilungenausd36natu',
+//'93447' => 'mitteilungenausd3436191618hamb',
+'39475' => 'mitteilungenausd37natu',
+'39433' => 'mitteilungenausd38natu'
+);
+
+$items=array('39448' => 'mitteilungenausd36natu',
+'93447' => 'mitteilungenausd3436191618hamb');
+
+$items=array('128180' => 'bulletinofmuseum158harv',
+'127813' => 'bulletinofmuseum159harv');
+
+$items=array('24701' => 'occasionalpapers05univ');
+
+$items=array('31193' => 'comptesrendusheb174acad');
+
+$items=array('92710' => 'sitzungsberichte1922preu');
+
+$items=array('49039' => 'quarterlyjournal431900lond',
+'51042' => 'quarterlyjournalplates431900lond');
+
+$items=array(
+/*'128950' => 'bulletinofnatura672nat',
+'129114' => 'notalepidopterol91986soci',
+'129113' => 'notalepidoptero161993soci',
+'129151' => 'notalepidopter221999soci',
+'129149' => 'notalepidoptero242001soci',
+'129112' => 'notalepidopter1719945soci',
+'129153' => 'notalepidopt2526200203soc',*/
+'128949' => 'TransactionsRoy71Roya',
+'129116' => 'TransactionsRoy72Roya',
+'129115' => 'TransactionsRoy73Roya'
+);
+
+$items=array('92654' => 'jahrbuchderhambu2835671910hamb');
+
+$items=array('40700' => 'bulletinbiologiq40univ');
+
+$items=array('129156' => 'bulletinofbritis05br',
+'129157' => 'bulletinofbritis12br',
+'128951' => 'bulletinofbritis32br',
+'129158' => 'bulletinofbritis34br',
+'129168' => 'bulletinofbritis67brit',
+'129155' => 'bulletinofbritis1011bri');
+
+$items=array('18619' => 'rsultatsdescam27albe');
+
+$items=array('54330' => 'siphonophoraofsi00lens');
+
+$items=array('53694' => 'proceedingsofuni921942unit',
+'111987' => 'memoirsprocee42189798manc'
+);
+
+$items=array(
+'95661' => 'canadianentomolo1186869ento',
+'88712' => 'canadianentomol01ento',
+'22107' => 'canadianentomolo02ento',
+'26369' => 'canadianentomolo03ento',
+'96160' => 'canadianentomolo4187273ento',
+'88713' => 'canadianentomol04ento',
+'22227' => 'canadianentomolo05ento',
+'22238' => 'canadianentomolo06ento',
+'22105' => 'canadianentomolo07ento',
+'88714' => 'canadianentomol07ento',
+'22083' => 'canadianentomolo08ento',
+'22110' => 'canadianentomolo09ento',
+'22275' => 'canadianentomolo10ento',
+'88715' => 'canadianentomol10ento',
+'22214' => 'canadianentomolo11ento',
+'22088' => 'canadianentomolo12ento',
+'22092' => 'canadianentomolo13ento',
+'88716' => 'canadianentomol13ento',
+'26368' => 'canadianentomolo14ento',
+'22224' => 'canadianentomolo15ento',
+'22093' => 'canadianentomolo16ento',
+'88685' => 'canadianentomol1618ento',
+'22147' => 'canadianentomolo17ento',
+'23576' => 'canadianentomolo188618ento',
+'22087' => 'canadianentomolo19ento',
+'88689' => 'canadianentomol1921ento',
+'23634' => 'canadianentomolo188820ento',
+'22108' => 'canadianentomolo21ento',
+'88697' => 'canadianentomol22ento',
+'22085' => 'canadianentomolo22ento',
+'88696' => 'canadianentomol23ento',
+'18805' => 'canadianentomolo23ento',
+'88717' => 'canadianentomol24ento',
+'18806' => 'canadianentomolo24ento',
+'88718' => 'canadianentomol25ento',
+'22138' => 'canadianentomolo25ento',
+'88678' => 'canadianentomol26ento',
+'22274' => 'canadianentomolo26ento',
+'88634' => 'canadianentomol27ento',
+'22096' => 'canadianentomolo27ento',
+'88719' => 'canadianentomol28ento',
+'22111' => 'canadianentomolo28ento',
+'88720' => 'canadianentomol29ento',
+'22100' => 'canadianentomolo29ento',
+'88677' => 'canadianentomol30ento',
+'22152' => 'canadianentomolo30ento',
+'88636' => 'canadianentomol31ento',
+'18795' => 'canadianentomolo31ento',
+'88721' => 'canadianentomol32ento',
+'22161' => 'canadianentomolo32ento',
+'88722' => 'canadianentomol33ento',
+'22101' => 'canadianentomolo33ento',
+'88723' => 'canadianentomol34ento',
+'18808' => 'canadianentomolo34ento',
+'88724' => 'canadianentomol35ento',
+'22193' => 'canadianentomolo35ento',
+'88711' => 'canadianentomo36ento',
+'22119' => 'canadianentomolo36ento',
+'88725' => 'canadianentomol37ento',
+'22099' => 'canadianentomolo37ento',
+'88664' => 'canadianentomol38ento',
+'22120' => 'canadianentomolo38ento',
+'88663' => 'canadianentomol39ento',
+'22084' => 'canadianentomolo39ento',
+'88726' => 'canadianentomol40ento',
+'22229' => 'canadianentomolo40ento',
+'22162' => 'canadianentomolo41ento',
+'88727' => 'canadianentomol42ento',
+'22086' => 'canadianentomolo42ento',
+'88635' => 'canadianentomol43ento',
+'22094' => 'canadianentomolo43ento',
+'31539' => 'canadianentomolo441912ento',
+'88665' => 'canadianentomol44ento',
+'22231' => 'canadianentomolo45ento',
+'22201' => 'canadianentomolo46ento',
+'88695' => 'canadianentomol4647ento',
+'22112' => 'canadianentomolo47ento',
+'18797' => 'canadianentomolo48ento',
+'89439' => 'canadianentomolo4849ento',
+//'22200' => 'canadianentomolo49ento',
+'22125' => 'canadianentomolo50ento',
+'88728' => 'canadianentomol50ento',
+'22089' => 'canadianentomolo51ento',
+'22190' => 'canadianentomolo52ento',
+'88729' => 'canadianentomol52ento',
+'22098' => 'canadianentomolo53ento',
+'88627' => 'canadianentomolo54ento'
+);
+
+$items=array('22200' => 'canadianentomolo49ento');
+
+$items=array(
+'100142' => 'entomologischena12187576berl',
+'42351' => 'entomologischena21876berl',
+'42353' => 'entomologischena31877berl',
+'101157' => 'entomologischena41878berl',
+'98951' => 'entomologischena51879berl',
+'101311' => 'entomologischena61880berl',
+'110225' => 'entomologischena7unse',
+'100950' => 'entomologischena81882berl',
+'39845' => 'entomologischena911188385berl',
+'99534' => 'entomologischena121886berl',
+'100978' => 'entomologischena1318berl',
+'42933' => 'entomologischena1415188889berl',
+'81935' => 'entomologischena16metc',
+'42328' => 'entomologischena1617189091berl',
+'81646' => 'entomologischena17metc',
+'43639' => 'entomologischena1819189293berl',
+'81937' => 'entomologischena19metc',
+'81939' => 'entomologischena20metc',
+'42357' => 'entomologischena2021189495berl',
+'81940' => 'entomologischena21metc',
+'42399' => 'entomologischena221896berl',
+'42377' => 'entomologischena231897berl',
+'42365' => 'entomologischena241898berl',
+'42396' => 'entomologischena251899berl',
+'42207' => 'entomologischena261900berl'
+);
+
+$items=array('43639' => 'entomologischena1819189293berl');
+$items=array('42933' => 'entomologischena1415188889berl');
+
+$items=array('109890' => 'annalsofnewyor7189294newy');
+
+$items=array('107383' => 'proceedingsofam01amer',
+'107402' => 'proceedingsofa02amer',
+'86861' => 'proceedingsofame03ameruoft',
+'103366' => 'proceedingsofame004amer',
+'103358' => 'proceedingsofame005amer',
+'31278' => 'proceedingsofamer06amer',
+'30596' => 'proceedingsofamer07amer',
+'31334' => 'proceedingsofamer08amer',
+'86768' => 'proceedingsofame08ameruoft',
+'30581' => 'proceedingsofameri09amer',
+'86798' => 'proceedingsofame09ameruoft',
+'31414' => 'proceedingsofamer10amer',
+'97664' => 'proceedingsofame011amer',
+'108737' => 'mobot000128015_v12',
+'31322' => 'proceedingsofame13amer',
+'97665' => 'proceedingsofame014amer',
+'86415' => 'proceedingsofame15ameruoft',
+'42062' => 'proceedingsofamer15amer',
+'31284' => 'proceedingsofame16amer',
+'94441' => 'proceedingsofame17187778amer',
+'86442' => 'proceedingsofame17ameruoft',
+'86398' => 'proceedingsofame18ameruoft',
+'31931' => 'proceedingsofamep18amer',
+'98173' => 'proceedingsofame019amer',
+'86426' => 'proceedingsofame20ameruoft',
+'31075' => 'proceedingsofamep20amer',
+'111841' => 'mobot31753002129390',
+'31069' => 'proceedingsofamep22amer',
+'31070' => 'proceedingsofamep23amer',
+'31428' => 'proceedingsofamep24amer',
+'108736' => 'mobot000128015_v25',
+'31462' => 'proceedingsofamep26amer',
+'86412' => 'proceedingsofame26ameruoft',
+'31077' => 'proceedingsofamep27amer',
+'86850' => 'proceedingsofame27ameruoft',
+'86372' => 'proceedingsofame2830ameruoft',
+'30365' => 'proceedingsofamep28amer',
+'31074' => 'proceedingsofamep29amer',
+'31078' => 'proceedingsofamep30amer',
+'31612' => 'proceedingsofamep31amer',
+'86396' => 'proceedingsofame31ameruoft',
+'94529' => 'proceedingsofame321893amer',
+'94449' => 'proceedingsofame331894amer',
+'31430' => 'proceedingsofame34amer',
+'30364' => 'proceedingsofamep35amer',
+'86417' => 'proceedingsofame35ameruoft',
+'31433' => 'proceedingsofamep36amer',
+'31422' => 'proceedingsofamep37amer',
+'31463' => 'proceedingsofamep38amer',
+'94909' => 'proceedingsofame391900amer',
+'31072' => 'proceedingsofamep40amer',
+'86849' => 'proceedingsofame40ameruoft',
+'86405' => 'proceedingsofame41ameruoft',
+'31622' => 'proceedingsofamep41amer',
+'86373' => 'proceedingsofame42ameruoft',
+'94523' => 'proceedingsofame421903amer',
+'86385' => 'proceedingsofame43ameruoft',
+'31076' => 'proceedingsofamep43amer',
+'31613' => 'proceedingsofamep44amer',
+'86358' => 'proceedingsofame44ameruoft',
+'86420' => 'proceedingsofame45ameruoft',
+'30545' => 'proceedingsofamep45amer',
+'31172' => 'proceedingsofamep46amer',
+'31472' => 'proceedingsofamep47amer',
+'86413' => 'proceedingsofame49ameruoft',
+'94889' => 'proceedingsofame481909amer',
+'86397' => 'proceedingsofam49ameruoft',
+'31209' => 'proceedingsofamep49amer',
+'86376' => 'proceedingsofame50ameruoft',
+'31630' => 'proceedingsofamep50150amer',
+'86404' => 'proceedingsofame150ameruoft',
+'86410' => 'proceedingsofame51ameruoft',
+'31303' => 'proceedingsofamep51amer',
+'95640' => 'proceedingsofame521913amer',
+'31934' => 'proceedingsofamep53amer',
+'97666' => 'proceedingsofame054amer',
+'86422' => 'proceedingsofame55ameruoft',
+'31629' => 'proceedingsofamep55amer',
+'31628' => 'proceedingsofamep56amer',
+'86386' => 'proceedingsofame56ameruoft',
+'31632' => 'proceedingsofamep57amer',
+'86873' => 'proceedingsofame57ameruoft',
+'86409' => 'proceedingsofame58ameruoft',
+'30553' => 'proceedingsofamep58amer',
+'31625' => 'proceedingsofamep59amer',
+'86419' => 'proceedingsofame59ameruoft',
+'31464' => 'proceedingsofamep60amer',
+'31624' => 'proceedingsofamep61amer',
+'86375' => 'proceedingsofame6162ameruoft'
+);
+
+$items=array('31322' => 'proceedingsofame13amer');
+
+$items=array(
+//'31381' => 'beitrgezurkenn011914mich',
+'31531' => 'beitrgezurkenn02mich'
+);
+
+$items=array(
+'124110' => 'mobot31753002294442',
+'123677' => 'mobot31753002294491',
+'104363' => 'denkschriftender51853kais',
+'104327' => 'mobot31753002294509',
+'30043' => 'denkschriftender07kais',
+'30056' => 'denkschriftender08kais',
+'30050' => 'denkschriftender09kais',
+'30071' => 'denkschriftender10kais',
+'104328' => 'mobot31753002294558',
+'104339' => 'mobot31753002294566',
+'104340' => 'mobot31753002294574',
+'30041' => 'denkschriftender14kais',
+'30040' => 'denkschriftender15kais',
+'30086' => 'denkschriftender16kais',
+'29612' => 'denkschriftender17kais',
+'30049' => 'denkschriftender19kais',
+'30087' => 'denkschriftender20kais',
+'30088' => 'denkschriftender21kais',
+'30081' => 'denkschriftender22kais',
+'31603' => 'denkschriftender23kais',
+'91078' => 'denkschriftens241865akad',
+'31604' => 'denkschriftender25kais',
+'110694' => 'denkschriften261867akad',
+'90642' => 'denkschriftens271867akad',
+'31605' => 'denkschriftender28kais',
+'91115' => 'denkschriftens291869akad',
+'88849' => 'denkschriftens301870akad',
+'88847' => 'denkschriftens311871akad',
+'31427' => 'denkschriftender32kais',
+'31421' => 'denkschriftender33kais',
+'91076' => 'denkschriftens341875akad',
+'31465' => 'denkschriftender35kais',
+'88852' => 'denkschriftens361876akad',
+'31616' => 'denkschriftender37kais',
+'30688' => 'denkschriftender38kais',
+'31466' => 'denkschriftender39kais',
+'104344' => 'mobot31753002296942',
+'31606' => 'denkschriftender41kais',
+'30691' => 'denkschriftender42kais',
+'31607' => 'denkschriftender45kais',
+'31469' => 'denkschriftender47kais',
+'31429' => 'denkschriftender48kais',
+'31419' => 'denkschriftender49kais',
+'31608' => 'denkschriftender50kais',
+'88806' => 'denkschriftens511886akad',
+'88996' => 'denkschriftens521887akad',
+'31084' => 'denkschriftender53kais',
+'31329' => 'denkschriftender54kais',
+'31432' => 'denkschriftender56kais',
+'31471' => 'denkschriftender57kais',
+'31609' => 'denkschriftender60kais',
+'31617' => 'denkschriftender61kais',
+'31610' => 'denkschriftender64kais',
+'90124' => 'denkschriftender1898kais',
+'88851' => 'denkschriftens671899akad',
+'110841' => 'denkschriftens681900akad',
+'88998' => 'denkschriftens691901akad',
+'89426' => 'denkschriftens701900akad',
+'31611' => 'denkschriftender72kais',
+'31618' => 'denkschriftender73kais',
+'31079' => 'denkschriftender74kais',
+'31620' => 'denkschriftender78kais',
+'104473' => 'mobot31753003648703',
+'31436' => 'denkschriftender81kais',
+'109859' => 'denkschriftens821914akad',
+'109857' => 'denkschriftens841909akad',
+'110762' => 'denkschriftens851910akad',
+'109885' => 'denkschriftens861911akad',
+'109865' => 'denkschriftens871912akad',
+'118966' => 'denkschriftenst881913akad',
+'109886' => 'denkschriftens891914akad',
+'109866' => 'denkschriftens901914akad',
+'109887' => 'denkschriftens911915akad',
+'109888' => 'denkschriftens921916akad',
+'110840' => 'denkschriftens931917akad',
+'110833' => 'denkschriftens941918akad',
+'109889' => 'denkschriftens951918akad',
+'109567' => 'denkschriftens971921akad',
+'110696' => 'denkschriftens981923akad',
+'123683' => 'mobot31753002930706',
+'31619' => 'denkschriftender6601kais',
+'31426' => 'denkschriftender6602kais',
+'31271' => 'denkschriftender6603kais',
+'109665' => 'denkschriften7511913akad',
+'30687' => 'denkschriftender7901kais',
+'109864' => 'denkschrift96191819akad',
+'124111' => 'mobot31753002294483',
+'124672' => 'mobot31753002294467'
+);
+
+$items=array('109888' => 'denkschriftens921916akad');
+
+$items = array('29664' => 'archivesdezoolog500510cent');
+
+$items=array(
+'92797' => 'recordsofsouthau119181920publ',
+'49300' => 'recordsofsouthau02publ'
+);
+
+$items=array('105862' => 'branchiobdellida173good');
+
+$items=array(
+//'96254' => 'seainlandfisheri1902irel',
+//'96253' => 'seainlandfisheri1906irel',
+'96479' => 'seainlandfisheri1912irel'
+);
+
+$items=array('41288' => 'schizopodaofsibo00hans');
+
+$items=array(
+'40830' => 'scientificresult01wils',
+'27598' => 'scientificresult02carn',
+'40816' => 'scientificresult02wils',
+'40822' => 'scientificresult03wils',
+'40820' => 'scientificresult04wils',
+'40829' => 'scientificresult05wils'
+);
+
+$items=array('47780' => 'verhandlungender57zool');
+
+$items=array(
+/*'38068' => 'revistadelmuseod01muse',
+'37340' => 'revistadelmuseod02muse',
+'37378' => 'revistadelmuseod03muse',
+'37282' => 'revistadelmuseod04muse',
+'96897' => 'revistadelmuseod51894univ',
+'97250' => 'revistadelmuseod61895univ',
+'98682' => 'revistadelmuseod71896univ',
+'43893' => 'revistadelmuseod81898muse',*/
+'37352' => 'revistadelmuseod09muse',
+'36653' => 'revistadelmuseod10muse',
+'37363' => 'revistadelmuseod11muse',
+'96893' => 'revistadelmuseod1213190506113univ',
+'37280' => 'revistadelmuseod13muse',
+'37425' => 'revistadelmuseod14muse',
+'37472' => 'revistadelmuseod15muse'
+);
+
+$items=array('37664' => 'monographiacassi01bohe',
+'37920' => 'monographiacassi02bohe',
+'37663' => 'monographiacassi03bohe',
+'36991' => 'monographiacassi04bohe'
+);
+
+$items=array(
+'124737' => 'paleontologica121997niho',
+'124459' => 'paleontolog3419992000niho',
+'124608' => 'paleontologic56200120niho'
+);
+$items=array(
+'108177' => 'philippinejourna21907phi',
+'108191' => 'philippinejourna21907phil',
+'109841' => 'philippinejourna31908phil',
+'111121' => 'philippinejour31908phil',
+'108477' => 'philippinejourna41909phi',
+'107010' => 'philippinejourna41909phil',
+'107001' => 'philippinejourna51910phil',
+'107499' => 'philippinejourna51910phi',
+'108170' => 'philippinejourn51910phil',
+'107005' => 'philippinejourna61911ph',
+'107528' => 'philippinejourna61911phi',
+'107538' => 'philippinejourna61911phil',
+'107004' => 'philippinejourna71912ph',
+'107014' => 'philippinejourna71912phi',
+'108186' => 'philippinejourna71912phil',
+'108774' => 'philippinejourna81913ph',
+'107649' => 'philippinejourna81913phil',
+'108167' => 'philippinejourna81913phi',
+'111325' => 'philippinejourna91914phil',
+'111453' => 'philippinejou91914phil',
+'111865' => 'philippinejo91914phil',
+'111444' => 'philippinejo101915phil',
+'111471' => 'philippinejour101915phil',
+'111658' => 'philippinejourn101915phil',
+'111442' => 'philippinejo111916phil',
+'111191' => 'philippinejou111916phil',
+'110844' => 'philippinejour111916phil',
+'111194' => 'philippinejo121917phil',
+'111441' => 'philippinejour121917phil',
+'111443' => 'philippinejourn131918phil',
+'111193' => 'philippinejour131918phil',
+'110948' => 'philippinejou131918phil',
+'111290' => 'philippinej110190615phil'
+);
+
+//$items=array('111193' => 'philippinejour131918phil');
+
+$items=array(
+/*'39482' => 'attidellasociett61soci',
+'39506' => 'attidellasociett36soci',*/
+'39491' => 'attidellasociett39soci',
+'39449' => 'attidellasociett40soci',
+'42617' => 'attidellasociett46soci',
+'39489' => 'attidellasociett48soci',
+'39505' => 'attidellasociett49soci',
+'39495' => 'attidellasociett50soci',
+'39498' => 'attidellasociett52soci',
+'39564' => 'attidellasociett57soci',
+'39453' => 'attidellasociett58soci'
+);
+
+$items=array('47539' => 'annalesdesscienc911miln');
+
+$items=array('23566' => 'yalenorthindiaex0118yale');
+
+$items=array('32533' => 'proceedingsofuni911943unit');
+
+$items=array(
+/*'123953' => 'atollresearch11419511smit',
+'107378' => 'atollresearchbul1215smit',
+'123940' => 'atollresearch15181953smit',
+'123835' => 'atollresearchb1927195smit',
+'123941' => 'atollresearchbu283619smit',
+'123952' => 'atollresearch37471955smit',
+'123837' => 'atollresearchbu485819smit',
+'123839' => 'atollresearchbu597019smit',
+'123747' => 'atollresearchbu718519smit',
+'123744' => 'atollresearch86941962smit',
+'123832' => 'atollresearchbu951081smit',
+'123743' => 'atollresearchbu109117smit',
+'123662' => 'atollresearchbu181271smit',
+'123413' => 'atollresearchbu128148smit',
+'123418' => 'atollresearchb1491501smit',
+'123420' => 'atollresearchbu151164smit',
+'123412' => 'atollresearchbl165170smit',
+'123409' => 'atollresearchbu171174smit',
+'123834' => 'atollresearchb1751861smit',
+'123956' => 'atollresearchbu187190smit',
+'123829' => 'atollresearchbul19119smit',
+'123830' => 'atollresearchbu193219smit',
+'123836' => 'atollresearchbul22022smit',
+'123480' => 'atollresearc223232197smit',
+'123591' => 'atollresearchb2332401smit',
+'123667' => 'atollresearchb2412511smit',
+'123668' => 'atollresearchbu252259smit',
+'123481' => 'atollresearch26027219smit',
+'123482' => 'atollresearch27328119smit',
+'123592' => 'atollresearchbu282292smit',
+'123488' => 'atollresearchb2933111smit',
+'123594' => 'atollresearchbu312329smit',
+'123487' => 'atollresearchb3303461smit',
+'123408' => 'atollresear3473541991smit',
+'123411' => 'atollresearchbu355364smit',
+'123414' => 'atollresearchbu365389smit',
+'123417' => 'atollresearchbul39039smit',*/
+'123659' => 'atollresearchbu399425smit',
+'123416' => 'atollresearchbu426434smit',
+'123415' => 'atollresearchbu435449smit',
+//'123410' => 'atollresearchbul45045smit',
+'123660' => 'atollresearchb4814932smit',
+'123419' => 'atollresearchbu459480smit',
+'123661' => 'atollresearchb4942001smit',
+'123664' => 'atollresearchb4952002smit',
+'123421' => 'atollresearchbu509530smit',
+'123593' => 'atollresearchbu531542smit',
+'123669' => 'atollresearchbul543smit',
+'123663' => 'atollresearchb5442007smit'
+);
+
+//$items=array('123410' => 'atollresearchbul45045smit');
+
+$items=array(
+//'40256' => 'postilla150peab',
+'44881' => 'postilla511961peab',
+'43781' => 'postilla521961peab',
+'43743' => 'postilla531961peab',
+'43733' => 'postilla541961peab',
+'43746' => 'postilla551961peab',
+'43802' => 'postilla561961peab',
+'43805' => 'postilla581962peab',
+'43800' => 'postilla591962peab',
+'43740' => 'postilla601962peab',
+'43737' => 'postilla611962peab',
+'44212' => 'postilla621962peab',
+'43734' => 'postilla631962peab',
+'43731' => 'postilla641962peab',
+'43784' => 'postilla651962peab',
+'43744' => 'postilla661962peab',
+'43745' => 'postilla671962peab',
+'44217' => 'postilla681962peab',
+'43732' => 'postilla691962peab',
+'43747' => 'postilla701962peab',
+'43751' => 'postilla711962peab',
+'43738' => 'postilla721962peab',
+'44213' => 'postilla731962peab',
+'43739' => 'postilla741963peab',
+'43764' => 'postilla751963peab',
+'43786' => 'postilla761963peab',
+'43742' => 'postilla771963peab',
+'43735' => 'postilla781964peab',
+'43730' => 'postilla791964peab',
+'43923' => 'postilla801964peab',
+'88816' => 'postilla5180196164peab',
+'43911' => 'postilla811964peab',
+'43917' => 'postilla821964peab',
+'44064' => 'postilla831964peab',
+'44066' => 'postilla841964peab',
+'43916' => 'postilla851964peab',
+'43904' => 'postilla861964peab',
+'43912' => 'postilla871964peab',
+'43913' => 'postilla881964peab',
+'43921' => 'postilla891965peab',
+'43918' => 'postilla911965peab',
+'43922' => 'postilla931965peab',
+'43910' => 'postilla941965peab',
+'44063' => 'postilla951966peab',
+'44061' => 'postilla961966peab',
+'43750' => 'postilla991966peab',
+'43758' => 'postilla1001966peab',
+'89272' => 'postilla8110019646651100peab',
+'44214' => 'postilla51100peab',
+'40594' => 'postilla101peab',
+'40522' => 'postilla102peab',
+'40497' => 'postilla103peab',
+'40547' => 'postilla104peab',
+'40507' => 'postilla105peab',
+'40506' => 'postilla106peab',
+'40512' => 'postilla107peab',
+'40540' => 'postilla108peab',
+'40510' => 'postilla109peab',
+'40538' => 'postilla110peab',
+'40548' => 'postilla111peab',
+'40517' => 'postilla112peab',
+'40568' => 'postilla113peab',
+'40576' => 'postilla114peab',
+'40575' => 'postilla115peab',
+'40593' => 'postilla116peab',
+'40583' => 'postilla117peab',
+'40595' => 'postilla118peab',
+'40287' => 'postilla119peab',
+'40516' => 'postilla120peab',
+'40559' => 'postilla121peab',
+'40509' => 'postilla122peab',
+'40521' => 'postilla123peab',
+'40505' => 'postilla124peab',
+'40496' => 'postilla125peab',
+'40551' => 'postilla126peab',
+'40333' => 'postilla127peab',
+'40527' => 'postilla128peab',
+'40632' => 'postilla129peab',
+'40532' => 'postilla130peab',
+'40528' => 'postilla131peab',
+'40606' => 'postilla132peab',
+'40530' => 'postilla133peab',
+'40552' => 'postilla134peab',
+'40301' => 'postilla135peab',
+'40302' => 'postilla136peab',
+'40303' => 'postilla137peab',
+'40637' => 'postilla138peab',
+'40633' => 'postilla139peab',
+'40304' => 'postilla140peab',
+'40309' => 'postilla141peab',
+'40308' => 'postilla142peab',
+'40307' => 'postilla143peab',
+'40306' => 'postilla144peab',
+'40305' => 'postilla145peab',
+'40577' => 'postilla146peab',
+'40581' => 'postilla148peab',
+'40598' => 'postilla149peab',
+'40613' => 'postilla15071peab',
+'89818' => 'postilla12815019691971101150peab',
+'40591' => 'postilla101150peab',
+'44062' => 'postilla1511971peab',
+'43903' => 'postilla1521971peab',
+'44346' => 'postilla1531971peab',
+'44344' => 'postilla1541971peab',
+'44349' => 'postilla1551972peab',
+'44347' => 'postilla1561972peab',
+'44351' => 'postilla1571972peab',
+'44348' => 'postilla1581972peab',
+'44350' => 'postilla1591973peab',
+'44611' => 'postilla1601973peab',
+'44613' => 'postilla1611973peab',
+'44615' => 'postilla1621973peab',
+'44610' => 'postilla1631973peab',
+'44608' => 'postilla1641974peab',
+'44614' => 'postilla1651974peab',
+'44612' => 'postilla1661974peab',
+'44609' => 'postilla1671975peab',
+'91647' => 'mobot31753003646400',
+'91700' => 'mobot31753003646418',
+'91586' => 'mobot31753003645824',
+'91703' => 'mobot31753003645816',
+'91587' => 'mobot31753003645808',
+'91705' => 'mobot31753003645790',
+'91707' => 'mobot31753003645782',
+'91595' => 'mobot31753003645774',
+'91596' => 'mobot31753003645766',
+'91601' => 'mobot31753003645659',
+'91712' => 'mobot31753003645667',
+'91711' => 'mobot31753003645675',
+'91604' => 'mobot31753003645683',
+'91710' => 'mobot31753003645691',
+'91605' => 'mobot31753003645709',
+'91708' => 'mobot31753003645717',
+'91597' => 'mobot31753003645725',
+'91598' => 'mobot31753003645733',
+'91599' => 'mobot31753003645741',
+'91602' => 'mobot31753003645758',
+'91603' => 'mobot31753003645642',
+'91615' => 'mobot31753003645634',
+'89130' => 'postilla1901983peab',
+'88839' => 'postilla1911983peab',
+'88845' => 'postilla1921984peab',
+'88840' => 'postilla1931984peab',
+'88842' => 'postilla1961985peab',
+'88841' => 'postilla1971986peab',
+'89132' => 'postilla1981986peab',
+'89129' => 'postilla1991987peab',
+'89147' => 'postilla1987peab',
+'43540' => 'postilla151200peab',
+'89292' => 'postilla201peab',
+'89294' => 'postilla1988peab',
+'89291' => 'postilla203peab',
+'89297' => 'postilla204peab',
+'89323' => 'postilla205peab',
+'89258' => 'postilla206peab',
+'89099' => 'postilla207peab',
+'89298' => 'postilla208peab',
+'89290' => 'postilla209peab',
+'89315' => 'postilla2101996peab',
+'89311' => 'postilla2111996peab',
+'89112' => 'postilla2121996peab',
+'89107' => 'postilla2131997peab',
+'89148' => 'postilla214peab',
+'89259' => 'postilla215peab',
+'89131' => 'postilla2161998peab',
+'89133' => 'postilla2171999peab',
+'88800' => 'postilla2181999peab',
+'89274' => 'postilla2191999peab',
+'89134' => 'postilla2201999peab',
+'106143' => 'postilla221peab',
+'88799' => 'postilla2222000peab',
+'88797' => 'postilla2232000peab',
+'88813' => 'postilla2242000peab',
+'88844' => 'postilla2252001peab',
+'88810' => 'postilla2262002peab',
+'88801' => 'postilla2272003peab',
+'88995' => 'postilla2282003peab',
+'88843' => 'postilla2292004peab',
+'88796' => 'postilla2302004peab',
+'88811' => 'postilla2312004peab',
+'88812' => 'postilla2322004peab'
+);
+
+$items=array('121237' => 'pithecanthropuse00dubo');
+
+$items=array(
+/*'112075' => 'bulletinofbritis01brit',
+'19469' => 'bulletinofbritis02geollond',
+'19493' => 'bulletinofbritis03geollond',
+'112051' => 'bulletinofbritis04geol',
+'112076' => 'bulletinofbritis05geol',
+'19567' => 'bulletinofbritis06geollond',
+'19531' => 'bulletinofbritis07geollond',
+'112081' => 'bulletinofbritis08geol',
+'112080' => 'bulletinofbritis09brit',
+'112052' => 'bulletinofbritis10brit',*/
+'112920' => 'bulletinofbritis11brit',
+'112903' => 'bulletinofbritis12brit',
+'19481' => 'bulletinofbritis13geollond',
+'112077' => 'bulletinofbritis14brit',
+'112466' => 'bulletinofbritis15brit',
+'19441' => 'bulletinofbritis16geollond',
+'19528' => 'bulletinofbritis17geollond',
+'112467' => 'bulletinofbritis18brit',
+'113714' => 'bulletinofbritis19geol',
+'113715' => 'bulletinofbritis20geol',
+'113716' => 'bulletinofbritis21geol',
+'113711' => 'bulletinofbritis22geol',
+'113709' => 'bulletinofbritis23geol',
+'19382' => 'bulletinofbritis24geollond',
+'19375' => 'bulletinofbritis25geollond',
+'112468' => 'bulletinofbritis26brit',
+'111683' => 'bulletinofbritis27brit',
+'19406' => 'bulletinofbritis28geollond',
+'112788' => 'bulletinofbritis29brit',
+'113702' => 'bulletinofbritis30geol',
+'112469' => 'bulletinofbritis31brit',
+'19461' => 'bulletinofbritis32geollond',
+'112050' => 'bulletinofbritis33brit',
+'19657' => 'bulletinofbritis34geollond',
+'112079' => 'bulletinofbritis03brit',
+'104358' => 'bulletinofbritis35brit',
+'19650' => 'bulletinofbritis36geollond',
+'19638' => 'bulletinofbritis37geollond',
+'19451' => 'bulletinofbritis38geollond',
+'112470' => 'bulletinofbritis39brit',
+'19568' => 'bulletinofbritis40geollond',
+'113707' => 'bulletinofbritis41geol',
+'113705' => 'bulletinofbritis42geol',
+'113706' => 'bulletinofbritis43geol',
+'113718' => 'bulletinofbritis44geol',
+'113725' => 'bulletinofbritis44natu',
+'113721' => 'bulletinofbritis443geol',
+'113722' => 'bulletinofbritis444geol',
+'112848' => 'bulletinofbritis45brit',
+/*'112791' => 'bulletinofbritis47brit',*/
+'112790' => 'bulletinofbritis50brit'
+);
+
+$items=array(
+'50843' => 'analesdelmuseona14muse',
+'50824' => 'analesdelmuseona15muse',
+'50873' => 'analesdelmuseona1912muse',
+'51062' => 'analesdelmuseona1913muse',
+'50860' => 'analesdelmuseona25muse',
+'50874' => 'analesdelmuseona26muse',
+'50820' => 'analesdelmuseona27muse',
+'26162' => 'analesdelmuseona28muse',
+'50871' => 'analesdelmuseona29muse',
+'51212' => 'analesdelmuseona30muse',
+'50891' => 'analesdelmuseona1923muse'
+);
+
+//$items=array('51062' => 'analesdelmuseona1913muse');
+
+$items=array(
+//'84736' => 'proceedingsofaca01acaduoft',
+'17886' => 'proceedingsofaca01acad',
+'84725' => 'proceedingsofaca02acaduoft',
+'30491' => 'proceedingsofaca02acad',
+'84755' => 'proceedingsofaca03acaduoft',
+'17669' => 'proceedingsofaca03acad',
+'84785' => 'proceedingsofaca04acaduoft',
+'28006' => 'proceedingsofacad04acad',
+'84765' => 'proceedingsofaca05acaduoft',
+'17633' => 'proceedingsofaca05acad',
+'17888' => 'proceedingsofaca06acad',
+'84761' => 'proceedingsofac07acaduoft',
+'17735' => 'proceedingsofaca07acad',
+'84770' => 'proceedingsofaca08acaduoft',
+'18246' => 'proceedingsofaca08acad',
+'84745' => 'proceedingsofaca09acaduoft',
+'30013' => 'proceedingsofaca09acad',
+'84743' => 'proceedingsofaca10acaduoft',
+'84784' => 'proceedingsofaca11acaduoft',
+'17656' => 'proceedingsofaca11acad',
+'84757' => 'proceedingsofac12acaduoft',
+'17942' => 'proceedingsofaca12acad',
+'84787' => 'proceedingsofaca13acaduoft',
+'17713' => 'proceedingsofaca13acad',
+'84865' => 'proceedingsofaca24acaduoft',
+'18281' => 'proceedingsofaca14acad',
+'84759' => 'proceedingsofaca15acaduoft',
+'18294' => 'proceedingsofaca15acad',
+'84864' => 'proceedingsofaca16acaduoft',
+'18264' => 'proceedingsofaca16acad',
+'84739' => 'proceedingsofaca17acaduoft',
+'17711' => 'proceedingsofaca17acad',
+'84896' => 'proceedingsofaca18acaduoft',
+'18061' => 'proceedingsofaca18acad',
+'84741' => 'proceedingsofaca19acaduoft',
+'17695' => 'proceedingsofaca19acad',
+'84776' => 'proceedingsofaca20acaduoft',
+'37631' => 'proceedingsofaca6820acad',
+'30466' => 'proceedingsofaca21acad',
+'84763' => 'actaamazonica22brazuoft',
+'18247' => 'proceedingsofaca22acad',
+'28117' => 'proceedingsofacad23acad',
+'84756' => 'proceedingsofaca14acaduoft',
+'17733' => 'proceedingsofaca24acad',
+'84729' => 'proceedingsofaca25acaduoft',
+'18312' => 'proceedingsofaca25acad',
+'84867' => 'proceedingsofaca26acaduoft',
+'17720' => 'proceedingsofaca26acad',
+'84775' => 'proceedingsofaca27acaduoft',
+'17701' => 'proceedingsofaca27acad',
+'84760' => 'proceedingsofaca28acaduoft',
+'18295' => 'proceedingsofaca28acad',
+'84777' => 'proceedingsofaca29acaduoft',
+'18262' => 'proceedingsofaca29acad',
+'84781' => 'proceedingsofaca30acaduoft',
+'18270' => 'proceedingsofaca30acad',
+'84742' => 'proceedingsofaca31acaduoft',
+'17663' => 'proceedingsofaca31acad',
+'84758' => 'proceedingsofaca32acaduoft',
+'28115' => 'proceedingsofacad32acad',
+'84857' => 'proceedingsofaca33acaduoft',
+'30732' => 'proceedingsofaca33acad',
+'84886' => 'proceedingsofaca34acaduoft',
+'17635' => 'proceedingsofaca34acad',
+'84724' => 'proceedingsofaca35acaduoft',
+'30122' => 'proceedingsofaca35acad',
+'84723' => 'proceedingsofaca36acaduoft',
+'30124' => 'proceedingsofaca36acad',
+'84768' => 'proceedingsofaca37acaduoft',
+'30490' => 'proceedingsofaca37acad',
+'84754' => 'proceedingsofaca38acaduoft',
+'17721' => 'proceedingsofaca38acad',
+'84767' => 'proceedingsofaca39acaduoft',
+'17717' => 'proceedingsofaca39acad',
+'84737' => 'proceedingsofaca40acaduoft',
+'18307' => 'proceedingsofaca40acad',
+'18039' => 'proceedingsofaca41acad',
+'84858' => 'proceedingsofaca42acaduoft',
+'30128' => 'proceedingsofaca42acad',
+'84859' => 'proceedingsofaca43acaduoft',
+'84884' => 'proceedingsofaca44acaduoft',
+'17664' => 'proceedingsofaca44acad',
+'84874' => 'proceedingsofaca45acaduoft',
+'17606' => 'proceedingsofaca45acad',
+'84746' => 'proceedingsofaca46acaduoft',
+'18073' => 'proceedingsofaca46acad',
+'84804' => 'proceedingsofaca47acaduoft',
+'18330' => 'proceedingsofaca47acad',
+'84880' => 'proceedingsofaca48acaduoft',
+'17698' => 'proceedingsofaca48acad',
+'84733' => 'proceedingsofaca49acaduoft',
+'18049' => 'proceedingsofaca49acad',
+'84881' => 'proceedingsofaca50acaduoft',
+'17645' => 'proceedingsofaca50acad',
+'84762' => 'proceedingsofaca51acaduoft',
+'30127' => 'proceedingsofaca51acad',
+'79452' => 'proceedingsofaca52acaduoft',
+'84744' => 'proceedingsofaca53acaduoft',
+'38485' => 'proceedingsofaca0153acad',
+'79429' => 'proceedingsofaca54acaduoft',
+'39540' => 'proceedingsofaca54acad',
+'84790' => 'proceedingsofaca55acaduoft',
+'30485' => 'proceedingsofaca55acad',
+'84792' => 'proceedingsofaca56acaduoft',
+'30096' => 'proceedingsofaca56acad',
+'84750' => 'proceedingsofaca57acaduoft',
+'30015' => 'proceedingsofaca57acad',
+'79482' => 'proceedingsofaca58acaduoft',
+'30129' => 'proceedingsofaca58acad',
+'79427' => 'proceedingsofaca59acaduoft',
+'38138' => 'proceedingsofaca59acad',
+'79152' => 'proceedingsofaca60acaduoft',
+'30138' => 'proceedingsofaca60acad',
+'84740' => 'proceedingsofaca61acaduoft',
+'17974' => 'proceedingsofaca61acad',
+'84751' => 'proceedingsofaca62acaduoft',
+'28143' => 'proceedingsofacad62acad',
+'84732' => 'proceedingsofaca63acaduoft',
+'17738' => 'proceedingsofaca63acad',
+'17736' => 'proceedingsofaca64acad',
+'17936' => 'proceedingsofaca1912acad',
+'17672' => 'proceedingsofaca1812acad',
+'84778' => 'proceedingsofaca65acaduoft',
+'30014' => 'proceedingsofaca65acad',
+'79430' => 'proceedingsofaca66acaduoft',
+'18052' => 'proceedingsofaca66acad',
+'79162' => 'proceedingsofaca67acaduoft',
+'17758' => 'proceedingsofaca67acad',
+'79453' => 'proceedingsofaca68acaduoft',
+'18053' => 'proceedingsofaca68acad',
+'79423' => 'proceedingsofaca69acaduoft',
+'28002' => 'proceedingsofacad69acad',
+'84895' => 'proceedingsofaca70acaduoft',
+'18308' => 'proceedingsofaca70acad',
+'84735' => 'proceedingsofaca71acaduoft',
+'18320' => 'proceedingsofaca71acad',
+'84782' => 'proceedingsofaca72acaduoft',
+'24044' => 'proceedingsofaca72acad',
+'84718' => 'proceedingsofaca73acaduoft',
+'17650' => 'proceedingsofaca73acad',
+'17718' => 'proceedingsofaca74acad'
+);
+
+$items=array('53363' => 'annalsmagazineof861910lond');
+$items=array('44291' => 'bulletinofzoolog09inte');
+
+$items=array(
+'129385' => 'revuesuissedez871980schw',
+'129387' => 'notalepidopter211998soci',
+'129386' => 'notalepidopter232000soci'
+);
+
+$items=array(
+/*'43419' => 'annuariodelmuseo11862univ',
+'43418' => 'annuariodelmuseo21862univ',
+'42206' => 'annuariodelmuseo31863univ',
+'43420' => 'annuariodelmuseo41864univ',
+'43417' => 'annuariodelmuseo51865univ',*/
+'42985' => 'annuariodelmuseo61866univ',
+'43410' => 'annuariodelmuseo10105univ',
+'42329' => 'annuariodelmuseo20508univ'
+);
+
+$items=array(
+'15896' => 'deuximeexpdi1915afran',
+'15899' => 'deuximeexpdi1915fran',
+'15901' => 'deuximeexpdi1913afran',
+'15905' => 'deuximeexpdi1911afran',
+'15906' => 'deuximeexpdi1913ffran',
+'15907' => 'deuximeexpdi1913dfran',
+'15908' => 'deuximeexpdi1913bfran',
+'15929' => 'deuximeexpdi1914bfran',
+'15930' => 'deuximeexpdi1914fran',
+'15931' => 'deuximeexpdi1913efran',
+'15932' => 'deuximeexpdi1913cfran',
+'15933' => 'deuximeexpdi1913fran',
+'15934' => 'deuximeexpdi1914afran',
+'15935' => 'deuximeexpdi1911fran',
+'15936' => 'deuximeexpdi1921fran',
+'30282' => 'deuximeexpdin1914fran',
+'31148' => 'deuximeexpdipa1915fran',
+'31505' => 'deuximeexpdifa1912fran',
+'31549' => 'deuximeexpdie1912fran',
+'31550' => 'deuximeexpdip1913fran',
+'31584' => 'deuximeexpdis1917fran'
+);
+
+$items=array('15908' => 'deuximeexpdi1913bfran');
+
+$items=array(
+'16887' => 'zologicalbulle01bost',
+'41507' => 'zologicalbulle279bost'
+);
+
+//$items=array('106741' => 'svenskavetenskap25kung');
+
+$items=array('84859' => 'proceedingsofaca43acaduoft');
+
+$items=array(
+'25824' => 'occasionalpapers01univ',
+'25818' => 'occasionalpapers02univ',
+'25822' => 'occasionalpapers03univ',
+'25820' => 'occasionalpapers04univ',
+'24701' => 'occasionalpapers05univ',
+'25821' => 'occasionalpapers06univ',
+'25825' => 'occasionalpapers07univ',
+'25829' => 'occasionalpapers08univ',
+'25832' => 'occasionalpapers09univ',
+'24522' => 'occasionalpapers10univ',
+'24680' => 'occasionalpapers11univ',
+'24713' => 'occasionalpapers12univ',
+'24653' => 'occasionalpapers13univ',
+'24627' => 'occasionalpapers14univ',
+'24543' => 'occasionalpapers15univ',
+'25797' => 'occasionalpapers16univ',
+'111795' => 'occasionalpapers17univ',
+'25789' => 'occasionalpapers18univ',
+'25794' => 'occasionalpapers19univ',
+'25785' => 'occasionalpapers20univ',
+'25798' => 'occasionalpapers21univ',
+'25795' => 'occasionalpapers22univ',
+'25793' => 'occasionalpapers23univ',
+'25808' => 'occasionalpapers24univ',
+'25802' => 'occasionalpapers25univ',
+'25792' => 'occasionalpapers26univ',
+'25801' => 'occasionalpapers27univ',
+'25816' => 'occasionalpapers28univ',
+'25812' => 'occasionalpapers29univ',
+'25805' => 'occasionalpapers30univ',
+'26021' => 'occasionalpapers31univ',
+'26027' => 'occasionalpapers32univ',
+'26025' => 'occasionalpapers33univ',
+'26022' => 'occasionalpapers34univ',
+'26050' => 'occasionalpapers35univ',
+'26035' => 'occasionalpapers36univ',
+'26039' => 'occasionalpapers37univ',
+'26047' => 'occasionalpapers38univ',
+'26130' => 'occasionalpapers39univ',
+'26123' => 'occasionalpapers40univ',
+'26063' => 'occasionalpapers41univ',
+'26061' => 'occasionalpapers42univ',
+'26110' => 'occasionalpapers43univ',
+'26067' => 'occasionalpapers44univ',
+'26132' => 'occasionalpapers45univ',
+'26113' => 'occasionalpapers46univ',
+'26111' => 'occasionalpapers47univ',
+'26134' => 'occasionalpapers48univ',
+'26126' => 'occasionalpapers49univ',
+'26049' => 'occasionalpapers50univ',
+'26013' => 'occasionalpapers51univ',
+'26014' => 'occasionalpapers52univ',
+'26016' => 'occasionalpapers53univ',
+'26018' => 'occasionalpapers54univ',
+'26029' => 'occasionalpapers55univ',
+'26019' => 'occasionalpapers56univ',
+'26137' => 'occasionalpapers57univ',
+'26024' => 'occasionalpapers58univ',
+'26036' => 'occasionalpapers59univ',
+'26032' => 'occasionalpapers60univ',
+'26062' => 'occasionalpapers61univ',
+'26041' => 'occasionalpapers62univ',
+'26105' => 'occasionalpapers63univ',
+'23665' => 'occasionalpapers64univ',
+'23858' => 'occasionalpapers64cali',
+'26066' => 'occasionalpapers65univ',
+'26124' => 'occasionalpapers66univ',
+'26109' => 'occasionalpapers67univ',
+'26117' => 'occasionalpapers68univ',
+'26121' => 'occasionalpapers69univ',
+'26058' => 'occasionalpapers70univ',
+'24819' => 'occasionalpapers7195univ',
+'26043' => 'occasionalpapers96univ',
+'26037' => 'occasionalpapers97univ',
+'26042' => 'occasionalpapers98univ',
+'26031' => 'occasionalpapers99univ',
+'26040' => 'occasionalpapers100univ',
+'26038' => 'occasionalpapers101univ',
+'26023' => 'occasionalpapers102univ',
+'26033' => 'occasionalpapers103univ',
+'26065' => 'occasionalpapers104univ',
+'26048' => 'occasionalpapers105univ',
+'26129' => 'occasionalpapers106univ',
+'26108' => 'occasionalpapers107univ',
+'26106' => 'occasionalpapers108univ',
+'26116' => 'occasionalpapers109univ',
+'26104' => 'occasionalpapers110univ',
+'26115' => 'occasionalpapers111univ',
+'26131' => 'occasionalpapers112univ',
+'26125' => 'occasionalpapers113univ',
+'26114' => 'occasionalpapers114univ',
+'26051' => 'occasionalpapers115univ',
+'26122' => 'occasionalpapers116univ',
+'26046' => 'occasionalpapers117univ',
+'26044' => 'occasionalpapers118univ',
+'26136' => 'occasionalpapers119univ',
+'29803' => 'occasionalpapers1201986univ',
+'29722' => 'occasionalpapers1211986univ',
+'29801' => 'occasionalpapers1221987univ',
+'29804' => 'occasionalpapers1231988univ',
+'29802' => 'occasionalpapers1241988univ',
+'28956' => 'occasionalpapers1251989univ',
+'29699' => 'occasionalpapers1261989univ',
+'29805' => 'occasionalpapers1271989univ',
+'29806' => 'occasionalpapers1281989univ',
+'29721' => 'occasionalpapers1291989univ',
+'29697' => 'occasionalpapers1301989univ',
+'29720' => 'occasionalpapers1311989univ',
+'30246' => 'occasionalpapers1321989univ',
+'29702' => 'occasionalpapers1331989univ',
+'28552' => 'occasionalpapers1341990univ',
+'28528' => 'occasionalpapers1351990univ',
+'28533' => 'occasionalpapers1361990univ',
+'28527' => 'occasionalpapers1371990univ',
+'28551' => 'occasionalpapers1381990univ',
+'28532' => 'occasionalpapers1391990univ',
+'28536' => 'occasionalpapers1401991univ',
+'28535' => 'occasionalpapers1411991univ',
+'28553' => 'occasionalpapers1421991univ',
+'28550' => 'occasionalpapers1431991univ',
+'28546' => 'occasionalpapers1441991univ',
+'28540' => 'occasionalpapers1451991univ',
+'26015' => 'occasionalpapers146univ',
+'26017' => 'occasionalpapers147univ',
+'26020' => 'occasionalpapers148univ',
+'26026' => 'occasionalpapers149univ',
+'26028' => 'occasionalpapers150univ',
+'26030' => 'occasionalpapers151univ',
+'26034' => 'occasionalpapers152univ',
+'26045' => 'occasionalpapers153univ',
+'26107' => 'occasionalpapers154univ',
+'26060' => 'occasionalpapers155univ',
+'26064' => 'occasionalpapers156univ',
+'26056' => 'occasionalpapers157univ',
+'26112' => 'occasionalpapers158univ',
+'26119' => 'occasionalpapers159univ',
+'26135' => 'occasionalpapers160univ',
+'26118' => 'occasionalpapers161univ',
+'26059' => 'occasionalpapers162univ',
+'26120' => 'occasionalpapers163univ',
+'26133' => 'occasionalpapers164univ',
+'26057' => 'occasionalpapers165univ',
+'26127' => 'occasionalpapers166univ',
+'26052' => 'occasionalpapers167univ',
+'26138' => 'occasionalpapers168univ'
+);
+
+$items=array(
+'25816' => 'occasionalpapers28univ',
+'111795' => 'occasionalpapers17univ',
+'25816' => 'occasionalpapers28univ'
+);
+
+$items=array('24819' => 'occasionalpapers7195univ');
+
+//$items=array('26027' => 'occasionalpapers32univ');
+
+$items=array('26113' => 'occasionalpapers46univ');
+
+$items=array(
+/*'53398' => 'copeia151191317amer',
+'87797' => 'auk1884amer',
+'54093' => 'auk21885amer',
+'54096' => 'auk31886amer',
+'54094' => 'auk41887amer',
+'55093' => 'auk51888amer',
+'87790' => 'auk1889amer',
+'54990' => 'auk71890amer',
+'55098' => 'auk81891amer',
+'54323' => 'auk91892amer',
+'54524' => 'auk101893amer',
+'55089' => 'auk111894amer',
+'54232' => 'auk121895amer',
+'54125' => 'auk131896amer',
+'54523' => 'auk141897amer',
+'87800' => 'auk1897amer',
+'87802' => 'auk1898amer',
+'54100' => 'auk161899amer',
+'54122' => 'auk171900amer',
+'67007' => 'quarterlybulleti1907nutt',*/
+'54098' => 'auk181901amer',
+'54095' => 'auk191902amer',
+'54527' => 'auk201903amer',
+'54101' => 'auk211904amer',
+'54102' => 'auk221905amer',
+'54325' => 'auk231906amer',
+'54995' => 'auk241907amer',
+'54097' => 'auk251908amer',
+'55092' => 'auk261909amer',
+'54324' => 'auk271910amer',
+'54988' => 'auk281911amer',
+'54327' => 'auk291912amer',
+'54992' => 'auk301913amer',
+'54326' => 'auk311914amer',
+'54104' => 'auk321915amer',
+'54234' => 'auk331916amer',
+'54047' => 'auk341917amer',
+'54099' => 'auk351918amer',
+'54107' => 'auk361919amer',
+'54106' => 'auk371920amer',
+'53992' => 'auk1827190110amer'
+);
+
+/*
+$items=array(
+'54687' => 'transactionsofro27roya',
+'108744' => 'mobot31753002607858',
+'54649' => 'transactionsproc29roya',
+'54643' => 'transactionsproc30roya',
+'54644' => 'transactionsproc31roya',
+'84665' => 'transactionsproc32roya',
+'109500' => 'transactionspro331909roya',
+//'109511' => 'transactionspro341910roya',
+'113419' => 'transactionspro351911roya'
+);
+*/
+
+//$items=array('109511' => 'transactionspro341910roya');
+
+//$items=array('43098' => 'zoologischejahrb1333jena');
+
+$items=array('54087' => 'journaldeconchyl271879pari');
+
+$items=array(
+'51761' => 'journalofmammalo1191920amer',
+'53958' => 'journalofmammalo21921amer',
+'54505' => 'journalofmammalo31922amer'
+);
+
+//$items=array('51761' => 'journalofmammalo1191920amer');
+
+$items=array('20461' => 'ectoparasitesofp00wenz');
+
+$items=array('31431' => 'recordsofaustral06aust');
+
+$items=array('22162' => 'canadianentomolo41ento');
+
+$items=array('120346' => 'siphonapteraofca00holl');
+
+$items=array(
+'99962' => 'mobot31753003650873',
+'99963' => 'mobot31753003650865',
+'45327' => 'mitteilungendesn26971mojs',
+'99964' => 'mobot31753003650857',
+'99969' => 'mobot31753003650840',
+'99970' => 'mobot31753003650832',
+'45384' => 'mitteilungendesn1872mojs',
+'45331' => 'mitteilungendesn1873mojs',
+'45385' => 'mitteilungendesn1874mojs',
+'45348' => 'mitteilungendesn1875mojs',
+'45386' => 'mitteilungendesn1876mojs',
+'45340' => 'mitteilungendesn1877mojs',
+'45387' => 'mitteilungendesn1878mojs',
+'45389' => 'mitteilungendesn1879mojs',
+'45329' => 'mitteilungendesn1880mojs',
+'45338' => 'mitteilungendesn1881mojs',
+'45325' => 'mitteilungendesn1882mojs',
+'45390' => 'mitteilungendesn1883mojs',
+'45316' => 'mitteilungendesn6383mojs',
+'45347' => 'mitteilungendesn1886mojs',
+'45334' => 'mitteilungendesn1887mojs',
+'45872' => 'mitteilungendesn1889mojs',
+'45391' => 'mitteilungendesn1890mojs',
+'45856' => 'mitteilungendesn1892mojs',
+'45392' => 'mitteilungendesn1893mojs',
+'45343' => 'mitteilungendesn1894mojs',
+'45393' => 'mitteilungendesn1895mojs',
+'93250' => 'mitteilungendesn3132natu',
+'104334' => 'mobot31753003648554',
+'93255' => 'mitteilungendesn3334natu',
+'45394' => 'mitteilungendesn1897mojs',
+'45341' => 'mitteilungendesn1898mojs',
+'45395' => 'mitteilungendesn1899mojs',
+'93698' => 'mitteilungendesn3536natu',
+'45337' => 'mitteilungendesn1900mojs',
+'45377' => 'mitteilungendesn1901mojs',
+'93197' => 'mitteilungendesn3738natu',
+'45396' => 'mitteilungendesn1902mojs',
+'45397' => 'mitteilungendesn1903mojs',
+'92823' => 'mitteilungendesn3940natu',
+'45402' => 'mitteilungendesn8403mojs',
+'45398' => 'mitteilungendesn1904mojs',
+'45901' => 'mitteilungendesn1905mojs',
+'93342' => 'mitteilungendesn4142natu',
+'45400' => 'mitteilungendesn1906mojs',
+'45401' => 'mitteilungendesn1907mojs',
+'93345' => 'mitteilungendesn4344natu',
+'93344' => 'mitteilungendesn4546natu',
+'93691' => 'mitteilungendesn4748natu',
+'93376' => 'mitteilungendesn4950natu',
+'93375' => 'mitteilungendesn5152natu',
+'93192' => 'mitteilungendesn5354natu',
+'94119' => 'mitteilungendesn5557natu'
+);
+
+$items=array('93376' => 'mitteilungendesn4950natu');
+
+$items=array(
+'91081' => 'mitteilungenderb1419611964baye',
+'91271' => 'mitteilungenderb5719651967baye',
+'90556' => 'mitteilungenderb8919681969baye',
+'91270' => 'mitteilungenderb101119701971baye',
+'90558' => 'mitteilungenderb121419721974baye',
+'91084' => 'mitteilungenderb151719751977baye',
+'90700' => 'mitteilungenderb181919781979baye',
+'91269' => 'mitteilungenderb202319801983baye',
+'95911' => 'mitteilungenderb242519841985baye',
+'90697' => 'mitteilungenderb262719861987baye',
+'91268' => 'mitteilungenderb283019881990baye',
+'91768' => 'mitteilungenderb313319911993baye',
+'90864' => 'mitteilungenderb343619941996baye',
+'91082' => 'mitteilungenderb373919971999baye',
+'93372' => 'mitteilungenderb404220002002baye'
+);
+
+//$items=array('91768' => 'mitteilungenderb313319911993baye');
+
+$items=array('43290' => 'diecestodenderv00fuhr',
+'111432' => 'observationsonbi00fent');
+
+$items=array('29836' => 'novacaledoniafor01sara',
+'29828' => 'novacaledoniafor02sara',
+'102813' => 'novacaledoniafor03sara',
+'102811' => 'novacaledoniafor04sara'
+);
+
+$items=array(
+'28427' => 'annalendesnaturh01natu',
+'28439' => 'annalendesnaturh02natu',
+'28618' => 'annalendesnaturh03natu',
+'26865' => 'annalendesnaturh04natu',
+'27941' => 'annalendesnaturh05natu',
+'27880' => 'annalendesnaturh06natu',
+'28609' => 'annalendesnaturh07natu',
+'26866' => 'annalendesnaturh08natu',
+'26867' => 'annalendesnaturh09natu',
+'26868' => 'annalendesnaturh10natu',
+'26869' => 'annalendesnaturh11natu',
+'26870' => 'annalendesnaturh12natu',
+'27879' => 'annalendesnaturh13natu',
+'27944' => 'annalendesnaturh14natu',
+'28596' => 'annalendesnaturh15natu',
+'27934' => 'annalendesnaturh16natu',
+'27657' => 'annalendesnaturh17natu',
+'28610' => 'annalendesnaturh18natu',
+'27782' => 'annalendesnaturh19natu',
+'27785' => 'annalendesnaturh20natu',
+'27943' => 'annalendesnaturh21natu',
+'27940' => 'annalendesnaturh22natu',
+'27939' => 'annalendesnaturh23natu',
+'28989' => 'annalendesnaturh24natu',
+'28469' => 'annalendesnaturh25natu',
+'25957' => 'annalendesnaturh26natu',
+'28325' => 'annalendesnaturh27natu',
+'28470' => 'annalendesnaturh29natu',
+'28471' => 'annalendesnaturh30natu',
+'28283' => 'annalendesnaturh32natu',
+'27933' => 'annalendesnaturh33natu',
+'27932' => 'annalendesnaturh34natu',
+'27931' => 'annalendesnaturh35natu'
+);
+
+
+//$items=array('28596' => 'annalendesnaturh15natu');
+
+//$items=array('98736' => 'actesdelasocit731921soci');
+
+/*
+$items=array(
+'110487' => 'actesdelasocitli01soci',
+'110491' => 'actesdelasocitli02soci',
+'103036' => 'mobot31753002145834',
+'102890' => 'mobot31753002145842',
+'103037' => 'mobot31753002145859',
+'103041' => 'mobot31753002145867',
+'102889' => 'mobot31753002145875',
+'102751' => 'mobot31753002145883',
+'101658' => 'mobot31753002145891',
+'108944' => 'mobot31753002145909',
+'101660' => 'mobot31753002145917',
+'102845' => 'mobot31753002145925',
+'101837' => 'mobot31753002145933',
+'102891' => 'mobot31753002145941',
+'102735' => 'mobot31753002145958',
+'102846' => 'mobot31753002145966',
+'102736' => 'mobot31753002145974',
+'22905' => 'actesdelasocit09soci',
+'22908' => 'actesdelasocit01soci',
+'106122' => 'actesdelasocit22soci',
+'22925' => 'actesdelasocit03soci',
+'106381' => 'actesdelasocit24soci',
+'106370' => 'actesdelasocit250305soci',
+'106384' => 'actesdelasocit28soci',
+'106375' => 'actesdelasocit29soci',
+'106216' => 'actesdelasocit30soci',
+'102733' => 'mobot31753002145750',
+'105920' => 'actesdelasocit33soci',
+'102734' => 'mobot31753002145776',
+'102750' => 'mobot31753002145784',
+'84509' => 'actesdelasocilin3783soci',
+'84510' => 'actesdelasocilin3884soci',
+'85074' => 'actesdelasocilin3985soci',
+'98672' => 'actesdelasocit410188640soci',
+'54850' => 'actesdelasocilin42soci',
+'99438' => 'actesdelasocit53188943soci',
+'87652' => 'actesdelasocilin4490soci',
+'87657' => 'actesdelasocilin4693soci',
+'87786' => 'actesdelasocilin4794soci',
+'87618' => 'actesdelasocilin4895soci',
+'54921' => 'actesdelasocilin4995soci',
+'87647' => 'actesdelasocilin5096soci',
+'87822' => 'actesdelasocilin5197soci',
+'88059' => 'actesdelasocilin5297soci',
+'99809' => 'actesdelasocit63189853soci',
+'87843' => 'actesdelasocilin5499soci',
+'87606' => 'actesdelasocilin5500soci',
+'87645' => 'actesdelasocilin5601soci',
+'108315' => 'mobot000140297_t57',
+'99852' => 'actesdelasocit68190358soci',
+'87770' => 'actesdelasocilin5904soci',
+'98722' => 'actesdelasocit610190560soci',
+'87831' => 'actesdelasocilin6106soci',
+'98737' => 'actesdelasocit72190762soci',
+'99087' => 'actesdelasocit631909soci',
+'100054' => 'actesdelasocit641910soci',
+'99209' => 'actesdelasocit651911soci',
+'100364' => 'actesdelasocit661912soci',
+'98668' => 'actesdelasocit671913soci',
+'99200' => 'actesdelasocit681914soci',
+'98509' => 'actesdelasocit711919soci',
+'98717' => 'actesdelasocit721920soci',
+'98736' => 'actesdelasocit731921soci',
+'98593' => 'actesdelasocit741922soci',
+'100433' => 'actesdelasocit751923soci',
+'101835' => 'mobot31753002146006',
+'101836' => 'mobot31753002145990',
+'106454' => 'actesdelasocit260306soci',
+'102749' => 'mobot31753002145743',
+'121733' => 'actesdelasoci46188236soci',
+'121158' => 'actesdelasoci51188741soci',
+'110538' => 'actesdelasocitli27soci',
+'104325' => 'mobot31753003648596',
+'98728' => 'actesdelasocit69191516soci',
+'103369' => 'actesdelaso70191718soci'
+);
+
+*/
+
+//$items=array('35413' => 'synopsisoffamili00brit');
+
+$items=array(
+'33891' => 'greatbasinnatura00brig',
+'33885' => 'greatbasinnatura02brig',
+'33882' => 'greatbasinnatura03brig',
+'33892' => 'greatbasinnatura04brig',
+'33881' => 'greatbasinnatura05brig',
+'40252' => 'greatbasinnatura06brig',
+'33084' => 'greatbasinnatura07brig',
+'33365' => 'greatbasinnatura08brig',
+'33366' => 'greatbasinnatura09brig',
+'33367' => 'greatbasinnatura10brig',
+'33385' => 'greatbasinnatura11brig',
+'33377' => 'greatbasinnatura12brig',
+'33439' => 'greatbasinnatura13brig',
+'33386' => 'greatbasinnatura14brig',
+'33384' => 'greatbasinnatura15brig',
+'33376' => 'greatbasinnatura16brig',
+'33379' => 'greatbasinnatura17brig',
+'33378' => 'greatbasinnatura18brig',
+'32714' => 'greatbasinnatura19brig',
+'33373' => 'greatbasinnatura20brig',
+'33370' => 'greatbasinnatura21brig',
+'33372' => 'greatbasinnatura22brig',
+'33887' => 'greatbasinnatura23brig',
+'33884' => 'greatbasinnatura24brig',
+'33525' => 'greatbasinnatura25brig',
+'33369' => 'greatbasinnatura26brig',
+'33393' => 'greatbasinnatura27brig',
+'33883' => 'greatbasinnatura28brig',
+'33897' => 'greatbasinnatura29brig',
+'33893' => 'greatbasinnatura30brig',
+'33896' => 'greatbasinnatura31brig',
+'35761' => 'greatbasinnatura32brig',
+'35759' => 'greatbasinnatura33brig',
+'33390' => 'greatbasinnatura34brig',
+'33051' => 'greatbasinnatura35brig',
+'35800' => 'greatbasinnatura36brig',
+'35776' => 'greatbasinnatura37brig',
+'33086' => 'greatbasinnatura38brig',
+'33879' => 'greatbasinnatura39brig',
+'33900' => 'greatbasinnatura40brig',
+'35808' => 'greatbasinnatura41brig',
+'33080' => 'greatbasinnatura42brig',
+'35769' => 'greatbasinnatura43brig',
+'35787' => 'greatbasinnatura44brig',
+'35771' => 'greatbasinnatura45brig',
+'33077' => 'greatbasinnatura46brig',
+'35774' => 'greatbasinnatura47brig',
+'35803' => 'greatbasinnatura48brig',
+'33880' => 'greatbasinnatura49brig',
+'33889' => 'greatbasinnatura50brig',
+'33888' => 'greatbasinnatura51brig',
+'33903' => 'greatbasinnatura052brig',
+'33906' => 'greatbasinnatura53brig',
+'33902' => 'greatbasinnatura54brig',
+'33678' => 'greatbasinnatura55brig', 
+'33894' => 'greatbasinnatura56brig',
+'33898' => 'greatbasinnatura57brig',
+'35795' => 'greatbasinnatura58brig',
+'35798' => 'greatbasinnatura59brig'
+);
+
+$items=array('36030' => 'entomologistsmon391903oxfo');
+
+$items=array('36349' => 'entomologistsmon12186466oxfo',
+'38236' => 'entomologistsmon34186668oxfo',
+'106953' => 'entomologistsmon06oxfo',
+'102841' => 'entomologist78187072oxfo',
+'36494' => 'entomologistsmon910187274oxfo',
+'36483' => 'entomologistsmon1112187476oxfo',
+'35879' => 'entomologistsmon1314187678oxfo',
+'36482' => 'entomologistsmon1516187880oxfo',
+'36506' => 'entomologistsmon1718188082oxfo',
+'36486' => 'entomologistsmon1920188284oxfo',
+'36504' => 'entomologistsmon2122188486oxfo',
+'36485' => 'entomologistsmon2324188688oxfo',
+'106468' => 'entomologistsm24188788oxf',
+'95674' => 'entomologistsmon25188889oxfo',
+'104194' => 'entomologistsmon261890oxfo',
+'36025' => 'entomologistsmon271891oxfo',
+'36488' => 'entomologistsmon281892oxfo',
+'95741' => 'entomologistsmon291893oxfo',
+'100959' => 'entomologistsmon3018oxfo',
+'36505' => 'entomologistsmon311895oxfo',
+'36476' => 'entomologistsmon321896oxfo',
+'36026' => 'entomologistsmon331897oxfo',
+'100960' => 'entomologistsmon3418oxfo',
+'36027' => 'entomologistsmon351899oxfo',
+'36028' => 'entomologistsmon361900oxfo',
+'36029' => 'entomologistsmon371901oxfo',
+'36477' => 'entomologistsmon381902oxfo',
+'36030' => 'entomologistsmon391903oxfo',
+'35889' => 'entomologistsmon401904oxfo',
+'36031' => 'entomologistsmon411905oxfo',
+'36502' => 'entomologistsmon421906oxfo',
+'35882' => 'entomologistsmon431907oxfo',
+'36489' => 'entomologistsmon441908oxfo',
+'36032' => 'entomologistsmon451909oxfo',
+'36493' => 'entomologistsmon462211910oxfo',
+'36033' => 'entomologistsmon472221911oxfo',
+'35893' => 'entomologistsmon482231912oxfo',
+'35900' => 'entomologistsmon492241913oxfo',
+'36480' => 'entomologistsmon502251914oxfo',
+'36490' => 'entomologistsmon51311915oxfo',
+'35890' => 'entomologistsmon52321916oxfo',
+'36348' => 'entomologistsmon531917oxfo',
+'106586' => 'entomologists54341918oxfo',
+'36479' => 'entomologistsmon551919oxfo',
+'36034' => 'entomologistsmon56361920oxfo',
+'36035' => 'entomologistsmon571921oxfo',
+'36036' => 'entomologistsmon581922oxfo'
+);
+
+$items=array(
+'35129' => 'ibis11brit',
+'35081' => 'ibis21brit',
+'35144' => 'ibis03brit',
+'34369' => 'ibis04brit',
+'35130' => 'ibis05brit',
+'33870' => 'ibis06brit',
+'97523' => 'ibis11865brit',
+'34617' => 'ibis02brit',
+'34616' => 'ibisns03brit',
+'55161' => 'ibis41868brit',
+'35145' => 'ibisns05brit',
+'54796' => 'ibis61870brit',
+'35065' => 'ibis13brit',
+'35143' => 'ibis23brit',
+'55640' => 'ibis331873brit',
+'35141' => 'ibis43brit',
+'35133' => 'ibis53brit',
+'35122' => 'ibis63brit',
+'35613' => 'ibis14brit',
+'34861' => 'ibis24brit',
+'35127' => 'ibis34brit',
+'97642' => 'ibis441880brit',
+'54947' => 'ibis451881brit',
+'35128' => 'ibis36brit',
+'54933' => 'ibis511883brit',
+'34897' => 'ibis25brit',
+'35137' => 'ibis35brit',
+'34990' => 'ibis45brit',
+'34878' => 'ibis55brit',
+'55018' => 'ibis561888188388brit',
+'55019' => 'ibis611889brit',
+'55016' => 'ibis621890brit',
+'55012' => 'ibis631891brit',
+'54799' => 'ibis641892brit',
+'85192' => 'ibis651893brit',
+'55022' => 'ibis661894188994brit',
+'35387' => 'ibis17brit',
+'55020' => 'ibis721896brit',
+'54800' => 'ibis731897brit',
+'35515' => 'ibis47brit',
+'36067' => 'ibis57brit',
+'35162' => 'ibis67brit',
+'35405' => 'ibis18brit',
+'110610' => 'ibis821902brit',
+'35406' => 'ibis28brit',
+'54774' => 'ibis831903brit',
+'81301' => 'ibis841904brit',
+'35519' => 'ibis58brit',
+'85253' => 'ibis861906brit',
+'86740' => 'ibis9119078190106brit',
+'35543' => 'ibisi29brit',
+'35485' => 'ibis29brit',
+'35490' => 'ibis39brit',
+'35508' => 'ibis49brit',
+'84579' => 'ibis951911brit',
+'85124' => 'ibis961912190712brit',
+'85342' => 'ibis1011913brit',
+'100092' => 'ibis_21914brit',
+'100945' => 'ibis1021915brit',
+'35484' => 'ibis310brit',
+'54801' => 'ibis1041916brit',
+'35521' => 'ibis510brit',
+'55021' => 'ibis1061918191318brit',
+'55162' => 'ibis1111919brit',
+'85249' => 'ibis1121920brit',
+'35511' => 'ibis311brit',
+'55203' => 'ibis1141922brit',
+'35053' => 'ibis18591brit',
+'34989' => 'ibis1859brit',
+'34756' => 'ibis1877brit'
+);
+
+//$items=array('100092' => 'ibis_21914brit');
+
+//$items=array('29012' => 'fleasofeasternun00foxi');
+
+$items=array('89182' => 'canadianfieldnat1977otta');
+
+$items=array('84746' => 'proceedingsofaca46acaduoft',
+'18073' => 'proceedingsofaca46acad');
+
+$items=array('32360' => 'proceedingsofuni231901unit'); // to do
+
+$items=array(
+'18949' => 'sibogaexpeditie04sibo',
+'18857' => 'sibogaexpeditie31sibo',
+'18873' => 'sibogaexpeditie09sibo',
+'18451' => 'sibogaexpeditie59sibo',
+'18952' => 'sibogaexpeditie70sibo',
+'18959' => 'sibogaexpeditie19sibo',
+'18872' => 'sibogaexpeditie26sibo',
+'18481' => 'sibogaexpeditie10sibo',
+'18941' => 'sibogaexpeditie11sibo',
+'18970' => 'sibogaexpeditie06sibo',
+'29934' => 'sibogaexpeditie27sibo',
+'18486' => 'sibogaexpeditie47sibo',
+'18853' => 'sibogaexpeditie48sibo',
+'18851' => 'sibogaexpeditie50sibo',
+'18879' => 'sibogaexpeditie52sibo',
+'18961' => 'sibogaexpeditie54sibo',
+'18444' => 'sibogaexpeditie57sibo',
+'18457' => 'sibogaexpeditie35sibo',
+'18458' => 'sibogaexpeditie53sibo',
+'18971' => 'sibogaexpeditie07sibo',
+'18912' => 'sibogaexpeditie92sibo',
+'18450' => 'sibogaexpeditie34sibo',
+'29955' => 'sibogaexpeditie28sibo',
+'18859' => 'sibogaexpeditie62sibo',
+'18934' => 'sibogaexpeditie80sibo',
+'18473' => 'sibogaexpeditie08sibo',
+'29927' => 'sibogaexpeditie33sibo',
+'18954' => 'sibogaexpeditie22sibo',
+'18869' => 'sibogaexpeditie75sibo',
+'18878' => 'sibogaexpeditie44sibo',
+'18449' => 'sibogaexpeditie30sibo',
+'18867' => 'sibogaexpeditie36sibo',
+'18868' => 'sibogaexpeditie67sibo',
+'18972' => 'sibogaexpeditie72sibo',
+'29738' => 'sibogaexpeditie12sibo',
+'29079' => 'sibogaexpeditie23sibo',
+'18858' => 'sibogaexpeditie51sibo',
+'18903' => 'sibogaexpeditie86sibo',
+'18482' => 'sibogaexpeditie55sibo',
+'18862' => 'sibogaexpeditie60sibo',
+'18965' => 'sibogaexpeditie76sibo',
+'18969' => 'sibogaexpeditie87sibo',
+'18968' => 'sibogaexpeditie93sibo',
+'18860' => 'sibogaexpeditie69sibo',
+'18855' => 'sibogaexpeditie71sibo',
+'18852' => 'sibogaexpeditie78sibo',
+'18947' => 'sibogaexpeditie85sibo',
+'18455' => 'sibogaexpeditie82sibo',
+'18958' => 'sibogaexpeditie84sibo',
+'29946' => 'sibogaexpeditie40sibo',
+'18456' => 'sibogaexpeditie37sibo',
+'18921' => 'sibogaexpeditie83sibo',
+'18909' => 'sibogaexpeditie14sibo',
+'18932' => 'sibogaexpeditie01sibo',
+'18920' => 'sibogaexpeditie15sibo',
+'18931' => 'sibogaexpeditie21sibo',
+'18919' => 'sibogaexpeditie81sibo',
+'18962' => 'sibogaexpeditie88sibo',
+'18870' => 'sibogaexpeditie05sibo',
+'18933' => 'sibogaexpeditie20sibo',
+'18939' => 'sibogaexpeditie39sibo',
+'18900' => 'sibogaexpeditie43sibo',
+'18901' => 'sibogaexpeditie46sibo',
+'18930' => 'sibogaexpeditie58sibo',
+'18911' => 'sibogaexpeditie64sibo',
+'18863' => 'sibogaexpeditie66sibo',
+'18880' => 'sibogaexpeditie42sibo',
+'18944' => 'sibogaexpeditie25sibo',
+'18950' => 'sibogaexpeditie29sibo',
+'18877' => 'sibogaexpeditie16sibo',
+'18474' => 'sibogaexpeditie61sibo',
+'18974' => 'sibogaexpeditie63sibo',
+'18462' => 'sibogaexpeditie32sibo',
+'18866' => 'sibogaexpeditie17sibo',
+'29080' => 'sibogaexpeditie24sibo',
+'18910' => 'sibogaexpeditie45sibo',
+'18960' => 'sibogaexpeditie41sibo',
+'18861' => 'sibogaexpeditie49sibo',
+'18902' => 'sibogaexpeditie68sibo',
+'18967' => 'sibogaexpeditie89sibo',
+'18953' => 'sibogaexpeditie02sibo',
+'18871' => 'sibogaexpeditie18sibo',
+'18856' => 'sibogaexpeditie56sibo'
+);
+
+$items=array('18481' => 'sibogaexpeditie10sibo');
+
+$items=array('103360' => 'diefledermused00mats');
+
+$items=array('35417' => 'supplementtochas00elle',
+'34531' => 'catalogueofchiro01brit',
+'28805' => 'mammalsofpacific00cart');
+
+$items=array(
+'55128' => 'mitteilungenders6188084schw',
+'39741' => 'mitteilungenders7188487schw',
+'39731' => 'mitteilungenders8188893schw',
+'39767' => 'mitteilungenders9189397schw',
+'41062' => 'mitteilungenders1018971903schw',
+'40253' => 'mitteilungenders11190309schw',
+'111019' => 'mitteilungend12191017schw'
+);
+
+$items=array(
+'110264' => 'magazineofzoolog01edin',
+'123712' => 'magazineofzoolog11837selb',
+'110323' => 'magazineofzoolog02edin',
+'123706' => 'magazineofzo218371838selb'
+);
+
+$items=array(
+'105672' => 'mmoiresdumus11815mus',
+'106156' => 'mmoiresdumus21815mus',
+'108211' => 'mmoiresdumus341817mus',
+'108209' => 'mmoiresdumus41818mus',
+'108213' => 'mmoiresdumus51819mus',
+'108217' => 'mmoiresdumus61820mus',
+'85128' => 'mmoiresdumuseu06muse',
+'85088' => 'mmoiresdumuseu07muse',
+'108221' => 'mmoiresdumus71821mus',
+'108220' => 'mmoiresdumus81822mus',
+'85105' => 'mmoiresdumuseu09muse',
+'108246' => 'mmoiresdumus91822mus',
+'108253' => 'mmoiresdumus101823mus',
+'23443' => 'mmoiresdumuseu10mus',
+'85106' => 'mmoiresdumuseu11muse',
+'108780' => 'mmoiresdumus111824mus',
+'23423' => 'mmoiresdumuseu12mus',
+'114228' => 'mmoiresdumusumd121825musu',
+'108849' => 'mmoiresdumus131825mus',
+'84591' => 'mmoiresdumuseu13muse',
+'88481' => 'mmoiresdumuseu14muse',
+'108850' => 'mmoiresdumus141827mus',
+'108789' => 'mmoiresdumus151827mus',
+'84592' => 'mmoiresdumuseu15muse',
+'84593' => 'mmoiresdumuseu16muse',
+'108790' => 'mmoiresdumus161828mus',
+'108846' => 'mmoiresdumus171828mus',
+'84594' => 'mmoiresdumuseu17muse',
+'23444' => 'mmoiresdumuseu18mus',
+'108864' => 'mmoiresdumus181829mus',
+'108847' => 'mmoiresdumus191830mus',
+'84595' => 'mmoiresdumuseu19muse',
+'23523' => 'mmoiresdumuseu20mus'
+);
+
+//$items=array('108209' => 'mmoiresdumus41818mus');
+
+$items=array('35761' => 'greatbasinnatura32brig');
+
+$items = array(
+'105442' => 'societasentomolo01rh',
+'105443' => 'societasentomolo02rh',
+'39790' => 'societasentomolo25188791inte',
+'36503' => 'societasentomolo68189194inte',
+'105438' => 'societasentomolo09rh',
+'105439' => 'societasentomolo10rh',
+'105353' => 'societasentomolo11rh',
+'35895' => 'societasentomolo121418971900inte',
+'82068' => 'societasentomolo13inte',
+'36508' => 'societasentomolo1518190004inte',
+'82074' => 'societasentomolo17inte',
+'36481' => 'societasentomolo1921190407inte',
+'82076' => 'societasentomolo21inte',
+'35896' => 'societasentomolo2224190710inte',
+'103226' => 'societasentom25191011rh',
+'103372' => 'societasent2627191112rh',
+'103220' => 'societasent2829191314rh',
+'104361' => 'societasentomolo301915rh',
+'104031' => 'societasent3233191718rh',
+'106120' => 'societasentomolo34inte',
+'103866' => 'societasentomolo351920rh',
+'103865' => 'societasentomolo371922rh'
+);
+
+$items=array(
+'46156' => 'annalesdelasoci89186465soci',
+'48192' => 'annalesdelasoci101866soci',
+'45311' => 'annalesdelasoci11186768soci',
+'44872' => 'annalesdelasoci1213186870soci',
+'44639' => 'annalesdelasoci1415187072soci',
+'44647' => 'annalesdelasoci161873soci',
+'45797' => 'annalesdelasoci171874soci',
+'45753' => 'annalesdelasoci181875soci',
+'45830' => 'annalesdelasoci1920187677soci',
+'46150' => 'annalesdelasoci211878soci',
+'44876' => 'annalesdelasoci221879soci',
+'44686' => 'annalesdelasoci2325188081soci',
+'81196' => 'annalesdelasoci2627188283soci',
+'45820' => 'annalesdelasoci281884soci',
+'45823' => 'annalesdelasoci291885soci',
+'44636' => 'annalesdelasoci3031188687soci',
+'45827' => 'annalesdelasoci3233188889soci',
+'44716' => 'annalesdelasoci351891soci',
+'46152' => 'annalesdelasoci361892soci',
+'49378' => 'annalesdelasoci371893soci',
+'46161' => 'annalesdelasoci381894soci',
+'45774' => 'annalesdelasoci39189596soci',
+'46174' => 'annalesdelasoci40189697soci',
+'44877' => 'annalesdelasoci471903soci',
+'46160' => 'annalesdelasoci481904soci',
+'44643' => 'annalesdelasoci491905soci',
+'46136' => 'annalesdelasoci501906soci',
+'44645' => 'annalesdelasoci511907soci',
+'47476' => 'annalesdelasoci521908socis',
+'46155' => 'annalesdelasoci531909soci',
+'44635' => 'annalesdelasoci541910soci',
+'44648' => 'annalesdelasoci551911soci',
+'46151' => 'annalesdelasoci561912soci',
+'47475' => 'annalesdelasoci571913socis',
+'51528' => 'annalesdelasoci581914soci',
+'44640' => 'annalesdelasoci5961191922soci',
+'44701' => 'annalesdelasoci13018571886soci'
+);
+
+$items=array('111773' => 'transactionsofge14geol',
+'111595' => 'transactionsofge11geol',
+'111588' => 'transactionsofge21geol',
+'111600' => 'transactionsofge31geol',
+'111797' => 'transactionsofge41geol',
+'111775' => 'transactionsofge210geol',
+'111778' => 'transactionsofge22geol',
+'111777' => 'transactionsofge23geol',
+'111668' => 'transactionsof241836geol',
+'111770' => 'transactionsof251836geol',
+'111671' => 'transactionsof261841geol',
+'111646' => 'transactionso27184556geol'
+);
+
+//$items=array('111775' => 'transactionsofge210geol');
+
+/*
+$items=array(
+'81926' => 'edinburghnewphil01edinuoft',
+'19999' => 'edinburghnewphil01edin',
+'81985' => 'edinburghnewphil02edinuoft',
+'20148' => 'edinburghnewphil02edin',
+'81986' => 'edinburghnewphil03edinuoft',
+'20131' => 'edinburghnewphil03edin',
+'81987' => 'edinburghnewphil04edinuoft',
+'20042' => 'edinburghnewphil04edin',
+'80089' => 'ssedinburghnewph05edinuoft',
+'20014' => 'edinburghnewphil05edin',
+'81988' => 'edinburghnewphil06edinuoft',
+'20135' => 'edinburghnewphil06edin',
+'81989' => 'edinburghnewphil07edinuoft',
+'52294' => 'edinburghnewphil07edin',
+'78766' => 'edinburghnewphil08edinuoft',
+'52302' => 'edinburghnewphil08edin',
+'82199' => 'edinburghnewphil09edinuoft',
+'52307' => 'edinburghnewphil09edin',
+'79124' => 'edinburghnewphil10edinuoft',
+'20013' => 'edinburghnewphil10edin',
+'80046' => 'edinburghnewphil11edinuoft',
+'52309' => 'edinburghnewphil11edin',
+'81990' => 'edinburghnewphil12edinuoft',
+'20048' => 'edinburghnewphil12edin',
+'81991' => 'edinburghnewphil13edinuoft',
+'20028' => 'edinburghnewphil13edin',
+'20101' => 'edinburghnewphil14edin',
+'20058' => 'edinburghnewphil15edin',
+'20073' => 'edinburghnewphil16edin',
+'20108' => 'edinburghnewphil17edin',
+'52306' => 'edinburghnewphil18edin',
+'52304' => 'edinburghnewphil19edin',
+'20066' => 'edinburghnewphil20edin',
+'20063' => 'edinburghnewphil21edin',
+'20016' => 'edinburghnewphil22edin',
+'52030' => 'edinburghnewphil23edin',
+'52048' => 'edinburghnewphil24edin',
+'20074' => 'edinburghnewphil25edin',
+'20077' => 'edinburghnewphil62edin',
+'52064' => 'edinburghnewphil27edin',
+'52033' => 'edinburghnewphil28edin',
+'20052' => 'edinburghnewphil29edin',
+'52042' => 'edinburghnewphil30edin',
+'24359' => 'edinburghnewphil31edin',
+'52027' => 'edinburghnewphil32edin',
+'20006' => 'edinburghnewphil33edin',
+'45319' => 'edinburghnewphil34jour',
+'52032' => 'edinburghnewphil34edin',
+'20032' => 'edinburghnewphil35edin',
+'20172' => 'edinburghnewphil36edin',
+'20109' => 'edinburghnewphil37edin',
+'52031' => 'edinburghnewphil38edin',
+'52029' => 'edinburghnewphil39edin',
+'20064' => 'edinburghnewphil40edin',
+'20021' => 'edinburghnewphil41edin',
+'20017' => 'edinburghnewphil42edin',
+'20059' => 'edinburghnewphil43edin',
+'52405' => 'edinburghnewphil44edin',
+'52411' => 'edinburghnewphil45edin',
+'20170' => 'edinburghnewphil46edin',
+'52402' => 'edinburghnewphil47edin',
+'52419' => 'edinburghnewphil48edin',
+'20061' => 'edinburghnewphil49edin',
+'20128' => 'edinburghnewphil50edin',
+'20040' => 'edinburghnewphil51edin',
+'20022' => 'edinburghnewphil52edin',
+'80091' => 'nsedinburghnewph02edinuoft',
+'79851' => 'nsedinburghnphil03edinuoft',
+'79850' => 'nsedinburghnewph04edinuoft',
+'80051' => 'edinburghnewphil05edinuoft',
+'82022' => 'nsedinburghnewph06edinuoft',
+'79880' => 'nsedinburghnewph07edinuoft',
+'82023' => 'nsedinburghnewph08edinuoft',
+'82024' => 'nsedinburghnewph09edinuoft',
+'82198' => 'nsedinburghnewph10edinuoft',
+'82030' => 'nsedinburghnewph11edinuoft',
+'82031' => 'nsedinburghnewph12edinuoft',
+'82032' => 'nsedinburghnewph13edinuoft',
+'80049' => 'nsedinburghnewph15edinuoft',
+'82033' => 'nsedinburghnewph16edinuoft',
+'82034' => 'nsedinburghnewph17edinuoft'
+);
+
+$items=array('78766' => 'edinburghnewphil08edinuoft');
+*/
+
+$items=array('105234' => 'literaturecited00even');
+
+$items=array(
+'129617' => 'quarterlyjourna351972flor',
+'129587' => 'quarterlyjourna831945flor',
+'129652' => 'quarterlyjourna841945flor',
+'129643' => 'quarterlyjou910194647flor',
+'129685' => 'quarterlyjo1112194849flor',
+'129597' => 'quarterlyjo1314195051flor',
+'129662' => 'quarterlyjo1516195253flor',
+'129615' => 'quarterlyjo1718195455flor',
+'129686' => 'quarterlyjo1920195657flor',
+'129616' => 'quarterlyjo2122195859flor',
+'129590' => 'quarterlyjo2324196061flor',
+'129640' => 'quarterlyjo2526196263flor',
+'129619' => 'quarterlyjo2728196465flor',
+'129618' => 'quarterlyjo2930196667flor',
+'129633' => 'quarterlyjo3132196869flor',
+'129664' => 'quarterlyjo3334197071flor',
+'129669' => 'quarter33341970711971flor'
+);
+
+$items=array('107599' => 'proceedings7677196364biol');
+
+$items=array('32857' => 'proceedingsofuni1191967unit');
+
+$items=array(
+'31458' => 'occasionalpapers01bern',
+'89421' => 'occasionalpapers118981902bern',
+'31459' => 'occasionalpapers02bern',
+'89416' => 'occasionalpapers2190307bern',
+'30330' => 'occasionalpapers03bern',
+'91543' => 'occasionalpaper03bern',
+'90695' => 'occasionalpapers3190717bern',
+'31460' => 'occasionalpapers04bern',
+'89652' => 'occasionalpapers4190611bern',
+'91349' => 'occasionalpaper04bern',
+'32734' => 'occasionalpapers05bern',
+'89419' => 'occasionalpapers5191213bern',
+'91259' => 'occasionalpaper05bern',
+'32732' => 'occasionalpapers06bern',
+'91247' => 'occasionalpaper06bern',
+'91077' => 'occasionalpapers6191418bern',
+'32785' => 'occasionalpapers07bern',
+'89653' => 'occasionalpapers7192022bern'
+);
+
+$items=array('129803' => 'RecordsSouthAus23Sout');
+
+$items=array(
+'129437' => 'OccasionalPaper1Muse',
+'129795' => 'OccasionalPaper3Muse',
+'129794' => 'OccasionalPaper4Muse',
+'123247' => 'OccasionalPaper5Muse',
+'129793' => 'OccasionalPaper6Muse'
+);
+
+$items=array(
+'48997' => 'notessurlledel00mail',
+'24482' => 'notessurliledela02mail',
+'25048' => 'notessurl00mail'
+);
+
+$items=array(
+'31373' => 'southafricanjour01sout',
+'31375' => 'southafricanjour02sout',
+'31369' => 'southafricanjour0301sout',
+'33872' => 'southafricanjour0302sout'
+);
+
+$items=array(
+'65299' => 'ticksmonographof00arthuoft',
+'65301' => 'ticksmonographof03arthuoft',
+'65302' => 'ticksmonographof04arthuoft',
+'65639' => 'p1a2ticksmonogra00arthuoft'
+);
+
+$items=array(
+'32322' => 'transactionsofam171890amer',
+'32385' => 'transactionsofam181891amer',
+'33093' => 'transactionsofam191892amer',
+'32354' => 'transactionsofam201893amer',
+'32358' => 'transactionsofam211894amer',
+'32378' => 'transactionsofam221895amer',
+'32356' => 'transactionsofam231896amer',
+'54601' => 'transactionsofam2497amer',
+'32379' => 'transactionsofam25189899amer',
+'32380' => 'transactionsofam2618991900amer',
+'32315' => 'transactionsofam27190001amer',
+'32387' => 'transactionsofam281902amer',
+'39866' => 'transactionsofam29190203amer',
+'39871' => 'transactionsofam301904amer',
+'39864' => 'transactionsofam311905amer',
+'39869' => 'transactionsofam321906amer',
+'32414' => 'transactionsofam331907amer',
+'27744' => 'transactionsofam341908amer',
+'39870' => 'transactionsofam351909amer',
+'39865' => 'transactionsofam361910amer',
+'39867' => 'transactionsofam371911amer',
+'54602' => 'transactionsofam3813amer',
+'27823' => 'transactionsofam391913amer',
+'30248' => 'transactionsofam40191415amer',
+'27747' => 'transactionsofam411915amer',
+'30352' => 'transactionsofam421916amer',
+'32415' => 'transactionsofam431917amer',
+'39889' => 'transactionsofam441918amer',
+'31722' => 'transactionsofam451919amer',
+'26808' => 'transactionsofam461920amer',
+'26800' => 'transactionsofam471921amer',
+'30891' => 'transactionsofam481922amer'
+);
+
+$items=array(
+'32352' => 'transactionsofam1186768amera',
+'54546' => 'transactionsofam2186869amer',
+'32422' => 'transactionsofam3187071amera',
+'32381' => 'transactionsofam4187273amera',
+'32406' => 'transactionsofam5187476amer',
+'32404' => 'transactionsofam61877amer'
+);
+
+$items=array(
+'129635' => 'ergebnissede118961907hamb',
+'129584' => 'ergebnissede218961907hamb'
+);
+
+$items=array(
+'129841' => 'TransactionsRoy48Roya',
+'129840' => 'TransactionsRoy49Roya',
+'129842' => 'TransactionsRoy50Roya',
+'129843' => 'TransactionsRoy51Roya',
+'129838' => 'TransactionsRoy52Roya',
+'129845' => 'TransactionsRoy53Roya',
+'129828' => 'TransactionsRoy54Roya',
+'129827' => 'TransactionsRoy55Roya',
+'129826' => 'TransactionsRoy56Roya',
+'129836' => 'TransactionsRoy57Roya',
+'129835' => 'TransactionsRoy58Roya',
+'129833' => 'TransactionsRoy59Roya',
+'129824' => 'TransactionsRoy60Roya',
+'129822' => 'TransactionsRoy61Roya',
+'129837' => 'TransactionsRoy128Roya',
+'129830' => 'TransactionsRoy129Roya',
+'129839' => 'TransactionsRoy130Roya',
+'129829' => 'TransactionsRoy131Roya'
+);
+
+$items=array('119186' => 'monographofculic04theo');
+
+$items=array('110755' => 'bulletinofentomo31912grea');
+
+$items=array('110744' => 'bulletinofe1319221923grea');
+
+$items=array(
+'101199' => 'erptologiegn11834dum',
+'101242' => 'erptologiegn21835dum',
+'101241' => 'erptologiegn3183dum',
+'101250' => 'erptologiegn4183dum',
+'101240' => 'erptologiegn5183dum',
+'101228' => 'erptologiegn6184dum',
+'101226' => 'erptologiegn71185dum',
+'101190' => 'erptologiegn72185dum',
+'101245' => 'erptologiegn81841dum',
+'101243' => 'erptologiegn9185dum',
+'101233' => 'erptologiegn101854dum',
+'99551' => 'erptologiegn01dum',
+'99553' => 'erptologiegn02dum',
+'99518' => 'erptologiegn31836dum',
+'99856' => 'erptologiegn41837dum',
+'99940' => 'erptologiegn51839dum',
+'100088' => 'erptologiegn61844dum',
+'99513' => 'erptologiegn711854dum',
+'99517' => 'erptologiegn721854dum',
+'99535' => 'erptologiegn08dum',
+'99863' => 'erptologiegn91854dum',
+'99515' => 'erptologiegn00dum'
+);
+
+$items=array(
+'53108' => 'philosophicalmag01lond',
+'53109' => 'philosophicalmag02lond',
+'15604' => 'philosophicalmax03lond',
+'15608' => 'philosophicalmax04lond',
+'53111' => 'philosophicalmag05lond',
+'53114' => 'philosophicalmag06lond',
+'53110' => 'philosophicalmag07lond',
+'123319' => 'philosophicalmag81830lond',
+'15563' => 'philosophicalmax09lond',
+'53113' => 'philosophicalmag10phil',
+'53112' => 'philosophicalmag11lond',
+'77954' => 'historyofrarerbr00eytorich');
+
+/*
+$items=array(
+'49195' => 'journalfrornit53deut',
+'49380' => 'journalfrornit55deut',
+'49379' => 'journalfrornit57orni',
+'50195' => 'journalfrornit59orni',
+'101709' => 'journalfrornit81860deut',
+'102838' => 'journalfrornit91861deut',
+'101707' => 'journalfrornit101862deut',
+'103973' => 'journalfrornit111863deut',
+'101741' => 'journalfrornit121864deut',
+'109917' => 'journalfrornit131865deut',
+'103185' => 'journalfrornit141866deut',
+'101730' => 'journalfrornit151867deut',
+'103094' => 'journalfrornit161868deut',
+'102837' => 'journalfrornit171869deut',
+'103205' => 'journalfrornit181870deut',
+'111231' => 'journalfrornith191871deut',
+'102848' => 'journalfrornit201872deut',
+'101685' => 'journalfrornit211873deut',
+'101706' => 'journalfrornit221874deut',
+'101688' => 'journalfrornit231875deut',
+'101769' => 'journalfrornit241876deut',
+'102780' => 'journalfrornit251877deut',
+'102855' => 'journalfrornit261878deut',
+'102856' => 'journalfrornit271879deut',
+'101708' => 'journalfrornit281880deut',
+'102782' => 'journalfrornit291881deut',
+'102781' => 'journalfrornit301882deut',
+'101690' => 'journalfrornit311883deut',
+'101693' => 'journalfrornit321884deut',
+'101743' => 'journalfrornit331885deut',
+'101744' => 'journalfrornit341886deut',
+'101740' => 'journalfrornit351887deut',
+'101705' => 'journalfrornit361888deut',
+'102840' => 'journalfrornit371889deut',
+'102239' => 'journalfrornit381890deut',
+'101710' => 'journalfrornit391891deut',
+'102240' => 'journalfrornit401892deut',
+'101687' => 'journalfrornit421894deut',
+'101820' => 'journalfrornit431895deut',
+'101723' => 'journalfrornit441896deut',
+'103562' => 'journalfrornit451897deut',
+'104359' => 'journalfrornit461898deut',
+'101577' => 'journalfrornit471899deut',
+'104736' => 'journalfrornit491901deut',
+'104733' => 'journalfrornit501902deut',
+'104726' => 'journalfrornit511903deut',
+'101586' => 'journalfrornit521904deut',
+'107488' => 'journalfrornit531905deut',
+'104732' => 'journalfrornit541906deut',
+'104724' => 'journalfrornit551907deut',
+'43348' => 'journalfrornit56deut',
+'43500' => 'journalfrornit57deut',
+'43496' => 'journalfrornit58deut',
+'43503' => 'journalfrornit59deut',
+'43502' => 'journalfrornit60deut',
+'43303' => 'journalfrornit61deut',
+'43524' => 'journalfrornit62deut',
+'43484' => 'journalfrornit63deut',
+'43088' => 'journalfrornit64deut',
+'43317' => 'journalfrornit65deut',
+'43359' => 'journalfrornit66deut',
+'43517' => 'journalfrornit67deut',
+'43506' => 'journalfrornit68deut',
+'43096' => 'journalfrornit69deut',
+'101745' => 'journalfro115185367deut',
+'101724' => 'journal411893186893deut'
+);*/
+
+$items=array(
+'49195' => 'journalfrornit53deut'
+);
+
+$items=array(
+'35377' => 'typespecimensofb01brit',
+'47901' => 'typespecimensofb02brit',
+'49452' => 'typespecimensofb03brit'
+);
+
+$items=array(
+'42909' => 'archivesentomolo12thom',
+'42914' => 'archivesentomolo02thom'
+);
+
+$items=array('41592' => 'catalogueofeaste01univ');
+
+$items=array('79794' => 'recherchespourse00bron');
+
+$items=array('53295' => 'journaldeconchyl91861pari');
+
+$items=array('82124' => 'lesinsectesfossi00bron');
+
+$items=array(
+'93792' => 'universityofcali81911univ',
+'93448' => 'universityofcali231921univ',
+'93453' => 'universityofcali3190607univ',
+'93455' => 'universityofcali4190708univ',
+'93130' => 'universityofcali5190810univ',
+'93230' => 'universityofcali6190811univ',
+'93378' => 'universityofcali7191012univ',
+'93410' => 'universityofcali9191113univ',
+'93208' => 'universityofcali10191213univ',
+'93406' => 'universityofcali11191214univ',
+'93407' => 'universityofcali12191316univ',
+'108188' => 'universityofc13191416univ',
+'95511' => 'universityofcali14191418univ',
+'93232' => 'universityofcali15191516univ',
+'93449' => 'universityofcali16191517univ',
+'93466' => 'universityofcali17191618univ',
+'95517' => 'universityofcali18191719univ',
+'93415' => 'universityofcali19191920univ',
+'93379' => 'universityofcali20191923univ',
+'93394' => 'universityofcali21191826univ',
+'95508' => 'universityofcali22192123univ'
+);
+
+//$items=array('93448' => 'universityofcali231921univ');
+
+$items=array('25408' => 'memoirsofmuseumo1403harv');
+
+$items=array('33404' => 'mitteilungenausd14natu');
+
+$items = array('17983' => 'diegeographische00mich',
+'15801' => 'oligochaeta10mich',
+'43950' => 'oligochaeta00mich'
+);
+
+
+$items=array(
+'43489' => 'mitteilungenausd02natu',
+'43713' => 'mitteilungenausd56natu',
+'95512' => 'mitteilungenausd67188889hamb',
+'33417' => 'mitteilungenausd00natu',
+'93228' => 'mitteilungenausd91891hamb',
+'43700' => 'mitteilungenausd10natu',
+'108200' => 'mitteilungenau101892hamb',
+'33346' => 'mitteilungenausd11natu',
+'93402' => 'mitteilungenausd1112189394hamb',
+'33303' => 'mitteilungenausd12natu',
+'33323' => 'mitteilungenausd13natu',
+'93401' => 'mitteilungenausd1314189596hamb',
+'33404' => 'mitteilungenausd14natu',
+'33268' => 'mitteilungenausd15natu',
+'93395' => 'mitteilungenausd1516189798hamb',
+'33330' => 'mitteilungenausd16natu',
+'39472' => 'mitteilungenausd17natu',
+'93110' => 'mitteilungenausd171818991900hamb',
+'35626' => 'mitteilungenausd19natu',
+'93454' => 'mitteilungenausd1920190102hamb',
+'35601' => 'mitteilungenausd20natu',
+'39441' => 'mitteilungenausd21natu',
+'93399' => 'mitteilungenausd2122190304hamb',
+'40859' => 'mitteilungenausd22natu',
+'39582' => 'mitteilungenausd23natu',
+'39458' => 'mitteilungenausd24natu',
+'93227' => 'mitteilungenausd2325190507hamb',
+'33507' => 'mitteilungenausd25natu',
+'43466' => 'mitteilungenausd26natu',
+'94430' => 'mitteilungenausd261908hamb',
+'92618' => 'mitteilungenausd2728190910hamb',
+'93418' => 'mitteilungenausd2930191112hamb',
+'93457' => 'mitteilungenausd311913hamb',
+'40861' => 'mitteilungenausd31natu',
+'39451' => 'mitteilungenausd32natu',
+'39479' => 'mitteilungenausd33natu',
+'39454' => 'mitteilungenausdnm34natu',
+'39484' => 'mitteilungenausd35natu',
+'39448' => 'mitteilungenausd36natu',
+'93447' => 'mitteilungenausd3436191618hamb',
+'39475' => 'mitteilungenausd37natu',
+'39433' => 'mitteilungenausd38natu'
+);
+
+$items=array(
+'105037' => 'sammlungneuerode01herr',
+'43525' => 'journalofmorphol01wist',
+'43522' => 'journalofmorphol02wist',
+'43332' => 'journalofmorphol03wist',
+'43497' => 'journalofmorphol04wist',
+'90465' => 'journalofmorphol51891wist',
+'90127' => 'journalofmorphol1892wist',
+'43591' => 'journalofmorphol07wist',
+'43594' => 'journalofmorphol08wist',
+'43498' => 'journalofmorphol09wist',
+'88850' => 'journalofmorphol101895wist',
+'43482' => 'journalofmorphol11wist',
+'90540' => 'journalofmorphol12189697wist',
+'42831' => 'journalofmorphol122wist',
+'90123' => 'journalofmorphol1897wist',
+'43093' => 'journalofmorphol14wist',
+'90694' => 'journalofmorphol15189899wist',
+'43479' => 'journalofmorphol16wist',
+'43944' => 'journalofmorphol17wist',
+'42828' => 'journalofmorphol18wist',
+'43077' => 'journalofmorphol19wist',
+'43718' => 'journalofmorphol20wist',
+'43519' => 'journalofmorphol21wist',
+'43304' => 'journalofmorphol22wist',
+'43598' => 'journalofmorphol23wist',
+'42860' => 'journalofmorphol24wist',
+'42839' => 'journalofmorphol25wist',
+'43481' => 'journalofmorphol26wist',
+'42861' => 'journalofmorphol27wist',
+'42850' => 'journalofmorphol28wist',
+'42851' => 'journalofmorphol29wist',
+'42857' => 'journalofmorphol30wist',
+'43504' => 'journalofmorphol31wist',
+'43520' => 'journalofmorphol32wist',
+'43483' => 'journalofmorphol33wist',
+'43523' => 'journalofmorphol34wist',
+'43516' => 'journalofmorphol35wist',
+'42841' => 'journalofmorphol36wist'
+);
+
+$items=array(
+'105037' => 'sammlungneuerode01herr',
+'43591' => 'journalofmorphol07wist'
+);
+
+$items=array(
+'122247' => 'science11880mich',
+'97767' => 'science11883mich',
+'97481' => 'science21883mich',
+'98462' => 'science81886mich',
+'99193' => 'science91887mich',
+'99281' => 'science101887mich',
+'107150' => 'science111888mic',
+'111188' => 'science111888mich',
+'98563' => 'science121888mich',
+'98111' => 'science131889mich',
+'97769' => 'science141889mich',
+'98564' => 'science151890mich',
+'98526' => 'science161890mich',
+'97772' => 'science171891mich',
+'97773' => 'science181891mich',
+'98523' => 'science191892mich',
+'98110' => 'science201892mich',
+'98496' => 'science211893mich',
+'98460' => 'science2218931894mich',
+'97815' => 'science231894mich',
+'98351' => 'science11895mich',
+'97581' => 'science21895mich',
+'97659' => 'science31896mich',
+'98512' => 'science41896mich',
+'98479' => 'science51897mich',
+'98108' => 'science61897mich',
+'97358' => 'science71898mich',
+'98164' => 'science81898mich',
+'97334' => 'science91899mich',
+'97584' => 'science101899mich',
+'98729' => 'science111900mich',
+'97768' => 'science121900mich',
+'97656' => 'science131901mich',
+'98691' => 'science141901mich',
+'97770' => 'science151902mich',
+'97771' => 'science161902mich',
+'98307' => 'science171903mich',
+'98181' => 'science181903mich',
+'97802' => 'science191904mich',
+'98557' => 'science201904mich',
+'97803' => 'science221905mich',
+'97804' => 'science231906mich',
+'97661' => 'science241906mich',
+'97805' => 'science251907mich',
+'97796' => 'science261907mich',
+'97806' => 'science271908mich',
+'97359' => 'science281908mich',
+'97360' => 'science291909mich',
+'97301' => 'science301909mich',
+'97800' => 'science311910mich',
+'97807' => 'science321910mich',
+'97808' => 'science331911mich',
+'97985' => 'science341911mich',
+'97391' => 'science351912mich',
+'97460' => 'science361912mich',
+'97357' => 'science371913mich',
+'98056' => 'science381913mich',
+'97583' => 'science391914mich',
+'97809' => 'science401914mich',
+'97582' => 'science411915mich',
+'97939' => 'science421915mich',
+'97810' => 'science431916mich',
+'97387' => 'science441916mich',
+'97512' => 'science451917mich',
+'97440' => 'science461917mich',
+'97384' => 'science471918mich',
+'97392' => 'science481918mich',
+'97483' => 'science491919mich',
+'97325' => 'science501919mich',
+'97354' => 'science511920mich',
+'97352' => 'science521920mich',
+'97339' => 'science531921mich',
+'97439' => 'science541921mich',
+'97441' => 'science551922mich',
+'97318' => 'science561922mich'
+);
+
+$items=array('98307' => 'science171903mich');
+
+$items=array('20660' => 'entomologicalnew103amer');
+
+$items=array('18659' => 'wissenschaftlich03chun');
+
+$items=array(
+'108505' => 'museumbulletin1191908newy',
+'109609' => 'museumbulle1201221907newy',
+'109181' => 'museumbulletin1231908newy',
+'81678' => 'museumbulletin23newy',
+'109321' => 'museumbulletin1251908newy',
+'109316' => 'museumbulletin1261909newy',
+'110319' => 'museumbulletin1271909newy',
+'109647' => 'museumbulletin1281909newy',
+'108805' => 'museumbulletin1291909newy',
+'110431' => 'museumbulletin1301909newy',
+'109173' => 'museumbulletin1311909newy',
+'110761' => 'museumbull1321351909newy',
+'109182' => 'museumbull1361371910newy',
+'108814' => 'museumbulletin1381910newy',
+'109251' => 'museumbulletin1391910newy',
+'109483' => 'museumbulletin1401910newy',
+'108941' => 'museumbulletin1411910newy',
+'108940' => 'museumbulletin1421910newy',
+'109385' => 'museumbulletin1431910newy',
+'109312' => 'museumbulletin1441910newy',
+'109608' => 'museumbulletin1451910newy',
+'109387' => 'museumbulletin1461911newy',
+'109389' => 'museumbulletin1471911newy',
+'109651' => 'museumbulletin1481911newy',
+'109320' => 'museumbulletin1491911newy',
+'108791' => 'museumbull1501511911newy',
+'109646' => 'museumbulletin1521911newy',
+'109178' => 'museumbulletin1531911newy',
+'108807' => 'museumbulletin1541911newy',
+'108868' => 'museumbulle1551571912newy',
+'109476' => 'museumbulletin1581912newy',
+'109200' => 'museumbulletin1591912newy',
+'109634' => 'museumbulletin1601912newy',
+'109427' => 'museumbulletin1611912newy',
+'108869' => 'museumbulletin1621912newy',
+'108867' => 'museumbulletin1631913newy',
+'108870' => 'museumbulletin1641913newy',
+'108792' => 'museumbulletin1651913newy',
+'109656' => 'museumbul1661681913newy',
+'109843' => 'museumbulletin1691914newy',
+'109253' => 'museumbulletin1701914newy',
+'109193' => 'museumbulletin1711914newy',
+'109194' => 'museumbulletin1721914newy',
+'109478' => 'museumbulle1731741914newy',
+'108863' => 'museumbulletin1751915newy',
+'108861' => 'museumbulletin1761915newy',
+'109477' => 'museumbulletin1771915newy',
+'108866' => 'museumbulletin1781915newy',
+'108862' => 'museumbulletin1791915newy',
+'109257' => 'museumbulletin1801916newy'
+);
+
+$items=array('108863' => 'museumbulletin1751915newy');
+
+$items=array(
+'41521' => 'berichtberdiez36berl',
+'41523' => 'berichtberdiez40berl',
+'41524' => 'berichtberdiez43berl',
+'41529' => 'berichtberdiez45berl',
+'41933' => 'berichtberdiez47akad',
+'41525' => 'berichtberdiez48berl',
+'41526' => 'berichtberdiez49berl',
+'41527' => 'berichtberdiez50berl',
+'41530' => 'berichtberdiez51berl',
+'41528' => 'berichtberdiez52berl',
+'109942' => 'berichtberdiez53koni',
+'41573' => 'berichtberdiez54berl',
+'41576' => 'berichtberdiez55berl');
+
+$items=array('41573' => 'berichtberdiez54berl');
+
+$items=array(
+'92535' => 'abhandlungenderk182233deut',
+'93801' => 'abhandlungenderk1824deut',
+'93758' => 'abhandlungenderk1825deut',
+'93757' => 'abhandlungenderk1826deut',
+'93802' => 'abhandlungenderk1827deut',
+'92510' => 'abhandlungenderk1828deut',
+'93804' => 'abhandlungenderk1829deut',
+'93803' => 'abhandlungenderk1830deut',
+'93756' => 'abhandlungenderk1831deut',
+'93981' => 'abhandlungenderk18321deut',
+'92655' => 'abhandlungenderk18322deut',
+'93789' => 'abhandlungenderk18323deut',
+'92656' => 'abhandlungenderk18324deut',
+'93805' => 'abhandlungenderk1833deut',
+'93980' => 'abhandlungenderk1834deut',
+'94127' => 'abhandlungenderk1835deut',
+'94125' => 'abhandlungenderk1836deut',
+'93754' => 'abhandlungenderk1837deut',
+'92137' => 'abhandlungenderk1838deut',
+'92568' => 'abhandlungenderk1839deut',
+'92569' => 'abhandlungenderk1840deut',
+'92500' => 'abhandlungenderk18411deut',
+'92684' => 'abhandlungenderk184123deut',
+'92485' => 'abhandlungenderk1842deut',
+'92691' => 'abhandlungenderk1843deut',
+'95466' => 'abhandlungenderk1844deut',
+'92685' => 'abhandlungenderk1845deut',
+'92660' => 'abhandlungenderk1846deut',
+'92658' => 'abhandlungenderk1847deut',
+'95786' => 'abhandlungenderk1848deut',
+'92692' => 'abhandlungenderk1849deut',
+'92686' => 'abhandlungenderk1850deut',
+'92709' => 'abhandlungenderk1851deut',
+'92700' => 'abhandlungenderk1852deut',
+'92505' => 'abhandlungenderk1853deut',
+'92694' => 'abhandlungenderk1854deut',
+'92525' => 'abhandlungenderk18542deut',
+'92693' => 'abhandlungenderk1855deut',
+'93027' => 'abhandlungenderk1856deut',
+'92047' => 'abhandlungenderk1857deut',
+'93366' => 'abhandlungenderk1858deut',
+'92030' => 'abhandlungenderk1859deut',
+'92534' => 'abhandlungenderk1860deut',
+'92501' => 'abhandlungenderk1861deut',
+'95678' => 'abhandlungenderk1862deut',
+'92689' => 'abhandlungenderk1863deut',
+'93076' => 'abhandlungenderk1864deut',
+'92687' => 'abhandlungenderk1865deut',
+'92508' => 'abhandlungenderk1866deut',
+'92497' => 'abhandlungenderk1867deut',
+'92046' => 'abhandlungenderk1868deut',
+'92552' => 'abhandlungenderk18691deut',
+'94826' => 'abhandlungenderk18692deut',
+'92659' => 'abhandlungenderk1870deut',
+'92482' => 'abhandlungenderk1871deut',
+'95701' => 'abhandlungenderk1872deut',
+'92494' => 'abhandlungenderk1873deut',
+'92481' => 'abhandlungenderk1874deut',
+'95299' => 'abhandlungenderk1875deut',
+'92671' => 'abhandlungenderk1876deut',
+'93074' => 'abhandlungenderk1877deut',
+'94927' => 'abhandlungenderk1878deut',
+'95510' => 'abhandlungenderk1879deut',
+'92661' => 'abhandlungenderk1880deut',
+'92511' => 'abhandlungenderk1881deut',
+'96967' => 'abhandlungenderk1882deut',
+'92798' => 'abhandlungenderk1883deut',
+'97161' => 'abhandlungenderk1884deut',
+'96896' => 'abhandlungenderk1885deut',
+'93404' => 'abhandlungenderk1886deut',
+'93097' => 'abhandlungenderk1887deut',
+'92729' => 'abhandlungenderk1888deut',
+'92905' => 'abhandlungenderk1889deut',
+'92906' => 'abhandlungenderk1890deut',
+'93090' => 'abhandlungenderk1891deut',
+'93396' => 'abhandlungenderk1892deut',
+'93452' => 'abhandlungenderk1893deut',
+'92793' => 'abhandlungenderk1894deut',
+'92665' => 'abhandlungenderk1895deut',
+'93391' => 'abhandlungenderk1896deut',
+'95432' => 'abhandlungenderk1897deut',
+'95461' => 'abhandlungenderk1898deutsch',
+'93392' => 'abhandlungenderk1898deut',
+'96964' => 'abhandlungenderk18991900deut',
+'93113' => 'abhandlungenderk182272deut'
+);
+
+$items=array(
+'92694' => 'abhandlungenderk1854deut');
+
+$items=array(
+'121438' => 'compterend261909soci',
+'121440' => 'compterend271910soci',
+'121445' => 'compterendudessa28soci',
+'121439' => 'compterendudessa29soci',
+'121441' => 'compterendudessa30soci',
+'121444' => 'compterendudessa31soci',
+'121442' => 'compterendudessa32soci',
+'121443' => 'compterendudessa34soci',
+'121446' => 'compterendudessa35soci',
+'121467' => 'compterendudessa36soci',
+'121447' => 'compterendudessa38soci',
+'121463' => 'compterend1188481891soci',
+'121453' => 'compterend91892141897soci',
+'121451' => 'comptere151898231906soci'
+);
+
+$items=array('121467' => 'compterendudessa36soci');
+
+$items=array(20881=>'batsfromnewcaled3136sanb');
+
+$items=array('130017' => 'MemoirsNational44Nati');
+
+$items=array(
+'22653' => 'miscellaneouspub01univ',
+'54674' => 'handbookofamphib00smit',
+'22652' => 'miscellaneouspub03univ',
+'25742' => 'miscellaneouspub06univ',
+'25752' => 'handbookofmammal00hall',
+'25756' => 'miscellaneouspub09univ',
+'22667' => 'miscellaneouspub11univ',
+'22672' => 'miscellaneouspub12univ',
+'22651' => 'miscellaneouspub14univ',
+'22669' => 'miscellaneouspub15univ',
+'25734' => 'miscellaneouspub16univ',
+'25747' => 'miscellaneouspub17univ',
+'25741' => 'miscellaneouspub18univ',
+'25754' => 'miscellaneouspub20univ',
+'25748' => 'miscellaneouspub21univ',
+'25739' => 'miscellaneouspub22univ',
+'25744' => 'miscellaneouspub23univ',
+'25738' => 'miscellaneouspub25univ',
+'24532' => 'miscellaneouspub26univ',
+'24725' => 'miscellaneouspub27univ',
+'24698' => 'miscellaneouspub28univ',
+'24633' => 'miscellaneouspub29univ',
+'24596' => 'miscellaneouspub30univ',
+'24907' => 'miscellaneouspub32univ',
+'24638' => 'miscellaneouspub33univ',
+'26001' => 'miscellaneouspub34univ',
+'24898' => 'miscellaneouspub36univ',
+'24923' => 'miscellaneouspub37univ',
+'24903' => 'miscellaneouspub38univ',
+'24626' => 'miscellaneouspub39univ',
+'25999' => 'miscellaneouspub40univ',
+'24810' => 'miscellaneouspub41univ',
+'24673' => 'miscellaneouspub42univ',
+'26000' => 'miscellaneouspub43univ',
+'24570' => 'miscellaneouspub44univ',
+'23763' => 'miscellaneouspub45univ',
+'24902' => 'miscellaneouspub46univ',
+'24689' => 'miscellaneouspub47univ',
+'24712' => 'miscellaneouspub48univ',
+'24706' => 'miscellaneouspub49univ',
+'25998' => 'miscellaneouspub50univ',
+'24617' => 'miscellaneouspub51univ',
+'24900' => 'miscellaneouspub52univ',
+'23669' => 'miscellaneouspub53univ',
+'24672' => 'miscellaneouspub54univ',
+'24816' => 'miscellaneouspub55univ',
+'24807' => 'miscellaneouspub56univ',
+'24894' => 'miscellaneouspub57univ',
+'24595' => 'miscellaneouspub58univ',
+'24651' => 'miscellaneouspub59univ',
+'24613' => 'miscellaneouspub60univ',
+'25843' => 'miscellaneouspub61univ',
+'25834' => 'miscellaneouspub62univ',
+'25833' => 'miscellaneouspub63univ',
+'25841' => 'miscellaneouspub64univ',
+'24677' => 'miscellaneouspub65univ',
+'54987' => 'leptodactylidfro00lync',
+'54802' => 'ecogeographicana00leej',
+'54835' => 'internaloralfeat00wass',
+'54794' => 'eleutherodactylu00lync',
+'54817' => 'sexualsizediffer00fitc',
+'55047' => 'leptodactylidfro81lync',
+'28702' => 'typefiguredspeci11982univ',
+'25746' => 'relationshipsofp00hean',
+'55069' => 'taxonomyphylogen00duel',
+'54922' => 'variationinclutc00fitc',
+'35108' => 'typefiguredspeci21985univ',
+'29043' => 'typefiguredspeci31986univ',
+'28701' => 'typefiguredspeci41986univ',
+'25755' => 'phylogeneticstud00mayd',
+'55046' => 'phylogeneticanal00fros',
+'22668' => 'batsofportugalzo00palm',
+'54701' => 'altitudinalecolo00walt',
+'55041' => 'systematicsofwes00preg',
+'25735' => 'systematicrevisi00good',
+'54586' => 'ecuadorianfrogso00colo',
+'25736' => 'morphometricanal00alex'
+);
+
+//$items=array('24807' => 'miscellaneouspub56univ');
+
+//$items=array('24617' => 'miscellaneouspub51univ');
+
+$items=array(
+'104465' => 'mobot31753003648620',
+'104466' => 'mobot31753003648638',
+'104467' => 'mobot31753003648646',
+'104468' => 'mobot31753003648653',
+'104469' => 'mobot31753003648661',
+'104470' => 'mobot31753003648679',
+'104471' => 'mobot31753003648687',
+'104472' => 'mobot31753003648695',
+'104579' => 'mobot31753003648745',
+'104580' => 'mobot31753003648752',
+'104581' => 'mobot31753003648760');
+
+
+$items = array('103049' => 'revuezoologiquea01brux');
+
+$items=array(
+'27120' => 'boletimdasocieda14soci',
+'27143' => 'boletimdasocieda15soci',
+'27127' => 'boletimdasocieda16soci',
+'27135' => 'boletimdasocieda17soci',
+'27128' => 'boletimdasocieda18soci',
+'27156' => 'boletimdasocieda19soci',
+'27149' => 'boletimdasocieda22soci',
+'27130' => 'boletimdasocieda23soci',
+'27126' => 'boletimdasocieda24soci',
+'27134' => 'boletimdasocieda28soci',
+'27122' => 'boletimdasocieda26soci',
+'27489' => 'boletimdasocieda27soci',
+'32834' => 'brotria07lisb',
+'32814' => 'brotriarevista01coll',
+'32815' => 'brotriarevista02coll',
+'32483' => 'brotriarevista03coll'
+);
+
+$items=array('114235' => 'atlaszuderreisei00rupp');
+
+$items=array(
+'62878' => 'journaloffederat02fedeuoft',
+'62879' => 'journaloffederat04fedeuoft',
+'62880' => 'journaloffederat05fedeuoft',
+'62945' => 'journaloffederat06fedeuoft',
+'62946' => 'journaloffederat07fedeuoft',
+'62947' => 'journaloffederat10fedeuoft',
+'110725' => 'journaloffed411191124sela');
+/*
+$items=array('62945' => 'journaloffederat06fedeuoft');
+
+$items=array('28699' => 'occasionalpapers11977tula',
+'28697' => 'occasionalpapers21978tula',
+'28705' => 'occasionalpapers31982tula',
+'28668' => 'occasionalpapers41994tula');
+
+$items=array(
+'35575' => 'breviora511harv');
+*/
+
+$items=array('130257' => 'bulletinofbritis56bri');
+
+$items=array(
+'93792' => 'universityofcali81911univ',
+'93448' => 'universityofcali231921univ',
+'93453' => 'universityofcali3190607univ',
+'93455' => 'universityofcali4190708univ',
+'93130' => 'universityofcali5190810univ',
+'93230' => 'universityofcali6190811univ',
+'93378' => 'universityofcali7191012univ',
+'93410' => 'universityofcali9191113univ',
+'93208' => 'universityofcali10191213univ',
+'93406' => 'universityofcali11191214univ',
+'93407' => 'universityofcali12191316univ',
+'108188' => 'universityofc13191416univ',
+'95511' => 'universityofcali14191418univ',
+'93232' => 'universityofcali15191516univ',
+'93449' => 'universityofcali16191517univ',
+'93466' => 'universityofcali17191618univ',
+'95517' => 'universityofcali18191719univ',
+'93415' => 'universityofcali19191920univ',
+'93379' => 'universityofcali20191923univ',
+'93394' => 'universityofcali21191826univ',
+'95508' => 'universityofcali22192123univ'
+);
+
+$items=array('111806' => 'reviewofbatsofge00pete');
+
+$items=array('130382' => 'bulletinofbrit1232003brit');
+
+$items=array('44470' => 'bulletinofzoolog28inte');
+
+$items=array('112817' => 'monatsberichtede1874knig');
+
+$items=array('112419' => 'monatsberichtede1867knig');
+
+$items=array(
+'41574' => 'berichtberdiez56berl',
+'41577' => 'berichtberdiez57berl',
+'41578' => 'berichtberdiez58berl',
+'41575' => 'berichtberdiez59berl',
+'111868' => 'monatsberichtede1860knig',
+'112407' => 'monatsberichtede1862knig',
+'109317' => 'monatsberichtede1864kn',
+'109287' => 'monatsberichtede1865kn',
+'112419' => 'monatsberichtede1867knig',
+'111036' => 'monatsberichtede1868knig',
+'111869' => 'monatsberichtede1869knig',
+'112818' => 'monatsberichtede1871knig',
+'110470' => 'monatsberichtede1872knig',
+'111022' => 'monatsberichtede1873knig',
+'112817' => 'monatsberichtede1874knig',
+'111351' => 'monatsberichtede1875knig',
+'109636' => 'monatsberichtede1876kn',
+'110478' => 'monatsberichtede1877knig',
+'111278' => 'monatsberichtede1878knig',
+'112024' => 'monatsberichtede1879knig',
+'111870' => 'monatsberichtede1880knig',
+'111883' => 'monatsberichtede18611knig'
+);
+
+$items=array('120607' => 'monatsberichtede1866knig');
+
+$items=array('35410' => 'checklistofpalae00elle');
+
+$items=array(
+'77005' => 'catalogueofmamma00eastrich',
+'97435' => 'zoologicalresear00hors'
+);
+
+$items=array('125554' => 'zoologicalscienc11984niho',
+'125560' => 'zoologicalscienc21985niho',
+'125561' => 'zoologicalscienc31986niho',
+'125557' => 'zoologicalscienc41987niho',
+'125539' => 'zoologicalscienc71990niho');
+
+$items=array('20019' => 'officiallistsind00inte',
+'107003' => 'officiallistsind2001inte',
+'107142' => 'internationalcod1999inte',
+'107166' => 'codeinternationa1985inte',
+'107561' => 'codeinternationa00intern',
+'107127' => 'internationalcod1964inte');
+
+$items=array('106450' => 'annalidelmuse88199091muse');
+
+$items=array(
+/*'20199' => 'kungligasvenskav03kung',
+'20272' => 'kungligasvenskav01kung',
+'46807' => 'mollusca00odhn',
+'105165' => 'svenskavetenskap15kung',
+'105425' => 'svenskavetenskap16kung',
+'105428' => 'svenskavetenskap15kung2',
+'105453' => 'svenskavetenskap09kung',
+'105456' => 'svenskavetenskap11kung',
+'105458' => 'svenskavetenskap92kung',
+'105462' => 'svenskavetenskap14kung',
+'105464' => 'svenskavetenskap11atlas',
+'105466' => 'svenskavetenskap05kung',
+'105468' => 'svenskavetenskap08kung',
+'105960' => 'svenskavetenskap07kung',
+'106737' => 'svenskavetenskap42kung',
+'106740' => 'svenskavetenskap32kung',
+'106741' => 'svenskavetenskap25kung',
+'106743' => 'svenskavetenskap27kung',
+'106744' => 'svenskavetenskap41kung',
+'106745' => 'svenskavetenskap23kung',
+'106747' => 'svenskavetenskap37kung',
+'106851' => 'svenskavetenskap20kung',
+'106852' => 'svenskavetenskap21kung',
+'106853' => 'svenskavetenskap19kung2',
+'106854' => 'svenskavetenskap18kung',
+'106855' => 'svenskavetenskap19kung',
+'106857' => 'svenskavetenskap26kung',
+'106861' => 'svenskavetenskap17kung',
+'106862' => 'svenskavetenskap20kung2',
+'106868' => 'svenskavetenskap21kung2',
+'106909' => 'kungligasvenskav02kung',
+'106923' => 'svenskavetenskap24kung',
+'106924' => 'svenskavetenskap22kung',
+'106925' => 'svenskavetenskap24kung2',
+'107047' => 'svenskavetenskap38kung',
+'107051' => 'svenskavetenskap36kung',
+'107113' => 'svenskavetenskap31kung',
+'107159' => 'svenskavetenskap35kung',
+'107337' => 'kunglsvenskavete1834kung',
+'107338' => 'kunglsvenskavete1816kung',
+'107342' => 'kunglsvenskavete1826kung',
+'107388' => 'kunglsvenskavete1820kung',
+'107399' => 'kunglsvenskavete1838kung',
+'107406' => 'kunglsvenskavete1819kung',
+'107408' => 'kunglsvenskavete1853kung',
+'107409' => 'kunglsvenskavete1835kung',
+'107424' => 'kunglsvenskavete1815kung',
+'107427' => 'kunglsvenskavete1837kung',
+'107432' => 'kunglsvenskavete1822kung',
+'107433' => 'kunglsvenskavete1852kung',
+'107434' => 'kunglsvenskavete1821kung',
+'107436' => 'kunglsvenskavete1832kung',
+'107437' => 'kunglsvenskavete1849kung',
+'107438' => 'kunglsvenskavete1818kung',
+'107439' => 'kunglsvenskavete1825kung',
+'107441' => 'kunglsvenskavete1813kung',
+'107445' => 'kunglsvenskavete1831kung',
+'107447' => 'kunglsvenskavete1854kung',
+'107449' => 'kunglsvenskavete1848kung',
+'107450' => 'kunglsvenskavet182302kung',
+'107454' => 'kunglsvenskavete1824kung',
+'107455' => 'kunglsvenskavete1839kung',
+'107456' => 'kunglsvenskavete1851kung',
+'107458' => 'kunglsvenskavete1840kung',
+'107459' => 'kunglsvenskavete1836kung',
+'107460' => 'kunglsvenskavete1817kung',
+'107548' => 'kunglsvenskavete1814kung',*/
+'114193' => 'swenskawetenskap06kung',
+'114201' => 'swenskawetenskap29kung',
+'114204' => 'swenskawetenskap39kung',
+'114206' => 'swenskawetenskap04kung',
+'114447' => 'swenskawetenskap40kung',
+'114448' => 'swenskawetenskap28kung',
+'118934' => 'swenskawetenskap22kung',
+'130956' => 'boletimdomuseupa00muse',
+'130957' => 'journalofelisham00elis',
+'130971' => 'kunglsvenskavete14kung',
+'130972' => 'kunglsvenskavete55kung',
+'130973' => 'kunglsvenskavete53kung',
+'130974' => 'kunglsvenskavete63kung',
+'130975' => 'kunglsvenskavete51kung',
+'130976' => 'kunglsvenskavete62kung',
+'130977' => 'kunglsvenskavete46kung',
+'130978' => 'kunglsvenskavete23kung',
+'130979' => 'kunglsvenskavete56kung'
+);
+
+$items=array(
+'50954' => 'jordfundneognule01wing',
+'111401' => 'newbatofgenusvam00pete',
+'45082' => 'mammalsofchinamo01alle',
+'45071' => 'mammalsofchinamo02alle'
+);
+
+$items=array(21120=>'remarksonbatsofg3714sanb');
+
+$items=array(20989=>'batsfromguerrero3726torr');
+
+$items=array('88548' => 'anzeiger5657191920akad',
+'88590' => 'anzeiger5860192123akad');
+
+$items=array('29088' => 'archivesdezoolog59cent');
+
+$items=array('89801' => 'zitteliana13196974baye',
+'89799' => 'zitteliana46197881baye',
+'91105' => 'zitteliana79198182baye',
+'89067' => 'zitteliana101983baye',
+'89166' => 'zitteliana1113198486baye',
+'93267' => 'zitteliana1415198687baye',
+'89800' => 'zitteliana161987baye',
+'89802' => 'zitteliana171990baye',
+'89807' => 'zitteliana1820199193baye',
+'89682' => 'zitteliana212319972002baye'
+);
+
+$items=array(
+'131321' => 'bulletinofbritis126bri',
+'131288' => 'bulletinsocieted121878soc',
+'131289' => 'bulletinsocieted161882soc',
+'131326' => 'bulletinsocieted171883soc',
+'131325' => 'bulletinsocieted181884soc',
+'131324' => 'bulletinsocieted411908soc',
+'131327' => 'bulletinsocieted421909soc',
+'131323' => 'bulletinsocieted431910soc',
+'131322' => 'bulletinsocieted11187677s',
+'131329' => 'reiseinostafrika05voel',
+'131310' => 'reiseinostafrika245voel',
+'131294' => 'reiseinostafrika345voel',
+'131387' => 'reiseinostafrika445voel',
+'131295' => 'reiseinostafrika2123voel',
+'131333' => 'reiseinostafrika3123voel'
+);
+
+$items=array(
+'131404' => 'kunglsvenskavete33kung',
+'131401' => 'kunglsvenskavete44kung',
+'131399' => 'kunglsvenskavete48kung',
+'131395' => 'kunglsvenskavete49kung',
+'131396' => 'kunglsvenskavete10kung',
+'131394' => 'kunglsvenskavete12kung',
+'131410' => 'kunglsvenskavete30kung',
+'131405' => 'kunglsvenskavete43kung',
+'131407' => 'kunglsvenskavete45kung',
+'131406' => 'kunglsvenskavete47kung',
+'131402' => 'kunglsvenskavete52kung',
+'131403' => 'kunglsvenskavete54kung',
+'131280' => 'kunglsvenskavete57kung',
+'131397' => 'kunglsvenskavete58kung',
+'131408' => 'kunglsvenskavete59kung',
+'131398' => 'kunglsvenskavete60kung',
+'131400' => 'kunglsvenskavete61kung',
+'131409' => 'kunglsvenskavete25kung'
+);
+
+$items=array(
+'100051' => 'recherchessurlaf01poll',
+'99946' => 'recherchessurlaf02poll',
+'99945' => 'recherchessurlaf04poll',
+'99944' => 'recherchessurlaf05poll'
+);
+
+$items=array(
+'44923' => 'proceedingsofasi1871asia',
+'111587' => 'proceedingsofasi1872asia',
+'39480' => 'proceedingsofasi1873asia',
+'111606' => 'proceedingsofasi1874asia',
+'107400' => 'proceedingsofasi1875asia',
+'107394' => 'proceedingsofasi1876asia',
+'111663' => 'proceedingsofasi1877asia',
+'111518' => 'proceedingsofasi1878asia',
+'106283' => 'proceedingsofasi1880asi',
+'111650' => 'proceedingsofasi1881asia',
+'111651' => 'proceedingsofasi1882asia',
+'111649' => 'proceedingsofasi1883asia',
+'111662' => 'proceedingsofasi1884asia',
+'111514' => 'proceedingsofasi1885asia',
+'111665' => 'proceedingsofasi1887asia',
+'111664' => 'proceedingsofasi1888asia',
+'104611' => 'proceedingsofasi1889asia',
+'39566' => 'proceedingsofasi1890asia',
+'111652' => 'proceedingsofasi1891asia',
+'39466' => 'proceedingsofasi92asia',
+'105832' => 'proceedingsofasi1893asi',
+'39431' => 'proceedingsofasi94asia',
+'111549' => 'proceedingsofasi1895asia',
+'39577' => 'proceedingsofasi96asia',
+'111520' => 'proceedingsofasi1897asia',
+'111500' => 'proceedingsofasi1898asia',
+'39473' => 'proceedingsofasi99asia',
+'111529' => 'proceedingsofasi1900asia',
+'39468' => 'proceedingsofasi01asia',
+'111516' => 'proceedingsofasi1902asia',
+'39547' => 'proceedingsofasi03asia',
+'111505' => 'proceedingsofasi1904asia'
+);
+
+$items=array('107400' => 'proceedingsofasi1875asia');
+
+$items=array(
+'22300' => 'fisherybulletin69unit',
+'22443' => 'fisherybulletin70unit',
+'22298' => 'fisherybulletin71unit',
+'22412' => 'fisherybulletin72unit',
+'22313' => 'fisherybulletin73unit',
+'22287' => 'fisherybulletin74unit',
+'22569' => 'fisherybulletin75unit',
+'22589' => 'fisherybulletin76unit',
+'22621' => 'fisherybulletin77unit',
+'22587' => 'fisherybulletin78unit',
+'22595' => 'fisherybulletin79unit',
+'22605' => 'fisherybulletin80unit',
+'21711' => 'fisherybulletin81unit',
+'22590' => 'fisherybulletin82unit',
+'22620' => 'fisherybulletin83unit',
+'22627' => 'fisherybulletin840104unit',
+'22566' => 'fisherybulletin850104unit',
+'22576' => 'fisherybulletin860104unit',
+'22583' => 'fisherybulletin870104unit',
+'22571' => 'fisherybulletin880104unit',
+'22584' => 'fisherybulletin890104unit',
+'28928' => 'fisherybulletin900104unit',
+'21714' => 'fisherybulletin910104unit',
+'22624' => 'fisherybulletin920104unit',
+'22562' => 'fisherybulletin930104unit',
+'22634' => 'fisherybulletin940104unit',
+'22577' => 'fisherybulletin970104unit',
+'22567' => 'fisherybulletin98unit',
+'22581' => 'fisherybulletin1000104unit',
+'22546' => 'fisherybulletin1010104unit',
+'22635' => 'fisherybulletin1020104unit',
+'22603' => 'fisherybulletin1030104unit',
+'22611' => 'fisherybulletin1040104unit',
+'22574' => 'fisherybulletin1050104unit'
+);
+
+$items=array('112024' => 'monatsberichtede1879knig');
+
+$items=array('120909' => 'verslagenenmeded212koni');
+
+$items=array(
+'88237' => 'd3d4verslagenenm00akad',
+'88240' => 'd13d14verslagene00akad',
+'88243' => 'd15d16verslagene01akad',
+'88227' => 'd9d10verslagenen01akad',
+'88229' => 'd9d10verslagenen02akad',
+'88230' => 'd15d16verslagene02akad',
+'88223' => 'd11d12verslagene02akad',
+'88151' => 'd13d14verslagene02akad',
+'88158' => 'd19d20verslagene02akad',
+'88192' => 'd1verslagenenmeded02akad',
+'88200' => 'd2verslagenenmed02akad',
+'88210' => 'd5d6verslagenenm02akad',
+'88400' => 'd7d8verslagenenm02akad',
+'88236' => 'd17d18verslagene02akad',
+'88241' => 'd1d2verslagenenm03akad',
+'88197' => 'p9verslagenenmeded03akad',
+'88224' => 'd3d4verslagenenm03akad',
+'88209' => 'd1d2verslagenenm01akad',
+'88233' => 'd5d6verslagenenm01akad',
+'88238' => 'd7d8verslagenenm01akad',
+'88222' => 'd3d4verslagenenm02akad',
+'88235' => 'd5d6verslagenenm03akad',
+'88231' => 'd7d8verslagenenm03akad'
+);
+
+$items=array('88200' => 'd2verslagenenmed02akad');
+
+$items=array('110745' => 'bulletinof1019191920grea');
+
+$items=array(
+'65263' => 'harrimanalaskase02harrrich',
+'15924' => 'harrimanalaskase02harr',
+'65264' => 'harrimanalaskase04harrrich',
+'65265' => 'harrimanalaskase05harrrich',
+'15928' => 'harrimanalaskase05harr',
+'65266' => 'harrimanalaskase08harrrich',
+'15922' => 'harrimanalaskasev8harr',
+'20075' => 'harrimanalaskase08harr',
+'71818' => 'harrimanalaskase09harrrich',
+'15913' => 'harrimanalaskasev9harr',
+'19997' => 'harrimanalaskase09harr',
+'15921' => 'harrimanalaskase10harr',
+'71819' => 'harrimanalaskase10harrrich',
+'71820' => 'harrimanalaskase11harrrich',
+'42669' => 'harrimanalaskase11harr',
+'16998' => 'harrimanalaskase1101harr',
+'17002' => 'harrimanalaskase1102harr',
+'71821' => 'harrimanalaskase12harrrich',
+'71822' => 'harrimanalaskase13harrrich',
+'51144' => 'harrimanalaskase13har',
+'15918' => 'harrimanalaskase13harr',
+'71823' => 'harrimanalaskase14harrrich',
+'43766' => 'harrimanalaskase141harr',
+'17003' => 'harrimanalaskase1401harr',
+'65262' => 'harrimalaskaseries14harrrich',
+'44077' => 'harrimanalaskase142harr',
+'17001' => 'harrimanalaskase1402harr'
+);
+
+$items=array('17839' => 'annualreportofla01lagu');
+
+$items=array(
+'48125' => 'transactionsofco16671conn',
+'88420' => 'transactions01conn',
+'32344' => 'transactionsconn02conn',
+'88452' => 'transactions02conn',
+'32295' => 'transactionsconn03conn',
+'88413' => 'transactions03conn',
+'32296' => 'transactionsconn04conn',
+'88453' => 'transactions04conn',
+'110464' => 'transactionsof5187882yale',
+'32297' => 'transactionsconn06conn',
+'88419' => 'transactions06conn',
+'48105' => 'transactionsofco78588conn',
+'88409' => 'transactions07conn',
+'32298' => 'transactionsconn08conn',
+'88422' => 'transactions08conn',
+'88411' => 'transactions09conn',
+'112405' => 'transactionsofco91892yale',
+'48107' => 'transactionsofco109900conn',
+'88406' => 'p1transactions10conn',
+'88425' => 'p2transactions10conn',
+'26230' => 'transactionsofco11conn',
+'48122' => 'transactionsofco111conn',
+'88412' => 'p1transactions11conn',
+'26225' => 'transactionsofco12conn',
+'48104' => 'transactionsofco112conn',
+'88410' => 'p2transactions11conn',
+'49944' => 'transactionsofco121907conn',
+'88450' => 'transactions12conn',
+'32486' => 'transactionsconn13conn',
+'88451' => 'transactions13conn',
+'48106' => 'transactionsofco141910conn',
+'89438' => 'transactions14conn',
+'32299' => 'transactionsconn15conn',
+'31827' => 'transactionsconn16conn',
+'88408' => 'transactions16conn',
+'32752' => 'transactionsconn17conn',
+'88779' => 'transactions17conn',
+'32542' => 'transactionsconn18conn',
+'88417' => 'transactions18conn',
+'32300' => 'transactionsconn19conn',
+'89136' => 'transactions19conn',
+'88625' => 'transactions21conn',
+'32558' => 'transactionsconn20conn',
+'32301' => 'transactionsconn21conn',
+'32302' => 'transactionsconn22conn',
+'32303' => 'transactionsconn23conn',
+'88780' => 'transactions23conn',
+'32304' => 'transactionsconn24conn',
+'88454' => 'transactions24conn',
+'32397' => 'transactionsconn25conn'
+);
+
+//$items=array('29946' => 'sibogaexpeditie40sibo');
+
+$items=array('48107' => 'transactionsofco109900conn');
+
+$items=array('131277' => 'smithsoniancont121982smit');
+
+$items=array(
+'50384' => 'revistachilenade41900muse',
+'50247' => 'revistachilenade51901muse',
+'50379' => 'revistachilenade61902muse',
+'50255' => 'revistachilenade71903muse',
+'50248' => 'revistachilenade81904muse',
+'50903' => 'revistachilenade25muse',
+'50909' => 'revistachilenade2728muse'
+);
+
+$items=array('21412' => 'journalofhymenop13n1inte');
+
+$items=array(
+'35525' => 'verhandlungender04orni',
+'38331' => 'americanornithol04reed',
+'102266' => 'verhandlunge619051906orni',
+'35432' => 'verhandlungender07orni',
+'35430' => 'verhandlungender08orni',
+'101523' => 'verhandlunge919091910orni',
+'35431' => 'verhandlungender10orni',
+'35434' => 'verhandlungender11orni',
+'101551' => 'verhandlung1219141916orni',
+'35495' => 'verhandlungender13orni',
+'103534' => 'verhandlung1419191920orni',
+'101651' => 'verhandlung1519211923orni'
+);
+
+$items=array(
+'91781' => 'annalesdelasoci36lyon',
+'91782' => 'annalesdelasoci45lyon',
+'92311' => 'annalesdelasoci47lyon',
+'92310' => 'annalesdelasoci50lyon',
+'23248' => 'annalesdelasoci52lyon',
+'23249' => 'annalesdelasoci54lyon',
+'23255' => 'annalesdela56lyon',
+'23381' => 'annalesdelasoci57lyon',
+'23253' => 'annalesdelasoci58lyon',
+'23254' => 'annalesdelasoci59lyon',
+'23256' => 'annalesdelasoci60lyon',
+'91780' => 'annalesdelasoci39lyon'
+);
+
+$items=array('23253' => 'annalesdelasoci58lyon');
+
+$items=array(
+'28252' => 'actasocprofaunae01soci',
+'28211' => 'actasocprofaunae02soci',
+'28209' => 'actasocprofaunae03soci',
+'28290' => 'actasocprofaunae04soci',
+'28045' => 'actasocprofaunae05soci',
+'27762' => 'actasocprofaunae06soci',
+'25954' => 'actasocprofaunae07soci',
+'28302' => 'actasocprofaunae08soci',
+//'28095' => 'actasocprofaunae09soci',
+'28279' => 'actasocprofaunae10soci',
+'28467' => 'actasocprofaunae11soci',
+'28392' => 'actasocprofaunae12soci',
+'28295' => 'actasocprofaunae13soci',
+'28385' => 'actasocprofaunae14soci',
+'28374' => 'actasocprofaunae15soci',
+'28395' => 'actasocprofaunae16soci',
+'28600' => 'actasocprofaunae17soci',
+'28166' => 'actasocprofaunae18soci',
+'28398' => 'actasocprofaunae19soci',
+'28202' => 'actasocprofaunae20soci',
+'28389' => 'actasocprofaunae21soci',
+'28171' => 'actasocprofaunae22soci',
+'28394' => 'actasocprofaunae23soci',
+'30725' => 'actasocprofaunae24soci',
+'47770' => 'mobot31753002143748',
+'28379' => 'actasocprofaunae26soci',
+'52500' => 'actasocietatispr27soci',
+'47774' => 'mobot31753002143771',
+'28168' => 'actasocprofaunae29soci',
+'28172' => 'actasocprofaunae30soci',
+'28266' => 'actasocprofaunae31soci',
+'28272' => 'actasocprofaunae32soci',
+'28360' => 'actasocprofaunae33soci',
+'28362' => 'actasocprofaunae34soci',
+'28178' => 'actasocprofaunae35soci',
+'28259' => 'actasocprofaunae36soci',
+'28363' => 'actasocprofaunae37soci',
+'28364' => 'actasocprofaunae38soci',
+'28251' => 'actasocprofaunae39soci',
+'28249' => 'actasocprofaunae40soci',
+'28177' => 'actasocprofaunae41soci',
+'28300' => 'actasocprofaunae42soci',
+'28180' => 'actasocprofaunae43soci',
+'28199' => 'actasocprofaunae44soci',
+'48792' => 'mobot31753002143938',
+'48008' => 'mobot31753002143946',
+'48009' => 'mobot31753002143953',
+'28237' => 'actasocprofaunae48soci',
+'28304' => 'actasocprofaunae49soci',
+'28183' => 'actasocprofaunae50soci',
+'28191' => 'actasocprofaunae51soci',
+'28197' => 'actasocprofaunae52soci',
+'28194' => 'actasocprofaunae53soci'
+);
+
+//$items=array('28095' => 'actasocprofaunae09soci');
+
+$items=array(
+'104584' => 'mobot31753002090287',
+'105501' => 'mobot31753002090295',
+'105105' => 'mobot31753002090303',
+'24395' => 'bulletindelacadm06impe',
+'105108' => 'mobot31753002090311',
+'27830' => 'bulletindelacadm09impe',
+'105497' => 'mobot31753002090329',
+'104357' => 'mobot31753002090337',
+'27841' => 'bulletindelacadm12impe',
+'27837' => 'bulletindelacadm13impe',
+'27843' => 'bulletindelacadm14impe',
+'104586' => 'mobot31753002090352',
+'27834' => 'bulletindelacadm16impe',
+'27840' => 'bulletindelacadm17impe',
+'24406' => 'bulletindelacadm18impe',
+'27827' => 'bulletindelacadm19impe',
+'27835' => 'bulletindelacadm20impe',
+'27826' => 'bulletindelacadm21impe',
+'104844' => 'mobot31753002090386',
+'27833' => 'bulletindelacadm23impe',
+'27828' => 'bulletindelacadm24impe',
+'104845' => 'mobot31753002090394',
+'27838' => 'bulletindelacadm26impe',
+'107557' => 'mobot31753002117858',
+'24394' => 'bulletindelacadm28impe',
+'104329' => 'mobot31753002090402',
+'27839' => 'bulletindelacadm30impe',
+'107789' => 'mobot31753003685184',
+'105810' => 'mobot31753002090410',
+'106464' => 'mobot31753002090428',
+'105813' => 'mobot31753002090436',
+'120039' => 'mobot31753002090550',
+'120040' => 'mobot31753002117825',
+'120041' => 'mobot31753002117833'
+);
+
+$items=array('24406' => 'bulletindelacadm18impe');
+
+$items=array(
+'93928' => 'universitystudie31903univ',
+'94534' => 'universitystudie41904univ',
+'94856' => 'universitystudie51905univ',
+'94530' => 'universitystudie71907univ',
+'93746' => 'universitystudie81908univ',
+'94527' => 'universitystudie91909univ',
+'94854' => 'universitystudie101910univ',
+'93744' => 'universitystudie111911univ',
+'94349' => 'universitystudie121912univ',
+'93743' => 'universitystudie131913univ',
+'94532' => 'universitystudie141914univ',
+'94891' => 'universitystudie151915univ',
+'93768' => 'universitystudie161916univ',
+'93742' => 'universitystudie171917univ',
+'94890' => 'universitystudie1188892univ',
+'94124' => 'universitystudie20341920univ',
+'94528' => 'universitystudie21221922univ',
+'94413' => 'universitystudie218941902univ',
+'95130' => 'universitystudie1819191819univ'
+);
+
+$items=array('93744' => 'universitystudie111911univ');
+
+$items=array(
+'121827' => 'ilnaturalistasic31soci',
+'42764' => 'ilnaturalistasic11896soci',
+'42004' => 'ilnaturalistasic21897soci',
+'96060' => 'ilnaturalistasic2221914soci',
+'95794' => 'ilnaturalistasic5188586soci',
+'95743' => 'ilnaturalistasic6188687soci',
+'97052' => 'ilnaturalistasic13189394soci',
+'96448' => 'ilnaturalistasic20190708soci',
+'42748' => 'ilnaturalistasic18182soci',
+'42747' => 'ilnaturalistasic28283soci',
+'42741' => 'ilnaturalistasic38384soci',
+'43035' => 'ilnaturalistasic48485soci',
+'42745' => 'ilnaturalistasic78788soci',
+'42759' => 'ilnaturalistasic88889soci',
+'42750' => 'ilnaturalistasic98990soci',
+'42005' => 'ilnaturalistasic9091soci',
+'41683' => 'ilnaturalistasic9192soci',
+'42739' => 'ilnaturalistasic9293soci',
+'42762' => 'ilnaturalistasic9495soci',
+'43194' => 'ilnaturalistasic0405soci',
+'42593' => 'ilnaturalistasic0506soci',
+'42760' => 'ilnaturalistasic0607soci',
+'96055' => 'ilnaturalistasic24119091910soci',
+'96013' => 'ilnaturalistasic232434191625soci'
+);
+
+$items=array('42764' => 'ilnaturalistasic11896soci');
+
+$items=array(
+'29931' => 'bollettinodellas01soci',
+'29994' => 'bollettinodellas02soci',
+'29951' => 'bollettinodellas03soci',
+'29992' => 'bollettinodellas04soci',
+'92741' => 'mobot31753002209952',
+'29993' => 'bollettinodellas06soci',
+'30731' => 'bollettinodellas07soci',
+'121945' => 'bollettinodellas81894soci',
+'100442' => 'bollettinodellas9121896soci',
+'29996' => 'bollettinodellas10soci',
+'29092' => 'bollettinodellas11soci',
+'29991' => 'bollettinodellas12soci',
+'93163' => 'mobot31753002210018',
+'29735' => 'bollettinodellas14soci',
+'29947' => 'bollettinodellas15soci',
+'29087' => 'bollettinodellas16soci',
+'93739' => 'bollettinodellas171903soci',
+'95547' => 'bollettinodellas181904soci',
+'94884' => 'bollettinodellas191905soci',
+'29958' => 'bollettinodellas20soci',
+'29736' => 'bollettinodellas21soci',
+'29742' => 'bollettinodellas22soci',
+'29990' => 'bollettinodellas23soci',
+'29069' => 'bollettinodellas24soci',
+'29140' => 'bollettinodellas25soci',
+'29138' => 'bollettinodellas26soci',
+'29137' => 'bollettinodellas27soci',
+'29110' => 'bollettinodellas28soci',
+'29136' => 'bollettinodellas29soci',
+'28842' => 'bollettinodellas30soci',
+'29111' => 'bollettinodellas31soci',
+'29109' => 'bollettinodellas32soci',
+'28924' => 'bollettinodellas33soci'
+);
+
+//$items=array('29951' => 'bollettinodellas03soci');
+
+$items=array('129834' => 'TransactionsRoy66Roya');
+$items=array('129823' => 'TransactionsRoy63Roya');
+$items=array('129844' => 'TransactionsRoy64Roya');
+
+$items=array('18455' => 'sibogaexpeditie82sibo');
+
+$items=array(
+'28511' => 'anzeigerderkaise11864kais',
+'88657' => 'anzeigerderkaise11864kaiserl',
+'28508' => 'anzeigerderkaise21865kais',
+'88166' => 'anzeigerderkaise21865kaiserl',
+'28958' => 'anzeigerderkaise31866kais',
+'88659' => 'anzeigerderkaise31866kaiserl',
+'28693' => 'anzeigerderkaise41867kais',
+'89120' => 'anzeigerderkaise41867kaiserl',
+'29044' => 'anzeigerderkaise51868kais',
+'89245' => 'anzeigerderkaise51868kaiserl',
+'28505' => 'anzeigerderkaise61869kais',
+'89119' => 'anzeigerderkaise61869kaiserl',
+'28678' => 'anzeigerderkaise71870kais',
+'93266' => 'anzeigerderkaise71870kaiserl',
+'28727' => 'anzeigerderkaise81871kais',
+'89436' => 'anzeigerderkaise81871kaiserl',
+'28506' => 'anzeigerderkaise91872kais',
+'28729' => 'anzeigerderkaise101873kais',
+'88999' => 'anzeigerderkaise101873kaiserl',
+'28679' => 'anzeigerderkaise111874kais',
+'89000' => 'anzeigerderkaise111874kaiserl',
+'28698' => 'anzeigerderkaise121875kais',
+'89361' => 'anzeigerderkaise121875kaiserl',
+'28694' => 'anzeigerderkaise131876kais',
+'28700' => 'anzeigerderkaise141877kais',
+'89078' => 'anzeigerderkaise141877kaiserl',
+'28696' => 'anzeigerderkaise151878kais',
+'89195' => 'anzeigerderkaise151878kaiserl',
+'28695' => 'anzeigerderkaise161879kais',
+'89244' => 'anzeigerderkaise161879kaiserl',
+'29358' => 'anzeigerderkaise171880kais',
+'89062' => 'anzeigerderkaise171880kaiserl',
+'28684' => 'anzeigerderkaise181881kais',
+'89064' => 'anzeigerderkaise181881kaiserl',
+'28728' => 'anzeigerderkaise191882kais',
+'89661' => 'anzeigerderkaise191882kaiserl',
+'30033' => 'anzeigerderkaise20kais',
+'89171' => 'anzeigerderkaise201883kais',
+'30019' => 'anzeigerderkaise21kais',
+'89646' => 'anzeigerderkaise211884kais',
+'29675' => 'anzeigerderkaise22kais',
+'89431' => 'anzeigerderkaise221885kais',
+'29965' => 'anzeigerderkaise23kais',
+'89063' => 'anzeigerderkaise231886kais',
+'89437' => 'anzeigerderkaise241887kais',
+'89681' => 'anzeigerderkaise251888kais',
+'29758' => 'anzeigerderkaise26kais',
+'89060' => 'anzeigerderkaise261889kais',
+'29760' => 'anzeigerderkaise27kais',
+'89429' => 'anzeigerderkaise271890kais',
+'29767' => 'anzeigerderkaise28kais',
+'89656' => 'anzeigerderkaise281891kais',
+'30037' => 'anzeigerderkaise29kais',
+'89363' => 'anzeigerderkaise291892kais',
+'30036' => 'anzeigerderkaise30kais',
+'89170' => 'anzeigerderkaise301893kais',
+'30053' => 'anzeigerderkaise31kais',
+'30024' => 'anzeigerderkaise32kais',
+'30022' => 'anzeigerderkaise33kais',
+'88251' => 'anzeigerderkaise341897kais',
+'29765' => 'anzeigerderkaise35kais',
+'30038' => 'anzeigerderkaise36kais',
+'29615' => 'anzeigerderkaise37kais',
+'30045' => 'anzeigerderkaise38kais',
+'30046' => 'anzeigerderkaise39kais',
+'91517' => 'anzeigerderkaise3940190203kais',
+'29756' => 'anzeigerderkaise40kais',
+'30062' => 'anzeigerderkaise41kais',
+'95465' => 'anzeigerderkaise411904kais',
+'89280' => 'anzeigerderkaise421905kais',
+'30051' => 'anzeigerderkaise44kais',
+'89001' => 'anzeigerderkaise441907kais',
+'30027' => 'anzeigerderkaise45kais',
+'88117' => 'anzeigerderkaise451908kais',
+'93371' => 'anzeigerderkaise461909kais',
+'88543' => 'anzeigerderkaise471910kais',
+'88646' => 'anzeigerderkaise481911kais',
+'89124' => 'anzeigerderkaise491912kais',
+'88589' => 'anzeigerderkaise501913kais');
+
+$items=array('29358' => 'anzeigerderkaise171880kais');
+
+$items=array(
+'48774' => 'trabajosdelmuseo11912muse',
+'48656' => 'trabajosdelmuseo21912muse',
+'48665' => 'trabajosdelmuseo31912muse',
+'48672' => 'trabajosdelmuseo41912muse',
+'48678' => 'trabajosdelmuseo51912muse',
+'48679' => 'trabajosdelmuseo61912muse',
+'48680' => 'trabajosdelmuseo71912muse',
+'48681' => 'trabajosdelmuseo81913muse',
+'48682' => 'trabajosdelmuseo91913muse',
+'48773' => 'trabajosdelmuseo10muse',
+'48126' => 'trabajosdelmuseo11muse',
+'48775' => 'trabajosdelmuseo12muse',
+'48776' => 'trabajosdelmuseo13muse',
+'48777' => 'trabajosdelmuseo14muse',
+'48650' => 'trabajosdelmuseo15muse',
+'48651' => 'trabajosdelmuseo16muse',
+'48652' => 'trabajosdelmuseo17muse',
+'48653' => 'trabajosdelmuseo18muse',
+'48654' => 'trabajosdelmuseo19muse',
+'48655' => 'trabajosdelmuseo20muse',
+'48657' => 'trabajosdelmuseo21muse',
+'48658' => 'trabajosdelmuseo22muse',
+'48659' => 'trabajosdelmuseo23muse',
+'48660' => 'trabajosdelmuseo24muse',
+'48661' => 'trabajosdelmuseo25muse',
+'48662' => 'trabajosdelmuseo26muse',
+'48663' => 'trabajosdelmuseo27muse',
+'48664' => 'trabajosdelmuseo28muse',
+'48737' => 'trabajosdelmuseo29muse',
+'48120' => 'trabajosdelmuseo30muse',
+'48666' => 'trabajosdelmuseo31muse',
+'48667' => 'trabajosdelmuseo32muse',
+'48668' => 'trabajosdelmuseo33muse',
+'48669' => 'trabajosdelmuseo34muse',
+'48670' => 'trabajosdelmuseo35muse',
+'48739' => 'trabajosdelmuseo36muse',
+'48735' => 'trabajosdelmuseo37muse',
+'48738' => 'trabajosdelmuseo38muse',
+'48740' => 'trabajosdelmuseo39muse',
+'48671' => 'trabajosdelmuseo40muse',
+'48673' => 'trabajosdelmuseo41muse',
+'48674' => 'trabajosdelmuseo42muse',
+'48675' => 'trabajosdelmuseo43muse',
+'48676' => 'trabajosdelmuseo44muse',
+'48677' => 'trabajosdelmuseo45muse'
+);
+
+$items=array('48666' => 'trabajosdelmuseo31muse');
+
+$items=array('53812' => 'proceedingsofuni201898unit');
+
+$items=array('79792' => 'monographofmembr00buck');
+
+$items=array('35302' => 'monographoforien00dist');
+
+$items=array('105235' => 'familysyrphidae00thom',
+'103918' => 'systematicdataba00thom');
+
+$items=array(
+'80961' => 'transactionsofame01amer',
+'91590' => 'mobot31753003645493',
+'91591' => 'mobot31753003645519',
+'80933' => 'transactionsofam12amer',
+'80825' => 'transactionsofame02amer',
+'45793' => 'transactionsofam21786amer',
+'80826' => 'transactionsofamns03amer',
+'44112' => 'transactionsofam31793amer',
+'44356' => 'transactionsofam41799amer',
+'45809' => 'transactionsofam51802amer',
+'44087' => 'transactionsofam61809amer',
+'80827' => 'transactionsofam612amer',
+'80765' => 'transactionsofamens01amer',
+'26092' => 'transactionsofam02amer',
+'26103' => 'transactionsofam03amer',
+'79813' => 'transactionsofam03inamer',
+'79816' => 'transactionsofam04amer',
+'110958' => 'transactionsofa51837amer',
+'111017' => 'transactionsofam61839amer',
+'111974' => 'transactionsofam71841amer',
+'110957' => 'transactionsofam81843amer',
+'26217' => 'transactionsofam10amer',
+'94961' => 'transactionsofam111860amer',
+'96555' => 'transactionsofam121863amer',
+'111241' => 'mobot32044093312015',
+'111242' => 'mobot32044093312007',
+'26100' => 'transactionsofam16amer',
+'112158' => 'transactionsofa171893amer',
+'96781' => 'transactionsofam1818931896amer',
+'94984' => 'transactionsofam191898amer',
+'111243' => 'mobot32044093311942',
+'31171' => 'transactionsofam21amer'
+);
+
+$items=array('79816' => 'transactionsofam04amer');
+
+$items=array(
+'29906' => 'generalcatalogue01chin',
+'29887' => 'generalcatalogue02chin',
+'29938' => 'generalcatalogue03chin',
+'29919' => 'generalcatalogue0401chin',
+'29871' => 'generalcatalogue0402chin',
+'29885' => 'generalcatalogue0403chin'
+);
+
+$items=array(
+'100627' => 'reportoncephalop00hoyl'
+);
+
+$items=array('48655' => 'trabajosdelmuseo20muse');
+
+$items=array(
+'19534' => '39088009528019testrich',
+'24060' => 'proceedingsofbio13biol'
+);
+
+$items=array(
+'53286' => 'nachrichtsblattd11869deut',
+'51097' => 'nachrichtsblattd21870deut',
+'53271' => 'nachrichtsblattd35187173deut',
+'97106' => 'nachrichtsblattd61874deut',
+'97255' => 'nachrichtsblattd71875deut',
+'97390' => 'nachrichtsblattd81876deut',
+'97149' => 'nachrichtsblattd91877deut',
+'98620' => 'nachrichtsblattd101878deut',
+'97143' => 'nachrichtsblattd111879deut',
+'97144' => 'nachrichtsblattd121880deut',
+'97406' => 'nachrichtsblattd141882deut',
+'97459' => 'nachrichtsblattd151883deut',
+'97105' => 'nachrichtsblattd161884deut',
+'98302' => 'nachrichtsblattd171885deut',
+'97393' => 'nachrichtsblattd181886deut',
+'53278' => 'nachrichtsblattd2024188892deut',
+'53280' => 'nachrichtsblattd2528189396deut',
+'89671' => 'nachrichtsblattd22923141897deut',
+'53275' => 'nachrichtsblattd3234190012deut',
+'53294' => 'nachrichtsblattd3536190314deut',
+'53276' => 'nachrichtsblattd3738190516deut',
+'52190' => 'nachrichtsblattd2392404190718deut',
+'53254' => 'nachrichtsblattd4142190910deut',
+'52191' => 'nachrichtsblattd4344191112deut',
+'52192' => 'nachrichtsblattd4546191314deut',
+'52187' => 'nachrichtsblattd4647191415deut',
+'110238' => 'nachrichtsblattd4648unse',
+'110223' => 'nachrichtsblattd49unse',
+'110221' => 'nachrichtsblattd50unse',
+'110094' => 'nachrichtsblattd51unse'
+);
+
+$items=array(
+'31561' => 'reisedersterre010102nova',
+'15923' => 'reisedersterre0102nova',
+'29827' => 'reisedersterre02nova',
+'48610' => 'reisedersterre91wl',
+'16575' => 'umdieerdeindenja00akad',
+'16569' => 'umdieerdeindenja02akad',
+'20104' => 'umdieerdeindenja04akad',
+'16568' => 'umdieerdeindenja03akad',
+'15916' => 'reisedersterre0203nova',
+'47455' => 'reisedersterre191313wl'
+);
+
+$items=array('15916' => 'reisedersterre0203nova');
+
+$items=array(
+'84526' => 'attidellasocieti361soci',
+'84528' => 'attidellasocieti462soci',
+'54772' => 'attidellasocieti563soci',
+'123039' => 'attidellasocieti6272soci',
+'40865' => 'attidellasociett07soci',
+'40862' => 'attidellasociett08soci',
+'123042' => 'attidellasocieti6384soci',
+'123041' => 'attidellasocieti6483soci',
+'123077' => 'attidellasocieti6582soci',
+'39499' => 'attidellasociett12soci',
+'84524' => 'attidellasocieti1370soci',
+'39493' => 'attidellasociett14soci',
+'123066' => 'attidellasocieti6681soci',
+'123079' => 'attidellasocieti6780soci',
+'39575' => 'attidellasociett16soci',
+'84525' => 'attidellasocieti1876soci',
+'39486' => 'attidellasociett19soci',
+'123080' => 'attidellasocieti6898soci',
+'123078' => 'attidellasocieti6999soci',
+'123304' => 'attidellasocieti7090soci',
+'123040' => 'attidellasocieti7191soci',
+'123068' => 'attidellasocieti7292soci',
+'123064' => 'attidellasocieti7305soci',
+'54923' => 'attidellasocieti2986soci',
+'123067' => 'attidellasocieti7404soci',
+'39437' => 'attidellasociett33soci',
+'39471' => 'attidellasociett34soci',
+'39478' => 'attidellasociett35soci'
+);
+
+$items=array('123064' => 'attidellasocieti7305soci');
+
+$items=array('128334' => 'revisionofcatsha00spri');
+
+$items=array('18482' => 'sibogaexpeditie55sibo');
+
+$items=array('18859' => 'sibogaexpeditie62sibo');
+
+$items=array('91322' => 'jahrbuchderhambu14231896hamb');
+
+$items=array('131402' => 'kunglsvenskavete52kung');
+
+$items=array('26211' => 'analesdelasocied94soci');
+
+$items=array(
+'34005' => 'zoologica01stut',
+'33949' => 'zoologica02stut',
+'35668' => 'zoologica03stut',
+'36179' => 'zoologica04stut',
+'36180' => 'zoologica05stut',
+'35685' => 'zoologica06stut',
+'36190' => 'zoologica07stut',
+'36473' => 'zoologica08stut',
+'36181' => 'zoologica09stut',
+'36182' => 'zoologica10stut',
+'33732' => 'zoologica11stut',
+'36183' => 'zoologica12stut',
+'33733' => 'zoologica13stut',
+'39517' => 'zoologica14stut',
+'39537' => 'zoologica15115stut',
+'38654' => 'zoologica16stut',
+'39520' => 'zoologica17stut',
+'39670' => 'zoologica18stut',
+'39519' => 'zoologica19stut',
+'39534' => 'zoologica20stut',
+'39535' => 'zoologica21stut',
+'39646' => 'zoologica22stut',
+'39030' => 'zoologica23stut',
+'38416' => 'zoologica24stut',
+'39047' => 'zoologica25stut',
+'39516' => 'zoologica26stut',
+'38404' => 'zoologica27stut'
+);
+
+
+//$items=array('38404' => 'zoologica27stut');
+
+$force = false;
+//$force = true;
+
 foreach ($items as $ItemID => $SourceIdentifier)
 {
 	// Images are cached in folders with the ItemID as the name
@@ -4841,12 +21394,17 @@ foreach ($items as $ItemID => $SourceIdentifier)
 		mkdir($cache_namespace . '/thumbnails', 0777);
 		umask($oldumask);
 	}
+	
+	echo $ItemID . ' ' . $SourceIdentifier . "\n";
 
 
 	// fetch source
 	$djvu_filename = $cache_namespace . '/' . $SourceIdentifier . ".djvu";
 	
-	if (!file_exists($djvu_filename)) // don't fetch again if we don't need to
+	$go = true;
+	//$go = false;
+	
+	if ($force || !file_exists($djvu_filename)) // don't fetch again if we don't need to
 	{
 		$url = 'http://www.archive.org/download/' . $SourceIdentifier . '/' . $SourceIdentifier . '.djvu';
 
@@ -4860,60 +21418,65 @@ foreach ($items as $ItemID => $SourceIdentifier)
 		$command .= " --location " . $url . " > " . $djvu_filename;
 		echo $command . "\n";
 		system ($command);
+		
+		$go = true;
 	}
 	
-	// Get pages
-	$pages = bhl_retrieve_item_pages($ItemID);
-	
-	//print_r($pages);
-	//exit();
-	
-	foreach ($pages as $page)
+	if ($go)
 	{
-		$filename = $cache_namespace . "/" . $page->FileNamePrefix . '.jpg'; 
 		
-		//if (!file_exists($filename)) // don't over write
-		{
+		// Get pages
+		$pages = bhl_retrieve_item_pages($ItemID);
 		
-			// Image filename
-			$tiff_filename = $cache_namespace . "/" . $page->FileNamePrefix . '.tiff'; 
-			
-			$command = "ddjvu -format=tiff -page=" . $page->page_order . " -size=800x2000 "
-			 . $djvu_filename . " " . $tiff_filename;
-			echo $command . "\n";
-			system($command);
-			
-			
-			// Convert to JPEG
-			$command = $config['convert'] . " " . $tiff_filename . " " . $filename;
-			echo $command . "\n";
-			system($command);
-			
-			
-			
-			if (0)
-			{
-				// Try and remove background colour
-				$command = $config['convert'] . " " . $filename . " -channel all -normalize " . $filename;
-				echo $command . "\n";
-				system($command);
-			}	
-			
-			// Thumbnail
-			$thumbnail_filename = $cache_namespace . "/thumbnails/" . $page->FileNamePrefix . '.gif'; 
-			$command = $config['convert']  . ' -thumbnail 100 ' . $filename . ' ' . $thumbnail_filename;
-			echo $command . "\n";
-			system($command);
-				
-			
-			// Kill TIFF
-			unlink ($tiff_filename);
-		}
-			
+		//print_r($pages);
 		//exit();
 		
+		foreach ($pages as $page)
+		{
+			$filename = $cache_namespace . "/" . $page->FileNamePrefix . '.jpg'; 
+			
+			if ($force || !file_exists($filename)) // don't over write
+			{
+			
+				// Image filename
+				$tiff_filename = $cache_namespace . "/" . $page->FileNamePrefix . '.tiff'; 
+				
+				$command = "ddjvu -format=tiff -page=" . $page->page_order . " -size=800x2000 "
+				 . $djvu_filename . " " . $tiff_filename;
+				echo $command . "\n";
+				system($command);
+				
+				
+				// Convert to JPEG
+				$command = $config['convert'] . " " . $tiff_filename . " " . $filename;
+				echo $command . "\n";
+				system($command);
+				
+				
+				
+				if (0)
+				{
+					// Try and remove background colour
+					$command = $config['convert'] . " " . $filename . " -channel all -normalize " . $filename;
+					echo $command . "\n";
+					system($command);
+				}	
+				
+				// Thumbnail
+				$thumbnail_filename = $cache_namespace . "/thumbnails/" . $page->FileNamePrefix . '.gif'; 
+				$command = $config['convert']  . ' -thumbnail 100 ' . $filename . ' ' . $thumbnail_filename;
+				echo $command . "\n";
+				system($command);
+					
+				
+				// Kill TIFF
+				unlink ($tiff_filename);
+			}
+				
+			//exit();
+			
+		}
 	}
-
 
 
 }
