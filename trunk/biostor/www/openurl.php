@@ -905,6 +905,7 @@ function main()
 	// OK, we're not forcing a match to BHL, so do we have this article?
 	$id = db_find_article($referent);
 	
+	//echo "<b>id=$id</b><br/>";
 	
 	if ($id != 0)
 	{
@@ -928,6 +929,45 @@ function main()
 				
 			case 'html':
 			default:
+				// Twitter as log
+				if ($config['twitter'])
+				{
+					$tweet_this = false;
+					
+					$tweet_this = isset($_GET['rfr_id']);
+					
+					if ($tweet_this)
+					{
+						$url = $config['web_root'] . 'reference/' . $id . ' '; //  . '#openurl'; // url + hashtag
+						
+						$url = $id;
+						
+						$url_len = strlen($url);
+						$status = '';
+						
+						//$text = $_GET['rfr_id'];
+						
+						$text = '#openurl ' . $_SERVER["HTTP_REFERER"];
+						
+						//$text .= ' @rdmpage';
+						if (isset($article->title))
+						{
+						}
+						$status = $text;
+						$status_len = strlen($status);
+						$extra = 140 - $status_len - $url_len - 1;
+						if ($extra < 0)
+						{
+							$status_len += $extra;
+							$status_len -= 1;
+							$status = substr($status, 0, $status_len);
+							$status .= '…';
+						}
+						$status .= ' ' . $url;
+						tweet($status);
+					}
+				}
+			
 				// Redirect to reference display
 				header('Location: reference/' . $id . "\n\n");
 				break;

@@ -276,10 +276,10 @@ echo '<tr><td>Authors</td><td style="text-align:right;">' . $num_authors . '</td
 echo '<tr><td>Journals</td><td style="text-align:right;">' . $num_journals . '</td></tr>' . "\n";
 echo '</table>';
 
-/*
+
 echo '<p>Distribution of articles over time</p>' . "\n";
 echo '<img src="' . sparkline_references('', '', 360,100) . '" alt="sparkline" align="top"/>' . "\n";
-*/
+
 
 //echo '<img src="' . sparkline_cummulative_articles_added() . '" alt="sparkline" />' . "\n";
 
